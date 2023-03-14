@@ -72,6 +72,7 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "xfacet": "cpp"
+        "xfacet": "cpp",
+        "opencv.hpp": "c"
     }
 }
