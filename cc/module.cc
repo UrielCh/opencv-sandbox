@@ -88,7 +88,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set(Napi::String::New(env, "multiplyByTwo"), Napi::Function::New(env, MultiplyByTwo));
     exports.Set(Napi::String::New(env, "allocateMat"), Napi::Function::New(env, AllocateMat));
-    exports.Set(Napi::String::New(env, "readImage"), Napi::Function::New(env, ReadImage));
+    exports.Set(Napi::String::New(env, "imread"), Napi::Function::New(env, ReadImage));
     return exports;
 }
 

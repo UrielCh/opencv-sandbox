@@ -31,6 +31,10 @@ console.log(`mat 3x1 size is ${mat3px}`)
 const mat4px = cv2.allocateMat(2, 2)
 console.log(`mat 2x2 size is ${mat4px}`)
 
+const logo = cv2.imread('./data/logo.png')
+console.log(`logo:`, logo)
+
+
 // const mat = cv2.allocateMat(100, 100);
 // console.log(mat);
  
