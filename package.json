@@ -1,0 +1,23 @@
+{
+  "name": "opencv-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "to make works this sandbox:",
+  "main": "dist/esm/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --pretty --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrielCh/opencv-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UrielCh/opencv-sandbox/issues"
+  },
+  "homepage": "https://github.com/UrielCh/opencv-sandbox#readme",
+  "files": [ "dist" ]
+}

@@ -11,3 +11,4 @@ build openCV and keep sources with:
 then duplicate and update your environement in `.vscode/c_cpp_properties.json`,
 
 in vscode choose the correct C/C++ configuration at the bootom rigth of your screen.
+
