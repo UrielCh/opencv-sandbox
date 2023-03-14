@@ -3,6 +3,7 @@
         "name": "Win32-uriel",
         "includePath": [
             "${workspaceFolder}/**",
+            "${workspaceFolder}/node_modules/node-addon-api",
             "${LOCALAPPDATA}/node-gyp/Cache/18.12.0/include/node",
             "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/include",
             "${OPENCV_BUILD_ROOT}/latest/build/include",

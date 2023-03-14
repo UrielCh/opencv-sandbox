@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --pretty --project .",
-    "rebuild": "node-gyp rebuild"
+    "rebuild": "node-gyp rebuild",
+    "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,14 @@
   ],
   "devDependencies": {
     "@types/node": "^18.15.3",
+    "@types/npmlog": "^4.1.4",
+    "@u4/opencv-build": "^0.7.7",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "node-addon-api": "^6.0.0",
+    "npmlog": "^7.0.1",
+    "picocolors": "^1.0.0"
   }
 }

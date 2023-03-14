@@ -1,5 +1,10 @@
-const opencvBinDir = 'c:\\0\\opencv\\opencv-4.7.0-794c6\\build\\bin\\Release';
-if (process.env.path && !process.env.path.includes(opencvBinDir)) {
+import path from 'path'
+
+let opencvBinDir  = '';
+if (process.env.OPENCV_BUILD_ROOT) {
+    opencvBinDir = path.join(process.env.OPENCV_BUILD_ROOT, 'opencv-4.7.0-8b1ea', 'build', 'bin', 'Release')
+}
+if (opencvBinDir && process.env.path && !process.env.path.includes(opencvBinDir)) {
     process.env.path = `${process.env.path};${opencvBinDir};`;
 }
 // console.log(process.env.path);
@@ -14,16 +19,17 @@ console.log(cv2.multiplyByTwo(10))
 // CV_8UC3
 console.log(CV_8UC3)
 const mat1px = cv2.allocateMat(1, 1, CV_8UC1)
-console.log(`mat 1x1 size is ${mat1px.length} Type: CV_8UC1`)
+console.log(`mat 1x1 size is ${mat1px} Type: CV_8UC1`)
+console.log(typeof Object.keys(mat1px.data))
  
 const mat2px = cv2.allocateMat(2, 1)
-console.log(`mat 2x1 size is ${mat2px.length}`)
+console.log(`mat 2x1 size is ${mat2px}`)
 
 const mat3px = cv2.allocateMat(3, 1)
-console.log(`mat 3x1 size is ${mat3px.length}`)
+console.log(`mat 3x1 size is ${mat3px}`)
 
 const mat4px = cv2.allocateMat(2, 2)
-console.log(`mat 2x2 size is ${mat4px.length}`)
+console.log(`mat 2x2 size is ${mat4px}`)
 
 // const mat = cv2.allocateMat(100, 100);
 // console.log(mat);

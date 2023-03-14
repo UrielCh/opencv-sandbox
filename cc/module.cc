@@ -1,156 +1,95 @@
-#include <node_api.h>
+#include <napi.h>
+// #include <node_api.h>
 #include <opencv2/opencv.hpp>
 
 /**
  * @brief sample function to multiply a number by two
  */
-napi_value MultiplyByTwo(napi_env env, napi_callback_info info)
+Napi::Number MultiplyByTwo(const Napi::CallbackInfo &info)
 {
-    size_t argc = 1;
-    napi_value argv[1];
-    napi_value result;
-    int num;
+    Napi::Env env = info.Env();
 
-    // Get the arguments passed to the function
-    napi_status status = napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
-    if (status != napi_ok)
+    if (info.Length() < 1 || !info[0].IsNumber())
     {
-        napi_throw_error(env, NULL, "Failed to parse arguments");
-        return NULL;
+        Napi::TypeError::New(env, "Number expected").ThrowAsJavaScriptException();
+        return Napi::Number::New(env, 0);
     }
 
-    // Check that the argument is a number
-    status = napi_get_value_int32(env, argv[0], &num);
-    if (status != napi_ok)
+    double value = info[0].As<Napi::Number>().DoubleValue();
+    double result = value * 2;
+
+    return Napi::Number::New(env, result);
+}
+
+Napi::Value AllocateMat(const Napi::CallbackInfo &info)
+{
+    Napi::Env env = info.Env();
+
+    if (info.Length() < 2 || !info[0].IsNumber() || !info[1].IsNumber())
     {
-        napi_throw_error(env, NULL, "Invalid argument");
-        return NULL;
+        // Napi::TypeError::New(env, "Number expected").ThrowAsJavaScriptException();
+        Napi::TypeError::New(env, "Invalid arguments, expected (width: number, height: number)").ThrowAsJavaScriptException();
+        return env.Null();
     }
 
-    // Multiply the number by two
-    int result_num = num * 2;
+    int rows = info[0].As<Napi::Number>().Int32Value();
+    int cols = info[1].As<Napi::Number>().Int32Value();
+    int type = CV_8UC3;
 
-    // Create a new number value to hold the result
-    status = napi_create_int32(env, result_num, &result);
-    if (status != napi_ok)
+    if (info.Length() > 2 && info[2].IsNumber())
     {
-        napi_throw_error(env, NULL, "Failed to create result value");
-        return NULL;
+        type = info[2].As<Napi::Number>().Int32Value();
     }
+
+    cv::Mat *mat = new cv::Mat(rows, cols, type);
+    Napi::External<cv::Mat> external = Napi::External<cv::Mat>::New(env, mat, [](Napi::Env env, cv::Mat *data)
+                                                                    { delete data; });
+
+    // return
+    Napi::Object result = Napi::Object::New(env);
+    result.Set(Napi::String::New(env, "data"), external);
+    result.Set(Napi::String::New(env, "rows"), rows);
+    result.Set(Napi::String::New(env, "cols"), cols);
+    result.Set(Napi::String::New(env, "type"), type);
     return result;
 }
 
-/**
- * @brief Allocate a CV_8UC3 cv:Mat
- *
- * @param env
- * @param info
- * @return napi_value
- */
-napi_value AllocateMat(napi_env env, napi_callback_info info)
+Napi::Value ReadImage(const Napi::CallbackInfo &info)
 {
-    napi_status status;
-    size_t argc = 3; // used as param in and out
-    napi_value argv[3]; // Increase the size of the argv array to 3
-    status = napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
-    if (status != napi_ok || argc < 2)
+    Napi::Env env = info.Env();
+
+    if (info.Length() < 1 || !info[0].IsString())
     {
-        napi_throw_error(env, NULL, "Invalid arguments");
-        return NULL;
+        Napi::TypeError::New(env, "String expected").ThrowAsJavaScriptException();
+        return env.Null();
     }
 
-    // Get the dimensions and type of the new Mat object
-    int rows, cols, type = CV_8UC3; // Set default value for type
-    status = napi_get_value_int32(env, argv[0], &rows);
-    if (status != napi_ok)
+    std::string filename = info[0].As<Napi::String>().Utf8Value();
+    cv::Mat img = cv::imread(filename);
+
+    if (img.empty())
     {
-        napi_throw_error(env, NULL, "Invalid rows argument");
-        return NULL;
+        Napi::Error::New(env, "Failed to read image").ThrowAsJavaScriptException();
+        return env.Null();
     }
 
-    status = napi_get_value_int32(env, argv[1], &cols);
-    if (status != napi_ok)
-    {
-        napi_throw_error(env, NULL, "Invalid cols argument");
-        return NULL;
-    }
-    if (argc >= 3)
-    { // Check if type argument is provided
-        status = napi_get_value_int32(env, argv[2], &type);
-        if (status != napi_ok)
-        {
-            napi_valuetype badType;
-            napi_status status2 = napi_typeof(env, argv[2], &badType);
-            if (status2 != napi_ok)
-            {
-                napi_throw_error(env, NULL, ("failed to get Type from 3th argument type in AllocateMat status2=" + std::to_string(status2)).c_str());
-                return NULL;
-            }
-            napi_throw_error(env, NULL, ("Invalid 3th argument type in AllocateMat should be an int32 badType: %d" + std::to_string(badType)).c_str());
-            return NULL;
-        }
-    }
+    size_t size = img.total() * img.elemSize();
+    Napi::Buffer<uint8_t> buffer = Napi::Buffer<uint8_t>::New(env, img.data, size);
+    Napi::Object obj = Napi::Object::New(env);
+    obj.Set(Napi::String::New(env, "data"), buffer);
+    obj.Set(Napi::String::New(env, "rows"), Napi::Number::New(env, img.rows));
+    obj.Set(Napi::String::New(env, "cols"), Napi::Number::New(env, img.cols));
+    obj.Set(Napi::String::New(env, "channels"), Napi::Number::New(env, img.channels()));
 
-    // Allocate a new Mat object
-    cv::Mat *mat = new cv::Mat(rows, cols, type);
-    size_t buffer_size = mat->elemSize() * mat->total();
-    // Create a N-API buffer object to wrap the Mat object
-    napi_value buffer;
-    status = napi_create_external_buffer(
-        env, buffer_size, mat,
-        [](napi_env env, void *data, void *hint)
-        {
-            cv::Mat *mat = static_cast<cv::Mat *>(data);
-            delete mat;
-        },
-        NULL, &buffer);
-    if (status != napi_ok)
-    {
-        napi_throw_error(env, NULL, "Failed to create buffer object");
-        return NULL;
-    }
-
-    return buffer;
+    return obj;
 }
 
-napi_value Init(napi_env env, napi_value exports)
+Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
-    // Module initialization code goes here
-    napi_status status;
-    napi_value fn;
-
-    // Create a new function object
-    status = napi_create_function(env, NULL, 0, MultiplyByTwo, NULL, &fn);
-    if (status != napi_ok)
-    {
-        napi_throw_error(env, NULL, "Failed to create function");
-        return NULL;
-    }
-
-    // Export the function object
-    status = napi_set_named_property(env, exports, "multiplyByTwo", fn);
-    if (status != napi_ok)
-    {
-        napi_throw_error(env, NULL, "Failed to export function");
-        return NULL;
-    }
-
-    // create and attache AllocateMat function
-    status = napi_create_function(env, NULL, NAPI_AUTO_LENGTH, AllocateMat, NULL, &fn);
-    if (status != napi_ok)
-    {
-        napi_throw_error(env, NULL, "Failed to create function");
-        return NULL;
-    }
-
-    status = napi_set_named_property(env, exports, "allocateMat", fn);
-    if (status != napi_ok)
-    {
-        napi_throw_error(env, NULL, "Failed to set function");
-        return NULL;
-    }
-
+    exports.Set(Napi::String::New(env, "multiplyByTwo"), Napi::Function::New(env, MultiplyByTwo));
+    exports.Set(Napi::String::New(env, "allocateMat"), Napi::Function::New(env, AllocateMat));
+    exports.Set(Napi::String::New(env, "readImage"), Napi::Function::New(env, ReadImage));
     return exports;
 }
 
-NAPI_MODULE(NODE_GYP_MODULE_NAME, Init)
+NODE_API_MODULE(addon, Init)
