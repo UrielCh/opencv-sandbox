@@ -10,6 +10,7 @@ if (opencvBinDir && process.env.path && !process.env.path.includes(opencvBinDir)
 // console.log(process.env.path);
 
 // @ts-ignore
+// @deno-types="../types/cv2.d.ts"
 import * as cv2tmp from '../build/Release/cv2.node';
 import { CV_8UC1, CV_8UC3 } from './utils';
 
