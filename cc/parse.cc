@@ -31,7 +31,7 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
             Napi::Array arg_array = arg_value.As<Napi::Array>();
             std::vector<napi_value> arg_vector;
             for (size_t j = 0; j < arg_array.Length(); j++) {
-                arg_vector.push_back(arg_array[j]);
+                arg_vector.push_back(arg_array[j].As<Napi::Value>().Value());
             }
             args.insert(args.end(), arg_vector.begin(), arg_vector.end());
         } else {
