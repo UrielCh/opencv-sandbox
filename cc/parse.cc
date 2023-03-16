@@ -31,7 +31,8 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
             Napi::Array arg_array = arg_value.As<Napi::Array>();
             std::vector<napi_value> arg_vector;
             for (size_t j = 0; j < arg_array.Length(); j++) {
-                arg_vector.push_back(arg_array[j].As<Napi::Value>().Value());
+                napi_value element = arg_array[j];
+                arg_vector.push_back(element);
             }
             args.insert(args.end(), arg_vector.begin(), arg_vector.end());
         } else {
@@ -46,7 +47,7 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
 
         for (napi_value& key : keys) {
             std::string key_str = Napi::Value(env, key).ToString().Utf8Value();
-            kwargs[key_str] = kwargs_obj.Get(key);
+            kwargs[key_str] = kwargs_obj.Get(key).As<Napi::Value>().Value();
         }
         args.resize(argc - 1); // remove the last argument from the positional arguments
     }
