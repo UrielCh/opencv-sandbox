@@ -43,11 +43,14 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
     // parse keyword arguments
     if (argc > 0 && info[argc - 1].IsObject()) {
         Napi::Object kwargs_obj = info[argc - 1].As<Napi::Object>();
-        std::vector<Napi::Value> keys = kwargs_obj.GetPropertyNames();
-
-        for (const Napi::Value& key : keys) {
-            std::string key_str = key.ToString().Utf8Value();
-            kwargs[key_str] = kwargs_obj.Get(key);
+        // std::vector<Napi::Value>
+        Napi::Array keys = kwargs_obj.GetPropertyNames();
+        if (keys.IsArray()) {
+            Napi::Array arg_array = keys.As<Napi::Array>();
+            for (size_t j = 0; j < arg_array.Length(); j++) {
+                Napi::String key_str = arg_array.Get(j).As<Napi::String>();
+                kwargs[key_str] = kwargs_obj.Get(key_str);
+            }
         }
         args.resize(argc - 1); // remove the last argument from the positional arguments
     }
