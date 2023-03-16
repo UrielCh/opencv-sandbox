@@ -9,9 +9,10 @@
 
 // see doc: https://github.com/nodejs/node-addon-api/blob/main/doc/value.md
 
+// napi_value is onky a void*, Napi::Value is a C++ wrapper adding type safety
 
 template<typename T>
-T parse_napi_value(const Napi::Env& env, const napi_value& value) {
+T parse_napi_value(const Napi::Env& env, const Napi::Value& value) {
     if (!value.IsNumber() && !value.IsBoolean()) {
         throw std::invalid_argument("Invalid argument type: expected number or boolean");
     }
@@ -32,15 +33,15 @@ T parse_napi_value(const Napi::Env& env, const napi_value& value) {
  * @throws std::invalid_argument if an argument is not a number or boolean.
 */
 void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
-                                std::vector<napi_value>& args,
-                                std::unordered_map<std::string, napi_value>& kwargs) {
+                                std::vector<Napi::Value>& args,
+                                std::unordered_map<std::string, Napi::Value>& kwargs) {
     napi_env env = info.Env();
 
     size_t argc = info.Length();
 
     // parse positional arguments
     for (size_t i = 0; i < argc; i++) {
-        napi_value arg = info[i];
+        Napi::Value arg = info[i];
         Napi::Value arg_value(env, arg);
         // Python style detect if the parameters is an array ???
         // not relevant for our case.  ???
@@ -48,9 +49,9 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
         if (arg_value.IsArray()) {
             // convert array to vector
             Napi::Array arg_array = arg_value.As<Napi::Array>();
-            std::vector<napi_value> arg_vector;
+            std::vector<Napi::Value> arg_vector;
             for (size_t j = 0; j < arg_array.Length(); j++) {
-                napi_value element = arg_array.Get(j);
+                Napi::Value element = arg_array.Get(j);
                 arg_vector.push_back(element);
             }
             // insert flaten parameter at the end of the current args ???
@@ -99,8 +100,8 @@ int NodeArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char *fo
     va_start(args, kwlist);
 
     // parse the input arguments into a vector of napi_values
-    std::vector<napi_value> args_list;
-    std::unordered_map<std::string, napi_value> kwargs_map;
+    std::vector<Napi::Value> args_list;
+    std::unordered_map<std::string, Napi::Value> kwargs_map;
     parse_napi_args_and_kwargs(info, args_list, kwargs_map);
 
     // parse the format string and keyword list
@@ -118,7 +119,7 @@ int NodeArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char *fo
             const char* kwname = kwlist[j++];
             if (kwargs_map.count(kwname) > 0) {
                 // if keyword argument is present, parse it using the format specifier
-                const napi_value& arg = kwargs_map[kwname];
+                const Napi::Value& arg = kwargs_map[kwname];
                 parse_napi_value(arg, format[i+1], args, args_list, j-1);
             } else {
                 // if keyword argument is not present, set its value to NULL or default value
@@ -137,7 +138,7 @@ int NodeArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char *fo
                 Napi::Error::New(info.Env(), "Not enough arguments").ThrowAsJavaScriptException();
                 return 0;
             }
-            const napi_value& arg = args_list[i++];
+            const Napi::Value& arg = args_list[i++];
             parse_napi_value(env, arg, format[i], args);
             i++;
         }
