@@ -24,7 +24,18 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
 
     // parse positional arguments
     for (size_t i = 0; i < argc; i++) {
-        args.push_back(info[i]);
+        napi_value arg = info[i];
+        if (arg.IsArray()) {
+            // convert array to vector
+            Napi::Array arg_array = arg.As<Napi::Array>();
+            std::vector<napi_value> arg_vector;
+            for (size_t j = 0; j < arg_array.Length(); j++) {
+                arg_vector.push_back(arg_array[j]);
+            }
+            args.insert(args.end(), arg_vector.begin(), arg_vector.end());
+        } else {
+            args.push_back(arg);
+        }
     }
 
     // parse keyword arguments
@@ -36,8 +47,10 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
             std::string key_str = Napi::Value(env, key).ToString().Utf8Value();
             kwargs[key_str] = kwargs_obj.Get(key);
         }
+        args.resize(argc - 1); // remove the last argument from the positional arguments
     }
 }
+
 
 
 int NodeArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char *format, char **kwlist, ...) {
