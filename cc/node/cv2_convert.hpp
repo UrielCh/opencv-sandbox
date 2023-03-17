@@ -22,7 +22,7 @@
 
 // exception-safe pyopencv_to
 template<typename _Tp> static
-bool nodeopencv_to_safe(const Napi::CallbackInfo &info, _Tp& value, const ArgInfo& argInfo)
+bool nodeopencv_to_safe(const Napi::CallbackInfo &info, Napi::Value* obj, _Tp& value, const ArgInfo& argInfo)
 {
     try
     {
