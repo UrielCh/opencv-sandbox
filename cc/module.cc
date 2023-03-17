@@ -1,5 +1,4 @@
 #include <napi.h>
-// #include <node_api.h>
 #include <opencv2/opencv.hpp>
 #include "node/cv2_convert.hpp"
 

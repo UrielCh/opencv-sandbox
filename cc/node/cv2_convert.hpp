@@ -55,7 +55,7 @@ template <typename T>
 bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, T& value, const ArgInfo& argInfo) { return false; } //  return PyOpenCV_Converter<T>::to(obj, p, info);
 
 template<typename T>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const T& src) { return null; } // PyOpenCV_Converter<T>::from(src);
+Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const T& src) { return info.Env().Null(); } // PyOpenCV_Converter<T>::from(src);
 
 // --- Matx
 // ported from pyopencv_to L:62

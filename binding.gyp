@@ -1,7 +1,10 @@
 {
     "targets": [{
         "target_name": "cv2",
-        "sources": ["./cc/module.cc"],
+        "sources": [
+            "./cc/module.cc",
+            "./cc/node/cv2_util.cpp",
+        ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
                 "C:/0/opencv/latest/build/include",
