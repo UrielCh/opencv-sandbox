@@ -56,13 +56,16 @@ Napi::Value ReadImage(const Napi::CallbackInfo &info)
     }
 
     std::string filename = info[0].As<Napi::String>().Utf8Value();
-    cv::Mat img = cv::imread(filename);
+    cv::Mat img = cv::imread(filename, cv::IMREAD_GRAYSCALE);
 
     if (img.empty())
     {
-        Napi::Error::New(env, "Failed to read image").ThrowAsJavaScriptException();
+
+        // Napi::Error::New(env, "img is empty, Failed to read image").ThrowAsJavaScriptException();
+        failmsg(info, "img is empty, Failed to read image \"%s\"", filename.c_str());
         return env.Null();
     }
+
     return nodeopencv_from(info, img);
 }
 

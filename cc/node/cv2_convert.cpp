@@ -30,23 +30,7 @@ using namespace cv;
 
 // special case, when the converter needs full ArgInfo structure
 template<> // L:32
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value, const ArgInfo& argInfo)
-{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Mat& m, const ArgInfo& argInfo) {
 
 
 
@@ -360,54 +344,6 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& val
     }
     failmsg(info, "Argument '%s' is not convertable to size_t", argInfo.name);
     return false;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 template<>
@@ -442,26 +378,26 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value,
 
 
 
-template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int& value)
-{
-    return Napi::Number::New(info.Env(), value);
-}
-
-// --- int64
-
-template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
-    if (obj->IsNull() || obj->IsUndefined())
-        return true;
-
-    if (obj->IsNumber()) {
-        value = obj->ToNumber().Int64Value();
-        return true;
-    }
-    failmsg(info, "Argument '%s' is not convertable to int64", argInfo.name);
-    return false;
-}
+// template<>
+// Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int& value)
+// {
+//     return Napi::Number::New(info.Env(), value);
+// }
+// 
+// // --- int64
+// 
+// template<>
+// bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
+//     if (obj->IsNull() || obj->IsUndefined())
+//         return true;
+// 
+//     if (obj->IsNumber()) {
+//         value = obj->ToNumber().Int64Value();
+//         return true;
+//     }
+//     failmsg(info, "Argument '%s' is not convertable to int64", argInfo.name);
+//     return false;
+// }
 
 
 
@@ -604,19 +540,19 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, c
 
     if (obj->IsObject()) {
         Napi::Object arr = obj->As<Napi::Array>();
-        auto v = arr.Get("width");
+        Napi::Value v = arr.Get("width");
         if (!v.IsNumber()) {
             failmsg(info, "Argument '%s' is not a valid size, width is missing", argInfo.name);
             return false;
         }
         sz.width = v.As<Napi::Number>().Int32Value();
 
-        auto v = arr.Get("height");
-        if (!v.IsNumber()) {
+        Napi::Value v2 = arr.Get("height");
+        if (!v2.IsNumber()) {
             failmsg(info, "Argument '%s' is not a valid size, height is missing", argInfo.name);
             return false;
         }
-        sz.height = v.As<Napi::Number>().Int32Value();
+        sz.height = v2.As<Napi::Number>().Int32Value();
         return true;
     } else if (obj->IsArray()) {
         Napi::Array arr = obj->As<Napi::Array>();

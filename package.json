@@ -5,10 +5,14 @@
   "description": "to make works this sandbox:",
   "main": "dist/esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --pretty --project .",
-    "rebuild": "node-gyp rebuild",
-    "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache"
+    "test": "npm run build-ts && node ./dist/cjs/src/index.js",
+    "build-ts": "tsc --pretty --project .",
+    "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache",
+    "build:dev": "node-gyp build --debug && npm run build-ts",
+    "build": "node-gyp build && npm run build-ts",
+    "rebuild:dev": "node-gyp rebuild --debug && npm run build-ts",
+    "rebuild": "node-gyp rebuild && npm run build-ts",
+    "clean": "node-gyp clean"
   },
   "repository": {
     "type": "git",
