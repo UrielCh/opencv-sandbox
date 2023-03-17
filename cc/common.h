@@ -47,14 +47,14 @@ private:
 };
 
 
-// exception-safe pyopencv_to
+// exception-safe jsopencv_to
 template<typename _Tp> static
-bool pyopencv_to_safe(PyObject* obj, _Tp& value, const ArgInfo& info)
+bool jsopencv_to_safe(PyObject* obj, _Tp& value, const ArgInfo& info)
 {
     return false;
     // try
     // {
-    //     return pyopencv_to(obj, value, info);
+    //     return jsopencv_to(obj, value, info);
     // }
     // catch (const std::exception &e)
     // {
@@ -70,33 +70,33 @@ bool pyopencv_to_safe(PyObject* obj, _Tp& value, const ArgInfo& info)
 
 
 // template <typename Tp>
-// PyObject* pyopencv_from(const std::vector<Tp>& value)
+// PyObject* jsopencv_from(const std::vector<Tp>& value)
 // {
-//     return pyopencvVecConverter<Tp>::from(value);
+//     return jsopencvVecConverter<Tp>::from(value);
 // }
 
 #define CV_PY_FROM_ENUM(TYPE)                                                                         \
 template<>                                                                                            \
-PyObject* pyopencv_from(const TYPE& src)                                                              \
+PyObject* jsopencv_from(const TYPE& src)                                                              \
 {                                                                                                     \
-    return pyopencv_from(static_cast<int>(src));                         \
+    return jsopencv_from(static_cast<int>(src));                         \
 }
 
 template<typename... Ts>
-PyObject* pyopencv_from(const std::tuple<Ts...>& cpp_tuple)
+PyObject* jsopencv_from(const std::tuple<Ts...>& cpp_tuple)
 {
     size_t size = sizeof...(Ts);
-    PyObject* py_tuple = PyTuple_New(size);
-    convert_to_python_tuple(cpp_tuple, py_tuple);
-    size_t actual_size = PyTuple_Size(py_tuple);
+    PyObject* js_tuple = PyTuple_New(size);
+    convert_to_nodejs_tuple(cpp_tuple, js_tuple);
+    size_t actual_size = PyTuple_Size(js_tuple);
 
     if (actual_size < size)
     {
-        Py_DECREF(py_tuple);
+        Py_DECREF(js_tuple);
         return NULL;
     }
 
-    return py_tuple;
+    return js_tuple;
 }
 
 // enum TYPE
@@ -108,9 +108,9 @@ PyObject* pyopencv_from(const std::tuple<Ts...>& cpp_tuple)
 // };
 // 
 // template<>                                                                                            \
-// PyObject* pyopencv_from(const TYPE& src)                                                              \
+// PyObject* jsopencv_from(const TYPE& src)                                                              \
 // {                                                                                                     \
-//     return pyopencv_from(static_cast<int>(src));                         \
+//     return jsopencv_from(static_cast<int>(src));                         \
 // }
 
 /**

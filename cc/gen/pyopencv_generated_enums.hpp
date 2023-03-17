@@ -1,4 +1,4 @@
-#include "pycompat.hpp"
+#include "jscompat.hpp"
 
 CV_PY_FROM_ENUM(ImreadModes);
 CV_PY_TO_ENUM(ImreadModes);

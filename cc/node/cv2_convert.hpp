@@ -20,7 +20,7 @@
 //======================================================================================================================
 
 
-// exception-safe pyopencv_to
+// exception-safe jsopencv_to
 template<typename _Tp> static
 bool nodeopencv_to_safe(const Napi::CallbackInfo &info, Napi::Value* obj, _Tp& value, const ArgInfo& argInfo)
 {
@@ -61,23 +61,23 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const T& src) {
 } // PyOpenCV_Converter<T>::from(src);
 
 // --- Matx
-// ported from pyopencv_to L:62
+// ported from jsopencv_to L:62
 template<typename _Tp, int m, int n>
 bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, cv::Matx<_Tp, m, n>& mx, const ArgInfo& argInfo) {
     /// /////
     return true;
 }
 
-// ported from pyopencv_to L:78
+// ported from jsopencv_to L:78
 // template<typename _Tp, int m, int n>
 // bool nodeopencv_from(const cv::Matx<_Tp, m, n>& matx)
 // {
-//     return pyopencv_from(cv::Mat(matx));
+//     return jsopencv_from(cv::Mat(matx));
 // }
 
 
 // see cv2_convert.cpp L 259
-// bool pyopencv_to(PyObject* obj, bool& value, const ArgInfo& info)
+// bool jsopencv_to(PyObject* obj, bool& value, const ArgInfo& info)
 // FINAL VERSION
 // template<>
 // bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value, const ArgInfo& argInfo)
@@ -185,8 +185,8 @@ template<> Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const cv:
 // --- Ptr
 
 // --- Scalar
-// template<> bool pyopencv_to(PyObject *o, cv::Scalar& s, const ArgInfo& info);
-// template<> PyObject* pyopencv_from(const cv::Scalar& src);
+// template<> bool jsopencv_to(PyObject *o, cv::Scalar& s, const ArgInfo& info);
+// template<> PyObject* jsopencv_from(const cv::Scalar& src);
 
 // --- size_t
 template<> bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& value, const ArgInfo& argInfo);
