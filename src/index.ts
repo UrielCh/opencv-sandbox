@@ -1,5 +1,4 @@
 import path from 'path'
-import resolve from 'resolve';
 import fs from 'fs'
 
 let opencvBinDir  = '';

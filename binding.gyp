@@ -8,7 +8,8 @@
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
-                "C:/0/opencv/latest/build/include",
+                "$(OPENCV_BUILD_ROOT)/latest/build/include",
+                "$(OPENCV_BUILD_ROOT)/latest/build/include/opencv4",
                 "cc",
                 ],
         'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
@@ -19,8 +20,8 @@
         "libraries": [
             "<!@(node ./install/compileLib.js)",
         ],
-        'cflags!': ['-fno-exceptions'],
-        'cflags_cc!': ['-fno-exceptions'],
+        'cflags!': ['-fno-exceptions', '-fno-rtti'],
+        'cflags_cc!': ['-fno-exceptions', '-fno-rtti'],
         'xcode_settings': {
             'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
             'CLANG_CXX_LIBRARY': 'libc++',
