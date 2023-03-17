@@ -56,7 +56,7 @@ Napi::Value ReadImage(const Napi::CallbackInfo &info)
     }
 
     std::string filename = info[0].As<Napi::String>().Utf8Value();
-    cv::Mat img = cv::imread(filename, cv::IMREAD_GRAYSCALE);
+    cv::Mat img = cv::imread(filename);
 
     if (img.empty())
     {
