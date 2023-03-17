@@ -43,7 +43,7 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
     for (size_t i = 0; i < argc; i++) {
         Napi::Value arg = info[i];
         Napi::Value arg_value(env, arg);
-        // Python style detect if the parameters is an array ???
+        // Nodejs style detect if the parameters is an array ???
         // not relevant for our case.  ???
         // will flatten all parameters, not that we need. ???
         if (arg_value.IsArray()) {
@@ -88,7 +88,7 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
  * Take info as input to extract parameters to be passed to the C++ function
  * 
  * @param info nAPI callback info
- * @param format format string as as pyhon format like "OOO|OO:fncname"
+ * @param format format string as as python format like "OOO|OO:fncname"
  * @param kwlist parameter names
  * @param ... output parameters
  */

@@ -136,7 +136,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_mats, mats, ArgInfo("mats", 1)) )
     {
         ERRWRAP2(retval = cv::imdecodemulti(buf, flags, mats));
-        return Py_BuildValue("(NN)", nodeopencv_from(retval), nodeopencv_from(mats));
+        return Js_BuildValue("(NN)", nodeopencv_from(retval), nodeopencv_from(mats));
     }
 
 
@@ -160,7 +160,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_mats, mats, ArgInfo("mats", 1)) )
     {
         ERRWRAP2(retval = cv::imdecodemulti(buf, flags, mats));
-        return Py_BuildValue("(NN)", nodeopencv_from(retval), nodeopencv_from(mats));
+        return Js_BuildValue("(NN)", nodeopencv_from(retval), nodeopencv_from(mats));
     }
 
 
@@ -194,7 +194,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
         ERRWRAP2(retval = cv::imencode(ext, img, buf, params));
-        return Py_BuildValue("(NN)", nodeopencv_from(info, retval), nodeopencv_from(info, buf));
+        return Js_BuildValue("(NN)", nodeopencv_from(info, retval), nodeopencv_from(info, buf));
     }
 
 
@@ -219,7 +219,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
         ERRWRAP2(retval = cv::imencode(ext, img, buf, params));
-        return Py_BuildValue("(NN)", nodeopencv_from(info, retval), nodeopencv_from(info, buf));
+        return Js_BuildValue("(NN)", nodeopencv_from(info, retval), nodeopencv_from(info, buf));
     }
 
 
@@ -274,7 +274,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
         ERRWRAP2(retval = cv::imreadmulti(filename, mats, flags));
-        return Py_BuildValue("(NN)", nodeopencv_from(retval), nodeopencv_from(mats));
+        return Js_BuildValue("(NN)", nodeopencv_from(retval), nodeopencv_from(mats));
     }
 
 
@@ -304,7 +304,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
         ERRWRAP2(retval = cv::imreadmulti(filename, mats, start, count, flags));
-        return Py_BuildValue("(NN)", nodeopencv_from(info, retval), nodeopencv_from(info, mats));
+        return Js_BuildValue("(NN)", nodeopencv_from(info, retval), nodeopencv_from(info, mats));
     }
 
 
@@ -333,7 +333,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)) )
     {
         ERRWRAP2(cv::imshow(winname, mat));
-        Py_RETURN_NONE;
+        Js_RETURN_NONE;
     }
 
 
@@ -353,7 +353,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)) )
     {
         ERRWRAP2(cv::imshow(winname, mat));
-        Py_RETURN_NONE;
+        Js_RETURN_NONE;
     }
 
 
@@ -373,7 +373,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)) )
     {
         ERRWRAP2(cv::imshow(winname, mat));
-        Py_RETURN_NONE;
+        Js_RETURN_NONE;
     }
 
 

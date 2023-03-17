@@ -246,7 +246,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value
     {
         return true;
     }
-    if (obj->IsBoolean()) //  || PyArray_IsIntegerScalar(obj)
+    if (obj->IsBoolean()) //  || JsArray_IsIntegerScalar(obj)
     {
 
 
@@ -274,15 +274,15 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const bool& value)
 //     if (obj->IsNull() || obj->IsUndefined())
 //         return true;
 // 
-//     if (!PyLong_Check(obj))
+//     if (!JsLong_Check(obj))
 //         return false;
-//     ptr = PyLong_AsVoidPtr(obj);
-//     return ptr != NULL && !PyErr_Occurred();
+//     ptr = JsLong_AsVoidPtr(obj);
+//     return ptr != NULL && !JsErr_Occurred();
 // }
 // 
 // Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, void*& ptr)
 // {
-//     return PyLong_FromVoidPtr(ptr);
+//     return JsLong_FromVoidPtr(ptr);
 // }
 
 // -- Scalar
@@ -328,7 +328,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Scalar& src) {
     arr.Set(2, Napi::Number::New(env, src[3]));
     arr.Set(3, Napi::Number::New(env, src[4]));
     return arr;
-    // return Py_BuildValue("(ii)", sz.width, sz.height);
+    // return Js_BuildValue("(ii)", sz.width, sz.height);
 }
 
 // --- size_t
@@ -585,7 +585,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Size& sz) { //
     obj.Set(Napi::String::New(env, "width"), Napi::Number::New(env, sz.width));
     obj.Set(Napi::String::New(env, "height"), Napi::Number::New(env, sz.height));
     return obj;
-    // return Py_BuildValue("(ii)", sz.width, sz.height);
+    // return Js_BuildValue("(ii)", sz.width, sz.height);
 }
 
 // --- float

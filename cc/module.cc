@@ -71,23 +71,23 @@ Napi::Value ReadImage(const Napi::CallbackInfo &info)
 
 // #define ERRWRAP2
 
-// replace "static PyObject*" by Napi::Value
-// replace "PyObject* , PyObject* js_args, PyObject* kw" by const Napi::CallbackInfo &info
+// replace "static JsObject*" by Napi::Value
+// replace "JsObject* , JsObject* js_args, JsObject* kw" by const Napi::CallbackInfo &info
 // Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 // {
 //     // drop 
 //     // using namespace cv;
 // 
-//     // PyObject* jsobj_filename = NULL;
+//     // JsObject* jsobj_filename = NULL;
 //     std::string jsobj_filename = NULL;
 // 
 //     String filename;
-//     PyObject* jsobj_flags = NULL;
+//     JsObject* jsobj_flags = NULL;
 //     int flags=IMREAD_COLOR;
 //     Mat retval;
 // 
 //     const char* keywords[] = { "filename", "flags", NULL };
-//     if( PyArg_ParseTupleAndKeywords(js_args, kw, "O|O:imread", (char**)keywords, &jsobj_filename, &jsobj_flags) &&
+//     if( JsArg_ParseTupleAndKeywords(js_args, kw, "O|O:imread", (char**)keywords, &jsobj_filename, &jsobj_flags) &&
 //         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
 //         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)) )
 //     {

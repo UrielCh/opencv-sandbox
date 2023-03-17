@@ -1,1 +1,1 @@
-CVPY_MODULE("", cv);
+CVJS_MODULE("", cv);
