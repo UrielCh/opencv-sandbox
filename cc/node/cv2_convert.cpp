@@ -278,7 +278,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const bool& value)
 {
-    return nodeBool_FromLong(info, value);
+    return Napi::Boolean::New(info.Env(), value);
 }
 
 // --- ptr
@@ -407,7 +407,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& val
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const size_t& value)
 {
-    return PyLong_FromSize_t(value);
+    return Napi::Number::New(info.Env(), value);
 }
 
 // --- int
@@ -439,7 +439,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value,
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int& value)
 {
-    return PyInt_FromLong(value);
+    return Napi::Number::New(info.Env(), value);
 }
 
 // --- int64
@@ -471,7 +471,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& valu
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int64& value)
 {
-    return PyLong_FromLongLong(value);
+    return Napi::BigInt::New(info.Env(), value); // Number or bigint ??
 }
 
 
@@ -492,7 +492,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, uchar& valu
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const uchar& value)
 {
-    return PyInt_FromLong(value);
+    return Napi::Number::New(info.Env(), value);
 }
 // --- char
 template<>
@@ -539,7 +539,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, double& val
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const double& value)
 {
-    return PyFloat_FromDouble(value);
+    return Napi::Number::New(info.Env(), value);
 }
 
 // --- float
@@ -560,7 +560,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, float& valu
 template<>
 Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const float& value)
 {
-    return PyFloat_FromDouble(value);
+    return Napi::Number::New(info.Env(), value);
 }
 
 // --- string
@@ -579,19 +579,40 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, String &val
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const String& value)
-{
-    return PyString_FromString(value.empty() ? "" : value.c_str());
+Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const String& value) {
+    if (value.empty())
+        return Napi::String::New(info.Env(), "");
+    return Napi::String::New(info.Env(), value);
+    // return Napi::String::New(value.empty() ? emptyString : value);
 }
 
 // --- Size
-
+/**
+ * @brief read a Size from a Napi::Value
+ * the size can be format as [Number, Number] or a {width: Number, height: Number}
+ */
 template<>
 bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
-    if (obj->IsArray()) {
+    if (obj->IsObject()) {
+        Napi::Object arr = obj->As<Napi::Array>();
+        auto v = arr.Get("width");
+        if (!v.IsNumber()) {
+            failmsg(info, "Argument '%s' is not a valid size, width is missing", argInfo.name);
+            return false;
+        }
+        sz.width = v.As<Napi::Number>().Int32Value();
+
+        auto v = arr.Get("height");
+        if (!v.IsNumber()) {
+            failmsg(info, "Argument '%s' is not a valid size, height is missing", argInfo.name);
+            return false;
+        }
+        sz.height = v.As<Napi::Number>().Int32Value();
+        return true;
+    } else if (obj->IsArray()) {
         Napi::Array arr = obj->As<Napi::Array>();
         if (arr.Length() != 2) {
             failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
@@ -603,7 +624,10 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, c
                 failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
                 return false;
             }
-            sz[i] = v.As<Napi::Number>().Int32Value();
+            if (i == 0)
+                sz.width = v.As<Napi::Number>().Int32Value();
+            else
+                sz.height = v.As<Napi::Number>().Int32Value();
         }
         return true;
     }
@@ -612,9 +636,14 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, c
 }
 
 template<>
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const Size& sz)
-{
-    return Py_BuildValue("(ii)", sz.width, sz.height);
+Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Size& sz) { // should I return an [Number, Number] or a {width: Number, height: Number}
+    // return  {width: Number, height: Number}
+    Napi::Env env = info.Env();
+    Napi::Object obj = Napi::Object::New(env);
+    obj.Set(Napi::String::New(env, "width"), Napi::Number::New(env, sz.width));
+    obj.Set(Napi::String::New(env, "height"), Napi::Number::New(env, sz.height));
+    return obj;
+    // return Py_BuildValue("(ii)", sz.width, sz.height);
 }
 
 // --- float
