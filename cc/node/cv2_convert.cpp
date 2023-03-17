@@ -283,62 +283,68 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const bool& value)
 
 // --- ptr
 
-template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
-{
-    CV_UNUSED(info);
-    if (obj->IsNull() || obj->IsUndefined())
-        return true;
-
-    if (!PyLong_Check(obj))
-        return false;
-    ptr = PyLong_AsVoidPtr(obj);
-    return ptr != NULL && !PyErr_Occurred();
-}
-
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, void*& ptr)
-{
-    return PyLong_FromVoidPtr(ptr);
-}
+// template<>
+// bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
+// {
+//     CV_UNUSED(info);
+//     if (obj->IsNull() || obj->IsUndefined())
+//         return true;
+// 
+//     if (!PyLong_Check(obj))
+//         return false;
+//     ptr = PyLong_AsVoidPtr(obj);
+//     return ptr != NULL && !PyErr_Occurred();
+// }
+// 
+// Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, void*& ptr)
+// {
+//     return PyLong_FromVoidPtr(ptr);
+// }
 
 // -- Scalar
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value *o, Scalar& s, const ArgInfo& argInfo) {
-    //if (o->IsNull() || o->IsUndefined())
-    //    return true;
-//
-    //if (!o->IsArray())
-    //    return false;
-//
-    //Napi::Array arr = o->As<Napi::Array>();
-    //if (arr.Length() != 4)
-    //    return false;
-//
-    //for (int i = 0; i < 4; i++) {
-    //    Napi::Value v = arr.Get(i);
-    //    if (!v.IsNumber())
-    //        return false;
-    //    s[i] = v.As<Napi::Number>().DoubleValue();
-    //}
-    return true;
+bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value *obj, Scalar& s, const ArgInfo& argInfo) {
+    if (obj->IsNull() || obj->IsUndefined())
+        return true;
 
-
-
-
-
-
-
-
-
-
-
+    if (obj->IsArray()) {
+        Napi::Array arr = obj->As<Napi::Array>();
+        if (arr.Length() != 4) {
+            failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+            return false;
+        }
+        for (int i = 0; i < 4; i++) {
+            Napi::Value v = arr.Get(i);
+            if (!v.IsNumber()) {
+                failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+                return false;
+            }
+            s[i] = v.As<Napi::Number>().DoubleValue();
+        }
+        return true;
+    }
+    failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+    return false;
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Scalar& src)
-{
-    return Py_BuildValue("(dddd)", src[0], src[1], src[2], src[3]);
+Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Scalar& src) {
+    // return  {x: Number, y: Number, z: Number, w: Number}
+    Napi::Env env = info.Env();
+    // Napi::Object obj = Napi::Object::New(env);
+    // obj.Set("x", Napi::Number::New(env, src[0]));
+    // obj.Set("y", Napi::Number::New(env, src[1]));
+    // obj.Set("z", Napi::Number::New(env, src[2]));
+    // obj.Set("w", Napi::Number::New(env, src[3]));
+    // as array of numbers
+    Napi::Array arr = Napi::Array::New(env, 4);
+    arr.Set((uint32_t)0, Napi::Number::New(env, src[0]));
+    arr.Set(1, Napi::Number::New(env, src[2]));
+    arr.Set(2, Napi::Number::New(env, src[3]));
+    arr.Set(3, Napi::Number::New(env, src[4]));
+    return arr;
+    // return Py_BuildValue("(ii)", sz.width, sz.height);
 }
 
 // --- size_t
