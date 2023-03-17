@@ -3,6 +3,10 @@
 // #include <node_api.h>
 #include <opencv2/opencv.hpp>
 // 2nd test code
+
+#include "node/cv2_convert.hpp"
+
+
 class ArgInfo
 {
 public:
@@ -57,8 +61,10 @@ static Napi::Value pyopencv_cv_imread(const Napi::CallbackInfo &info)
         nodeopencv_to_safe(pyobj_filename, filename, ArgInfo("filename", 0)) &&
         nodeopencv_to_safe(pyobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imread(filename, flags));
-        return pyopencv_from(retval);
+        //ERRWRAP2(
+        retval = cv::imread(filename, flags);
+        // );
+        return nodeopencv_from(info, retval);
     }
 
     return NULL;
