@@ -92,7 +92,7 @@ void parse_napi_args_and_kwargs(const Napi::CallbackInfo& info,
  * @param kwlist parameter names
  * @param ... output parameters
  */
-int NodeArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char *format, char **kwlist, ...) {
+int JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char *format, char **kwlist, ...) {
     Napi::Env env = info.Env();
 
     // initialize the list of output parameters

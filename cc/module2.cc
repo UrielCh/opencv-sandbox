@@ -19,14 +19,14 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     Mat retval;
 
     const char* keywords[] = { "filename", "flags", NULL };
-    if( NodeArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &jsobj_filename, &jsobj_flags) &&
-        nodeopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) &&
-        nodeopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
+    if( JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &jsobj_filename, &jsobj_flags) &&
+        jsopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) &&
+        jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
         //ERRWRAP2(
         retval = cv::imread(filename, flags);
         // );
-        return nodeopencv_from(info, retval);
+        return jsopencv_from(info, retval);
     }
 
     return info.Env().Null();
