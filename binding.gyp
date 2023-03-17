@@ -8,7 +8,8 @@
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
-                "/home/pierre/opencv/latest/build/include/opencv4/",
+                "$(OPENCV_BUILD_ROOT)/latest/build/include",
+                "$(OPENCV_BUILD_ROOT)/latest/build/include/opencv4",
                 "cc",
                 ],
         'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],

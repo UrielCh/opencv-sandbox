@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "to make works this sandbox:",
-  "main": "dist/esm/index.js",
+  "main": "dist/cjs/src/index.js",
   "scripts": {
     "test": "npm run build-ts && node ./dist/cjs/src/index.js",
     "build-ts": "tsc --pretty --project .",

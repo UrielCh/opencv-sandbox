@@ -30,7 +30,7 @@ bool nodeopencv_to_safe(const Napi::CallbackInfo &info, Napi::Value* obj, _Tp& v
     }
     catch (const std::exception &e)
     {
-        failmsg(info, "Conversion error: %s, what: %s", argInfo.name, e.what())
+        failmsg(info, "Conversion error: %s, what: %s", argInfo.name, e.what());
         return false;
     }
     catch (...)
