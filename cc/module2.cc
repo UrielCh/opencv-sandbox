@@ -2,6 +2,9 @@
 #include <parse.hh>
 // #include <node_api.h>
 #include <opencv2/opencv.hpp>
+// 2nd test code
+
+#include "node/cv2_convert.hpp"
 
 static Napi::Value pyopencv_cv_imread(const Napi::CallbackInfo &info)
 {
@@ -17,12 +20,14 @@ static Napi::Value pyopencv_cv_imread(const Napi::CallbackInfo &info)
 
     const char* keywords[] = { "filename", "flags", NULL };
     if( NodeArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags) &&
-        pyopencv_to_safe(pyobj_filename, filename, ArgInfo("filename", 0)) &&
-        pyopencv_to_safe(pyobj_flags, flags, ArgInfo("flags", 0)) )
+        nodeopencv_to_safe(info, pyobj_filename, filename, ArgInfo("filename", 0)) &&
+        nodeopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imread(filename, flags));
-        return pyopencv_from(retval);
+        //ERRWRAP2(
+        retval = cv::imread(filename, flags);
+        // );
+        return nodeopencv_from(info, retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
