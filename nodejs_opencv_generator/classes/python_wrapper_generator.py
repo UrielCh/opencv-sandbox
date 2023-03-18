@@ -34,13 +34,19 @@ class PythonWrapperGenerator(object):
         self.code_type_publish = StringIO()
         self.py_signatures = dict()
         self.class_idx = 0
+        
         self.code_funcs.write("#include <napi.h>\n")
         self.code_funcs.write("#include <../parse.hh>\n")
         self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
         self.code_funcs.write("#include <opencv2/opencv.hpp>\n\n")
+
         self.code_enums.write("#include <napi.h>\n")
         self.code_enums.write("#include <../parse.hh>\n")
         self.code_enums.write("#include <../node/cv2_convert.hpp>\n\n")
+
+        self.code_ns_init.write("#include <napi.h>\n")
+        self.code_ns_init.write("#include <../parse.hh>\n")
+        self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n\n")
 
     def add_class(self, stype, name, decl):
         classinfo = ClassInfo(name, decl, self)
@@ -361,7 +367,7 @@ class PythonWrapperGenerator(object):
                 code = func.gen_code(self)
                 self.code_funcs.write(code)
             self.gen_namespace(ns_name)
-            self.code_ns_init.write('CVPY_MODULE("{}", {});\n'.format(ns_name[2:], normalize_class_name(ns_name)))
+            self.code_ns_init.write('CVJS_MODULE("{}", {});\n'.format(ns_name[2:], normalize_class_name(ns_name)))
 
         # step 4: generate the code for enum types
         enumlist = list(self.enums.values())

@@ -29,6 +29,14 @@ Napi::Value* jsopencv_from(const TYPE& src)                                     
 
 
 
+#define CVJS_MODULE(NAMESTR, NAME) \
+    if (!init_submodule(m, MODULESTR NAMESTR, methods_##NAME, consts_##NAME)) \
+    { \
+        return false; \
+    }
+    #include "pyopencv_generated_modules.h"
+#undef CVPY_MODULE
+
 
 
 
