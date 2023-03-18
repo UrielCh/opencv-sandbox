@@ -7,7 +7,7 @@
   "scripts": {
     "test": "npm run build-ts && node ./dist/cjs/src/index.js",
     "build-ts": "tsc --pretty --project .",
-    "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache",
+    "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache  --flags \"-DWITH_PYTHON=ON -DBUILD_opencv_python3=ON -DBUILD_opencv_python_bindings_generator=ON\"",
     "build:dev": "node-gyp build --debug && npm run build-ts",
     "build": "node-gyp build && npm run build-ts",
     "rebuild:dev": "node-gyp rebuild --debug && npm run build-ts",
