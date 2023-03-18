@@ -5,3 +5,4 @@ node_modules/
 *.egg-info
 cc-generated
 data/headers.txt
+*.pyc
