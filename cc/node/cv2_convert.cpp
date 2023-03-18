@@ -13,206 +13,13 @@
 
 using namespace cv;
 
-
-
-
-
-
-
-
-
-
-
-
 //======================================================================================================================
 
 // --- Mat
 
 // special case, when the converter needs full ArgInfo structure
 template<> // L:32
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Mat& m, const ArgInfo& argInfo) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Mat& m, const ArgInfo& argInfo) {
 
 
     return true;
@@ -220,7 +27,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Mat& m, con
 
 
 template<> // L:239
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
     Napi::Env env = info.Env();
     Napi::Object obj = Napi::Object::New(env);
     size_t size = m.total() * m.elemSize();
@@ -239,14 +46,14 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 }
 // --- bool // L:255
 template<> // L:257
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value, const ArgInfo& argInfo)
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value, const ArgInfo& argInfo)
 {
     // if (!obj || obj == NULL)
     if (obj->IsNull() || obj->IsUndefined())
     {
         return true;
     }
-    if (obj->IsBoolean()) //  || PyArray_IsIntegerScalar(obj)
+    if (obj->IsBoolean()) //  || JsArray_IsIntegerScalar(obj)
     {
 
 
@@ -260,7 +67,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const bool& value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const bool& value)
 {
     return Napi::Boolean::New(info.Env(), value);
 }
@@ -268,27 +75,27 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const bool& value)
 // --- ptr
 
 // template<>
-// bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
+// bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
 // {
 //     CV_UNUSED(info);
 //     if (obj->IsNull() || obj->IsUndefined())
 //         return true;
 // 
-//     if (!PyLong_Check(obj))
+//     if (!JsLong_Check(obj))
 //         return false;
-//     ptr = PyLong_AsVoidPtr(obj);
-//     return ptr != NULL && !PyErr_Occurred();
+//     ptr = JsLong_AsVoidPtr(obj);
+//     return ptr != NULL && !JsErr_Occurred();
 // }
 // 
-// Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, void*& ptr)
+// Napi::Value jsopencv_from(const Napi::CallbackInfo &info, void*& ptr)
 // {
-//     return PyLong_FromVoidPtr(ptr);
+//     return JsLong_FromVoidPtr(ptr);
 // }
 
 // -- Scalar
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value *obj, Scalar& s, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value *obj, Scalar& s, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -313,7 +120,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value *obj, Scalar& s, 
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Scalar& src) {
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Scalar& src) {
     // return  {x: Number, y: Number, z: Number, w: Number}
     Napi::Env env = info.Env();
     // Napi::Object obj = Napi::Object::New(env);
@@ -328,13 +135,13 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Scalar& src) {
     arr.Set(2, Napi::Number::New(env, src[3]));
     arr.Set(3, Napi::Number::New(env, src[4]));
     return arr;
-    // return Py_BuildValue("(ii)", sz.width, sz.height);
+    // return Js_BuildValue("(ii)", sz.width, sz.height);
 }
 
 // --- size_t
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -347,7 +154,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& val
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const size_t& value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const size_t& value)
 {
     return Napi::Number::New(info.Env(), value);
 }
@@ -355,7 +162,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const size_t& value)
 // --- int
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value, const ArgInfo& Arginfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value, const ArgInfo& Arginfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -369,17 +176,8 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value,
 
 
 
-
-
-
-
-
-
-
-
-
 // template<>
-// Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int& value)
+// Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int& value)
 // {
 //     return Napi::Number::New(info.Env(), value);
 // }
@@ -387,7 +185,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value,
 // // --- int64
 // 
 // template<>
-// bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
+// bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
 //     if (obj->IsNull() || obj->IsUndefined())
 //         return true;
 // 
@@ -400,18 +198,8 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value,
 // }
 
 
-
-
-
-
-
-
-
-
-
-
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int64& value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int64& value)
 {
     return Napi::BigInt::New(info.Env(), value); // Number or bigint ??
 }
@@ -420,7 +208,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const int64& value)
 // --- uchar
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, uchar& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, uchar& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -432,13 +220,13 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, uchar& valu
     return false;
 }
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const uchar& value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const uchar& value)
 {
     return Napi::Number::New(info.Env(), value);
 }
 // --- char
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, char& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, char& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -451,21 +239,10 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, char& value
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 // --- double
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, double& value, const ArgInfo& argInfo)
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, double& value, const ArgInfo& argInfo)
 {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
@@ -479,7 +256,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, double& val
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const double& value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const double& value)
 {
     return Napi::Number::New(info.Env(), value);
 }
@@ -487,7 +264,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const double& value)
 // --- float
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, float& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, float& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -500,7 +277,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, float& valu
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const float& value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const float& value)
 {
     return Napi::Number::New(info.Env(), value);
 }
@@ -508,7 +285,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const float& value)
 // --- string
 
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, String &value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, String &value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -521,7 +298,7 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, String &val
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const String& value) {
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const String& value) {
     if (value.empty())
         return Napi::String::New(info.Env(), "");
     return Napi::String::New(info.Env(), value);
@@ -534,7 +311,7 @@ Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const String& value)
  * the size can be format as [Number, Number] or a {width: Number, height: Number}
  */
 template<>
-bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -578,14 +355,14 @@ bool nodeopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, c
 }
 
 template<>
-Napi::Value nodeopencv_from(const Napi::CallbackInfo &info, const Size& sz) { // should I return an [Number, Number] or a {width: Number, height: Number}
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Size& sz) { // should I return an [Number, Number] or a {width: Number, height: Number}
     // return  {width: Number, height: Number}
     Napi::Env env = info.Env();
     Napi::Object obj = Napi::Object::New(env);
     obj.Set(Napi::String::New(env, "width"), Napi::Number::New(env, sz.width));
     obj.Set(Napi::String::New(env, "height"), Napi::Number::New(env, sz.height));
     return obj;
-    // return Py_BuildValue("(ii)", sz.width, sz.height);
+    // return Js_BuildValue("(ii)", sz.width, sz.height);
 }
 
 // --- float

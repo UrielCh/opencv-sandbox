@@ -1,1 +1,0 @@
-CVPY_MODULE("", cv);
