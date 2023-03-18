@@ -6,8 +6,6 @@ export `OPENCV_BUILD_ROOT` to a openCV source workdir.
 
 build openCV and keep sources with:
 
-`npx @u4/opencv-build --keepsources --version=4.7.0 --git-cache`
-or
 `npm run build-opencv`
 
 then duplicate and update your environement in `.vscode/c_cpp_properties.json` if needed,
@@ -43,6 +41,10 @@ Headers should be present somewhere in your opencv install like :
 
 ```bash
 cp ${OPENCV_BUILD_ROOT}/latest/build/modules/python_bindings_generator/headers.txt data/headers.txt
+```
+
+```powershell
+cp ${Env:OPENCV_BUILD_ROOT}/latest/build/modules/python_bindings_generator/headers.txt data/headers.txt
 ```
 
 To generate only part of the bindings, you can remove line from `data/headers.txt`
