@@ -17,7 +17,7 @@ gen_template_simple_call_constructor_prelude = Template("""if(self) """)
 gen_template_simple_call_constructor = Template("""new (&(self->v)) ${cname}${py_args}""")
 
 gen_template_parse_args = Template("""const char* keywords[] = { $kw_list, NULL };
-    if( PyArg_ParseTupleAndKeywords(py_args, kw, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt )""")
+    if (JsArg_ParseTupleAndKeywords(py_args, kw, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt)""")
 
 gen_template_func_body = Template("""$code_decl
     $code_parse
@@ -106,7 +106,7 @@ ${methods_inits}
 gen_template_get_prop = Template("""
 static PyObject* pyopencv_${name}_get_${member}(pyopencv_${name}_t* p, void *closure)
 {
-    return pyopencv_from(p->v${access}${member});
+    return jsopencv_from(p->v${access}${member});
 }
 """)
 
@@ -116,7 +116,7 @@ static PyObject* pyopencv_${name}_get_${member}(pyopencv_${name}_t* p, void *clo
     $cname* _self_ = dynamic_cast<$cname*>(p->v.get());
     if (!_self_)
         return failmsgp("Incorrect type of object (must be '${name}' or its derivative)");
-    return pyopencv_from(_self_${access}${member});
+    return jsopencv_from(_self_${access}${member});
 }
 """)
 

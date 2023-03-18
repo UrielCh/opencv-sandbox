@@ -51,7 +51,9 @@ To generate only part of the bindings, you can remove line from `data/headers.tx
 
 The minimum `data/headers.txt` file is 
 ```txt
-/<opencv source location>/modules/core/include/opencv2/core.hpp
+${OPENCV_BUILD_ROOT}/latest/build/modules/core/include/opencv2/core.hpp
+${Env:OPENCV_BUILD_ROOT}/latest/build/modules/core/include/opencv2/core.hpp
+%OPENCV_BUILD_ROOT%/latest/build/modules/core/include/opencv2/core.hpp
 ```
 
 ### Run the generator

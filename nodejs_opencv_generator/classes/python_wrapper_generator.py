@@ -34,6 +34,13 @@ class PythonWrapperGenerator(object):
         self.code_type_publish = StringIO()
         self.py_signatures = dict()
         self.class_idx = 0
+        self.code_funcs.write("#include <napi.h>\n")
+        self.code_funcs.write("#include <../parse.hh>\n")
+        self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_funcs.write("#include <opencv2/opencv.hpp>\n\n")
+        self.code_enums.write("#include <napi.h>\n")
+        self.code_enums.write("#include <../parse.hh>\n")
+        self.code_enums.write("#include <../node/cv2_convert.hpp>\n\n")
 
     def add_class(self, stype, name, decl):
         classinfo = ClassInfo(name, decl, self)
@@ -216,7 +223,7 @@ class PythonWrapperGenerator(object):
         code = ""
         if re.sub(r"^cv\.", "", enum_name) != wname:
             code += "typedef {0} {1};\n".format(cname, wname)
-        code += "CV_PY_FROM_ENUM({0});\nCV_PY_TO_ENUM({0});\n\n".format(wname)
+        code += "CV_JS_FROM_ENUM({0});\nCV_JS_TO_ENUM({0});\n\n".format(wname)
         self.code_enums.write(code)
 
     def save(self, path, name, buf):

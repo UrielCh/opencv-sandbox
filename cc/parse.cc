@@ -7,6 +7,36 @@
 #include <cstring>
 #include <stdarg.h>
 
+#define CV_JS_TO_ENUM(TYPE)                                                                           \
+template<>                                                                                            \
+bool jsopencv_to(Napi::Value* dst, TYPE& src, const ArgInfo& info)                                       \
+{                                                                                                     \
+    if (!dst || dst == Py_None)                                                                       \
+        return true;                                                                                  \
+    int underlying = 0;                                                  \
+                                                                                                      \
+    if (!jsopencv_to(dst, underlying, info)) return false;                                            \
+    src = static_cast<TYPE>(underlying);                                                              \
+    return true;                                                                                      \
+}
+
+#define CV_JS_FROM_ENUM(TYPE)                                                                         \
+template<>                                                                                            \
+Napi::Value* jsopencv_from(const TYPE& src)                                                              \
+{                                                                                                     \
+    return jsopencv_from(static_cast<int>(src));                         \
+}
+
+
+
+
+
+
+
+
+
+
+
 // see doc: https://github.com/nodejs/node-addon-api/blob/main/doc/value.md
 
 // napi_value is onky a void*, Napi::Value is a C++ wrapper adding type safety

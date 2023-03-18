@@ -82,7 +82,8 @@ class FuncInfo(object):
             self_arg = "self"
         else:
             self_arg = ""
-        return "static PyObject* %s(PyObject* %s, PyObject* py_args, PyObject* kw)" % (full_fname, self_arg)
+        # PyObject* %s, PyObject* py_args, PyObject* kw % (full_fname, self_arg)
+        return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
 
     def get_tab_entry(self):
         prototype_list = []
@@ -212,11 +213,11 @@ class FuncInfo(object):
                 parse_name = a.name
                 if a.py_inputarg and arg_type_info.strict_conversion:
                     parse_name = "pyobj_" + a.full_name.replace('.', '_')
-                    code_decl += "    PyObject* %s = NULL;\n" % (parse_name,)
+                    code_decl += "    Napi::Value* %s = NULL;\n" % (parse_name,)
                     if a.tp == 'char':
                         code_cvt_list.append("convert_to_char(%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
                     else:
-                        code_cvt_list.append("pyopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
+                        code_cvt_list.append("jsopencv_to_safe(info, %s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
 
                 all_cargs.append([arg_type_info, parse_name])
 
@@ -321,7 +322,7 @@ class FuncInfo(object):
                     parse_arglist=", ".join(["&" + all_cargs[argno][1] for _, argno in v.py_arglist]),
                     code_cvt=" &&\n        ".join(code_cvt_list))
             else:
-                code_parse = "if(PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
+                code_parse = "if (PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
 
             if len(v.py_outlist) == 0:
                 code_ret = "Py_RETURN_NONE"
@@ -330,12 +331,12 @@ class FuncInfo(object):
                     code_ret = "return 0"
                 else:
                     aname, argno = v.py_outlist[0]
-                    code_ret = "return pyopencv_from(%s)" % (aname,)
+                    code_ret = "return jsopencv_from(%s)" % (aname,)
             else:
                 # there is more than 1 return parameter; form the tuple out of them
                 fmtspec = "N"*len(v.py_outlist)
                 code_ret = "return Py_BuildValue(\"(%s)\", %s)" % \
-                    (fmtspec, ", ".join(["pyopencv_from(" + aname + ")" for aname, argno in v.py_outlist]))
+                    (fmtspec, ", ".join(["jsopencv_from(" + aname + ")" for aname, argno in v.py_outlist]))
 
             all_code_variants.append(gen_template_func_body.substitute(code_decl=code_decl,
                 code_parse=code_parse, code_prelude=code_prelude, code_fcall=code_fcall, code_ret=code_ret))
