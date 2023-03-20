@@ -48,6 +48,13 @@ class PythonWrapperGenerator(object):
         self.code_ns_init.write("#include <../parse.hh>\n")
         self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n\n")
 
+        self.code_types.write("#include <napi.h>\n")
+        self.code_types.write("#include <../parse.hh>\n")
+        self.code_types.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_types.write("#include <node/cv2.hpp>\n")
+        self.code_types.write("#include <node/cv2_util.hpp>\n")
+        self.code_types.write("\n")
+
     def add_class(self, stype, name, decl):
         classinfo = ClassInfo(name, decl, self)
         classinfo.decl_idx = self.class_idx

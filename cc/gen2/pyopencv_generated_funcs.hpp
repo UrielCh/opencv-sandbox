@@ -174,7 +174,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_mats, mats, ArgInfo("mats", 1)) )
     {
         ERRWRAP2_NAPI(info, retval = cv::imdecodemulti(buf, flags, mats));
-        return Js_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(mats));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(mats));
     }
 
 
@@ -232,7 +232,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue("(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
     }
 
 
@@ -257,7 +257,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue("(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
     }
 
 
@@ -312,7 +312,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
         ERRWRAP2_NAPI(info, retval = cv::imreadmulti(filename, mats, flags));
-        return Js_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(mats));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(mats));
     }
 
 
@@ -342,7 +342,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
         ERRWRAP2_NAPI(info, retval = cv::imreadmulti(filename, mats, start, count, flags));
-        return Js_BuildValue("(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
     }
 
 

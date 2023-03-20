@@ -93,6 +93,17 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
 }
 
 
+// convert from PythonC code base
+
 #define Js_RETURN_NONE return info.Env().Null()
+
+
+void JsErr_SetString(const Napi::Env &env, const std::string &message)
+{
+    Napi::Error::New(env, message).ThrowAsJavaScriptException();
+}
+
+
+Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
 
 #endif // END HEADER GUARD

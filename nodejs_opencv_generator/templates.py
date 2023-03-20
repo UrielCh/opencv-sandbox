@@ -121,23 +121,23 @@ static PyObject* pyopencv_${name}_get_${member}(pyopencv_${name}_t* p, void *clo
 """)
 
 gen_template_set_prop = Template("""
-static int pyopencv_${name}_set_${member}(pyopencv_${name}_t* p, PyObject *value, void *closure)
+static int pyopencv_${name}_set_${member}(const Napi::CallbackInfo &info, pyopencv_${name}_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the ${member} attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ${member} attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v${access}${member}, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v${access}${member}, ArgInfo("value", false)) ? 0 : -1;
 }
 """)
 
 gen_template_set_prop_algo = Template("""
-static int pyopencv_${name}_set_${member}(pyopencv_${name}_t* p, PyObject *value, void *closure)
+static int pyopencv_${name}_set_${member}(const Napi::CallbackInfo &info, pyopencv_${name}_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the ${member} attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ${member} attribute");
         return -1;
     }
     $cname* _self_ = dynamic_cast<$cname*>(p->v.get());

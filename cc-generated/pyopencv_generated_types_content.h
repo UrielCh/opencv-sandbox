@@ -1,3 +1,9 @@
+#include <napi.h>
+#include <../parse.hh>
+#include <../node/cv2_convert.hpp>
+#include <node/cv2.hpp>
+#include <node/cv2_util.hpp>
+
 //================================================================================
 // AKAZE (Generic)
 //================================================================================
@@ -1232,7 +1238,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_eb, eb, ArgInfo("eb", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->computeBitmaps(img, tb, eb));
-        return Py_BuildValue("(NN)", jsopencv_from(tb), jsopencv_from(eb));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(tb), jsopencv_from(eb));
     }
 
 
@@ -1255,7 +1261,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_eb, eb, ArgInfo("eb", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->computeBitmaps(img, tb, eb));
-        return Py_BuildValue("(NN)", jsopencv_from(tb), jsopencv_from(eb));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(tb), jsopencv_from(eb));
     }
 
 
@@ -1694,7 +1700,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_timeoutNs, timeoutNs, ArgInfo("timeoutNs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->get(dst, timeoutNs));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(dst));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(dst));
     }
 
 
@@ -1715,7 +1721,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_timeoutNs, timeoutNs, ArgInfo("timeoutNs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->get(dst, timeoutNs));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(dst));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(dst));
     }
 
 
@@ -4819,7 +4825,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
         jsopencv_to_safe(info, pyobj_maxSize, maxSize, ArgInfo("maxSize", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMultiScale(image, objects, numDetections, scaleFactor, minNeighbors, flags, minSize, maxSize));
-        return Py_BuildValue("(NN)", jsopencv_from(objects), jsopencv_from(numDetections));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(objects), jsopencv_from(numDetections));
     }
 
 
@@ -4853,7 +4859,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
         jsopencv_to_safe(info, pyobj_maxSize, maxSize, ArgInfo("maxSize", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMultiScale(image, objects, numDetections, scaleFactor, minNeighbors, flags, minSize, maxSize));
-        return Py_BuildValue("(NN)", jsopencv_from(objects), jsopencv_from(numDetections));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(objects), jsopencv_from(numDetections));
     }
 
 
@@ -4905,7 +4911,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
         jsopencv_to_safe(info, pyobj_outputRejectLevels, outputRejectLevels, ArgInfo("outputRejectLevels", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMultiScale(image, objects, rejectLevels, levelWeights, scaleFactor, minNeighbors, flags, minSize, maxSize, outputRejectLevels));
-        return Py_BuildValue("(NNN)", jsopencv_from(objects), jsopencv_from(rejectLevels), jsopencv_from(levelWeights));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(objects), jsopencv_from(rejectLevels), jsopencv_from(levelWeights));
     }
 
 
@@ -4943,7 +4949,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
         jsopencv_to_safe(info, pyobj_outputRejectLevels, outputRejectLevels, ArgInfo("outputRejectLevels", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMultiScale(image, objects, rejectLevels, levelWeights, scaleFactor, minNeighbors, flags, minSize, maxSize, outputRejectLevels));
-        return Py_BuildValue("(NNN)", jsopencv_from(objects), jsopencv_from(rejectLevels), jsopencv_from(levelWeights));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(objects), jsopencv_from(rejectLevels), jsopencv_from(levelWeights));
     }
 
 
@@ -5144,14 +5150,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_convexHullFactor(pyope
     return jsopencv_from(p->v.convexHullFactor);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_convexHullFactor(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_convexHullFactor(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the convexHullFactor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the convexHullFactor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.convexHullFactor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.convexHullFactor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_densityNeighborhoodSize(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5159,14 +5165,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_densityNeighborhoodSiz
     return jsopencv_from(p->v.densityNeighborhoodSize);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_densityNeighborhoodSize(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_densityNeighborhoodSize(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the densityNeighborhoodSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the densityNeighborhoodSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.densityNeighborhoodSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.densityNeighborhoodSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_edgeGain(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5174,14 +5180,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_edgeGain(pyopencv_Circ
     return jsopencv_from(p->v.edgeGain);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_edgeGain(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_edgeGain(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the edgeGain attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the edgeGain attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.edgeGain, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.edgeGain, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_edgePenalty(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5189,14 +5195,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_edgePenalty(pyopencv_C
     return jsopencv_from(p->v.edgePenalty);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_edgePenalty(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_edgePenalty(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the edgePenalty attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the edgePenalty attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.edgePenalty, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.edgePenalty, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_existingVertexGain(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5204,14 +5210,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_existingVertexGain(pyo
     return jsopencv_from(p->v.existingVertexGain);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_existingVertexGain(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_existingVertexGain(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the existingVertexGain attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the existingVertexGain attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.existingVertexGain, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.existingVertexGain, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_keypointScale(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5219,14 +5225,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_keypointScale(pyopencv
     return jsopencv_from(p->v.keypointScale);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_keypointScale(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_keypointScale(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the keypointScale attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the keypointScale attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.keypointScale, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.keypointScale, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_kmeansAttempts(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5234,14 +5240,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_kmeansAttempts(pyopenc
     return jsopencv_from(p->v.kmeansAttempts);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_kmeansAttempts(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_kmeansAttempts(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the kmeansAttempts attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the kmeansAttempts attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.kmeansAttempts, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.kmeansAttempts, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_maxRectifiedDistance(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5249,14 +5255,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_maxRectifiedDistance(p
     return jsopencv_from(p->v.maxRectifiedDistance);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_maxRectifiedDistance(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_maxRectifiedDistance(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxRectifiedDistance attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxRectifiedDistance attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxRectifiedDistance, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxRectifiedDistance, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_minDensity(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5264,14 +5270,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_minDensity(pyopencv_Ci
     return jsopencv_from(p->v.minDensity);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_minDensity(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_minDensity(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minDensity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minDensity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minDensity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minDensity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_minDistanceToAddKeypoint(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5279,14 +5285,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_minDistanceToAddKeypoi
     return jsopencv_from(p->v.minDistanceToAddKeypoint);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_minDistanceToAddKeypoint(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_minDistanceToAddKeypoint(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minDistanceToAddKeypoint attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minDistanceToAddKeypoint attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minDistanceToAddKeypoint, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minDistanceToAddKeypoint, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_minGraphConfidence(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5294,14 +5300,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_minGraphConfidence(pyo
     return jsopencv_from(p->v.minGraphConfidence);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_minGraphConfidence(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_minGraphConfidence(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minGraphConfidence attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minGraphConfidence attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minGraphConfidence, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minGraphConfidence, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_minRNGEdgeSwitchDist(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5309,14 +5315,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_minRNGEdgeSwitchDist(p
     return jsopencv_from(p->v.minRNGEdgeSwitchDist);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_minRNGEdgeSwitchDist(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_minRNGEdgeSwitchDist(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minRNGEdgeSwitchDist attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minRNGEdgeSwitchDist attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minRNGEdgeSwitchDist, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minRNGEdgeSwitchDist, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_squareSize(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5324,14 +5330,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_squareSize(pyopencv_Ci
     return jsopencv_from(p->v.squareSize);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_squareSize(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_squareSize(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the squareSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the squareSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.squareSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.squareSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_vertexGain(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5339,14 +5345,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_vertexGain(pyopencv_Ci
     return jsopencv_from(p->v.vertexGain);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_vertexGain(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_vertexGain(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the vertexGain attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the vertexGain attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.vertexGain, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.vertexGain, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_CirclesGridFinderParameters_get_vertexPenalty(pyopencv_CirclesGridFinderParameters_t* p, void *closure)
@@ -5354,14 +5360,14 @@ static PyObject* pyopencv_CirclesGridFinderParameters_get_vertexPenalty(pyopencv
     return jsopencv_from(p->v.vertexPenalty);
 }
 
-static int pyopencv_CirclesGridFinderParameters_set_vertexPenalty(pyopencv_CirclesGridFinderParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_CirclesGridFinderParameters_set_vertexPenalty(const Napi::CallbackInfo &info, pyopencv_CirclesGridFinderParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the vertexPenalty attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the vertexPenalty attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.vertexPenalty, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.vertexPenalty, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -5968,14 +5974,14 @@ static PyObject* pyopencv_DMatch_get_distance(pyopencv_DMatch_t* p, void *closur
     return jsopencv_from(p->v.distance);
 }
 
-static int pyopencv_DMatch_set_distance(pyopencv_DMatch_t* p, PyObject *value, void *closure)
+static int pyopencv_DMatch_set_distance(const Napi::CallbackInfo &info, pyopencv_DMatch_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the distance attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the distance attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.distance, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.distance, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_DMatch_get_imgIdx(pyopencv_DMatch_t* p, void *closure)
@@ -5983,14 +5989,14 @@ static PyObject* pyopencv_DMatch_get_imgIdx(pyopencv_DMatch_t* p, void *closure)
     return jsopencv_from(p->v.imgIdx);
 }
 
-static int pyopencv_DMatch_set_imgIdx(pyopencv_DMatch_t* p, PyObject *value, void *closure)
+static int pyopencv_DMatch_set_imgIdx(const Napi::CallbackInfo &info, pyopencv_DMatch_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the imgIdx attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the imgIdx attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.imgIdx, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.imgIdx, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_DMatch_get_queryIdx(pyopencv_DMatch_t* p, void *closure)
@@ -5998,14 +6004,14 @@ static PyObject* pyopencv_DMatch_get_queryIdx(pyopencv_DMatch_t* p, void *closur
     return jsopencv_from(p->v.queryIdx);
 }
 
-static int pyopencv_DMatch_set_queryIdx(pyopencv_DMatch_t* p, PyObject *value, void *closure)
+static int pyopencv_DMatch_set_queryIdx(const Napi::CallbackInfo &info, pyopencv_DMatch_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the queryIdx attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the queryIdx attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.queryIdx, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.queryIdx, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_DMatch_get_trainIdx(pyopencv_DMatch_t* p, void *closure)
@@ -6013,14 +6019,14 @@ static PyObject* pyopencv_DMatch_get_trainIdx(pyopencv_DMatch_t* p, void *closur
     return jsopencv_from(p->v.trainIdx);
 }
 
-static int pyopencv_DMatch_set_trainIdx(pyopencv_DMatch_t* p, PyObject *value, void *closure)
+static int pyopencv_DMatch_set_trainIdx(const Napi::CallbackInfo &info, pyopencv_DMatch_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the trainIdx attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the trainIdx attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.trainIdx, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.trainIdx, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -7083,7 +7089,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_faces, faces, ArgInfo("faces", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detect(image, faces));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(faces));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(faces));
     }
 
 
@@ -7104,7 +7110,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_faces, faces, ArgInfo("faces", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detect(image, faces));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(faces));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(faces));
     }
 
 
@@ -8314,7 +8320,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_descriptors, descriptors, ArgInfo("descriptors", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->compute(image, keypoints, descriptors));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
 
@@ -8337,7 +8343,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_descriptors, descriptors, ArgInfo("descriptors", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->compute(image, keypoints, descriptors));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
 
@@ -8360,7 +8366,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_descriptors, descriptors, ArgInfo("descriptors", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->compute(images, keypoints, descriptors));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
 
@@ -8383,7 +8389,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_descriptors, descriptors, ArgInfo("descriptors", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->compute(images, keypoints, descriptors));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
 
@@ -8582,7 +8588,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_useProvidedKeypoints, useProvidedKeypoints, ArgInfo("useProvidedKeypoints", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectAndCompute(image, mask, keypoints, descriptors, useProvidedKeypoints));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
 
@@ -8609,7 +8615,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_useProvidedKeypoints, useProvidedKeypoints, ArgInfo("useProvidedKeypoints", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectAndCompute(image, mask, keypoints, descriptors, useProvidedKeypoints));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
 
@@ -12230,7 +12236,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_votes, votes, ArgInfo("votes", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(image, positions, votes));
-        return Py_BuildValue("(NN)", jsopencv_from(positions), jsopencv_from(votes));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(positions), jsopencv_from(votes));
     }
 
 
@@ -12253,7 +12259,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_votes, votes, ArgInfo("votes", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(image, positions, votes));
-        return Py_BuildValue("(NN)", jsopencv_from(positions), jsopencv_from(votes));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(positions), jsopencv_from(votes));
     }
 
 
@@ -12282,7 +12288,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_votes, votes, ArgInfo("votes", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(edges, dx, dy, positions, votes));
-        return Py_BuildValue("(NN)", jsopencv_from(positions), jsopencv_from(votes));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(positions), jsopencv_from(votes));
     }
 
 
@@ -12311,7 +12317,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_votes, votes, ArgInfo("votes", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(edges, dx, dy, positions, votes));
-        return Py_BuildValue("(NN)", jsopencv_from(positions), jsopencv_from(votes));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(positions), jsopencv_from(votes));
     }
 
 
@@ -13712,7 +13718,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_paddingBR, paddingBR, ArgInfo("paddingBR", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->computeGradient(img, grad, angleOfs, paddingTL, paddingBR));
-        return Py_BuildValue("(NN)", jsopencv_from(grad), jsopencv_from(angleOfs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(grad), jsopencv_from(angleOfs));
     }
 
 
@@ -13741,7 +13747,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_paddingBR, paddingBR, ArgInfo("paddingBR", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->computeGradient(img, grad, angleOfs, paddingTL, paddingBR));
-        return Py_BuildValue("(NN)", jsopencv_from(grad), jsopencv_from(angleOfs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(grad), jsopencv_from(angleOfs));
     }
 
 
@@ -13786,7 +13792,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
         jsopencv_to_safe(info, pyobj_searchLocations, searchLocations, ArgInfo("searchLocations", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(img, foundLocations, weights, hitThreshold, winStride, padding, searchLocations));
-        return Py_BuildValue("(NN)", jsopencv_from(foundLocations), jsopencv_from(weights));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(foundLocations), jsopencv_from(weights));
     }
 
 
@@ -13817,7 +13823,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
         jsopencv_to_safe(info, pyobj_searchLocations, searchLocations, ArgInfo("searchLocations", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(img, foundLocations, weights, hitThreshold, winStride, padding, searchLocations));
-        return Py_BuildValue("(NN)", jsopencv_from(foundLocations), jsopencv_from(weights));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(foundLocations), jsopencv_from(weights));
     }
 
 
@@ -13868,7 +13874,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
         jsopencv_to_safe(info, pyobj_useMeanshiftGrouping, useMeanshiftGrouping, ArgInfo("useMeanshiftGrouping", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMultiScale(img, foundLocations, foundWeights, hitThreshold, winStride, padding, scale, groupThreshold, useMeanshiftGrouping));
-        return Py_BuildValue("(NN)", jsopencv_from(foundLocations), jsopencv_from(foundWeights));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(foundLocations), jsopencv_from(foundWeights));
     }
 
 
@@ -13905,7 +13911,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
         jsopencv_to_safe(info, pyobj_useMeanshiftGrouping, useMeanshiftGrouping, ArgInfo("useMeanshiftGrouping", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMultiScale(img, foundLocations, foundWeights, hitThreshold, winStride, padding, scale, groupThreshold, useMeanshiftGrouping));
-        return Py_BuildValue("(NN)", jsopencv_from(foundLocations), jsopencv_from(foundWeights));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(foundLocations), jsopencv_from(foundWeights));
     }
 
 
@@ -14540,14 +14546,14 @@ static PyObject* pyopencv_KalmanFilter_get_controlMatrix(pyopencv_KalmanFilter_t
     return jsopencv_from(p->v->controlMatrix);
 }
 
-static int pyopencv_KalmanFilter_set_controlMatrix(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_controlMatrix(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the controlMatrix attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the controlMatrix attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->controlMatrix, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->controlMatrix, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_errorCovPost(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14555,14 +14561,14 @@ static PyObject* pyopencv_KalmanFilter_get_errorCovPost(pyopencv_KalmanFilter_t*
     return jsopencv_from(p->v->errorCovPost);
 }
 
-static int pyopencv_KalmanFilter_set_errorCovPost(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_errorCovPost(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the errorCovPost attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the errorCovPost attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->errorCovPost, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->errorCovPost, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_errorCovPre(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14570,14 +14576,14 @@ static PyObject* pyopencv_KalmanFilter_get_errorCovPre(pyopencv_KalmanFilter_t* 
     return jsopencv_from(p->v->errorCovPre);
 }
 
-static int pyopencv_KalmanFilter_set_errorCovPre(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_errorCovPre(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the errorCovPre attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the errorCovPre attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->errorCovPre, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->errorCovPre, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_gain(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14585,14 +14591,14 @@ static PyObject* pyopencv_KalmanFilter_get_gain(pyopencv_KalmanFilter_t* p, void
     return jsopencv_from(p->v->gain);
 }
 
-static int pyopencv_KalmanFilter_set_gain(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_gain(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the gain attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the gain attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->gain, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->gain, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_measurementMatrix(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14600,14 +14606,14 @@ static PyObject* pyopencv_KalmanFilter_get_measurementMatrix(pyopencv_KalmanFilt
     return jsopencv_from(p->v->measurementMatrix);
 }
 
-static int pyopencv_KalmanFilter_set_measurementMatrix(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_measurementMatrix(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the measurementMatrix attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the measurementMatrix attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->measurementMatrix, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->measurementMatrix, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_measurementNoiseCov(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14615,14 +14621,14 @@ static PyObject* pyopencv_KalmanFilter_get_measurementNoiseCov(pyopencv_KalmanFi
     return jsopencv_from(p->v->measurementNoiseCov);
 }
 
-static int pyopencv_KalmanFilter_set_measurementNoiseCov(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_measurementNoiseCov(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the measurementNoiseCov attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the measurementNoiseCov attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->measurementNoiseCov, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->measurementNoiseCov, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_processNoiseCov(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14630,14 +14636,14 @@ static PyObject* pyopencv_KalmanFilter_get_processNoiseCov(pyopencv_KalmanFilter
     return jsopencv_from(p->v->processNoiseCov);
 }
 
-static int pyopencv_KalmanFilter_set_processNoiseCov(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_processNoiseCov(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the processNoiseCov attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the processNoiseCov attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->processNoiseCov, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->processNoiseCov, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_statePost(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14645,14 +14651,14 @@ static PyObject* pyopencv_KalmanFilter_get_statePost(pyopencv_KalmanFilter_t* p,
     return jsopencv_from(p->v->statePost);
 }
 
-static int pyopencv_KalmanFilter_set_statePost(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_statePost(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the statePost attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the statePost attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->statePost, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->statePost, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_statePre(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14660,14 +14666,14 @@ static PyObject* pyopencv_KalmanFilter_get_statePre(pyopencv_KalmanFilter_t* p, 
     return jsopencv_from(p->v->statePre);
 }
 
-static int pyopencv_KalmanFilter_set_statePre(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_statePre(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the statePre attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the statePre attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->statePre, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->statePre, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KalmanFilter_get_transitionMatrix(pyopencv_KalmanFilter_t* p, void *closure)
@@ -14675,14 +14681,14 @@ static PyObject* pyopencv_KalmanFilter_get_transitionMatrix(pyopencv_KalmanFilte
     return jsopencv_from(p->v->transitionMatrix);
 }
 
-static int pyopencv_KalmanFilter_set_transitionMatrix(pyopencv_KalmanFilter_t* p, PyObject *value, void *closure)
+static int pyopencv_KalmanFilter_set_transitionMatrix(const Napi::CallbackInfo &info, pyopencv_KalmanFilter_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the transitionMatrix attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the transitionMatrix attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->transitionMatrix, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->transitionMatrix, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -14850,14 +14856,14 @@ static PyObject* pyopencv_KeyPoint_get_angle(pyopencv_KeyPoint_t* p, void *closu
     return jsopencv_from(p->v.angle);
 }
 
-static int pyopencv_KeyPoint_set_angle(pyopencv_KeyPoint_t* p, PyObject *value, void *closure)
+static int pyopencv_KeyPoint_set_angle(const Napi::CallbackInfo &info, pyopencv_KeyPoint_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the angle attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the angle attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.angle, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.angle, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KeyPoint_get_class_id(pyopencv_KeyPoint_t* p, void *closure)
@@ -14865,14 +14871,14 @@ static PyObject* pyopencv_KeyPoint_get_class_id(pyopencv_KeyPoint_t* p, void *cl
     return jsopencv_from(p->v.class_id);
 }
 
-static int pyopencv_KeyPoint_set_class_id(pyopencv_KeyPoint_t* p, PyObject *value, void *closure)
+static int pyopencv_KeyPoint_set_class_id(const Napi::CallbackInfo &info, pyopencv_KeyPoint_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the class_id attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the class_id attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.class_id, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.class_id, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KeyPoint_get_octave(pyopencv_KeyPoint_t* p, void *closure)
@@ -14880,14 +14886,14 @@ static PyObject* pyopencv_KeyPoint_get_octave(pyopencv_KeyPoint_t* p, void *clos
     return jsopencv_from(p->v.octave);
 }
 
-static int pyopencv_KeyPoint_set_octave(pyopencv_KeyPoint_t* p, PyObject *value, void *closure)
+static int pyopencv_KeyPoint_set_octave(const Napi::CallbackInfo &info, pyopencv_KeyPoint_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the octave attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the octave attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.octave, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.octave, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KeyPoint_get_pt(pyopencv_KeyPoint_t* p, void *closure)
@@ -14895,14 +14901,14 @@ static PyObject* pyopencv_KeyPoint_get_pt(pyopencv_KeyPoint_t* p, void *closure)
     return jsopencv_from(p->v.pt);
 }
 
-static int pyopencv_KeyPoint_set_pt(pyopencv_KeyPoint_t* p, PyObject *value, void *closure)
+static int pyopencv_KeyPoint_set_pt(const Napi::CallbackInfo &info, pyopencv_KeyPoint_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the pt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the pt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.pt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.pt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KeyPoint_get_response(pyopencv_KeyPoint_t* p, void *closure)
@@ -14910,14 +14916,14 @@ static PyObject* pyopencv_KeyPoint_get_response(pyopencv_KeyPoint_t* p, void *cl
     return jsopencv_from(p->v.response);
 }
 
-static int pyopencv_KeyPoint_set_response(pyopencv_KeyPoint_t* p, PyObject *value, void *closure)
+static int pyopencv_KeyPoint_set_response(const Napi::CallbackInfo &info, pyopencv_KeyPoint_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the response attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the response attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.response, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.response, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_KeyPoint_get_size(pyopencv_KeyPoint_t* p, void *closure)
@@ -14925,14 +14931,14 @@ static PyObject* pyopencv_KeyPoint_get_size(pyopencv_KeyPoint_t* p, void *closur
     return jsopencv_from(p->v.size);
 }
 
-static int pyopencv_KeyPoint_set_size(pyopencv_KeyPoint_t* p, PyObject *value, void *closure)
+static int pyopencv_KeyPoint_set_size(const Napi::CallbackInfo &info, pyopencv_KeyPoint_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the size attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the size attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.size, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.size, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -15165,7 +15171,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compareSegments(size, lines1, lines2, image));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(image));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(image));
     }
 
 
@@ -15192,7 +15198,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compareSegments(size, lines1, lines2, image));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(image));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(image));
     }
 
 
@@ -15235,7 +15241,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_nfa, nfa, ArgInfo("nfa", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(image, lines, width, prec, nfa));
-        return Py_BuildValue("(NNNN)", jsopencv_from(lines), jsopencv_from(width), jsopencv_from(prec), jsopencv_from(nfa));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(lines), jsopencv_from(width), jsopencv_from(prec), jsopencv_from(nfa));
     }
 
 
@@ -15264,7 +15270,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_nfa, nfa, ArgInfo("nfa", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(image, lines, width, prec, nfa));
-        return Py_BuildValue("(NNNN)", jsopencv_from(lines), jsopencv_from(width), jsopencv_from(prec), jsopencv_from(nfa));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(lines), jsopencv_from(width), jsopencv_from(prec), jsopencv_from(nfa));
     }
 
 
@@ -15447,7 +15453,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectRegions(image, msers, bboxes));
-        return Py_BuildValue("(NN)", jsopencv_from(msers), jsopencv_from(bboxes));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(msers), jsopencv_from(bboxes));
     }
 
 
@@ -15466,7 +15472,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectRegions(image, msers, bboxes));
-        return Py_BuildValue("(NN)", jsopencv_from(msers), jsopencv_from(bboxes));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(msers), jsopencv_from(bboxes));
     }
 
 
@@ -17478,7 +17484,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decode(img, points, straight_qrcode));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17502,7 +17508,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decode(img, points, straight_qrcode));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17540,7 +17546,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decodeCurved(img, points, straight_qrcode));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17564,7 +17570,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decodeCurved(img, points, straight_qrcode));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17603,7 +17609,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decodeMulti(img, points, decoded_info, straight_qrcode));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17628,7 +17634,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decodeMulti(img, points, decoded_info, straight_qrcode));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17663,7 +17669,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detect(img, points));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(points));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(points));
     }
 
 
@@ -17684,7 +17690,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detect(img, points));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(points));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(points));
     }
 
 
@@ -17722,7 +17728,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecode(img, points, straight_qrcode));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17746,7 +17752,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecode(img, points, straight_qrcode));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17784,7 +17790,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecodeCurved(img, points, straight_qrcode));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17808,7 +17814,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecodeCurved(img, points, straight_qrcode));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(points), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17847,7 +17853,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecodeMulti(img, decoded_info, points, straight_qrcode));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(points), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(points), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17872,7 +17878,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
         jsopencv_to_safe(info, pyobj_straight_qrcode, straight_qrcode, ArgInfo("straight_qrcode", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecodeMulti(img, decoded_info, points, straight_qrcode));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(points), jsopencv_from(straight_qrcode));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(points), jsopencv_from(straight_qrcode));
     }
 
 
@@ -17907,7 +17913,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectMulti(img, points));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(points));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(points));
     }
 
 
@@ -17928,7 +17934,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectMulti(img, points));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(points));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(points));
     }
 
 
@@ -18251,14 +18257,14 @@ static PyObject* pyopencv_QRCodeEncoder_Params_get_correction_level(pyopencv_QRC
     return jsopencv_from(p->v.correction_level);
 }
 
-static int pyopencv_QRCodeEncoder_Params_set_correction_level(pyopencv_QRCodeEncoder_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_QRCodeEncoder_Params_set_correction_level(const Napi::CallbackInfo &info, pyopencv_QRCodeEncoder_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the correction_level attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the correction_level attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.correction_level, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.correction_level, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_QRCodeEncoder_Params_get_mode(pyopencv_QRCodeEncoder_Params_t* p, void *closure)
@@ -18266,14 +18272,14 @@ static PyObject* pyopencv_QRCodeEncoder_Params_get_mode(pyopencv_QRCodeEncoder_P
     return jsopencv_from(p->v.mode);
 }
 
-static int pyopencv_QRCodeEncoder_Params_set_mode(pyopencv_QRCodeEncoder_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_QRCodeEncoder_Params_set_mode(const Napi::CallbackInfo &info, pyopencv_QRCodeEncoder_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the mode attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the mode attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.mode, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.mode, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_QRCodeEncoder_Params_get_structure_number(pyopencv_QRCodeEncoder_Params_t* p, void *closure)
@@ -18281,14 +18287,14 @@ static PyObject* pyopencv_QRCodeEncoder_Params_get_structure_number(pyopencv_QRC
     return jsopencv_from(p->v.structure_number);
 }
 
-static int pyopencv_QRCodeEncoder_Params_set_structure_number(pyopencv_QRCodeEncoder_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_QRCodeEncoder_Params_set_structure_number(const Napi::CallbackInfo &info, pyopencv_QRCodeEncoder_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the structure_number attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the structure_number attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.structure_number, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.structure_number, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_QRCodeEncoder_Params_get_version(pyopencv_QRCodeEncoder_Params_t* p, void *closure)
@@ -18296,14 +18302,14 @@ static PyObject* pyopencv_QRCodeEncoder_Params_get_version(pyopencv_QRCodeEncode
     return jsopencv_from(p->v.version);
 }
 
-static int pyopencv_QRCodeEncoder_Params_set_version(pyopencv_QRCodeEncoder_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_QRCodeEncoder_Params_set_version(const Napi::CallbackInfo &info, pyopencv_QRCodeEncoder_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the version attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the version attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.version, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.version, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -18905,14 +18911,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_blobColor(pyopencv_Simpl
     return jsopencv_from(p->v.blobColor);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_blobColor(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_blobColor(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the blobColor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the blobColor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.blobColor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.blobColor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_collectContours(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -18920,14 +18926,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_collectContours(pyopencv
     return jsopencv_from(p->v.collectContours);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_collectContours(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_collectContours(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the collectContours attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the collectContours attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.collectContours, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.collectContours, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByArea(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -18935,14 +18941,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByArea(pyopencv_Si
     return jsopencv_from(p->v.filterByArea);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_filterByArea(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_filterByArea(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the filterByArea attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the filterByArea attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.filterByArea, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.filterByArea, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByCircularity(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -18950,14 +18956,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByCircularity(pyop
     return jsopencv_from(p->v.filterByCircularity);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_filterByCircularity(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_filterByCircularity(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the filterByCircularity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the filterByCircularity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.filterByCircularity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.filterByCircularity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByColor(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -18965,14 +18971,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByColor(pyopencv_S
     return jsopencv_from(p->v.filterByColor);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_filterByColor(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_filterByColor(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the filterByColor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the filterByColor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.filterByColor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.filterByColor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByConvexity(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -18980,14 +18986,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByConvexity(pyopen
     return jsopencv_from(p->v.filterByConvexity);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_filterByConvexity(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_filterByConvexity(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the filterByConvexity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the filterByConvexity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.filterByConvexity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.filterByConvexity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByInertia(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -18995,14 +19001,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_filterByInertia(pyopencv
     return jsopencv_from(p->v.filterByInertia);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_filterByInertia(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_filterByInertia(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the filterByInertia attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the filterByInertia attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.filterByInertia, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.filterByInertia, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxArea(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19010,14 +19016,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxArea(pyopencv_SimpleB
     return jsopencv_from(p->v.maxArea);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_maxArea(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_maxArea(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxArea attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxArea attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxArea, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxArea, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxCircularity(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19025,14 +19031,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxCircularity(pyopencv_
     return jsopencv_from(p->v.maxCircularity);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_maxCircularity(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_maxCircularity(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxCircularity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxCircularity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxCircularity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxCircularity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxConvexity(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19040,14 +19046,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxConvexity(pyopencv_Si
     return jsopencv_from(p->v.maxConvexity);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_maxConvexity(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_maxConvexity(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxConvexity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxConvexity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxConvexity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxConvexity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxInertiaRatio(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19055,14 +19061,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxInertiaRatio(pyopencv
     return jsopencv_from(p->v.maxInertiaRatio);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_maxInertiaRatio(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_maxInertiaRatio(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxInertiaRatio attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxInertiaRatio attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxInertiaRatio, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxInertiaRatio, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxThreshold(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19070,14 +19076,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_maxThreshold(pyopencv_Si
     return jsopencv_from(p->v.maxThreshold);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_maxThreshold(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_maxThreshold(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxThreshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxThreshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxThreshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxThreshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minArea(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19085,14 +19091,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minArea(pyopencv_SimpleB
     return jsopencv_from(p->v.minArea);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minArea(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minArea(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minArea attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minArea attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minArea, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minArea, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minCircularity(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19100,14 +19106,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minCircularity(pyopencv_
     return jsopencv_from(p->v.minCircularity);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minCircularity(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minCircularity(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minCircularity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minCircularity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minCircularity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minCircularity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minConvexity(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19115,14 +19121,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minConvexity(pyopencv_Si
     return jsopencv_from(p->v.minConvexity);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minConvexity(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minConvexity(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minConvexity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minConvexity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minConvexity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minConvexity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minDistBetweenBlobs(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19130,14 +19136,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minDistBetweenBlobs(pyop
     return jsopencv_from(p->v.minDistBetweenBlobs);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minDistBetweenBlobs(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minDistBetweenBlobs(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minDistBetweenBlobs attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minDistBetweenBlobs attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minDistBetweenBlobs, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minDistBetweenBlobs, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minInertiaRatio(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19145,14 +19151,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minInertiaRatio(pyopencv
     return jsopencv_from(p->v.minInertiaRatio);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minInertiaRatio(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minInertiaRatio(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minInertiaRatio attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minInertiaRatio attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minInertiaRatio, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minInertiaRatio, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minRepeatability(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19160,14 +19166,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minRepeatability(pyopenc
     return jsopencv_from(p->v.minRepeatability);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minRepeatability(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minRepeatability(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minRepeatability attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minRepeatability attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minRepeatability, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minRepeatability, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_minThreshold(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19175,14 +19181,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_minThreshold(pyopencv_Si
     return jsopencv_from(p->v.minThreshold);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_minThreshold(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_minThreshold(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minThreshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minThreshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minThreshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minThreshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_SimpleBlobDetector_Params_get_thresholdStep(pyopencv_SimpleBlobDetector_Params_t* p, void *closure)
@@ -19190,14 +19196,14 @@ static PyObject* pyopencv_SimpleBlobDetector_Params_get_thresholdStep(pyopencv_S
     return jsopencv_from(p->v.thresholdStep);
 }
 
-static int pyopencv_SimpleBlobDetector_Params_set_thresholdStep(pyopencv_SimpleBlobDetector_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_SimpleBlobDetector_Params_set_thresholdStep(const Napi::CallbackInfo &info, pyopencv_SimpleBlobDetector_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the thresholdStep attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the thresholdStep attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.thresholdStep, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.thresholdStep, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -19322,7 +19328,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
         jsopencv_to_safe(info, pyobj_err, err, ArgInfo("err", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->calc(prevImg, nextImg, prevPts, nextPts, status, err));
-        return Py_BuildValue("(NNN)", jsopencv_from(nextPts), jsopencv_from(status), jsopencv_from(err));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(nextPts), jsopencv_from(status), jsopencv_from(err));
     }
 
 
@@ -19354,7 +19360,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
         jsopencv_to_safe(info, pyobj_err, err, ArgInfo("err", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->calc(prevImg, nextImg, prevPts, nextPts, status, err));
-        return Py_BuildValue("(NNN)", jsopencv_from(nextPts), jsopencv_from(status), jsopencv_from(err));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(nextPts), jsopencv_from(status), jsopencv_from(err));
     }
 
 
@@ -20922,7 +20928,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_edgeDst(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_edge, edge, ArgInfo("edge", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->edgeDst(edge, &dstpt));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(dstpt));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(dstpt));
     }
 
     return info.Env().Null();
@@ -20947,7 +20953,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_edgeOrg(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_edge, edge, ArgInfo("edge", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->edgeOrg(edge, &orgpt));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(orgpt));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(orgpt));
     }
 
     return info.Env().Null();
@@ -20972,7 +20978,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_findNearest(const Napi::CallbackInfo &in
         jsopencv_to_safe(info, pyobj_pt, pt, ArgInfo("pt", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->findNearest(pt, &nearestPt));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(nearestPt));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(nearestPt));
     }
 
     return info.Env().Null();
@@ -21084,7 +21090,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getVertex(const Napi::CallbackInfo &info
         jsopencv_to_safe(info, pyobj_vertex, vertex, ArgInfo("vertex", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->getVertex(vertex, &firstEdge));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(firstEdge));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(firstEdge));
     }
 
     return info.Env().Null();
@@ -21109,7 +21115,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getVoronoiFacetList(const Napi::Callback
         jsopencv_to_safe(info, pyobj_idx, idx, ArgInfo("idx", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->getVoronoiFacetList(idx, facetList, facetCenters));
-        return Py_BuildValue("(NN)", jsopencv_from(facetList), jsopencv_from(facetCenters));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(facetList), jsopencv_from(facetCenters));
     }
 
     return info.Env().Null();
@@ -21207,7 +21213,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_locate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_pt, pt, ArgInfo("pt", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->locate(pt, edge, vertex));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(edge), jsopencv_from(vertex));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(edge), jsopencv_from(vertex));
     }
 
     return info.Env().Null();
@@ -22337,7 +22343,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->update(image, boundingBox));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
     }
 
 
@@ -22356,7 +22362,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->update(image, boundingBox));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
     }
 
 
@@ -22540,14 +22546,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_admm_iterations(pyopencv_Tracke
     return jsopencv_from(p->v.admm_iterations);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_admm_iterations(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_admm_iterations(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the admm_iterations attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the admm_iterations attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.admm_iterations, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.admm_iterations, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_background_ratio(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22555,14 +22561,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_background_ratio(pyopencv_Track
     return jsopencv_from(p->v.background_ratio);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_background_ratio(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_background_ratio(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the background_ratio attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the background_ratio attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.background_ratio, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.background_ratio, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_cheb_attenuation(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22570,14 +22576,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_cheb_attenuation(pyopencv_Track
     return jsopencv_from(p->v.cheb_attenuation);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_cheb_attenuation(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_cheb_attenuation(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cheb_attenuation attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cheb_attenuation attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cheb_attenuation, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cheb_attenuation, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_filter_lr(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22585,14 +22591,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_filter_lr(pyopencv_TrackerCSRT_
     return jsopencv_from(p->v.filter_lr);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_filter_lr(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_filter_lr(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the filter_lr attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the filter_lr attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.filter_lr, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.filter_lr, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_gsl_sigma(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22600,14 +22606,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_gsl_sigma(pyopencv_TrackerCSRT_
     return jsopencv_from(p->v.gsl_sigma);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_gsl_sigma(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_gsl_sigma(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the gsl_sigma attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the gsl_sigma attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.gsl_sigma, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.gsl_sigma, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_histogram_bins(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22615,14 +22621,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_histogram_bins(pyopencv_Tracker
     return jsopencv_from(p->v.histogram_bins);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_histogram_bins(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_histogram_bins(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the histogram_bins attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the histogram_bins attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.histogram_bins, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.histogram_bins, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_histogram_lr(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22630,14 +22636,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_histogram_lr(pyopencv_TrackerCS
     return jsopencv_from(p->v.histogram_lr);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_histogram_lr(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_histogram_lr(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the histogram_lr attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the histogram_lr attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.histogram_lr, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.histogram_lr, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_hog_clip(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22645,14 +22651,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_hog_clip(pyopencv_TrackerCSRT_P
     return jsopencv_from(p->v.hog_clip);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_hog_clip(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_hog_clip(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the hog_clip attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the hog_clip attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.hog_clip, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.hog_clip, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_hog_orientations(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22660,14 +22666,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_hog_orientations(pyopencv_Track
     return jsopencv_from(p->v.hog_orientations);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_hog_orientations(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_hog_orientations(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the hog_orientations attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the hog_orientations attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.hog_orientations, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.hog_orientations, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_kaiser_alpha(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22675,14 +22681,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_kaiser_alpha(pyopencv_TrackerCS
     return jsopencv_from(p->v.kaiser_alpha);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_kaiser_alpha(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_kaiser_alpha(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the kaiser_alpha attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the kaiser_alpha attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.kaiser_alpha, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.kaiser_alpha, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_num_hog_channels_used(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22690,14 +22696,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_num_hog_channels_used(pyopencv_
     return jsopencv_from(p->v.num_hog_channels_used);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_num_hog_channels_used(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_num_hog_channels_used(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the num_hog_channels_used attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the num_hog_channels_used attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.num_hog_channels_used, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.num_hog_channels_used, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_number_of_scales(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22705,14 +22711,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_number_of_scales(pyopencv_Track
     return jsopencv_from(p->v.number_of_scales);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_number_of_scales(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_number_of_scales(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the number_of_scales attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the number_of_scales attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.number_of_scales, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.number_of_scales, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_padding(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22720,14 +22726,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_padding(pyopencv_TrackerCSRT_Pa
     return jsopencv_from(p->v.padding);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_padding(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_padding(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the padding attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the padding attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.padding, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.padding, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_psr_threshold(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22735,14 +22741,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_psr_threshold(pyopencv_TrackerC
     return jsopencv_from(p->v.psr_threshold);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_psr_threshold(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_psr_threshold(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the psr_threshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the psr_threshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.psr_threshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.psr_threshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_scale_lr(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22750,14 +22756,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_scale_lr(pyopencv_TrackerCSRT_P
     return jsopencv_from(p->v.scale_lr);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_scale_lr(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_scale_lr(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the scale_lr attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the scale_lr attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.scale_lr, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.scale_lr, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_scale_model_max_area(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22765,14 +22771,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_scale_model_max_area(pyopencv_T
     return jsopencv_from(p->v.scale_model_max_area);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_scale_model_max_area(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_scale_model_max_area(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the scale_model_max_area attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the scale_model_max_area attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.scale_model_max_area, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.scale_model_max_area, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_scale_sigma_factor(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22780,14 +22786,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_scale_sigma_factor(pyopencv_Tra
     return jsopencv_from(p->v.scale_sigma_factor);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_scale_sigma_factor(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_scale_sigma_factor(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the scale_sigma_factor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the scale_sigma_factor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.scale_sigma_factor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.scale_sigma_factor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_scale_step(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22795,14 +22801,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_scale_step(pyopencv_TrackerCSRT
     return jsopencv_from(p->v.scale_step);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_scale_step(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_scale_step(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the scale_step attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the scale_step attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.scale_step, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.scale_step, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_template_size(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22810,14 +22816,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_template_size(pyopencv_TrackerC
     return jsopencv_from(p->v.template_size);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_template_size(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_template_size(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the template_size attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the template_size attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.template_size, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.template_size, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_use_channel_weights(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22825,14 +22831,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_use_channel_weights(pyopencv_Tr
     return jsopencv_from(p->v.use_channel_weights);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_use_channel_weights(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_use_channel_weights(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the use_channel_weights attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the use_channel_weights attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.use_channel_weights, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.use_channel_weights, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_use_color_names(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22840,14 +22846,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_use_color_names(pyopencv_Tracke
     return jsopencv_from(p->v.use_color_names);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_use_color_names(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_use_color_names(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the use_color_names attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the use_color_names attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.use_color_names, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.use_color_names, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_use_gray(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22855,14 +22861,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_use_gray(pyopencv_TrackerCSRT_P
     return jsopencv_from(p->v.use_gray);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_use_gray(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_use_gray(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the use_gray attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the use_gray attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.use_gray, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.use_gray, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_use_hog(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22870,14 +22876,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_use_hog(pyopencv_TrackerCSRT_Pa
     return jsopencv_from(p->v.use_hog);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_use_hog(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_use_hog(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the use_hog attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the use_hog attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.use_hog, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.use_hog, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_use_rgb(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22885,14 +22891,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_use_rgb(pyopencv_TrackerCSRT_Pa
     return jsopencv_from(p->v.use_rgb);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_use_rgb(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_use_rgb(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the use_rgb attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the use_rgb attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.use_rgb, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.use_rgb, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_use_segmentation(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22900,14 +22906,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_use_segmentation(pyopencv_Track
     return jsopencv_from(p->v.use_segmentation);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_use_segmentation(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_use_segmentation(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the use_segmentation attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the use_segmentation attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.use_segmentation, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.use_segmentation, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_weights_lr(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22915,14 +22921,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_weights_lr(pyopencv_TrackerCSRT
     return jsopencv_from(p->v.weights_lr);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_weights_lr(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_weights_lr(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the weights_lr attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the weights_lr attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.weights_lr, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.weights_lr, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerCSRT_Params_get_window_function(pyopencv_TrackerCSRT_Params_t* p, void *closure)
@@ -22930,14 +22936,14 @@ static PyObject* pyopencv_TrackerCSRT_Params_get_window_function(pyopencv_Tracke
     return jsopencv_from(p->v.window_function);
 }
 
-static int pyopencv_TrackerCSRT_Params_set_window_function(pyopencv_TrackerCSRT_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerCSRT_Params_set_window_function(const Napi::CallbackInfo &info, pyopencv_TrackerCSRT_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the window_function attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the window_function attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.window_function, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.window_function, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -23127,14 +23133,14 @@ static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_backend(pyopencv_TrackerDa
     return jsopencv_from(p->v.backend);
 }
 
-static int pyopencv_TrackerDaSiamRPN_Params_set_backend(pyopencv_TrackerDaSiamRPN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerDaSiamRPN_Params_set_backend(const Napi::CallbackInfo &info, pyopencv_TrackerDaSiamRPN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the backend attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the backend attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.backend, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.backend, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_kernel_cls1(pyopencv_TrackerDaSiamRPN_Params_t* p, void *closure)
@@ -23142,14 +23148,14 @@ static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_kernel_cls1(pyopencv_Track
     return jsopencv_from(p->v.kernel_cls1);
 }
 
-static int pyopencv_TrackerDaSiamRPN_Params_set_kernel_cls1(pyopencv_TrackerDaSiamRPN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerDaSiamRPN_Params_set_kernel_cls1(const Napi::CallbackInfo &info, pyopencv_TrackerDaSiamRPN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the kernel_cls1 attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the kernel_cls1 attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.kernel_cls1, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.kernel_cls1, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_kernel_r1(pyopencv_TrackerDaSiamRPN_Params_t* p, void *closure)
@@ -23157,14 +23163,14 @@ static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_kernel_r1(pyopencv_Tracker
     return jsopencv_from(p->v.kernel_r1);
 }
 
-static int pyopencv_TrackerDaSiamRPN_Params_set_kernel_r1(pyopencv_TrackerDaSiamRPN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerDaSiamRPN_Params_set_kernel_r1(const Napi::CallbackInfo &info, pyopencv_TrackerDaSiamRPN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the kernel_r1 attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the kernel_r1 attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.kernel_r1, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.kernel_r1, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_model(pyopencv_TrackerDaSiamRPN_Params_t* p, void *closure)
@@ -23172,14 +23178,14 @@ static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_model(pyopencv_TrackerDaSi
     return jsopencv_from(p->v.model);
 }
 
-static int pyopencv_TrackerDaSiamRPN_Params_set_model(pyopencv_TrackerDaSiamRPN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerDaSiamRPN_Params_set_model(const Napi::CallbackInfo &info, pyopencv_TrackerDaSiamRPN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the model attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the model attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.model, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.model, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_target(pyopencv_TrackerDaSiamRPN_Params_t* p, void *closure)
@@ -23187,14 +23193,14 @@ static PyObject* pyopencv_TrackerDaSiamRPN_Params_get_target(pyopencv_TrackerDaS
     return jsopencv_from(p->v.target);
 }
 
-static int pyopencv_TrackerDaSiamRPN_Params_set_target(pyopencv_TrackerDaSiamRPN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerDaSiamRPN_Params_set_target(const Napi::CallbackInfo &info, pyopencv_TrackerDaSiamRPN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the target attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the target attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.target, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.target, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -23341,14 +23347,14 @@ static PyObject* pyopencv_TrackerGOTURN_Params_get_modelBin(pyopencv_TrackerGOTU
     return jsopencv_from(p->v.modelBin);
 }
 
-static int pyopencv_TrackerGOTURN_Params_set_modelBin(pyopencv_TrackerGOTURN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerGOTURN_Params_set_modelBin(const Napi::CallbackInfo &info, pyopencv_TrackerGOTURN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the modelBin attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the modelBin attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.modelBin, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.modelBin, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerGOTURN_Params_get_modelTxt(pyopencv_TrackerGOTURN_Params_t* p, void *closure)
@@ -23356,14 +23362,14 @@ static PyObject* pyopencv_TrackerGOTURN_Params_get_modelTxt(pyopencv_TrackerGOTU
     return jsopencv_from(p->v.modelTxt);
 }
 
-static int pyopencv_TrackerGOTURN_Params_set_modelTxt(pyopencv_TrackerGOTURN_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerGOTURN_Params_set_modelTxt(const Napi::CallbackInfo &info, pyopencv_TrackerGOTURN_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the modelTxt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the modelTxt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.modelTxt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.modelTxt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -23507,14 +23513,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_compress_feature(pyopencv_Tracke
     return jsopencv_from(p->v.compress_feature);
 }
 
-static int pyopencv_TrackerKCF_Params_set_compress_feature(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_compress_feature(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the compress_feature attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the compress_feature attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.compress_feature, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.compress_feature, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_compressed_size(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23522,14 +23528,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_compressed_size(pyopencv_Tracker
     return jsopencv_from(p->v.compressed_size);
 }
 
-static int pyopencv_TrackerKCF_Params_set_compressed_size(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_compressed_size(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the compressed_size attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the compressed_size attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.compressed_size, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.compressed_size, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_desc_npca(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23537,14 +23543,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_desc_npca(pyopencv_TrackerKCF_Pa
     return jsopencv_from(p->v.desc_npca);
 }
 
-static int pyopencv_TrackerKCF_Params_set_desc_npca(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_desc_npca(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the desc_npca attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the desc_npca attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.desc_npca, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.desc_npca, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_desc_pca(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23552,14 +23558,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_desc_pca(pyopencv_TrackerKCF_Par
     return jsopencv_from(p->v.desc_pca);
 }
 
-static int pyopencv_TrackerKCF_Params_set_desc_pca(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_desc_pca(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the desc_pca attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the desc_pca attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.desc_pca, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.desc_pca, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_detect_thresh(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23567,14 +23573,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_detect_thresh(pyopencv_TrackerKC
     return jsopencv_from(p->v.detect_thresh);
 }
 
-static int pyopencv_TrackerKCF_Params_set_detect_thresh(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_detect_thresh(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the detect_thresh attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the detect_thresh attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.detect_thresh, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.detect_thresh, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_interp_factor(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23582,14 +23588,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_interp_factor(pyopencv_TrackerKC
     return jsopencv_from(p->v.interp_factor);
 }
 
-static int pyopencv_TrackerKCF_Params_set_interp_factor(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_interp_factor(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the interp_factor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the interp_factor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.interp_factor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.interp_factor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_lambda(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23597,14 +23603,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_lambda(pyopencv_TrackerKCF_Param
     return jsopencv_from(p->v.lambda);
 }
 
-static int pyopencv_TrackerKCF_Params_set_lambda(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_lambda(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lambda attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lambda attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lambda, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lambda, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_max_patch_size(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23612,14 +23618,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_max_patch_size(pyopencv_TrackerK
     return jsopencv_from(p->v.max_patch_size);
 }
 
-static int pyopencv_TrackerKCF_Params_set_max_patch_size(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_max_patch_size(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the max_patch_size attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the max_patch_size attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.max_patch_size, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.max_patch_size, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_output_sigma_factor(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23627,14 +23633,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_output_sigma_factor(pyopencv_Tra
     return jsopencv_from(p->v.output_sigma_factor);
 }
 
-static int pyopencv_TrackerKCF_Params_set_output_sigma_factor(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_output_sigma_factor(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the output_sigma_factor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the output_sigma_factor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.output_sigma_factor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.output_sigma_factor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_pca_learning_rate(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23642,14 +23648,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_pca_learning_rate(pyopencv_Track
     return jsopencv_from(p->v.pca_learning_rate);
 }
 
-static int pyopencv_TrackerKCF_Params_set_pca_learning_rate(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_pca_learning_rate(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the pca_learning_rate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the pca_learning_rate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.pca_learning_rate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.pca_learning_rate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_resize(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23657,14 +23663,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_resize(pyopencv_TrackerKCF_Param
     return jsopencv_from(p->v.resize);
 }
 
-static int pyopencv_TrackerKCF_Params_set_resize(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_resize(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the resize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the resize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.resize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.resize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_sigma(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23672,14 +23678,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_sigma(pyopencv_TrackerKCF_Params
     return jsopencv_from(p->v.sigma);
 }
 
-static int pyopencv_TrackerKCF_Params_set_sigma(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_sigma(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the sigma attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the sigma attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.sigma, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.sigma, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_split_coeff(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23687,14 +23693,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_split_coeff(pyopencv_TrackerKCF_
     return jsopencv_from(p->v.split_coeff);
 }
 
-static int pyopencv_TrackerKCF_Params_set_split_coeff(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_split_coeff(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the split_coeff attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the split_coeff attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.split_coeff, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.split_coeff, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerKCF_Params_get_wrap_kernel(pyopencv_TrackerKCF_Params_t* p, void *closure)
@@ -23702,14 +23708,14 @@ static PyObject* pyopencv_TrackerKCF_Params_get_wrap_kernel(pyopencv_TrackerKCF_
     return jsopencv_from(p->v.wrap_kernel);
 }
 
-static int pyopencv_TrackerKCF_Params_set_wrap_kernel(pyopencv_TrackerKCF_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerKCF_Params_set_wrap_kernel(const Napi::CallbackInfo &info, pyopencv_TrackerKCF_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the wrap_kernel attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the wrap_kernel attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.wrap_kernel, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.wrap_kernel, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -23865,14 +23871,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_featureSetNumFeatures(pyopencv_T
     return jsopencv_from(p->v.featureSetNumFeatures);
 }
 
-static int pyopencv_TrackerMIL_Params_set_featureSetNumFeatures(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_featureSetNumFeatures(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the featureSetNumFeatures attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the featureSetNumFeatures attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.featureSetNumFeatures, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.featureSetNumFeatures, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerMIL_Params_get_samplerInitInRadius(pyopencv_TrackerMIL_Params_t* p, void *closure)
@@ -23880,14 +23886,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_samplerInitInRadius(pyopencv_Tra
     return jsopencv_from(p->v.samplerInitInRadius);
 }
 
-static int pyopencv_TrackerMIL_Params_set_samplerInitInRadius(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_samplerInitInRadius(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the samplerInitInRadius attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the samplerInitInRadius attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.samplerInitInRadius, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.samplerInitInRadius, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerMIL_Params_get_samplerInitMaxNegNum(pyopencv_TrackerMIL_Params_t* p, void *closure)
@@ -23895,14 +23901,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_samplerInitMaxNegNum(pyopencv_Tr
     return jsopencv_from(p->v.samplerInitMaxNegNum);
 }
 
-static int pyopencv_TrackerMIL_Params_set_samplerInitMaxNegNum(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_samplerInitMaxNegNum(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the samplerInitMaxNegNum attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the samplerInitMaxNegNum attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.samplerInitMaxNegNum, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.samplerInitMaxNegNum, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerMIL_Params_get_samplerSearchWinSize(pyopencv_TrackerMIL_Params_t* p, void *closure)
@@ -23910,14 +23916,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_samplerSearchWinSize(pyopencv_Tr
     return jsopencv_from(p->v.samplerSearchWinSize);
 }
 
-static int pyopencv_TrackerMIL_Params_set_samplerSearchWinSize(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_samplerSearchWinSize(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the samplerSearchWinSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the samplerSearchWinSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.samplerSearchWinSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.samplerSearchWinSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerMIL_Params_get_samplerTrackInRadius(pyopencv_TrackerMIL_Params_t* p, void *closure)
@@ -23925,14 +23931,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_samplerTrackInRadius(pyopencv_Tr
     return jsopencv_from(p->v.samplerTrackInRadius);
 }
 
-static int pyopencv_TrackerMIL_Params_set_samplerTrackInRadius(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_samplerTrackInRadius(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the samplerTrackInRadius attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the samplerTrackInRadius attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.samplerTrackInRadius, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.samplerTrackInRadius, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerMIL_Params_get_samplerTrackMaxNegNum(pyopencv_TrackerMIL_Params_t* p, void *closure)
@@ -23940,14 +23946,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_samplerTrackMaxNegNum(pyopencv_T
     return jsopencv_from(p->v.samplerTrackMaxNegNum);
 }
 
-static int pyopencv_TrackerMIL_Params_set_samplerTrackMaxNegNum(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_samplerTrackMaxNegNum(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the samplerTrackMaxNegNum attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the samplerTrackMaxNegNum attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.samplerTrackMaxNegNum, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.samplerTrackMaxNegNum, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerMIL_Params_get_samplerTrackMaxPosNum(pyopencv_TrackerMIL_Params_t* p, void *closure)
@@ -23955,14 +23961,14 @@ static PyObject* pyopencv_TrackerMIL_Params_get_samplerTrackMaxPosNum(pyopencv_T
     return jsopencv_from(p->v.samplerTrackMaxPosNum);
 }
 
-static int pyopencv_TrackerMIL_Params_set_samplerTrackMaxPosNum(pyopencv_TrackerMIL_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerMIL_Params_set_samplerTrackMaxPosNum(const Napi::CallbackInfo &info, pyopencv_TrackerMIL_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the samplerTrackMaxPosNum attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the samplerTrackMaxPosNum attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.samplerTrackMaxPosNum, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.samplerTrackMaxPosNum, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -24132,14 +24138,14 @@ static PyObject* pyopencv_TrackerNano_Params_get_backbone(pyopencv_TrackerNano_P
     return jsopencv_from(p->v.backbone);
 }
 
-static int pyopencv_TrackerNano_Params_set_backbone(pyopencv_TrackerNano_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerNano_Params_set_backbone(const Napi::CallbackInfo &info, pyopencv_TrackerNano_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the backbone attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the backbone attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.backbone, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.backbone, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerNano_Params_get_backend(pyopencv_TrackerNano_Params_t* p, void *closure)
@@ -24147,14 +24153,14 @@ static PyObject* pyopencv_TrackerNano_Params_get_backend(pyopencv_TrackerNano_Pa
     return jsopencv_from(p->v.backend);
 }
 
-static int pyopencv_TrackerNano_Params_set_backend(pyopencv_TrackerNano_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerNano_Params_set_backend(const Napi::CallbackInfo &info, pyopencv_TrackerNano_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the backend attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the backend attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.backend, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.backend, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerNano_Params_get_neckhead(pyopencv_TrackerNano_Params_t* p, void *closure)
@@ -24162,14 +24168,14 @@ static PyObject* pyopencv_TrackerNano_Params_get_neckhead(pyopencv_TrackerNano_P
     return jsopencv_from(p->v.neckhead);
 }
 
-static int pyopencv_TrackerNano_Params_set_neckhead(pyopencv_TrackerNano_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerNano_Params_set_neckhead(const Napi::CallbackInfo &info, pyopencv_TrackerNano_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the neckhead attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the neckhead attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.neckhead, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.neckhead, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_TrackerNano_Params_get_target(pyopencv_TrackerNano_Params_t* p, void *closure)
@@ -24177,14 +24183,14 @@ static PyObject* pyopencv_TrackerNano_Params_get_target(pyopencv_TrackerNano_Par
     return jsopencv_from(p->v.target);
 }
 
-static int pyopencv_TrackerNano_Params_set_target(pyopencv_TrackerNano_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_TrackerNano_Params_set_target(const Napi::CallbackInfo &info, pyopencv_TrackerNano_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the target attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the target attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.target, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.target, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -24260,14 +24266,14 @@ static PyObject* pyopencv_UMat_get_offset(pyopencv_UMat_t* p, void *closure)
     return jsopencv_from(p->v->offset);
 }
 
-static int pyopencv_UMat_set_offset(pyopencv_UMat_t* p, PyObject *value, void *closure)
+static int pyopencv_UMat_set_offset(const Napi::CallbackInfo &info, pyopencv_UMat_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the offset attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the offset attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->offset, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->offset, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -24673,14 +24679,14 @@ static PyObject* pyopencv_UsacParams_get_confidence(pyopencv_UsacParams_t* p, vo
     return jsopencv_from(p->v.confidence);
 }
 
-static int pyopencv_UsacParams_set_confidence(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_confidence(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the confidence attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the confidence attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.confidence, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.confidence, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_isParallel(pyopencv_UsacParams_t* p, void *closure)
@@ -24688,14 +24694,14 @@ static PyObject* pyopencv_UsacParams_get_isParallel(pyopencv_UsacParams_t* p, vo
     return jsopencv_from(p->v.isParallel);
 }
 
-static int pyopencv_UsacParams_set_isParallel(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_isParallel(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the isParallel attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the isParallel attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.isParallel, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.isParallel, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_loIterations(pyopencv_UsacParams_t* p, void *closure)
@@ -24703,14 +24709,14 @@ static PyObject* pyopencv_UsacParams_get_loIterations(pyopencv_UsacParams_t* p, 
     return jsopencv_from(p->v.loIterations);
 }
 
-static int pyopencv_UsacParams_set_loIterations(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_loIterations(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the loIterations attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the loIterations attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.loIterations, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.loIterations, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_loMethod(pyopencv_UsacParams_t* p, void *closure)
@@ -24718,14 +24724,14 @@ static PyObject* pyopencv_UsacParams_get_loMethod(pyopencv_UsacParams_t* p, void
     return jsopencv_from(p->v.loMethod);
 }
 
-static int pyopencv_UsacParams_set_loMethod(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_loMethod(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the loMethod attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the loMethod attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.loMethod, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.loMethod, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_loSampleSize(pyopencv_UsacParams_t* p, void *closure)
@@ -24733,14 +24739,14 @@ static PyObject* pyopencv_UsacParams_get_loSampleSize(pyopencv_UsacParams_t* p, 
     return jsopencv_from(p->v.loSampleSize);
 }
 
-static int pyopencv_UsacParams_set_loSampleSize(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_loSampleSize(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the loSampleSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the loSampleSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.loSampleSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.loSampleSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_maxIterations(pyopencv_UsacParams_t* p, void *closure)
@@ -24748,14 +24754,14 @@ static PyObject* pyopencv_UsacParams_get_maxIterations(pyopencv_UsacParams_t* p,
     return jsopencv_from(p->v.maxIterations);
 }
 
-static int pyopencv_UsacParams_set_maxIterations(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_maxIterations(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxIterations attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxIterations attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxIterations, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxIterations, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_neighborsSearch(pyopencv_UsacParams_t* p, void *closure)
@@ -24763,14 +24769,14 @@ static PyObject* pyopencv_UsacParams_get_neighborsSearch(pyopencv_UsacParams_t* 
     return jsopencv_from(p->v.neighborsSearch);
 }
 
-static int pyopencv_UsacParams_set_neighborsSearch(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_neighborsSearch(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the neighborsSearch attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the neighborsSearch attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.neighborsSearch, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.neighborsSearch, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_randomGeneratorState(pyopencv_UsacParams_t* p, void *closure)
@@ -24778,14 +24784,14 @@ static PyObject* pyopencv_UsacParams_get_randomGeneratorState(pyopencv_UsacParam
     return jsopencv_from(p->v.randomGeneratorState);
 }
 
-static int pyopencv_UsacParams_set_randomGeneratorState(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_randomGeneratorState(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the randomGeneratorState attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the randomGeneratorState attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.randomGeneratorState, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.randomGeneratorState, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_sampler(pyopencv_UsacParams_t* p, void *closure)
@@ -24793,14 +24799,14 @@ static PyObject* pyopencv_UsacParams_get_sampler(pyopencv_UsacParams_t* p, void 
     return jsopencv_from(p->v.sampler);
 }
 
-static int pyopencv_UsacParams_set_sampler(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_sampler(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the sampler attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the sampler attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.sampler, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.sampler, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_score(pyopencv_UsacParams_t* p, void *closure)
@@ -24808,14 +24814,14 @@ static PyObject* pyopencv_UsacParams_get_score(pyopencv_UsacParams_t* p, void *c
     return jsopencv_from(p->v.score);
 }
 
-static int pyopencv_UsacParams_set_score(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_score(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the score attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the score attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.score, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.score, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_UsacParams_get_threshold(pyopencv_UsacParams_t* p, void *closure)
@@ -24823,14 +24829,14 @@ static PyObject* pyopencv_UsacParams_get_threshold(pyopencv_UsacParams_t* p, voi
     return jsopencv_from(p->v.threshold);
 }
 
-static int pyopencv_UsacParams_set_threshold(pyopencv_UsacParams_t* p, PyObject *value, void *closure)
+static int pyopencv_UsacParams_set_threshold(const Napi::CallbackInfo &info, pyopencv_UsacParams_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the threshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the threshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.threshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.threshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -24940,7 +24946,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
         jsopencv_to_safe(info, pyobj_flow_v, flow_v, ArgInfo("flow_v", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->calcUV(I0, I1, flow_u, flow_v));
-        return Py_BuildValue("(NN)", jsopencv_from(flow_u), jsopencv_from(flow_v));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(flow_u), jsopencv_from(flow_v));
     }
 
 
@@ -24966,7 +24972,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
         jsopencv_to_safe(info, pyobj_flow_v, flow_v, ArgInfo("flow_v", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->calcUV(I0, I1, flow_u, flow_v));
-        return Py_BuildValue("(NN)", jsopencv_from(flow_u), jsopencv_from(flow_v));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(flow_u), jsopencv_from(flow_v));
     }
 
 
@@ -25656,7 +25662,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->read(image));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(image));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(image));
     }
 
 
@@ -25674,7 +25680,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->read(image));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(image));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(image));
     }
 
 
@@ -25728,7 +25734,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->retrieve(image, flag));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(image));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(image));
     }
 
 
@@ -25749,7 +25755,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
         jsopencv_to_safe(info, pyobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->retrieve(image, flag));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(image));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(image));
     }
 
 
@@ -25827,7 +25833,7 @@ static Napi::Value pyopencv_cv_VideoCapture_waitAny_static(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_timeoutNs, timeoutNs, ArgInfo("timeoutNs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::VideoCapture::waitAny(streams, readyIndex, timeoutNs));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(readyIndex));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(readyIndex));
     }
 
     return info.Env().Null();
@@ -26482,7 +26488,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
         jsopencv_to_safe(info, pyobj_rejectedImgPoints, rejectedImgPoints, ArgInfo("rejectedImgPoints", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMarkers(image, corners, ids, rejectedImgPoints));
-        return Py_BuildValue("(NNN)", jsopencv_from(corners), jsopencv_from(ids), jsopencv_from(rejectedImgPoints));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(corners), jsopencv_from(ids), jsopencv_from(rejectedImgPoints));
     }
 
 
@@ -26508,7 +26514,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
         jsopencv_to_safe(info, pyobj_rejectedImgPoints, rejectedImgPoints, ArgInfo("rejectedImgPoints", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detectMarkers(image, corners, ids, rejectedImgPoints));
-        return Py_BuildValue("(NNN)", jsopencv_from(corners), jsopencv_from(ids), jsopencv_from(rejectedImgPoints));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(corners), jsopencv_from(ids), jsopencv_from(rejectedImgPoints));
     }
 
 
@@ -26643,7 +26649,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
         jsopencv_to_safe(info, pyobj_recoveredIdxs, recoveredIdxs, ArgInfo("recoveredIdxs", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->refineDetectedMarkers(image, board, detectedCorners, detectedIds, rejectedCorners, cameraMatrix, distCoeffs, recoveredIdxs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(detectedCorners), jsopencv_from(detectedIds), jsopencv_from(rejectedCorners), jsopencv_from(recoveredIdxs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(detectedCorners), jsopencv_from(detectedIds), jsopencv_from(rejectedCorners), jsopencv_from(recoveredIdxs));
     }
 
 
@@ -26681,7 +26687,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
         jsopencv_to_safe(info, pyobj_recoveredIdxs, recoveredIdxs, ArgInfo("recoveredIdxs", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->refineDetectedMarkers(image, board, detectedCorners, detectedIds, rejectedCorners, cameraMatrix, distCoeffs, recoveredIdxs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(detectedCorners), jsopencv_from(detectedIds), jsopencv_from(rejectedCorners), jsopencv_from(recoveredIdxs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(detectedCorners), jsopencv_from(detectedIds), jsopencv_from(rejectedCorners), jsopencv_from(recoveredIdxs));
     }
 
 
@@ -27077,7 +27083,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
         jsopencv_to_safe(info, pyobj_imgPoints, imgPoints, ArgInfo("imgPoints", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->matchImagePoints(detectedCorners, detectedIds, objPoints, imgPoints));
-        return Py_BuildValue("(NN)", jsopencv_from(objPoints), jsopencv_from(imgPoints));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(objPoints), jsopencv_from(imgPoints));
     }
 
 
@@ -27103,7 +27109,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
         jsopencv_to_safe(info, pyobj_imgPoints, imgPoints, ArgInfo("imgPoints", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->matchImagePoints(detectedCorners, detectedIds, objPoints, imgPoints));
-        return Py_BuildValue("(NN)", jsopencv_from(objPoints), jsopencv_from(imgPoints));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(objPoints), jsopencv_from(imgPoints));
     }
 
 
@@ -27482,7 +27488,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
         jsopencv_to_safe(info, pyobj_markerIds, markerIds, ArgInfo("markerIds", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detectBoard(image, charucoCorners, charucoIds, markerCorners, markerIds));
-        return Py_BuildValue("(NNNN)", jsopencv_from(charucoCorners), jsopencv_from(charucoIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(charucoCorners), jsopencv_from(charucoIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
     }
 
 
@@ -27511,7 +27517,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
         jsopencv_to_safe(info, pyobj_markerIds, markerIds, ArgInfo("markerIds", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detectBoard(image, charucoCorners, charucoIds, markerCorners, markerIds));
-        return Py_BuildValue("(NNNN)", jsopencv_from(charucoCorners), jsopencv_from(charucoIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(charucoCorners), jsopencv_from(charucoIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
     }
 
 
@@ -27554,7 +27560,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
         jsopencv_to_safe(info, pyobj_markerIds, markerIds, ArgInfo("markerIds", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detectDiamonds(image, diamondCorners, diamondIds, markerCorners, markerIds));
-        return Py_BuildValue("(NNNN)", jsopencv_from(diamondCorners), jsopencv_from(diamondIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(diamondCorners), jsopencv_from(diamondIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
     }
 
 
@@ -27583,7 +27589,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
         jsopencv_to_safe(info, pyobj_markerIds, markerIds, ArgInfo("markerIds", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->detectDiamonds(image, diamondCorners, diamondIds, markerCorners, markerIds));
-        return Py_BuildValue("(NNNN)", jsopencv_from(diamondCorners), jsopencv_from(diamondIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(diamondCorners), jsopencv_from(diamondIds), jsopencv_from(markerCorners), jsopencv_from(markerIds));
     }
 
 
@@ -27828,14 +27834,14 @@ static PyObject* pyopencv_aruco_CharucoParameters_get_cameraMatrix(pyopencv_aruc
     return jsopencv_from(p->v.cameraMatrix);
 }
 
-static int pyopencv_aruco_CharucoParameters_set_cameraMatrix(pyopencv_aruco_CharucoParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_CharucoParameters_set_cameraMatrix(const Napi::CallbackInfo &info, pyopencv_aruco_CharucoParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cameraMatrix attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cameraMatrix attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cameraMatrix, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cameraMatrix, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_CharucoParameters_get_distCoeffs(pyopencv_aruco_CharucoParameters_t* p, void *closure)
@@ -27843,14 +27849,14 @@ static PyObject* pyopencv_aruco_CharucoParameters_get_distCoeffs(pyopencv_aruco_
     return jsopencv_from(p->v.distCoeffs);
 }
 
-static int pyopencv_aruco_CharucoParameters_set_distCoeffs(pyopencv_aruco_CharucoParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_CharucoParameters_set_distCoeffs(const Napi::CallbackInfo &info, pyopencv_aruco_CharucoParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the distCoeffs attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the distCoeffs attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.distCoeffs, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.distCoeffs, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_CharucoParameters_get_minMarkers(pyopencv_aruco_CharucoParameters_t* p, void *closure)
@@ -27858,14 +27864,14 @@ static PyObject* pyopencv_aruco_CharucoParameters_get_minMarkers(pyopencv_aruco_
     return jsopencv_from(p->v.minMarkers);
 }
 
-static int pyopencv_aruco_CharucoParameters_set_minMarkers(pyopencv_aruco_CharucoParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_CharucoParameters_set_minMarkers(const Napi::CallbackInfo &info, pyopencv_aruco_CharucoParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minMarkers attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minMarkers attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minMarkers, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minMarkers, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_CharucoParameters_get_tryRefineMarkers(pyopencv_aruco_CharucoParameters_t* p, void *closure)
@@ -27873,14 +27879,14 @@ static PyObject* pyopencv_aruco_CharucoParameters_get_tryRefineMarkers(pyopencv_
     return jsopencv_from(p->v.tryRefineMarkers);
 }
 
-static int pyopencv_aruco_CharucoParameters_set_tryRefineMarkers(pyopencv_aruco_CharucoParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_CharucoParameters_set_tryRefineMarkers(const Napi::CallbackInfo &info, pyopencv_aruco_CharucoParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the tryRefineMarkers attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the tryRefineMarkers attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.tryRefineMarkers, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.tryRefineMarkers, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -27942,14 +27948,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshConstant(py
     return jsopencv_from(p->v.adaptiveThreshConstant);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshConstant(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshConstant(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshConstant attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshConstant attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.adaptiveThreshConstant, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.adaptiveThreshConstant, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshWinSizeMax(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -27957,14 +27963,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshWinSizeMax(
     return jsopencv_from(p->v.adaptiveThreshWinSizeMax);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshWinSizeMax(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshWinSizeMax(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMax attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMax attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.adaptiveThreshWinSizeMax, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.adaptiveThreshWinSizeMax, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshWinSizeMin(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -27972,14 +27978,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshWinSizeMin(
     return jsopencv_from(p->v.adaptiveThreshWinSizeMin);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshWinSizeMin(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshWinSizeMin(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMin attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMin attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.adaptiveThreshWinSizeMin, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.adaptiveThreshWinSizeMin, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshWinSizeStep(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -27987,14 +27993,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_adaptiveThreshWinSizeStep
     return jsopencv_from(p->v.adaptiveThreshWinSizeStep);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshWinSizeStep(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_adaptiveThreshWinSizeStep(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeStep attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeStep attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.adaptiveThreshWinSizeStep, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.adaptiveThreshWinSizeStep, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagCriticalRad(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28002,14 +28008,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagCriticalRad(pyope
     return jsopencv_from(p->v.aprilTagCriticalRad);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagCriticalRad(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagCriticalRad(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagCriticalRad attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagCriticalRad attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagCriticalRad, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagCriticalRad, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagDeglitch(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28017,14 +28023,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagDeglitch(pyopencv
     return jsopencv_from(p->v.aprilTagDeglitch);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagDeglitch(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagDeglitch(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagDeglitch attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagDeglitch attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagDeglitch, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagDeglitch, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMaxLineFitMse(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28032,14 +28038,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMaxLineFitMse(pyo
     return jsopencv_from(p->v.aprilTagMaxLineFitMse);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagMaxLineFitMse(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagMaxLineFitMse(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagMaxLineFitMse attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagMaxLineFitMse attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagMaxLineFitMse, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagMaxLineFitMse, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMaxNmaxima(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28047,14 +28053,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMaxNmaxima(pyopen
     return jsopencv_from(p->v.aprilTagMaxNmaxima);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagMaxNmaxima(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagMaxNmaxima(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagMaxNmaxima attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagMaxNmaxima attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagMaxNmaxima, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagMaxNmaxima, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMinClusterPixels(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28062,14 +28068,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMinClusterPixels(
     return jsopencv_from(p->v.aprilTagMinClusterPixels);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagMinClusterPixels(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagMinClusterPixels(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagMinClusterPixels attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagMinClusterPixels attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagMinClusterPixels, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagMinClusterPixels, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMinWhiteBlackDiff(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28077,14 +28083,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagMinWhiteBlackDiff
     return jsopencv_from(p->v.aprilTagMinWhiteBlackDiff);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagMinWhiteBlackDiff(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagMinWhiteBlackDiff(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagMinWhiteBlackDiff attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagMinWhiteBlackDiff attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagMinWhiteBlackDiff, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagMinWhiteBlackDiff, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagQuadDecimate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28092,14 +28098,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagQuadDecimate(pyop
     return jsopencv_from(p->v.aprilTagQuadDecimate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagQuadDecimate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagQuadDecimate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagQuadDecimate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagQuadDecimate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagQuadDecimate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagQuadDecimate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagQuadSigma(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28107,14 +28113,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_aprilTagQuadSigma(pyopenc
     return jsopencv_from(p->v.aprilTagQuadSigma);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_aprilTagQuadSigma(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_aprilTagQuadSigma(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the aprilTagQuadSigma attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the aprilTagQuadSigma attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.aprilTagQuadSigma, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.aprilTagQuadSigma, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementMaxIterations(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28122,14 +28128,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementMaxIterat
     return jsopencv_from(p->v.cornerRefinementMaxIterations);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_cornerRefinementMaxIterations(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_cornerRefinementMaxIterations(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cornerRefinementMaxIterations attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cornerRefinementMaxIterations attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cornerRefinementMaxIterations, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cornerRefinementMaxIterations, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementMethod(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28137,14 +28143,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementMethod(py
     return jsopencv_from(p->v.cornerRefinementMethod);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_cornerRefinementMethod(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_cornerRefinementMethod(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cornerRefinementMethod attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cornerRefinementMethod attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cornerRefinementMethod, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cornerRefinementMethod, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementMinAccuracy(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28152,14 +28158,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementMinAccura
     return jsopencv_from(p->v.cornerRefinementMinAccuracy);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_cornerRefinementMinAccuracy(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_cornerRefinementMinAccuracy(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cornerRefinementMinAccuracy attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cornerRefinementMinAccuracy attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cornerRefinementMinAccuracy, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cornerRefinementMinAccuracy, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementWinSize(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28167,14 +28173,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_cornerRefinementWinSize(p
     return jsopencv_from(p->v.cornerRefinementWinSize);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_cornerRefinementWinSize(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_cornerRefinementWinSize(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cornerRefinementWinSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cornerRefinementWinSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cornerRefinementWinSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cornerRefinementWinSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_detectInvertedMarker(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28182,14 +28188,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_detectInvertedMarker(pyop
     return jsopencv_from(p->v.detectInvertedMarker);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_detectInvertedMarker(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_detectInvertedMarker(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the detectInvertedMarker attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the detectInvertedMarker attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.detectInvertedMarker, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.detectInvertedMarker, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_errorCorrectionRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28197,14 +28203,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_errorCorrectionRate(pyope
     return jsopencv_from(p->v.errorCorrectionRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_errorCorrectionRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_errorCorrectionRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the errorCorrectionRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the errorCorrectionRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.errorCorrectionRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.errorCorrectionRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_markerBorderBits(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28212,14 +28218,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_markerBorderBits(pyopencv
     return jsopencv_from(p->v.markerBorderBits);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_markerBorderBits(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_markerBorderBits(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the markerBorderBits attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the markerBorderBits attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.markerBorderBits, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.markerBorderBits, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_maxErroneousBitsInBorderRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28227,14 +28233,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_maxErroneousBitsInBorderR
     return jsopencv_from(p->v.maxErroneousBitsInBorderRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_maxErroneousBitsInBorderRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_maxErroneousBitsInBorderRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxErroneousBitsInBorderRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxErroneousBitsInBorderRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxErroneousBitsInBorderRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxErroneousBitsInBorderRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_maxMarkerPerimeterRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28242,14 +28248,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_maxMarkerPerimeterRate(py
     return jsopencv_from(p->v.maxMarkerPerimeterRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_maxMarkerPerimeterRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_maxMarkerPerimeterRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxMarkerPerimeterRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxMarkerPerimeterRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxMarkerPerimeterRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxMarkerPerimeterRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minCornerDistanceRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28257,14 +28263,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minCornerDistanceRate(pyo
     return jsopencv_from(p->v.minCornerDistanceRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minCornerDistanceRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minCornerDistanceRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minCornerDistanceRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minCornerDistanceRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minCornerDistanceRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minCornerDistanceRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minDistanceToBorder(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28272,14 +28278,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minDistanceToBorder(pyope
     return jsopencv_from(p->v.minDistanceToBorder);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minDistanceToBorder(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minDistanceToBorder(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minDistanceToBorder attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minDistanceToBorder attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minDistanceToBorder, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minDistanceToBorder, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minMarkerDistanceRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28287,14 +28293,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minMarkerDistanceRate(pyo
     return jsopencv_from(p->v.minMarkerDistanceRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minMarkerDistanceRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minMarkerDistanceRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minMarkerDistanceRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minMarkerDistanceRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minMarkerDistanceRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minMarkerDistanceRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minMarkerLengthRatioOriginalImg(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28302,14 +28308,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minMarkerLengthRatioOrigi
     return jsopencv_from(p->v.minMarkerLengthRatioOriginalImg);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minMarkerLengthRatioOriginalImg(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minMarkerLengthRatioOriginalImg(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minMarkerLengthRatioOriginalImg attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minMarkerLengthRatioOriginalImg attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minMarkerLengthRatioOriginalImg, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minMarkerLengthRatioOriginalImg, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minMarkerPerimeterRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28317,14 +28323,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minMarkerPerimeterRate(py
     return jsopencv_from(p->v.minMarkerPerimeterRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minMarkerPerimeterRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minMarkerPerimeterRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minMarkerPerimeterRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minMarkerPerimeterRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minMarkerPerimeterRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minMarkerPerimeterRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minOtsuStdDev(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28332,14 +28338,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minOtsuStdDev(pyopencv_ar
     return jsopencv_from(p->v.minOtsuStdDev);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minOtsuStdDev(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minOtsuStdDev(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minOtsuStdDev attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minOtsuStdDev attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minOtsuStdDev, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minOtsuStdDev, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_minSideLengthCanonicalImg(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28347,14 +28353,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_minSideLengthCanonicalImg
     return jsopencv_from(p->v.minSideLengthCanonicalImg);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_minSideLengthCanonicalImg(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_minSideLengthCanonicalImg(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minSideLengthCanonicalImg attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minSideLengthCanonicalImg attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minSideLengthCanonicalImg, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minSideLengthCanonicalImg, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_perspectiveRemoveIgnoredMarginPerCell(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28362,14 +28368,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_perspectiveRemoveIgnoredM
     return jsopencv_from(p->v.perspectiveRemoveIgnoredMarginPerCell);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_perspectiveRemoveIgnoredMarginPerCell(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_perspectiveRemoveIgnoredMarginPerCell(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the perspectiveRemoveIgnoredMarginPerCell attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the perspectiveRemoveIgnoredMarginPerCell attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.perspectiveRemoveIgnoredMarginPerCell, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.perspectiveRemoveIgnoredMarginPerCell, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_perspectiveRemovePixelPerCell(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28377,14 +28383,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_perspectiveRemovePixelPer
     return jsopencv_from(p->v.perspectiveRemovePixelPerCell);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_perspectiveRemovePixelPerCell(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_perspectiveRemovePixelPerCell(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the perspectiveRemovePixelPerCell attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the perspectiveRemovePixelPerCell attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.perspectiveRemovePixelPerCell, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.perspectiveRemovePixelPerCell, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_polygonalApproxAccuracyRate(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28392,14 +28398,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_polygonalApproxAccuracyRa
     return jsopencv_from(p->v.polygonalApproxAccuracyRate);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_polygonalApproxAccuracyRate(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_polygonalApproxAccuracyRate(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the polygonalApproxAccuracyRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the polygonalApproxAccuracyRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.polygonalApproxAccuracyRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.polygonalApproxAccuracyRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_DetectorParameters_get_useAruco3Detection(pyopencv_aruco_DetectorParameters_t* p, void *closure)
@@ -28407,14 +28413,14 @@ static PyObject* pyopencv_aruco_DetectorParameters_get_useAruco3Detection(pyopen
     return jsopencv_from(p->v.useAruco3Detection);
 }
 
-static int pyopencv_aruco_DetectorParameters_set_useAruco3Detection(pyopencv_aruco_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_DetectorParameters_set_useAruco3Detection(const Napi::CallbackInfo &info, pyopencv_aruco_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the useAruco3Detection attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the useAruco3Detection attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.useAruco3Detection, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.useAruco3Detection, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -28571,14 +28577,14 @@ static PyObject* pyopencv_aruco_Dictionary_get_bytesList(pyopencv_aruco_Dictiona
     return jsopencv_from(p->v.bytesList);
 }
 
-static int pyopencv_aruco_Dictionary_set_bytesList(pyopencv_aruco_Dictionary_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_Dictionary_set_bytesList(const Napi::CallbackInfo &info, pyopencv_aruco_Dictionary_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the bytesList attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the bytesList attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.bytesList, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.bytesList, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_Dictionary_get_markerSize(pyopencv_aruco_Dictionary_t* p, void *closure)
@@ -28586,14 +28592,14 @@ static PyObject* pyopencv_aruco_Dictionary_get_markerSize(pyopencv_aruco_Diction
     return jsopencv_from(p->v.markerSize);
 }
 
-static int pyopencv_aruco_Dictionary_set_markerSize(pyopencv_aruco_Dictionary_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_Dictionary_set_markerSize(const Napi::CallbackInfo &info, pyopencv_aruco_Dictionary_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the markerSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the markerSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.markerSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.markerSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_Dictionary_get_maxCorrectionBits(pyopencv_aruco_Dictionary_t* p, void *closure)
@@ -28601,14 +28607,14 @@ static PyObject* pyopencv_aruco_Dictionary_get_maxCorrectionBits(pyopencv_aruco_
     return jsopencv_from(p->v.maxCorrectionBits);
 }
 
-static int pyopencv_aruco_Dictionary_set_maxCorrectionBits(pyopencv_aruco_Dictionary_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_Dictionary_set_maxCorrectionBits(const Napi::CallbackInfo &info, pyopencv_aruco_Dictionary_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxCorrectionBits attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxCorrectionBits attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.maxCorrectionBits, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.maxCorrectionBits, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -28851,7 +28857,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_identify(const Napi::Callb
         jsopencv_to_safe(info, pyobj_maxCorrectionRate, maxCorrectionRate, ArgInfo("maxCorrectionRate", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->identify(onlyBits, idx, rotation, maxCorrectionRate));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(idx), jsopencv_from(rotation));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(idx), jsopencv_from(rotation));
     }
 
     return info.Env().Null();
@@ -29149,14 +29155,14 @@ static PyObject* pyopencv_aruco_RefineParameters_get_checkAllOrders(pyopencv_aru
     return jsopencv_from(p->v.checkAllOrders);
 }
 
-static int pyopencv_aruco_RefineParameters_set_checkAllOrders(pyopencv_aruco_RefineParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_RefineParameters_set_checkAllOrders(const Napi::CallbackInfo &info, pyopencv_aruco_RefineParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the checkAllOrders attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the checkAllOrders attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.checkAllOrders, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.checkAllOrders, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_RefineParameters_get_errorCorrectionRate(pyopencv_aruco_RefineParameters_t* p, void *closure)
@@ -29164,14 +29170,14 @@ static PyObject* pyopencv_aruco_RefineParameters_get_errorCorrectionRate(pyopenc
     return jsopencv_from(p->v.errorCorrectionRate);
 }
 
-static int pyopencv_aruco_RefineParameters_set_errorCorrectionRate(pyopencv_aruco_RefineParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_RefineParameters_set_errorCorrectionRate(const Napi::CallbackInfo &info, pyopencv_aruco_RefineParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the errorCorrectionRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the errorCorrectionRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.errorCorrectionRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.errorCorrectionRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_aruco_RefineParameters_get_minRepDistance(pyopencv_aruco_RefineParameters_t* p, void *closure)
@@ -29179,14 +29185,14 @@ static PyObject* pyopencv_aruco_RefineParameters_get_minRepDistance(pyopencv_aru
     return jsopencv_from(p->v.minRepDistance);
 }
 
-static int pyopencv_aruco_RefineParameters_set_minRepDistance(pyopencv_aruco_RefineParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_aruco_RefineParameters_set_minRepDistance(const Napi::CallbackInfo &info, pyopencv_aruco_RefineParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minRepDistance attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minRepDistance attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.minRepDistance, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.minRepDistance, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -29370,7 +29376,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decode(img, points, decoded_info, decoded_type));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type));
     }
 
 
@@ -29393,7 +29399,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->decode(img, points, decoded_info, decoded_type));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type));
     }
 
 
@@ -29428,7 +29434,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detect(img, points));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(points));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(points));
     }
 
 
@@ -29449,7 +29455,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detect(img, points));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(points));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(points));
     }
 
 
@@ -29486,7 +29492,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecode(img, decoded_info, decoded_type, points));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type), jsopencv_from(points));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type), jsopencv_from(points));
     }
 
 
@@ -29509,7 +29515,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
         jsopencv_to_safe(info, pyobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->detectAndDecode(img, decoded_info, decoded_type, points));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type), jsopencv_from(points));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(decoded_info), jsopencv_from(decoded_type), jsopencv_from(points));
     }
 
 
@@ -34633,7 +34639,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_detectWithDescriptors(const N
         jsopencv_to_safe(info, pyobj_useProvidedKeypoints, useProvidedKeypoints, ArgInfo("useProvidedKeypoints", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectWithDescriptors(img, mask, keypoints, descriptors, useProvidedKeypoints));
-        return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
     return info.Env().Null();
@@ -35215,7 +35221,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
         jsopencv_to_safe(info, pyobj_frame, frame, ArgInfo("frame", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->classify(frame, classId, conf));
-        return Py_BuildValue("(NN)", jsopencv_from(classId), jsopencv_from(conf));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(classId), jsopencv_from(conf));
     }
 
 
@@ -35234,7 +35240,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
         jsopencv_to_safe(info, pyobj_frame, frame, ArgInfo("frame", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->classify(frame, classId, conf));
-        return Py_BuildValue("(NN)", jsopencv_from(classId), jsopencv_from(conf));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(classId), jsopencv_from(conf));
     }
 
 
@@ -35417,7 +35423,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_nmsThreshold, nmsThreshold, ArgInfo("nmsThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(frame, classIds, confidences, boxes, confThreshold, nmsThreshold));
-        return Py_BuildValue("(NNN)", jsopencv_from(classIds), jsopencv_from(confidences), jsopencv_from(boxes));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(classIds), jsopencv_from(confidences), jsopencv_from(boxes));
     }
 
 
@@ -35443,7 +35449,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_nmsThreshold, nmsThreshold, ArgInfo("nmsThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(frame, classIds, confidences, boxes, confThreshold, nmsThreshold));
-        return Py_BuildValue("(NNN)", jsopencv_from(classIds), jsopencv_from(confidences), jsopencv_from(boxes));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(classIds), jsopencv_from(confidences), jsopencv_from(boxes));
     }
 
 
@@ -35960,11 +35966,11 @@ static PyObject* pyopencv_dnn_Layer_get_blobs(pyopencv_dnn_Layer_t* p, void *clo
     return jsopencv_from(_self_->blobs);
 }
 
-static int pyopencv_dnn_Layer_set_blobs(pyopencv_dnn_Layer_t* p, PyObject *value, void *closure)
+static int pyopencv_dnn_Layer_set_blobs(const Napi::CallbackInfo &info, pyopencv_dnn_Layer_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the blobs attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the blobs attribute");
         return -1;
     }
     cv::dnn::Layer* _self_ = dynamic_cast<cv::dnn::Layer*>(p->v.get());
@@ -36104,7 +36110,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_run(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_internals, internals, ArgInfo("internals", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->run(inputs, outputs, internals));
-        return Py_BuildValue("(NN)", jsopencv_from(outputs), jsopencv_from(internals));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(outputs), jsopencv_from(internals));
     }
 
     return info.Env().Null();
@@ -36974,7 +36980,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getInputDetails(const Napi::CallbackI
     if (PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))
     {
         ERRWRAP2_NAPI(info, _self_->getInputDetails(scales, zeropoints));
-        return Py_BuildValue("(NN)", jsopencv_from(scales), jsopencv_from(zeropoints));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(scales), jsopencv_from(zeropoints));
     }
 
     return info.Env().Null();
@@ -37159,7 +37165,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_netInputShapes, netInputShapes, ArgInfo("netInputShapes", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->getLayersShapes(netInputShapes, layersIds, inLayersShapes, outLayersShapes));
-        return Py_BuildValue("(NNN)", jsopencv_from(layersIds), jsopencv_from(inLayersShapes), jsopencv_from(outLayersShapes));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(layersIds), jsopencv_from(inLayersShapes), jsopencv_from(outLayersShapes));
     }
 
 
@@ -37179,7 +37185,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_netInputShape, netInputShape, ArgInfo("netInputShape", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->getLayersShapes(netInputShape, layersIds, inLayersShapes, outLayersShapes));
-        return Py_BuildValue("(NNN)", jsopencv_from(layersIds), jsopencv_from(inLayersShapes), jsopencv_from(outLayersShapes));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(layersIds), jsopencv_from(inLayersShapes), jsopencv_from(outLayersShapes));
     }
 
 
@@ -37212,7 +37218,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
         jsopencv_to_safe(info, pyobj_netInputShape, netInputShape, ArgInfo("netInputShape", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->getMemoryConsumption(netInputShape, weights, blobs));
-        return Py_BuildValue("(NN)", jsopencv_from(weights), jsopencv_from(blobs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(weights), jsopencv_from(blobs));
     }
 
 
@@ -37234,7 +37240,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
         jsopencv_to_safe(info, pyobj_netInputShapes, netInputShapes, ArgInfo("netInputShapes", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->getMemoryConsumption(layerId, netInputShapes, weights, blobs));
-        return Py_BuildValue("(NN)", jsopencv_from(weights), jsopencv_from(blobs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(weights), jsopencv_from(blobs));
     }
 
 
@@ -37256,7 +37262,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
         jsopencv_to_safe(info, pyobj_netInputShape, netInputShape, ArgInfo("netInputShape", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->getMemoryConsumption(layerId, netInputShape, weights, blobs));
-        return Py_BuildValue("(NN)", jsopencv_from(weights), jsopencv_from(blobs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(weights), jsopencv_from(blobs));
     }
 
 
@@ -37282,7 +37288,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getOutputDetails(const Napi::Callback
     if (PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))
     {
         ERRWRAP2_NAPI(info, _self_->getOutputDetails(scales, zeropoints));
-        return Py_BuildValue("(NN)", jsopencv_from(scales), jsopencv_from(zeropoints));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(scales), jsopencv_from(zeropoints));
     }
 
     return info.Env().Null();
@@ -37359,7 +37365,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getPerfProfile(const Napi::CallbackIn
     if (PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))
     {
         ERRWRAP2_NAPI(info, retval = _self_->getPerfProfile(timings));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(timings));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(timings));
     }
 
     return info.Env().Null();
@@ -38023,7 +38029,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
         jsopencv_to_safe(info, pyobj_frame, frame, ArgInfo("frame", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(frame, detections, confidences));
-        return Py_BuildValue("(NN)", jsopencv_from(detections), jsopencv_from(confidences));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(detections), jsopencv_from(confidences));
     }
 
 
@@ -38042,7 +38048,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
         jsopencv_to_safe(info, pyobj_frame, frame, ArgInfo("frame", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(frame, detections, confidences));
-        return Py_BuildValue("(NN)", jsopencv_from(detections), jsopencv_from(confidences));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(detections), jsopencv_from(confidences));
     }
 
 
@@ -38111,7 +38117,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
         jsopencv_to_safe(info, pyobj_frame, frame, ArgInfo("frame", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectTextRectangles(frame, detections, confidences));
-        return Py_BuildValue("(NN)", jsopencv_from(detections), jsopencv_from(confidences));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(detections), jsopencv_from(confidences));
     }
 
 
@@ -38130,7 +38136,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
         jsopencv_to_safe(info, pyobj_frame, frame, ArgInfo("frame", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detectTextRectangles(frame, detections, confidences));
-        return Py_BuildValue("(NN)", jsopencv_from(detections), jsopencv_from(confidences));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(detections), jsopencv_from(confidences));
     }
 
 
@@ -39893,7 +39899,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
         jsopencv_to_safe(info, pyobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->predict(src, label, confidence));
-        return Py_BuildValue("(NN)", jsopencv_from(label), jsopencv_from(confidence));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(label), jsopencv_from(confidence));
     }
 
 
@@ -39912,7 +39918,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
         jsopencv_to_safe(info, pyobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->predict(src, label, confidence));
-        return Py_BuildValue("(NN)", jsopencv_from(label), jsopencv_from(confidence));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(label), jsopencv_from(confidence));
     }
 
 
@@ -40294,7 +40300,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
         jsopencv_to_safe(info, pyobj_landmarks, landmarks, ArgInfo("landmarks", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->fit(image, faces, landmarks));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(landmarks));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(landmarks));
     }
 
 
@@ -40318,7 +40324,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
         jsopencv_to_safe(info, pyobj_landmarks, landmarks, ArgInfo("landmarks", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->fit(image, faces, landmarks));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(landmarks));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(landmarks));
     }
 
 
@@ -41633,7 +41639,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->knnSearch(query, indices, dists, knn, params));
-        return Py_BuildValue("(NN)", jsopencv_from(indices), jsopencv_from(dists));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(indices), jsopencv_from(dists));
     }
 
 
@@ -41662,7 +41668,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->knnSearch(query, indices, dists, knn, params));
-        return Py_BuildValue("(NN)", jsopencv_from(indices), jsopencv_from(dists));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(indices), jsopencv_from(dists));
     }
 
 
@@ -41765,7 +41771,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
         jsopencv_to_safe(info, pyobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->radiusSearch(query, indices, dists, radius, maxResults, params));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(indices), jsopencv_from(dists));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(indices), jsopencv_from(dists));
     }
 
 
@@ -41798,7 +41804,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
         jsopencv_to_safe(info, pyobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->radiusSearch(query, indices, dists, radius, maxResults, params));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(indices), jsopencv_from(dists));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(indices), jsopencv_from(dists));
     }
 
 
@@ -42344,14 +42350,14 @@ static PyObject* pyopencv_gapi_streaming_queue_capacity_get_capacity(pyopencv_ga
     return jsopencv_from(p->v.capacity);
 }
 
-static int pyopencv_gapi_streaming_queue_capacity_set_capacity(pyopencv_gapi_streaming_queue_capacity_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_streaming_queue_capacity_set_capacity(const Napi::CallbackInfo &info, pyopencv_gapi_streaming_queue_capacity_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the capacity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the capacity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.capacity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.capacity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -42620,14 +42626,14 @@ static PyObject* pyopencv_gapi_wip_draw_Circle_get_center(pyopencv_gapi_wip_draw
     return jsopencv_from(p->v.center);
 }
 
-static int pyopencv_gapi_wip_draw_Circle_set_center(pyopencv_gapi_wip_draw_Circle_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Circle_set_center(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Circle_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the center attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the center attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.center, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.center, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Circle_get_color(pyopencv_gapi_wip_draw_Circle_t* p, void *closure)
@@ -42635,14 +42641,14 @@ static PyObject* pyopencv_gapi_wip_draw_Circle_get_color(pyopencv_gapi_wip_draw_
     return jsopencv_from(p->v.color);
 }
 
-static int pyopencv_gapi_wip_draw_Circle_set_color(pyopencv_gapi_wip_draw_Circle_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Circle_set_color(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Circle_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the color attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the color attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Circle_get_lt(pyopencv_gapi_wip_draw_Circle_t* p, void *closure)
@@ -42650,14 +42656,14 @@ static PyObject* pyopencv_gapi_wip_draw_Circle_get_lt(pyopencv_gapi_wip_draw_Cir
     return jsopencv_from(p->v.lt);
 }
 
-static int pyopencv_gapi_wip_draw_Circle_set_lt(pyopencv_gapi_wip_draw_Circle_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Circle_set_lt(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Circle_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Circle_get_radius(pyopencv_gapi_wip_draw_Circle_t* p, void *closure)
@@ -42665,14 +42671,14 @@ static PyObject* pyopencv_gapi_wip_draw_Circle_get_radius(pyopencv_gapi_wip_draw
     return jsopencv_from(p->v.radius);
 }
 
-static int pyopencv_gapi_wip_draw_Circle_set_radius(pyopencv_gapi_wip_draw_Circle_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Circle_set_radius(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Circle_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the radius attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the radius attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.radius, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.radius, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Circle_get_shift(pyopencv_gapi_wip_draw_Circle_t* p, void *closure)
@@ -42680,14 +42686,14 @@ static PyObject* pyopencv_gapi_wip_draw_Circle_get_shift(pyopencv_gapi_wip_draw_
     return jsopencv_from(p->v.shift);
 }
 
-static int pyopencv_gapi_wip_draw_Circle_set_shift(pyopencv_gapi_wip_draw_Circle_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Circle_set_shift(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Circle_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the shift attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the shift attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Circle_get_thick(pyopencv_gapi_wip_draw_Circle_t* p, void *closure)
@@ -42695,14 +42701,14 @@ static PyObject* pyopencv_gapi_wip_draw_Circle_get_thick(pyopencv_gapi_wip_draw_
     return jsopencv_from(p->v.thick);
 }
 
-static int pyopencv_gapi_wip_draw_Circle_set_thick(pyopencv_gapi_wip_draw_Circle_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Circle_set_thick(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Circle_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the thick attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the thick attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -42820,14 +42826,14 @@ static PyObject* pyopencv_gapi_wip_draw_Image_get_alpha(pyopencv_gapi_wip_draw_I
     return jsopencv_from(p->v.alpha);
 }
 
-static int pyopencv_gapi_wip_draw_Image_set_alpha(pyopencv_gapi_wip_draw_Image_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Image_set_alpha(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Image_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the alpha attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the alpha attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.alpha, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.alpha, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Image_get_img(pyopencv_gapi_wip_draw_Image_t* p, void *closure)
@@ -42835,14 +42841,14 @@ static PyObject* pyopencv_gapi_wip_draw_Image_get_img(pyopencv_gapi_wip_draw_Ima
     return jsopencv_from(p->v.img);
 }
 
-static int pyopencv_gapi_wip_draw_Image_set_img(pyopencv_gapi_wip_draw_Image_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Image_set_img(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Image_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the img attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the img attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.img, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.img, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Image_get_org(pyopencv_gapi_wip_draw_Image_t* p, void *closure)
@@ -42850,14 +42856,14 @@ static PyObject* pyopencv_gapi_wip_draw_Image_get_org(pyopencv_gapi_wip_draw_Ima
     return jsopencv_from(p->v.org);
 }
 
-static int pyopencv_gapi_wip_draw_Image_set_org(pyopencv_gapi_wip_draw_Image_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Image_set_org(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Image_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the org attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the org attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.org, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.org, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -42963,14 +42969,14 @@ static PyObject* pyopencv_gapi_wip_draw_Line_get_color(pyopencv_gapi_wip_draw_Li
     return jsopencv_from(p->v.color);
 }
 
-static int pyopencv_gapi_wip_draw_Line_set_color(pyopencv_gapi_wip_draw_Line_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Line_set_color(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Line_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the color attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the color attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Line_get_lt(pyopencv_gapi_wip_draw_Line_t* p, void *closure)
@@ -42978,14 +42984,14 @@ static PyObject* pyopencv_gapi_wip_draw_Line_get_lt(pyopencv_gapi_wip_draw_Line_
     return jsopencv_from(p->v.lt);
 }
 
-static int pyopencv_gapi_wip_draw_Line_set_lt(pyopencv_gapi_wip_draw_Line_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Line_set_lt(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Line_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Line_get_pt1(pyopencv_gapi_wip_draw_Line_t* p, void *closure)
@@ -42993,14 +42999,14 @@ static PyObject* pyopencv_gapi_wip_draw_Line_get_pt1(pyopencv_gapi_wip_draw_Line
     return jsopencv_from(p->v.pt1);
 }
 
-static int pyopencv_gapi_wip_draw_Line_set_pt1(pyopencv_gapi_wip_draw_Line_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Line_set_pt1(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Line_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the pt1 attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the pt1 attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.pt1, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.pt1, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Line_get_pt2(pyopencv_gapi_wip_draw_Line_t* p, void *closure)
@@ -43008,14 +43014,14 @@ static PyObject* pyopencv_gapi_wip_draw_Line_get_pt2(pyopencv_gapi_wip_draw_Line
     return jsopencv_from(p->v.pt2);
 }
 
-static int pyopencv_gapi_wip_draw_Line_set_pt2(pyopencv_gapi_wip_draw_Line_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Line_set_pt2(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Line_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the pt2 attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the pt2 attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.pt2, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.pt2, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Line_get_shift(pyopencv_gapi_wip_draw_Line_t* p, void *closure)
@@ -43023,14 +43029,14 @@ static PyObject* pyopencv_gapi_wip_draw_Line_get_shift(pyopencv_gapi_wip_draw_Li
     return jsopencv_from(p->v.shift);
 }
 
-static int pyopencv_gapi_wip_draw_Line_set_shift(pyopencv_gapi_wip_draw_Line_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Line_set_shift(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Line_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the shift attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the shift attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Line_get_thick(pyopencv_gapi_wip_draw_Line_t* p, void *closure)
@@ -43038,14 +43044,14 @@ static PyObject* pyopencv_gapi_wip_draw_Line_get_thick(pyopencv_gapi_wip_draw_Li
     return jsopencv_from(p->v.thick);
 }
 
-static int pyopencv_gapi_wip_draw_Line_set_thick(pyopencv_gapi_wip_draw_Line_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Line_set_thick(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Line_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the thick attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the thick attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -43163,14 +43169,14 @@ static PyObject* pyopencv_gapi_wip_draw_Mosaic_get_cellSz(pyopencv_gapi_wip_draw
     return jsopencv_from(p->v.cellSz);
 }
 
-static int pyopencv_gapi_wip_draw_Mosaic_set_cellSz(pyopencv_gapi_wip_draw_Mosaic_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Mosaic_set_cellSz(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Mosaic_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the cellSz attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the cellSz attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.cellSz, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.cellSz, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Mosaic_get_decim(pyopencv_gapi_wip_draw_Mosaic_t* p, void *closure)
@@ -43178,14 +43184,14 @@ static PyObject* pyopencv_gapi_wip_draw_Mosaic_get_decim(pyopencv_gapi_wip_draw_
     return jsopencv_from(p->v.decim);
 }
 
-static int pyopencv_gapi_wip_draw_Mosaic_set_decim(pyopencv_gapi_wip_draw_Mosaic_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Mosaic_set_decim(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Mosaic_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the decim attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the decim attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.decim, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.decim, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Mosaic_get_mos(pyopencv_gapi_wip_draw_Mosaic_t* p, void *closure)
@@ -43193,14 +43199,14 @@ static PyObject* pyopencv_gapi_wip_draw_Mosaic_get_mos(pyopencv_gapi_wip_draw_Mo
     return jsopencv_from(p->v.mos);
 }
 
-static int pyopencv_gapi_wip_draw_Mosaic_set_mos(pyopencv_gapi_wip_draw_Mosaic_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Mosaic_set_mos(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Mosaic_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the mos attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the mos attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.mos, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.mos, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -43306,14 +43312,14 @@ static PyObject* pyopencv_gapi_wip_draw_Poly_get_color(pyopencv_gapi_wip_draw_Po
     return jsopencv_from(p->v.color);
 }
 
-static int pyopencv_gapi_wip_draw_Poly_set_color(pyopencv_gapi_wip_draw_Poly_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Poly_set_color(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Poly_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the color attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the color attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Poly_get_lt(pyopencv_gapi_wip_draw_Poly_t* p, void *closure)
@@ -43321,14 +43327,14 @@ static PyObject* pyopencv_gapi_wip_draw_Poly_get_lt(pyopencv_gapi_wip_draw_Poly_
     return jsopencv_from(p->v.lt);
 }
 
-static int pyopencv_gapi_wip_draw_Poly_set_lt(pyopencv_gapi_wip_draw_Poly_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Poly_set_lt(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Poly_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Poly_get_points(pyopencv_gapi_wip_draw_Poly_t* p, void *closure)
@@ -43336,14 +43342,14 @@ static PyObject* pyopencv_gapi_wip_draw_Poly_get_points(pyopencv_gapi_wip_draw_P
     return jsopencv_from(p->v.points);
 }
 
-static int pyopencv_gapi_wip_draw_Poly_set_points(pyopencv_gapi_wip_draw_Poly_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Poly_set_points(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Poly_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the points attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the points attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.points, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.points, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Poly_get_shift(pyopencv_gapi_wip_draw_Poly_t* p, void *closure)
@@ -43351,14 +43357,14 @@ static PyObject* pyopencv_gapi_wip_draw_Poly_get_shift(pyopencv_gapi_wip_draw_Po
     return jsopencv_from(p->v.shift);
 }
 
-static int pyopencv_gapi_wip_draw_Poly_set_shift(pyopencv_gapi_wip_draw_Poly_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Poly_set_shift(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Poly_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the shift attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the shift attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Poly_get_thick(pyopencv_gapi_wip_draw_Poly_t* p, void *closure)
@@ -43366,14 +43372,14 @@ static PyObject* pyopencv_gapi_wip_draw_Poly_get_thick(pyopencv_gapi_wip_draw_Po
     return jsopencv_from(p->v.thick);
 }
 
-static int pyopencv_gapi_wip_draw_Poly_set_thick(pyopencv_gapi_wip_draw_Poly_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Poly_set_thick(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Poly_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the thick attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the thick attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -43487,14 +43493,14 @@ static PyObject* pyopencv_gapi_wip_draw_Rect_get_color(pyopencv_gapi_wip_draw_Re
     return jsopencv_from(p->v.color);
 }
 
-static int pyopencv_gapi_wip_draw_Rect_set_color(pyopencv_gapi_wip_draw_Rect_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Rect_set_color(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Rect_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the color attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the color attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Rect_get_lt(pyopencv_gapi_wip_draw_Rect_t* p, void *closure)
@@ -43502,14 +43508,14 @@ static PyObject* pyopencv_gapi_wip_draw_Rect_get_lt(pyopencv_gapi_wip_draw_Rect_
     return jsopencv_from(p->v.lt);
 }
 
-static int pyopencv_gapi_wip_draw_Rect_set_lt(pyopencv_gapi_wip_draw_Rect_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Rect_set_lt(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Rect_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Rect_get_rect(pyopencv_gapi_wip_draw_Rect_t* p, void *closure)
@@ -43517,14 +43523,14 @@ static PyObject* pyopencv_gapi_wip_draw_Rect_get_rect(pyopencv_gapi_wip_draw_Rec
     return jsopencv_from(p->v.rect);
 }
 
-static int pyopencv_gapi_wip_draw_Rect_set_rect(pyopencv_gapi_wip_draw_Rect_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Rect_set_rect(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Rect_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the rect attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the rect attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.rect, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.rect, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Rect_get_shift(pyopencv_gapi_wip_draw_Rect_t* p, void *closure)
@@ -43532,14 +43538,14 @@ static PyObject* pyopencv_gapi_wip_draw_Rect_get_shift(pyopencv_gapi_wip_draw_Re
     return jsopencv_from(p->v.shift);
 }
 
-static int pyopencv_gapi_wip_draw_Rect_set_shift(pyopencv_gapi_wip_draw_Rect_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Rect_set_shift(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Rect_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the shift attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the shift attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.shift, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Rect_get_thick(pyopencv_gapi_wip_draw_Rect_t* p, void *closure)
@@ -43547,14 +43553,14 @@ static PyObject* pyopencv_gapi_wip_draw_Rect_get_thick(pyopencv_gapi_wip_draw_Re
     return jsopencv_from(p->v.thick);
 }
 
-static int pyopencv_gapi_wip_draw_Rect_set_thick(pyopencv_gapi_wip_draw_Rect_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Rect_set_thick(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Rect_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the thick attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the thick attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -43668,14 +43674,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_bottom_left_origin(pyopencv_gap
     return jsopencv_from(p->v.bottom_left_origin);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_bottom_left_origin(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_bottom_left_origin(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the bottom_left_origin attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the bottom_left_origin attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.bottom_left_origin, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.bottom_left_origin, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_color(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43683,14 +43689,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_color(pyopencv_gapi_wip_draw_Te
     return jsopencv_from(p->v.color);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_color(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_color(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the color attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the color attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.color, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_ff(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43698,14 +43704,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_ff(pyopencv_gapi_wip_draw_Text_
     return jsopencv_from(p->v.ff);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_ff(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_ff(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the ff attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ff attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.ff, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.ff, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_fs(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43713,14 +43719,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_fs(pyopencv_gapi_wip_draw_Text_
     return jsopencv_from(p->v.fs);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_fs(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_fs(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the fs attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the fs attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.fs, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.fs, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_lt(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43728,14 +43734,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_lt(pyopencv_gapi_wip_draw_Text_
     return jsopencv_from(p->v.lt);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_lt(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_lt(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lt attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lt attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lt, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_org(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43743,14 +43749,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_org(pyopencv_gapi_wip_draw_Text
     return jsopencv_from(p->v.org);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_org(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_org(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the org attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the org attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.org, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.org, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_text(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43758,14 +43764,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_text(pyopencv_gapi_wip_draw_Tex
     return jsopencv_from(p->v.text);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_text(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_text(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the text attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the text attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.text, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.text, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_gapi_wip_draw_Text_get_thick(pyopencv_gapi_wip_draw_Text_t* p, void *closure)
@@ -43773,14 +43779,14 @@ static PyObject* pyopencv_gapi_wip_draw_Text_get_thick(pyopencv_gapi_wip_draw_Te
     return jsopencv_from(p->v.thick);
 }
 
-static int pyopencv_gapi_wip_draw_Text_set_thick(pyopencv_gapi_wip_draw_Text_t* p, PyObject *value, void *closure)
+static int pyopencv_gapi_wip_draw_Text_set_thick(const Napi::CallbackInfo &info, pyopencv_gapi_wip_draw_Text_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the thick attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the thick attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.thick, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -44887,7 +44893,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->update(image, boundingBox));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
     }
 
 
@@ -44906,7 +44912,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->update(image, boundingBox));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
     }
 
 
@@ -45049,7 +45055,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->update(image, boundingBox));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
     }
 
 
@@ -45068,7 +45074,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
         jsopencv_to_safe(info, pyobj_image, image, ArgInfo("image", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->update(image, boundingBox));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(boundingBox));
     }
 
 
@@ -46394,14 +46400,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_B0factor(pyopencv_mcc_Detec
     return jsopencv_from(p->v->B0factor);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_B0factor(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_B0factor(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the B0factor attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the B0factor attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->B0factor, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->B0factor, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshConstant(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46409,14 +46415,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshConstant(pyop
     return jsopencv_from(p->v->adaptiveThreshConstant);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshConstant(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshConstant(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshConstant attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshConstant attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->adaptiveThreshConstant, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->adaptiveThreshConstant, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshWinSizeMax(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46424,14 +46430,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshWinSizeMax(py
     return jsopencv_from(p->v->adaptiveThreshWinSizeMax);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshWinSizeMax(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshWinSizeMax(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMax attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMax attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->adaptiveThreshWinSizeMax, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->adaptiveThreshWinSizeMax, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshWinSizeMin(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46439,14 +46445,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshWinSizeMin(py
     return jsopencv_from(p->v->adaptiveThreshWinSizeMin);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshWinSizeMin(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshWinSizeMin(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMin attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeMin attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->adaptiveThreshWinSizeMin, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->adaptiveThreshWinSizeMin, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshWinSizeStep(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46454,14 +46460,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_adaptiveThreshWinSizeStep(p
     return jsopencv_from(p->v->adaptiveThreshWinSizeStep);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshWinSizeStep(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_adaptiveThreshWinSizeStep(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeStep attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the adaptiveThreshWinSizeStep attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->adaptiveThreshWinSizeStep, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->adaptiveThreshWinSizeStep, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_borderWidth(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46469,14 +46475,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_borderWidth(pyopencv_mcc_De
     return jsopencv_from(p->v->borderWidth);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_borderWidth(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_borderWidth(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the borderWidth attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the borderWidth attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->borderWidth, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->borderWidth, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_confidenceThreshold(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46484,14 +46490,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_confidenceThreshold(pyopenc
     return jsopencv_from(p->v->confidenceThreshold);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_confidenceThreshold(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_confidenceThreshold(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the confidenceThreshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the confidenceThreshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->confidenceThreshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->confidenceThreshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_findCandidatesApproxPolyDPEpsMultiplier(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46499,14 +46505,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_findCandidatesApproxPolyDPE
     return jsopencv_from(p->v->findCandidatesApproxPolyDPEpsMultiplier);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_findCandidatesApproxPolyDPEpsMultiplier(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_findCandidatesApproxPolyDPEpsMultiplier(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the findCandidatesApproxPolyDPEpsMultiplier attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the findCandidatesApproxPolyDPEpsMultiplier attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->findCandidatesApproxPolyDPEpsMultiplier, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->findCandidatesApproxPolyDPEpsMultiplier, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_maxError(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46514,14 +46520,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_maxError(pyopencv_mcc_Detec
     return jsopencv_from(p->v->maxError);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_maxError(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_maxError(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxError attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxError attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->maxError, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->maxError, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minContourLengthAllowed(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46529,14 +46535,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minContourLengthAllowed(pyo
     return jsopencv_from(p->v->minContourLengthAllowed);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minContourLengthAllowed(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minContourLengthAllowed(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minContourLengthAllowed attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minContourLengthAllowed attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minContourLengthAllowed, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minContourLengthAllowed, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minContourPointsAllowed(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46544,14 +46550,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minContourPointsAllowed(pyo
     return jsopencv_from(p->v->minContourPointsAllowed);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minContourPointsAllowed(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minContourPointsAllowed(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minContourPointsAllowed attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minContourPointsAllowed attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minContourPointsAllowed, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minContourPointsAllowed, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minContourSolidity(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46559,14 +46565,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minContourSolidity(pyopencv
     return jsopencv_from(p->v->minContourSolidity);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minContourSolidity(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minContourSolidity(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minContourSolidity attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minContourSolidity attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minContourSolidity, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minContourSolidity, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minContoursArea(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46574,14 +46580,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minContoursArea(pyopencv_mc
     return jsopencv_from(p->v->minContoursArea);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minContoursArea(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minContoursArea(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minContoursArea attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minContoursArea attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minContoursArea, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minContoursArea, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minContoursAreaRate(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46589,14 +46595,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minContoursAreaRate(pyopenc
     return jsopencv_from(p->v->minContoursAreaRate);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minContoursAreaRate(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minContoursAreaRate(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minContoursAreaRate attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minContoursAreaRate attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minContoursAreaRate, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minContoursAreaRate, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minGroupSize(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46604,14 +46610,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minGroupSize(pyopencv_mcc_D
     return jsopencv_from(p->v->minGroupSize);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minGroupSize(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minGroupSize(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minGroupSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minGroupSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minGroupSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minGroupSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minImageSize(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46619,14 +46625,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minImageSize(pyopencv_mcc_D
     return jsopencv_from(p->v->minImageSize);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minImageSize(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minImageSize(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minImageSize attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minImageSize attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minImageSize, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minImageSize, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minInterCheckerDistance(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46634,14 +46640,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minInterCheckerDistance(pyo
     return jsopencv_from(p->v->minInterCheckerDistance);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minInterCheckerDistance(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minInterCheckerDistance(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minInterCheckerDistance attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minInterCheckerDistance attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minInterCheckerDistance, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minInterCheckerDistance, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_mcc_DetectorParameters_get_minInterContourDistance(pyopencv_mcc_DetectorParameters_t* p, void *closure)
@@ -46649,14 +46655,14 @@ static PyObject* pyopencv_mcc_DetectorParameters_get_minInterContourDistance(pyo
     return jsopencv_from(p->v->minInterContourDistance);
 }
 
-static int pyopencv_mcc_DetectorParameters_set_minInterContourDistance(pyopencv_mcc_DetectorParameters_t* p, PyObject *value, void *closure)
+static int pyopencv_mcc_DetectorParameters_set_minInterContourDistance(const Napi::CallbackInfo &info, pyopencv_mcc_DetectorParameters_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minInterContourDistance attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minInterContourDistance attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minInterContourDistance, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minInterContourDistance, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -48453,7 +48459,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict(samples, results, flags));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(results));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(results));
     }
 
 
@@ -48477,7 +48483,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict(samples, results, flags));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(results));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(results));
     }
 
 
@@ -48512,7 +48518,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict2(sample, probs));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(probs));
     }
 
 
@@ -48533,7 +48539,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict2(sample, probs));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(probs));
     }
 
 
@@ -48652,7 +48658,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->trainE(samples, means0, covs0, weights0, logLikelihoods, labels, probs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
     }
 
 
@@ -48688,7 +48694,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->trainE(samples, means0, covs0, weights0, logLikelihoods, labels, probs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
     }
 
 
@@ -48729,7 +48735,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->trainEM(samples, logLikelihoods, labels, probs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
     }
 
 
@@ -48756,7 +48762,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->trainEM(samples, logLikelihoods, labels, probs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
     }
 
 
@@ -48800,7 +48806,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->trainM(samples, probs0, logLikelihoods, labels, probs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
     }
 
 
@@ -48830,7 +48836,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, pyobj_probs, probs, ArgInfo("probs", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->trainM(samples, probs0, logLikelihoods, labels, probs));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(logLikelihoods), jsopencv_from(labels), jsopencv_from(probs));
     }
 
 
@@ -48955,7 +48961,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_dist, dist, ArgInfo("dist", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->findNearest(samples, k, results, neighborResponses, dist));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(results), jsopencv_from(neighborResponses), jsopencv_from(dist));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(results), jsopencv_from(neighborResponses), jsopencv_from(dist));
     }
 
 
@@ -48985,7 +48991,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
         jsopencv_to_safe(info, pyobj_dist, dist, ArgInfo("dist", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->findNearest(samples, k, results, neighborResponses, dist));
-        return Py_BuildValue("(NNNN)", jsopencv_from(retval), jsopencv_from(results), jsopencv_from(neighborResponses), jsopencv_from(dist));
+        return Js_BuildValue(info, "(NNNN)", jsopencv_from(retval), jsopencv_from(results), jsopencv_from(neighborResponses), jsopencv_from(dist));
     }
 
 
@@ -49452,7 +49458,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict(samples, results, flags));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(results));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(results));
     }
 
 
@@ -49476,7 +49482,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict(samples, results, flags));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(results));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(results));
     }
 
 
@@ -49758,7 +49764,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predictProb(inputs, outputs, outputProbs, flags));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(outputs), jsopencv_from(outputProbs));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(outputs), jsopencv_from(outputProbs));
     }
 
 
@@ -49785,7 +49791,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predictProb(inputs, outputs, outputProbs, flags));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(outputs), jsopencv_from(outputProbs));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(outputs), jsopencv_from(outputProbs));
     }
 
 
@@ -49851,14 +49857,14 @@ static PyObject* pyopencv_ml_ParamGrid_get_logStep(pyopencv_ml_ParamGrid_t* p, v
     return jsopencv_from(p->v->logStep);
 }
 
-static int pyopencv_ml_ParamGrid_set_logStep(pyopencv_ml_ParamGrid_t* p, PyObject *value, void *closure)
+static int pyopencv_ml_ParamGrid_set_logStep(const Napi::CallbackInfo &info, pyopencv_ml_ParamGrid_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the logStep attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the logStep attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->logStep, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->logStep, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ml_ParamGrid_get_maxVal(pyopencv_ml_ParamGrid_t* p, void *closure)
@@ -49866,14 +49872,14 @@ static PyObject* pyopencv_ml_ParamGrid_get_maxVal(pyopencv_ml_ParamGrid_t* p, vo
     return jsopencv_from(p->v->maxVal);
 }
 
-static int pyopencv_ml_ParamGrid_set_maxVal(pyopencv_ml_ParamGrid_t* p, PyObject *value, void *closure)
+static int pyopencv_ml_ParamGrid_set_maxVal(const Napi::CallbackInfo &info, pyopencv_ml_ParamGrid_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the maxVal attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the maxVal attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->maxVal, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->maxVal, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ml_ParamGrid_get_minVal(pyopencv_ml_ParamGrid_t* p, void *closure)
@@ -49881,14 +49887,14 @@ static PyObject* pyopencv_ml_ParamGrid_get_minVal(pyopencv_ml_ParamGrid_t* p, vo
     return jsopencv_from(p->v->minVal);
 }
 
-static int pyopencv_ml_ParamGrid_set_minVal(pyopencv_ml_ParamGrid_t* p, PyObject *value, void *closure)
+static int pyopencv_ml_ParamGrid_set_minVal(const Napi::CallbackInfo &info, pyopencv_ml_ParamGrid_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the minVal attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the minVal attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v->minVal, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v->minVal, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -50402,7 +50408,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_svidx, svidx, ArgInfo("svidx", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->getDecisionFunction(i, alpha, svidx));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(alpha), jsopencv_from(svidx));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(alpha), jsopencv_from(svidx));
     }
 
 
@@ -50426,7 +50432,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_svidx, svidx, ArgInfo("svidx", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->getDecisionFunction(i, alpha, svidx));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(alpha), jsopencv_from(svidx));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(alpha), jsopencv_from(svidx));
     }
 
 
@@ -51527,7 +51533,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
         jsopencv_to_safe(info, pyobj_resp, resp, ArgInfo("resp", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->calcError(data, test, resp));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(resp));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(resp));
     }
 
 
@@ -51551,7 +51557,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
         jsopencv_to_safe(info, pyobj_resp, resp, ArgInfo("resp", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->calcError(data, test, resp));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(resp));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(resp));
     }
 
 
@@ -51669,7 +51675,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict(samples, results, flags));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(results));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(results));
     }
 
 
@@ -51693,7 +51699,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
         jsopencv_to_safe(info, pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->predict(samples, results, flags));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(results));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(results));
     }
 
 
@@ -55615,7 +55621,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
         jsopencv_to_safe(info, pyobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -55639,7 +55645,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
         jsopencv_to_safe(info, pyobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -55851,7 +55857,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
         jsopencv_to_safe(info, pyobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -55875,7 +55881,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
         jsopencv_to_safe(info, pyobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -56090,7 +56096,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
         jsopencv_to_safe(info, pyobj_maxPixelValue, maxPixelValue, ArgInfo("maxPixelValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap, maxPixelValue));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -56117,7 +56123,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
         jsopencv_to_safe(info, pyobj_maxPixelValue, maxPixelValue, ArgInfo("maxPixelValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap, maxPixelValue));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -56380,7 +56386,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
         jsopencv_to_safe(info, pyobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -56404,7 +56410,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
         jsopencv_to_safe(info, pyobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(ref, cmp, qualityMap));
-        return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(retval), jsopencv_from(qualityMap));
     }
 
 
@@ -56922,7 +56928,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_termcrit, termcrit, ArgInfo("termcrit", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(img, num, len, K, rvec, tvec, termcrit));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(rvec), jsopencv_from(tvec));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(rvec), jsopencv_from(tvec));
     }
 
 
@@ -56958,7 +56964,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
         jsopencv_to_safe(info, pyobj_termcrit, termcrit, ArgInfo("termcrit", 0)))
     {
         ERRWRAP2_NAPI(info, retval = _self_->compute(img, num, len, K, rvec, tvec, termcrit));
-        return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(rvec), jsopencv_from(tvec));
+        return Js_BuildValue(info, "(NNN)", jsopencv_from(retval), jsopencv_from(rvec), jsopencv_from(tvec));
     }
 
 
@@ -58440,7 +58446,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_inputImage, inputImage, ArgInfo("inputImage", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(inputImage, Bbox, confidence));
-        return Py_BuildValue("(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
     }
 
 
@@ -58459,7 +58465,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
         jsopencv_to_safe(info, pyobj_inputImage, inputImage, ArgInfo("inputImage", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(inputImage, Bbox, confidence));
-        return Py_BuildValue("(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
     }
 
 
@@ -58565,7 +58571,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
         jsopencv_to_safe(info, pyobj_inputImage, inputImage, ArgInfo("inputImage", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(inputImage, Bbox, confidence));
-        return Py_BuildValue("(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
     }
 
 
@@ -58584,7 +58590,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
         jsopencv_to_safe(info, pyobj_inputImage, inputImage, ArgInfo("inputImage", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->detect(inputImage, Bbox, confidence));
-        return Py_BuildValue("(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(Bbox), jsopencv_from(confidence));
     }
 
 
@@ -58654,14 +58660,14 @@ static PyObject* pyopencv_utils_ClassWithKeywordProperties_get_lambda(pyopencv_u
     return jsopencv_from(p->v.lambda);
 }
 
-static int pyopencv_utils_ClassWithKeywordProperties_set_lambda(pyopencv_utils_ClassWithKeywordProperties_t* p, PyObject *value, void *closure)
+static int pyopencv_utils_ClassWithKeywordProperties_set_lambda(const Napi::CallbackInfo &info, pyopencv_utils_ClassWithKeywordProperties_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the lambda attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the lambda attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.lambda, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.lambda, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -58870,14 +58876,14 @@ static PyObject* pyopencv_utils_nested_OriginalClassName_Params_get_float_value(
     return jsopencv_from(p->v.float_value);
 }
 
-static int pyopencv_utils_nested_OriginalClassName_Params_set_float_value(pyopencv_utils_nested_OriginalClassName_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_utils_nested_OriginalClassName_Params_set_float_value(const Napi::CallbackInfo &info, pyopencv_utils_nested_OriginalClassName_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the float_value attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the float_value attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.float_value, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.float_value, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_utils_nested_OriginalClassName_Params_get_int_value(pyopencv_utils_nested_OriginalClassName_Params_t* p, void *closure)
@@ -58885,14 +58891,14 @@ static PyObject* pyopencv_utils_nested_OriginalClassName_Params_get_int_value(py
     return jsopencv_from(p->v.int_value);
 }
 
-static int pyopencv_utils_nested_OriginalClassName_Params_set_int_value(pyopencv_utils_nested_OriginalClassName_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_utils_nested_OriginalClassName_Params_set_int_value(const Napi::CallbackInfo &info, pyopencv_utils_nested_OriginalClassName_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the int_value attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the int_value attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.int_value, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.int_value, ArgInfo("value", false)) ? 0 : -1;
 }
 
 
@@ -64560,7 +64566,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
         jsopencv_to_safe(info, pyobj_fdContour, fdContour, ArgInfo("fdContour", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->estimateTransformation(src, dst, alphaPhiST, dist, fdContour));
-        return Py_BuildValue("(NN)", jsopencv_from(alphaPhiST), jsopencv_from(dist));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(alphaPhiST), jsopencv_from(dist));
     }
 
 
@@ -64587,7 +64593,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
         jsopencv_to_safe(info, pyobj_fdContour, fdContour, ArgInfo("fdContour", 0)))
     {
         ERRWRAP2_NAPI(info, _self_->estimateTransformation(src, dst, alphaPhiST, dist, fdContour));
-        return Py_BuildValue("(NN)", jsopencv_from(alphaPhiST), jsopencv_from(dist));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(alphaPhiST), jsopencv_from(dist));
     }
 
 
@@ -65662,7 +65668,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
         jsopencv_to_safe(info, pyobj_scores, scores, ArgInfo("scores", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->getBoundingBoxes(edge_map, orientation_map, boxes, scores));
-        return Py_BuildValue("(NN)", jsopencv_from(boxes), jsopencv_from(scores));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(boxes), jsopencv_from(scores));
     }
 
 
@@ -65686,7 +65692,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
         jsopencv_to_safe(info, pyobj_scores, scores, ArgInfo("scores", 1)))
     {
         ERRWRAP2_NAPI(info, _self_->getBoundingBoxes(edge_map, orientation_map, boxes, scores));
-        return Py_BuildValue("(NN)", jsopencv_from(boxes), jsopencv_from(scores));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(boxes), jsopencv_from(scores));
     }
 
 
@@ -66611,14 +66617,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_AnchorThresholdValue(p
     return jsopencv_from(p->v.AnchorThresholdValue);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_AnchorThresholdValue(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_AnchorThresholdValue(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the AnchorThresholdValue attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the AnchorThresholdValue attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.AnchorThresholdValue, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.AnchorThresholdValue, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_EdgeDetectionOperator(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66626,14 +66632,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_EdgeDetectionOperator(
     return jsopencv_from(p->v.EdgeDetectionOperator);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_EdgeDetectionOperator(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_EdgeDetectionOperator(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the EdgeDetectionOperator attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the EdgeDetectionOperator attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.EdgeDetectionOperator, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.EdgeDetectionOperator, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_GradientThresholdValue(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66641,14 +66647,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_GradientThresholdValue
     return jsopencv_from(p->v.GradientThresholdValue);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_GradientThresholdValue(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_GradientThresholdValue(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the GradientThresholdValue attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the GradientThresholdValue attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.GradientThresholdValue, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.GradientThresholdValue, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_LineFitErrorThreshold(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66656,14 +66662,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_LineFitErrorThreshold(
     return jsopencv_from(p->v.LineFitErrorThreshold);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_LineFitErrorThreshold(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_LineFitErrorThreshold(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the LineFitErrorThreshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the LineFitErrorThreshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.LineFitErrorThreshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.LineFitErrorThreshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MaxDistanceBetweenTwoLines(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66671,14 +66677,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MaxDistanceBetweenTwoL
     return jsopencv_from(p->v.MaxDistanceBetweenTwoLines);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_MaxDistanceBetweenTwoLines(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_MaxDistanceBetweenTwoLines(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the MaxDistanceBetweenTwoLines attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the MaxDistanceBetweenTwoLines attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.MaxDistanceBetweenTwoLines, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.MaxDistanceBetweenTwoLines, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MaxErrorThreshold(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66686,14 +66692,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MaxErrorThreshold(pyop
     return jsopencv_from(p->v.MaxErrorThreshold);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_MaxErrorThreshold(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_MaxErrorThreshold(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the MaxErrorThreshold attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the MaxErrorThreshold attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.MaxErrorThreshold, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.MaxErrorThreshold, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MinLineLength(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66701,14 +66707,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MinLineLength(pyopencv
     return jsopencv_from(p->v.MinLineLength);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_MinLineLength(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_MinLineLength(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the MinLineLength attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the MinLineLength attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.MinLineLength, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.MinLineLength, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MinPathLength(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66716,14 +66722,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_MinPathLength(pyopencv
     return jsopencv_from(p->v.MinPathLength);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_MinPathLength(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_MinPathLength(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the MinPathLength attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the MinPathLength attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.MinPathLength, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.MinPathLength, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_NFAValidation(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66731,14 +66737,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_NFAValidation(pyopencv
     return jsopencv_from(p->v.NFAValidation);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_NFAValidation(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_NFAValidation(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the NFAValidation attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the NFAValidation attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.NFAValidation, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.NFAValidation, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_PFmode(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66746,14 +66752,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_PFmode(pyopencv_ximgpr
     return jsopencv_from(p->v.PFmode);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_PFmode(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_PFmode(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the PFmode attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the PFmode attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.PFmode, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.PFmode, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_ScanInterval(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66761,14 +66767,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_ScanInterval(pyopencv_
     return jsopencv_from(p->v.ScanInterval);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_ScanInterval(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_ScanInterval(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the ScanInterval attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ScanInterval attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.ScanInterval, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.ScanInterval, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_Sigma(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66776,14 +66782,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_Sigma(pyopencv_ximgpro
     return jsopencv_from(p->v.Sigma);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_Sigma(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_Sigma(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the Sigma attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the Sigma attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.Sigma, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.Sigma, ArgInfo("value", false)) ? 0 : -1;
 }
 
 static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_SumFlag(pyopencv_ximgproc_EdgeDrawing_Params_t* p, void *closure)
@@ -66791,14 +66797,14 @@ static PyObject* pyopencv_ximgproc_EdgeDrawing_Params_get_SumFlag(pyopencv_ximgp
     return jsopencv_from(p->v.SumFlag);
 }
 
-static int pyopencv_ximgproc_EdgeDrawing_Params_set_SumFlag(pyopencv_ximgproc_EdgeDrawing_Params_t* p, PyObject *value, void *closure)
+static int pyopencv_ximgproc_EdgeDrawing_Params_set_SumFlag(const Napi::CallbackInfo &info, pyopencv_ximgproc_EdgeDrawing_Params_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        PyErr_SetString(PyExc_TypeError, "Cannot delete the SumFlag attribute");
+        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the SumFlag attribute");
         return -1;
     }
-    return pyopencv_to_safe(value, p->v.SumFlag, ArgInfo("value", false)) ? 0 : -1;
+    return pyopencv_to_safe(info, value, p->v.SumFlag, ArgInfo("value", false)) ? 0 : -1;
 }
 
 

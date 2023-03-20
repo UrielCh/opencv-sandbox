@@ -335,7 +335,7 @@ class FuncInfo(object):
             else:
                 # there is more than 1 return parameter; form the tuple out of them
                 fmtspec = "N"*len(v.py_outlist)
-                code_ret = "return Py_BuildValue(\"(%s)\", %s)" % \
+                code_ret = "return Js_BuildValue(info, \"(%s)\", %s)" % \
                     (fmtspec, ", ".join(["jsopencv_from(" + aname + ")" for aname, argno in v.py_outlist]))
 
             all_code_variants.append(gen_template_func_body.substitute(code_decl=code_decl,
