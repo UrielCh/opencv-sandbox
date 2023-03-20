@@ -352,7 +352,7 @@ class FuncInfo(object):
                                   for v in all_code_variants)
             code += '    pyRaiseCVOverloadException("{}");\n'.format(self.name)
 
-        def_ret = "NULL"
+        def_ret = "info.Env().Null()"
         if self.isconstructor:
             def_ret = "-1"
         code += "\n    return %s;\n}\n\n" % def_ret

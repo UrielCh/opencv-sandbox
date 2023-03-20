@@ -42,7 +42,7 @@ static Napi::Value pyopencv_cv_AKAZE_create_static(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getDefaultName(const Napi::CallbackInfo &info)
@@ -62,7 +62,7 @@ static Napi::Value pyopencv_cv_AKAZE_getDefaultName(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getDescriptorChannels(const Napi::CallbackInfo &info)
@@ -82,7 +82,7 @@ static Napi::Value pyopencv_cv_AKAZE_getDescriptorChannels(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getDescriptorSize(const Napi::CallbackInfo &info)
@@ -102,7 +102,7 @@ static Napi::Value pyopencv_cv_AKAZE_getDescriptorSize(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getDescriptorType(const Napi::CallbackInfo &info)
@@ -122,7 +122,7 @@ static Napi::Value pyopencv_cv_AKAZE_getDescriptorType(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getDiffusivity(const Napi::CallbackInfo &info)
@@ -142,7 +142,7 @@ static Napi::Value pyopencv_cv_AKAZE_getDiffusivity(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getNOctaveLayers(const Napi::CallbackInfo &info)
@@ -162,7 +162,7 @@ static Napi::Value pyopencv_cv_AKAZE_getNOctaveLayers(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getNOctaves(const Napi::CallbackInfo &info)
@@ -182,7 +182,7 @@ static Napi::Value pyopencv_cv_AKAZE_getNOctaves(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_getThreshold(const Napi::CallbackInfo &info)
@@ -202,7 +202,7 @@ static Napi::Value pyopencv_cv_AKAZE_getThreshold(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setDescriptorChannels(const Napi::CallbackInfo &info)
@@ -225,7 +225,7 @@ static Napi::Value pyopencv_cv_AKAZE_setDescriptorChannels(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setDescriptorSize(const Napi::CallbackInfo &info)
@@ -248,7 +248,7 @@ static Napi::Value pyopencv_cv_AKAZE_setDescriptorSize(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setDescriptorType(const Napi::CallbackInfo &info)
@@ -271,7 +271,7 @@ static Napi::Value pyopencv_cv_AKAZE_setDescriptorType(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setDiffusivity(const Napi::CallbackInfo &info)
@@ -294,7 +294,7 @@ static Napi::Value pyopencv_cv_AKAZE_setDiffusivity(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setNOctaveLayers(const Napi::CallbackInfo &info)
@@ -317,7 +317,7 @@ static Napi::Value pyopencv_cv_AKAZE_setNOctaveLayers(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setNOctaves(const Napi::CallbackInfo &info)
@@ -340,7 +340,7 @@ static Napi::Value pyopencv_cv_AKAZE_setNOctaves(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AKAZE_setThreshold(const Napi::CallbackInfo &info)
@@ -363,7 +363,7 @@ static Napi::Value pyopencv_cv_AKAZE_setThreshold(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -460,7 +460,7 @@ static Napi::Value pyopencv_cv_AffineFeature_create_static(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AffineFeature_getDefaultName(const Napi::CallbackInfo &info)
@@ -480,7 +480,7 @@ static Napi::Value pyopencv_cv_AffineFeature_getDefaultName(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AffineFeature_getViewParams(const Napi::CallbackInfo &info)
@@ -506,7 +506,7 @@ static Napi::Value pyopencv_cv_AffineFeature_getViewParams(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AffineFeature_setViewParams(const Napi::CallbackInfo &info)
@@ -532,7 +532,7 @@ static Napi::Value pyopencv_cv_AffineFeature_setViewParams(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -611,7 +611,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_create_static(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -631,7 +631,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_getDefaultName(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_getNonmaxSuppression(const Napi::CallbackInfo &info)
@@ -651,7 +651,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_getNonmaxSuppression(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_getThreshold(const Napi::CallbackInfo &info)
@@ -671,7 +671,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_getThreshold(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_getType(const Napi::CallbackInfo &info)
@@ -691,7 +691,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_getType(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_setNonmaxSuppression(const Napi::CallbackInfo &info)
@@ -714,7 +714,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_setNonmaxSuppression(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_setThreshold(const Napi::CallbackInfo &info)
@@ -737,7 +737,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_setThreshold(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AgastFeatureDetector_setType(const Napi::CallbackInfo &info)
@@ -760,7 +760,7 @@ static Napi::Value pyopencv_cv_AgastFeatureDetector_setType(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -837,7 +837,7 @@ static Napi::Value pyopencv_cv_Algorithm_clear(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Algorithm_empty(const Napi::CallbackInfo &info)
@@ -857,7 +857,7 @@ static Napi::Value pyopencv_cv_Algorithm_empty(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Algorithm_getDefaultName(const Napi::CallbackInfo &info)
@@ -877,7 +877,7 @@ static Napi::Value pyopencv_cv_Algorithm_getDefaultName(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Algorithm_read(const Napi::CallbackInfo &info)
@@ -900,7 +900,7 @@ static Napi::Value pyopencv_cv_Algorithm_read(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Algorithm_save(const Napi::CallbackInfo &info)
@@ -923,7 +923,7 @@ static Napi::Value pyopencv_cv_Algorithm_save(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
@@ -974,7 +974,7 @@ static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("write");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -1096,7 +1096,7 @@ static Napi::Value pyopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -1203,7 +1203,7 @@ static Napi::Value pyopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("calculateShift");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo &info)
@@ -1263,7 +1263,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("computeBitmaps");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_getCut(const Napi::CallbackInfo &info)
@@ -1283,7 +1283,7 @@ static Napi::Value pyopencv_cv_AlignMTB_getCut(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_getExcludeRange(const Napi::CallbackInfo &info)
@@ -1303,7 +1303,7 @@ static Napi::Value pyopencv_cv_AlignMTB_getExcludeRange(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_getMaxBits(const Napi::CallbackInfo &info)
@@ -1323,7 +1323,7 @@ static Napi::Value pyopencv_cv_AlignMTB_getMaxBits(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
@@ -1429,7 +1429,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_setCut(const Napi::CallbackInfo &info)
@@ -1452,7 +1452,7 @@ static Napi::Value pyopencv_cv_AlignMTB_setCut(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_setExcludeRange(const Napi::CallbackInfo &info)
@@ -1475,7 +1475,7 @@ static Napi::Value pyopencv_cv_AlignMTB_setExcludeRange(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_setMaxBits(const Napi::CallbackInfo &info)
@@ -1498,7 +1498,7 @@ static Napi::Value pyopencv_cv_AlignMTB_setMaxBits(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
@@ -1558,7 +1558,7 @@ static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("shiftMat");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -1723,7 +1723,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("get");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AsyncArray_release(const Napi::CallbackInfo &info)
@@ -1742,7 +1742,7 @@ static Napi::Value pyopencv_cv_AsyncArray_release(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AsyncArray_valid(const Napi::CallbackInfo &info)
@@ -1762,7 +1762,7 @@ static Napi::Value pyopencv_cv_AsyncArray_valid(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_AsyncArray_wait_for(const Napi::CallbackInfo &info)
@@ -1786,7 +1786,7 @@ static Napi::Value pyopencv_cv_AsyncArray_wait_for(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -1884,7 +1884,7 @@ static Napi::Value pyopencv_cv_BFMatcher_create_static(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -1986,7 +1986,7 @@ static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_compute(const Napi::Cal
         return jsopencv_from(imgDescriptor);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_descriptorSize(const Napi::CallbackInfo &info)
@@ -2006,7 +2006,7 @@ static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_descriptorSize(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_descriptorType(const Napi::CallbackInfo &info)
@@ -2026,7 +2026,7 @@ static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_descriptorType(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_getVocabulary(const Napi::CallbackInfo &info)
@@ -2046,7 +2046,7 @@ static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_getVocabulary(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_setVocabulary(const Napi::CallbackInfo &info)
@@ -2069,7 +2069,7 @@ static Napi::Value pyopencv_cv_BOWImgDescriptorExtractor_setVocabulary(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -2198,7 +2198,7 @@ static Napi::Value pyopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
     }
     pyRaiseCVOverloadException("cluster");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -2272,7 +2272,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_add(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWTrainer_clear(const Napi::CallbackInfo &info)
@@ -2291,7 +2291,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_clear(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info)
@@ -2337,7 +2337,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
     }
     pyRaiseCVOverloadException("cluster");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWTrainer_descriptorsCount(const Napi::CallbackInfo &info)
@@ -2357,7 +2357,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_descriptorsCount(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BOWTrainer_getDescriptors(const Napi::CallbackInfo &info)
@@ -2377,7 +2377,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_getDescriptors(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -2531,7 +2531,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_getDefaultName(const Napi::CallbackInfo &info)
@@ -2551,7 +2551,7 @@ static Napi::Value pyopencv_cv_BRISK_getDefaultName(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_getOctaves(const Napi::CallbackInfo &info)
@@ -2571,7 +2571,7 @@ static Napi::Value pyopencv_cv_BRISK_getOctaves(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_getPatternScale(const Napi::CallbackInfo &info)
@@ -2591,7 +2591,7 @@ static Napi::Value pyopencv_cv_BRISK_getPatternScale(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_getThreshold(const Napi::CallbackInfo &info)
@@ -2611,7 +2611,7 @@ static Napi::Value pyopencv_cv_BRISK_getThreshold(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_setOctaves(const Napi::CallbackInfo &info)
@@ -2634,7 +2634,7 @@ static Napi::Value pyopencv_cv_BRISK_setOctaves(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_setPatternScale(const Napi::CallbackInfo &info)
@@ -2657,7 +2657,7 @@ static Napi::Value pyopencv_cv_BRISK_setPatternScale(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BRISK_setThreshold(const Napi::CallbackInfo &info)
@@ -2680,7 +2680,7 @@ static Napi::Value pyopencv_cv_BRISK_setThreshold(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -2798,7 +2798,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("apply");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Napi::CallbackInfo &info)
@@ -2846,7 +2846,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
     }
     pyRaiseCVOverloadException("getBackgroundImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -2918,7 +2918,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getDetectShadows(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getDist2Threshold(const Napi::CallbackInfo &info)
@@ -2938,7 +2938,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getDist2Threshold(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getHistory(const Napi::CallbackInfo &info)
@@ -2958,7 +2958,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getHistory(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getNSamples(const Napi::CallbackInfo &info)
@@ -2978,7 +2978,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getNSamples(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getShadowThreshold(const Napi::CallbackInfo &info)
@@ -2998,7 +2998,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getShadowThreshold(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getShadowValue(const Napi::CallbackInfo &info)
@@ -3018,7 +3018,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getShadowValue(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getkNNSamples(const Napi::CallbackInfo &info)
@@ -3038,7 +3038,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_getkNNSamples(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setDetectShadows(const Napi::CallbackInfo &info)
@@ -3061,7 +3061,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setDetectShadows(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setDist2Threshold(const Napi::CallbackInfo &info)
@@ -3084,7 +3084,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setDist2Threshold(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setHistory(const Napi::CallbackInfo &info)
@@ -3107,7 +3107,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setHistory(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setNSamples(const Napi::CallbackInfo &info)
@@ -3130,7 +3130,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setNSamples(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setShadowThreshold(const Napi::CallbackInfo &info)
@@ -3153,7 +3153,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setShadowThreshold(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setShadowValue(const Napi::CallbackInfo &info)
@@ -3176,7 +3176,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setShadowValue(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setkNNSamples(const Napi::CallbackInfo &info)
@@ -3199,7 +3199,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorKNN_setkNNSamples(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -3323,7 +3323,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
     }
     pyRaiseCVOverloadException("apply");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getBackgroundRatio(const Napi::CallbackInfo &info)
@@ -3343,7 +3343,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getBackgroundRatio(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getComplexityReductionThreshold(const Napi::CallbackInfo &info)
@@ -3363,7 +3363,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getComplexityReductionTh
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getDetectShadows(const Napi::CallbackInfo &info)
@@ -3383,7 +3383,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getDetectShadows(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getHistory(const Napi::CallbackInfo &info)
@@ -3403,7 +3403,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getHistory(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getNMixtures(const Napi::CallbackInfo &info)
@@ -3423,7 +3423,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getNMixtures(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getShadowThreshold(const Napi::CallbackInfo &info)
@@ -3443,7 +3443,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getShadowThreshold(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getShadowValue(const Napi::CallbackInfo &info)
@@ -3463,7 +3463,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getShadowValue(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarInit(const Napi::CallbackInfo &info)
@@ -3483,7 +3483,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarInit(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarMax(const Napi::CallbackInfo &info)
@@ -3503,7 +3503,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarMax(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarMin(const Napi::CallbackInfo &info)
@@ -3523,7 +3523,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarMin(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarThreshold(const Napi::CallbackInfo &info)
@@ -3543,7 +3543,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarThreshold(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarThresholdGen(const Napi::CallbackInfo &info)
@@ -3563,7 +3563,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_getVarThresholdGen(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setBackgroundRatio(const Napi::CallbackInfo &info)
@@ -3586,7 +3586,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setBackgroundRatio(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setComplexityReductionThreshold(const Napi::CallbackInfo &info)
@@ -3609,7 +3609,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setComplexityReductionTh
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setDetectShadows(const Napi::CallbackInfo &info)
@@ -3632,7 +3632,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setDetectShadows(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setHistory(const Napi::CallbackInfo &info)
@@ -3655,7 +3655,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setHistory(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setNMixtures(const Napi::CallbackInfo &info)
@@ -3678,7 +3678,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setNMixtures(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setShadowThreshold(const Napi::CallbackInfo &info)
@@ -3701,7 +3701,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setShadowThreshold(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setShadowValue(const Napi::CallbackInfo &info)
@@ -3724,7 +3724,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setShadowValue(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarInit(const Napi::CallbackInfo &info)
@@ -3747,7 +3747,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarInit(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarMax(const Napi::CallbackInfo &info)
@@ -3770,7 +3770,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarMax(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarMin(const Napi::CallbackInfo &info)
@@ -3793,7 +3793,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarMin(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarThreshold(const Napi::CallbackInfo &info)
@@ -3816,7 +3816,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarThreshold(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarThresholdGen(const Napi::CallbackInfo &info)
@@ -3839,7 +3839,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_setVarThresholdGen(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -4018,7 +4018,7 @@ static Napi::Value pyopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("apply");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CLAHE_collectGarbage(const Napi::CallbackInfo &info)
@@ -4037,7 +4037,7 @@ static Napi::Value pyopencv_cv_CLAHE_collectGarbage(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CLAHE_getClipLimit(const Napi::CallbackInfo &info)
@@ -4057,7 +4057,7 @@ static Napi::Value pyopencv_cv_CLAHE_getClipLimit(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CLAHE_getTilesGridSize(const Napi::CallbackInfo &info)
@@ -4077,7 +4077,7 @@ static Napi::Value pyopencv_cv_CLAHE_getTilesGridSize(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CLAHE_setClipLimit(const Napi::CallbackInfo &info)
@@ -4100,7 +4100,7 @@ static Napi::Value pyopencv_cv_CLAHE_setClipLimit(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CLAHE_setTilesGridSize(const Napi::CallbackInfo &info)
@@ -4123,7 +4123,7 @@ static Napi::Value pyopencv_cv_CLAHE_setTilesGridSize(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -4239,7 +4239,7 @@ static Napi::Value pyopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -4310,7 +4310,7 @@ static Napi::Value pyopencv_cv_CalibrateDebevec_getLambda(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateDebevec_getRandom(const Napi::CallbackInfo &info)
@@ -4330,7 +4330,7 @@ static Napi::Value pyopencv_cv_CalibrateDebevec_getRandom(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateDebevec_getSamples(const Napi::CallbackInfo &info)
@@ -4350,7 +4350,7 @@ static Napi::Value pyopencv_cv_CalibrateDebevec_getSamples(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateDebevec_setLambda(const Napi::CallbackInfo &info)
@@ -4373,7 +4373,7 @@ static Napi::Value pyopencv_cv_CalibrateDebevec_setLambda(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateDebevec_setRandom(const Napi::CallbackInfo &info)
@@ -4396,7 +4396,7 @@ static Napi::Value pyopencv_cv_CalibrateDebevec_setRandom(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateDebevec_setSamples(const Napi::CallbackInfo &info)
@@ -4419,7 +4419,7 @@ static Napi::Value pyopencv_cv_CalibrateDebevec_setSamples(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -4495,7 +4495,7 @@ static Napi::Value pyopencv_cv_CalibrateRobertson_getMaxIter(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateRobertson_getRadiance(const Napi::CallbackInfo &info)
@@ -4515,7 +4515,7 @@ static Napi::Value pyopencv_cv_CalibrateRobertson_getRadiance(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateRobertson_getThreshold(const Napi::CallbackInfo &info)
@@ -4535,7 +4535,7 @@ static Napi::Value pyopencv_cv_CalibrateRobertson_getThreshold(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateRobertson_setMaxIter(const Napi::CallbackInfo &info)
@@ -4558,7 +4558,7 @@ static Napi::Value pyopencv_cv_CalibrateRobertson_setMaxIter(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CalibrateRobertson_setThreshold(const Napi::CallbackInfo &info)
@@ -4581,7 +4581,7 @@ static Napi::Value pyopencv_cv_CalibrateRobertson_setThreshold(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -4699,7 +4699,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_convert_static(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::CallbackInfo &info)
@@ -4779,7 +4779,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
     }
     pyRaiseCVOverloadException("detectMultiScale");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::CallbackInfo &info)
@@ -4861,7 +4861,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
     }
     pyRaiseCVOverloadException("detectMultiScale2");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::CallbackInfo &info)
@@ -4951,7 +4951,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
     }
     pyRaiseCVOverloadException("detectMultiScale3");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_empty(const Napi::CallbackInfo &info)
@@ -4971,7 +4971,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_empty(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_getFeatureType(const Napi::CallbackInfo &info)
@@ -4991,7 +4991,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_getFeatureType(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_getOriginalWindowSize(const Napi::CallbackInfo &info)
@@ -5011,7 +5011,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_getOriginalWindowSize(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_isOldFormatCascade(const Napi::CallbackInfo &info)
@@ -5031,7 +5031,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_isOldFormatCascade(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_load(const Napi::CallbackInfo &info)
@@ -5055,7 +5055,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_load(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_CascadeClassifier_read(const Napi::CallbackInfo &info)
@@ -5079,7 +5079,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_read(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -5462,7 +5462,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_create_static(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getFinestScale(const Napi::CallbackInfo &info)
@@ -5482,7 +5482,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getFinestScale(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getGradientDescentIterations(const Napi::CallbackInfo &info)
@@ -5502,7 +5502,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getGradientDescentIterations(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getPatchSize(const Napi::CallbackInfo &info)
@@ -5522,7 +5522,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getPatchSize(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getPatchStride(const Napi::CallbackInfo &info)
@@ -5542,7 +5542,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getPatchStride(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getUseMeanNormalization(const Napi::CallbackInfo &info)
@@ -5562,7 +5562,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getUseMeanNormalization(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getUseSpatialPropagation(const Napi::CallbackInfo &info)
@@ -5582,7 +5582,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getUseSpatialPropagation(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementAlpha(const Napi::CallbackInfo &info)
@@ -5602,7 +5602,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementAlpha(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementDelta(const Napi::CallbackInfo &info)
@@ -5622,7 +5622,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementDelta(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementGamma(const Napi::CallbackInfo &info)
@@ -5642,7 +5642,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementGamma(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementIterations(const Napi::CallbackInfo &info)
@@ -5662,7 +5662,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_getVariationalRefinementIterations
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setFinestScale(const Napi::CallbackInfo &info)
@@ -5685,7 +5685,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setFinestScale(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setGradientDescentIterations(const Napi::CallbackInfo &info)
@@ -5708,7 +5708,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setGradientDescentIterations(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setPatchSize(const Napi::CallbackInfo &info)
@@ -5731,7 +5731,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setPatchSize(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setPatchStride(const Napi::CallbackInfo &info)
@@ -5754,7 +5754,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setPatchStride(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setUseMeanNormalization(const Napi::CallbackInfo &info)
@@ -5777,7 +5777,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setUseMeanNormalization(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setUseSpatialPropagation(const Napi::CallbackInfo &info)
@@ -5800,7 +5800,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setUseSpatialPropagation(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementAlpha(const Napi::CallbackInfo &info)
@@ -5823,7 +5823,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementAlpha(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementDelta(const Napi::CallbackInfo &info)
@@ -5846,7 +5846,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementDelta(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementGamma(const Napi::CallbackInfo &info)
@@ -5869,7 +5869,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementGamma(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementIterations(const Napi::CallbackInfo &info)
@@ -5892,7 +5892,7 @@ static Napi::Value pyopencv_cv_DISOpticalFlow_setVariationalRefinementIterations
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -6208,7 +6208,7 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("calc");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DenseOpticalFlow_collectGarbage(const Napi::CallbackInfo &info)
@@ -6227,7 +6227,7 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_collectGarbage(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -6327,7 +6327,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("add");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_clear(const Napi::CallbackInfo &info)
@@ -6346,7 +6346,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_clear(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_clone(const Napi::CallbackInfo &info)
@@ -6370,7 +6370,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_clone(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::CallbackInfo &info)
@@ -6415,7 +6415,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::Callb
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_empty(const Napi::CallbackInfo &info)
@@ -6435,7 +6435,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_empty(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_getTrainDescriptors(const Napi::CallbackInfo &info)
@@ -6455,7 +6455,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_getTrainDescriptors(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_isMaskSupported(const Napi::CallbackInfo &info)
@@ -6475,7 +6475,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_isMaskSupported(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackInfo &info)
@@ -6603,7 +6603,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("knnMatch");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo &info)
@@ -6707,7 +6707,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("match");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::CallbackInfo &info)
@@ -6835,7 +6835,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
     pyRaiseCVOverloadException("radiusMatch");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &info)
@@ -6883,7 +6883,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("read");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_train(const Napi::CallbackInfo &info)
@@ -6902,7 +6902,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_train(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo &info)
@@ -6953,7 +6953,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("write");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -7056,7 +7056,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_create_static(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &info)
@@ -7112,7 +7112,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_getInputSize(const Napi::CallbackInfo &info)
@@ -7132,7 +7132,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_getInputSize(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_getNMSThreshold(const Napi::CallbackInfo &info)
@@ -7152,7 +7152,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_getNMSThreshold(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_getScoreThreshold(const Napi::CallbackInfo &info)
@@ -7172,7 +7172,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_getScoreThreshold(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_getTopK(const Napi::CallbackInfo &info)
@@ -7192,7 +7192,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_getTopK(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_setInputSize(const Napi::CallbackInfo &info)
@@ -7215,7 +7215,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_setInputSize(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_setNMSThreshold(const Napi::CallbackInfo &info)
@@ -7238,7 +7238,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_setNMSThreshold(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_setScoreThreshold(const Napi::CallbackInfo &info)
@@ -7261,7 +7261,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_setScoreThreshold(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceDetectorYN_setTopK(const Napi::CallbackInfo &info)
@@ -7284,7 +7284,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_setTopK(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -7404,7 +7404,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("alignCrop");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceRecognizerSF_create_static(const Napi::CallbackInfo &info)
@@ -7432,7 +7432,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_create_static(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo &info)
@@ -7486,7 +7486,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
     }
     pyRaiseCVOverloadException("feature");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &info)
@@ -7548,7 +7548,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("match");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -7642,7 +7642,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_create_static(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getFastPyramids(const Napi::CallbackInfo &info)
@@ -7662,7 +7662,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getFastPyramids(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getFlags(const Napi::CallbackInfo &info)
@@ -7682,7 +7682,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getFlags(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getNumIters(const Napi::CallbackInfo &info)
@@ -7702,7 +7702,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getNumIters(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getNumLevels(const Napi::CallbackInfo &info)
@@ -7722,7 +7722,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getNumLevels(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getPolyN(const Napi::CallbackInfo &info)
@@ -7742,7 +7742,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getPolyN(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getPolySigma(const Napi::CallbackInfo &info)
@@ -7762,7 +7762,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getPolySigma(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getPyrScale(const Napi::CallbackInfo &info)
@@ -7782,7 +7782,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getPyrScale(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getWinSize(const Napi::CallbackInfo &info)
@@ -7802,7 +7802,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_getWinSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setFastPyramids(const Napi::CallbackInfo &info)
@@ -7825,7 +7825,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setFastPyramids(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setFlags(const Napi::CallbackInfo &info)
@@ -7848,7 +7848,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setFlags(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setNumIters(const Napi::CallbackInfo &info)
@@ -7871,7 +7871,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setNumIters(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setNumLevels(const Napi::CallbackInfo &info)
@@ -7894,7 +7894,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setNumLevels(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setPolyN(const Napi::CallbackInfo &info)
@@ -7917,7 +7917,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setPolyN(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setPolySigma(const Napi::CallbackInfo &info)
@@ -7940,7 +7940,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setPolySigma(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setPyrScale(const Napi::CallbackInfo &info)
@@ -7963,7 +7963,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setPyrScale(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setWinSize(const Napi::CallbackInfo &info)
@@ -7986,7 +7986,7 @@ static Napi::Value pyopencv_cv_FarnebackOpticalFlow_setWinSize(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -8078,7 +8078,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_create_static(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -8098,7 +8098,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_getDefaultName(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_getNonmaxSuppression(const Napi::CallbackInfo &info)
@@ -8118,7 +8118,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_getNonmaxSuppression(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_getThreshold(const Napi::CallbackInfo &info)
@@ -8138,7 +8138,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_getThreshold(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_getType(const Napi::CallbackInfo &info)
@@ -8158,7 +8158,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_getType(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_setNonmaxSuppression(const Napi::CallbackInfo &info)
@@ -8181,7 +8181,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_setNonmaxSuppression(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_setThreshold(const Napi::CallbackInfo &info)
@@ -8204,7 +8204,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_setThreshold(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FastFeatureDetector_setType(const Napi::CallbackInfo &info)
@@ -8227,7 +8227,7 @@ static Napi::Value pyopencv_cv_FastFeatureDetector_setType(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -8391,7 +8391,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_defaultNorm(const Napi::CallbackInfo &info)
@@ -8411,7 +8411,7 @@ static Napi::Value pyopencv_cv_Feature2D_defaultNorm(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_descriptorSize(const Napi::CallbackInfo &info)
@@ -8431,7 +8431,7 @@ static Napi::Value pyopencv_cv_Feature2D_descriptorSize(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_descriptorType(const Napi::CallbackInfo &info)
@@ -8451,7 +8451,7 @@ static Napi::Value pyopencv_cv_Feature2D_descriptorType(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
@@ -8549,7 +8549,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackInfo &info)
@@ -8617,7 +8617,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("detectAndCompute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_empty(const Napi::CallbackInfo &info)
@@ -8637,7 +8637,7 @@ static Napi::Value pyopencv_cv_Feature2D_empty(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_getDefaultName(const Napi::CallbackInfo &info)
@@ -8657,7 +8657,7 @@ static Napi::Value pyopencv_cv_Feature2D_getDefaultName(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
@@ -8705,7 +8705,7 @@ static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("read");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
@@ -8756,7 +8756,7 @@ static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("write");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -8854,7 +8854,7 @@ static Napi::Value pyopencv_cv_FileNode_at(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_empty(const Napi::CallbackInfo &info)
@@ -8874,7 +8874,7 @@ static Napi::Value pyopencv_cv_FileNode_empty(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_getNode(const Napi::CallbackInfo &info)
@@ -8896,7 +8896,7 @@ static Napi::Value pyopencv_cv_FileNode_getNode(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isInt(const Napi::CallbackInfo &info)
@@ -8916,7 +8916,7 @@ static Napi::Value pyopencv_cv_FileNode_isInt(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isMap(const Napi::CallbackInfo &info)
@@ -8936,7 +8936,7 @@ static Napi::Value pyopencv_cv_FileNode_isMap(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isNamed(const Napi::CallbackInfo &info)
@@ -8956,7 +8956,7 @@ static Napi::Value pyopencv_cv_FileNode_isNamed(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isNone(const Napi::CallbackInfo &info)
@@ -8976,7 +8976,7 @@ static Napi::Value pyopencv_cv_FileNode_isNone(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isReal(const Napi::CallbackInfo &info)
@@ -8996,7 +8996,7 @@ static Napi::Value pyopencv_cv_FileNode_isReal(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isSeq(const Napi::CallbackInfo &info)
@@ -9016,7 +9016,7 @@ static Napi::Value pyopencv_cv_FileNode_isSeq(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_isString(const Napi::CallbackInfo &info)
@@ -9036,7 +9036,7 @@ static Napi::Value pyopencv_cv_FileNode_isString(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_keys(const Napi::CallbackInfo &info)
@@ -9056,7 +9056,7 @@ static Napi::Value pyopencv_cv_FileNode_keys(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_mat(const Napi::CallbackInfo &info)
@@ -9076,7 +9076,7 @@ static Napi::Value pyopencv_cv_FileNode_mat(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_name(const Napi::CallbackInfo &info)
@@ -9096,7 +9096,7 @@ static Napi::Value pyopencv_cv_FileNode_name(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_rawSize(const Napi::CallbackInfo &info)
@@ -9116,7 +9116,7 @@ static Napi::Value pyopencv_cv_FileNode_rawSize(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_real(const Napi::CallbackInfo &info)
@@ -9136,7 +9136,7 @@ static Napi::Value pyopencv_cv_FileNode_real(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_size(const Napi::CallbackInfo &info)
@@ -9156,7 +9156,7 @@ static Napi::Value pyopencv_cv_FileNode_size(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_string(const Napi::CallbackInfo &info)
@@ -9176,7 +9176,7 @@ static Napi::Value pyopencv_cv_FileNode_string(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileNode_type(const Napi::CallbackInfo &info)
@@ -9196,7 +9196,7 @@ static Napi::Value pyopencv_cv_FileNode_type(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -9330,7 +9330,7 @@ static Napi::Value pyopencv_cv_FileStorage_endWriteStruct(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_getFirstTopLevelNode(const Napi::CallbackInfo &info)
@@ -9350,7 +9350,7 @@ static Napi::Value pyopencv_cv_FileStorage_getFirstTopLevelNode(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_getFormat(const Napi::CallbackInfo &info)
@@ -9370,7 +9370,7 @@ static Napi::Value pyopencv_cv_FileStorage_getFormat(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_getNode(const Napi::CallbackInfo &info)
@@ -9392,7 +9392,7 @@ static Napi::Value pyopencv_cv_FileStorage_getNode(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_isOpened(const Napi::CallbackInfo &info)
@@ -9412,7 +9412,7 @@ static Napi::Value pyopencv_cv_FileStorage_isOpened(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_open(const Napi::CallbackInfo &info)
@@ -9442,7 +9442,7 @@ static Napi::Value pyopencv_cv_FileStorage_open(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_release(const Napi::CallbackInfo &info)
@@ -9461,7 +9461,7 @@ static Napi::Value pyopencv_cv_FileStorage_release(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_releaseAndGetString(const Napi::CallbackInfo &info)
@@ -9481,7 +9481,7 @@ static Napi::Value pyopencv_cv_FileStorage_releaseAndGetString(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_root(const Napi::CallbackInfo &info)
@@ -9505,7 +9505,7 @@ static Napi::Value pyopencv_cv_FileStorage_root(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_startWriteStruct(const Napi::CallbackInfo &info)
@@ -9534,7 +9534,7 @@ static Napi::Value pyopencv_cv_FileStorage_startWriteStruct(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
@@ -9648,7 +9648,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("write");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_FileStorage_writeComment(const Napi::CallbackInfo &info)
@@ -9674,7 +9674,7 @@ static Napi::Value pyopencv_cv_FileStorage_writeComment(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -9773,7 +9773,7 @@ static Napi::Value pyopencv_cv_FlannBasedMatcher_create_static(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -9912,7 +9912,7 @@ static Napi::Value pyopencv_cv_GArrayT_type(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -10196,7 +10196,7 @@ static Napi::Value pyopencv_cv_GComputation_apply(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::CallbackInfo &info)
@@ -10270,7 +10270,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
     pyRaiseCVOverloadException("compileStreaming");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -10400,7 +10400,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create_static(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getBlockSize(const Napi::CallbackInfo &info)
@@ -10420,7 +10420,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getBlockSize(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -10440,7 +10440,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getDefaultName(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getGradientSize(const Napi::CallbackInfo &info)
@@ -10460,7 +10460,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getGradientSize(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getHarrisDetector(const Napi::CallbackInfo &info)
@@ -10480,7 +10480,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getHarrisDetector(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getK(const Napi::CallbackInfo &info)
@@ -10500,7 +10500,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getK(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getMaxFeatures(const Napi::CallbackInfo &info)
@@ -10520,7 +10520,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getMaxFeatures(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getMinDistance(const Napi::CallbackInfo &info)
@@ -10540,7 +10540,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getMinDistance(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_getQualityLevel(const Napi::CallbackInfo &info)
@@ -10560,7 +10560,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_getQualityLevel(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setBlockSize(const Napi::CallbackInfo &info)
@@ -10583,7 +10583,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setBlockSize(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setGradientSize(const Napi::CallbackInfo &info)
@@ -10606,7 +10606,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setGradientSize(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setHarrisDetector(const Napi::CallbackInfo &info)
@@ -10629,7 +10629,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setHarrisDetector(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setK(const Napi::CallbackInfo &info)
@@ -10652,7 +10652,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setK(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setMaxFeatures(const Napi::CallbackInfo &info)
@@ -10675,7 +10675,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setMaxFeatures(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setMinDistance(const Napi::CallbackInfo &info)
@@ -10698,7 +10698,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setMinDistance(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GFTTDetector_setQualityLevel(const Napi::CallbackInfo &info)
@@ -10721,7 +10721,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_setQualityLevel(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -10921,7 +10921,7 @@ static Napi::Value pyopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("setInput");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -11042,7 +11042,7 @@ static Napi::Value pyopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("setInput");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -11131,7 +11131,7 @@ static Napi::Value pyopencv_cv_GInferListOutputs_at(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -11220,7 +11220,7 @@ static Napi::Value pyopencv_cv_GInferOutputs_at(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -11518,7 +11518,7 @@ static Napi::Value pyopencv_cv_GMatDesc_asInterleaved(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
@@ -11564,7 +11564,7 @@ static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("asPlanar");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GMatDesc_withDepth(const Napi::CallbackInfo &info)
@@ -11588,7 +11588,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withDepth(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GMatDesc_withSize(const Napi::CallbackInfo &info)
@@ -11612,7 +11612,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withSize(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &info)
@@ -11665,7 +11665,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("withSizeDelta");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GMatDesc_withType(const Napi::CallbackInfo &info)
@@ -11692,7 +11692,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withType(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -11841,7 +11841,7 @@ static Napi::Value pyopencv_cv_GOpaqueT_type(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -12065,7 +12065,7 @@ static Napi::Value pyopencv_cv_GStreamingCompiled_pull(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GStreamingCompiled_running(const Napi::CallbackInfo &info)
@@ -12085,7 +12085,7 @@ static Napi::Value pyopencv_cv_GStreamingCompiled_running(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GStreamingCompiled_setSource(const Napi::CallbackInfo &info)
@@ -12108,7 +12108,7 @@ static Napi::Value pyopencv_cv_GStreamingCompiled_setSource(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GStreamingCompiled_start(const Napi::CallbackInfo &info)
@@ -12127,7 +12127,7 @@ static Napi::Value pyopencv_cv_GStreamingCompiled_start(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GStreamingCompiled_stop(const Napi::CallbackInfo &info)
@@ -12146,7 +12146,7 @@ static Napi::Value pyopencv_cv_GStreamingCompiled_stop(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -12319,7 +12319,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_getCannyHighThresh(const Napi::CallbackInfo &info)
@@ -12339,7 +12339,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_getCannyHighThresh(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_getCannyLowThresh(const Napi::CallbackInfo &info)
@@ -12359,7 +12359,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_getCannyLowThresh(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_getDp(const Napi::CallbackInfo &info)
@@ -12379,7 +12379,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_getDp(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_getMaxBufferSize(const Napi::CallbackInfo &info)
@@ -12399,7 +12399,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_getMaxBufferSize(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_getMinDist(const Napi::CallbackInfo &info)
@@ -12419,7 +12419,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_getMinDist(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_setCannyHighThresh(const Napi::CallbackInfo &info)
@@ -12442,7 +12442,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setCannyHighThresh(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_setCannyLowThresh(const Napi::CallbackInfo &info)
@@ -12465,7 +12465,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setCannyLowThresh(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_setDp(const Napi::CallbackInfo &info)
@@ -12488,7 +12488,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setDp(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_setMaxBufferSize(const Napi::CallbackInfo &info)
@@ -12511,7 +12511,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setMaxBufferSize(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_setMinDist(const Napi::CallbackInfo &info)
@@ -12534,7 +12534,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setMinDist(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::CallbackInfo &info)
@@ -12640,7 +12640,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
     pyRaiseCVOverloadException("setTemplate");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -12722,7 +12722,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughBallard_getLevels(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughBallard_getVotesThreshold(const Napi::CallbackInfo &info)
@@ -12742,7 +12742,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughBallard_getVotesThreshold(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughBallard_setLevels(const Napi::CallbackInfo &info)
@@ -12765,7 +12765,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughBallard_setLevels(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughBallard_setVotesThreshold(const Napi::CallbackInfo &info)
@@ -12788,7 +12788,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughBallard_setVotesThreshold(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -12862,7 +12862,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getAngleEpsilon(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getAngleStep(const Napi::CallbackInfo &info)
@@ -12882,7 +12882,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getAngleStep(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getAngleThresh(const Napi::CallbackInfo &info)
@@ -12902,7 +12902,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getAngleThresh(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getLevels(const Napi::CallbackInfo &info)
@@ -12922,7 +12922,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getLevels(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMaxAngle(const Napi::CallbackInfo &info)
@@ -12942,7 +12942,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMaxAngle(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMaxScale(const Napi::CallbackInfo &info)
@@ -12962,7 +12962,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMaxScale(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMinAngle(const Napi::CallbackInfo &info)
@@ -12982,7 +12982,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMinAngle(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMinScale(const Napi::CallbackInfo &info)
@@ -13002,7 +13002,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getMinScale(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getPosThresh(const Napi::CallbackInfo &info)
@@ -13022,7 +13022,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getPosThresh(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getScaleStep(const Napi::CallbackInfo &info)
@@ -13042,7 +13042,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getScaleStep(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getScaleThresh(const Napi::CallbackInfo &info)
@@ -13062,7 +13062,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getScaleThresh(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getXi(const Napi::CallbackInfo &info)
@@ -13082,7 +13082,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_getXi(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setAngleEpsilon(const Napi::CallbackInfo &info)
@@ -13105,7 +13105,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setAngleEpsilon(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setAngleStep(const Napi::CallbackInfo &info)
@@ -13128,7 +13128,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setAngleStep(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setAngleThresh(const Napi::CallbackInfo &info)
@@ -13151,7 +13151,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setAngleThresh(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setLevels(const Napi::CallbackInfo &info)
@@ -13174,7 +13174,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setLevels(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMaxAngle(const Napi::CallbackInfo &info)
@@ -13197,7 +13197,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMaxAngle(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMaxScale(const Napi::CallbackInfo &info)
@@ -13220,7 +13220,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMaxScale(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMinAngle(const Napi::CallbackInfo &info)
@@ -13243,7 +13243,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMinAngle(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMinScale(const Napi::CallbackInfo &info)
@@ -13266,7 +13266,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setMinScale(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setPosThresh(const Napi::CallbackInfo &info)
@@ -13289,7 +13289,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setPosThresh(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setScaleStep(const Napi::CallbackInfo &info)
@@ -13312,7 +13312,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setScaleStep(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setScaleThresh(const Napi::CallbackInfo &info)
@@ -13335,7 +13335,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setScaleThresh(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setXi(const Napi::CallbackInfo &info)
@@ -13358,7 +13358,7 @@ static Napi::Value pyopencv_cv_GeneralizedHoughGuil_setXi(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -13609,7 +13609,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_checkDetectorSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &info)
@@ -13677,7 +13677,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::CallbackInfo &info)
@@ -13749,7 +13749,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
     }
     pyRaiseCVOverloadException("computeGradient");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &info)
@@ -13825,7 +13825,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::CallbackInfo &info)
@@ -13913,7 +13913,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
     }
     pyRaiseCVOverloadException("detectMultiScale");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_getDaimlerPeopleDetector_static(const Napi::CallbackInfo &info)
@@ -13928,7 +13928,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_getDaimlerPeopleDetector_static(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_getDefaultPeopleDetector_static(const Napi::CallbackInfo &info)
@@ -13943,7 +13943,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_getDefaultPeopleDetector_static(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_getDescriptorSize(const Napi::CallbackInfo &info)
@@ -13963,7 +13963,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_getDescriptorSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_getWinSigma(const Napi::CallbackInfo &info)
@@ -13983,7 +13983,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_getWinSigma(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_load(const Napi::CallbackInfo &info)
@@ -14010,7 +14010,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_load(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_save(const Napi::CallbackInfo &info)
@@ -14036,7 +14036,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_save(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::CallbackInfo &info)
@@ -14084,7 +14084,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
     }
     pyRaiseCVOverloadException("setSVMDetector");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -14193,7 +14193,7 @@ static Napi::Value pyopencv_cv_KAZE_create_static(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getDefaultName(const Napi::CallbackInfo &info)
@@ -14213,7 +14213,7 @@ static Napi::Value pyopencv_cv_KAZE_getDefaultName(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getDiffusivity(const Napi::CallbackInfo &info)
@@ -14233,7 +14233,7 @@ static Napi::Value pyopencv_cv_KAZE_getDiffusivity(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getExtended(const Napi::CallbackInfo &info)
@@ -14253,7 +14253,7 @@ static Napi::Value pyopencv_cv_KAZE_getExtended(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getNOctaveLayers(const Napi::CallbackInfo &info)
@@ -14273,7 +14273,7 @@ static Napi::Value pyopencv_cv_KAZE_getNOctaveLayers(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getNOctaves(const Napi::CallbackInfo &info)
@@ -14293,7 +14293,7 @@ static Napi::Value pyopencv_cv_KAZE_getNOctaves(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getThreshold(const Napi::CallbackInfo &info)
@@ -14313,7 +14313,7 @@ static Napi::Value pyopencv_cv_KAZE_getThreshold(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_getUpright(const Napi::CallbackInfo &info)
@@ -14333,7 +14333,7 @@ static Napi::Value pyopencv_cv_KAZE_getUpright(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_setDiffusivity(const Napi::CallbackInfo &info)
@@ -14356,7 +14356,7 @@ static Napi::Value pyopencv_cv_KAZE_setDiffusivity(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_setExtended(const Napi::CallbackInfo &info)
@@ -14379,7 +14379,7 @@ static Napi::Value pyopencv_cv_KAZE_setExtended(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_setNOctaveLayers(const Napi::CallbackInfo &info)
@@ -14402,7 +14402,7 @@ static Napi::Value pyopencv_cv_KAZE_setNOctaveLayers(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_setNOctaves(const Napi::CallbackInfo &info)
@@ -14425,7 +14425,7 @@ static Napi::Value pyopencv_cv_KAZE_setNOctaves(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_setThreshold(const Napi::CallbackInfo &info)
@@ -14448,7 +14448,7 @@ static Napi::Value pyopencv_cv_KAZE_setThreshold(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KAZE_setUpright(const Napi::CallbackInfo &info)
@@ -14471,7 +14471,7 @@ static Napi::Value pyopencv_cv_KAZE_setUpright(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -14759,7 +14759,7 @@ static Napi::Value pyopencv_cv_KalmanFilter_correct(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KalmanFilter_predict(const Napi::CallbackInfo &info)
@@ -14783,7 +14783,7 @@ static Napi::Value pyopencv_cv_KalmanFilter_predict(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -15052,7 +15052,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert_static(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("convert");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_KeyPoint_overlap_static(const Napi::CallbackInfo &info)
@@ -15074,7 +15074,7 @@ static Napi::Value pyopencv_cv_KeyPoint_overlap_static(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -15200,7 +15200,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
     }
     pyRaiseCVOverloadException("compareSegments");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackInfo &info)
@@ -15272,7 +15272,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::CallbackInfo &info)
@@ -15326,7 +15326,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
     }
     pyRaiseCVOverloadException("drawSegments");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -15422,7 +15422,7 @@ static Napi::Value pyopencv_cv_MSER_create_static(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info)
@@ -15474,7 +15474,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
     }
     pyRaiseCVOverloadException("detectRegions");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getAreaThreshold(const Napi::CallbackInfo &info)
@@ -15494,7 +15494,7 @@ static Napi::Value pyopencv_cv_MSER_getAreaThreshold(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getDefaultName(const Napi::CallbackInfo &info)
@@ -15514,7 +15514,7 @@ static Napi::Value pyopencv_cv_MSER_getDefaultName(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getDelta(const Napi::CallbackInfo &info)
@@ -15534,7 +15534,7 @@ static Napi::Value pyopencv_cv_MSER_getDelta(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getEdgeBlurSize(const Napi::CallbackInfo &info)
@@ -15554,7 +15554,7 @@ static Napi::Value pyopencv_cv_MSER_getEdgeBlurSize(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getMaxArea(const Napi::CallbackInfo &info)
@@ -15574,7 +15574,7 @@ static Napi::Value pyopencv_cv_MSER_getMaxArea(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getMaxEvolution(const Napi::CallbackInfo &info)
@@ -15594,7 +15594,7 @@ static Napi::Value pyopencv_cv_MSER_getMaxEvolution(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getMaxVariation(const Napi::CallbackInfo &info)
@@ -15614,7 +15614,7 @@ static Napi::Value pyopencv_cv_MSER_getMaxVariation(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getMinArea(const Napi::CallbackInfo &info)
@@ -15634,7 +15634,7 @@ static Napi::Value pyopencv_cv_MSER_getMinArea(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getMinDiversity(const Napi::CallbackInfo &info)
@@ -15654,7 +15654,7 @@ static Napi::Value pyopencv_cv_MSER_getMinDiversity(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getMinMargin(const Napi::CallbackInfo &info)
@@ -15674,7 +15674,7 @@ static Napi::Value pyopencv_cv_MSER_getMinMargin(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_getPass2Only(const Napi::CallbackInfo &info)
@@ -15694,7 +15694,7 @@ static Napi::Value pyopencv_cv_MSER_getPass2Only(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setAreaThreshold(const Napi::CallbackInfo &info)
@@ -15717,7 +15717,7 @@ static Napi::Value pyopencv_cv_MSER_setAreaThreshold(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setDelta(const Napi::CallbackInfo &info)
@@ -15740,7 +15740,7 @@ static Napi::Value pyopencv_cv_MSER_setDelta(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setEdgeBlurSize(const Napi::CallbackInfo &info)
@@ -15763,7 +15763,7 @@ static Napi::Value pyopencv_cv_MSER_setEdgeBlurSize(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setMaxArea(const Napi::CallbackInfo &info)
@@ -15786,7 +15786,7 @@ static Napi::Value pyopencv_cv_MSER_setMaxArea(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setMaxEvolution(const Napi::CallbackInfo &info)
@@ -15809,7 +15809,7 @@ static Napi::Value pyopencv_cv_MSER_setMaxEvolution(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setMaxVariation(const Napi::CallbackInfo &info)
@@ -15832,7 +15832,7 @@ static Napi::Value pyopencv_cv_MSER_setMaxVariation(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setMinArea(const Napi::CallbackInfo &info)
@@ -15855,7 +15855,7 @@ static Napi::Value pyopencv_cv_MSER_setMinArea(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setMinDiversity(const Napi::CallbackInfo &info)
@@ -15878,7 +15878,7 @@ static Napi::Value pyopencv_cv_MSER_setMinDiversity(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setMinMargin(const Napi::CallbackInfo &info)
@@ -15901,7 +15901,7 @@ static Napi::Value pyopencv_cv_MSER_setMinMargin(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MSER_setPass2Only(const Napi::CallbackInfo &info)
@@ -15924,7 +15924,7 @@ static Napi::Value pyopencv_cv_MSER_setPass2Only(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -16109,7 +16109,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -16226,7 +16226,7 @@ static Napi::Value pyopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -16297,7 +16297,7 @@ static Napi::Value pyopencv_cv_MergeMertens_getContrastWeight(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MergeMertens_getExposureWeight(const Napi::CallbackInfo &info)
@@ -16317,7 +16317,7 @@ static Napi::Value pyopencv_cv_MergeMertens_getExposureWeight(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MergeMertens_getSaturationWeight(const Napi::CallbackInfo &info)
@@ -16337,7 +16337,7 @@ static Napi::Value pyopencv_cv_MergeMertens_getSaturationWeight(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &info)
@@ -16443,7 +16443,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MergeMertens_setContrastWeight(const Napi::CallbackInfo &info)
@@ -16466,7 +16466,7 @@ static Napi::Value pyopencv_cv_MergeMertens_setContrastWeight(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MergeMertens_setExposureWeight(const Napi::CallbackInfo &info)
@@ -16489,7 +16489,7 @@ static Napi::Value pyopencv_cv_MergeMertens_setExposureWeight(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_MergeMertens_setSaturationWeight(const Napi::CallbackInfo &info)
@@ -16512,7 +16512,7 @@ static Napi::Value pyopencv_cv_MergeMertens_setSaturationWeight(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -16681,7 +16681,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -16956,7 +16956,7 @@ static Napi::Value pyopencv_cv_ORB_create_static(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getDefaultName(const Napi::CallbackInfo &info)
@@ -16976,7 +16976,7 @@ static Napi::Value pyopencv_cv_ORB_getDefaultName(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getEdgeThreshold(const Napi::CallbackInfo &info)
@@ -16996,7 +16996,7 @@ static Napi::Value pyopencv_cv_ORB_getEdgeThreshold(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getFastThreshold(const Napi::CallbackInfo &info)
@@ -17016,7 +17016,7 @@ static Napi::Value pyopencv_cv_ORB_getFastThreshold(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getFirstLevel(const Napi::CallbackInfo &info)
@@ -17036,7 +17036,7 @@ static Napi::Value pyopencv_cv_ORB_getFirstLevel(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getMaxFeatures(const Napi::CallbackInfo &info)
@@ -17056,7 +17056,7 @@ static Napi::Value pyopencv_cv_ORB_getMaxFeatures(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getNLevels(const Napi::CallbackInfo &info)
@@ -17076,7 +17076,7 @@ static Napi::Value pyopencv_cv_ORB_getNLevels(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getPatchSize(const Napi::CallbackInfo &info)
@@ -17096,7 +17096,7 @@ static Napi::Value pyopencv_cv_ORB_getPatchSize(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getScaleFactor(const Napi::CallbackInfo &info)
@@ -17116,7 +17116,7 @@ static Napi::Value pyopencv_cv_ORB_getScaleFactor(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getScoreType(const Napi::CallbackInfo &info)
@@ -17136,7 +17136,7 @@ static Napi::Value pyopencv_cv_ORB_getScoreType(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_getWTA_K(const Napi::CallbackInfo &info)
@@ -17156,7 +17156,7 @@ static Napi::Value pyopencv_cv_ORB_getWTA_K(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setEdgeThreshold(const Napi::CallbackInfo &info)
@@ -17179,7 +17179,7 @@ static Napi::Value pyopencv_cv_ORB_setEdgeThreshold(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setFastThreshold(const Napi::CallbackInfo &info)
@@ -17202,7 +17202,7 @@ static Napi::Value pyopencv_cv_ORB_setFastThreshold(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setFirstLevel(const Napi::CallbackInfo &info)
@@ -17225,7 +17225,7 @@ static Napi::Value pyopencv_cv_ORB_setFirstLevel(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setMaxFeatures(const Napi::CallbackInfo &info)
@@ -17248,7 +17248,7 @@ static Napi::Value pyopencv_cv_ORB_setMaxFeatures(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setNLevels(const Napi::CallbackInfo &info)
@@ -17271,7 +17271,7 @@ static Napi::Value pyopencv_cv_ORB_setNLevels(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setPatchSize(const Napi::CallbackInfo &info)
@@ -17294,7 +17294,7 @@ static Napi::Value pyopencv_cv_ORB_setPatchSize(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setScaleFactor(const Napi::CallbackInfo &info)
@@ -17317,7 +17317,7 @@ static Napi::Value pyopencv_cv_ORB_setScaleFactor(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setScoreType(const Napi::CallbackInfo &info)
@@ -17340,7 +17340,7 @@ static Napi::Value pyopencv_cv_ORB_setScoreType(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ORB_setWTA_K(const Napi::CallbackInfo &info)
@@ -17363,7 +17363,7 @@ static Napi::Value pyopencv_cv_ORB_setWTA_K(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -17510,7 +17510,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("decode");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackInfo &info)
@@ -17572,7 +17572,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
     }
     pyRaiseCVOverloadException("decodeCurved");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackInfo &info)
@@ -17636,7 +17636,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("decodeMulti");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &info)
@@ -17692,7 +17692,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::CallbackInfo &info)
@@ -17754,7 +17754,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
     }
     pyRaiseCVOverloadException("detectAndDecode");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::CallbackInfo &info)
@@ -17816,7 +17816,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
     }
     pyRaiseCVOverloadException("detectAndDecodeCurved");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::CallbackInfo &info)
@@ -17880,7 +17880,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
     }
     pyRaiseCVOverloadException("detectAndDecodeMulti");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackInfo &info)
@@ -17936,7 +17936,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("detectMulti");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_setEpsX(const Napi::CallbackInfo &info)
@@ -17959,7 +17959,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_setEpsX(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_setEpsY(const Napi::CallbackInfo &info)
@@ -17982,7 +17982,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_setEpsY(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeDetector_setUseAlignmentMarkers(const Napi::CallbackInfo &info)
@@ -18005,7 +18005,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_setUseAlignmentMarkers(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -18085,7 +18085,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_create_static(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &info)
@@ -18139,7 +18139,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("encode");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::CallbackInfo &info)
@@ -18193,7 +18193,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
     }
     pyRaiseCVOverloadException("encodeStructuredAppend");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -18446,7 +18446,7 @@ static Napi::Value pyopencv_cv_SIFT_create_static(const Napi::CallbackInfo &info
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_getContrastThreshold(const Napi::CallbackInfo &info)
@@ -18466,7 +18466,7 @@ static Napi::Value pyopencv_cv_SIFT_getContrastThreshold(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_getDefaultName(const Napi::CallbackInfo &info)
@@ -18486,7 +18486,7 @@ static Napi::Value pyopencv_cv_SIFT_getDefaultName(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_getEdgeThreshold(const Napi::CallbackInfo &info)
@@ -18506,7 +18506,7 @@ static Napi::Value pyopencv_cv_SIFT_getEdgeThreshold(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_getNFeatures(const Napi::CallbackInfo &info)
@@ -18526,7 +18526,7 @@ static Napi::Value pyopencv_cv_SIFT_getNFeatures(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_getNOctaveLayers(const Napi::CallbackInfo &info)
@@ -18546,7 +18546,7 @@ static Napi::Value pyopencv_cv_SIFT_getNOctaveLayers(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_getSigma(const Napi::CallbackInfo &info)
@@ -18566,7 +18566,7 @@ static Napi::Value pyopencv_cv_SIFT_getSigma(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_setContrastThreshold(const Napi::CallbackInfo &info)
@@ -18589,7 +18589,7 @@ static Napi::Value pyopencv_cv_SIFT_setContrastThreshold(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_setEdgeThreshold(const Napi::CallbackInfo &info)
@@ -18612,7 +18612,7 @@ static Napi::Value pyopencv_cv_SIFT_setEdgeThreshold(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_setNFeatures(const Napi::CallbackInfo &info)
@@ -18635,7 +18635,7 @@ static Napi::Value pyopencv_cv_SIFT_setNFeatures(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_setNOctaveLayers(const Napi::CallbackInfo &info)
@@ -18658,7 +18658,7 @@ static Napi::Value pyopencv_cv_SIFT_setNOctaveLayers(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SIFT_setSigma(const Napi::CallbackInfo &info)
@@ -18681,7 +18681,7 @@ static Napi::Value pyopencv_cv_SIFT_setSigma(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -18762,7 +18762,7 @@ static Napi::Value pyopencv_cv_SimpleBlobDetector_create_static(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SimpleBlobDetector_getBlobContours(const Napi::CallbackInfo &info)
@@ -18782,7 +18782,7 @@ static Napi::Value pyopencv_cv_SimpleBlobDetector_getBlobContours(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SimpleBlobDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -18802,7 +18802,7 @@ static Napi::Value pyopencv_cv_SimpleBlobDetector_getDefaultName(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SimpleBlobDetector_getParams(const Napi::CallbackInfo &info)
@@ -18822,7 +18822,7 @@ static Napi::Value pyopencv_cv_SimpleBlobDetector_getParams(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SimpleBlobDetector_setParams(const Napi::CallbackInfo &info)
@@ -18845,7 +18845,7 @@ static Napi::Value pyopencv_cv_SimpleBlobDetector_setParams(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -19362,7 +19362,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("calc");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -19444,7 +19444,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_create_static(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getFlags(const Napi::CallbackInfo &info)
@@ -19464,7 +19464,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getFlags(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getMaxLevel(const Napi::CallbackInfo &info)
@@ -19484,7 +19484,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getMaxLevel(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getMinEigThreshold(const Napi::CallbackInfo &info)
@@ -19504,7 +19504,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getMinEigThreshold(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getTermCriteria(const Napi::CallbackInfo &info)
@@ -19524,7 +19524,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getTermCriteria(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getWinSize(const Napi::CallbackInfo &info)
@@ -19544,7 +19544,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_getWinSize(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setFlags(const Napi::CallbackInfo &info)
@@ -19567,7 +19567,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setFlags(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setMaxLevel(const Napi::CallbackInfo &info)
@@ -19590,7 +19590,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setMaxLevel(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setMinEigThreshold(const Napi::CallbackInfo &info)
@@ -19613,7 +19613,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setMinEigThreshold(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setTermCriteria(const Napi::CallbackInfo &info)
@@ -19636,7 +19636,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setTermCriteria(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setWinSize(const Napi::CallbackInfo &info)
@@ -19659,7 +19659,7 @@ static Napi::Value pyopencv_cv_SparsePyrLKOpticalFlow_setWinSize(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -19742,7 +19742,7 @@ static Napi::Value pyopencv_cv_StereoBM_create_static(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getPreFilterCap(const Napi::CallbackInfo &info)
@@ -19762,7 +19762,7 @@ static Napi::Value pyopencv_cv_StereoBM_getPreFilterCap(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getPreFilterSize(const Napi::CallbackInfo &info)
@@ -19782,7 +19782,7 @@ static Napi::Value pyopencv_cv_StereoBM_getPreFilterSize(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getPreFilterType(const Napi::CallbackInfo &info)
@@ -19802,7 +19802,7 @@ static Napi::Value pyopencv_cv_StereoBM_getPreFilterType(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getROI1(const Napi::CallbackInfo &info)
@@ -19822,7 +19822,7 @@ static Napi::Value pyopencv_cv_StereoBM_getROI1(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getROI2(const Napi::CallbackInfo &info)
@@ -19842,7 +19842,7 @@ static Napi::Value pyopencv_cv_StereoBM_getROI2(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getSmallerBlockSize(const Napi::CallbackInfo &info)
@@ -19862,7 +19862,7 @@ static Napi::Value pyopencv_cv_StereoBM_getSmallerBlockSize(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getTextureThreshold(const Napi::CallbackInfo &info)
@@ -19882,7 +19882,7 @@ static Napi::Value pyopencv_cv_StereoBM_getTextureThreshold(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_getUniquenessRatio(const Napi::CallbackInfo &info)
@@ -19902,7 +19902,7 @@ static Napi::Value pyopencv_cv_StereoBM_getUniquenessRatio(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setPreFilterCap(const Napi::CallbackInfo &info)
@@ -19925,7 +19925,7 @@ static Napi::Value pyopencv_cv_StereoBM_setPreFilterCap(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setPreFilterSize(const Napi::CallbackInfo &info)
@@ -19948,7 +19948,7 @@ static Napi::Value pyopencv_cv_StereoBM_setPreFilterSize(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setPreFilterType(const Napi::CallbackInfo &info)
@@ -19971,7 +19971,7 @@ static Napi::Value pyopencv_cv_StereoBM_setPreFilterType(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setROI1(const Napi::CallbackInfo &info)
@@ -19994,7 +19994,7 @@ static Napi::Value pyopencv_cv_StereoBM_setROI1(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setROI2(const Napi::CallbackInfo &info)
@@ -20017,7 +20017,7 @@ static Napi::Value pyopencv_cv_StereoBM_setROI2(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setSmallerBlockSize(const Napi::CallbackInfo &info)
@@ -20040,7 +20040,7 @@ static Napi::Value pyopencv_cv_StereoBM_setSmallerBlockSize(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setTextureThreshold(const Napi::CallbackInfo &info)
@@ -20063,7 +20063,7 @@ static Napi::Value pyopencv_cv_StereoBM_setTextureThreshold(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoBM_setUniquenessRatio(const Napi::CallbackInfo &info)
@@ -20086,7 +20086,7 @@ static Napi::Value pyopencv_cv_StereoBM_setUniquenessRatio(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -20213,7 +20213,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_getBlockSize(const Napi::CallbackInfo &info)
@@ -20233,7 +20233,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_getBlockSize(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_getDisp12MaxDiff(const Napi::CallbackInfo &info)
@@ -20253,7 +20253,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_getDisp12MaxDiff(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_getMinDisparity(const Napi::CallbackInfo &info)
@@ -20273,7 +20273,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_getMinDisparity(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_getNumDisparities(const Napi::CallbackInfo &info)
@@ -20293,7 +20293,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_getNumDisparities(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_getSpeckleRange(const Napi::CallbackInfo &info)
@@ -20313,7 +20313,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_getSpeckleRange(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_getSpeckleWindowSize(const Napi::CallbackInfo &info)
@@ -20333,7 +20333,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_getSpeckleWindowSize(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_setBlockSize(const Napi::CallbackInfo &info)
@@ -20356,7 +20356,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_setBlockSize(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_setDisp12MaxDiff(const Napi::CallbackInfo &info)
@@ -20379,7 +20379,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_setDisp12MaxDiff(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_setMinDisparity(const Napi::CallbackInfo &info)
@@ -20402,7 +20402,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_setMinDisparity(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_setNumDisparities(const Napi::CallbackInfo &info)
@@ -20425,7 +20425,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_setNumDisparities(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_setSpeckleRange(const Napi::CallbackInfo &info)
@@ -20448,7 +20448,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_setSpeckleRange(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoMatcher_setSpeckleWindowSize(const Napi::CallbackInfo &info)
@@ -20471,7 +20471,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_setSpeckleWindowSize(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -20583,7 +20583,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_create_static(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_getMode(const Napi::CallbackInfo &info)
@@ -20603,7 +20603,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_getMode(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_getP1(const Napi::CallbackInfo &info)
@@ -20623,7 +20623,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_getP1(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_getP2(const Napi::CallbackInfo &info)
@@ -20643,7 +20643,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_getP2(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_getPreFilterCap(const Napi::CallbackInfo &info)
@@ -20663,7 +20663,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_getPreFilterCap(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_getUniquenessRatio(const Napi::CallbackInfo &info)
@@ -20683,7 +20683,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_getUniquenessRatio(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_setMode(const Napi::CallbackInfo &info)
@@ -20706,7 +20706,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_setMode(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_setP1(const Napi::CallbackInfo &info)
@@ -20729,7 +20729,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_setP1(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_setP2(const Napi::CallbackInfo &info)
@@ -20752,7 +20752,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_setP2(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_setPreFilterCap(const Napi::CallbackInfo &info)
@@ -20775,7 +20775,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_setPreFilterCap(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_StereoSGBM_setUniquenessRatio(const Napi::CallbackInfo &info)
@@ -20798,7 +20798,7 @@ static Napi::Value pyopencv_cv_StereoSGBM_setUniquenessRatio(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -20925,7 +20925,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_edgeDst(const Napi::CallbackInfo &info)
         return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(dstpt));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_edgeOrg(const Napi::CallbackInfo &info)
@@ -20950,7 +20950,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_edgeOrg(const Napi::CallbackInfo &info)
         return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(orgpt));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_findNearest(const Napi::CallbackInfo &info)
@@ -20975,7 +20975,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_findNearest(const Napi::CallbackInfo &in
         return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(nearestPt));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_getEdge(const Napi::CallbackInfo &info)
@@ -21002,7 +21002,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getEdge(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_getEdgeList(const Napi::CallbackInfo &info)
@@ -21022,7 +21022,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getEdgeList(const Napi::CallbackInfo &in
         return jsopencv_from(edgeList);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_getLeadingEdgeList(const Napi::CallbackInfo &info)
@@ -21042,7 +21042,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getLeadingEdgeList(const Napi::CallbackI
         return jsopencv_from(leadingEdgeList);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_getTriangleList(const Napi::CallbackInfo &info)
@@ -21062,7 +21062,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getTriangleList(const Napi::CallbackInfo
         return jsopencv_from(triangleList);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_getVertex(const Napi::CallbackInfo &info)
@@ -21087,7 +21087,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getVertex(const Napi::CallbackInfo &info
         return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(firstEdge));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_getVoronoiFacetList(const Napi::CallbackInfo &info)
@@ -21112,7 +21112,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_getVoronoiFacetList(const Napi::Callback
         return Py_BuildValue("(NN)", jsopencv_from(facetList), jsopencv_from(facetCenters));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_initDelaunay(const Napi::CallbackInfo &info)
@@ -21135,7 +21135,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_initDelaunay(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
@@ -21184,7 +21184,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("insert");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_locate(const Napi::CallbackInfo &info)
@@ -21210,7 +21210,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_locate(const Napi::CallbackInfo &info)
         return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(edge), jsopencv_from(vertex));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_nextEdge(const Napi::CallbackInfo &info)
@@ -21234,7 +21234,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_nextEdge(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_rotateEdge(const Napi::CallbackInfo &info)
@@ -21261,7 +21261,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_rotateEdge(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Subdiv2D_symEdge(const Napi::CallbackInfo &info)
@@ -21285,7 +21285,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_symEdge(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -21385,7 +21385,7 @@ static Napi::Value pyopencv_cv_TickMeter_getAvgTimeMilli(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getAvgTimeSec(const Napi::CallbackInfo &info)
@@ -21405,7 +21405,7 @@ static Napi::Value pyopencv_cv_TickMeter_getAvgTimeSec(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getCounter(const Napi::CallbackInfo &info)
@@ -21425,7 +21425,7 @@ static Napi::Value pyopencv_cv_TickMeter_getCounter(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getFPS(const Napi::CallbackInfo &info)
@@ -21445,7 +21445,7 @@ static Napi::Value pyopencv_cv_TickMeter_getFPS(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getTimeMicro(const Napi::CallbackInfo &info)
@@ -21465,7 +21465,7 @@ static Napi::Value pyopencv_cv_TickMeter_getTimeMicro(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getTimeMilli(const Napi::CallbackInfo &info)
@@ -21485,7 +21485,7 @@ static Napi::Value pyopencv_cv_TickMeter_getTimeMilli(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getTimeSec(const Napi::CallbackInfo &info)
@@ -21505,7 +21505,7 @@ static Napi::Value pyopencv_cv_TickMeter_getTimeSec(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_getTimeTicks(const Napi::CallbackInfo &info)
@@ -21525,7 +21525,7 @@ static Napi::Value pyopencv_cv_TickMeter_getTimeTicks(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_reset(const Napi::CallbackInfo &info)
@@ -21544,7 +21544,7 @@ static Napi::Value pyopencv_cv_TickMeter_reset(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_start(const Napi::CallbackInfo &info)
@@ -21563,7 +21563,7 @@ static Napi::Value pyopencv_cv_TickMeter_start(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TickMeter_stop(const Napi::CallbackInfo &info)
@@ -21582,7 +21582,7 @@ static Napi::Value pyopencv_cv_TickMeter_stop(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -21663,7 +21663,7 @@ static Napi::Value pyopencv_cv_Tonemap_getGamma(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
@@ -21717,7 +21717,7 @@ static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Tonemap_setGamma(const Napi::CallbackInfo &info)
@@ -21740,7 +21740,7 @@ static Napi::Value pyopencv_cv_Tonemap_setGamma(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -21813,7 +21813,7 @@ static Napi::Value pyopencv_cv_TonemapDrago_getBias(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapDrago_getSaturation(const Napi::CallbackInfo &info)
@@ -21833,7 +21833,7 @@ static Napi::Value pyopencv_cv_TonemapDrago_getSaturation(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapDrago_setBias(const Napi::CallbackInfo &info)
@@ -21856,7 +21856,7 @@ static Napi::Value pyopencv_cv_TonemapDrago_setBias(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapDrago_setSaturation(const Napi::CallbackInfo &info)
@@ -21879,7 +21879,7 @@ static Napi::Value pyopencv_cv_TonemapDrago_setSaturation(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -21953,7 +21953,7 @@ static Napi::Value pyopencv_cv_TonemapMantiuk_getSaturation(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapMantiuk_getScale(const Napi::CallbackInfo &info)
@@ -21973,7 +21973,7 @@ static Napi::Value pyopencv_cv_TonemapMantiuk_getScale(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapMantiuk_setSaturation(const Napi::CallbackInfo &info)
@@ -21996,7 +21996,7 @@ static Napi::Value pyopencv_cv_TonemapMantiuk_setSaturation(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapMantiuk_setScale(const Napi::CallbackInfo &info)
@@ -22019,7 +22019,7 @@ static Napi::Value pyopencv_cv_TonemapMantiuk_setScale(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -22093,7 +22093,7 @@ static Napi::Value pyopencv_cv_TonemapReinhard_getColorAdaptation(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapReinhard_getIntensity(const Napi::CallbackInfo &info)
@@ -22113,7 +22113,7 @@ static Napi::Value pyopencv_cv_TonemapReinhard_getIntensity(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapReinhard_getLightAdaptation(const Napi::CallbackInfo &info)
@@ -22133,7 +22133,7 @@ static Napi::Value pyopencv_cv_TonemapReinhard_getLightAdaptation(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapReinhard_setColorAdaptation(const Napi::CallbackInfo &info)
@@ -22156,7 +22156,7 @@ static Napi::Value pyopencv_cv_TonemapReinhard_setColorAdaptation(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapReinhard_setIntensity(const Napi::CallbackInfo &info)
@@ -22179,7 +22179,7 @@ static Napi::Value pyopencv_cv_TonemapReinhard_setIntensity(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TonemapReinhard_setLightAdaptation(const Napi::CallbackInfo &info)
@@ -22202,7 +22202,7 @@ static Napi::Value pyopencv_cv_TonemapReinhard_setLightAdaptation(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -22312,7 +22312,7 @@ static Napi::Value pyopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("init");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
@@ -22364,7 +22364,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("update");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -22435,7 +22435,7 @@ static Napi::Value pyopencv_cv_TrackerCSRT_create_static(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackInfo &info)
@@ -22483,7 +22483,7 @@ static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("setInitialMask");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -23050,7 +23050,7 @@ static Napi::Value pyopencv_cv_TrackerDaSiamRPN_create_static(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TrackerDaSiamRPN_getTrackingScore(const Napi::CallbackInfo &info)
@@ -23070,7 +23070,7 @@ static Napi::Value pyopencv_cv_TrackerDaSiamRPN_getTrackingScore(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -23285,7 +23285,7 @@ static Napi::Value pyopencv_cv_TrackerGOTURN_create_static(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -23451,7 +23451,7 @@ static Napi::Value pyopencv_cv_TrackerKCF_create_static(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -23809,7 +23809,7 @@ static Napi::Value pyopencv_cv_TrackerMIL_create_static(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -24055,7 +24055,7 @@ static Napi::Value pyopencv_cv_TrackerNano_create_static(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_TrackerNano_getTrackingScore(const Napi::CallbackInfo &info)
@@ -24075,7 +24075,7 @@ static Napi::Value pyopencv_cv_TrackerNano_getTrackingScore(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -24504,7 +24504,7 @@ static Napi::Value pyopencv_cv_UMat_context_static(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_UMat_get(const Napi::CallbackInfo &info)
@@ -24524,7 +24524,7 @@ static Napi::Value pyopencv_cv_UMat_get(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_UMat_handle(const Napi::CallbackInfo &info)
@@ -24548,7 +24548,7 @@ static Napi::Value pyopencv_cv_UMat_handle(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_UMat_isContinuous(const Napi::CallbackInfo &info)
@@ -24568,7 +24568,7 @@ static Napi::Value pyopencv_cv_UMat_isContinuous(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_UMat_isSubmatrix(const Napi::CallbackInfo &info)
@@ -24588,7 +24588,7 @@ static Napi::Value pyopencv_cv_UMat_isSubmatrix(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_UMat_queue_static(const Napi::CallbackInfo &info)
@@ -24603,7 +24603,7 @@ static Napi::Value pyopencv_cv_UMat_queue_static(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -24974,7 +24974,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
     }
     pyRaiseCVOverloadException("calcUV");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_create_static(const Napi::CallbackInfo &info)
@@ -24989,7 +24989,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_create_static(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_getAlpha(const Napi::CallbackInfo &info)
@@ -25009,7 +25009,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_getAlpha(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_getDelta(const Napi::CallbackInfo &info)
@@ -25029,7 +25029,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_getDelta(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_getFixedPointIterations(const Napi::CallbackInfo &info)
@@ -25049,7 +25049,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_getFixedPointIterations(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_getGamma(const Napi::CallbackInfo &info)
@@ -25069,7 +25069,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_getGamma(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_getOmega(const Napi::CallbackInfo &info)
@@ -25089,7 +25089,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_getOmega(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_getSorIterations(const Napi::CallbackInfo &info)
@@ -25109,7 +25109,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_getSorIterations(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_setAlpha(const Napi::CallbackInfo &info)
@@ -25132,7 +25132,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_setAlpha(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_setDelta(const Napi::CallbackInfo &info)
@@ -25155,7 +25155,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_setDelta(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_setFixedPointIterations(const Napi::CallbackInfo &info)
@@ -25178,7 +25178,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_setFixedPointIterations(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_setGamma(const Napi::CallbackInfo &info)
@@ -25201,7 +25201,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_setGamma(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_setOmega(const Napi::CallbackInfo &info)
@@ -25224,7 +25224,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_setOmega(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VariationalRefinement_setSorIterations(const Napi::CallbackInfo &info)
@@ -25247,7 +25247,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_setSorIterations(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -25448,7 +25448,7 @@ static Napi::Value pyopencv_cv_VideoCapture_get(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_getBackendName(const Napi::CallbackInfo &info)
@@ -25468,7 +25468,7 @@ static Napi::Value pyopencv_cv_VideoCapture_getBackendName(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_getExceptionMode(const Napi::CallbackInfo &info)
@@ -25488,7 +25488,7 @@ static Napi::Value pyopencv_cv_VideoCapture_getExceptionMode(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_grab(const Napi::CallbackInfo &info)
@@ -25508,7 +25508,7 @@ static Napi::Value pyopencv_cv_VideoCapture_grab(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_isOpened(const Napi::CallbackInfo &info)
@@ -25528,7 +25528,7 @@ static Napi::Value pyopencv_cv_VideoCapture_isOpened(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
@@ -25632,7 +25632,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("open");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
@@ -25682,7 +25682,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("read");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_release(const Napi::CallbackInfo &info)
@@ -25701,7 +25701,7 @@ static Napi::Value pyopencv_cv_VideoCapture_release(const Napi::CallbackInfo &in
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &info)
@@ -25757,7 +25757,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("retrieve");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_set(const Napi::CallbackInfo &info)
@@ -25784,7 +25784,7 @@ static Napi::Value pyopencv_cv_VideoCapture_set(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_setExceptionMode(const Napi::CallbackInfo &info)
@@ -25807,7 +25807,7 @@ static Napi::Value pyopencv_cv_VideoCapture_setExceptionMode(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoCapture_waitAny_static(const Napi::CallbackInfo &info)
@@ -25830,7 +25830,7 @@ static Napi::Value pyopencv_cv_VideoCapture_waitAny_static(const Napi::CallbackI
         return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(readyIndex));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -26069,7 +26069,7 @@ static Napi::Value pyopencv_cv_VideoWriter_fourcc_static(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_get(const Napi::CallbackInfo &info)
@@ -26093,7 +26093,7 @@ static Napi::Value pyopencv_cv_VideoWriter_get(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_getBackendName(const Napi::CallbackInfo &info)
@@ -26113,7 +26113,7 @@ static Napi::Value pyopencv_cv_VideoWriter_getBackendName(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_isOpened(const Napi::CallbackInfo &info)
@@ -26133,7 +26133,7 @@ static Napi::Value pyopencv_cv_VideoWriter_isOpened(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
@@ -26273,7 +26273,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("open");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_release(const Napi::CallbackInfo &info)
@@ -26292,7 +26292,7 @@ static Napi::Value pyopencv_cv_VideoWriter_release(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_set(const Napi::CallbackInfo &info)
@@ -26319,7 +26319,7 @@ static Napi::Value pyopencv_cv_VideoWriter_set(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
@@ -26367,7 +26367,7 @@ static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("write");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -26516,7 +26516,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
     }
     pyRaiseCVOverloadException("detectMarkers");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_getDetectorParameters(const Napi::CallbackInfo &info)
@@ -26536,7 +26536,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_getDetectorParameters(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_getDictionary(const Napi::CallbackInfo &info)
@@ -26556,7 +26556,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_getDictionary(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_getRefineParameters(const Napi::CallbackInfo &info)
@@ -26576,7 +26576,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_getRefineParameters(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_read(const Napi::CallbackInfo &info)
@@ -26599,7 +26599,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_read(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(const Napi::CallbackInfo &info)
@@ -26689,7 +26689,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
     }
     pyRaiseCVOverloadException("refineDetectedMarkers");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_setDetectorParameters(const Napi::CallbackInfo &info)
@@ -26712,7 +26712,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_setDetectorParameters(c
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_setDictionary(const Napi::CallbackInfo &info)
@@ -26735,7 +26735,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_setDictionary(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_setRefineParameters(const Napi::CallbackInfo &info)
@@ -26758,7 +26758,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_setRefineParameters(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_write(const Napi::CallbackInfo &info)
@@ -26784,7 +26784,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_write(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -26965,7 +26965,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
     }
     pyRaiseCVOverloadException("generateImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Board_getDictionary(const Napi::CallbackInfo &info)
@@ -26985,7 +26985,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_getDictionary(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Board_getIds(const Napi::CallbackInfo &info)
@@ -27005,7 +27005,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_getIds(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Board_getObjPoints(const Napi::CallbackInfo &info)
@@ -27025,7 +27025,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_getObjPoints(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Board_getRightBottomCorner(const Napi::CallbackInfo &info)
@@ -27045,7 +27045,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_getRightBottomCorner(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::CallbackInfo &info)
@@ -27111,7 +27111,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
     }
     pyRaiseCVOverloadException("matchImagePoints");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -27284,7 +27284,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
     }
     pyRaiseCVOverloadException("checkCharucoCornersCollinear");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getChessboardCorners(const Napi::CallbackInfo &info)
@@ -27304,7 +27304,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getChessboardCorners(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getChessboardSize(const Napi::CallbackInfo &info)
@@ -27324,7 +27324,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getChessboardSize(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getMarkerLength(const Napi::CallbackInfo &info)
@@ -27344,7 +27344,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getMarkerLength(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getSquareLength(const Napi::CallbackInfo &info)
@@ -27364,7 +27364,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_getSquareLength(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -27519,7 +27519,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
     }
     pyRaiseCVOverloadException("detectBoard");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const Napi::CallbackInfo &info)
@@ -27591,7 +27591,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
     }
     pyRaiseCVOverloadException("detectDiamonds");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getBoard(const Napi::CallbackInfo &info)
@@ -27611,7 +27611,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getBoard(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getCharucoParameters(const Napi::CallbackInfo &info)
@@ -27631,7 +27631,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getCharucoParameters(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getDetectorParameters(const Napi::CallbackInfo &info)
@@ -27651,7 +27651,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getDetectorParameters
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getRefineParameters(const Napi::CallbackInfo &info)
@@ -27671,7 +27671,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_getRefineParameters(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setBoard(const Napi::CallbackInfo &info)
@@ -27694,7 +27694,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setBoard(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setCharucoParameters(const Napi::CallbackInfo &info)
@@ -27717,7 +27717,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setCharucoParameters(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setDetectorParameters(const Napi::CallbackInfo &info)
@@ -27740,7 +27740,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setDetectorParameters
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setRefineParameters(const Napi::CallbackInfo &info)
@@ -27763,7 +27763,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_setRefineParameters(c
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -28455,7 +28455,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_DetectorParameters_readDetectorParame
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_DetectorParameters_writeDetectorParameters(const Napi::CallbackInfo &info)
@@ -28482,7 +28482,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_DetectorParameters_writeDetectorParam
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -28722,7 +28722,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
     }
     pyRaiseCVOverloadException("generateImageMarker");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getBitsFromByteList_static(const Napi::CallbackInfo &info)
@@ -28744,7 +28744,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getBitsFromByteList_static
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getByteListFromBits_static(const Napi::CallbackInfo &info)
@@ -28763,7 +28763,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getByteListFromBits_static
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi::CallbackInfo &info)
@@ -28825,7 +28825,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
     }
     pyRaiseCVOverloadException("getDistanceToId");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_identify(const Napi::CallbackInfo &info)
@@ -28854,7 +28854,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_identify(const Napi::Callb
         return Py_BuildValue("(NNN)", jsopencv_from(retval), jsopencv_from(idx), jsopencv_from(rotation));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_readDictionary(const Napi::CallbackInfo &info)
@@ -28878,7 +28878,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_readDictionary(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_writeDictionary(const Napi::CallbackInfo &info)
@@ -28904,7 +28904,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_writeDictionary(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -29051,7 +29051,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_GridBoard_getGridSize(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_GridBoard_getMarkerLength(const Napi::CallbackInfo &info)
@@ -29071,7 +29071,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_GridBoard_getMarkerLength(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_GridBoard_getMarkerSeparation(const Napi::CallbackInfo &info)
@@ -29091,7 +29091,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_GridBoard_getMarkerSeparation(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -29237,7 +29237,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_RefineParameters_readRefineParameters
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_aruco_aruco_RefineParameters_writeRefineParameters(const Napi::CallbackInfo &info)
@@ -29264,7 +29264,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_RefineParameters_writeRefineParameter
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -29401,7 +29401,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
     }
     pyRaiseCVOverloadException("decode");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi::CallbackInfo &info)
@@ -29457,7 +29457,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(const Napi::CallbackInfo &info)
@@ -29517,7 +29517,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
     }
     pyRaiseCVOverloadException("detectAndDecode");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -29671,7 +29671,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getCCM(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getLoss(const Napi::CallbackInfo &info)
@@ -29691,7 +29691,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getLoss(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getMask(const Napi::CallbackInfo &info)
@@ -29711,7 +29711,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getMask(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getWeights(const Napi::CallbackInfo &info)
@@ -29731,7 +29731,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_getWeights(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_get_dst_rgbl(const Napi::CallbackInfo &info)
@@ -29751,7 +29751,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_get_dst_rgbl(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_get_src_rgbl(const Napi::CallbackInfo &info)
@@ -29771,7 +29771,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_get_src_rgbl(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_infer(const Napi::CallbackInfo &info)
@@ -29798,7 +29798,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_infer(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_run(const Napi::CallbackInfo &info)
@@ -29817,7 +29817,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_run(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setCCM_TYPE(const Napi::CallbackInfo &info)
@@ -29840,7 +29840,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setCCM_TYPE(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setColorSpace(const Napi::CallbackInfo &info)
@@ -29863,7 +29863,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setColorSpace(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setDistance(const Napi::CallbackInfo &info)
@@ -29886,7 +29886,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setDistance(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setEpsilon(const Napi::CallbackInfo &info)
@@ -29909,7 +29909,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setEpsilon(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setInitialMethod(const Napi::CallbackInfo &info)
@@ -29932,7 +29932,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setInitialMethod(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setLinear(const Napi::CallbackInfo &info)
@@ -29955,7 +29955,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setLinear(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setLinearDegree(const Napi::CallbackInfo &info)
@@ -29978,7 +29978,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setLinearDegree(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setLinearGamma(const Napi::CallbackInfo &info)
@@ -30001,7 +30001,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setLinearGamma(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setMaxCount(const Napi::CallbackInfo &info)
@@ -30024,7 +30024,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setMaxCount(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setSaturatedThreshold(const Napi::CallbackInfo &info)
@@ -30050,7 +30050,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setSaturatedThreshol
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setWeightCoeff(const Napi::CallbackInfo &info)
@@ -30073,7 +30073,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setWeightCoeff(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setWeightsList(const Napi::CallbackInfo &info)
@@ -30096,7 +30096,7 @@ static Napi::Value pyopencv_cv_ccm_ccm_ColorCorrectionModel_setWeightsList(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -30205,7 +30205,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getAllocator(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::CallbackInfo &info)
@@ -30264,7 +30264,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
     }
     pyRaiseCVOverloadException("getBuffer");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -30377,7 +30377,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_ECCEnabled(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_asyncEngineCount(const Napi::CallbackInfo &info)
@@ -30397,7 +30397,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_asyncEngineCount(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_canMapHostMemory(const Napi::CallbackInfo &info)
@@ -30417,7 +30417,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_canMapHostMemory(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_clockRate(const Napi::CallbackInfo &info)
@@ -30437,7 +30437,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_clockRate(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_computeMode(const Napi::CallbackInfo &info)
@@ -30457,7 +30457,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_computeMode(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_concurrentKernels(const Napi::CallbackInfo &info)
@@ -30477,7 +30477,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_concurrentKernels(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_deviceID(const Napi::CallbackInfo &info)
@@ -30497,7 +30497,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_deviceID(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_freeMemory(const Napi::CallbackInfo &info)
@@ -30517,7 +30517,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_freeMemory(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_integrated(const Napi::CallbackInfo &info)
@@ -30537,7 +30537,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_integrated(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_isCompatible(const Napi::CallbackInfo &info)
@@ -30557,7 +30557,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_isCompatible(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_kernelExecTimeoutEnabled(const Napi::CallbackInfo &info)
@@ -30577,7 +30577,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_kernelExecTimeoutEnabled(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_l2CacheSize(const Napi::CallbackInfo &info)
@@ -30597,7 +30597,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_l2CacheSize(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_majorVersion(const Napi::CallbackInfo &info)
@@ -30617,7 +30617,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_majorVersion(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxGridSize(const Napi::CallbackInfo &info)
@@ -30637,7 +30637,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxGridSize(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface1D(const Napi::CallbackInfo &info)
@@ -30657,7 +30657,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface1D(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface1DLayered(const Napi::CallbackInfo &info)
@@ -30677,7 +30677,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface1DLayered(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface2D(const Napi::CallbackInfo &info)
@@ -30697,7 +30697,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface2D(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface2DLayered(const Napi::CallbackInfo &info)
@@ -30717,7 +30717,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface2DLayered(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface3D(const Napi::CallbackInfo &info)
@@ -30737,7 +30737,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurface3D(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurfaceCubemap(const Napi::CallbackInfo &info)
@@ -30757,7 +30757,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurfaceCubemap(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurfaceCubemapLayered(const Napi::CallbackInfo &info)
@@ -30777,7 +30777,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxSurfaceCubemapLayered(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1D(const Napi::CallbackInfo &info)
@@ -30797,7 +30797,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1D(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DLayered(const Napi::CallbackInfo &info)
@@ -30817,7 +30817,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DLayered(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DLinear(const Napi::CallbackInfo &info)
@@ -30837,7 +30837,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DLinear(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DMipmap(const Napi::CallbackInfo &info)
@@ -30857,7 +30857,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DMipmap(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2D(const Napi::CallbackInfo &info)
@@ -30877,7 +30877,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2D(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DGather(const Napi::CallbackInfo &info)
@@ -30897,7 +30897,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DGather(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DLayered(const Napi::CallbackInfo &info)
@@ -30917,7 +30917,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DLayered(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DLinear(const Napi::CallbackInfo &info)
@@ -30937,7 +30937,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DLinear(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DMipmap(const Napi::CallbackInfo &info)
@@ -30957,7 +30957,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DMipmap(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture3D(const Napi::CallbackInfo &info)
@@ -30977,7 +30977,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTexture3D(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTextureCubemap(const Napi::CallbackInfo &info)
@@ -30997,7 +30997,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTextureCubemap(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTextureCubemapLayered(const Napi::CallbackInfo &info)
@@ -31017,7 +31017,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxTextureCubemapLayered(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxThreadsDim(const Napi::CallbackInfo &info)
@@ -31037,7 +31037,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxThreadsDim(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxThreadsPerBlock(const Napi::CallbackInfo &info)
@@ -31057,7 +31057,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxThreadsPerBlock(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxThreadsPerMultiProcessor(const Napi::CallbackInfo &info)
@@ -31077,7 +31077,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_maxThreadsPerMultiProcessor(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_memPitch(const Napi::CallbackInfo &info)
@@ -31097,7 +31097,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_memPitch(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_memoryBusWidth(const Napi::CallbackInfo &info)
@@ -31117,7 +31117,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_memoryBusWidth(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_memoryClockRate(const Napi::CallbackInfo &info)
@@ -31137,7 +31137,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_memoryClockRate(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_minorVersion(const Napi::CallbackInfo &info)
@@ -31157,7 +31157,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_minorVersion(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_multiProcessorCount(const Napi::CallbackInfo &info)
@@ -31177,7 +31177,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_multiProcessorCount(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_pciBusID(const Napi::CallbackInfo &info)
@@ -31197,7 +31197,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_pciBusID(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_pciDeviceID(const Napi::CallbackInfo &info)
@@ -31217,7 +31217,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_pciDeviceID(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_pciDomainID(const Napi::CallbackInfo &info)
@@ -31237,7 +31237,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_pciDomainID(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_queryMemory(const Napi::CallbackInfo &info)
@@ -31263,7 +31263,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_queryMemory(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_regsPerBlock(const Napi::CallbackInfo &info)
@@ -31283,7 +31283,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_regsPerBlock(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_sharedMemPerBlock(const Napi::CallbackInfo &info)
@@ -31303,7 +31303,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_sharedMemPerBlock(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_surfaceAlignment(const Napi::CallbackInfo &info)
@@ -31323,7 +31323,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_surfaceAlignment(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_tccDriver(const Napi::CallbackInfo &info)
@@ -31343,7 +31343,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_tccDriver(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_textureAlignment(const Napi::CallbackInfo &info)
@@ -31363,7 +31363,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_textureAlignment(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_texturePitchAlignment(const Napi::CallbackInfo &info)
@@ -31383,7 +31383,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_texturePitchAlignment(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_totalConstMem(const Napi::CallbackInfo &info)
@@ -31403,7 +31403,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_totalConstMem(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_totalGlobalMem(const Napi::CallbackInfo &info)
@@ -31423,7 +31423,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_totalGlobalMem(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_totalMemory(const Napi::CallbackInfo &info)
@@ -31443,7 +31443,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_totalMemory(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_unifiedAddressing(const Napi::CallbackInfo &info)
@@ -31463,7 +31463,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_unifiedAddressing(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_warpSize(const Napi::CallbackInfo &info)
@@ -31483,7 +31483,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_DeviceInfo_warpSize(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -31630,7 +31630,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Event_elapsedTime_static(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Event_queryIfComplete(const Napi::CallbackInfo &info)
@@ -31650,7 +31650,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Event_queryIfComplete(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Event_record(const Napi::CallbackInfo &info)
@@ -31673,7 +31673,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Event_record(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Event_waitForCompletion(const Napi::CallbackInfo &info)
@@ -31692,7 +31692,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Event_waitForCompletion(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -32095,7 +32095,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_adjustROI(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_assignTo(const Napi::CallbackInfo &info)
@@ -32121,7 +32121,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_assignTo(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_channels(const Napi::CallbackInfo &info)
@@ -32141,7 +32141,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_channels(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_clone(const Napi::CallbackInfo &info)
@@ -32161,7 +32161,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_clone(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_col(const Napi::CallbackInfo &info)
@@ -32185,7 +32185,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_col(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInfo &info)
@@ -32238,7 +32238,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("colRange");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackInfo &info)
@@ -32624,7 +32624,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("convertTo");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo &info)
@@ -32878,7 +32878,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("copyTo");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo &info)
@@ -32935,7 +32935,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_cudaPtr(const Napi::CallbackInfo &info)
@@ -32955,7 +32955,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_cudaPtr(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_defaultAllocator_static(const Napi::CallbackInfo &info)
@@ -32970,7 +32970,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_defaultAllocator_static(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_depth(const Napi::CallbackInfo &info)
@@ -32990,7 +32990,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_depth(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInfo &info)
@@ -33115,7 +33115,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("download");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_elemSize(const Napi::CallbackInfo &info)
@@ -33135,7 +33135,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_elemSize(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_elemSize1(const Napi::CallbackInfo &info)
@@ -33155,7 +33155,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_elemSize1(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_empty(const Napi::CallbackInfo &info)
@@ -33175,7 +33175,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_empty(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_isContinuous(const Napi::CallbackInfo &info)
@@ -33195,7 +33195,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_isContinuous(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_locateROI(const Napi::CallbackInfo &info)
@@ -33221,7 +33221,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_locateROI(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_release(const Napi::CallbackInfo &info)
@@ -33240,7 +33240,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_release(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_reshape(const Napi::CallbackInfo &info)
@@ -33267,7 +33267,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_reshape(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_row(const Napi::CallbackInfo &info)
@@ -33291,7 +33291,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_row(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInfo &info)
@@ -33344,7 +33344,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("rowRange");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setDefaultAllocator_static(const Napi::CallbackInfo &info)
@@ -33362,7 +33362,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setDefaultAllocator_static(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &info)
@@ -33550,7 +33550,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("setTo");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_size(const Napi::CallbackInfo &info)
@@ -33570,7 +33570,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_size(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_step1(const Napi::CallbackInfo &info)
@@ -33590,7 +33590,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_step1(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_swap(const Napi::CallbackInfo &info)
@@ -33613,7 +33613,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_swap(const Napi::CallbackInfo &i
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_type(const Napi::CallbackInfo &info)
@@ -33633,7 +33633,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_type(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_updateContinuityFlag(const Napi::CallbackInfo &info)
@@ -33652,7 +33652,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_updateContinuityFlag(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo &info)
@@ -33777,7 +33777,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("upload");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -34124,7 +34124,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_channels(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_clone(const Napi::CallbackInfo &info)
@@ -34144,7 +34144,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_clone(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_create(const Napi::CallbackInfo &info)
@@ -34173,7 +34173,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_create(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_createMatHeader(const Napi::CallbackInfo &info)
@@ -34193,7 +34193,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_createMatHeader(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_depth(const Napi::CallbackInfo &info)
@@ -34213,7 +34213,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_depth(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_elemSize(const Napi::CallbackInfo &info)
@@ -34233,7 +34233,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_elemSize(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_elemSize1(const Napi::CallbackInfo &info)
@@ -34253,7 +34253,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_elemSize1(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_empty(const Napi::CallbackInfo &info)
@@ -34273,7 +34273,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_empty(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_isContinuous(const Napi::CallbackInfo &info)
@@ -34293,7 +34293,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_isContinuous(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_reshape(const Napi::CallbackInfo &info)
@@ -34320,7 +34320,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_reshape(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_size(const Napi::CallbackInfo &info)
@@ -34340,7 +34340,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_size(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_step1(const Napi::CallbackInfo &info)
@@ -34360,7 +34360,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_step1(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_swap(const Napi::CallbackInfo &info)
@@ -34383,7 +34383,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_swap(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_HostMem_type(const Napi::CallbackInfo &info)
@@ -34403,7 +34403,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_HostMem_type(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -34532,7 +34532,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_create_static(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_defaultNorm(const Napi::CallbackInfo &info)
@@ -34552,7 +34552,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_defaultNorm(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_descriptorSize(const Napi::CallbackInfo &info)
@@ -34572,7 +34572,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_descriptorSize(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_detect(const Napi::CallbackInfo &info)
@@ -34601,7 +34601,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_detect(const Napi::CallbackIn
         return jsopencv_from(keypoints);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_detectWithDescriptors(const Napi::CallbackInfo &info)
@@ -34636,7 +34636,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_detectWithDescriptors(const N
         return Py_BuildValue("(NN)", jsopencv_from(keypoints), jsopencv_from(descriptors));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_downloadKeypoints(const Napi::CallbackInfo &info)
@@ -34660,7 +34660,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_SURF_CUDA_downloadKeypoints(const Napi:
         return jsopencv_from(keypoints);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -34796,7 +34796,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Stream_Null_static(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Stream_cudaPtr(const Napi::CallbackInfo &info)
@@ -34816,7 +34816,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Stream_cudaPtr(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Stream_queryIfComplete(const Napi::CallbackInfo &info)
@@ -34836,7 +34836,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Stream_queryIfComplete(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Stream_waitEvent(const Napi::CallbackInfo &info)
@@ -34859,7 +34859,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Stream_waitEvent(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_Stream_waitForCompletion(const Napi::CallbackInfo &info)
@@ -34878,7 +34878,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_Stream_waitForCompletion(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -34955,7 +34955,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_has_static(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasBin_static(const Napi::CallbackInfo &info)
@@ -34977,7 +34977,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasBin_static(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrGreater_static(const Napi::CallbackInfo &info)
@@ -34999,7 +34999,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrGreater_static(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrGreaterBin_static(const Napi::CallbackInfo &info)
@@ -35021,7 +35021,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrGreaterBin_static
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrGreaterPtx_static(const Napi::CallbackInfo &info)
@@ -35043,7 +35043,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrGreaterPtx_static
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrLessPtx_static(const Napi::CallbackInfo &info)
@@ -35065,7 +35065,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasEqualOrLessPtx_static(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasPtx_static(const Napi::CallbackInfo &info)
@@ -35087,7 +35087,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_TargetArchs_hasPtx_static(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -35242,7 +35242,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
     }
     pyRaiseCVOverloadException("classify");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_getEnableSoftmaxPostProcessing(const Napi::CallbackInfo &info)
@@ -35262,7 +35262,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_getEnableSoftmaxPostP
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_setEnableSoftmaxPostProcessing(const Napi::CallbackInfo &info)
@@ -35286,7 +35286,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_setEnableSoftmaxPostP
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -35451,7 +35451,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_getNmsAcrossClasses(const Napi::CallbackInfo &info)
@@ -35471,7 +35471,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_getNmsAcrossClasses(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_setNmsAcrossClasses(const Napi::CallbackInfo &info)
@@ -35495,7 +35495,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_setNmsAcrossClasses(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -35635,7 +35635,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DictValue_getIntValue(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DictValue_getRealValue(const Napi::CallbackInfo &info)
@@ -35659,7 +35659,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DictValue_getRealValue(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DictValue_getStringValue(const Napi::CallbackInfo &info)
@@ -35683,7 +35683,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DictValue_getStringValue(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DictValue_isInt(const Napi::CallbackInfo &info)
@@ -35703,7 +35703,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DictValue_isInt(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DictValue_isReal(const Napi::CallbackInfo &info)
@@ -35723,7 +35723,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DictValue_isReal(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_DictValue_isString(const Napi::CallbackInfo &info)
@@ -35743,7 +35743,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DictValue_isString(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -35901,7 +35901,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
     }
     pyRaiseCVOverloadException("estimate");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -36054,7 +36054,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("finalize");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Layer_outputNameToIndex(const Napi::CallbackInfo &info)
@@ -36078,7 +36078,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_outputNameToIndex(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Layer_run(const Napi::CallbackInfo &info)
@@ -36107,7 +36107,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_run(const Napi::CallbackInfo &info)
         return Py_BuildValue("(NN)", jsopencv_from(outputs), jsopencv_from(internals));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -36264,7 +36264,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("predict");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputCrop(const Napi::CallbackInfo &info)
@@ -36288,7 +36288,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputCrop(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputMean(const Napi::CallbackInfo &info)
@@ -36312,7 +36312,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputMean(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputParams(const Napi::CallbackInfo &info)
@@ -36347,7 +36347,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputParams(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputScale(const Napi::CallbackInfo &info)
@@ -36371,7 +36371,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputScale(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackInfo &info)
@@ -36424,7 +36424,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("setInputSize");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSwapRB(const Napi::CallbackInfo &info)
@@ -36448,7 +36448,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSwapRB(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setPreferableBackend(const Napi::CallbackInfo &info)
@@ -36472,7 +36472,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setPreferableBackend(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Model_setPreferableTarget(const Napi::CallbackInfo &info)
@@ -36496,7 +36496,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setPreferableTarget(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -36595,7 +36595,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_connect(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_dump(const Napi::CallbackInfo &info)
@@ -36615,7 +36615,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_dump(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_dumpToFile(const Napi::CallbackInfo &info)
@@ -36638,7 +36638,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_dumpToFile(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_empty(const Napi::CallbackInfo &info)
@@ -36658,7 +36658,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_empty(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_enableFusion(const Napi::CallbackInfo &info)
@@ -36681,7 +36681,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_enableFusion(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_enableWinograd(const Napi::CallbackInfo &info)
@@ -36704,7 +36704,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_enableWinograd(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &info)
@@ -36816,7 +36816,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
     pyRaiseCVOverloadException("forward");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_forwardAndRetrieve(const Napi::CallbackInfo &info)
@@ -36840,7 +36840,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forwardAndRetrieve(const Napi::Callba
         return jsopencv_from(outputBlobs);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_forwardAsync(const Napi::CallbackInfo &info)
@@ -36864,7 +36864,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forwardAsync(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &info)
@@ -36956,7 +36956,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("getFLOPS");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getInputDetails(const Napi::CallbackInfo &info)
@@ -36977,7 +36977,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getInputDetails(const Napi::CallbackI
         return Py_BuildValue("(NN)", jsopencv_from(scales), jsopencv_from(zeropoints));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &info)
@@ -37045,7 +37045,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("getLayer");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayerId(const Napi::CallbackInfo &info)
@@ -37069,7 +37069,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayerId(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayerNames(const Napi::CallbackInfo &info)
@@ -37089,7 +37089,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayerNames(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayerTypes(const Napi::CallbackInfo &info)
@@ -37109,7 +37109,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayerTypes(const Napi::CallbackInf
         return jsopencv_from(layersTypes);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersCount(const Napi::CallbackInfo &info)
@@ -37133,7 +37133,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersCount(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackInfo &info)
@@ -37187,7 +37187,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
     }
     pyRaiseCVOverloadException("getLayersShapes");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::CallbackInfo &info)
@@ -37264,7 +37264,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
     pyRaiseCVOverloadException("getMemoryConsumption");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getOutputDetails(const Napi::CallbackInfo &info)
@@ -37285,7 +37285,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getOutputDetails(const Napi::Callback
         return Py_BuildValue("(NN)", jsopencv_from(scales), jsopencv_from(zeropoints));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &info)
@@ -37341,7 +37341,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("getParam");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getPerfProfile(const Napi::CallbackInfo &info)
@@ -37362,7 +37362,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getPerfProfile(const Napi::CallbackIn
         return Py_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(timings));
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getUnconnectedOutLayers(const Napi::CallbackInfo &info)
@@ -37382,7 +37382,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getUnconnectedOutLayers(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_getUnconnectedOutLayersNames(const Napi::CallbackInfo &info)
@@ -37402,7 +37402,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getUnconnectedOutLayersNames(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &info)
@@ -37470,7 +37470,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("quantize");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const Napi::CallbackInfo &info)
@@ -37521,7 +37521,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const N
     }
     pyRaiseCVOverloadException("readFromModelOptimizer");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setHalideScheduler(const Napi::CallbackInfo &info)
@@ -37544,7 +37544,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setHalideScheduler(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &info)
@@ -37610,7 +37610,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("setInput");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setInputShape(const Napi::CallbackInfo &info)
@@ -37636,7 +37636,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInputShape(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setInputsNames(const Napi::CallbackInfo &info)
@@ -37659,7 +37659,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInputsNames(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &info)
@@ -37719,7 +37719,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("setParam");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setPreferableBackend(const Napi::CallbackInfo &info)
@@ -37742,7 +37742,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setPreferableBackend(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_Net_setPreferableTarget(const Napi::CallbackInfo &info)
@@ -37765,7 +37765,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setPreferableTarget(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -37947,7 +37947,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
     }
     pyRaiseCVOverloadException("segment");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -38086,7 +38086,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(const Napi::CallbackInfo &info)
@@ -38174,7 +38174,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
     pyRaiseCVOverloadException("detectTextRectangles");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -38292,7 +38292,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getBinaryThreshold(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getMaxCandidates(const Napi::CallbackInfo &info)
@@ -38312,7 +38312,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getMaxCandidates(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getPolygonThreshold(const Napi::CallbackInfo &info)
@@ -38332,7 +38332,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getPolygonThreshold
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getUnclipRatio(const Napi::CallbackInfo &info)
@@ -38352,7 +38352,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getUnclipRatio(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setBinaryThreshold(const Napi::CallbackInfo &info)
@@ -38376,7 +38376,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setBinaryThreshold(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setMaxCandidates(const Napi::CallbackInfo &info)
@@ -38400,7 +38400,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setMaxCandidates(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setPolygonThreshold(const Napi::CallbackInfo &info)
@@ -38424,7 +38424,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setPolygonThreshold
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setUnclipRatio(const Napi::CallbackInfo &info)
@@ -38448,7 +38448,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_DB_setUnclipRatio(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -38572,7 +38572,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_getConfidenceThre
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_getNMSThreshold(const Napi::CallbackInfo &info)
@@ -38592,7 +38592,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_getNMSThreshold(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_setConfidenceThreshold(const Napi::CallbackInfo &info)
@@ -38616,7 +38616,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_setConfidenceThre
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_setNMSThreshold(const Napi::CallbackInfo &info)
@@ -38640,7 +38640,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_setNMSThreshold(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -38760,7 +38760,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_getDecodeType(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_getVocabulary(const Napi::CallbackInfo &info)
@@ -38780,7 +38780,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_getVocabulary(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi::CallbackInfo &info)
@@ -38872,7 +38872,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
     pyRaiseCVOverloadException("recognize");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_setDecodeOptsCTCPrefixBeamSearch(const Napi::CallbackInfo &info)
@@ -38899,7 +38899,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_setDecodeOptsCTCPref
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_setDecodeType(const Napi::CallbackInfo &info)
@@ -38923,7 +38923,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_setDecodeType(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_setVocabulary(const Napi::CallbackInfo &info)
@@ -38947,7 +38947,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_setVocabulary(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -39018,7 +39018,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_create_
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getAlgorithm(const Napi::CallbackInfo &info)
@@ -39038,7 +39038,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getAlgo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getScale(const Napi::CallbackInfo &info)
@@ -39058,7 +39058,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getScal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_readModel(const Napi::CallbackInfo &info)
@@ -39081,7 +39081,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_readMod
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setModel(const Napi::CallbackInfo &info)
@@ -39107,7 +39107,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setMode
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setPreferableBackend(const Napi::CallbackInfo &info)
@@ -39130,7 +39130,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setPref
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setPreferableTarget(const Napi::CallbackInfo &info)
@@ -39153,7 +39153,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setPref
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsample(const Napi::CallbackInfo &info)
@@ -39207,7 +39207,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
     pyRaiseCVOverloadException("upsample");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampleMultioutput(const Napi::CallbackInfo &info)
@@ -39273,7 +39273,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
     pyRaiseCVOverloadException("upsampleMultioutput");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -39386,7 +39386,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BIF_create_static(const Napi::CallbackInfo &info)
@@ -39408,7 +39408,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_create_static(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BIF_getNumBands(const Napi::CallbackInfo &info)
@@ -39428,7 +39428,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_getNumBands(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BIF_getNumRotations(const Napi::CallbackInfo &info)
@@ -39448,7 +39448,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_getNumRotations(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -39522,7 +39522,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getEigenValues(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getEigenVectors(const Napi::CallbackInfo &info)
@@ -39542,7 +39542,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getEigenVectors(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getLabels(const Napi::CallbackInfo &info)
@@ -39562,7 +39562,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getLabels(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getMean(const Napi::CallbackInfo &info)
@@ -39582,7 +39582,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getMean(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getNumComponents(const Napi::CallbackInfo &info)
@@ -39602,7 +39602,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getNumComponents(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getProjections(const Napi::CallbackInfo &info)
@@ -39622,7 +39622,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getProjections(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getThreshold(const Napi::CallbackInfo &info)
@@ -39642,7 +39642,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_getThreshold(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_setNumComponents(const Napi::CallbackInfo &info)
@@ -39665,7 +39665,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_setNumComponents(co
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_setThreshold(const Napi::CallbackInfo &info)
@@ -39688,7 +39688,7 @@ static Napi::Value pyopencv_cv_face_face_BasicFaceRecognizer_setThreshold(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -39769,7 +39769,7 @@ static Napi::Value pyopencv_cv_face_face_EigenFaceRecognizer_create_static(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -39844,7 +39844,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_getLabelInfo(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_getLabelsByString(const Napi::CallbackInfo &info)
@@ -39868,7 +39868,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_getLabelsByString(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::CallbackInfo &info)
@@ -39920,7 +39920,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
     }
     pyRaiseCVOverloadException("predict");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Napi::CallbackInfo &info)
@@ -39974,7 +39974,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
     }
     pyRaiseCVOverloadException("predict_collect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi::CallbackInfo &info)
@@ -40024,7 +40024,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
     }
     pyRaiseCVOverloadException("predict_label");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_read(const Napi::CallbackInfo &info)
@@ -40047,7 +40047,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_read(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_setLabelInfo(const Napi::CallbackInfo &info)
@@ -40073,7 +40073,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_setLabelInfo(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::CallbackInfo &info)
@@ -40127,7 +40127,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
     }
     pyRaiseCVOverloadException("train");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::CallbackInfo &info)
@@ -40181,7 +40181,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
     }
     pyRaiseCVOverloadException("update");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_FaceRecognizer_write(const Napi::CallbackInfo &info)
@@ -40204,7 +40204,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_write(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -40326,7 +40326,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("fit");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_Facemark_loadModel(const Napi::CallbackInfo &info)
@@ -40349,7 +40349,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_loadModel(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -40623,7 +40623,7 @@ static Napi::Value pyopencv_cv_face_face_FisherFaceRecognizer_create_static(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -40705,7 +40705,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_create_static(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getGridX(const Napi::CallbackInfo &info)
@@ -40725,7 +40725,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getGridX(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getGridY(const Napi::CallbackInfo &info)
@@ -40745,7 +40745,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getGridY(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getHistograms(const Napi::CallbackInfo &info)
@@ -40765,7 +40765,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getHistograms(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getLabels(const Napi::CallbackInfo &info)
@@ -40785,7 +40785,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getLabels(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getNeighbors(const Napi::CallbackInfo &info)
@@ -40805,7 +40805,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getNeighbors(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getRadius(const Napi::CallbackInfo &info)
@@ -40825,7 +40825,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getRadius(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getThreshold(const Napi::CallbackInfo &info)
@@ -40845,7 +40845,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_getThreshold(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setGridX(const Napi::CallbackInfo &info)
@@ -40868,7 +40868,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setGridX(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setGridY(const Napi::CallbackInfo &info)
@@ -40891,7 +40891,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setGridY(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setNeighbors(const Napi::CallbackInfo &info)
@@ -40914,7 +40914,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setNeighbors(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setRadius(const Napi::CallbackInfo &info)
@@ -40937,7 +40937,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setRadius(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setThreshold(const Napi::CallbackInfo &info)
@@ -40960,7 +40960,7 @@ static Napi::Value pyopencv_cv_face_face_LBPHFaceRecognizer_setThreshold(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -41042,7 +41042,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_create_static(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_MACE_load_static(const Napi::CallbackInfo &info)
@@ -41064,7 +41064,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_load_static(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_MACE_salt(const Napi::CallbackInfo &info)
@@ -41087,7 +41087,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_salt(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &info)
@@ -41137,7 +41137,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
     }
     pyRaiseCVOverloadException("same");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &info)
@@ -41185,7 +41185,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
     }
     pyRaiseCVOverloadException("train");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -41309,7 +41309,7 @@ static Napi::Value pyopencv_cv_face_face_StandardCollector_create_static(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_StandardCollector_getMinDist(const Napi::CallbackInfo &info)
@@ -41329,7 +41329,7 @@ static Napi::Value pyopencv_cv_face_face_StandardCollector_getMinDist(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_StandardCollector_getMinLabel(const Napi::CallbackInfo &info)
@@ -41349,7 +41349,7 @@ static Napi::Value pyopencv_cv_face_face_StandardCollector_getMinLabel(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_face_face_StandardCollector_getResults(const Napi::CallbackInfo &info)
@@ -41373,7 +41373,7 @@ static Napi::Value pyopencv_cv_face_face_StandardCollector_getResults(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -41558,7 +41558,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("build");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_getAlgorithm(const Napi::CallbackInfo &info)
@@ -41578,7 +41578,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_getAlgorithm(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_getDistance(const Napi::CallbackInfo &info)
@@ -41598,7 +41598,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_getDistance(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackInfo &info)
@@ -41670,7 +41670,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
     }
     pyRaiseCVOverloadException("knnSearch");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &info)
@@ -41726,7 +41726,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
     }
     pyRaiseCVOverloadException("load");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::CallbackInfo &info)
@@ -41806,7 +41806,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
     }
     pyRaiseCVOverloadException("radiusSearch");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_release(const Napi::CallbackInfo &info)
@@ -41825,7 +41825,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_release(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_flann_flann_Index_save(const Napi::CallbackInfo &info)
@@ -41848,7 +41848,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_save(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -42140,7 +42140,7 @@ static Napi::Value pyopencv_cv_gapi_ie_gapi_ie_PyParams_cfgBatchSize(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_gapi_ie_gapi_ie_PyParams_cfgNumRequests(const Napi::CallbackInfo &info)
@@ -42164,7 +42164,7 @@ static Napi::Value pyopencv_cv_gapi_ie_gapi_ie_PyParams_cfgNumRequests(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_gapi_ie_gapi_ie_PyParams_constInput(const Napi::CallbackInfo &info)
@@ -42194,7 +42194,7 @@ static Napi::Value pyopencv_cv_gapi_ie_gapi_ie_PyParams_constInput(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -42447,7 +42447,7 @@ static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGArray(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGMat(const Napi::CallbackInfo &info)
@@ -42467,7 +42467,7 @@ static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGMat(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGOpaque(const Napi::CallbackInfo &info)
@@ -42491,7 +42491,7 @@ static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGOpaque(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGScalar(const Napi::CallbackInfo &info)
@@ -42511,7 +42511,7 @@ static Napi::Value pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGScalar(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -43985,7 +43985,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_AverageHash_create_static(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44055,7 +44055,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_BlockMeanHash_create_static(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_BlockMeanHash_getMean(const Napi::CallbackInfo &info)
@@ -44075,7 +44075,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_BlockMeanHash_getMean(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_BlockMeanHash_setMode(const Napi::CallbackInfo &info)
@@ -44098,7 +44098,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_BlockMeanHash_setMode(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44166,7 +44166,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ColorMomentHash_create_static(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44273,7 +44273,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
     }
     pyRaiseCVOverloadException("compare");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi::CallbackInfo &info)
@@ -44327,7 +44327,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44401,7 +44401,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_create_static(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_getAlpha(const Napi::CallbackInfo &info)
@@ -44421,7 +44421,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_getAlpha(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_getScale(const Napi::CallbackInfo &info)
@@ -44441,7 +44441,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_getScale(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_setKernelParam(const Napi::CallbackInfo &info)
@@ -44467,7 +44467,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_MarrHildrethHash_setKernelParam
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44536,7 +44536,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_PHash_create_static(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44609,7 +44609,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_create_stati
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_getNumOfAngleLine(const Napi::CallbackInfo &info)
@@ -44629,7 +44629,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_getNumOfAngl
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_getSigma(const Napi::CallbackInfo &info)
@@ -44649,7 +44649,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_getSigma(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_setNumOfAngleLine(const Napi::CallbackInfo &info)
@@ -44672,7 +44672,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_setNumOfAngl
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_setSigma(const Napi::CallbackInfo &info)
@@ -44695,7 +44695,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_RadialVarianceHash_setSigma(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -44827,7 +44827,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
     }
     pyRaiseCVOverloadException("add");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_create_static(const Napi::CallbackInfo &info)
@@ -44842,7 +44842,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_create_static(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_getObjects(const Napi::CallbackInfo &info)
@@ -44862,7 +44862,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_getObjects(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::CallbackInfo &info)
@@ -44914,7 +44914,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
     }
     pyRaiseCVOverloadException("update");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45024,7 +45024,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("init");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::CallbackInfo &info)
@@ -45076,7 +45076,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
     }
     pyRaiseCVOverloadException("update");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45143,7 +45143,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerBoosting_create_static(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45209,7 +45209,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_create_static(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Napi::CallbackInfo &info)
@@ -45257,7 +45257,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
     }
     pyRaiseCVOverloadException("setInitialMask");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45324,7 +45324,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerKCF_create_static(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45390,7 +45390,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerMIL_create_static(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45456,7 +45456,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerMOSSE_create_static(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45522,7 +45522,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerMedianFlow_create_static(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45588,7 +45588,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerTLD_create_static(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45654,7 +45654,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_create_static(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getBox(const Napi::CallbackInfo &info)
@@ -45674,7 +45674,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getBox(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getCenter(const Napi::CallbackInfo &info)
@@ -45694,7 +45694,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getCenter(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getChartsRGB(const Napi::CallbackInfo &info)
@@ -45714,7 +45714,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getChartsRGB(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getChartsYCbCr(const Napi::CallbackInfo &info)
@@ -45734,7 +45734,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getChartsYCbCr(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getCost(const Napi::CallbackInfo &info)
@@ -45754,7 +45754,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getCost(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getTarget(const Napi::CallbackInfo &info)
@@ -45774,7 +45774,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_getTarget(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setBox(const Napi::CallbackInfo &info)
@@ -45797,7 +45797,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setBox(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setCenter(const Napi::CallbackInfo &info)
@@ -45820,7 +45820,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setCenter(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setChartsRGB(const Napi::CallbackInfo &info)
@@ -45843,7 +45843,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setChartsRGB(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setChartsYCbCr(const Napi::CallbackInfo &info)
@@ -45866,7 +45866,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setChartsYCbCr(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setCost(const Napi::CallbackInfo &info)
@@ -45889,7 +45889,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setCost(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setTarget(const Napi::CallbackInfo &info)
@@ -45912,7 +45912,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CChecker_setTarget(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -45990,7 +45990,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_create_static(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_getBestColorChecker(const Napi::CallbackInfo &info)
@@ -46010,7 +46010,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_getBestColorChecker(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_getListColorChecker(const Napi::CallbackInfo &info)
@@ -46030,7 +46030,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_getListColorChecker(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::CallbackInfo &info)
@@ -46104,7 +46104,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
     }
     pyRaiseCVOverloadException("process");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Napi::CallbackInfo &info)
@@ -46184,7 +46184,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
     }
     pyRaiseCVOverloadException("processWithROI");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_setNet(const Napi::CallbackInfo &info)
@@ -46208,7 +46208,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_setNet(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -46289,7 +46289,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_create_static(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInfo &info)
@@ -46337,7 +46337,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("draw");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -46674,7 +46674,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_DetectorParameters_create_static(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -46758,7 +46758,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_create_static(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealCoolingRatio(const Napi::CallbackInfo &info)
@@ -46778,7 +46778,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealCoolingRatio(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealFinalT(const Napi::CallbackInfo &info)
@@ -46798,7 +46798,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealFinalT(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealInitialT(const Napi::CallbackInfo &info)
@@ -46818,7 +46818,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealInitialT(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealItePerStep(const Napi::CallbackInfo &info)
@@ -46838,7 +46838,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getAnnealItePerStep(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getBackpropMomentumScale(const Napi::CallbackInfo &info)
@@ -46858,7 +46858,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getBackpropMomentumScale(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getBackpropWeightScale(const Napi::CallbackInfo &info)
@@ -46878,7 +46878,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getBackpropWeightScale(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getLayerSizes(const Napi::CallbackInfo &info)
@@ -46898,7 +46898,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getLayerSizes(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDW0(const Napi::CallbackInfo &info)
@@ -46918,7 +46918,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDW0(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWMax(const Napi::CallbackInfo &info)
@@ -46938,7 +46938,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWMax(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWMin(const Napi::CallbackInfo &info)
@@ -46958,7 +46958,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWMin(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWMinus(const Napi::CallbackInfo &info)
@@ -46978,7 +46978,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWMinus(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWPlus(const Napi::CallbackInfo &info)
@@ -46998,7 +46998,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getRpropDWPlus(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getTermCriteria(const Napi::CallbackInfo &info)
@@ -47018,7 +47018,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getTermCriteria(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getTrainMethod(const Napi::CallbackInfo &info)
@@ -47038,7 +47038,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getTrainMethod(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getWeights(const Napi::CallbackInfo &info)
@@ -47062,7 +47062,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_getWeights(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_load_static(const Napi::CallbackInfo &info)
@@ -47081,7 +47081,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_load_static(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setActivationFunction(const Napi::CallbackInfo &info)
@@ -47110,7 +47110,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setActivationFunction(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealCoolingRatio(const Napi::CallbackInfo &info)
@@ -47133,7 +47133,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealCoolingRatio(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealFinalT(const Napi::CallbackInfo &info)
@@ -47156,7 +47156,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealFinalT(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealInitialT(const Napi::CallbackInfo &info)
@@ -47179,7 +47179,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealInitialT(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealItePerStep(const Napi::CallbackInfo &info)
@@ -47202,7 +47202,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setAnnealItePerStep(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setBackpropMomentumScale(const Napi::CallbackInfo &info)
@@ -47225,7 +47225,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setBackpropMomentumScale(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setBackpropWeightScale(const Napi::CallbackInfo &info)
@@ -47248,7 +47248,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setBackpropWeightScale(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackInfo &info)
@@ -47296,7 +47296,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
     }
     pyRaiseCVOverloadException("setLayerSizes");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDW0(const Napi::CallbackInfo &info)
@@ -47319,7 +47319,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDW0(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWMax(const Napi::CallbackInfo &info)
@@ -47342,7 +47342,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWMax(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWMin(const Napi::CallbackInfo &info)
@@ -47365,7 +47365,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWMin(const Napi::CallbackI
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWMinus(const Napi::CallbackInfo &info)
@@ -47388,7 +47388,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWMinus(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWPlus(const Napi::CallbackInfo &info)
@@ -47411,7 +47411,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setRpropDWPlus(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setTermCriteria(const Napi::CallbackInfo &info)
@@ -47434,7 +47434,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setTermCriteria(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setTrainMethod(const Napi::CallbackInfo &info)
@@ -47463,7 +47463,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setTrainMethod(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -47560,7 +47560,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_create_static(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_getBoostType(const Napi::CallbackInfo &info)
@@ -47580,7 +47580,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_getBoostType(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_getWeakCount(const Napi::CallbackInfo &info)
@@ -47600,7 +47600,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_getWeakCount(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_getWeightTrimRate(const Napi::CallbackInfo &info)
@@ -47620,7 +47620,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_getWeightTrimRate(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_load_static(const Napi::CallbackInfo &info)
@@ -47642,7 +47642,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_load_static(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_setBoostType(const Napi::CallbackInfo &info)
@@ -47665,7 +47665,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_setBoostType(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_setWeakCount(const Napi::CallbackInfo &info)
@@ -47688,7 +47688,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_setWeakCount(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_Boost_setWeightTrimRate(const Napi::CallbackInfo &info)
@@ -47711,7 +47711,7 @@ static Napi::Value pyopencv_cv_ml_ml_Boost_setWeightTrimRate(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -47784,7 +47784,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_create_static(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getCVFolds(const Napi::CallbackInfo &info)
@@ -47804,7 +47804,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getCVFolds(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getMaxCategories(const Napi::CallbackInfo &info)
@@ -47824,7 +47824,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getMaxCategories(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getMaxDepth(const Napi::CallbackInfo &info)
@@ -47844,7 +47844,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getMaxDepth(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getMinSampleCount(const Napi::CallbackInfo &info)
@@ -47864,7 +47864,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getMinSampleCount(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getPriors(const Napi::CallbackInfo &info)
@@ -47884,7 +47884,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getPriors(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getRegressionAccuracy(const Napi::CallbackInfo &info)
@@ -47904,7 +47904,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getRegressionAccuracy(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getTruncatePrunedTree(const Napi::CallbackInfo &info)
@@ -47924,7 +47924,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getTruncatePrunedTree(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getUse1SERule(const Napi::CallbackInfo &info)
@@ -47944,7 +47944,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getUse1SERule(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_getUseSurrogates(const Napi::CallbackInfo &info)
@@ -47964,7 +47964,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_getUseSurrogates(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_load_static(const Napi::CallbackInfo &info)
@@ -47986,7 +47986,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_load_static(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setCVFolds(const Napi::CallbackInfo &info)
@@ -48009,7 +48009,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setCVFolds(const Napi::CallbackInfo 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setMaxCategories(const Napi::CallbackInfo &info)
@@ -48032,7 +48032,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setMaxCategories(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setMaxDepth(const Napi::CallbackInfo &info)
@@ -48055,7 +48055,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setMaxDepth(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setMinSampleCount(const Napi::CallbackInfo &info)
@@ -48078,7 +48078,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setMinSampleCount(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setPriors(const Napi::CallbackInfo &info)
@@ -48101,7 +48101,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setPriors(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setRegressionAccuracy(const Napi::CallbackInfo &info)
@@ -48124,7 +48124,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setRegressionAccuracy(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setTruncatePrunedTree(const Napi::CallbackInfo &info)
@@ -48147,7 +48147,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setTruncatePrunedTree(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setUse1SERule(const Napi::CallbackInfo &info)
@@ -48170,7 +48170,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setUse1SERule(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_DTrees_setUseSurrogates(const Napi::CallbackInfo &info)
@@ -48193,7 +48193,7 @@ static Napi::Value pyopencv_cv_ml_ml_DTrees_setUseSurrogates(const Napi::Callbac
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -48278,7 +48278,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_create_static(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_getClustersNumber(const Napi::CallbackInfo &info)
@@ -48298,7 +48298,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_getClustersNumber(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_getCovarianceMatrixType(const Napi::CallbackInfo &info)
@@ -48318,7 +48318,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_getCovarianceMatrixType(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_getCovs(const Napi::CallbackInfo &info)
@@ -48341,7 +48341,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_getCovs(const Napi::CallbackInfo &info)
         return jsopencv_from(covs);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_getMeans(const Napi::CallbackInfo &info)
@@ -48361,7 +48361,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_getMeans(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_getTermCriteria(const Napi::CallbackInfo &info)
@@ -48381,7 +48381,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_getTermCriteria(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_getWeights(const Napi::CallbackInfo &info)
@@ -48401,7 +48401,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_getWeights(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_load_static(const Napi::CallbackInfo &info)
@@ -48423,7 +48423,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_load_static(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
@@ -48485,7 +48485,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("predict");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
@@ -48541,7 +48541,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("predict2");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_setClustersNumber(const Napi::CallbackInfo &info)
@@ -48564,7 +48564,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_setClustersNumber(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_setCovarianceMatrixType(const Napi::CallbackInfo &info)
@@ -48587,7 +48587,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_setCovarianceMatrixType(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_setTermCriteria(const Napi::CallbackInfo &info)
@@ -48610,7 +48610,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_setTermCriteria(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
@@ -48696,7 +48696,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("trainE");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
@@ -48764,7 +48764,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("trainEM");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
@@ -48838,7 +48838,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
     }
     pyRaiseCVOverloadException("trainM");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -48919,7 +48919,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_create_static(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackInfo &info)
@@ -48993,7 +48993,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("findNearest");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_getAlgorithmType(const Napi::CallbackInfo &info)
@@ -49013,7 +49013,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_getAlgorithmType(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_getDefaultK(const Napi::CallbackInfo &info)
@@ -49033,7 +49033,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_getDefaultK(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_getEmax(const Napi::CallbackInfo &info)
@@ -49053,7 +49053,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_getEmax(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_getIsClassifier(const Napi::CallbackInfo &info)
@@ -49073,7 +49073,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_getIsClassifier(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_load_static(const Napi::CallbackInfo &info)
@@ -49092,7 +49092,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_load_static(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_setAlgorithmType(const Napi::CallbackInfo &info)
@@ -49115,7 +49115,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_setAlgorithmType(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_setDefaultK(const Napi::CallbackInfo &info)
@@ -49138,7 +49138,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_setDefaultK(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_setEmax(const Napi::CallbackInfo &info)
@@ -49161,7 +49161,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_setEmax(const Napi::CallbackInfo &
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_KNearest_setIsClassifier(const Napi::CallbackInfo &info)
@@ -49184,7 +49184,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_setIsClassifier(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -49260,7 +49260,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_create_static(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getIterations(const Napi::CallbackInfo &info)
@@ -49280,7 +49280,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getIterations(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getLearningRate(const Napi::CallbackInfo &info)
@@ -49300,7 +49300,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getLearningRate(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getMiniBatchSize(const Napi::CallbackInfo &info)
@@ -49320,7 +49320,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getMiniBatchSize(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getRegularization(const Napi::CallbackInfo &info)
@@ -49340,7 +49340,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getRegularization(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getTermCriteria(const Napi::CallbackInfo &info)
@@ -49360,7 +49360,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getTermCriteria(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getTrainMethod(const Napi::CallbackInfo &info)
@@ -49380,7 +49380,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_getTrainMethod(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_get_learnt_thetas(const Napi::CallbackInfo &info)
@@ -49400,7 +49400,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_get_learnt_thetas(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_load_static(const Napi::CallbackInfo &info)
@@ -49422,7 +49422,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_load_static(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::CallbackInfo &info)
@@ -49484,7 +49484,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
     }
     pyRaiseCVOverloadException("predict");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setIterations(const Napi::CallbackInfo &info)
@@ -49507,7 +49507,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setIterations(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setLearningRate(const Napi::CallbackInfo &info)
@@ -49530,7 +49530,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setLearningRate(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setMiniBatchSize(const Napi::CallbackInfo &info)
@@ -49553,7 +49553,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setMiniBatchSize(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setRegularization(const Napi::CallbackInfo &info)
@@ -49576,7 +49576,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setRegularization(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setTermCriteria(const Napi::CallbackInfo &info)
@@ -49599,7 +49599,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setTermCriteria(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setTrainMethod(const Napi::CallbackInfo &info)
@@ -49622,7 +49622,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_setTrainMethod(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -49703,7 +49703,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_create_static(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_load_static(const Napi::CallbackInfo &info)
@@ -49725,7 +49725,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_load_static(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Napi::CallbackInfo &info)
@@ -49793,7 +49793,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
     }
     pyRaiseCVOverloadException("predictProb");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -49916,7 +49916,7 @@ static Napi::Value pyopencv_cv_ml_ml_ParamGrid_create_static(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -49985,7 +49985,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_create_static(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_getActiveVarCount(const Napi::CallbackInfo &info)
@@ -50005,7 +50005,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getActiveVarCount(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_getCalculateVarImportance(const Napi::CallbackInfo &info)
@@ -50025,7 +50025,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getCalculateVarImportance(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_getOOBError(const Napi::CallbackInfo &info)
@@ -50045,7 +50045,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getOOBError(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_getTermCriteria(const Napi::CallbackInfo &info)
@@ -50065,7 +50065,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getTermCriteria(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_getVarImportance(const Napi::CallbackInfo &info)
@@ -50085,7 +50085,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVarImportance(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &info)
@@ -50145,7 +50145,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("getVotes");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_load_static(const Napi::CallbackInfo &info)
@@ -50167,7 +50167,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_load_static(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_setActiveVarCount(const Napi::CallbackInfo &info)
@@ -50190,7 +50190,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_setActiveVarCount(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_setCalculateVarImportance(const Napi::CallbackInfo &info)
@@ -50213,7 +50213,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_setCalculateVarImportance(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_RTrees_setTermCriteria(const Napi::CallbackInfo &info)
@@ -50236,7 +50236,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_setTermCriteria(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -50312,7 +50312,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_create_static(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getC(const Napi::CallbackInfo &info)
@@ -50332,7 +50332,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getC(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getClassWeights(const Napi::CallbackInfo &info)
@@ -50352,7 +50352,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getClassWeights(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getCoef0(const Napi::CallbackInfo &info)
@@ -50372,7 +50372,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getCoef0(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::CallbackInfo &info)
@@ -50434,7 +50434,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
     }
     pyRaiseCVOverloadException("getDecisionFunction");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getDefaultGridPtr_static(const Napi::CallbackInfo &info)
@@ -50453,7 +50453,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDefaultGridPtr_static(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getDegree(const Napi::CallbackInfo &info)
@@ -50473,7 +50473,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDegree(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getGamma(const Napi::CallbackInfo &info)
@@ -50493,7 +50493,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getGamma(const Napi::CallbackInfo &info
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getKernelType(const Napi::CallbackInfo &info)
@@ -50513,7 +50513,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getKernelType(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getNu(const Napi::CallbackInfo &info)
@@ -50533,7 +50533,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getNu(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getP(const Napi::CallbackInfo &info)
@@ -50553,7 +50553,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getP(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getSupportVectors(const Napi::CallbackInfo &info)
@@ -50573,7 +50573,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getSupportVectors(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getTermCriteria(const Napi::CallbackInfo &info)
@@ -50593,7 +50593,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getTermCriteria(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getType(const Napi::CallbackInfo &info)
@@ -50613,7 +50613,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getType(const Napi::CallbackInfo &info)
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_getUncompressedSupportVectors(const Napi::CallbackInfo &info)
@@ -50633,7 +50633,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getUncompressedSupportVectors(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_load_static(const Napi::CallbackInfo &info)
@@ -50652,7 +50652,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_load_static(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setC(const Napi::CallbackInfo &info)
@@ -50675,7 +50675,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setC(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setClassWeights(const Napi::CallbackInfo &info)
@@ -50698,7 +50698,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setClassWeights(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setCoef0(const Napi::CallbackInfo &info)
@@ -50721,7 +50721,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setCoef0(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setDegree(const Napi::CallbackInfo &info)
@@ -50744,7 +50744,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setDegree(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setGamma(const Napi::CallbackInfo &info)
@@ -50767,7 +50767,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setGamma(const Napi::CallbackInfo &info
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setKernel(const Napi::CallbackInfo &info)
@@ -50790,7 +50790,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setKernel(const Napi::CallbackInfo &inf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setNu(const Napi::CallbackInfo &info)
@@ -50813,7 +50813,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setNu(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setP(const Napi::CallbackInfo &info)
@@ -50836,7 +50836,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setP(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setTermCriteria(const Napi::CallbackInfo &info)
@@ -50859,7 +50859,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setTermCriteria(const Napi::CallbackInf
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_setType(const Napi::CallbackInfo &info)
@@ -50882,7 +50882,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_setType(const Napi::CallbackInfo &info)
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &info)
@@ -50992,7 +50992,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
     }
     pyRaiseCVOverloadException("trainAuto");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -51084,7 +51084,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_create_static(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getInitialStepSize(const Napi::CallbackInfo &info)
@@ -51104,7 +51104,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getInitialStepSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getMarginRegularization(const Napi::CallbackInfo &info)
@@ -51124,7 +51124,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getMarginRegularization(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getMarginType(const Napi::CallbackInfo &info)
@@ -51144,7 +51144,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getMarginType(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getShift(const Napi::CallbackInfo &info)
@@ -51164,7 +51164,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getShift(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getStepDecreasingPower(const Napi::CallbackInfo &info)
@@ -51184,7 +51184,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getStepDecreasingPower(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getSvmsgdType(const Napi::CallbackInfo &info)
@@ -51204,7 +51204,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getSvmsgdType(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getTermCriteria(const Napi::CallbackInfo &info)
@@ -51224,7 +51224,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getTermCriteria(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getWeights(const Napi::CallbackInfo &info)
@@ -51244,7 +51244,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_getWeights(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_load_static(const Napi::CallbackInfo &info)
@@ -51266,7 +51266,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_load_static(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setInitialStepSize(const Napi::CallbackInfo &info)
@@ -51289,7 +51289,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setInitialStepSize(const Napi::Callb
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setMarginRegularization(const Napi::CallbackInfo &info)
@@ -51312,7 +51312,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setMarginRegularization(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setMarginType(const Napi::CallbackInfo &info)
@@ -51335,7 +51335,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setMarginType(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setOptimalParameters(const Napi::CallbackInfo &info)
@@ -51361,7 +51361,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setOptimalParameters(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setStepDecreasingPower(const Napi::CallbackInfo &info)
@@ -51384,7 +51384,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setStepDecreasingPower(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setSvmsgdType(const Napi::CallbackInfo &info)
@@ -51407,7 +51407,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setSvmsgdType(const Napi::CallbackIn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setTermCriteria(const Napi::CallbackInfo &info)
@@ -51430,7 +51430,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVMSGD_setTermCriteria(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -51559,7 +51559,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("calcError");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_StatModel_empty(const Napi::CallbackInfo &info)
@@ -51579,7 +51579,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_empty(const Napi::CallbackInfo &i
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_StatModel_getVarCount(const Napi::CallbackInfo &info)
@@ -51599,7 +51599,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_getVarCount(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_StatModel_isClassifier(const Napi::CallbackInfo &info)
@@ -51619,7 +51619,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_isClassifier(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_StatModel_isTrained(const Napi::CallbackInfo &info)
@@ -51639,7 +51639,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_isTrained(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo &info)
@@ -51701,7 +51701,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("predict");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &info)
@@ -51784,7 +51784,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
     pyRaiseCVOverloadException("train");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -51922,7 +51922,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_create_static(const Napi::Callbac
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getCatCount(const Napi::CallbackInfo &info)
@@ -51946,7 +51946,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getCatCount(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getCatMap(const Napi::CallbackInfo &info)
@@ -51966,7 +51966,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getCatMap(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getCatOfs(const Napi::CallbackInfo &info)
@@ -51986,7 +51986,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getCatOfs(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getClassLabels(const Napi::CallbackInfo &info)
@@ -52006,7 +52006,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getClassLabels(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getDefaultSubstValues(const Napi::CallbackInfo &info)
@@ -52026,7 +52026,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getDefaultSubstValues(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getLayout(const Napi::CallbackInfo &info)
@@ -52046,7 +52046,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getLayout(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getMissing(const Napi::CallbackInfo &info)
@@ -52066,7 +52066,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getMissing(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNAllVars(const Napi::CallbackInfo &info)
@@ -52086,7 +52086,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNAllVars(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNSamples(const Napi::CallbackInfo &info)
@@ -52106,7 +52106,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNSamples(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNTestSamples(const Napi::CallbackInfo &info)
@@ -52126,7 +52126,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNTestSamples(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNTrainSamples(const Napi::CallbackInfo &info)
@@ -52146,7 +52146,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNTrainSamples(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNVars(const Napi::CallbackInfo &info)
@@ -52166,7 +52166,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNVars(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNames(const Napi::CallbackInfo &info)
@@ -52189,7 +52189,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNames(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getNormCatResponses(const Napi::CallbackInfo &info)
@@ -52209,7 +52209,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getNormCatResponses(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getResponseType(const Napi::CallbackInfo &info)
@@ -52229,7 +52229,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getResponseType(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getResponses(const Napi::CallbackInfo &info)
@@ -52249,7 +52249,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getResponses(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInfo &info)
@@ -52309,7 +52309,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("getSample");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getSampleWeights(const Napi::CallbackInfo &info)
@@ -52329,7 +52329,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSampleWeights(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getSamples(const Napi::CallbackInfo &info)
@@ -52349,7 +52349,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSamples(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getSubMatrix_static(const Napi::CallbackInfo &info)
@@ -52374,7 +52374,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSubMatrix_static(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getSubVector_static(const Napi::CallbackInfo &info)
@@ -52396,7 +52396,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSubVector_static(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestNormCatResponses(const Napi::CallbackInfo &info)
@@ -52416,7 +52416,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestNormCatResponses(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestResponses(const Napi::CallbackInfo &info)
@@ -52436,7 +52436,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestResponses(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestSampleIdx(const Napi::CallbackInfo &info)
@@ -52456,7 +52456,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestSampleIdx(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestSampleWeights(const Napi::CallbackInfo &info)
@@ -52476,7 +52476,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestSampleWeights(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestSamples(const Napi::CallbackInfo &info)
@@ -52496,7 +52496,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTestSamples(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainNormCatResponses(const Napi::CallbackInfo &info)
@@ -52516,7 +52516,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainNormCatResponses(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainResponses(const Napi::CallbackInfo &info)
@@ -52536,7 +52536,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainResponses(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainSampleIdx(const Napi::CallbackInfo &info)
@@ -52556,7 +52556,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainSampleIdx(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainSampleWeights(const Napi::CallbackInfo &info)
@@ -52576,7 +52576,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainSampleWeights(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainSamples(const Napi::CallbackInfo &info)
@@ -52606,7 +52606,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getTrainSamples(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInfo &info)
@@ -52666,7 +52666,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
     }
     pyRaiseCVOverloadException("getValues");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getVarIdx(const Napi::CallbackInfo &info)
@@ -52686,7 +52686,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getVarIdx(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getVarSymbolFlags(const Napi::CallbackInfo &info)
@@ -52706,7 +52706,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getVarSymbolFlags(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_getVarType(const Napi::CallbackInfo &info)
@@ -52726,7 +52726,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getVarType(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_setTrainTestSplit(const Napi::CallbackInfo &info)
@@ -52752,7 +52752,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_setTrainTestSplit(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_setTrainTestSplitRatio(const Napi::CallbackInfo &info)
@@ -52778,7 +52778,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_setTrainTestSplitRatio(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ml_ml_TrainData_shuffleTrainTest(const Napi::CallbackInfo &info)
@@ -52797,7 +52797,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_shuffleTrainTest(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -52920,7 +52920,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_OpenCLVersion(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_OpenCL_C_Version(const Napi::CallbackInfo &info)
@@ -52940,7 +52940,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_OpenCL_C_Version(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_addressBits(const Napi::CallbackInfo &info)
@@ -52960,7 +52960,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_addressBits(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_available(const Napi::CallbackInfo &info)
@@ -52980,7 +52980,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_available(const Napi::CallbackInfo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_compilerAvailable(const Napi::CallbackInfo &info)
@@ -53000,7 +53000,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_compilerAvailable(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_deviceVersionMajor(const Napi::CallbackInfo &info)
@@ -53020,7 +53020,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_deviceVersionMajor(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_deviceVersionMinor(const Napi::CallbackInfo &info)
@@ -53040,7 +53040,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_deviceVersionMinor(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_doubleFPConfig(const Napi::CallbackInfo &info)
@@ -53060,7 +53060,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_doubleFPConfig(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_driverVersion(const Napi::CallbackInfo &info)
@@ -53080,7 +53080,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_driverVersion(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_endianLittle(const Napi::CallbackInfo &info)
@@ -53100,7 +53100,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_endianLittle(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_errorCorrectionSupport(const Napi::CallbackInfo &info)
@@ -53120,7 +53120,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_errorCorrectionSupport(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_executionCapabilities(const Napi::CallbackInfo &info)
@@ -53140,7 +53140,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_executionCapabilities(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_extensions(const Napi::CallbackInfo &info)
@@ -53160,7 +53160,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_extensions(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_getDefault_static(const Napi::CallbackInfo &info)
@@ -53175,7 +53175,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_getDefault_static(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemCacheLineSize(const Napi::CallbackInfo &info)
@@ -53195,7 +53195,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemCacheLineSize(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemCacheSize(const Napi::CallbackInfo &info)
@@ -53215,7 +53215,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemCacheSize(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemCacheType(const Napi::CallbackInfo &info)
@@ -53235,7 +53235,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemCacheType(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemSize(const Napi::CallbackInfo &info)
@@ -53255,7 +53255,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_globalMemSize(const Napi::Callback
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_halfFPConfig(const Napi::CallbackInfo &info)
@@ -53275,7 +53275,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_halfFPConfig(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_hostUnifiedMemory(const Napi::CallbackInfo &info)
@@ -53295,7 +53295,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_hostUnifiedMemory(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_image2DMaxHeight(const Napi::CallbackInfo &info)
@@ -53315,7 +53315,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_image2DMaxHeight(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_image2DMaxWidth(const Napi::CallbackInfo &info)
@@ -53335,7 +53335,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_image2DMaxWidth(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_image3DMaxDepth(const Napi::CallbackInfo &info)
@@ -53355,7 +53355,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_image3DMaxDepth(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_image3DMaxHeight(const Napi::CallbackInfo &info)
@@ -53375,7 +53375,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_image3DMaxHeight(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_image3DMaxWidth(const Napi::CallbackInfo &info)
@@ -53395,7 +53395,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_image3DMaxWidth(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_imageFromBufferSupport(const Napi::CallbackInfo &info)
@@ -53415,7 +53415,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_imageFromBufferSupport(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_imageMaxArraySize(const Napi::CallbackInfo &info)
@@ -53435,7 +53435,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_imageMaxArraySize(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_imageMaxBufferSize(const Napi::CallbackInfo &info)
@@ -53455,7 +53455,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_imageMaxBufferSize(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_imageSupport(const Napi::CallbackInfo &info)
@@ -53475,7 +53475,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_imageSupport(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_intelSubgroupsSupport(const Napi::CallbackInfo &info)
@@ -53495,7 +53495,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_intelSubgroupsSupport(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_isAMD(const Napi::CallbackInfo &info)
@@ -53515,7 +53515,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_isAMD(const Napi::CallbackInfo &in
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_isExtensionSupported(const Napi::CallbackInfo &info)
@@ -53539,7 +53539,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_isExtensionSupported(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_isIntel(const Napi::CallbackInfo &info)
@@ -53559,7 +53559,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_isIntel(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_isNVidia(const Napi::CallbackInfo &info)
@@ -53579,7 +53579,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_isNVidia(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_linkerAvailable(const Napi::CallbackInfo &info)
@@ -53599,7 +53599,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_linkerAvailable(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_localMemSize(const Napi::CallbackInfo &info)
@@ -53619,7 +53619,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_localMemSize(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_localMemType(const Napi::CallbackInfo &info)
@@ -53639,7 +53639,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_localMemType(const Napi::CallbackI
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxClockFrequency(const Napi::CallbackInfo &info)
@@ -53659,7 +53659,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxClockFrequency(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxComputeUnits(const Napi::CallbackInfo &info)
@@ -53679,7 +53679,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxComputeUnits(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxConstantArgs(const Napi::CallbackInfo &info)
@@ -53699,7 +53699,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxConstantArgs(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxConstantBufferSize(const Napi::CallbackInfo &info)
@@ -53719,7 +53719,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxConstantBufferSize(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxMemAllocSize(const Napi::CallbackInfo &info)
@@ -53739,7 +53739,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxMemAllocSize(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxParameterSize(const Napi::CallbackInfo &info)
@@ -53759,7 +53759,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxParameterSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxReadImageArgs(const Napi::CallbackInfo &info)
@@ -53779,7 +53779,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxReadImageArgs(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxSamplers(const Napi::CallbackInfo &info)
@@ -53799,7 +53799,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxSamplers(const Napi::CallbackIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxWorkGroupSize(const Napi::CallbackInfo &info)
@@ -53819,7 +53819,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxWorkGroupSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxWorkItemDims(const Napi::CallbackInfo &info)
@@ -53839,7 +53839,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxWorkItemDims(const Napi::Callba
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_maxWriteImageArgs(const Napi::CallbackInfo &info)
@@ -53859,7 +53859,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_maxWriteImageArgs(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_memBaseAddrAlign(const Napi::CallbackInfo &info)
@@ -53879,7 +53879,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_memBaseAddrAlign(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_name(const Napi::CallbackInfo &info)
@@ -53899,7 +53899,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_name(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthChar(const Napi::CallbackInfo &info)
@@ -53919,7 +53919,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthChar(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthDouble(const Napi::CallbackInfo &info)
@@ -53939,7 +53939,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthDouble(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthFloat(const Napi::CallbackInfo &info)
@@ -53959,7 +53959,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthFloat(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthHalf(const Napi::CallbackInfo &info)
@@ -53979,7 +53979,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthHalf(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthInt(const Napi::CallbackInfo &info)
@@ -53999,7 +53999,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthInt(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthLong(const Napi::CallbackInfo &info)
@@ -54019,7 +54019,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthLong(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthShort(const Napi::CallbackInfo &info)
@@ -54039,7 +54039,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_nativeVectorWidthShort(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthChar(const Napi::CallbackInfo &info)
@@ -54059,7 +54059,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthChar(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthDouble(const Napi::CallbackInfo &info)
@@ -54079,7 +54079,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthDouble(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthFloat(const Napi::CallbackInfo &info)
@@ -54099,7 +54099,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthFloat(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthHalf(const Napi::CallbackInfo &info)
@@ -54119,7 +54119,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthHalf(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthInt(const Napi::CallbackInfo &info)
@@ -54139,7 +54139,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthInt(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthLong(const Napi::CallbackInfo &info)
@@ -54159,7 +54159,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthLong(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthShort(const Napi::CallbackInfo &info)
@@ -54179,7 +54179,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_preferredVectorWidthShort(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_printfBufferSize(const Napi::CallbackInfo &info)
@@ -54199,7 +54199,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_printfBufferSize(const Napi::Callb
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_profilingTimerResolution(const Napi::CallbackInfo &info)
@@ -54219,7 +54219,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_profilingTimerResolution(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_singleFPConfig(const Napi::CallbackInfo &info)
@@ -54239,7 +54239,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_singleFPConfig(const Napi::Callbac
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_type(const Napi::CallbackInfo &info)
@@ -54259,7 +54259,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_type(const Napi::CallbackInfo &inf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_vendorID(const Napi::CallbackInfo &info)
@@ -54279,7 +54279,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_vendorID(const Napi::CallbackInfo 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_vendorName(const Napi::CallbackInfo &info)
@@ -54299,7 +54299,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_vendorName(const Napi::CallbackInf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ocl_ocl_Device_version(const Napi::CallbackInfo &info)
@@ -54319,7 +54319,7 @@ static Napi::Value pyopencv_cv_ocl_ocl_Device_version(const Napi::CallbackInfo &
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -54577,7 +54577,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo &info)
@@ -54625,7 +54625,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
     }
     pyRaiseCVOverloadException("render");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setGridLinesNumber(const Napi::CallbackInfo &info)
@@ -54648,7 +54648,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setGridLinesNumber(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setInvertOrientation(const Napi::CallbackInfo &info)
@@ -54671,7 +54671,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setInvertOrientation(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMaxX(const Napi::CallbackInfo &info)
@@ -54694,7 +54694,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMaxX(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMaxY(const Napi::CallbackInfo &info)
@@ -54717,7 +54717,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMaxY(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMinX(const Napi::CallbackInfo &info)
@@ -54740,7 +54740,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMinX(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMinY(const Napi::CallbackInfo &info)
@@ -54763,7 +54763,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setMinY(const Napi::CallbackInfo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setNeedPlotLine(const Napi::CallbackInfo &info)
@@ -54786,7 +54786,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setNeedPlotLine(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotAxisColor(const Napi::CallbackInfo &info)
@@ -54809,7 +54809,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotAxisColor(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotBackgroundColor(const Napi::CallbackInfo &info)
@@ -54832,7 +54832,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotBackgroundColor(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotGridColor(const Napi::CallbackInfo &info)
@@ -54855,7 +54855,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotGridColor(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotLineColor(const Napi::CallbackInfo &info)
@@ -54878,7 +54878,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotLineColor(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotLineWidth(const Napi::CallbackInfo &info)
@@ -54901,7 +54901,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotLineWidth(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotSize(const Napi::CallbackInfo &info)
@@ -54927,7 +54927,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotSize(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotTextColor(const Napi::CallbackInfo &info)
@@ -54950,7 +54950,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPlotTextColor(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPointIdxToPrint(const Napi::CallbackInfo &info)
@@ -54973,7 +54973,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setPointIdxToPrint(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setShowGrid(const Napi::CallbackInfo &info)
@@ -54996,7 +54996,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setShowGrid(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_plot_plot_Plot2d_setShowText(const Napi::CallbackInfo &info)
@@ -55019,7 +55019,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_setShowText(const Napi::Callback
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -55186,7 +55186,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_static(const Napi::CallbackInfo &info)
@@ -55235,7 +55235,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_st
     }
     pyRaiseCVOverloadException("computeFeatures");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(const Napi::CallbackInfo &info)
@@ -55286,7 +55286,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(cons
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -55358,7 +55358,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_clear(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::CallbackInfo &info)
@@ -55408,7 +55408,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::C
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityBase_empty(const Napi::CallbackInfo &info)
@@ -55428,7 +55428,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_empty(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const Napi::CallbackInfo &info)
@@ -55476,7 +55476,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const N
     }
     pyRaiseCVOverloadException("getQualityMap");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -55549,7 +55549,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_clear(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::CallbackInfo &info)
@@ -55647,7 +55647,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const Napi::CallbackInfo &info)
@@ -55692,7 +55692,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const N
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_empty(const Napi::CallbackInfo &info)
@@ -55712,7 +55712,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_empty(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -55785,7 +55785,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_clear(const Napi::Call
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::CallbackInfo &info)
@@ -55883,7 +55883,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Napi::CallbackInfo &info)
@@ -55928,7 +55928,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Na
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityMSE_empty(const Napi::CallbackInfo &info)
@@ -55948,7 +55948,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_empty(const Napi::Call
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -56021,7 +56021,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_clear(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::CallbackInfo &info)
@@ -56125,7 +56125,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const Napi::CallbackInfo &info)
@@ -56176,7 +56176,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const N
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_empty(const Napi::CallbackInfo &info)
@@ -56196,7 +56196,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_empty(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_getMaxPixelValue(const Napi::CallbackInfo &info)
@@ -56216,7 +56216,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_getMaxPixelValue(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_setMaxPixelValue(const Napi::CallbackInfo &info)
@@ -56239,7 +56239,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_setMaxPixelValue(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -56314,7 +56314,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_clear(const Napi::Cal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::CallbackInfo &info)
@@ -56412,7 +56412,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const Napi::CallbackInfo &info)
@@ -56457,7 +56457,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const N
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_empty(const Napi::CallbackInfo &info)
@@ -56477,7 +56477,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_empty(const Napi::Cal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -56594,7 +56594,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_GOSTracker_create_static(const Napi::
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -56708,7 +56708,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_OLSTracker_create_static(const Napi::
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -56810,7 +56810,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Rapid_create_static(const Napi::Callb
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -56880,7 +56880,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_clearState(const Napi::Callba
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackInfo &info)
@@ -56966,7 +56966,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
     }
     pyRaiseCVOverloadException("compute");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -57082,7 +57082,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
     pyRaiseCVOverloadException("applyImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_applyImageFeatures(const Napi::CallbackInfo &info)
@@ -57150,7 +57150,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
     pyRaiseCVOverloadException("applyImageFeatures");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_buildMap(const Napi::CallbackInfo &info)
@@ -57173,7 +57173,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_b
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_getContour(const Napi::CallbackInfo &info)
@@ -57233,7 +57233,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
     }
     pyRaiseCVOverloadException("getContour");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_setEdgeFeatureCannyParameters(const Napi::CallbackInfo &info)
@@ -57266,7 +57266,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_setEdgeFeatureZeroCrossingParameters(const Napi::CallbackInfo &info)
@@ -57290,7 +57290,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_setGradientMagnitudeMaxLimit(const Napi::CallbackInfo &info)
@@ -57314,7 +57314,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_setWeights(const Napi::CallbackInfo &info)
@@ -57344,7 +57344,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -57627,7 +57627,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static(cons
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::CallbackInfo &info)
@@ -57743,7 +57743,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
     pyRaiseCVOverloadException("run");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -57980,7 +57980,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackInfo &info)
@@ -58096,7 +58096,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
     pyRaiseCVOverloadException("run");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -58223,7 +58223,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_create_static(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackInfo &info)
@@ -58339,7 +58339,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
     pyRaiseCVOverloadException("run");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_text_text_OCRTesseract_setWhiteList(const Napi::CallbackInfo &info)
@@ -58362,7 +58362,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_setWhiteList(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -58467,7 +58467,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -58540,7 +58540,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_create_static(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::CallbackInfo &info)
@@ -58592,7 +58592,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -58756,7 +58756,7 @@ static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_creat
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_getFloatParam(const Napi::CallbackInfo &info)
@@ -58776,7 +58776,7 @@ static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_getFl
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_getIntParam(const Napi::CallbackInfo &info)
@@ -58796,7 +58796,7 @@ static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_getIn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_originalName_static(const Napi::CallbackInfo &info)
@@ -58811,7 +58811,7 @@ static Napi::Value pyopencv_cv_utils_nested_utils_nested_OriginalClassName_origi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -59040,7 +59040,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_create_static(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getDefaultName(const Napi::CallbackInfo &info)
@@ -59060,7 +59060,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getDefaultName(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getScaleFactor(const Napi::CallbackInfo &info)
@@ -59080,7 +59080,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getScaleFactor(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_setScaleFactor(const Napi::CallbackInfo &info)
@@ -59103,7 +59103,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_setScaleFactor(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -59182,7 +59182,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_create_static(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getDefaultName(const Napi::CallbackInfo &info)
@@ -59202,7 +59202,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getDefaultName(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getScaleFactor(const Napi::CallbackInfo &info)
@@ -59222,7 +59222,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getScaleFactor(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getUseScaleOrientation(const Napi::CallbackInfo &info)
@@ -59242,7 +59242,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getUseScaleOrie
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_setScaleFactor(const Napi::CallbackInfo &info)
@@ -59265,7 +59265,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_setScaleFactor(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_setUseScaleOrientation(const Napi::CallbackInfo &info)
@@ -59288,7 +59288,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_setUseScaleOrie
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -59366,7 +59366,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_getDefaultName(const Napi::CallbackInfo &info)
@@ -59386,7 +59386,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_getDescriptorSize(const Napi::CallbackInfo &info)
@@ -59406,7 +59406,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_getUseOrientation(const Napi::CallbackInfo &info)
@@ -59426,7 +59426,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_setDescriptorSize(const Napi::CallbackInfo &info)
@@ -59449,7 +59449,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_setUseOrientation(const Napi::CallbackInfo &info)
@@ -59472,7 +59472,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -59615,7 +59615,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static(const
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getDefaultName(const Napi::CallbackInfo &info)
@@ -59635,7 +59635,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getDefaultName(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getH(const Napi::CallbackInfo &info)
@@ -59655,7 +59655,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getH(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getInterpolation(const Napi::CallbackInfo &info)
@@ -59675,7 +59675,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getInterpolation(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getNorm(const Napi::CallbackInfo &info)
@@ -59695,7 +59695,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getNorm(const Napi:
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQHist(const Napi::CallbackInfo &info)
@@ -59715,7 +59715,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQHist(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQRadius(const Napi::CallbackInfo &info)
@@ -59735,7 +59735,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQRadius(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQTheta(const Napi::CallbackInfo &info)
@@ -59755,7 +59755,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQTheta(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getRadius(const Napi::CallbackInfo &info)
@@ -59775,7 +59775,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getRadius(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getUseOrientation(const Napi::CallbackInfo &info)
@@ -59795,7 +59795,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getUseOrientation(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::CallbackInfo &info)
@@ -59843,7 +59843,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
     }
     pyRaiseCVOverloadException("setH");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setInterpolation(const Napi::CallbackInfo &info)
@@ -59866,7 +59866,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setInterpolation(co
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setNorm(const Napi::CallbackInfo &info)
@@ -59889,7 +59889,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setNorm(const Napi:
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQHist(const Napi::CallbackInfo &info)
@@ -59912,7 +59912,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQHist(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQRadius(const Napi::CallbackInfo &info)
@@ -59935,7 +59935,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQRadius(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQTheta(const Napi::CallbackInfo &info)
@@ -59958,7 +59958,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQTheta(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setRadius(const Napi::CallbackInfo &info)
@@ -59981,7 +59981,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setRadius(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setUseOrientation(const Napi::CallbackInfo &info)
@@ -60004,7 +60004,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setUseOrientation(c
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -60103,7 +60103,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_create_static(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getDefaultName(const Napi::CallbackInfo &info)
@@ -60123,7 +60123,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getDefaultName(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getNOctaves(const Napi::CallbackInfo &info)
@@ -60143,7 +60143,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getNOctaves(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getOrientationNormalized(const Napi::CallbackInfo &info)
@@ -60163,7 +60163,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getOrientationNorma
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getPatternScale(const Napi::CallbackInfo &info)
@@ -60183,7 +60183,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getPatternScale(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getScaleNormalized(const Napi::CallbackInfo &info)
@@ -60203,7 +60203,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getScaleNormalized(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setNOctaves(const Napi::CallbackInfo &info)
@@ -60226,7 +60226,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setNOctaves(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setOrientationNormalized(const Napi::CallbackInfo &info)
@@ -60249,7 +60249,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setOrientationNorma
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setPatternScale(const Napi::CallbackInfo &info)
@@ -60272,7 +60272,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setPatternScale(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setScaleNormalized(const Napi::CallbackInfo &info)
@@ -60295,7 +60295,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_setScaleNormalized(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -60386,7 +60386,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getCornThresh(const Napi::CallbackInfo &info)
@@ -60406,7 +60406,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getDOGThresh(const Napi::CallbackInfo &info)
@@ -60426,7 +60426,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -60446,7 +60446,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getMaxCorners(const Napi::CallbackInfo &info)
@@ -60466,7 +60466,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getNumLayers(const Napi::CallbackInfo &info)
@@ -60486,7 +60486,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getNumOctaves(const Napi::CallbackInfo &info)
@@ -60506,7 +60506,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_setCornThresh(const Napi::CallbackInfo &info)
@@ -60529,7 +60529,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_setDOGThresh(const Napi::CallbackInfo &info)
@@ -60552,7 +60552,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_setMaxCorners(const Napi::CallbackInfo &info)
@@ -60575,7 +60575,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_setNumLayers(const Napi::CallbackInfo &info)
@@ -60598,7 +60598,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_setNumOctaves(const Napi::CallbackInfo &info)
@@ -60621,7 +60621,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -60711,7 +60711,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_create_static(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getBytes(const Napi::CallbackInfo &info)
@@ -60731,7 +60731,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getBytes(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getDefaultName(const Napi::CallbackInfo &info)
@@ -60751,7 +60751,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getDefaultName(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getHalfSSDsize(const Napi::CallbackInfo &info)
@@ -60771,7 +60771,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getHalfSSDsize(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getRotationInvariance(const Napi::CallbackInfo &info)
@@ -60791,7 +60791,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getRotationInvarian
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getSigma(const Napi::CallbackInfo &info)
@@ -60811,7 +60811,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getSigma(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setBytes(const Napi::CallbackInfo &info)
@@ -60834,7 +60834,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setBytes(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setHalfSSDsize(const Napi::CallbackInfo &info)
@@ -60857,7 +60857,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setHalfSSDsize(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setRotationInvariance(const Napi::CallbackInfo &info)
@@ -60880,7 +60880,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setRotationInvarian
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setSigma(const Napi::CallbackInfo &info)
@@ -60903,7 +60903,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_setSigma(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -60985,7 +60985,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_create_static(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getBlurKernel(const Napi::CallbackInfo &info)
@@ -61005,7 +61005,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getBlurKernel(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getDefaultName(const Napi::CallbackInfo &info)
@@ -61025,7 +61025,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getDefaultName(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getLucidKernel(const Napi::CallbackInfo &info)
@@ -61045,7 +61045,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getLucidKernel(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_setBlurKernel(const Napi::CallbackInfo &info)
@@ -61068,7 +61068,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_setBlurKernel(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_setLucidKernel(const Napi::CallbackInfo &info)
@@ -61091,7 +61091,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_setLucidKernel(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -61190,7 +61190,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_create_static
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getComputeOrientation(const Napi::CallbackInfo &info)
@@ -61210,7 +61210,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getComputeOri
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -61230,7 +61230,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getDefaultNam
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getKNN(const Napi::CallbackInfo &info)
@@ -61250,7 +61250,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getKNN(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNScales(const Napi::CallbackInfo &info)
@@ -61270,7 +61270,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNScales(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNmsRadius(const Napi::CallbackInfo &info)
@@ -61290,7 +61290,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNmsRadius(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNmsScaleRadius(const Napi::CallbackInfo &info)
@@ -61310,7 +61310,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNmsScaleRa
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getPatchRadius(const Napi::CallbackInfo &info)
@@ -61330,7 +61330,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getPatchRadiu
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getScaleFactor(const Napi::CallbackInfo &info)
@@ -61350,7 +61350,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getScaleFacto
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getSearchAreaRadius(const Napi::CallbackInfo &info)
@@ -61370,7 +61370,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getSearchArea
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getThSaliency(const Napi::CallbackInfo &info)
@@ -61390,7 +61390,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getThSaliency
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setComputeOrientation(const Napi::CallbackInfo &info)
@@ -61413,7 +61413,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setComputeOri
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setKNN(const Napi::CallbackInfo &info)
@@ -61436,7 +61436,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setKNN(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNScales(const Napi::CallbackInfo &info)
@@ -61459,7 +61459,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNScales(co
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNmsRadius(const Napi::CallbackInfo &info)
@@ -61482,7 +61482,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNmsRadius(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNmsScaleRadius(const Napi::CallbackInfo &info)
@@ -61505,7 +61505,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNmsScaleRa
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setPatchRadius(const Napi::CallbackInfo &info)
@@ -61528,7 +61528,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setPatchRadiu
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setScaleFactor(const Napi::CallbackInfo &info)
@@ -61551,7 +61551,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setScaleFacto
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setSearchAreaRadius(const Napi::CallbackInfo &info)
@@ -61574,7 +61574,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setSearchArea
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setThSaliency(const Napi::CallbackInfo &info)
@@ -61597,7 +61597,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setThSaliency
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -61721,7 +61721,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
     }
     pyRaiseCVOverloadException("computeSignature");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSignatures(const Napi::CallbackInfo &info)
@@ -61747,7 +61747,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_static(const Napi::CallbackInfo &info)
@@ -61822,7 +61822,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
     pyRaiseCVOverloadException("create");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignature_static(const Napi::CallbackInfo &info)
@@ -61889,7 +61889,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignatu
     }
     pyRaiseCVOverloadException("drawSignature");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_generateInitPoints_static(const Napi::CallbackInfo &info)
@@ -61913,7 +61913,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_generateIni
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getClusterMinSize(const Napi::CallbackInfo &info)
@@ -61933,7 +61933,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getClusterM
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getDistanceFunction(const Napi::CallbackInfo &info)
@@ -61953,7 +61953,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getDistance
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getDropThreshold(const Napi::CallbackInfo &info)
@@ -61973,7 +61973,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getDropThre
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getGrayscaleBits(const Napi::CallbackInfo &info)
@@ -61993,7 +61993,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getGrayscal
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getInitSeedCount(const Napi::CallbackInfo &info)
@@ -62013,7 +62013,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getInitSeed
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getInitSeedIndexes(const Napi::CallbackInfo &info)
@@ -62033,7 +62033,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getInitSeed
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getIterationCount(const Napi::CallbackInfo &info)
@@ -62053,7 +62053,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getIteratio
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getJoiningDistance(const Napi::CallbackInfo &info)
@@ -62073,7 +62073,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getJoiningD
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getMaxClustersCount(const Napi::CallbackInfo &info)
@@ -62093,7 +62093,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getMaxClust
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getSampleCount(const Napi::CallbackInfo &info)
@@ -62113,7 +62113,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getSampleCo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getSamplingPoints(const Napi::CallbackInfo &info)
@@ -62133,7 +62133,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getSampling
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightA(const Napi::CallbackInfo &info)
@@ -62153,7 +62153,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightA(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightB(const Napi::CallbackInfo &info)
@@ -62173,7 +62173,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightB(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightContrast(const Napi::CallbackInfo &info)
@@ -62193,7 +62193,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightCo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightEntropy(const Napi::CallbackInfo &info)
@@ -62213,7 +62213,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightEn
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightL(const Napi::CallbackInfo &info)
@@ -62233,7 +62233,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightL(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightX(const Napi::CallbackInfo &info)
@@ -62253,7 +62253,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightX(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightY(const Napi::CallbackInfo &info)
@@ -62273,7 +62273,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightY(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWindowRadius(const Napi::CallbackInfo &info)
@@ -62293,7 +62293,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWindowRa
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setClusterMinSize(const Napi::CallbackInfo &info)
@@ -62316,7 +62316,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setClusterM
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setDistanceFunction(const Napi::CallbackInfo &info)
@@ -62339,7 +62339,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setDistance
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setDropThreshold(const Napi::CallbackInfo &info)
@@ -62362,7 +62362,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setDropThre
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setGrayscaleBits(const Napi::CallbackInfo &info)
@@ -62385,7 +62385,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setGrayscal
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setInitSeedIndexes(const Napi::CallbackInfo &info)
@@ -62408,7 +62408,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setInitSeed
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setIterationCount(const Napi::CallbackInfo &info)
@@ -62431,7 +62431,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setIteratio
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setJoiningDistance(const Napi::CallbackInfo &info)
@@ -62454,7 +62454,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setJoiningD
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setMaxClustersCount(const Napi::CallbackInfo &info)
@@ -62477,7 +62477,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setMaxClust
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setSamplingPoints(const Napi::CallbackInfo &info)
@@ -62500,7 +62500,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setSampling
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setTranslation(const Napi::CallbackInfo &info)
@@ -62526,7 +62526,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setTranslat
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setTranslations(const Napi::CallbackInfo &info)
@@ -62549,7 +62549,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setTranslat
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeight(const Napi::CallbackInfo &info)
@@ -62575,7 +62575,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeight(c
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightA(const Napi::CallbackInfo &info)
@@ -62598,7 +62598,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightA(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightB(const Napi::CallbackInfo &info)
@@ -62621,7 +62621,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightB(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightContrast(const Napi::CallbackInfo &info)
@@ -62644,7 +62644,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightCo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightEntropy(const Napi::CallbackInfo &info)
@@ -62667,7 +62667,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightEn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightL(const Napi::CallbackInfo &info)
@@ -62690,7 +62690,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightL(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightX(const Napi::CallbackInfo &info)
@@ -62713,7 +62713,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightX(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightY(const Napi::CallbackInfo &info)
@@ -62736,7 +62736,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightY(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeights(const Napi::CallbackInfo &info)
@@ -62759,7 +62759,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeights(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWindowRadius(const Napi::CallbackInfo &info)
@@ -62782,7 +62782,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWindowRa
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -62933,7 +62933,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
     }
     pyRaiseCVOverloadException("computeQuadraticFormDistance");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_computeQuadraticFormDistances(const Napi::CallbackInfo &info)
@@ -62962,7 +62962,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_create_static(const Napi::CallbackInfo &info)
@@ -62987,7 +62987,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_create_
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -63071,7 +63071,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_create_static(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getDefaultName(const Napi::CallbackInfo &info)
@@ -63091,7 +63091,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getDefaultName(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getExtended(const Napi::CallbackInfo &info)
@@ -63111,7 +63111,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getExtended(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getHessianThreshold(const Napi::CallbackInfo &info)
@@ -63131,7 +63131,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getHessianThreshold(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getNOctaveLayers(const Napi::CallbackInfo &info)
@@ -63151,7 +63151,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getNOctaveLayers(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getNOctaves(const Napi::CallbackInfo &info)
@@ -63171,7 +63171,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getNOctaves(const Na
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getUpright(const Napi::CallbackInfo &info)
@@ -63191,7 +63191,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getUpright(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setExtended(const Napi::CallbackInfo &info)
@@ -63214,7 +63214,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setExtended(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setHessianThreshold(const Napi::CallbackInfo &info)
@@ -63237,7 +63237,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setHessianThreshold(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setNOctaveLayers(const Napi::CallbackInfo &info)
@@ -63260,7 +63260,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setNOctaveLayers(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setNOctaves(const Napi::CallbackInfo &info)
@@ -63283,7 +63283,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setNOctaves(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setUpright(const Napi::CallbackInfo &info)
@@ -63306,7 +63306,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_SURF_setUpright(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -63399,7 +63399,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_create_stati
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getDefaultName(const Napi::CallbackInfo &info)
@@ -63419,7 +63419,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getDefaultNa
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getLineThresholdBinarized(const Napi::CallbackInfo &info)
@@ -63439,7 +63439,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getLineThres
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getLineThresholdProjected(const Napi::CallbackInfo &info)
@@ -63459,7 +63459,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getLineThres
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getMaxSize(const Napi::CallbackInfo &info)
@@ -63479,7 +63479,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getMaxSize(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getResponseThreshold(const Napi::CallbackInfo &info)
@@ -63499,7 +63499,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getResponseT
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getSuppressNonmaxSize(const Napi::CallbackInfo &info)
@@ -63519,7 +63519,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getSuppressN
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setLineThresholdBinarized(const Napi::CallbackInfo &info)
@@ -63542,7 +63542,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setLineThres
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setLineThresholdProjected(const Napi::CallbackInfo &info)
@@ -63565,7 +63565,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setLineThres
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setMaxSize(const Napi::CallbackInfo &info)
@@ -63588,7 +63588,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setMaxSize(c
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setResponseThreshold(const Napi::CallbackInfo &info)
@@ -63611,7 +63611,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setResponseT
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setSuppressNonmaxSize(const Napi::CallbackInfo &info)
@@ -63634,7 +63634,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setSuppressN
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -63724,7 +63724,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_create_static(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMaxAreaRelative(const Napi::CallbackInfo &info)
@@ -63744,7 +63744,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMaxAreaRelative(c
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMinArea(const Napi::CallbackInfo &info)
@@ -63764,7 +63764,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMinArea(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getNScales(const Napi::CallbackInfo &info)
@@ -63784,7 +63784,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getNScales(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getScaleFactor(const Napi::CallbackInfo &info)
@@ -63804,7 +63804,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getScaleFactor(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setMaxAreaRelative(const Napi::CallbackInfo &info)
@@ -63827,7 +63827,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setMaxAreaRelative(c
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setMinArea(const Napi::CallbackInfo &info)
@@ -63850,7 +63850,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setMinArea(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setNScales(const Napi::CallbackInfo &info)
@@ -63873,7 +63873,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setNScales(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setScaleFactor(const Napi::CallbackInfo &info)
@@ -63896,7 +63896,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_setScaleFactor(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -63977,7 +63977,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TEBLID_create_static(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TEBLID_getDefaultName(const Napi::CallbackInfo &info)
@@ -63997,7 +63997,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_TEBLID_getDefaultName(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -64083,7 +64083,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_create_static(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getDefaultName(const Napi::CallbackInfo &info)
@@ -64103,7 +64103,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getDefaultName(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getScaleFactor(const Napi::CallbackInfo &info)
@@ -64123,7 +64123,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getScaleFactor(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getSigma(const Napi::CallbackInfo &info)
@@ -64143,7 +64143,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getSigma(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseNormalizeDescriptor(const Napi::CallbackInfo &info)
@@ -64163,7 +64163,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseNormalizeDescri
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseNormalizeImage(const Napi::CallbackInfo &info)
@@ -64183,7 +64183,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseNormalizeImage(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseScaleOrientation(const Napi::CallbackInfo &info)
@@ -64203,7 +64203,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseScaleOrientatio
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setScaleFactor(const Napi::CallbackInfo &info)
@@ -64226,7 +64226,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setScaleFactor(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setSigma(const Napi::CallbackInfo &info)
@@ -64249,7 +64249,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setSigma(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseNormalizeDescriptor(const Napi::CallbackInfo &info)
@@ -64272,7 +64272,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseNormalizeDescri
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseNormalizeImage(const Napi::CallbackInfo &info)
@@ -64295,7 +64295,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseNormalizeImage(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseScaleOrientation(const Napi::CallbackInfo &info)
@@ -64318,7 +64318,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseScaleOrientatio
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -64399,7 +64399,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_collectG
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_create_static(const Napi::CallbackInfo &info)
@@ -64414,7 +64414,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_create_s
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(const Napi::CallbackInfo &info)
@@ -64474,7 +64474,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
     }
     pyRaiseCVOverloadException("filter");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -64595,7 +64595,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
     }
     pyRaiseCVOverloadException("estimateTransformation");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_getCtrSize(const Napi::CallbackInfo &info)
@@ -64615,7 +64615,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_getCtrSize(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_getFDSize(const Napi::CallbackInfo &info)
@@ -64635,7 +64635,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_getFDSize(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_setCtrSize(const Napi::CallbackInfo &info)
@@ -64658,7 +64658,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_setCtrSize(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_setFDSize(const Napi::CallbackInfo &info)
@@ -64681,7 +64681,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_setFDSize(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -64796,7 +64796,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
     }
     pyRaiseCVOverloadException("filter");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -64925,7 +64925,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
     }
     pyRaiseCVOverloadException("filter");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -64996,7 +64996,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getConfidenc
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getDepthDiscontinuityRadius(const Napi::CallbackInfo &info)
@@ -65016,7 +65016,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getDepthDisc
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getLRCthresh(const Napi::CallbackInfo &info)
@@ -65036,7 +65036,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getLRCthresh
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getLambda(const Napi::CallbackInfo &info)
@@ -65056,7 +65056,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getLambda(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getROI(const Napi::CallbackInfo &info)
@@ -65076,7 +65076,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getROI(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getSigmaColor(const Napi::CallbackInfo &info)
@@ -65096,7 +65096,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getSigmaColo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setDepthDiscontinuityRadius(const Napi::CallbackInfo &info)
@@ -65119,7 +65119,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setDepthDisc
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setLRCthresh(const Napi::CallbackInfo &info)
@@ -65142,7 +65142,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setLRCthresh
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setLambda(const Napi::CallbackInfo &info)
@@ -65165,7 +65165,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setLambda(co
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setSigmaColor(const Napi::CallbackInfo &info)
@@ -65188,7 +65188,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setSigmaColo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -65268,7 +65268,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSLam
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSSigma(const Napi::CallbackInfo &info)
@@ -65288,7 +65288,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSSig
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getK(const Napi::CallbackInfo &info)
@@ -65308,7 +65308,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getK(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getLambda(const Napi::CallbackInfo &info)
@@ -65328,7 +65328,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getLambda
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getSigma(const Napi::CallbackInfo &info)
@@ -65348,7 +65348,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getSigma(
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getUsePostProcessing(const Napi::CallbackInfo &info)
@@ -65368,7 +65368,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getUsePos
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setCostMap(const Napi::CallbackInfo &info)
@@ -65391,7 +65391,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setCostMa
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setFGSLambda(const Napi::CallbackInfo &info)
@@ -65414,7 +65414,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setFGSLam
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setFGSSigma(const Napi::CallbackInfo &info)
@@ -65437,7 +65437,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setFGSSig
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setK(const Napi::CallbackInfo &info)
@@ -65460,7 +65460,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setK(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setLambda(const Napi::CallbackInfo &info)
@@ -65483,7 +65483,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setLambda
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setSigma(const Napi::CallbackInfo &info)
@@ -65506,7 +65506,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setSigma(
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setUsePostProcessing(const Napi::CallbackInfo &info)
@@ -65529,7 +65529,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setUsePos
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -65612,7 +65612,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getAlpha(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBeta(const Napi::CallbackInfo &info)
@@ -65632,7 +65632,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBeta(const Napi::C
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(const Napi::CallbackInfo &info)
@@ -65694,7 +65694,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
     }
     pyRaiseCVOverloadException("getBoundingBoxes");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getClusterMinMag(const Napi::CallbackInfo &info)
@@ -65714,7 +65714,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getClusterMinMag(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEdgeMergeThr(const Napi::CallbackInfo &info)
@@ -65734,7 +65734,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEdgeMergeThr(const
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEdgeMinMag(const Napi::CallbackInfo &info)
@@ -65754,7 +65754,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEdgeMinMag(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEta(const Napi::CallbackInfo &info)
@@ -65774,7 +65774,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEta(const Napi::Ca
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getGamma(const Napi::CallbackInfo &info)
@@ -65794,7 +65794,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getGamma(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getKappa(const Napi::CallbackInfo &info)
@@ -65814,7 +65814,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getKappa(const Napi::
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMaxAspectRatio(const Napi::CallbackInfo &info)
@@ -65834,7 +65834,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMaxAspectRatio(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMaxBoxes(const Napi::CallbackInfo &info)
@@ -65854,7 +65854,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMaxBoxes(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMinBoxArea(const Napi::CallbackInfo &info)
@@ -65874,7 +65874,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMinBoxArea(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMinScore(const Napi::CallbackInfo &info)
@@ -65894,7 +65894,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMinScore(const Nap
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setAlpha(const Napi::CallbackInfo &info)
@@ -65917,7 +65917,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setAlpha(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setBeta(const Napi::CallbackInfo &info)
@@ -65940,7 +65940,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setBeta(const Napi::C
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setClusterMinMag(const Napi::CallbackInfo &info)
@@ -65963,7 +65963,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setClusterMinMag(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEdgeMergeThr(const Napi::CallbackInfo &info)
@@ -65986,7 +65986,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEdgeMergeThr(const
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEdgeMinMag(const Napi::CallbackInfo &info)
@@ -66009,7 +66009,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEdgeMinMag(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEta(const Napi::CallbackInfo &info)
@@ -66032,7 +66032,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEta(const Napi::Ca
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setGamma(const Napi::CallbackInfo &info)
@@ -66055,7 +66055,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setGamma(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setKappa(const Napi::CallbackInfo &info)
@@ -66078,7 +66078,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setKappa(const Napi::
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMaxAspectRatio(const Napi::CallbackInfo &info)
@@ -66101,7 +66101,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMaxAspectRatio(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMaxBoxes(const Napi::CallbackInfo &info)
@@ -66124,7 +66124,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMaxBoxes(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMinBoxArea(const Napi::CallbackInfo &info)
@@ -66147,7 +66147,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMinBoxArea(const N
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMinScore(const Napi::CallbackInfo &info)
@@ -66170,7 +66170,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMinScore(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -66293,7 +66293,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
     }
     pyRaiseCVOverloadException("detectEdges");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(const Napi::CallbackInfo &info)
@@ -66341,7 +66341,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
     }
     pyRaiseCVOverloadException("detectEllipses");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const Napi::CallbackInfo &info)
@@ -66389,7 +66389,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
     }
     pyRaiseCVOverloadException("detectLines");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const Napi::CallbackInfo &info)
@@ -66437,7 +66437,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
     }
     pyRaiseCVOverloadException("getEdgeImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(const Napi::CallbackInfo &info)
@@ -66485,7 +66485,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
     }
     pyRaiseCVOverloadException("getGradientImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getSegmentIndicesOfLines(const Napi::CallbackInfo &info)
@@ -66505,7 +66505,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getSegmentIndicesOf
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getSegments(const Napi::CallbackInfo &info)
@@ -66525,7 +66525,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getSegments(const N
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_setParams(const Napi::CallbackInfo &info)
@@ -66548,7 +66548,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_setParams(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -66938,7 +66938,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
     }
     pyRaiseCVOverloadException("filter");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -67043,7 +67043,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
     }
     pyRaiseCVOverloadException("filter");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -67148,7 +67148,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
     }
     pyRaiseCVOverloadException("detect");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(const Napi::CallbackInfo &info)
@@ -67220,7 +67220,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
     }
     pyRaiseCVOverloadException("drawSegments");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -67332,7 +67332,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
     }
     pyRaiseCVOverloadException("filter");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -67424,7 +67424,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RFFeatureGetter_getFeatures(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -67495,7 +67495,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getAlpha(const 
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSLambda(const Napi::CallbackInfo &info)
@@ -67515,7 +67515,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSLambda(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSSigma(const Napi::CallbackInfo &info)
@@ -67535,7 +67535,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSSigma(con
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getK(const Napi::CallbackInfo &info)
@@ -67555,7 +67555,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getK(const Napi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getMaxFlow(const Napi::CallbackInfo &info)
@@ -67575,7 +67575,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getMaxFlow(cons
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getModelIter(const Napi::CallbackInfo &info)
@@ -67595,7 +67595,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getModelIter(co
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getRefineModels(const Napi::CallbackInfo &info)
@@ -67615,7 +67615,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getRefineModels
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelMode(const Napi::CallbackInfo &info)
@@ -67635,7 +67635,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelMo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelNNCnt(const Napi::CallbackInfo &info)
@@ -67655,7 +67655,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelNN
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelRuler(const Napi::CallbackInfo &info)
@@ -67675,7 +67675,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelRu
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelSize(const Napi::CallbackInfo &info)
@@ -67695,7 +67695,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelSi
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getUseGlobalSmootherFilter(const Napi::CallbackInfo &info)
@@ -67715,7 +67715,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getUseGlobalSmo
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getUseVariationalRefinement(const Napi::CallbackInfo &info)
@@ -67735,7 +67735,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getUseVariation
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setAlpha(const Napi::CallbackInfo &info)
@@ -67758,7 +67758,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setAlpha(const 
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setCostMap(const Napi::CallbackInfo &info)
@@ -67781,7 +67781,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setCostMap(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setFGSLambda(const Napi::CallbackInfo &info)
@@ -67804,7 +67804,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setFGSLambda(co
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setFGSSigma(const Napi::CallbackInfo &info)
@@ -67827,7 +67827,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setFGSSigma(con
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setK(const Napi::CallbackInfo &info)
@@ -67850,7 +67850,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setK(const Napi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setMaxFlow(const Napi::CallbackInfo &info)
@@ -67873,7 +67873,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setMaxFlow(cons
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setModelIter(const Napi::CallbackInfo &info)
@@ -67896,7 +67896,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setModelIter(co
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setRefineModels(const Napi::CallbackInfo &info)
@@ -67919,7 +67919,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setRefineModels
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelMode(const Napi::CallbackInfo &info)
@@ -67942,7 +67942,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelMo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelNNCnt(const Napi::CallbackInfo &info)
@@ -67965,7 +67965,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelNN
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelRuler(const Napi::CallbackInfo &info)
@@ -67988,7 +67988,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelRu
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelSize(const Napi::CallbackInfo &info)
@@ -68011,7 +68011,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelSi
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setUseGlobalSmootherFilter(const Napi::CallbackInfo &info)
@@ -68034,7 +68034,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setUseGlobalSmo
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setUseVariationalRefinement(const Napi::CallbackInfo &info)
@@ -68057,7 +68057,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RICInterpolator_setUseVariation
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -68174,7 +68174,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_create_sta
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFilteredImage(const Napi::CallbackInfo &info)
@@ -68228,7 +68228,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
     }
     pyRaiseCVOverloadException("getRidgeFilteredImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -68334,7 +68334,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
     }
     pyRaiseCVOverloadException("getLabelContourMask");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Napi::CallbackInfo &info)
@@ -68382,7 +68382,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
     }
     pyRaiseCVOverloadException("getLabels");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getNumberOfSuperpixels(const Napi::CallbackInfo &info)
@@ -68402,7 +68402,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getNumberOfSuperpix
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi::CallbackInfo &info)
@@ -68450,7 +68450,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
     }
     pyRaiseCVOverloadException("iterate");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -68576,7 +68576,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
     }
     pyRaiseCVOverloadException("interpolate");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -68681,7 +68681,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
     }
     pyRaiseCVOverloadException("computeOrientation");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectEdges(const Napi::CallbackInfo &info)
@@ -68735,7 +68735,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
     }
     pyRaiseCVOverloadException("detectEdges");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNms(const Napi::CallbackInfo &info)
@@ -68819,7 +68819,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
     }
     pyRaiseCVOverloadException("edgesNms");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -68895,7 +68895,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_enforceLabelConne
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMask(const Napi::CallbackInfo &info)
@@ -68949,7 +68949,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
     }
     pyRaiseCVOverloadException("getLabelContourMask");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const Napi::CallbackInfo &info)
@@ -68997,7 +68997,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
     }
     pyRaiseCVOverloadException("getLabels");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getNumberOfSuperpixels(const Napi::CallbackInfo &info)
@@ -69017,7 +69017,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getNumberOfSuperp
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_iterate(const Napi::CallbackInfo &info)
@@ -69040,7 +69040,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_iterate(const Nap
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -69149,7 +69149,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
     }
     pyRaiseCVOverloadException("getLabelContourMask");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const Napi::CallbackInfo &info)
@@ -69197,7 +69197,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
     }
     pyRaiseCVOverloadException("getLabels");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getNumberOfSuperpixels(const Napi::CallbackInfo &info)
@@ -69217,7 +69217,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getNumberOfSupe
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const Napi::CallbackInfo &info)
@@ -69271,7 +69271,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
     }
     pyRaiseCVOverloadException("iterate");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -69348,7 +69348,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_enforceLabelConn
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourMask(const Napi::CallbackInfo &info)
@@ -69402,7 +69402,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
     }
     pyRaiseCVOverloadException("getLabelContourMask");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const Napi::CallbackInfo &info)
@@ -69450,7 +69450,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
     }
     pyRaiseCVOverloadException("getLabels");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getNumberOfSuperpixels(const Napi::CallbackInfo &info)
@@ -69470,7 +69470,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getNumberOfSuper
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_iterate(const Napi::CallbackInfo &info)
@@ -69493,7 +69493,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_iterate(const Na
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -69568,7 +69568,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_getMinSize(const Napi::CallbackInfo &info)
@@ -69588,7 +69588,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_getSigma(const Napi::CallbackInfo &info)
@@ -69608,7 +69608,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_processImage(const Napi::CallbackInfo &info)
@@ -69662,7 +69662,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
     }
     pyRaiseCVOverloadException("processImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_setK(const Napi::CallbackInfo &info)
@@ -69685,7 +69685,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_setMinSize(const Napi::CallbackInfo &info)
@@ -69708,7 +69708,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_setSigma(const Napi::CallbackInfo &info)
@@ -69731,7 +69731,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -69811,7 +69811,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_addImage(const Napi::CallbackInfo &info)
@@ -69859,7 +69859,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
     pyRaiseCVOverloadException("addImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_addStrategy(const Napi::CallbackInfo &info)
@@ -69882,7 +69882,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_clearGraphSegmentations(const Napi::CallbackInfo &info)
@@ -69901,7 +69901,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_clearImages(const Napi::CallbackInfo &info)
@@ -69920,7 +69920,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_clearStrategies(const Napi::CallbackInfo &info)
@@ -69939,7 +69939,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_process(const Napi::CallbackInfo &info)
@@ -69959,7 +69959,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         return jsopencv_from(rects);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_setBaseImage(const Napi::CallbackInfo &info)
@@ -70007,7 +70007,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
     pyRaiseCVOverloadException("setBaseImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_switchToSelectiveSearchFast(const Napi::CallbackInfo &info)
@@ -70036,7 +70036,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_switchToSelectiveSearchQuality(const Napi::CallbackInfo &info)
@@ -70065,7 +70065,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_switchToSingleStrategy(const Napi::CallbackInfo &info)
@@ -70091,7 +70091,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -70179,7 +70179,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         return jsopencv_from(retval);
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_merge(const Napi::CallbackInfo &info)
@@ -70205,7 +70205,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_setImage(const Napi::CallbackInfo &info)
@@ -70271,7 +70271,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
     pyRaiseCVOverloadException("setImage");
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
@@ -70450,7 +70450,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_clearStrategies(const Napi::CallbackInfo &info)
@@ -70469,7 +70469,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
         Py_RETURN_NONE;
     }
 
-    return NULL;
+    return info.Env().Null();
 }
 
 
