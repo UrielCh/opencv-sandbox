@@ -92,4 +92,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
     return Napi::Number::New(info.Env(), static_cast<int>(src)); \
 }
 
+
+#define Js_RETURN_NONE return info.Env().Null()
+
 #endif // END HEADER GUARD
