@@ -24,7 +24,12 @@ in vscode choose the correct C/C++ configuration at the bootom rigth of your scr
 
 ### Install the python environment
 
+doc: https://docs.conda.io/projects/conda/en/4.6.0/user-guide/tasks/manage-environments.html
 ```bash
+# list availible env:
+conda info --envs
+# list package in the dedicate env:
+conda list -n opencv-sanbox 
 conda create --file environment.yml python=3.7
 conda activate opencv-sandbox
 ```

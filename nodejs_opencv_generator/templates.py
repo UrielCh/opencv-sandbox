@@ -17,12 +17,12 @@ gen_template_simple_call_constructor_prelude = Template("""if(self) """)
 gen_template_simple_call_constructor = Template("""new (&(self->v)) ${cname}${py_args}""")
 
 gen_template_parse_args = Template("""const char* keywords[] = { $kw_list, NULL };
-    if (JsArg_ParseTupleAndKeywords(py_args, kw, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt)""")
+    if (JsArg_ParseTupleAndKeywords(info, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt)""")
 
 gen_template_func_body = Template("""$code_decl
     $code_parse
     {
-        ${code_prelude}ERRWRAP2($code_fcall);
+        ${code_prelude}ERRWRAP2_NAPI(info, $code_fcall);
         $code_ret;
     }
 """)

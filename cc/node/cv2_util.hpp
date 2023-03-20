@@ -6,5 +6,10 @@
 #include "opencv2/core/utils/tls.hpp"
 
 int failmsg(const Napi::CallbackInfo& info, const char* format, ...);
+Napi::Value failmsgp(const Napi::CallbackInfo& info, const char *format, ...);
+
+void pyRaiseCVOverloadException(const std::string& functionName);
+
+void pyPopulateArgumentConversionErrors();
 
 #endif // CV2_UTIL_HPP

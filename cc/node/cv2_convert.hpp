@@ -1,5 +1,5 @@
-#ifndef CV2_CONVERT_HPP
-#define CV2_CONVERT_HPP
+#ifndef CV2_CONVERT_HPP2
+#define CV2_CONVERT_HPP2
 
 #include "cv2.hpp"
 #include "cv2_util.hpp"

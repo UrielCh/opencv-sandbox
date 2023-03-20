@@ -174,28 +174,26 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value, c
     return false;
 }
 
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int& value)
+{
+    return Napi::Number::New(info.Env(), value);
+}
 
+// --- int64
 
-// template<>
-// Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int& value)
-// {
-//     return Napi::Number::New(info.Env(), value);
-// }
-// 
-// // --- int64
-// 
-// template<>
-// bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
-//     if (obj->IsNull() || obj->IsUndefined())
-//         return true;
-// 
-//     if (obj->IsNumber()) {
-//         value = obj->ToNumber().Int64Value();
-//         return true;
-//     }
-//     failmsg(info, "Argument '%s' is not convertable to int64", argInfo.name);
-//     return false;
-// }
+template<>
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
+    if (obj->IsNull() || obj->IsUndefined())
+        return true;
+
+    if (obj->IsNumber()) {
+        value = obj->ToNumber().Int64Value();
+        return true;
+    }
+    failmsg(info, "Argument '%s' is not convertable to int64", argInfo.name);
+    return false;
+}
 
 
 template<>

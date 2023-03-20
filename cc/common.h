@@ -27,9 +27,7 @@ typedef void (*JsObject)(void);
  * 
  * Note that JsArg_ParseTupleAndKeywords can raise a TypeError or a ValueError exception if the format string is incorrect or the types of the arguments do not match the format string.
  */
-int JsArg_ParseTupleAndKeywords(JsObject *args, JsObject *keywords, const char *format, char **kwlist, ...) {
-    return 0;
-}
+bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo &info, const char *format, char **keywords, ...);
 
 
 class ArgInfo
