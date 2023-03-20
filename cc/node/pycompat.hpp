@@ -57,3 +57,16 @@ Napi::Value JsCFunction(const Napi::CallbackInfo &info);
 
 #define CV_JS_FN_WITH_KW(fn) CV_PY_FN_WITH_KW_(fn, 0)
 #define CV_JS_FN_NOARGS(fn) CV_PY_FN_NOARGS_(fn, 0)
+
+
+
+
+#define CV_JS_FROM_CLASS(TYPE)                                                                                       \
+    template <>                                                                                                       \
+    Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE &src)                                       \
+    {                                                                                                                 \
+        cv::Ptr<TYPE> ptr(new TYPE());                                                                                \
+                                                                                                                      \
+        *ptr = src;                                                                                                   \
+        return jsopencv_from<TYPE>(info, ptr);                                                                        \
+    }

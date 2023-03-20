@@ -1,6 +1,8 @@
 #include <napi.h>
 #include <../parse.hh>
+#include "../node/cv2_util.hpp"
 #include <../node/cv2_convert.hpp>
+#include <../node/jscompat.hpp>
 #include <opencv2/opencv.hpp>
 
 static Napi::Value pyopencv_cv_AKAZE_create(const Napi::CallbackInfo &info)

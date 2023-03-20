@@ -1,7 +1,8 @@
 #include "common.h"
-#include <../parse.hh>
-#include "../node/cv2_util.hpp"
-#include "../node/cv2_convert.hpp"
+#include <parse.hh>
+#include <node/cv2_util.hpp>
+#include <node/cv2_convert.hpp>
+#include <node/jscompat.hpp>
 #include <opencv2/opencv.hpp>
 
 static Napi::Value jsopencv_cv_haveImageReader(const Napi::CallbackInfo &info)
@@ -16,7 +17,7 @@ static Napi::Value jsopencv_cv_haveImageReader(const Napi::CallbackInfo &info)
     if(  JsArg_ParseTupleAndKeywords(info, "O:haveImageReader", (char**)keywords, &jsobj_filename) &&
         jsopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) )
     {
-        ERRWRAP2(retval = cv::haveImageReader(filename));
+        ERRWRAP2_NAPI(info, retval = cv::haveImageReader(filename));
         return jsopencv_from(info, retval);
     }
 
@@ -35,7 +36,7 @@ static Napi::Value jsopencv_cv_haveImageWriter(const Napi::CallbackInfo &info)
     if(  JsArg_ParseTupleAndKeywords(info, "O:haveImageWriter", (char**)keywords, &jsobj_filename) &&
         jsopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) )
     {
-        ERRWRAP2(retval = cv::haveImageWriter(filename));
+        ERRWRAP2_NAPI(info, retval = cv::haveImageWriter(filename));
         return jsopencv_from(info, retval);
     }
 
@@ -58,7 +59,7 @@ static Napi::Value jsopencv_cv_imcount(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imcount(filename, flags));
+        ERRWRAP2_NAPI(info, retval = cv::imcount(filename, flags));
         return jsopencv_from(info, retval);
     }
 
@@ -83,7 +84,7 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_buf, buf, ArgInfo("buf", 0)) &&
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imdecode(buf, flags));
+        ERRWRAP2_NAPI(info, retval = cv::imdecode(buf, flags));
         return jsopencv_from(info, retval);
     }
         jsPopulateArgumentConversionErrors();
@@ -102,7 +103,7 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_buf, buf, ArgInfo("buf", 0)) &&
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imdecode(buf, flags));
+        ERRWRAP2_NAPI(info, retval = cv::imdecode(buf, flags));
         return jsopencv_from(info, retval);
     }
 
@@ -135,7 +136,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) &&
         jsopencv_to_safe(info, jsobj_mats, mats, ArgInfo("mats", 1)) )
     {
-        ERRWRAP2(retval = cv::imdecodemulti(buf, flags, mats));
+        ERRWRAP2_NAPI(info, retval = cv::imdecodemulti(buf, flags, mats));
         return Js_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(mats));
     }
 
@@ -159,7 +160,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) &&
         jsopencv_to_safe(info, jsobj_mats, mats, ArgInfo("mats", 1)) )
     {
-        ERRWRAP2(retval = cv::imdecodemulti(buf, flags, mats));
+        ERRWRAP2_NAPI(info, retval = cv::imdecodemulti(buf, flags, mats));
         return Js_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(mats));
     }
 
@@ -193,7 +194,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_img, img, ArgInfo("img", 0)) &&
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
-        ERRWRAP2(retval = cv::imencode(ext, img, buf, params));
+        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
         return Js_BuildValue("(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
     }
 
@@ -218,7 +219,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_img, img, ArgInfo("img", 0)) &&
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
-        ERRWRAP2(retval = cv::imencode(ext, img, buf, params));
+        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
         return Js_BuildValue("(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
     }
 
@@ -245,7 +246,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imread(filename, flags));
+        ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
         return jsopencv_from(info, retval);
     }
 
@@ -273,7 +274,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_mats, mats, ArgInfo("mats", 1)) &&
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imreadmulti(filename, mats, flags));
+        ERRWRAP2_NAPI(info, retval = cv::imreadmulti(filename, mats, flags));
         return Js_BuildValue("(NN)", jsopencv_from(retval), jsopencv_from(mats));
     }
 
@@ -303,7 +304,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_count, count, ArgInfo("count", 0)) &&
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
-        ERRWRAP2(retval = cv::imreadmulti(filename, mats, start, count, flags));
+        ERRWRAP2_NAPI(info, retval = cv::imreadmulti(filename, mats, start, count, flags));
         return Js_BuildValue("(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
     }
 
@@ -332,7 +333,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_winname, winname, ArgInfo("winname", 0)) &&
         jsopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)) )
     {
-        ERRWRAP2(cv::imshow(winname, mat));
+        ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
         Js_RETURN_NONE;
     }
 
@@ -352,7 +353,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_winname, winname, ArgInfo("winname", 0)) &&
         jsopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)) )
     {
-        ERRWRAP2(cv::imshow(winname, mat));
+        ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
         Js_RETURN_NONE;
     }
 
@@ -372,7 +373,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_winname, winname, ArgInfo("winname", 0)) &&
         jsopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)) )
     {
-        ERRWRAP2(cv::imshow(winname, mat));
+        ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
         Js_RETURN_NONE;
     }
 
@@ -405,7 +406,7 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_img, img, ArgInfo("img", 0)) &&
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
-        ERRWRAP2(retval = cv::imwrite(filename, img, params));
+        ERRWRAP2_NAPI(info, retval = cv::imwrite(filename, img, params));
         return jsopencv_from(info, retval);
     }
 
@@ -429,7 +430,7 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_img, img, ArgInfo("img", 0)) &&
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
-        ERRWRAP2(retval = cv::imwrite(filename, img, params));
+        ERRWRAP2_NAPI(info, retval = cv::imwrite(filename, img, params));
         return jsopencv_from(info, retval);
     }
 
@@ -462,7 +463,7 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_img, img, ArgInfo("img", 0)) &&
         jsopencv_to_safe(info, jsobj_params, params, ArgInfo("params", 0)) )
     {
-        ERRWRAP2(retval = cv::imwritemulti(filename, img, params));
+        ERRWRAP2_NAPI(info, retval = cv::imwritemulti(filename, img, params));
         return jsopencv_from(info, retval);
     }
 
@@ -486,7 +487,7 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)) )
     {
-        ERRWRAP2(retval = cv::imwritemulti(filename, img, params));
+        ERRWRAP2_NAPI(info, retval = cv::imwritemulti(filename, img, params));
         return jsopencv_from(info, retval);
     }
 
