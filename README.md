@@ -29,7 +29,7 @@ doc: https://docs.conda.io/projects/conda/en/4.6.0/user-guide/tasks/manage-envir
 # list availible env:
 conda info --envs
 # list package in the dedicate env:
-conda list -n opencv-sanbox 
+conda list -n opencv-sandbox
 conda create --file environment.yml python=3.7
 conda activate opencv-sandbox
 ```
@@ -59,6 +59,15 @@ The minimum `data/headers.txt` file is
 ${OPENCV_BUILD_ROOT}/latest/build/modules/core/include/opencv2/core.hpp
 ${Env:OPENCV_BUILD_ROOT}/latest/build/modules/core/include/opencv2/core.hpp
 %OPENCV_BUILD_ROOT%/latest/build/modules/core/include/opencv2/core.hpp
+```
+
+### run original generator:
+
+```powershell
+cd ${Env:OPENCV_BUILD_ROOT}/latest/opencv/modules/python/src2
+conda activate opencv-sandbox
+mkdir dst
+python gen2.py dst
 ```
 
 ### Run the generator

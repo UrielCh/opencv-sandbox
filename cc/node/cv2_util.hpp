@@ -35,4 +35,17 @@ void pyPopulateArgumentConversionErrors();
     }
 
 
+
+extern cv::TLSData<std::vector<std::string> > conversionErrorsTLS;
+
+inline void jsPrepareArgumentConversionErrorsStorage(std::size_t size)
+{
+    std::vector<std::string>& conversionErrors = conversionErrorsTLS.getRef();
+    conversionErrors.clear();
+    conversionErrors.reserve(size);
+}
+
+void jsRaiseCVOverloadException(const Napi::CallbackInfo &info, const std::string& functionName);
+void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info);
+
 #endif // CV2_UTIL_HPP

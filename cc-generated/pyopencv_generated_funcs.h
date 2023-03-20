@@ -1,8 +1,6 @@
 #include <napi.h>
 #include <../parse.hh>
-#include "../node/cv2_util.hpp"
 #include <../node/cv2_convert.hpp>
-#include <../node/jscompat.hpp>
 #include <opencv2/opencv.hpp>
 
 static Napi::Value pyopencv_cv_AKAZE_create(const Napi::CallbackInfo &info)
@@ -124,7 +122,7 @@ static Napi::Value pyopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_thresh = NULL;
@@ -146,7 +144,7 @@ static Napi::Value pyopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -176,7 +174,7 @@ static Napi::Value pyopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -212,9 +210,9 @@ static Napi::Value pyopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("BRISK_create");
+    jsRaiseCVOverloadException(info, "BRISK_create");
 
     return info.Env().Null();
 }
@@ -223,7 +221,7 @@ static Napi::Value pyopencv_cv_CamShift(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_probImage = NULL;
@@ -245,7 +243,7 @@ static Napi::Value pyopencv_cv_CamShift(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -269,9 +267,9 @@ static Napi::Value pyopencv_cv_CamShift(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("CamShift");
+    jsRaiseCVOverloadException(info, "CamShift");
 
     return info.Env().Null();
 }
@@ -280,7 +278,7 @@ static Napi::Value pyopencv_cv_Canny(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -310,7 +308,7 @@ static Napi::Value pyopencv_cv_Canny(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -342,7 +340,7 @@ static Napi::Value pyopencv_cv_Canny(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -374,7 +372,7 @@ static Napi::Value pyopencv_cv_Canny(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -406,9 +404,9 @@ static Napi::Value pyopencv_cv_Canny(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Canny");
+    jsRaiseCVOverloadException(info, "Canny");
 
     return info.Env().Null();
 }
@@ -458,7 +456,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_descriptorMatcherType = NULL;
@@ -474,7 +472,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -492,9 +490,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("DescriptorMatcher_create");
+    jsRaiseCVOverloadException(info, "DescriptorMatcher_create");
 
     return info.Env().Null();
 }
@@ -503,7 +501,7 @@ static Napi::Value pyopencv_cv_EMD(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_signature1 = NULL;
@@ -534,7 +532,7 @@ static Napi::Value pyopencv_cv_EMD(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -567,9 +565,9 @@ static Napi::Value pyopencv_cv_EMD(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("EMD");
+    jsRaiseCVOverloadException(info, "EMD");
 
     return info.Env().Null();
 }
@@ -726,7 +724,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &inf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_maxCorners = NULL;
@@ -757,7 +755,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -793,9 +791,9 @@ static Napi::Value pyopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GFTTDetector_create");
+    jsRaiseCVOverloadException(info, "GFTTDetector_create");
 
     return info.Env().Null();
 }
@@ -804,7 +802,7 @@ static Napi::Value pyopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -834,7 +832,7 @@ static Napi::Value pyopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -866,9 +864,9 @@ static Napi::Value pyopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GaussianBlur");
+    jsRaiseCVOverloadException(info, "GaussianBlur");
 
     return info.Env().Null();
 }
@@ -907,7 +905,7 @@ static Napi::Value pyopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -946,7 +944,7 @@ static Napi::Value pyopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -987,9 +985,9 @@ static Napi::Value pyopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HoughCircles");
+    jsRaiseCVOverloadException(info, "HoughCircles");
 
     return info.Env().Null();
 }
@@ -998,7 +996,7 @@ static Napi::Value pyopencv_cv_HoughLines(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -1037,7 +1035,7 @@ static Napi::Value pyopencv_cv_HoughLines(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1078,9 +1076,9 @@ static Napi::Value pyopencv_cv_HoughLines(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HoughLines");
+    jsRaiseCVOverloadException(info, "HoughLines");
 
     return info.Env().Null();
 }
@@ -1089,7 +1087,7 @@ static Napi::Value pyopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -1122,7 +1120,7 @@ static Napi::Value pyopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1157,9 +1155,9 @@ static Napi::Value pyopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HoughLinesP");
+    jsRaiseCVOverloadException(info, "HoughLinesP");
 
     return info.Env().Null();
 }
@@ -1168,7 +1166,7 @@ static Napi::Value pyopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_point = NULL;
@@ -1210,7 +1208,7 @@ static Napi::Value pyopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1254,9 +1252,9 @@ static Napi::Value pyopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HoughLinesPointSet");
+    jsRaiseCVOverloadException(info, "HoughLinesPointSet");
 
     return info.Env().Null();
 }
@@ -1265,7 +1263,7 @@ static Napi::Value pyopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -1304,7 +1302,7 @@ static Napi::Value pyopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1345,9 +1343,9 @@ static Napi::Value pyopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HoughLinesWithAccumulator");
+    jsRaiseCVOverloadException(info, "HoughLinesWithAccumulator");
 
     return info.Env().Null();
 }
@@ -1356,7 +1354,7 @@ static Napi::Value pyopencv_cv_HuMoments(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_m = NULL;
@@ -1374,7 +1372,7 @@ static Napi::Value pyopencv_cv_HuMoments(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1394,9 +1392,9 @@ static Napi::Value pyopencv_cv_HuMoments(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HuMoments");
+    jsRaiseCVOverloadException(info, "HuMoments");
 
     return info.Env().Null();
 }
@@ -1439,7 +1437,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_keypoints = NULL;
@@ -1458,7 +1456,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1488,9 +1486,9 @@ static Napi::Value pyopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("KeyPoint_convert");
+    jsRaiseCVOverloadException(info, "KeyPoint_convert");
 
     return info.Env().Null();
 }
@@ -1521,7 +1519,7 @@ static Napi::Value pyopencv_cv_LUT(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -1542,7 +1540,7 @@ static Napi::Value pyopencv_cv_LUT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1565,9 +1563,9 @@ static Napi::Value pyopencv_cv_LUT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("LUT");
+    jsRaiseCVOverloadException(info, "LUT");
 
     return info.Env().Null();
 }
@@ -1576,7 +1574,7 @@ static Napi::Value pyopencv_cv_Laplacian(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -1609,7 +1607,7 @@ static Napi::Value pyopencv_cv_Laplacian(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1644,9 +1642,9 @@ static Napi::Value pyopencv_cv_Laplacian(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Laplacian");
+    jsRaiseCVOverloadException(info, "Laplacian");
 
     return info.Env().Null();
 }
@@ -1698,7 +1696,7 @@ static Napi::Value pyopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_v1 = NULL;
@@ -1720,7 +1718,7 @@ static Napi::Value pyopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1744,9 +1742,9 @@ static Napi::Value pyopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Mahalanobis");
+    jsRaiseCVOverloadException(info, "Mahalanobis");
 
     return info.Env().Null();
 }
@@ -1798,7 +1796,7 @@ static Napi::Value pyopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -1822,7 +1820,7 @@ static Napi::Value pyopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1848,9 +1846,9 @@ static Napi::Value pyopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PCABackProject");
+    jsRaiseCVOverloadException(info, "PCABackProject");
 
     return info.Env().Null();
 }
@@ -1859,7 +1857,7 @@ static Napi::Value pyopencv_cv_PCACompute(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -1883,7 +1881,7 @@ static Napi::Value pyopencv_cv_PCACompute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1909,7 +1907,7 @@ static Napi::Value pyopencv_cv_PCACompute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1935,7 +1933,7 @@ static Napi::Value pyopencv_cv_PCACompute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1961,9 +1959,9 @@ static Napi::Value pyopencv_cv_PCACompute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PCACompute");
+    jsRaiseCVOverloadException(info, "PCACompute");
 
     return info.Env().Null();
 }
@@ -1972,7 +1970,7 @@ static Napi::Value pyopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -1999,7 +1997,7 @@ static Napi::Value pyopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2028,7 +2026,7 @@ static Napi::Value pyopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2057,7 +2055,7 @@ static Napi::Value pyopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2086,9 +2084,9 @@ static Napi::Value pyopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PCACompute2");
+    jsRaiseCVOverloadException(info, "PCACompute2");
 
     return info.Env().Null();
 }
@@ -2097,7 +2095,7 @@ static Napi::Value pyopencv_cv_PCAProject(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -2121,7 +2119,7 @@ static Napi::Value pyopencv_cv_PCAProject(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2147,9 +2145,9 @@ static Napi::Value pyopencv_cv_PCAProject(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PCAProject");
+    jsRaiseCVOverloadException(info, "PCAProject");
 
     return info.Env().Null();
 }
@@ -2158,7 +2156,7 @@ static Napi::Value pyopencv_cv_PSNR(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -2180,7 +2178,7 @@ static Napi::Value pyopencv_cv_PSNR(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2204,9 +2202,9 @@ static Napi::Value pyopencv_cv_PSNR(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PSNR");
+    jsRaiseCVOverloadException(info, "PSNR");
 
     return info.Env().Null();
 }
@@ -2234,7 +2232,7 @@ static Napi::Value pyopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -2265,7 +2263,7 @@ static Napi::Value pyopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2298,9 +2296,9 @@ static Napi::Value pyopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("RQDecomp3x3");
+    jsRaiseCVOverloadException(info, "RQDecomp3x3");
 
     return info.Env().Null();
 }
@@ -2309,7 +2307,7 @@ static Napi::Value pyopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -2330,7 +2328,7 @@ static Napi::Value pyopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2353,9 +2351,9 @@ static Napi::Value pyopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Rodrigues");
+    jsRaiseCVOverloadException(info, "Rodrigues");
 
     return info.Env().Null();
 }
@@ -2364,7 +2362,7 @@ static Napi::Value pyopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_nfeatures = NULL;
@@ -2392,7 +2390,7 @@ static Napi::Value pyopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2425,9 +2423,9 @@ static Napi::Value pyopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("SIFT_create");
+    jsRaiseCVOverloadException(info, "SIFT_create");
 
     return info.Env().Null();
 }
@@ -2436,7 +2434,7 @@ static Napi::Value pyopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_w = NULL;
@@ -2463,7 +2461,7 @@ static Napi::Value pyopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2492,9 +2490,9 @@ static Napi::Value pyopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("SVBackSubst");
+    jsRaiseCVOverloadException(info, "SVBackSubst");
 
     return info.Env().Null();
 }
@@ -2503,7 +2501,7 @@ static Napi::Value pyopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -2530,7 +2528,7 @@ static Napi::Value pyopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2559,9 +2557,9 @@ static Napi::Value pyopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("SVDecomp");
+    jsRaiseCVOverloadException(info, "SVDecomp");
 
     return info.Env().Null();
 }
@@ -2570,7 +2568,7 @@ static Napi::Value pyopencv_cv_Scharr(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -2606,7 +2604,7 @@ static Napi::Value pyopencv_cv_Scharr(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2644,9 +2642,9 @@ static Napi::Value pyopencv_cv_Scharr(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Scharr");
+    jsRaiseCVOverloadException(info, "Scharr");
 
     return info.Env().Null();
 }
@@ -2674,7 +2672,7 @@ static Napi::Value pyopencv_cv_Sobel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -2713,7 +2711,7 @@ static Napi::Value pyopencv_cv_Sobel(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2754,9 +2752,9 @@ static Napi::Value pyopencv_cv_Sobel(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Sobel");
+    jsRaiseCVOverloadException(info, "Sobel");
 
     return info.Env().Null();
 }
@@ -3077,7 +3075,7 @@ static Napi::Value pyopencv_cv_absdiff(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -3098,7 +3096,7 @@ static Napi::Value pyopencv_cv_absdiff(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3121,9 +3119,9 @@ static Napi::Value pyopencv_cv_absdiff(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("absdiff");
+    jsRaiseCVOverloadException(info, "absdiff");
 
     return info.Env().Null();
 }
@@ -3132,7 +3130,7 @@ static Napi::Value pyopencv_cv_accumulate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -3153,7 +3151,7 @@ static Napi::Value pyopencv_cv_accumulate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3176,9 +3174,9 @@ static Napi::Value pyopencv_cv_accumulate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("accumulate");
+    jsRaiseCVOverloadException(info, "accumulate");
 
     return info.Env().Null();
 }
@@ -3187,7 +3185,7 @@ static Napi::Value pyopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -3211,7 +3209,7 @@ static Napi::Value pyopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3237,9 +3235,9 @@ static Napi::Value pyopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("accumulateProduct");
+    jsRaiseCVOverloadException(info, "accumulateProduct");
 
     return info.Env().Null();
 }
@@ -3248,7 +3246,7 @@ static Napi::Value pyopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -3269,7 +3267,7 @@ static Napi::Value pyopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3292,9 +3290,9 @@ static Napi::Value pyopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("accumulateSquare");
+    jsRaiseCVOverloadException(info, "accumulateSquare");
 
     return info.Env().Null();
 }
@@ -3303,7 +3301,7 @@ static Napi::Value pyopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -3327,7 +3325,7 @@ static Napi::Value pyopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3353,9 +3351,9 @@ static Napi::Value pyopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("accumulateWeighted");
+    jsRaiseCVOverloadException(info, "accumulateWeighted");
 
     return info.Env().Null();
 }
@@ -3364,7 +3362,7 @@ static Napi::Value pyopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -3397,7 +3395,7 @@ static Napi::Value pyopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3432,9 +3430,9 @@ static Napi::Value pyopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("adaptiveThreshold");
+    jsRaiseCVOverloadException(info, "adaptiveThreshold");
 
     return info.Env().Null();
 }
@@ -3443,7 +3441,7 @@ static Napi::Value pyopencv_cv_add(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -3470,7 +3468,7 @@ static Napi::Value pyopencv_cv_add(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3499,9 +3497,9 @@ static Napi::Value pyopencv_cv_add(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("add");
+    jsRaiseCVOverloadException(info, "add");
 
     return info.Env().Null();
 }
@@ -3552,7 +3550,7 @@ static Napi::Value pyopencv_cv_addWeighted(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -3585,7 +3583,7 @@ static Napi::Value pyopencv_cv_addWeighted(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3620,9 +3618,9 @@ static Napi::Value pyopencv_cv_addWeighted(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("addWeighted");
+    jsRaiseCVOverloadException(info, "addWeighted");
 
     return info.Env().Null();
 }
@@ -3631,7 +3629,7 @@ static Napi::Value pyopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -3652,7 +3650,7 @@ static Napi::Value pyopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3675,7 +3673,7 @@ static Napi::Value pyopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3698,7 +3696,7 @@ static Napi::Value pyopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3721,9 +3719,9 @@ static Napi::Value pyopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("applyColorMap");
+    jsRaiseCVOverloadException(info, "applyColorMap");
 
     return info.Env().Null();
 }
@@ -3732,7 +3730,7 @@ static Napi::Value pyopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_curve = NULL;
@@ -3756,7 +3754,7 @@ static Napi::Value pyopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3782,9 +3780,9 @@ static Napi::Value pyopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("approxPolyDP");
+    jsRaiseCVOverloadException(info, "approxPolyDP");
 
     return info.Env().Null();
 }
@@ -3793,7 +3791,7 @@ static Napi::Value pyopencv_cv_arcLength(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_curve = NULL;
@@ -3812,7 +3810,7 @@ static Napi::Value pyopencv_cv_arcLength(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3833,9 +3831,9 @@ static Napi::Value pyopencv_cv_arcLength(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("arcLength");
+    jsRaiseCVOverloadException(info, "arcLength");
 
     return info.Env().Null();
 }
@@ -3844,7 +3842,7 @@ static Napi::Value pyopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -3880,7 +3878,7 @@ static Napi::Value pyopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3918,9 +3916,9 @@ static Napi::Value pyopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("arrowedLine");
+    jsRaiseCVOverloadException(info, "arrowedLine");
 
     return info.Env().Null();
 }
@@ -3929,7 +3927,7 @@ static Napi::Value pyopencv_cv_batchDistance(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -3971,7 +3969,7 @@ static Napi::Value pyopencv_cv_batchDistance(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4015,9 +4013,9 @@ static Napi::Value pyopencv_cv_batchDistance(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("batchDistance");
+    jsRaiseCVOverloadException(info, "batchDistance");
 
     return info.Env().Null();
 }
@@ -4026,7 +4024,7 @@ static Napi::Value pyopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -4056,7 +4054,7 @@ static Napi::Value pyopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4088,9 +4086,9 @@ static Napi::Value pyopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bilateralFilter");
+    jsRaiseCVOverloadException(info, "bilateralFilter");
 
     return info.Env().Null();
 }
@@ -4099,7 +4097,7 @@ static Napi::Value pyopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -4123,7 +4121,7 @@ static Napi::Value pyopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4149,9 +4147,9 @@ static Napi::Value pyopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_and");
+    jsRaiseCVOverloadException(info, "bitwise_and");
 
     return info.Env().Null();
 }
@@ -4160,7 +4158,7 @@ static Napi::Value pyopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -4181,7 +4179,7 @@ static Napi::Value pyopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4204,9 +4202,9 @@ static Napi::Value pyopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_not");
+    jsRaiseCVOverloadException(info, "bitwise_not");
 
     return info.Env().Null();
 }
@@ -4215,7 +4213,7 @@ static Napi::Value pyopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -4239,7 +4237,7 @@ static Napi::Value pyopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4265,9 +4263,9 @@ static Napi::Value pyopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_or");
+    jsRaiseCVOverloadException(info, "bitwise_or");
 
     return info.Env().Null();
 }
@@ -4276,7 +4274,7 @@ static Napi::Value pyopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -4300,7 +4298,7 @@ static Napi::Value pyopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4326,9 +4324,9 @@ static Napi::Value pyopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_xor");
+    jsRaiseCVOverloadException(info, "bitwise_xor");
 
     return info.Env().Null();
 }
@@ -4337,7 +4335,7 @@ static Napi::Value pyopencv_cv_blendLinear(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -4364,7 +4362,7 @@ static Napi::Value pyopencv_cv_blendLinear(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4393,9 +4391,9 @@ static Napi::Value pyopencv_cv_blendLinear(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("blendLinear");
+    jsRaiseCVOverloadException(info, "blendLinear");
 
     return info.Env().Null();
 }
@@ -4404,7 +4402,7 @@ static Napi::Value pyopencv_cv_blur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -4431,7 +4429,7 @@ static Napi::Value pyopencv_cv_blur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4460,9 +4458,9 @@ static Napi::Value pyopencv_cv_blur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("blur");
+    jsRaiseCVOverloadException(info, "blur");
 
     return info.Env().Null();
 }
@@ -4496,7 +4494,7 @@ static Napi::Value pyopencv_cv_boundingRect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_array = NULL;
@@ -4512,7 +4510,7 @@ static Napi::Value pyopencv_cv_boundingRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4530,9 +4528,9 @@ static Napi::Value pyopencv_cv_boundingRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("boundingRect");
+    jsRaiseCVOverloadException(info, "boundingRect");
 
     return info.Env().Null();
 }
@@ -4541,7 +4539,7 @@ static Napi::Value pyopencv_cv_boxFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -4574,7 +4572,7 @@ static Napi::Value pyopencv_cv_boxFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4609,9 +4607,9 @@ static Napi::Value pyopencv_cv_boxFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("boxFilter");
+    jsRaiseCVOverloadException(info, "boxFilter");
 
     return info.Env().Null();
 }
@@ -4620,7 +4618,7 @@ static Napi::Value pyopencv_cv_boxPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_box = NULL;
@@ -4638,7 +4636,7 @@ static Napi::Value pyopencv_cv_boxPoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4658,9 +4656,9 @@ static Napi::Value pyopencv_cv_boxPoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("boxPoints");
+    jsRaiseCVOverloadException(info, "boxPoints");
 
     return info.Env().Null();
 }
@@ -4669,7 +4667,7 @@ static Napi::Value pyopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -4706,7 +4704,7 @@ static Napi::Value pyopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4745,9 +4743,9 @@ static Napi::Value pyopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("buildOpticalFlowPyramid");
+    jsRaiseCVOverloadException(info, "buildOpticalFlowPyramid");
 
     return info.Env().Null();
 }
@@ -4756,7 +4754,7 @@ static Napi::Value pyopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_images = NULL;
@@ -4786,7 +4784,7 @@ static Napi::Value pyopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4818,9 +4816,9 @@ static Napi::Value pyopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcBackProject");
+    jsRaiseCVOverloadException(info, "calcBackProject");
 
     return info.Env().Null();
 }
@@ -4829,7 +4827,7 @@ static Napi::Value pyopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -4856,7 +4854,7 @@ static Napi::Value pyopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4885,9 +4883,9 @@ static Napi::Value pyopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcCovarMatrix");
+    jsRaiseCVOverloadException(info, "calcCovarMatrix");
 
     return info.Env().Null();
 }
@@ -4896,7 +4894,7 @@ static Napi::Value pyopencv_cv_calcHist(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_images = NULL;
@@ -4929,7 +4927,7 @@ static Napi::Value pyopencv_cv_calcHist(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4964,9 +4962,9 @@ static Napi::Value pyopencv_cv_calcHist(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcHist");
+    jsRaiseCVOverloadException(info, "calcHist");
 
     return info.Env().Null();
 }
@@ -4975,7 +4973,7 @@ static Napi::Value pyopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_prev = NULL;
@@ -5017,7 +5015,7 @@ static Napi::Value pyopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5061,9 +5059,9 @@ static Napi::Value pyopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcOpticalFlowFarneback");
+    jsRaiseCVOverloadException(info, "calcOpticalFlowFarneback");
 
     return info.Env().Null();
 }
@@ -5072,7 +5070,7 @@ static Napi::Value pyopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &in
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_prevImg = NULL;
@@ -5117,7 +5115,7 @@ static Napi::Value pyopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5164,9 +5162,9 @@ static Napi::Value pyopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcOpticalFlowPyrLK");
+    jsRaiseCVOverloadException(info, "calcOpticalFlowPyrLK");
 
     return info.Env().Null();
 }
@@ -5175,7 +5173,7 @@ static Napi::Value pyopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -5215,7 +5213,7 @@ static Napi::Value pyopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5257,9 +5255,9 @@ static Napi::Value pyopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrateCamera");
+    jsRaiseCVOverloadException(info, "calibrateCamera");
 
     return info.Env().Null();
 }
@@ -5268,7 +5266,7 @@ static Napi::Value pyopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -5317,7 +5315,7 @@ static Napi::Value pyopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5368,9 +5366,9 @@ static Napi::Value pyopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrateCameraExtended");
+    jsRaiseCVOverloadException(info, "calibrateCameraExtended");
 
     return info.Env().Null();
 }
@@ -5379,7 +5377,7 @@ static Napi::Value pyopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -5425,7 +5423,7 @@ static Napi::Value pyopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5473,9 +5471,9 @@ static Napi::Value pyopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrateCameraRO");
+    jsRaiseCVOverloadException(info, "calibrateCameraRO");
 
     return info.Env().Null();
 }
@@ -5484,7 +5482,7 @@ static Napi::Value pyopencv_cv_calibrateCameraROExtended(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -5542,7 +5540,7 @@ static Napi::Value pyopencv_cv_calibrateCameraROExtended(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5602,9 +5600,9 @@ static Napi::Value pyopencv_cv_calibrateCameraROExtended(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrateCameraROExtended");
+    jsRaiseCVOverloadException(info, "calibrateCameraROExtended");
 
     return info.Env().Null();
 }
@@ -5613,7 +5611,7 @@ static Napi::Value pyopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_R_gripper2base = NULL;
@@ -5646,7 +5644,7 @@ static Napi::Value pyopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5681,9 +5679,9 @@ static Napi::Value pyopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrateHandEye");
+    jsRaiseCVOverloadException(info, "calibrateHandEye");
 
     return info.Env().Null();
 }
@@ -5692,7 +5690,7 @@ static Napi::Value pyopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackIn
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_R_world2cam = NULL;
@@ -5731,7 +5729,7 @@ static Napi::Value pyopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5772,9 +5770,9 @@ static Napi::Value pyopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrateRobotWorldHandEye");
+    jsRaiseCVOverloadException(info, "calibrateRobotWorldHandEye");
 
     return info.Env().Null();
 }
@@ -5783,7 +5781,7 @@ static Napi::Value pyopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix = NULL;
@@ -5812,7 +5810,7 @@ static Napi::Value pyopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5843,9 +5841,9 @@ static Napi::Value pyopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrationMatrixValues");
+    jsRaiseCVOverloadException(info, "calibrationMatrixValues");
 
     return info.Env().Null();
 }
@@ -5854,7 +5852,7 @@ static Napi::Value pyopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_x = NULL;
@@ -5881,7 +5879,7 @@ static Napi::Value pyopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5910,9 +5908,9 @@ static Napi::Value pyopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cartToPolar");
+    jsRaiseCVOverloadException(info, "cartToPolar");
 
     return info.Env().Null();
 }
@@ -5921,7 +5919,7 @@ static Napi::Value pyopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -5940,7 +5938,7 @@ static Napi::Value pyopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -5961,9 +5959,9 @@ static Napi::Value pyopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("checkChessboard");
+    jsRaiseCVOverloadException(info, "checkChessboard");
 
     return info.Env().Null();
 }
@@ -5991,7 +5989,7 @@ static Napi::Value pyopencv_cv_checkRange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_a = NULL;
@@ -6017,7 +6015,7 @@ static Napi::Value pyopencv_cv_checkRange(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6045,9 +6043,9 @@ static Napi::Value pyopencv_cv_checkRange(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("checkRange");
+    jsRaiseCVOverloadException(info, "checkRange");
 
     return info.Env().Null();
 }
@@ -6056,7 +6054,7 @@ static Napi::Value pyopencv_cv_circle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -6089,7 +6087,7 @@ static Napi::Value pyopencv_cv_circle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6124,9 +6122,9 @@ static Napi::Value pyopencv_cv_circle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("circle");
+    jsRaiseCVOverloadException(info, "circle");
 
     return info.Env().Null();
 }
@@ -6160,7 +6158,7 @@ static Napi::Value pyopencv_cv_colorChange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -6190,7 +6188,7 @@ static Napi::Value pyopencv_cv_colorChange(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6222,9 +6220,9 @@ static Napi::Value pyopencv_cv_colorChange(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("colorChange");
+    jsRaiseCVOverloadException(info, "colorChange");
 
     return info.Env().Null();
 }
@@ -6233,7 +6231,7 @@ static Napi::Value pyopencv_cv_compare(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -6257,7 +6255,7 @@ static Napi::Value pyopencv_cv_compare(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6283,9 +6281,9 @@ static Napi::Value pyopencv_cv_compare(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compare");
+    jsRaiseCVOverloadException(info, "compare");
 
     return info.Env().Null();
 }
@@ -6294,7 +6292,7 @@ static Napi::Value pyopencv_cv_compareHist(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_H1 = NULL;
@@ -6316,7 +6314,7 @@ static Napi::Value pyopencv_cv_compareHist(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6340,9 +6338,9 @@ static Napi::Value pyopencv_cv_compareHist(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compareHist");
+    jsRaiseCVOverloadException(info, "compareHist");
 
     return info.Env().Null();
 }
@@ -6351,7 +6349,7 @@ static Napi::Value pyopencv_cv_completeSymm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_m = NULL;
@@ -6369,7 +6367,7 @@ static Napi::Value pyopencv_cv_completeSymm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6389,9 +6387,9 @@ static Napi::Value pyopencv_cv_completeSymm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("completeSymm");
+    jsRaiseCVOverloadException(info, "completeSymm");
 
     return info.Env().Null();
 }
@@ -6400,7 +6398,7 @@ static Napi::Value pyopencv_cv_composeRT(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_rvec1 = NULL;
@@ -6454,7 +6452,7 @@ static Napi::Value pyopencv_cv_composeRT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6510,9 +6508,9 @@ static Napi::Value pyopencv_cv_composeRT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("composeRT");
+    jsRaiseCVOverloadException(info, "composeRT");
 
     return info.Env().Null();
 }
@@ -6521,7 +6519,7 @@ static Napi::Value pyopencv_cv_computeCorrespondEpilines(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -6545,7 +6543,7 @@ static Napi::Value pyopencv_cv_computeCorrespondEpilines(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6571,9 +6569,9 @@ static Napi::Value pyopencv_cv_computeCorrespondEpilines(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeCorrespondEpilines");
+    jsRaiseCVOverloadException(info, "computeCorrespondEpilines");
 
     return info.Env().Null();
 }
@@ -6582,7 +6580,7 @@ static Napi::Value pyopencv_cv_computeECC(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_templateImage = NULL;
@@ -6604,7 +6602,7 @@ static Napi::Value pyopencv_cv_computeECC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6628,9 +6626,9 @@ static Napi::Value pyopencv_cv_computeECC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeECC");
+    jsRaiseCVOverloadException(info, "computeECC");
 
     return info.Env().Null();
 }
@@ -6639,7 +6637,7 @@ static Napi::Value pyopencv_cv_connectedComponents(const Napi::CallbackInfo &inf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -6664,7 +6662,7 @@ static Napi::Value pyopencv_cv_connectedComponents(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6691,9 +6689,9 @@ static Napi::Value pyopencv_cv_connectedComponents(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("connectedComponents");
+    jsRaiseCVOverloadException(info, "connectedComponents");
 
     return info.Env().Null();
 }
@@ -6702,7 +6700,7 @@ static Napi::Value pyopencv_cv_connectedComponentsWithAlgorithm(const Napi::Call
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -6730,7 +6728,7 @@ static Napi::Value pyopencv_cv_connectedComponentsWithAlgorithm(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6760,9 +6758,9 @@ static Napi::Value pyopencv_cv_connectedComponentsWithAlgorithm(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("connectedComponentsWithAlgorithm");
+    jsRaiseCVOverloadException(info, "connectedComponentsWithAlgorithm");
 
     return info.Env().Null();
 }
@@ -6771,7 +6769,7 @@ static Napi::Value pyopencv_cv_connectedComponentsWithStats(const Napi::Callback
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -6802,7 +6800,7 @@ static Napi::Value pyopencv_cv_connectedComponentsWithStats(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6835,9 +6833,9 @@ static Napi::Value pyopencv_cv_connectedComponentsWithStats(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("connectedComponentsWithStats");
+    jsRaiseCVOverloadException(info, "connectedComponentsWithStats");
 
     return info.Env().Null();
 }
@@ -6846,7 +6844,7 @@ static Napi::Value pyopencv_cv_connectedComponentsWithStatsWithAlgorithm(const N
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -6880,7 +6878,7 @@ static Napi::Value pyopencv_cv_connectedComponentsWithStatsWithAlgorithm(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6916,9 +6914,9 @@ static Napi::Value pyopencv_cv_connectedComponentsWithStatsWithAlgorithm(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("connectedComponentsWithStatsWithAlgorithm");
+    jsRaiseCVOverloadException(info, "connectedComponentsWithStatsWithAlgorithm");
 
     return info.Env().Null();
 }
@@ -6927,7 +6925,7 @@ static Napi::Value pyopencv_cv_contourArea(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_contour = NULL;
@@ -6946,7 +6944,7 @@ static Napi::Value pyopencv_cv_contourArea(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6967,9 +6965,9 @@ static Napi::Value pyopencv_cv_contourArea(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("contourArea");
+    jsRaiseCVOverloadException(info, "contourArea");
 
     return info.Env().Null();
 }
@@ -6978,7 +6976,7 @@ static Napi::Value pyopencv_cv_convertFp16(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -6996,7 +6994,7 @@ static Napi::Value pyopencv_cv_convertFp16(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7016,9 +7014,9 @@ static Napi::Value pyopencv_cv_convertFp16(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertFp16");
+    jsRaiseCVOverloadException(info, "convertFp16");
 
     return info.Env().Null();
 }
@@ -7027,7 +7025,7 @@ static Napi::Value pyopencv_cv_convertMaps(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_map1 = NULL;
@@ -7057,7 +7055,7 @@ static Napi::Value pyopencv_cv_convertMaps(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7089,9 +7087,9 @@ static Napi::Value pyopencv_cv_convertMaps(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertMaps");
+    jsRaiseCVOverloadException(info, "convertMaps");
 
     return info.Env().Null();
 }
@@ -7100,7 +7098,7 @@ static Napi::Value pyopencv_cv_convertPointsFromHomogeneous(const Napi::Callback
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7118,7 +7116,7 @@ static Napi::Value pyopencv_cv_convertPointsFromHomogeneous(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7138,9 +7136,9 @@ static Napi::Value pyopencv_cv_convertPointsFromHomogeneous(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertPointsFromHomogeneous");
+    jsRaiseCVOverloadException(info, "convertPointsFromHomogeneous");
 
     return info.Env().Null();
 }
@@ -7149,7 +7147,7 @@ static Napi::Value pyopencv_cv_convertPointsToHomogeneous(const Napi::CallbackIn
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7167,7 +7165,7 @@ static Napi::Value pyopencv_cv_convertPointsToHomogeneous(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7187,9 +7185,9 @@ static Napi::Value pyopencv_cv_convertPointsToHomogeneous(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertPointsToHomogeneous");
+    jsRaiseCVOverloadException(info, "convertPointsToHomogeneous");
 
     return info.Env().Null();
 }
@@ -7198,7 +7196,7 @@ static Napi::Value pyopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7222,7 +7220,7 @@ static Napi::Value pyopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7248,9 +7246,9 @@ static Napi::Value pyopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertScaleAbs");
+    jsRaiseCVOverloadException(info, "convertScaleAbs");
 
     return info.Env().Null();
 }
@@ -7259,7 +7257,7 @@ static Napi::Value pyopencv_cv_convexHull(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -7283,7 +7281,7 @@ static Napi::Value pyopencv_cv_convexHull(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7309,9 +7307,9 @@ static Napi::Value pyopencv_cv_convexHull(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convexHull");
+    jsRaiseCVOverloadException(info, "convexHull");
 
     return info.Env().Null();
 }
@@ -7320,7 +7318,7 @@ static Napi::Value pyopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_contour = NULL;
@@ -7341,7 +7339,7 @@ static Napi::Value pyopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7364,9 +7362,9 @@ static Napi::Value pyopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convexityDefects");
+    jsRaiseCVOverloadException(info, "convexityDefects");
 
     return info.Env().Null();
 }
@@ -7375,7 +7373,7 @@ static Napi::Value pyopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7411,7 +7409,7 @@ static Napi::Value pyopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7449,9 +7447,9 @@ static Napi::Value pyopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("copyMakeBorder");
+    jsRaiseCVOverloadException(info, "copyMakeBorder");
 
     return info.Env().Null();
 }
@@ -7460,7 +7458,7 @@ static Napi::Value pyopencv_cv_copyTo(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7481,7 +7479,7 @@ static Napi::Value pyopencv_cv_copyTo(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7504,9 +7502,9 @@ static Napi::Value pyopencv_cv_copyTo(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("copyTo");
+    jsRaiseCVOverloadException(info, "copyTo");
 
     return info.Env().Null();
 }
@@ -7515,7 +7513,7 @@ static Napi::Value pyopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7542,7 +7540,7 @@ static Napi::Value pyopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7571,9 +7569,9 @@ static Napi::Value pyopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cornerEigenValsAndVecs");
+    jsRaiseCVOverloadException(info, "cornerEigenValsAndVecs");
 
     return info.Env().Null();
 }
@@ -7582,7 +7580,7 @@ static Napi::Value pyopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7612,7 +7610,7 @@ static Napi::Value pyopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7644,9 +7642,9 @@ static Napi::Value pyopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cornerHarris");
+    jsRaiseCVOverloadException(info, "cornerHarris");
 
     return info.Env().Null();
 }
@@ -7655,7 +7653,7 @@ static Napi::Value pyopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7682,7 +7680,7 @@ static Napi::Value pyopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7711,9 +7709,9 @@ static Napi::Value pyopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cornerMinEigenVal");
+    jsRaiseCVOverloadException(info, "cornerMinEigenVal");
 
     return info.Env().Null();
 }
@@ -7722,7 +7720,7 @@ static Napi::Value pyopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -7749,7 +7747,7 @@ static Napi::Value pyopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7778,9 +7776,9 @@ static Napi::Value pyopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cornerSubPix");
+    jsRaiseCVOverloadException(info, "cornerSubPix");
 
     return info.Env().Null();
 }
@@ -7789,7 +7787,7 @@ static Napi::Value pyopencv_cv_correctMatches(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_F = NULL;
@@ -7816,7 +7814,7 @@ static Napi::Value pyopencv_cv_correctMatches(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7845,9 +7843,9 @@ static Napi::Value pyopencv_cv_correctMatches(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("correctMatches");
+    jsRaiseCVOverloadException(info, "correctMatches");
 
     return info.Env().Null();
 }
@@ -7856,7 +7854,7 @@ static Napi::Value pyopencv_cv_countNonZero(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -7872,7 +7870,7 @@ static Napi::Value pyopencv_cv_countNonZero(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7890,9 +7888,9 @@ static Napi::Value pyopencv_cv_countNonZero(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("countNonZero");
+    jsRaiseCVOverloadException(info, "countNonZero");
 
     return info.Env().Null();
 }
@@ -8075,7 +8073,7 @@ static Napi::Value pyopencv_cv_createHanningWindow(const Napi::CallbackInfo &inf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -8096,7 +8094,7 @@ static Napi::Value pyopencv_cv_createHanningWindow(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8119,9 +8117,9 @@ static Napi::Value pyopencv_cv_createHanningWindow(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createHanningWindow");
+    jsRaiseCVOverloadException(info, "createHanningWindow");
 
     return info.Env().Null();
 }
@@ -8341,7 +8339,7 @@ static Napi::Value pyopencv_cv_cvtColor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -8365,7 +8363,7 @@ static Napi::Value pyopencv_cv_cvtColor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8391,9 +8389,9 @@ static Napi::Value pyopencv_cv_cvtColor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cvtColor");
+    jsRaiseCVOverloadException(info, "cvtColor");
 
     return info.Env().Null();
 }
@@ -8402,7 +8400,7 @@ static Napi::Value pyopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -8426,7 +8424,7 @@ static Napi::Value pyopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8452,9 +8450,9 @@ static Napi::Value pyopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cvtColorTwoPlane");
+    jsRaiseCVOverloadException(info, "cvtColorTwoPlane");
 
     return info.Env().Null();
 }
@@ -8463,7 +8461,7 @@ static Napi::Value pyopencv_cv_dct(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -8484,7 +8482,7 @@ static Napi::Value pyopencv_cv_dct(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8507,9 +8505,9 @@ static Napi::Value pyopencv_cv_dct(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dct");
+    jsRaiseCVOverloadException(info, "dct");
 
     return info.Env().Null();
 }
@@ -8518,7 +8516,7 @@ static Napi::Value pyopencv_cv_decolor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -8539,7 +8537,7 @@ static Napi::Value pyopencv_cv_decolor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8562,9 +8560,9 @@ static Napi::Value pyopencv_cv_decolor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decolor");
+    jsRaiseCVOverloadException(info, "decolor");
 
     return info.Env().Null();
 }
@@ -8573,7 +8571,7 @@ static Napi::Value pyopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_E = NULL;
@@ -8597,7 +8595,7 @@ static Napi::Value pyopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8623,9 +8621,9 @@ static Napi::Value pyopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decomposeEssentialMat");
+    jsRaiseCVOverloadException(info, "decomposeEssentialMat");
 
     return info.Env().Null();
 }
@@ -8634,7 +8632,7 @@ static Napi::Value pyopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_H = NULL;
@@ -8662,7 +8660,7 @@ static Napi::Value pyopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8692,9 +8690,9 @@ static Napi::Value pyopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decomposeHomographyMat");
+    jsRaiseCVOverloadException(info, "decomposeHomographyMat");
 
     return info.Env().Null();
 }
@@ -8703,7 +8701,7 @@ static Napi::Value pyopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_projMatrix = NULL;
@@ -8739,7 +8737,7 @@ static Napi::Value pyopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8777,9 +8775,9 @@ static Napi::Value pyopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decomposeProjectionMatrix");
+    jsRaiseCVOverloadException(info, "decomposeProjectionMatrix");
 
     return info.Env().Null();
 }
@@ -8788,7 +8786,7 @@ static Napi::Value pyopencv_cv_demosaicing(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -8812,7 +8810,7 @@ static Napi::Value pyopencv_cv_demosaicing(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8838,9 +8836,9 @@ static Napi::Value pyopencv_cv_demosaicing(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("demosaicing");
+    jsRaiseCVOverloadException(info, "demosaicing");
 
     return info.Env().Null();
 }
@@ -8908,7 +8906,7 @@ static Napi::Value pyopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -8932,7 +8930,7 @@ static Napi::Value pyopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8958,9 +8956,9 @@ static Napi::Value pyopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detailEnhance");
+    jsRaiseCVOverloadException(info, "detailEnhance");
 
     return info.Env().Null();
 }
@@ -8969,7 +8967,7 @@ static Napi::Value pyopencv_cv_determinant(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_mtx = NULL;
@@ -8985,7 +8983,7 @@ static Napi::Value pyopencv_cv_determinant(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9003,9 +9001,9 @@ static Napi::Value pyopencv_cv_determinant(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("determinant");
+    jsRaiseCVOverloadException(info, "determinant");
 
     return info.Env().Null();
 }
@@ -9014,7 +9012,7 @@ static Napi::Value pyopencv_cv_dft(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -9038,7 +9036,7 @@ static Napi::Value pyopencv_cv_dft(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9064,9 +9062,9 @@ static Napi::Value pyopencv_cv_dft(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dft");
+    jsRaiseCVOverloadException(info, "dft");
 
     return info.Env().Null();
 }
@@ -9075,7 +9073,7 @@ static Napi::Value pyopencv_cv_dilate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -9108,7 +9106,7 @@ static Napi::Value pyopencv_cv_dilate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9143,9 +9141,9 @@ static Napi::Value pyopencv_cv_dilate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dilate");
+    jsRaiseCVOverloadException(info, "dilate");
 
     return info.Env().Null();
 }
@@ -9202,7 +9200,7 @@ static Napi::Value pyopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -9229,7 +9227,7 @@ static Napi::Value pyopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9258,9 +9256,9 @@ static Napi::Value pyopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("distanceTransform");
+    jsRaiseCVOverloadException(info, "distanceTransform");
 
     return info.Env().Null();
 }
@@ -9269,7 +9267,7 @@ static Napi::Value pyopencv_cv_distanceTransformWithLabels(const Napi::CallbackI
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -9299,7 +9297,7 @@ static Napi::Value pyopencv_cv_distanceTransformWithLabels(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9331,9 +9329,9 @@ static Napi::Value pyopencv_cv_distanceTransformWithLabels(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("distanceTransformWithLabels");
+    jsRaiseCVOverloadException(info, "distanceTransformWithLabels");
 
     return info.Env().Null();
 }
@@ -9342,7 +9340,7 @@ static Napi::Value pyopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_a = NULL;
@@ -9369,7 +9367,7 @@ static Napi::Value pyopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9398,9 +9396,9 @@ static Napi::Value pyopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("divSpectrums");
+    jsRaiseCVOverloadException(info, "divSpectrums");
 
     return info.Env().Null();
 }
@@ -9409,7 +9407,7 @@ static Napi::Value pyopencv_cv_divide(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -9436,7 +9434,7 @@ static Napi::Value pyopencv_cv_divide(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9465,7 +9463,7 @@ static Napi::Value pyopencv_cv_divide(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9491,7 +9489,7 @@ static Napi::Value pyopencv_cv_divide(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9517,9 +9515,9 @@ static Napi::Value pyopencv_cv_divide(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("divide");
+    jsRaiseCVOverloadException(info, "divide");
 
     return info.Env().Null();
 }
@@ -9528,7 +9526,7 @@ static Napi::Value pyopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -9552,7 +9550,7 @@ static Napi::Value pyopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9578,9 +9576,9 @@ static Napi::Value pyopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawChessboardCorners");
+    jsRaiseCVOverloadException(info, "drawChessboardCorners");
 
     return info.Env().Null();
 }
@@ -9589,7 +9587,7 @@ static Napi::Value pyopencv_cv_drawContours(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -9628,7 +9626,7 @@ static Napi::Value pyopencv_cv_drawContours(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9669,9 +9667,9 @@ static Napi::Value pyopencv_cv_drawContours(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawContours");
+    jsRaiseCVOverloadException(info, "drawContours");
 
     return info.Env().Null();
 }
@@ -9680,7 +9678,7 @@ static Napi::Value pyopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -9713,7 +9711,7 @@ static Napi::Value pyopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9748,9 +9746,9 @@ static Napi::Value pyopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawFrameAxes");
+    jsRaiseCVOverloadException(info, "drawFrameAxes");
 
     return info.Env().Null();
 }
@@ -9759,7 +9757,7 @@ static Napi::Value pyopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -9786,7 +9784,7 @@ static Napi::Value pyopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9815,9 +9813,9 @@ static Napi::Value pyopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawKeypoints");
+    jsRaiseCVOverloadException(info, "drawKeypoints");
 
     return info.Env().Null();
 }
@@ -9826,7 +9824,7 @@ static Napi::Value pyopencv_cv_drawMarker(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -9859,7 +9857,7 @@ static Napi::Value pyopencv_cv_drawMarker(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9894,9 +9892,9 @@ static Napi::Value pyopencv_cv_drawMarker(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawMarker");
+    jsRaiseCVOverloadException(info, "drawMarker");
 
     return info.Env().Null();
 }
@@ -9905,7 +9903,7 @@ static Napi::Value pyopencv_cv_drawMatches(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_img1 = NULL;
@@ -9947,7 +9945,7 @@ static Napi::Value pyopencv_cv_drawMatches(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9991,7 +9989,7 @@ static Napi::Value pyopencv_cv_drawMatches(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10038,7 +10036,7 @@ static Napi::Value pyopencv_cv_drawMatches(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10085,9 +10083,9 @@ static Napi::Value pyopencv_cv_drawMatches(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawMatches");
+    jsRaiseCVOverloadException(info, "drawMatches");
 
     return info.Env().Null();
 }
@@ -10096,7 +10094,7 @@ static Napi::Value pyopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img1 = NULL;
@@ -10138,7 +10136,7 @@ static Napi::Value pyopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10182,9 +10180,9 @@ static Napi::Value pyopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawMatchesKnn");
+    jsRaiseCVOverloadException(info, "drawMatchesKnn");
 
     return info.Env().Null();
 }
@@ -10193,7 +10191,7 @@ static Napi::Value pyopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &in
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -10220,7 +10218,7 @@ static Napi::Value pyopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10249,9 +10247,9 @@ static Napi::Value pyopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("edgePreservingFilter");
+    jsRaiseCVOverloadException(info, "edgePreservingFilter");
 
     return info.Env().Null();
 }
@@ -10260,7 +10258,7 @@ static Napi::Value pyopencv_cv_eigen(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -10282,7 +10280,7 @@ static Napi::Value pyopencv_cv_eigen(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10306,9 +10304,9 @@ static Napi::Value pyopencv_cv_eigen(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("eigen");
+    jsRaiseCVOverloadException(info, "eigen");
 
     return info.Env().Null();
 }
@@ -10317,7 +10315,7 @@ static Napi::Value pyopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -10338,7 +10336,7 @@ static Napi::Value pyopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10361,9 +10359,9 @@ static Napi::Value pyopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("eigenNonSymmetric");
+    jsRaiseCVOverloadException(info, "eigenNonSymmetric");
 
     return info.Env().Null();
 }
@@ -10372,7 +10370,7 @@ static Napi::Value pyopencv_cv_ellipse(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -10414,7 +10412,7 @@ static Napi::Value pyopencv_cv_ellipse(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10458,7 +10456,7 @@ static Napi::Value pyopencv_cv_ellipse(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10487,7 +10485,7 @@ static Napi::Value pyopencv_cv_ellipse(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10516,9 +10514,9 @@ static Napi::Value pyopencv_cv_ellipse(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("ellipse");
+    jsRaiseCVOverloadException(info, "ellipse");
 
     return info.Env().Null();
 }
@@ -10606,7 +10604,7 @@ static Napi::Value pyopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -10624,7 +10622,7 @@ static Napi::Value pyopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10644,9 +10642,9 @@ static Napi::Value pyopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("equalizeHist");
+    jsRaiseCVOverloadException(info, "equalizeHist");
 
     return info.Env().Null();
 }
@@ -10655,7 +10653,7 @@ static Napi::Value pyopencv_cv_erode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -10688,7 +10686,7 @@ static Napi::Value pyopencv_cv_erode(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10723,9 +10721,9 @@ static Napi::Value pyopencv_cv_erode(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("erode");
+    jsRaiseCVOverloadException(info, "erode");
 
     return info.Env().Null();
 }
@@ -10734,7 +10732,7 @@ static Napi::Value pyopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_from = NULL;
@@ -10771,7 +10769,7 @@ static Napi::Value pyopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10810,7 +10808,7 @@ static Napi::Value pyopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10837,7 +10835,7 @@ static Napi::Value pyopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10864,9 +10862,9 @@ static Napi::Value pyopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateAffine2D");
+    jsRaiseCVOverloadException(info, "estimateAffine2D");
 
     return info.Env().Null();
 }
@@ -10875,7 +10873,7 @@ static Napi::Value pyopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -10906,7 +10904,7 @@ static Napi::Value pyopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10939,7 +10937,7 @@ static Napi::Value pyopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10964,7 +10962,7 @@ static Napi::Value pyopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10989,9 +10987,9 @@ static Napi::Value pyopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateAffine3D");
+    jsRaiseCVOverloadException(info, "estimateAffine3D");
 
     return info.Env().Null();
 }
@@ -11000,7 +10998,7 @@ static Napi::Value pyopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_from = NULL;
@@ -11037,7 +11035,7 @@ static Napi::Value pyopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11076,9 +11074,9 @@ static Napi::Value pyopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateAffinePartial2D");
+    jsRaiseCVOverloadException(info, "estimateAffinePartial2D");
 
     return info.Env().Null();
 }
@@ -11087,7 +11085,7 @@ static Napi::Value pyopencv_cv_estimateChessboardSharpness(const Napi::CallbackI
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -11118,7 +11116,7 @@ static Napi::Value pyopencv_cv_estimateChessboardSharpness(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11151,9 +11149,9 @@ static Napi::Value pyopencv_cv_estimateChessboardSharpness(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateChessboardSharpness");
+    jsRaiseCVOverloadException(info, "estimateChessboardSharpness");
 
     return info.Env().Null();
 }
@@ -11162,7 +11160,7 @@ static Napi::Value pyopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -11193,7 +11191,7 @@ static Napi::Value pyopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11226,9 +11224,9 @@ static Napi::Value pyopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateTranslation3D");
+    jsRaiseCVOverloadException(info, "estimateTranslation3D");
 
     return info.Env().Null();
 }
@@ -11237,7 +11235,7 @@ static Napi::Value pyopencv_cv_exp(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -11255,7 +11253,7 @@ static Napi::Value pyopencv_cv_exp(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11275,9 +11273,9 @@ static Napi::Value pyopencv_cv_exp(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("exp");
+    jsRaiseCVOverloadException(info, "exp");
 
     return info.Env().Null();
 }
@@ -11286,7 +11284,7 @@ static Napi::Value pyopencv_cv_extractChannel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -11307,7 +11305,7 @@ static Napi::Value pyopencv_cv_extractChannel(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11330,9 +11328,9 @@ static Napi::Value pyopencv_cv_extractChannel(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("extractChannel");
+    jsRaiseCVOverloadException(info, "extractChannel");
 
     return info.Env().Null();
 }
@@ -11363,7 +11361,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -11390,7 +11388,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11419,7 +11417,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11451,7 +11449,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11483,9 +11481,9 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fastNlMeansDenoising");
+    jsRaiseCVOverloadException(info, "fastNlMeansDenoising");
 
     return info.Env().Null();
 }
@@ -11494,7 +11492,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackI
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -11524,7 +11522,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11556,9 +11554,9 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fastNlMeansDenoisingColored");
+    jsRaiseCVOverloadException(info, "fastNlMeansDenoisingColored");
 
     return info.Env().Null();
 }
@@ -11567,7 +11565,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::Call
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_srcImgs = NULL;
@@ -11603,7 +11601,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11641,9 +11639,9 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fastNlMeansDenoisingColoredMulti");
+    jsRaiseCVOverloadException(info, "fastNlMeansDenoisingColoredMulti");
 
     return info.Env().Null();
 }
@@ -11652,7 +11650,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_srcImgs = NULL;
@@ -11685,7 +11683,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11720,7 +11718,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11758,7 +11756,7 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11796,9 +11794,9 @@ static Napi::Value pyopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fastNlMeansDenoisingMulti");
+    jsRaiseCVOverloadException(info, "fastNlMeansDenoisingMulti");
 
     return info.Env().Null();
 }
@@ -11807,7 +11805,7 @@ static Napi::Value pyopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -11834,7 +11832,7 @@ static Napi::Value pyopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11863,9 +11861,9 @@ static Napi::Value pyopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fillConvexPoly");
+    jsRaiseCVOverloadException(info, "fillConvexPoly");
 
     return info.Env().Null();
 }
@@ -11874,7 +11872,7 @@ static Napi::Value pyopencv_cv_fillPoly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -11904,7 +11902,7 @@ static Napi::Value pyopencv_cv_fillPoly(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11936,9 +11934,9 @@ static Napi::Value pyopencv_cv_fillPoly(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fillPoly");
+    jsRaiseCVOverloadException(info, "fillPoly");
 
     return info.Env().Null();
 }
@@ -11947,7 +11945,7 @@ static Napi::Value pyopencv_cv_filter2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -11980,7 +11978,7 @@ static Napi::Value pyopencv_cv_filter2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12015,9 +12013,9 @@ static Napi::Value pyopencv_cv_filter2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter2D");
+    jsRaiseCVOverloadException(info, "filter2D");
 
     return info.Env().Null();
 }
@@ -12026,7 +12024,7 @@ static Napi::Value pyopencv_cv_filterHomographyDecompByVisibleRefpoints(const Na
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_rotations = NULL;
@@ -12056,7 +12054,7 @@ static Napi::Value pyopencv_cv_filterHomographyDecompByVisibleRefpoints(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12088,9 +12086,9 @@ static Napi::Value pyopencv_cv_filterHomographyDecompByVisibleRefpoints(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filterHomographyDecompByVisibleRefpoints");
+    jsRaiseCVOverloadException(info, "filterHomographyDecompByVisibleRefpoints");
 
     return info.Env().Null();
 }
@@ -12099,7 +12097,7 @@ static Napi::Value pyopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -12126,7 +12124,7 @@ static Napi::Value pyopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12155,9 +12153,9 @@ static Napi::Value pyopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filterSpeckles");
+    jsRaiseCVOverloadException(info, "filterSpeckles");
 
     return info.Env().Null();
 }
@@ -12166,7 +12164,7 @@ static Napi::Value pyopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -12188,7 +12186,7 @@ static Napi::Value pyopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12212,9 +12210,9 @@ static Napi::Value pyopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("find4QuadCornerSubpix");
+    jsRaiseCVOverloadException(info, "find4QuadCornerSubpix");
 
     return info.Env().Null();
 }
@@ -12223,7 +12221,7 @@ static Napi::Value pyopencv_cv_findChessboardCorners(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -12248,7 +12246,7 @@ static Napi::Value pyopencv_cv_findChessboardCorners(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12275,9 +12273,9 @@ static Napi::Value pyopencv_cv_findChessboardCorners(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findChessboardCorners");
+    jsRaiseCVOverloadException(info, "findChessboardCorners");
 
     return info.Env().Null();
 }
@@ -12286,7 +12284,7 @@ static Napi::Value pyopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -12311,7 +12309,7 @@ static Napi::Value pyopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12338,9 +12336,9 @@ static Napi::Value pyopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findChessboardCornersSB");
+    jsRaiseCVOverloadException(info, "findChessboardCornersSB");
 
     return info.Env().Null();
 }
@@ -12349,7 +12347,7 @@ static Napi::Value pyopencv_cv_findChessboardCornersSBWithMeta(const Napi::Callb
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -12377,7 +12375,7 @@ static Napi::Value pyopencv_cv_findChessboardCornersSBWithMeta(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12407,9 +12405,9 @@ static Napi::Value pyopencv_cv_findChessboardCornersSBWithMeta(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findChessboardCornersSBWithMeta");
+    jsRaiseCVOverloadException(info, "findChessboardCornersSBWithMeta");
 
     return info.Env().Null();
 }
@@ -12418,7 +12416,7 @@ static Napi::Value pyopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -12449,7 +12447,7 @@ static Napi::Value pyopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12482,7 +12480,7 @@ static Napi::Value pyopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12512,7 +12510,7 @@ static Napi::Value pyopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12542,9 +12540,9 @@ static Napi::Value pyopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findCirclesGrid");
+    jsRaiseCVOverloadException(info, "findCirclesGrid");
 
     return info.Env().Null();
 }
@@ -12553,7 +12551,7 @@ static Napi::Value pyopencv_cv_findContours(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -12583,7 +12581,7 @@ static Napi::Value pyopencv_cv_findContours(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12615,9 +12613,9 @@ static Napi::Value pyopencv_cv_findContours(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findContours");
+    jsRaiseCVOverloadException(info, "findContours");
 
     return info.Env().Null();
 }
@@ -12626,7 +12624,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(8);
+    jsPrepareArgumentConversionErrorsStorage(info, 8);
 
     {
     Napi::Value* pyobj_points1 = NULL;
@@ -12663,7 +12661,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12702,7 +12700,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12744,7 +12742,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12786,7 +12784,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12831,7 +12829,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12876,7 +12874,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12915,7 +12913,7 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12954,9 +12952,9 @@ static Napi::Value pyopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findEssentialMat");
+    jsRaiseCVOverloadException(info, "findEssentialMat");
 
     return info.Env().Null();
 }
@@ -12965,7 +12963,7 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(6);
+    jsPrepareArgumentConversionErrorsStorage(info, 6);
 
     {
     Napi::Value* pyobj_points1 = NULL;
@@ -12999,7 +12997,7 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13035,7 +13033,7 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13068,7 +13066,7 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13101,7 +13099,7 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13128,7 +13126,7 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13155,9 +13153,9 @@ static Napi::Value pyopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findFundamentalMat");
+    jsRaiseCVOverloadException(info, "findFundamentalMat");
 
     return info.Env().Null();
 }
@@ -13166,7 +13164,7 @@ static Napi::Value pyopencv_cv_findHomography(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_srcPoints = NULL;
@@ -13200,7 +13198,7 @@ static Napi::Value pyopencv_cv_findHomography(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13236,7 +13234,7 @@ static Napi::Value pyopencv_cv_findHomography(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13263,7 +13261,7 @@ static Napi::Value pyopencv_cv_findHomography(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13290,9 +13288,9 @@ static Napi::Value pyopencv_cv_findHomography(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findHomography");
+    jsRaiseCVOverloadException(info, "findHomography");
 
     return info.Env().Null();
 }
@@ -13301,7 +13299,7 @@ static Napi::Value pyopencv_cv_findNonZero(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -13319,7 +13317,7 @@ static Napi::Value pyopencv_cv_findNonZero(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13339,9 +13337,9 @@ static Napi::Value pyopencv_cv_findNonZero(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findNonZero");
+    jsRaiseCVOverloadException(info, "findNonZero");
 
     return info.Env().Null();
 }
@@ -13350,7 +13348,7 @@ static Napi::Value pyopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_templateImage = NULL;
@@ -13384,7 +13382,7 @@ static Napi::Value pyopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13420,7 +13418,7 @@ static Napi::Value pyopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13453,7 +13451,7 @@ static Napi::Value pyopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13486,9 +13484,9 @@ static Napi::Value pyopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findTransformECC");
+    jsRaiseCVOverloadException(info, "findTransformECC");
 
     return info.Env().Null();
 }
@@ -13497,7 +13495,7 @@ static Napi::Value pyopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -13513,7 +13511,7 @@ static Napi::Value pyopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13531,9 +13529,9 @@ static Napi::Value pyopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fitEllipse");
+    jsRaiseCVOverloadException(info, "fitEllipse");
 
     return info.Env().Null();
 }
@@ -13542,7 +13540,7 @@ static Napi::Value pyopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -13558,7 +13556,7 @@ static Napi::Value pyopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13576,9 +13574,9 @@ static Napi::Value pyopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fitEllipseAMS");
+    jsRaiseCVOverloadException(info, "fitEllipseAMS");
 
     return info.Env().Null();
 }
@@ -13587,7 +13585,7 @@ static Napi::Value pyopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -13603,7 +13601,7 @@ static Napi::Value pyopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13621,9 +13619,9 @@ static Napi::Value pyopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fitEllipseDirect");
+    jsRaiseCVOverloadException(info, "fitEllipseDirect");
 
     return info.Env().Null();
 }
@@ -13632,7 +13630,7 @@ static Napi::Value pyopencv_cv_fitLine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -13662,7 +13660,7 @@ static Napi::Value pyopencv_cv_fitLine(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13694,9 +13692,9 @@ static Napi::Value pyopencv_cv_fitLine(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fitLine");
+    jsRaiseCVOverloadException(info, "fitLine");
 
     return info.Env().Null();
 }
@@ -13705,7 +13703,7 @@ static Napi::Value pyopencv_cv_flip(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -13726,7 +13724,7 @@ static Napi::Value pyopencv_cv_flip(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13749,9 +13747,9 @@ static Napi::Value pyopencv_cv_flip(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("flip");
+    jsRaiseCVOverloadException(info, "flip");
 
     return info.Env().Null();
 }
@@ -13760,7 +13758,7 @@ static Napi::Value pyopencv_cv_flipND(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -13781,7 +13779,7 @@ static Napi::Value pyopencv_cv_flipND(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13804,9 +13802,9 @@ static Napi::Value pyopencv_cv_flipND(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("flipND");
+    jsRaiseCVOverloadException(info, "flipND");
 
     return info.Env().Null();
 }
@@ -13815,7 +13813,7 @@ static Napi::Value pyopencv_cv_floodFill(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -13850,7 +13848,7 @@ static Napi::Value pyopencv_cv_floodFill(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13887,9 +13885,9 @@ static Napi::Value pyopencv_cv_floodFill(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("floodFill");
+    jsRaiseCVOverloadException(info, "floodFill");
 
     return info.Env().Null();
 }
@@ -13898,7 +13896,7 @@ static Napi::Value pyopencv_cv_gemm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -13931,7 +13929,7 @@ static Napi::Value pyopencv_cv_gemm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13966,9 +13964,9 @@ static Napi::Value pyopencv_cv_gemm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("gemm");
+    jsRaiseCVOverloadException(info, "gemm");
 
     return info.Env().Null();
 }
@@ -13977,7 +13975,7 @@ static Napi::Value pyopencv_cv_getAffineTransform(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -13996,7 +13994,7 @@ static Napi::Value pyopencv_cv_getAffineTransform(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14017,9 +14015,9 @@ static Napi::Value pyopencv_cv_getAffineTransform(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getAffineTransform");
+    jsRaiseCVOverloadException(info, "getAffineTransform");
 
     return info.Env().Null();
 }
@@ -14073,7 +14071,7 @@ static Napi::Value pyopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix = NULL;
@@ -14095,7 +14093,7 @@ static Napi::Value pyopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14119,9 +14117,9 @@ static Napi::Value pyopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getDefaultNewCameraMatrix");
+    jsRaiseCVOverloadException(info, "getDefaultNewCameraMatrix");
 
     return info.Env().Null();
 }
@@ -14130,7 +14128,7 @@ static Napi::Value pyopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_kx = NULL;
@@ -14163,7 +14161,7 @@ static Napi::Value pyopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14198,9 +14196,9 @@ static Napi::Value pyopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getDerivKernels");
+    jsRaiseCVOverloadException(info, "getDerivKernels");
 
     return info.Env().Null();
 }
@@ -14379,7 +14377,7 @@ static Napi::Value pyopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix = NULL;
@@ -14411,7 +14409,7 @@ static Napi::Value pyopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14445,9 +14443,9 @@ static Napi::Value pyopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getOptimalNewCameraMatrix");
+    jsRaiseCVOverloadException(info, "getOptimalNewCameraMatrix");
 
     return info.Env().Null();
 }
@@ -14456,7 +14454,7 @@ static Napi::Value pyopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -14478,7 +14476,7 @@ static Napi::Value pyopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14502,9 +14500,9 @@ static Napi::Value pyopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getPerspectiveTransform");
+    jsRaiseCVOverloadException(info, "getPerspectiveTransform");
 
     return info.Env().Null();
 }
@@ -14513,7 +14511,7 @@ static Napi::Value pyopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -14540,7 +14538,7 @@ static Napi::Value pyopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14569,9 +14567,9 @@ static Napi::Value pyopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getRectSubPix");
+    jsRaiseCVOverloadException(info, "getRectSubPix");
 
     return info.Env().Null();
 }
@@ -14858,7 +14856,7 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -14897,7 +14895,7 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14938,7 +14936,7 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14982,7 +14980,7 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15026,9 +15024,9 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("goodFeaturesToTrack");
+    jsRaiseCVOverloadException(info, "goodFeaturesToTrack");
 
     return info.Env().Null();
 }
@@ -15037,7 +15035,7 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrackWithQuality(const Napi::Callba
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -15082,7 +15080,7 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrackWithQuality(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15129,9 +15127,9 @@ static Napi::Value pyopencv_cv_goodFeaturesToTrackWithQuality(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("goodFeaturesToTrackWithQuality");
+    jsRaiseCVOverloadException(info, "goodFeaturesToTrackWithQuality");
 
     return info.Env().Null();
 }
@@ -15140,7 +15138,7 @@ static Napi::Value pyopencv_cv_grabCut(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -15173,7 +15171,7 @@ static Napi::Value pyopencv_cv_grabCut(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15208,9 +15206,9 @@ static Napi::Value pyopencv_cv_grabCut(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("grabCut");
+    jsRaiseCVOverloadException(info, "grabCut");
 
     return info.Env().Null();
 }
@@ -15297,7 +15295,7 @@ static Napi::Value pyopencv_cv_hconcat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -15315,7 +15313,7 @@ static Napi::Value pyopencv_cv_hconcat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15335,9 +15333,9 @@ static Napi::Value pyopencv_cv_hconcat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("hconcat");
+    jsRaiseCVOverloadException(info, "hconcat");
 
     return info.Env().Null();
 }
@@ -15346,7 +15344,7 @@ static Napi::Value pyopencv_cv_idct(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -15367,7 +15365,7 @@ static Napi::Value pyopencv_cv_idct(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15390,9 +15388,9 @@ static Napi::Value pyopencv_cv_idct(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("idct");
+    jsRaiseCVOverloadException(info, "idct");
 
     return info.Env().Null();
 }
@@ -15401,7 +15399,7 @@ static Napi::Value pyopencv_cv_idft(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -15425,7 +15423,7 @@ static Napi::Value pyopencv_cv_idft(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15451,9 +15449,9 @@ static Napi::Value pyopencv_cv_idft(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("idft");
+    jsRaiseCVOverloadException(info, "idft");
 
     return info.Env().Null();
 }
@@ -15462,7 +15460,7 @@ static Napi::Value pyopencv_cv_illuminationChange(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -15489,7 +15487,7 @@ static Napi::Value pyopencv_cv_illuminationChange(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15518,9 +15516,9 @@ static Napi::Value pyopencv_cv_illuminationChange(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("illuminationChange");
+    jsRaiseCVOverloadException(info, "illuminationChange");
 
     return info.Env().Null();
 }
@@ -15551,7 +15549,7 @@ static Napi::Value pyopencv_cv_imdecode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_buf = NULL;
@@ -15570,7 +15568,7 @@ static Napi::Value pyopencv_cv_imdecode(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15591,9 +15589,9 @@ static Napi::Value pyopencv_cv_imdecode(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imdecode");
+    jsRaiseCVOverloadException(info, "imdecode");
 
     return info.Env().Null();
 }
@@ -15602,7 +15600,7 @@ static Napi::Value pyopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_buf = NULL;
@@ -15624,7 +15622,7 @@ static Napi::Value pyopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15648,9 +15646,9 @@ static Napi::Value pyopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imdecodemulti");
+    jsRaiseCVOverloadException(info, "imdecodemulti");
 
     return info.Env().Null();
 }
@@ -15659,7 +15657,7 @@ static Napi::Value pyopencv_cv_imencode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ext = NULL;
@@ -15682,7 +15680,7 @@ static Napi::Value pyopencv_cv_imencode(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15707,9 +15705,9 @@ static Napi::Value pyopencv_cv_imencode(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imencode");
+    jsRaiseCVOverloadException(info, "imencode");
 
     return info.Env().Null();
 }
@@ -15740,7 +15738,7 @@ static Napi::Value pyopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -15762,7 +15760,7 @@ static Napi::Value pyopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15792,9 +15790,9 @@ static Napi::Value pyopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imreadmulti");
+    jsRaiseCVOverloadException(info, "imreadmulti");
 
     return info.Env().Null();
 }
@@ -15803,7 +15801,7 @@ static Napi::Value pyopencv_cv_imshow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_winname = NULL;
@@ -15821,7 +15819,7 @@ static Napi::Value pyopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15841,7 +15839,7 @@ static Napi::Value pyopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15861,9 +15859,9 @@ static Napi::Value pyopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imshow");
+    jsRaiseCVOverloadException(info, "imshow");
 
     return info.Env().Null();
 }
@@ -15872,7 +15870,7 @@ static Napi::Value pyopencv_cv_imwrite(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -15894,7 +15892,7 @@ static Napi::Value pyopencv_cv_imwrite(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15918,9 +15916,9 @@ static Napi::Value pyopencv_cv_imwrite(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imwrite");
+    jsRaiseCVOverloadException(info, "imwrite");
 
     return info.Env().Null();
 }
@@ -15929,7 +15927,7 @@ static Napi::Value pyopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -15951,7 +15949,7 @@ static Napi::Value pyopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15975,9 +15973,9 @@ static Napi::Value pyopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imwritemulti");
+    jsRaiseCVOverloadException(info, "imwritemulti");
 
     return info.Env().Null();
 }
@@ -15986,7 +15984,7 @@ static Napi::Value pyopencv_cv_inRange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16010,7 +16008,7 @@ static Napi::Value pyopencv_cv_inRange(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16036,9 +16034,9 @@ static Napi::Value pyopencv_cv_inRange(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("inRange");
+    jsRaiseCVOverloadException(info, "inRange");
 
     return info.Env().Null();
 }
@@ -16047,7 +16045,7 @@ static Napi::Value pyopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -16072,7 +16070,7 @@ static Napi::Value pyopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16099,9 +16097,9 @@ static Napi::Value pyopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("initCameraMatrix2D");
+    jsRaiseCVOverloadException(info, "initCameraMatrix2D");
 
     return info.Env().Null();
 }
@@ -16110,7 +16108,7 @@ static Napi::Value pyopencv_cv_initInverseRectificationMap(const Napi::CallbackI
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix = NULL;
@@ -16146,7 +16144,7 @@ static Napi::Value pyopencv_cv_initInverseRectificationMap(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16184,9 +16182,9 @@ static Napi::Value pyopencv_cv_initInverseRectificationMap(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("initInverseRectificationMap");
+    jsRaiseCVOverloadException(info, "initInverseRectificationMap");
 
     return info.Env().Null();
 }
@@ -16195,7 +16193,7 @@ static Napi::Value pyopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix = NULL;
@@ -16231,7 +16229,7 @@ static Napi::Value pyopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16269,9 +16267,9 @@ static Napi::Value pyopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("initUndistortRectifyMap");
+    jsRaiseCVOverloadException(info, "initUndistortRectifyMap");
 
     return info.Env().Null();
 }
@@ -16280,7 +16278,7 @@ static Napi::Value pyopencv_cv_inpaint(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16307,7 +16305,7 @@ static Napi::Value pyopencv_cv_inpaint(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16336,9 +16334,9 @@ static Napi::Value pyopencv_cv_inpaint(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("inpaint");
+    jsRaiseCVOverloadException(info, "inpaint");
 
     return info.Env().Null();
 }
@@ -16347,7 +16345,7 @@ static Napi::Value pyopencv_cv_insertChannel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16368,7 +16366,7 @@ static Napi::Value pyopencv_cv_insertChannel(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16391,9 +16389,9 @@ static Napi::Value pyopencv_cv_insertChannel(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("insertChannel");
+    jsRaiseCVOverloadException(info, "insertChannel");
 
     return info.Env().Null();
 }
@@ -16402,7 +16400,7 @@ static Napi::Value pyopencv_cv_integral(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16423,7 +16421,7 @@ static Napi::Value pyopencv_cv_integral(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16446,9 +16444,9 @@ static Napi::Value pyopencv_cv_integral(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("integral");
+    jsRaiseCVOverloadException(info, "integral");
 
     return info.Env().Null();
 }
@@ -16457,7 +16455,7 @@ static Napi::Value pyopencv_cv_integral2(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16484,7 +16482,7 @@ static Napi::Value pyopencv_cv_integral2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16513,9 +16511,9 @@ static Napi::Value pyopencv_cv_integral2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("integral2");
+    jsRaiseCVOverloadException(info, "integral2");
 
     return info.Env().Null();
 }
@@ -16524,7 +16522,7 @@ static Napi::Value pyopencv_cv_integral3(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16554,7 +16552,7 @@ static Napi::Value pyopencv_cv_integral3(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16586,9 +16584,9 @@ static Napi::Value pyopencv_cv_integral3(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("integral3");
+    jsRaiseCVOverloadException(info, "integral3");
 
     return info.Env().Null();
 }
@@ -16597,7 +16595,7 @@ static Napi::Value pyopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_p1 = NULL;
@@ -16622,7 +16620,7 @@ static Napi::Value pyopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16649,9 +16647,9 @@ static Napi::Value pyopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("intersectConvexConvex");
+    jsRaiseCVOverloadException(info, "intersectConvexConvex");
 
     return info.Env().Null();
 }
@@ -16660,7 +16658,7 @@ static Napi::Value pyopencv_cv_invert(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16682,7 +16680,7 @@ static Napi::Value pyopencv_cv_invert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16706,9 +16704,9 @@ static Napi::Value pyopencv_cv_invert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("invert");
+    jsRaiseCVOverloadException(info, "invert");
 
     return info.Env().Null();
 }
@@ -16717,7 +16715,7 @@ static Napi::Value pyopencv_cv_invertAffineTransform(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_M = NULL;
@@ -16735,7 +16733,7 @@ static Napi::Value pyopencv_cv_invertAffineTransform(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16755,9 +16753,9 @@ static Napi::Value pyopencv_cv_invertAffineTransform(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("invertAffineTransform");
+    jsRaiseCVOverloadException(info, "invertAffineTransform");
 
     return info.Env().Null();
 }
@@ -16766,7 +16764,7 @@ static Napi::Value pyopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_contour = NULL;
@@ -16782,7 +16780,7 @@ static Napi::Value pyopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16800,9 +16798,9 @@ static Napi::Value pyopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("isContourConvex");
+    jsRaiseCVOverloadException(info, "isContourConvex");
 
     return info.Env().Null();
 }
@@ -16811,7 +16809,7 @@ static Napi::Value pyopencv_cv_kmeans(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -16845,7 +16843,7 @@ static Napi::Value pyopencv_cv_kmeans(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16881,9 +16879,9 @@ static Napi::Value pyopencv_cv_kmeans(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("kmeans");
+    jsRaiseCVOverloadException(info, "kmeans");
 
     return info.Env().Null();
 }
@@ -16892,7 +16890,7 @@ static Napi::Value pyopencv_cv_line(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -16925,7 +16923,7 @@ static Napi::Value pyopencv_cv_line(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16960,9 +16958,9 @@ static Napi::Value pyopencv_cv_line(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("line");
+    jsRaiseCVOverloadException(info, "line");
 
     return info.Env().Null();
 }
@@ -16971,7 +16969,7 @@ static Napi::Value pyopencv_cv_linearPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16998,7 +16996,7 @@ static Napi::Value pyopencv_cv_linearPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17027,9 +17025,9 @@ static Napi::Value pyopencv_cv_linearPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("linearPolar");
+    jsRaiseCVOverloadException(info, "linearPolar");
 
     return info.Env().Null();
 }
@@ -17038,7 +17036,7 @@ static Napi::Value pyopencv_cv_log(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -17056,7 +17054,7 @@ static Napi::Value pyopencv_cv_log(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17076,9 +17074,9 @@ static Napi::Value pyopencv_cv_log(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("log");
+    jsRaiseCVOverloadException(info, "log");
 
     return info.Env().Null();
 }
@@ -17087,7 +17085,7 @@ static Napi::Value pyopencv_cv_logPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -17114,7 +17112,7 @@ static Napi::Value pyopencv_cv_logPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17143,9 +17141,9 @@ static Napi::Value pyopencv_cv_logPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("logPolar");
+    jsRaiseCVOverloadException(info, "logPolar");
 
     return info.Env().Null();
 }
@@ -17154,7 +17152,7 @@ static Napi::Value pyopencv_cv_magnitude(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_x = NULL;
@@ -17175,7 +17173,7 @@ static Napi::Value pyopencv_cv_magnitude(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17198,9 +17196,9 @@ static Napi::Value pyopencv_cv_magnitude(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("magnitude");
+    jsRaiseCVOverloadException(info, "magnitude");
 
     return info.Env().Null();
 }
@@ -17209,7 +17207,7 @@ static Napi::Value pyopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_A = NULL;
@@ -17233,7 +17231,7 @@ static Napi::Value pyopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17259,9 +17257,9 @@ static Napi::Value pyopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("matMulDeriv");
+    jsRaiseCVOverloadException(info, "matMulDeriv");
 
     return info.Env().Null();
 }
@@ -17270,7 +17268,7 @@ static Napi::Value pyopencv_cv_matchShapes(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_contour1 = NULL;
@@ -17295,7 +17293,7 @@ static Napi::Value pyopencv_cv_matchShapes(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17322,9 +17320,9 @@ static Napi::Value pyopencv_cv_matchShapes(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("matchShapes");
+    jsRaiseCVOverloadException(info, "matchShapes");
 
     return info.Env().Null();
 }
@@ -17333,7 +17331,7 @@ static Napi::Value pyopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -17360,7 +17358,7 @@ static Napi::Value pyopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17389,9 +17387,9 @@ static Napi::Value pyopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("matchTemplate");
+    jsRaiseCVOverloadException(info, "matchTemplate");
 
     return info.Env().Null();
 }
@@ -17400,7 +17398,7 @@ static Napi::Value pyopencv_cv_max(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -17421,7 +17419,7 @@ static Napi::Value pyopencv_cv_max(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17444,9 +17442,9 @@ static Napi::Value pyopencv_cv_max(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("max");
+    jsRaiseCVOverloadException(info, "max");
 
     return info.Env().Null();
 }
@@ -17455,7 +17453,7 @@ static Napi::Value pyopencv_cv_mean(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -17474,7 +17472,7 @@ static Napi::Value pyopencv_cv_mean(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17495,9 +17493,9 @@ static Napi::Value pyopencv_cv_mean(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("mean");
+    jsRaiseCVOverloadException(info, "mean");
 
     return info.Env().Null();
 }
@@ -17506,7 +17504,7 @@ static Napi::Value pyopencv_cv_meanShift(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_probImage = NULL;
@@ -17528,7 +17526,7 @@ static Napi::Value pyopencv_cv_meanShift(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17552,9 +17550,9 @@ static Napi::Value pyopencv_cv_meanShift(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("meanShift");
+    jsRaiseCVOverloadException(info, "meanShift");
 
     return info.Env().Null();
 }
@@ -17563,7 +17561,7 @@ static Napi::Value pyopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -17587,7 +17585,7 @@ static Napi::Value pyopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17613,9 +17611,9 @@ static Napi::Value pyopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("meanStdDev");
+    jsRaiseCVOverloadException(info, "meanStdDev");
 
     return info.Env().Null();
 }
@@ -17624,7 +17622,7 @@ static Napi::Value pyopencv_cv_medianBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -17645,7 +17643,7 @@ static Napi::Value pyopencv_cv_medianBlur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17668,9 +17666,9 @@ static Napi::Value pyopencv_cv_medianBlur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("medianBlur");
+    jsRaiseCVOverloadException(info, "medianBlur");
 
     return info.Env().Null();
 }
@@ -17679,7 +17677,7 @@ static Napi::Value pyopencv_cv_merge(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_mv = NULL;
@@ -17697,7 +17695,7 @@ static Napi::Value pyopencv_cv_merge(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17717,9 +17715,9 @@ static Napi::Value pyopencv_cv_merge(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("merge");
+    jsRaiseCVOverloadException(info, "merge");
 
     return info.Env().Null();
 }
@@ -17728,7 +17726,7 @@ static Napi::Value pyopencv_cv_min(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -17749,7 +17747,7 @@ static Napi::Value pyopencv_cv_min(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17772,9 +17770,9 @@ static Napi::Value pyopencv_cv_min(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("min");
+    jsRaiseCVOverloadException(info, "min");
 
     return info.Env().Null();
 }
@@ -17783,7 +17781,7 @@ static Napi::Value pyopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -17799,7 +17797,7 @@ static Napi::Value pyopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17817,9 +17815,9 @@ static Napi::Value pyopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("minAreaRect");
+    jsRaiseCVOverloadException(info, "minAreaRect");
 
     return info.Env().Null();
 }
@@ -17828,7 +17826,7 @@ static Napi::Value pyopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -17845,7 +17843,7 @@ static Napi::Value pyopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17864,9 +17862,9 @@ static Napi::Value pyopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("minEnclosingCircle");
+    jsRaiseCVOverloadException(info, "minEnclosingCircle");
 
     return info.Env().Null();
 }
@@ -17875,7 +17873,7 @@ static Napi::Value pyopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &in
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points = NULL;
@@ -17894,7 +17892,7 @@ static Napi::Value pyopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17915,9 +17913,9 @@ static Napi::Value pyopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("minEnclosingTriangle");
+    jsRaiseCVOverloadException(info, "minEnclosingTriangle");
 
     return info.Env().Null();
 }
@@ -17926,7 +17924,7 @@ static Napi::Value pyopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -17948,7 +17946,7 @@ static Napi::Value pyopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17972,9 +17970,9 @@ static Napi::Value pyopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("minMaxLoc");
+    jsRaiseCVOverloadException(info, "minMaxLoc");
 
     return info.Env().Null();
 }
@@ -17983,7 +17981,7 @@ static Napi::Value pyopencv_cv_mixChannels(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -18004,7 +18002,7 @@ static Napi::Value pyopencv_cv_mixChannels(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18027,9 +18025,9 @@ static Napi::Value pyopencv_cv_mixChannels(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("mixChannels");
+    jsRaiseCVOverloadException(info, "mixChannels");
 
     return info.Env().Null();
 }
@@ -18038,7 +18036,7 @@ static Napi::Value pyopencv_cv_moments(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_array = NULL;
@@ -18057,7 +18055,7 @@ static Napi::Value pyopencv_cv_moments(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18078,9 +18076,9 @@ static Napi::Value pyopencv_cv_moments(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("moments");
+    jsRaiseCVOverloadException(info, "moments");
 
     return info.Env().Null();
 }
@@ -18089,7 +18087,7 @@ static Napi::Value pyopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -18125,7 +18123,7 @@ static Napi::Value pyopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18163,9 +18161,9 @@ static Napi::Value pyopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("morphologyEx");
+    jsRaiseCVOverloadException(info, "morphologyEx");
 
     return info.Env().Null();
 }
@@ -18198,7 +18196,7 @@ static Napi::Value pyopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_a = NULL;
@@ -18225,7 +18223,7 @@ static Napi::Value pyopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18254,9 +18252,9 @@ static Napi::Value pyopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("mulSpectrums");
+    jsRaiseCVOverloadException(info, "mulSpectrums");
 
     return info.Env().Null();
 }
@@ -18265,7 +18263,7 @@ static Napi::Value pyopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -18295,7 +18293,7 @@ static Napi::Value pyopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18327,9 +18325,9 @@ static Napi::Value pyopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("mulTransposed");
+    jsRaiseCVOverloadException(info, "mulTransposed");
 
     return info.Env().Null();
 }
@@ -18338,7 +18336,7 @@ static Napi::Value pyopencv_cv_multiply(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -18365,7 +18363,7 @@ static Napi::Value pyopencv_cv_multiply(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18394,9 +18392,9 @@ static Napi::Value pyopencv_cv_multiply(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("multiply");
+    jsRaiseCVOverloadException(info, "multiply");
 
     return info.Env().Null();
 }
@@ -18426,7 +18424,7 @@ static Napi::Value pyopencv_cv_norm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -18448,7 +18446,7 @@ static Napi::Value pyopencv_cv_norm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18472,7 +18470,7 @@ static Napi::Value pyopencv_cv_norm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18499,7 +18497,7 @@ static Napi::Value pyopencv_cv_norm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18526,9 +18524,9 @@ static Napi::Value pyopencv_cv_norm(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("norm");
+    jsRaiseCVOverloadException(info, "norm");
 
     return info.Env().Null();
 }
@@ -18537,7 +18535,7 @@ static Napi::Value pyopencv_cv_normalize(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -18570,7 +18568,7 @@ static Napi::Value pyopencv_cv_normalize(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18605,9 +18603,9 @@ static Napi::Value pyopencv_cv_normalize(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("normalize");
+    jsRaiseCVOverloadException(info, "normalize");
 
     return info.Env().Null();
 }
@@ -18616,7 +18614,7 @@ static Napi::Value pyopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_a = NULL;
@@ -18634,7 +18632,7 @@ static Napi::Value pyopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18654,9 +18652,9 @@ static Napi::Value pyopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("patchNaNs");
+    jsRaiseCVOverloadException(info, "patchNaNs");
 
     return info.Env().Null();
 }
@@ -18665,7 +18663,7 @@ static Napi::Value pyopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -18695,7 +18693,7 @@ static Napi::Value pyopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18727,9 +18725,9 @@ static Napi::Value pyopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pencilSketch");
+    jsRaiseCVOverloadException(info, "pencilSketch");
 
     return info.Env().Null();
 }
@@ -18738,7 +18736,7 @@ static Napi::Value pyopencv_cv_perspectiveTransform(const Napi::CallbackInfo &in
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -18759,7 +18757,7 @@ static Napi::Value pyopencv_cv_perspectiveTransform(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18782,9 +18780,9 @@ static Napi::Value pyopencv_cv_perspectiveTransform(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("perspectiveTransform");
+    jsRaiseCVOverloadException(info, "perspectiveTransform");
 
     return info.Env().Null();
 }
@@ -18793,7 +18791,7 @@ static Napi::Value pyopencv_cv_phase(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_x = NULL;
@@ -18817,7 +18815,7 @@ static Napi::Value pyopencv_cv_phase(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18843,9 +18841,9 @@ static Napi::Value pyopencv_cv_phase(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("phase");
+    jsRaiseCVOverloadException(info, "phase");
 
     return info.Env().Null();
 }
@@ -18854,7 +18852,7 @@ static Napi::Value pyopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -18877,7 +18875,7 @@ static Napi::Value pyopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18902,9 +18900,9 @@ static Napi::Value pyopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("phaseCorrelate");
+    jsRaiseCVOverloadException(info, "phaseCorrelate");
 
     return info.Env().Null();
 }
@@ -18913,7 +18911,7 @@ static Napi::Value pyopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_contour = NULL;
@@ -18935,7 +18933,7 @@ static Napi::Value pyopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18959,9 +18957,9 @@ static Napi::Value pyopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pointPolygonTest");
+    jsRaiseCVOverloadException(info, "pointPolygonTest");
 
     return info.Env().Null();
 }
@@ -18970,7 +18968,7 @@ static Napi::Value pyopencv_cv_polarToCart(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_magnitude = NULL;
@@ -18997,7 +18995,7 @@ static Napi::Value pyopencv_cv_polarToCart(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19026,9 +19024,9 @@ static Napi::Value pyopencv_cv_polarToCart(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("polarToCart");
+    jsRaiseCVOverloadException(info, "polarToCart");
 
     return info.Env().Null();
 }
@@ -19052,7 +19050,7 @@ static Napi::Value pyopencv_cv_polylines(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -19085,7 +19083,7 @@ static Napi::Value pyopencv_cv_polylines(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19120,9 +19118,9 @@ static Napi::Value pyopencv_cv_polylines(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("polylines");
+    jsRaiseCVOverloadException(info, "polylines");
 
     return info.Env().Null();
 }
@@ -19131,7 +19129,7 @@ static Napi::Value pyopencv_cv_pow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -19152,7 +19150,7 @@ static Napi::Value pyopencv_cv_pow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19175,9 +19173,9 @@ static Napi::Value pyopencv_cv_pow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pow");
+    jsRaiseCVOverloadException(info, "pow");
 
     return info.Env().Null();
 }
@@ -19186,7 +19184,7 @@ static Napi::Value pyopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -19210,7 +19208,7 @@ static Napi::Value pyopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19236,9 +19234,9 @@ static Napi::Value pyopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("preCornerDetect");
+    jsRaiseCVOverloadException(info, "preCornerDetect");
 
     return info.Env().Null();
 }
@@ -19247,7 +19245,7 @@ static Napi::Value pyopencv_cv_projectPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -19283,7 +19281,7 @@ static Napi::Value pyopencv_cv_projectPoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19321,9 +19319,9 @@ static Napi::Value pyopencv_cv_projectPoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("projectPoints");
+    jsRaiseCVOverloadException(info, "projectPoints");
 
     return info.Env().Null();
 }
@@ -19332,7 +19330,7 @@ static Napi::Value pyopencv_cv_putText(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -19371,7 +19369,7 @@ static Napi::Value pyopencv_cv_putText(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19412,9 +19410,9 @@ static Napi::Value pyopencv_cv_putText(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("putText");
+    jsRaiseCVOverloadException(info, "putText");
 
     return info.Env().Null();
 }
@@ -19423,7 +19421,7 @@ static Napi::Value pyopencv_cv_pyrDown(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -19447,7 +19445,7 @@ static Napi::Value pyopencv_cv_pyrDown(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19473,9 +19471,9 @@ static Napi::Value pyopencv_cv_pyrDown(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pyrDown");
+    jsRaiseCVOverloadException(info, "pyrDown");
 
     return info.Env().Null();
 }
@@ -19484,7 +19482,7 @@ static Napi::Value pyopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &i
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -19514,7 +19512,7 @@ static Napi::Value pyopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19546,9 +19544,9 @@ static Napi::Value pyopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pyrMeanShiftFiltering");
+    jsRaiseCVOverloadException(info, "pyrMeanShiftFiltering");
 
     return info.Env().Null();
 }
@@ -19557,7 +19555,7 @@ static Napi::Value pyopencv_cv_pyrUp(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -19581,7 +19579,7 @@ static Napi::Value pyopencv_cv_pyrUp(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19607,9 +19605,9 @@ static Napi::Value pyopencv_cv_pyrUp(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pyrUp");
+    jsRaiseCVOverloadException(info, "pyrUp");
 
     return info.Env().Null();
 }
@@ -19618,7 +19616,7 @@ static Napi::Value pyopencv_cv_randShuffle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -19636,7 +19634,7 @@ static Napi::Value pyopencv_cv_randShuffle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19656,9 +19654,9 @@ static Napi::Value pyopencv_cv_randShuffle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("randShuffle");
+    jsRaiseCVOverloadException(info, "randShuffle");
 
     return info.Env().Null();
 }
@@ -19667,7 +19665,7 @@ static Napi::Value pyopencv_cv_randn(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -19688,7 +19686,7 @@ static Napi::Value pyopencv_cv_randn(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19711,9 +19709,9 @@ static Napi::Value pyopencv_cv_randn(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("randn");
+    jsRaiseCVOverloadException(info, "randn");
 
     return info.Env().Null();
 }
@@ -19722,7 +19720,7 @@ static Napi::Value pyopencv_cv_randu(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -19743,7 +19741,7 @@ static Napi::Value pyopencv_cv_randu(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19766,9 +19764,9 @@ static Napi::Value pyopencv_cv_randu(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("randu");
+    jsRaiseCVOverloadException(info, "randu");
 
     return info.Env().Null();
 }
@@ -19796,7 +19794,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(8);
+    jsPrepareArgumentConversionErrorsStorage(info, 8);
 
     {
     Napi::Value* pyobj_points1 = NULL;
@@ -19848,7 +19846,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19902,7 +19900,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19938,7 +19936,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19974,7 +19972,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20013,7 +20011,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20052,7 +20050,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20094,7 +20092,7 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20136,9 +20134,9 @@ static Napi::Value pyopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("recoverPose");
+    jsRaiseCVOverloadException(info, "recoverPose");
 
     return info.Env().Null();
 }
@@ -20147,7 +20145,7 @@ static Napi::Value pyopencv_cv_rectangle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -20180,7 +20178,7 @@ static Napi::Value pyopencv_cv_rectangle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20215,7 +20213,7 @@ static Napi::Value pyopencv_cv_rectangle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20247,7 +20245,7 @@ static Napi::Value pyopencv_cv_rectangle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20279,9 +20277,9 @@ static Napi::Value pyopencv_cv_rectangle(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rectangle");
+    jsRaiseCVOverloadException(info, "rectangle");
 
     return info.Env().Null();
 }
@@ -20312,7 +20310,7 @@ static Napi::Value pyopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix1 = NULL;
@@ -20396,7 +20394,7 @@ static Napi::Value pyopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20482,9 +20480,9 @@ static Napi::Value pyopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rectify3Collinear");
+    jsRaiseCVOverloadException(info, "rectify3Collinear");
 
     return info.Env().Null();
 }
@@ -20493,7 +20491,7 @@ static Napi::Value pyopencv_cv_reduce(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -20520,7 +20518,7 @@ static Napi::Value pyopencv_cv_reduce(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20549,9 +20547,9 @@ static Napi::Value pyopencv_cv_reduce(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("reduce");
+    jsRaiseCVOverloadException(info, "reduce");
 
     return info.Env().Null();
 }
@@ -20560,7 +20558,7 @@ static Napi::Value pyopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -20584,7 +20582,7 @@ static Napi::Value pyopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20610,9 +20608,9 @@ static Napi::Value pyopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("reduceArgMax");
+    jsRaiseCVOverloadException(info, "reduceArgMax");
 
     return info.Env().Null();
 }
@@ -20621,7 +20619,7 @@ static Napi::Value pyopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -20645,7 +20643,7 @@ static Napi::Value pyopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20671,9 +20669,9 @@ static Napi::Value pyopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("reduceArgMin");
+    jsRaiseCVOverloadException(info, "reduceArgMin");
 
     return info.Env().Null();
 }
@@ -20682,7 +20680,7 @@ static Napi::Value pyopencv_cv_remap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -20715,7 +20713,7 @@ static Napi::Value pyopencv_cv_remap(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20750,9 +20748,9 @@ static Napi::Value pyopencv_cv_remap(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("remap");
+    jsRaiseCVOverloadException(info, "remap");
 
     return info.Env().Null();
 }
@@ -20761,7 +20759,7 @@ static Napi::Value pyopencv_cv_repeat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -20785,7 +20783,7 @@ static Napi::Value pyopencv_cv_repeat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20811,9 +20809,9 @@ static Napi::Value pyopencv_cv_repeat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("repeat");
+    jsRaiseCVOverloadException(info, "repeat");
 
     return info.Env().Null();
 }
@@ -20822,7 +20820,7 @@ static Napi::Value pyopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_disparity = NULL;
@@ -20849,7 +20847,7 @@ static Napi::Value pyopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20878,9 +20876,9 @@ static Napi::Value pyopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("reprojectImageTo3D");
+    jsRaiseCVOverloadException(info, "reprojectImageTo3D");
 
     return info.Env().Null();
 }
@@ -20889,7 +20887,7 @@ static Napi::Value pyopencv_cv_resize(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -20919,7 +20917,7 @@ static Napi::Value pyopencv_cv_resize(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20951,9 +20949,9 @@ static Napi::Value pyopencv_cv_resize(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("resize");
+    jsRaiseCVOverloadException(info, "resize");
 
     return info.Env().Null();
 }
@@ -20962,7 +20960,7 @@ static Napi::Value pyopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_winname = NULL;
@@ -20983,7 +20981,7 @@ static Napi::Value pyopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21003,9 +21001,9 @@ static Napi::Value pyopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("resizeWindow");
+    jsRaiseCVOverloadException(info, "resizeWindow");
 
     return info.Env().Null();
 }
@@ -21014,7 +21012,7 @@ static Napi::Value pyopencv_cv_rotate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -21035,7 +21033,7 @@ static Napi::Value pyopencv_cv_rotate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21058,9 +21056,9 @@ static Napi::Value pyopencv_cv_rotate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rotate");
+    jsRaiseCVOverloadException(info, "rotate");
 
     return info.Env().Null();
 }
@@ -21069,7 +21067,7 @@ static Napi::Value pyopencv_cv_rotatedRectangleIntersection(const Napi::Callback
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_rect1 = NULL;
@@ -21091,7 +21089,7 @@ static Napi::Value pyopencv_cv_rotatedRectangleIntersection(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21115,9 +21113,9 @@ static Napi::Value pyopencv_cv_rotatedRectangleIntersection(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rotatedRectangleIntersection");
+    jsRaiseCVOverloadException(info, "rotatedRectangleIntersection");
 
     return info.Env().Null();
 }
@@ -21126,7 +21124,7 @@ static Napi::Value pyopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pt1 = NULL;
@@ -21148,7 +21146,7 @@ static Napi::Value pyopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21172,9 +21170,9 @@ static Napi::Value pyopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sampsonDistance");
+    jsRaiseCVOverloadException(info, "sampsonDistance");
 
     return info.Env().Null();
 }
@@ -21183,7 +21181,7 @@ static Napi::Value pyopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -21207,7 +21205,7 @@ static Napi::Value pyopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21233,9 +21231,9 @@ static Napi::Value pyopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("scaleAdd");
+    jsRaiseCVOverloadException(info, "scaleAdd");
 
     return info.Env().Null();
 }
@@ -21244,7 +21242,7 @@ static Napi::Value pyopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -21274,7 +21272,7 @@ static Napi::Value pyopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21306,9 +21304,9 @@ static Napi::Value pyopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("seamlessClone");
+    jsRaiseCVOverloadException(info, "seamlessClone");
 
     return info.Env().Null();
 }
@@ -21317,7 +21315,7 @@ static Napi::Value pyopencv_cv_selectROI(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_windowName = NULL;
@@ -21342,7 +21340,7 @@ static Napi::Value pyopencv_cv_selectROI(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21369,7 +21367,7 @@ static Napi::Value pyopencv_cv_selectROI(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21393,7 +21391,7 @@ static Napi::Value pyopencv_cv_selectROI(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21417,9 +21415,9 @@ static Napi::Value pyopencv_cv_selectROI(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("selectROI");
+    jsRaiseCVOverloadException(info, "selectROI");
 
     return info.Env().Null();
 }
@@ -21428,7 +21426,7 @@ static Napi::Value pyopencv_cv_selectROIs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_windowName = NULL;
@@ -21453,7 +21451,7 @@ static Napi::Value pyopencv_cv_selectROIs(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21480,9 +21478,9 @@ static Napi::Value pyopencv_cv_selectROIs(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("selectROIs");
+    jsRaiseCVOverloadException(info, "selectROIs");
 
     return info.Env().Null();
 }
@@ -21491,7 +21489,7 @@ static Napi::Value pyopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -21527,7 +21525,7 @@ static Napi::Value pyopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21565,9 +21563,9 @@ static Napi::Value pyopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sepFilter2D");
+    jsRaiseCVOverloadException(info, "sepFilter2D");
 
     return info.Env().Null();
 }
@@ -21576,7 +21574,7 @@ static Napi::Value pyopencv_cv_setIdentity(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_mtx = NULL;
@@ -21594,7 +21592,7 @@ static Napi::Value pyopencv_cv_setIdentity(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21614,9 +21612,9 @@ static Napi::Value pyopencv_cv_setIdentity(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setIdentity");
+    jsRaiseCVOverloadException(info, "setIdentity");
 
     return info.Env().Null();
 }
@@ -21833,7 +21831,7 @@ static Napi::Value pyopencv_cv_solve(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -21858,7 +21856,7 @@ static Napi::Value pyopencv_cv_solve(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21885,9 +21883,9 @@ static Napi::Value pyopencv_cv_solve(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solve");
+    jsRaiseCVOverloadException(info, "solve");
 
     return info.Env().Null();
 }
@@ -21896,7 +21894,7 @@ static Napi::Value pyopencv_cv_solveCubic(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_coeffs = NULL;
@@ -21915,7 +21913,7 @@ static Napi::Value pyopencv_cv_solveCubic(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21936,9 +21934,9 @@ static Napi::Value pyopencv_cv_solveCubic(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solveCubic");
+    jsRaiseCVOverloadException(info, "solveCubic");
 
     return info.Env().Null();
 }
@@ -21947,7 +21945,7 @@ static Napi::Value pyopencv_cv_solveLP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_Func = NULL;
@@ -21969,7 +21967,7 @@ static Napi::Value pyopencv_cv_solveLP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21993,9 +21991,9 @@ static Napi::Value pyopencv_cv_solveLP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solveLP");
+    jsRaiseCVOverloadException(info, "solveLP");
 
     return info.Env().Null();
 }
@@ -22004,7 +22002,7 @@ static Napi::Value pyopencv_cv_solveP3P(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -22038,7 +22036,7 @@ static Napi::Value pyopencv_cv_solveP3P(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22074,9 +22072,9 @@ static Napi::Value pyopencv_cv_solveP3P(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solveP3P");
+    jsRaiseCVOverloadException(info, "solveP3P");
 
     return info.Env().Null();
 }
@@ -22085,7 +22083,7 @@ static Napi::Value pyopencv_cv_solvePnP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -22122,7 +22120,7 @@ static Napi::Value pyopencv_cv_solvePnP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22161,9 +22159,9 @@ static Napi::Value pyopencv_cv_solvePnP(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solvePnP");
+    jsRaiseCVOverloadException(info, "solvePnP");
 
     return info.Env().Null();
 }
@@ -22172,7 +22170,7 @@ static Napi::Value pyopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -22218,7 +22216,7 @@ static Napi::Value pyopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22266,9 +22264,9 @@ static Napi::Value pyopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solvePnPGeneric");
+    jsRaiseCVOverloadException(info, "solvePnPGeneric");
 
     return info.Env().Null();
 }
@@ -22277,7 +22275,7 @@ static Napi::Value pyopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -22326,7 +22324,7 @@ static Napi::Value pyopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22377,7 +22375,7 @@ static Napi::Value pyopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22416,7 +22414,7 @@ static Napi::Value pyopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22455,9 +22453,9 @@ static Napi::Value pyopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solvePnPRansac");
+    jsRaiseCVOverloadException(info, "solvePnPRansac");
 
     return info.Env().Null();
 }
@@ -22466,7 +22464,7 @@ static Napi::Value pyopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -22499,7 +22497,7 @@ static Napi::Value pyopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22534,9 +22532,9 @@ static Napi::Value pyopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solvePnPRefineLM");
+    jsRaiseCVOverloadException(info, "solvePnPRefineLM");
 
     return info.Env().Null();
 }
@@ -22545,7 +22543,7 @@ static Napi::Value pyopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -22581,7 +22579,7 @@ static Napi::Value pyopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22619,9 +22617,9 @@ static Napi::Value pyopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solvePnPRefineVVS");
+    jsRaiseCVOverloadException(info, "solvePnPRefineVVS");
 
     return info.Env().Null();
 }
@@ -22630,7 +22628,7 @@ static Napi::Value pyopencv_cv_solvePoly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_coeffs = NULL;
@@ -22652,7 +22650,7 @@ static Napi::Value pyopencv_cv_solvePoly(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22676,9 +22674,9 @@ static Napi::Value pyopencv_cv_solvePoly(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("solvePoly");
+    jsRaiseCVOverloadException(info, "solvePoly");
 
     return info.Env().Null();
 }
@@ -22687,7 +22685,7 @@ static Napi::Value pyopencv_cv_sort(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -22708,7 +22706,7 @@ static Napi::Value pyopencv_cv_sort(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22731,9 +22729,9 @@ static Napi::Value pyopencv_cv_sort(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sort");
+    jsRaiseCVOverloadException(info, "sort");
 
     return info.Env().Null();
 }
@@ -22742,7 +22740,7 @@ static Napi::Value pyopencv_cv_sortIdx(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -22763,7 +22761,7 @@ static Napi::Value pyopencv_cv_sortIdx(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22786,9 +22784,9 @@ static Napi::Value pyopencv_cv_sortIdx(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sortIdx");
+    jsRaiseCVOverloadException(info, "sortIdx");
 
     return info.Env().Null();
 }
@@ -22797,7 +22795,7 @@ static Napi::Value pyopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -22824,7 +22822,7 @@ static Napi::Value pyopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22853,9 +22851,9 @@ static Napi::Value pyopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("spatialGradient");
+    jsRaiseCVOverloadException(info, "spatialGradient");
 
     return info.Env().Null();
 }
@@ -22864,7 +22862,7 @@ static Napi::Value pyopencv_cv_split(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_m = NULL;
@@ -22882,7 +22880,7 @@ static Napi::Value pyopencv_cv_split(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22902,9 +22900,9 @@ static Napi::Value pyopencv_cv_split(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("split");
+    jsRaiseCVOverloadException(info, "split");
 
     return info.Env().Null();
 }
@@ -22913,7 +22911,7 @@ static Napi::Value pyopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -22946,7 +22944,7 @@ static Napi::Value pyopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22981,9 +22979,9 @@ static Napi::Value pyopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sqrBoxFilter");
+    jsRaiseCVOverloadException(info, "sqrBoxFilter");
 
     return info.Env().Null();
 }
@@ -22992,7 +22990,7 @@ static Napi::Value pyopencv_cv_sqrt(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -23010,7 +23008,7 @@ static Napi::Value pyopencv_cv_sqrt(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23030,9 +23028,9 @@ static Napi::Value pyopencv_cv_sqrt(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sqrt");
+    jsRaiseCVOverloadException(info, "sqrt");
 
     return info.Env().Null();
 }
@@ -23041,7 +23039,7 @@ static Napi::Value pyopencv_cv_stackBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -23062,7 +23060,7 @@ static Napi::Value pyopencv_cv_stackBlur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23085,9 +23083,9 @@ static Napi::Value pyopencv_cv_stackBlur(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stackBlur");
+    jsRaiseCVOverloadException(info, "stackBlur");
 
     return info.Env().Null();
 }
@@ -23111,7 +23109,7 @@ static Napi::Value pyopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -23166,7 +23164,7 @@ static Napi::Value pyopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23223,7 +23221,7 @@ static Napi::Value pyopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23283,7 +23281,7 @@ static Napi::Value pyopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23343,9 +23341,9 @@ static Napi::Value pyopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stereoCalibrate");
+    jsRaiseCVOverloadException(info, "stereoCalibrate");
 
     return info.Env().Null();
 }
@@ -23354,7 +23352,7 @@ static Napi::Value pyopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -23418,7 +23416,7 @@ static Napi::Value pyopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23484,9 +23482,9 @@ static Napi::Value pyopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stereoCalibrateExtended");
+    jsRaiseCVOverloadException(info, "stereoCalibrateExtended");
 
     return info.Env().Null();
 }
@@ -23495,7 +23493,7 @@ static Napi::Value pyopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cameraMatrix1 = NULL;
@@ -23554,7 +23552,7 @@ static Napi::Value pyopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23615,9 +23613,9 @@ static Napi::Value pyopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stereoRectify");
+    jsRaiseCVOverloadException(info, "stereoRectify");
 
     return info.Env().Null();
 }
@@ -23626,7 +23624,7 @@ static Napi::Value pyopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points1 = NULL;
@@ -23660,7 +23658,7 @@ static Napi::Value pyopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23696,9 +23694,9 @@ static Napi::Value pyopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stereoRectifyUncalibrated");
+    jsRaiseCVOverloadException(info, "stereoRectifyUncalibrated");
 
     return info.Env().Null();
 }
@@ -23707,7 +23705,7 @@ static Napi::Value pyopencv_cv_stylization(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -23731,7 +23729,7 @@ static Napi::Value pyopencv_cv_stylization(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23757,9 +23755,9 @@ static Napi::Value pyopencv_cv_stylization(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stylization");
+    jsRaiseCVOverloadException(info, "stylization");
 
     return info.Env().Null();
 }
@@ -23768,7 +23766,7 @@ static Napi::Value pyopencv_cv_subtract(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -23795,7 +23793,7 @@ static Napi::Value pyopencv_cv_subtract(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23824,9 +23822,9 @@ static Napi::Value pyopencv_cv_subtract(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("subtract");
+    jsRaiseCVOverloadException(info, "subtract");
 
     return info.Env().Null();
 }
@@ -23835,7 +23833,7 @@ static Napi::Value pyopencv_cv_sumElems(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -23851,7 +23849,7 @@ static Napi::Value pyopencv_cv_sumElems(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23869,9 +23867,9 @@ static Napi::Value pyopencv_cv_sumElems(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("sumElems");
+    jsRaiseCVOverloadException(info, "sumElems");
 
     return info.Env().Null();
 }
@@ -23880,7 +23878,7 @@ static Napi::Value pyopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -23910,7 +23908,7 @@ static Napi::Value pyopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -23942,9 +23940,9 @@ static Napi::Value pyopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("textureFlattening");
+    jsRaiseCVOverloadException(info, "textureFlattening");
 
     return info.Env().Null();
 }
@@ -23953,7 +23951,7 @@ static Napi::Value pyopencv_cv_threshold(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -23981,7 +23979,7 @@ static Napi::Value pyopencv_cv_threshold(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24011,9 +24009,9 @@ static Napi::Value pyopencv_cv_threshold(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("threshold");
+    jsRaiseCVOverloadException(info, "threshold");
 
     return info.Env().Null();
 }
@@ -24022,7 +24020,7 @@ static Napi::Value pyopencv_cv_trace(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_mtx = NULL;
@@ -24038,7 +24036,7 @@ static Napi::Value pyopencv_cv_trace(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24056,9 +24054,9 @@ static Napi::Value pyopencv_cv_trace(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("trace");
+    jsRaiseCVOverloadException(info, "trace");
 
     return info.Env().Null();
 }
@@ -24067,7 +24065,7 @@ static Napi::Value pyopencv_cv_transform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24088,7 +24086,7 @@ static Napi::Value pyopencv_cv_transform(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24111,9 +24109,9 @@ static Napi::Value pyopencv_cv_transform(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("transform");
+    jsRaiseCVOverloadException(info, "transform");
 
     return info.Env().Null();
 }
@@ -24122,7 +24120,7 @@ static Napi::Value pyopencv_cv_transpose(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24140,7 +24138,7 @@ static Napi::Value pyopencv_cv_transpose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24160,9 +24158,9 @@ static Napi::Value pyopencv_cv_transpose(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("transpose");
+    jsRaiseCVOverloadException(info, "transpose");
 
     return info.Env().Null();
 }
@@ -24171,7 +24169,7 @@ static Napi::Value pyopencv_cv_transposeND(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24192,7 +24190,7 @@ static Napi::Value pyopencv_cv_transposeND(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24215,9 +24213,9 @@ static Napi::Value pyopencv_cv_transposeND(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("transposeND");
+    jsRaiseCVOverloadException(info, "transposeND");
 
     return info.Env().Null();
 }
@@ -24226,7 +24224,7 @@ static Napi::Value pyopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_projMatr1 = NULL;
@@ -24253,7 +24251,7 @@ static Napi::Value pyopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24282,9 +24280,9 @@ static Napi::Value pyopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("triangulatePoints");
+    jsRaiseCVOverloadException(info, "triangulatePoints");
 
     return info.Env().Null();
 }
@@ -24293,7 +24291,7 @@ static Napi::Value pyopencv_cv_undistort(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24320,7 +24318,7 @@ static Napi::Value pyopencv_cv_undistort(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24349,9 +24347,9 @@ static Napi::Value pyopencv_cv_undistort(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("undistort");
+    jsRaiseCVOverloadException(info, "undistort");
 
     return info.Env().Null();
 }
@@ -24360,7 +24358,7 @@ static Napi::Value pyopencv_cv_undistortImagePoints(const Napi::CallbackInfo &in
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24387,7 +24385,7 @@ static Napi::Value pyopencv_cv_undistortImagePoints(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24416,9 +24414,9 @@ static Napi::Value pyopencv_cv_undistortImagePoints(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("undistortImagePoints");
+    jsRaiseCVOverloadException(info, "undistortImagePoints");
 
     return info.Env().Null();
 }
@@ -24427,7 +24425,7 @@ static Napi::Value pyopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24457,7 +24455,7 @@ static Napi::Value pyopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24489,9 +24487,9 @@ static Napi::Value pyopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("undistortPoints");
+    jsRaiseCVOverloadException(info, "undistortPoints");
 
     return info.Env().Null();
 }
@@ -24500,7 +24498,7 @@ static Napi::Value pyopencv_cv_undistortPointsIter(const Napi::CallbackInfo &inf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24533,7 +24531,7 @@ static Napi::Value pyopencv_cv_undistortPointsIter(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24568,9 +24566,9 @@ static Napi::Value pyopencv_cv_undistortPointsIter(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("undistortPointsIter");
+    jsRaiseCVOverloadException(info, "undistortPointsIter");
 
     return info.Env().Null();
 }
@@ -24609,7 +24607,7 @@ static Napi::Value pyopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_disparity = NULL;
@@ -24636,7 +24634,7 @@ static Napi::Value pyopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24665,9 +24663,9 @@ static Napi::Value pyopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("validateDisparity");
+    jsRaiseCVOverloadException(info, "validateDisparity");
 
     return info.Env().Null();
 }
@@ -24676,7 +24674,7 @@ static Napi::Value pyopencv_cv_vconcat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24694,7 +24692,7 @@ static Napi::Value pyopencv_cv_vconcat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24714,9 +24712,9 @@ static Napi::Value pyopencv_cv_vconcat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("vconcat");
+    jsRaiseCVOverloadException(info, "vconcat");
 
     return info.Env().Null();
 }
@@ -24763,7 +24761,7 @@ static Napi::Value pyopencv_cv_warpAffine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24796,7 +24794,7 @@ static Napi::Value pyopencv_cv_warpAffine(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24831,9 +24829,9 @@ static Napi::Value pyopencv_cv_warpAffine(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("warpAffine");
+    jsRaiseCVOverloadException(info, "warpAffine");
 
     return info.Env().Null();
 }
@@ -24842,7 +24840,7 @@ static Napi::Value pyopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24875,7 +24873,7 @@ static Napi::Value pyopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24910,9 +24908,9 @@ static Napi::Value pyopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("warpPerspective");
+    jsRaiseCVOverloadException(info, "warpPerspective");
 
     return info.Env().Null();
 }
@@ -24921,7 +24919,7 @@ static Napi::Value pyopencv_cv_warpPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -24951,7 +24949,7 @@ static Napi::Value pyopencv_cv_warpPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24983,9 +24981,9 @@ static Napi::Value pyopencv_cv_warpPolar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("warpPolar");
+    jsRaiseCVOverloadException(info, "warpPolar");
 
     return info.Env().Null();
 }
@@ -24994,7 +24992,7 @@ static Napi::Value pyopencv_cv_watershed(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -25012,7 +25010,7 @@ static Napi::Value pyopencv_cv_watershed(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25032,9 +25030,9 @@ static Napi::Value pyopencv_cv_watershed(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("watershed");
+    jsRaiseCVOverloadException(info, "watershed");
 
     return info.Env().Null();
 }
@@ -25043,7 +25041,7 @@ static Napi::Value pyopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_path = NULL;
@@ -25062,7 +25060,7 @@ static Napi::Value pyopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25083,9 +25081,9 @@ static Napi::Value pyopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("writeOpticalFlow");
+    jsRaiseCVOverloadException(info, "writeOpticalFlow");
 
     return info.Env().Null();
 }
@@ -25135,7 +25133,7 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::Call
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -25159,7 +25157,7 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25185,9 +25183,9 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawDetectedCornersCharuco");
+    jsRaiseCVOverloadException(info, "drawDetectedCornersCharuco");
 
     return info.Env().Null();
 }
@@ -25196,7 +25194,7 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackIn
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -25220,7 +25218,7 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25246,9 +25244,9 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawDetectedDiamonds");
+    jsRaiseCVOverloadException(info, "drawDetectedDiamonds");
 
     return info.Env().Null();
 }
@@ -25257,7 +25255,7 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInf
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -25281,7 +25279,7 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25307,9 +25305,9 @@ static Napi::Value pyopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawDetectedMarkers");
+    jsRaiseCVOverloadException(info, "drawDetectedMarkers");
 
     return info.Env().Null();
 }
@@ -25346,7 +25344,7 @@ static Napi::Value pyopencv_cv_aruco_generateImageMarker(const Napi::CallbackInf
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dictionary = NULL;
@@ -25373,7 +25371,7 @@ static Napi::Value pyopencv_cv_aruco_generateImageMarker(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25402,9 +25400,9 @@ static Napi::Value pyopencv_cv_aruco_generateImageMarker(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("generateImageMarker");
+    jsRaiseCVOverloadException(info, "generateImageMarker");
 
     return info.Env().Null();
 }
@@ -25690,7 +25688,7 @@ static Napi::Value pyopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
 {
     using namespace cv::cuda;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_rows = NULL;
@@ -25714,7 +25712,7 @@ static Napi::Value pyopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25740,7 +25738,7 @@ static Napi::Value pyopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25766,9 +25764,9 @@ static Napi::Value pyopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createContinuous");
+    jsRaiseCVOverloadException(info, "createContinuous");
 
     return info.Env().Null();
 }
@@ -25777,7 +25775,7 @@ static Napi::Value pyopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
 {
     using namespace cv::cuda;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_rows = NULL;
@@ -25801,7 +25799,7 @@ static Napi::Value pyopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25827,7 +25825,7 @@ static Napi::Value pyopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25853,9 +25851,9 @@ static Napi::Value pyopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("ensureSizeIsEnough");
+    jsRaiseCVOverloadException(info, "ensureSizeIsEnough");
 
     return info.Env().Null();
 }
@@ -26145,7 +26143,7 @@ static Napi::Value pyopencv_cv_detail_strip(const Napi::CallbackInfo &info)
 {
     using namespace cv::detail;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_params = NULL;
@@ -26161,7 +26159,7 @@ static Napi::Value pyopencv_cv_detail_strip(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26179,9 +26177,9 @@ static Napi::Value pyopencv_cv_detail_strip(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("strip");
+    jsRaiseCVOverloadException(info, "strip");
 
     return info.Env().Null();
 }
@@ -26295,7 +26293,7 @@ static Napi::Value pyopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::Callba
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_xml = NULL;
@@ -26314,7 +26312,7 @@ static Napi::Value pyopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26335,9 +26333,9 @@ static Napi::Value pyopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Net_readFromModelOptimizer");
+    jsRaiseCVOverloadException(info, "Net_readFromModelOptimizer");
 
     return info.Env().Null();
 }
@@ -26346,7 +26344,7 @@ static Napi::Value pyopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -26380,7 +26378,7 @@ static Napi::Value pyopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26416,9 +26414,9 @@ static Napi::Value pyopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("blobFromImage");
+    jsRaiseCVOverloadException(info, "blobFromImage");
 
     return info.Env().Null();
 }
@@ -26427,7 +26425,7 @@ static Napi::Value pyopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_images = NULL;
@@ -26461,7 +26459,7 @@ static Napi::Value pyopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26497,9 +26495,9 @@ static Napi::Value pyopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("blobFromImages");
+    jsRaiseCVOverloadException(info, "blobFromImages");
 
     return info.Env().Null();
 }
@@ -26527,7 +26525,7 @@ static Napi::Value pyopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_blob_ = NULL;
@@ -26545,7 +26543,7 @@ static Napi::Value pyopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26565,9 +26563,9 @@ static Napi::Value pyopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("imagesFromBlob");
+    jsRaiseCVOverloadException(info, "imagesFromBlob");
 
     return info.Env().Null();
 }
@@ -26576,7 +26574,7 @@ static Napi::Value pyopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -26598,7 +26596,7 @@ static Napi::Value pyopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26622,9 +26620,9 @@ static Napi::Value pyopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readNet");
+    jsRaiseCVOverloadException(info, "readNet");
 
     return info.Env().Null();
 }
@@ -26633,7 +26631,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &in
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_prototxt = NULL;
@@ -26652,7 +26650,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26673,9 +26671,9 @@ static Napi::Value pyopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readNetFromCaffe");
+    jsRaiseCVOverloadException(info, "readNetFromCaffe");
 
     return info.Env().Null();
 }
@@ -26684,7 +26682,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cfgFile = NULL;
@@ -26703,7 +26701,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26724,9 +26722,9 @@ static Napi::Value pyopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readNetFromDarknet");
+    jsRaiseCVOverloadException(info, "readNetFromDarknet");
 
     return info.Env().Null();
 }
@@ -26735,7 +26733,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromModelOptimizer(const Napi::Callbac
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_xml = NULL;
@@ -26754,7 +26752,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromModelOptimizer(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26775,9 +26773,9 @@ static Napi::Value pyopencv_cv_dnn_readNetFromModelOptimizer(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readNetFromModelOptimizer");
+    jsRaiseCVOverloadException(info, "readNetFromModelOptimizer");
 
     return info.Env().Null();
 }
@@ -26786,7 +26784,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &inf
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_onnxFile = NULL;
@@ -26802,7 +26800,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26820,9 +26818,9 @@ static Napi::Value pyopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readNetFromONNX");
+    jsRaiseCVOverloadException(info, "readNetFromONNX");
 
     return info.Env().Null();
 }
@@ -26831,7 +26829,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInf
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -26850,7 +26848,7 @@ static Napi::Value pyopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26871,9 +26869,9 @@ static Napi::Value pyopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readNetFromTensorflow");
+    jsRaiseCVOverloadException(info, "readNetFromTensorflow");
 
     return info.Env().Null();
 }
@@ -27248,7 +27246,7 @@ static Napi::Value pyopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info
 {
     using namespace cv::face;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -27269,7 +27267,7 @@ static Napi::Value pyopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27292,9 +27290,9 @@ static Napi::Value pyopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawFacemarks");
+    jsRaiseCVOverloadException(info, "drawFacemarks");
 
     return info.Env().Null();
 }
@@ -27303,7 +27301,7 @@ static Napi::Value pyopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -27325,7 +27323,7 @@ static Napi::Value pyopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27349,9 +27347,9 @@ static Napi::Value pyopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getFacesHAAR");
+    jsRaiseCVOverloadException(info, "getFacesHAAR");
 
     return info.Env().Null();
 }
@@ -27388,7 +27386,7 @@ static Napi::Value pyopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &inf
 {
     using namespace cv::face;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -27410,7 +27408,7 @@ static Napi::Value pyopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27434,9 +27432,9 @@ static Napi::Value pyopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("loadFacePoints");
+    jsRaiseCVOverloadException(info, "loadFacePoints");
 
     return info.Env().Null();
 }
@@ -27445,7 +27443,7 @@ static Napi::Value pyopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
 {
     using namespace cv::face;
 
-    pyPrepareArgumentConversionErrorsStorage(5);
+    jsPrepareArgumentConversionErrorsStorage(info, 5);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -27473,7 +27471,7 @@ static Napi::Value pyopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27503,7 +27501,7 @@ static Napi::Value pyopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27533,7 +27531,7 @@ static Napi::Value pyopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27563,7 +27561,7 @@ static Napi::Value pyopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27587,9 +27585,9 @@ static Napi::Value pyopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("loadTrainingData");
+    jsRaiseCVOverloadException(info, "loadTrainingData");
 
     return info.Env().Null();
 }
@@ -27598,7 +27596,7 @@ static Napi::Value pyopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -27638,7 +27636,7 @@ static Napi::Value pyopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27680,9 +27678,9 @@ static Napi::Value pyopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calibrate");
+    jsRaiseCVOverloadException(info, "calibrate");
 
     return info.Env().Null();
 }
@@ -27691,7 +27689,7 @@ static Napi::Value pyopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &i
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_undistorted = NULL;
@@ -27718,7 +27716,7 @@ static Napi::Value pyopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27747,9 +27745,9 @@ static Napi::Value pyopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("distortPoints");
+    jsRaiseCVOverloadException(info, "distortPoints");
 
     return info.Env().Null();
 }
@@ -27758,7 +27756,7 @@ static Napi::Value pyopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectif
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_K = NULL;
@@ -27794,7 +27792,7 @@ static Napi::Value pyopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectif
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27832,9 +27830,9 @@ static Napi::Value pyopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectif
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateNewCameraMatrixForUndistortRectify");
+    jsRaiseCVOverloadException(info, "estimateNewCameraMatrixForUndistortRectify");
 
     return info.Env().Null();
 }
@@ -27843,7 +27841,7 @@ static Napi::Value pyopencv_cv_fisheye_initUndistortRectifyMap(const Napi::Callb
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_K = NULL;
@@ -27879,7 +27877,7 @@ static Napi::Value pyopencv_cv_fisheye_initUndistortRectifyMap(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27917,9 +27915,9 @@ static Napi::Value pyopencv_cv_fisheye_initUndistortRectifyMap(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("initUndistortRectifyMap");
+    jsRaiseCVOverloadException(info, "initUndistortRectifyMap");
 
     return info.Env().Null();
 }
@@ -27928,7 +27926,7 @@ static Napi::Value pyopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &i
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -27964,7 +27962,7 @@ static Napi::Value pyopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28002,9 +28000,9 @@ static Napi::Value pyopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("projectPoints");
+    jsRaiseCVOverloadException(info, "projectPoints");
 
     return info.Env().Null();
 }
@@ -28013,7 +28011,7 @@ static Napi::Value pyopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_objectPoints = NULL;
@@ -28068,7 +28066,7 @@ static Napi::Value pyopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28125,7 +28123,7 @@ static Napi::Value pyopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28176,7 +28174,7 @@ static Napi::Value pyopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28227,9 +28225,9 @@ static Napi::Value pyopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stereoCalibrate");
+    jsRaiseCVOverloadException(info, "stereoCalibrate");
 
     return info.Env().Null();
 }
@@ -28238,7 +28236,7 @@ static Napi::Value pyopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &i
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_K1 = NULL;
@@ -28298,7 +28296,7 @@ static Napi::Value pyopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28360,9 +28358,9 @@ static Napi::Value pyopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("stereoRectify");
+    jsRaiseCVOverloadException(info, "stereoRectify");
 
     return info.Env().Null();
 }
@@ -28371,7 +28369,7 @@ static Napi::Value pyopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_distorted = NULL;
@@ -28401,7 +28399,7 @@ static Napi::Value pyopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28433,9 +28431,9 @@ static Napi::Value pyopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("undistortImage");
+    jsRaiseCVOverloadException(info, "undistortImage");
 
     return info.Env().Null();
 }
@@ -28444,7 +28442,7 @@ static Napi::Value pyopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
 {
     using namespace cv::fisheye;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_distorted = NULL;
@@ -28477,7 +28475,7 @@ static Napi::Value pyopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28512,9 +28510,9 @@ static Napi::Value pyopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("undistortPoints");
+    jsRaiseCVOverloadException(info, "undistortPoints");
 
     return info.Env().Null();
 }
@@ -28847,7 +28845,7 @@ static Napi::Value pyopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -28863,7 +28861,7 @@ static Napi::Value pyopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28890,9 +28888,9 @@ static Napi::Value pyopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("RGB2Gray");
+    jsRaiseCVOverloadException(info, "RGB2Gray");
 
     return info.Env().Null();
 }
@@ -29186,7 +29184,7 @@ static Napi::Value pyopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29208,7 +29206,7 @@ static Napi::Value pyopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29232,9 +29230,9 @@ static Napi::Value pyopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("addC");
+    jsRaiseCVOverloadException(info, "addC");
 
     return info.Env().Null();
 }
@@ -29308,7 +29306,7 @@ static Napi::Value pyopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29327,7 +29325,7 @@ static Napi::Value pyopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29348,9 +29346,9 @@ static Napi::Value pyopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_and");
+    jsRaiseCVOverloadException(info, "bitwise_and");
 
     return info.Env().Null();
 }
@@ -29378,7 +29376,7 @@ static Napi::Value pyopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29397,7 +29395,7 @@ static Napi::Value pyopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29418,9 +29416,9 @@ static Napi::Value pyopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_or");
+    jsRaiseCVOverloadException(info, "bitwise_or");
 
     return info.Env().Null();
 }
@@ -29429,7 +29427,7 @@ static Napi::Value pyopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29448,7 +29446,7 @@ static Napi::Value pyopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29469,9 +29467,9 @@ static Napi::Value pyopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bitwise_xor");
+    jsRaiseCVOverloadException(info, "bitwise_xor");
 
     return info.Env().Null();
 }
@@ -29511,7 +29509,7 @@ static Napi::Value pyopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -29527,7 +29525,7 @@ static Napi::Value pyopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29545,7 +29543,7 @@ static Napi::Value pyopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29563,9 +29561,9 @@ static Napi::Value pyopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("boundingRect");
+    jsRaiseCVOverloadException(info, "boundingRect");
 
     return info.Env().Null();
 }
@@ -29636,7 +29634,7 @@ static Napi::Value pyopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29655,7 +29653,7 @@ static Napi::Value pyopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29676,9 +29674,9 @@ static Napi::Value pyopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cmpEQ");
+    jsRaiseCVOverloadException(info, "cmpEQ");
 
     return info.Env().Null();
 }
@@ -29687,7 +29685,7 @@ static Napi::Value pyopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29706,7 +29704,7 @@ static Napi::Value pyopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29727,9 +29725,9 @@ static Napi::Value pyopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cmpGE");
+    jsRaiseCVOverloadException(info, "cmpGE");
 
     return info.Env().Null();
 }
@@ -29738,7 +29736,7 @@ static Napi::Value pyopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29757,7 +29755,7 @@ static Napi::Value pyopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29778,9 +29776,9 @@ static Napi::Value pyopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cmpGT");
+    jsRaiseCVOverloadException(info, "cmpGT");
 
     return info.Env().Null();
 }
@@ -29789,7 +29787,7 @@ static Napi::Value pyopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29808,7 +29806,7 @@ static Napi::Value pyopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29829,9 +29827,9 @@ static Napi::Value pyopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cmpLE");
+    jsRaiseCVOverloadException(info, "cmpLE");
 
     return info.Env().Null();
 }
@@ -29840,7 +29838,7 @@ static Napi::Value pyopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29859,7 +29857,7 @@ static Napi::Value pyopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29880,9 +29878,9 @@ static Napi::Value pyopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cmpLT");
+    jsRaiseCVOverloadException(info, "cmpLT");
 
     return info.Env().Null();
 }
@@ -29891,7 +29889,7 @@ static Napi::Value pyopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29910,7 +29908,7 @@ static Napi::Value pyopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29931,9 +29929,9 @@ static Napi::Value pyopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cmpNE");
+    jsRaiseCVOverloadException(info, "cmpNE");
 
     return info.Env().Null();
 }
@@ -29942,7 +29940,7 @@ static Napi::Value pyopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -29961,7 +29959,7 @@ static Napi::Value pyopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29979,9 +29977,9 @@ static Napi::Value pyopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("concatHor");
+    jsRaiseCVOverloadException(info, "concatHor");
 
     return info.Env().Null();
 }
@@ -29990,7 +29988,7 @@ static Napi::Value pyopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -30009,7 +30007,7 @@ static Napi::Value pyopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30027,9 +30025,9 @@ static Napi::Value pyopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("concatVert");
+    jsRaiseCVOverloadException(info, "concatVert");
 
     return info.Env().Null();
 }
@@ -30511,7 +30509,7 @@ static Napi::Value pyopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_name = NULL;
@@ -30530,7 +30528,7 @@ static Napi::Value pyopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30554,7 +30552,7 @@ static Napi::Value pyopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30578,9 +30576,9 @@ static Napi::Value pyopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("infer");
+    jsRaiseCVOverloadException(info, "infer");
 
     return info.Env().Null();
 }
@@ -30639,7 +30637,7 @@ static Napi::Value pyopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -30670,7 +30668,7 @@ static Napi::Value pyopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30700,7 +30698,7 @@ static Napi::Value pyopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30733,7 +30731,7 @@ static Napi::Value pyopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30766,9 +30764,9 @@ static Napi::Value pyopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("kmeans");
+    jsRaiseCVOverloadException(info, "kmeans");
 
     return info.Env().Null();
 }
@@ -31002,7 +31000,7 @@ static Napi::Value pyopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -31024,7 +31022,7 @@ static Napi::Value pyopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31048,7 +31046,7 @@ static Napi::Value pyopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31072,9 +31070,9 @@ static Napi::Value pyopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("mulC");
+    jsRaiseCVOverloadException(info, "mulC");
 
     return info.Env().Null();
 }
@@ -31171,7 +31169,7 @@ static Napi::Value pyopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_in = NULL;
@@ -31196,7 +31194,7 @@ static Napi::Value pyopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31226,9 +31224,9 @@ static Napi::Value pyopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("parseSSD");
+    jsRaiseCVOverloadException(info, "parseSSD");
 
     return info.Env().Null();
 }
@@ -31599,7 +31597,7 @@ static Napi::Value pyopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -31624,7 +31622,7 @@ static Napi::Value pyopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31648,9 +31646,9 @@ static Napi::Value pyopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("threshold");
+    jsRaiseCVOverloadException(info, "threshold");
 
     return info.Env().Null();
 }
@@ -31791,7 +31789,7 @@ static Napi::Value pyopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::ie;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_tag = NULL;
@@ -31816,7 +31814,7 @@ static Napi::Value pyopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31840,9 +31838,9 @@ static Napi::Value pyopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("params");
+    jsRaiseCVOverloadException(info, "params");
 
     return info.Env().Null();
 }
@@ -31945,7 +31943,7 @@ static Napi::Value pyopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
 {
     using namespace cv::gapi::streaming;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -31961,7 +31959,7 @@ static Napi::Value pyopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31979,7 +31977,7 @@ static Napi::Value pyopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31997,9 +31995,9 @@ static Napi::Value pyopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("size");
+    jsRaiseCVOverloadException(info, "size");
 
     return info.Env().Null();
 }
@@ -32052,7 +32050,7 @@ static Napi::Value pyopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInf
 {
     using namespace cv::gapi::wip;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_path = NULL;
@@ -32068,7 +32066,7 @@ static Napi::Value pyopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32086,9 +32084,9 @@ static Napi::Value pyopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("make_capture_src");
+    jsRaiseCVOverloadException(info, "make_capture_src");
 
     return info.Env().Null();
 }
@@ -32119,7 +32117,7 @@ static Napi::Value pyopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_bgr = NULL;
@@ -32140,7 +32138,7 @@ static Napi::Value pyopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32166,9 +32164,9 @@ static Napi::Value pyopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("render");
+    jsRaiseCVOverloadException(info, "render");
 
     return info.Env().Null();
 }
@@ -32332,7 +32330,7 @@ static Napi::Value pyopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &in
 {
     using namespace cv::img_hash;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -32350,7 +32348,7 @@ static Napi::Value pyopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32370,9 +32368,9 @@ static Napi::Value pyopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("averageHash");
+    jsRaiseCVOverloadException(info, "averageHash");
 
     return info.Env().Null();
 }
@@ -32381,7 +32379,7 @@ static Napi::Value pyopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &
 {
     using namespace cv::img_hash;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -32402,7 +32400,7 @@ static Napi::Value pyopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32425,9 +32423,9 @@ static Napi::Value pyopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("blockMeanHash");
+    jsRaiseCVOverloadException(info, "blockMeanHash");
 
     return info.Env().Null();
 }
@@ -32436,7 +32434,7 @@ static Napi::Value pyopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo
 {
     using namespace cv::img_hash;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -32454,7 +32452,7 @@ static Napi::Value pyopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32474,9 +32472,9 @@ static Napi::Value pyopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("colorMomentHash");
+    jsRaiseCVOverloadException(info, "colorMomentHash");
 
     return info.Env().Null();
 }
@@ -32485,7 +32483,7 @@ static Napi::Value pyopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInf
 {
     using namespace cv::img_hash;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -32509,7 +32507,7 @@ static Napi::Value pyopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32535,9 +32533,9 @@ static Napi::Value pyopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("marrHildrethHash");
+    jsRaiseCVOverloadException(info, "marrHildrethHash");
 
     return info.Env().Null();
 }
@@ -32546,7 +32544,7 @@ static Napi::Value pyopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -32564,7 +32562,7 @@ static Napi::Value pyopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32584,9 +32582,9 @@ static Napi::Value pyopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("pHash");
+    jsRaiseCVOverloadException(info, "pHash");
 
     return info.Env().Null();
 }
@@ -32595,7 +32593,7 @@ static Napi::Value pyopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackI
 {
     using namespace cv::img_hash;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -32619,7 +32617,7 @@ static Napi::Value pyopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32645,9 +32643,9 @@ static Napi::Value pyopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("radialVarianceHash");
+    jsRaiseCVOverloadException(info, "radialVarianceHash");
 
     return info.Env().Null();
 }
@@ -32656,7 +32654,7 @@ static Napi::Value pyopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInf
 {
     using namespace cv::intensity_transform;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_input = NULL;
@@ -32683,7 +32681,7 @@ static Napi::Value pyopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32712,9 +32710,9 @@ static Napi::Value pyopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("BIMEF");
+    jsRaiseCVOverloadException(info, "BIMEF");
 
     return info.Env().Null();
 }
@@ -32723,7 +32721,7 @@ static Napi::Value pyopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackIn
 {
     using namespace cv::intensity_transform;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_input = NULL;
@@ -32753,7 +32751,7 @@ static Napi::Value pyopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32785,9 +32783,9 @@ static Napi::Value pyopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("BIMEF2");
+    jsRaiseCVOverloadException(info, "BIMEF2");
 
     return info.Env().Null();
 }
@@ -33590,7 +33588,7 @@ static Napi::Value pyopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &inf
 {
     using namespace cv::ml;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -33624,7 +33622,7 @@ static Napi::Value pyopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33660,9 +33658,9 @@ static Napi::Value pyopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("TrainData_create");
+    jsRaiseCVOverloadException(info, "TrainData_create");
 
     return info.Env().Null();
 }
@@ -33847,7 +33845,7 @@ static Napi::Value pyopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
 {
     using namespace cv::plot;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -33863,7 +33861,7 @@ static Napi::Value pyopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33881,7 +33879,7 @@ static Napi::Value pyopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33902,7 +33900,7 @@ static Napi::Value pyopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33923,9 +33921,9 @@ static Napi::Value pyopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Plot2d_create");
+    jsRaiseCVOverloadException(info, "Plot2d_create");
 
     return info.Env().Null();
 }
@@ -33934,7 +33932,7 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_compute(const Napi::Callba
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -33956,7 +33954,7 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_compute(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33980,9 +33978,9 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_compute(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityBRISQUE_compute");
+    jsRaiseCVOverloadException(info, "QualityBRISQUE_compute");
 
     return info.Env().Null();
 }
@@ -33991,7 +33989,7 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -34009,7 +34007,7 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34029,9 +34027,9 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityBRISQUE_computeFeatures");
+    jsRaiseCVOverloadException(info, "QualityBRISQUE_computeFeatures");
 
     return info.Env().Null();
 }
@@ -34040,7 +34038,7 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_create(const Napi::Callbac
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model_file_path = NULL;
@@ -34059,7 +34057,7 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_create(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34080,9 +34078,9 @@ static Napi::Value pyopencv_cv_quality_QualityBRISQUE_create(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityBRISQUE_create");
+    jsRaiseCVOverloadException(info, "QualityBRISQUE_create");
 
     return info.Env().Null();
 }
@@ -34091,7 +34089,7 @@ static Napi::Value pyopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackI
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34113,7 +34111,7 @@ static Napi::Value pyopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34137,9 +34135,9 @@ static Napi::Value pyopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityGMSD_compute");
+    jsRaiseCVOverloadException(info, "QualityGMSD_compute");
 
     return info.Env().Null();
 }
@@ -34148,7 +34146,7 @@ static Napi::Value pyopencv_cv_quality_QualityGMSD_create(const Napi::CallbackIn
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34164,7 +34162,7 @@ static Napi::Value pyopencv_cv_quality_QualityGMSD_create(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34182,9 +34180,9 @@ static Napi::Value pyopencv_cv_quality_QualityGMSD_create(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityGMSD_create");
+    jsRaiseCVOverloadException(info, "QualityGMSD_create");
 
     return info.Env().Null();
 }
@@ -34193,7 +34191,7 @@ static Napi::Value pyopencv_cv_quality_QualityMSE_compute(const Napi::CallbackIn
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34215,7 +34213,7 @@ static Napi::Value pyopencv_cv_quality_QualityMSE_compute(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34239,9 +34237,9 @@ static Napi::Value pyopencv_cv_quality_QualityMSE_compute(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityMSE_compute");
+    jsRaiseCVOverloadException(info, "QualityMSE_compute");
 
     return info.Env().Null();
 }
@@ -34250,7 +34248,7 @@ static Napi::Value pyopencv_cv_quality_QualityMSE_create(const Napi::CallbackInf
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34266,7 +34264,7 @@ static Napi::Value pyopencv_cv_quality_QualityMSE_create(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34284,9 +34282,9 @@ static Napi::Value pyopencv_cv_quality_QualityMSE_create(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityMSE_create");
+    jsRaiseCVOverloadException(info, "QualityMSE_create");
 
     return info.Env().Null();
 }
@@ -34295,7 +34293,7 @@ static Napi::Value pyopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackI
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34320,7 +34318,7 @@ static Napi::Value pyopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34347,9 +34345,9 @@ static Napi::Value pyopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityPSNR_compute");
+    jsRaiseCVOverloadException(info, "QualityPSNR_compute");
 
     return info.Env().Null();
 }
@@ -34358,7 +34356,7 @@ static Napi::Value pyopencv_cv_quality_QualityPSNR_create(const Napi::CallbackIn
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34377,7 +34375,7 @@ static Napi::Value pyopencv_cv_quality_QualityPSNR_create(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34398,9 +34396,9 @@ static Napi::Value pyopencv_cv_quality_QualityPSNR_create(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualityPSNR_create");
+    jsRaiseCVOverloadException(info, "QualityPSNR_create");
 
     return info.Env().Null();
 }
@@ -34409,7 +34407,7 @@ static Napi::Value pyopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackI
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34431,7 +34429,7 @@ static Napi::Value pyopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34455,9 +34453,9 @@ static Napi::Value pyopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualitySSIM_compute");
+    jsRaiseCVOverloadException(info, "QualitySSIM_compute");
 
     return info.Env().Null();
 }
@@ -34466,7 +34464,7 @@ static Napi::Value pyopencv_cv_quality_QualitySSIM_create(const Napi::CallbackIn
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -34482,7 +34480,7 @@ static Napi::Value pyopencv_cv_quality_QualitySSIM_create(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34500,9 +34498,9 @@ static Napi::Value pyopencv_cv_quality_QualitySSIM_create(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("QualitySSIM_create");
+    jsRaiseCVOverloadException(info, "QualitySSIM_create");
 
     return info.Env().Null();
 }
@@ -34511,7 +34509,7 @@ static Napi::Value pyopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo 
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pts3d = NULL;
@@ -34536,7 +34534,7 @@ static Napi::Value pyopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34563,9 +34561,9 @@ static Napi::Value pyopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GOSTracker_create");
+    jsRaiseCVOverloadException(info, "GOSTracker_create");
 
     return info.Env().Null();
 }
@@ -34574,7 +34572,7 @@ static Napi::Value pyopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo 
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pts3d = NULL;
@@ -34599,7 +34597,7 @@ static Napi::Value pyopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34626,9 +34624,9 @@ static Napi::Value pyopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("OLSTracker_create");
+    jsRaiseCVOverloadException(info, "OLSTracker_create");
 
     return info.Env().Null();
 }
@@ -34637,7 +34635,7 @@ static Napi::Value pyopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pts3d = NULL;
@@ -34656,7 +34654,7 @@ static Napi::Value pyopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34677,9 +34675,9 @@ static Napi::Value pyopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Rapid_create");
+    jsRaiseCVOverloadException(info, "Rapid_create");
 
     return info.Env().Null();
 }
@@ -34688,7 +34686,7 @@ static Napi::Value pyopencv_cv_rapid_convertCorrespondencies(const Napi::Callbac
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cols = NULL;
@@ -34715,7 +34713,7 @@ static Napi::Value pyopencv_cv_rapid_convertCorrespondencies(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34744,9 +34742,9 @@ static Napi::Value pyopencv_cv_rapid_convertCorrespondencies(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertCorrespondencies");
+    jsRaiseCVOverloadException(info, "convertCorrespondencies");
 
     return info.Env().Null();
 }
@@ -34755,7 +34753,7 @@ static Napi::Value pyopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackIn
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_bundle = NULL;
@@ -34776,7 +34774,7 @@ static Napi::Value pyopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34799,9 +34797,9 @@ static Napi::Value pyopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawCorrespondencies");
+    jsRaiseCVOverloadException(info, "drawCorrespondencies");
 
     return info.Env().Null();
 }
@@ -34810,7 +34808,7 @@ static Napi::Value pyopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &i
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -34831,7 +34829,7 @@ static Napi::Value pyopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34854,9 +34852,9 @@ static Napi::Value pyopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawSearchLines");
+    jsRaiseCVOverloadException(info, "drawSearchLines");
 
     return info.Env().Null();
 }
@@ -34865,7 +34863,7 @@ static Napi::Value pyopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &inf
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -34895,7 +34893,7 @@ static Napi::Value pyopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34927,9 +34925,9 @@ static Napi::Value pyopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawWireframe");
+    jsRaiseCVOverloadException(info, "drawWireframe");
 
     return info.Env().Null();
 }
@@ -34938,7 +34936,7 @@ static Napi::Value pyopencv_cv_rapid_extractControlPoints(const Napi::CallbackIn
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_num = NULL;
@@ -34980,7 +34978,7 @@ static Napi::Value pyopencv_cv_rapid_extractControlPoints(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35024,9 +35022,9 @@ static Napi::Value pyopencv_cv_rapid_extractControlPoints(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("extractControlPoints");
+    jsRaiseCVOverloadException(info, "extractControlPoints");
 
     return info.Env().Null();
 }
@@ -35035,7 +35033,7 @@ static Napi::Value pyopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo 
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_len = NULL;
@@ -35062,7 +35060,7 @@ static Napi::Value pyopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35091,9 +35089,9 @@ static Napi::Value pyopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("extractLineBundle");
+    jsRaiseCVOverloadException(info, "extractLineBundle");
 
     return info.Env().Null();
 }
@@ -35102,7 +35100,7 @@ static Napi::Value pyopencv_cv_rapid_findCorrespondencies(const Napi::CallbackIn
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_bundle = NULL;
@@ -35123,7 +35121,7 @@ static Napi::Value pyopencv_cv_rapid_findCorrespondencies(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35146,9 +35144,9 @@ static Napi::Value pyopencv_cv_rapid_findCorrespondencies(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findCorrespondencies");
+    jsRaiseCVOverloadException(info, "findCorrespondencies");
 
     return info.Env().Null();
 }
@@ -35157,7 +35155,7 @@ static Napi::Value pyopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -35195,7 +35193,7 @@ static Napi::Value pyopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35235,9 +35233,9 @@ static Napi::Value pyopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rapid");
+    jsRaiseCVOverloadException(info, "rapid");
 
     return info.Env().Null();
 }
@@ -35329,7 +35327,7 @@ static Napi::Value pyopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::Call
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_classifier = NULL;
@@ -35360,7 +35358,7 @@ static Napi::Value pyopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35393,9 +35391,9 @@ static Napi::Value pyopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("OCRBeamSearchDecoder_create");
+    jsRaiseCVOverloadException(info, "OCRBeamSearchDecoder_create");
 
     return info.Env().Null();
 }
@@ -35404,7 +35402,7 @@ static Napi::Value pyopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_classifier = NULL;
@@ -35432,7 +35430,7 @@ static Napi::Value pyopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35462,7 +35460,7 @@ static Napi::Value pyopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35495,7 +35493,7 @@ static Napi::Value pyopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35528,9 +35526,9 @@ static Napi::Value pyopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("OCRHMMDecoder_create");
+    jsRaiseCVOverloadException(info, "OCRHMMDecoder_create");
 
     return info.Env().Null();
 }
@@ -35586,7 +35584,7 @@ static Napi::Value pyopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj__src = NULL;
@@ -35607,7 +35605,7 @@ static Napi::Value pyopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35630,9 +35628,9 @@ static Napi::Value pyopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeNMChannels");
+    jsRaiseCVOverloadException(info, "computeNMChannels");
 
     return info.Env().Null();
 }
@@ -35641,7 +35639,7 @@ static Napi::Value pyopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cb = NULL;
@@ -35675,7 +35673,7 @@ static Napi::Value pyopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35711,9 +35709,9 @@ static Napi::Value pyopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createERFilterNM1");
+    jsRaiseCVOverloadException(info, "createERFilterNM1");
 
     return info.Env().Null();
 }
@@ -35722,7 +35720,7 @@ static Napi::Value pyopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_cb = NULL;
@@ -35741,7 +35739,7 @@ static Napi::Value pyopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35762,9 +35760,9 @@ static Napi::Value pyopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createERFilterNM2");
+    jsRaiseCVOverloadException(info, "createERFilterNM2");
 
     return info.Env().Null();
 }
@@ -35795,7 +35793,7 @@ static Napi::Value pyopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -35817,7 +35815,7 @@ static Napi::Value pyopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35841,7 +35839,7 @@ static Napi::Value pyopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35874,7 +35872,7 @@ static Napi::Value pyopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35907,9 +35905,9 @@ static Napi::Value pyopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectRegions");
+    jsRaiseCVOverloadException(info, "detectRegions");
 
     return info.Env().Null();
 }
@@ -35918,7 +35916,7 @@ static Napi::Value pyopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_input = NULL;
@@ -35943,7 +35941,7 @@ static Napi::Value pyopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35970,9 +35968,9 @@ static Napi::Value pyopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectTextSWT");
+    jsRaiseCVOverloadException(info, "detectTextSWT");
 
     return info.Env().Null();
 }
@@ -35981,7 +35979,7 @@ static Napi::Value pyopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -36012,7 +36010,7 @@ static Napi::Value pyopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36045,9 +36043,9 @@ static Napi::Value pyopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("erGrouping");
+    jsRaiseCVOverloadException(info, "erGrouping");
 
     return info.Env().Null();
 }
@@ -36247,7 +36245,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &in
 {
     using namespace cv::utils;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_argument = NULL;
@@ -36263,7 +36261,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36281,9 +36279,9 @@ static Napi::Value pyopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dumpInputArray");
+    jsRaiseCVOverloadException(info, "dumpInputArray");
 
     return info.Env().Null();
 }
@@ -36292,7 +36290,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputArrayOfArrays(const Napi::Callback
 {
     using namespace cv::utils;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_argument = NULL;
@@ -36308,7 +36306,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputArrayOfArrays(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36326,9 +36324,9 @@ static Napi::Value pyopencv_cv_utils_dumpInputArrayOfArrays(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dumpInputArrayOfArrays");
+    jsRaiseCVOverloadException(info, "dumpInputArrayOfArrays");
 
     return info.Env().Null();
 }
@@ -36337,7 +36335,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackIn
 {
     using namespace cv::utils;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_argument = NULL;
@@ -36353,7 +36351,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36371,9 +36369,9 @@ static Napi::Value pyopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dumpInputOutputArray");
+    jsRaiseCVOverloadException(info, "dumpInputOutputArray");
 
     return info.Env().Null();
 }
@@ -36382,7 +36380,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::Ca
 {
     using namespace cv::utils;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_argument = NULL;
@@ -36398,7 +36396,7 @@ static Napi::Value pyopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36416,9 +36414,9 @@ static Napi::Value pyopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dumpInputOutputArrayOfArrays");
+    jsRaiseCVOverloadException(info, "dumpInputOutputArrayOfArrays");
 
     return info.Env().Null();
 }
@@ -36723,7 +36721,7 @@ static Napi::Value pyopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &in
 {
     using namespace cv::utils;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_argument = NULL;
@@ -36739,7 +36737,7 @@ static Napi::Value pyopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36757,9 +36755,9 @@ static Napi::Value pyopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("testAsyncArray");
+    jsRaiseCVOverloadException(info, "testAsyncArray");
 
     return info.Env().Null();
 }
@@ -36783,7 +36781,7 @@ static Napi::Value pyopencv_cv_utils_testOverloadResolution(const Napi::Callback
 {
     using namespace cv::utils;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_value = NULL;
@@ -36802,7 +36800,7 @@ static Napi::Value pyopencv_cv_utils_testOverloadResolution(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36820,9 +36818,9 @@ static Napi::Value pyopencv_cv_utils_testOverloadResolution(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("testOverloadResolution");
+    jsRaiseCVOverloadException(info, "testOverloadResolution");
 
     return info.Env().Null();
 }
@@ -37302,7 +37300,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo
 {
     using namespace cv::xfeatures2d;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_radius = NULL;
@@ -37339,7 +37337,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37378,9 +37376,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("DAISY_create");
+    jsRaiseCVOverloadException(info, "DAISY_create");
 
     return info.Env().Null();
 }
@@ -37569,7 +37567,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
 {
     using namespace cv::xfeatures2d;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_initSampleCount = NULL;
@@ -37591,7 +37589,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37612,7 +37610,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37633,9 +37631,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PCTSignatures_create");
+    jsRaiseCVOverloadException(info, "PCTSignatures_create");
 
     return info.Env().Null();
 }
@@ -37644,7 +37642,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Nap
 {
     using namespace cv::xfeatures2d;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_source = NULL;
@@ -37671,7 +37669,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37700,9 +37698,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PCTSignatures_drawSignature");
+    jsRaiseCVOverloadException(info, "PCTSignatures_drawSignature");
 
     return info.Env().Null();
 }
@@ -37997,7 +37995,7 @@ static Napi::Value pyopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackI
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -38027,7 +38025,7 @@ static Napi::Value pyopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38059,9 +38057,9 @@ static Napi::Value pyopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("FastHoughTransform");
+    jsRaiseCVOverloadException(info, "FastHoughTransform");
 
     return info.Env().Null();
 }
@@ -38070,7 +38068,7 @@ static Napi::Value pyopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInf
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_op = NULL;
@@ -38094,7 +38092,7 @@ static Napi::Value pyopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38120,9 +38118,9 @@ static Napi::Value pyopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GradientDericheX");
+    jsRaiseCVOverloadException(info, "GradientDericheX");
 
     return info.Env().Null();
 }
@@ -38131,7 +38129,7 @@ static Napi::Value pyopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInf
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_op = NULL;
@@ -38155,7 +38153,7 @@ static Napi::Value pyopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38181,9 +38179,9 @@ static Napi::Value pyopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GradientDericheY");
+    jsRaiseCVOverloadException(info, "GradientDericheY");
 
     return info.Env().Null();
 }
@@ -38192,7 +38190,7 @@ static Napi::Value pyopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_houghPoint = NULL;
@@ -38220,7 +38218,7 @@ static Napi::Value pyopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38250,9 +38248,9 @@ static Napi::Value pyopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HoughPoint2Line");
+    jsRaiseCVOverloadException(info, "HoughPoint2Line");
 
     return info.Env().Null();
 }
@@ -38261,7 +38259,7 @@ static Napi::Value pyopencv_cv_ximgproc_PeiLinNormalization(const Napi::Callback
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_I = NULL;
@@ -38279,7 +38277,7 @@ static Napi::Value pyopencv_cv_ximgproc_PeiLinNormalization(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38299,9 +38297,9 @@ static Napi::Value pyopencv_cv_ximgproc_PeiLinNormalization(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PeiLinNormalization");
+    jsRaiseCVOverloadException(info, "PeiLinNormalization");
 
     return info.Env().Null();
 }
@@ -38310,7 +38308,7 @@ static Napi::Value pyopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo 
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -38343,7 +38341,7 @@ static Napi::Value pyopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38378,9 +38376,9 @@ static Napi::Value pyopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("RadonTransform");
+    jsRaiseCVOverloadException(info, "RadonTransform");
 
     return info.Env().Null();
 }
@@ -38429,7 +38427,7 @@ static Napi::Value pyopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_joint = NULL;
@@ -38459,7 +38457,7 @@ static Napi::Value pyopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38491,9 +38489,9 @@ static Napi::Value pyopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("amFilter");
+    jsRaiseCVOverloadException(info, "amFilter");
 
     return info.Env().Null();
 }
@@ -38502,7 +38500,7 @@ static Napi::Value pyopencv_cv_ximgproc_anisotropicDiffusion(const Napi::Callbac
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -38529,7 +38527,7 @@ static Napi::Value pyopencv_cv_ximgproc_anisotropicDiffusion(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38558,9 +38556,9 @@ static Napi::Value pyopencv_cv_ximgproc_anisotropicDiffusion(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("anisotropicDiffusion");
+    jsRaiseCVOverloadException(info, "anisotropicDiffusion");
 
     return info.Env().Null();
 }
@@ -38569,7 +38567,7 @@ static Napi::Value pyopencv_cv_ximgproc_bilateralTextureFilter(const Napi::Callb
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -38599,7 +38597,7 @@ static Napi::Value pyopencv_cv_ximgproc_bilateralTextureFilter(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38631,9 +38629,9 @@ static Napi::Value pyopencv_cv_ximgproc_bilateralTextureFilter(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("bilateralTextureFilter");
+    jsRaiseCVOverloadException(info, "bilateralTextureFilter");
 
     return info.Env().Null();
 }
@@ -38642,7 +38640,7 @@ static Napi::Value pyopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackI
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -38663,7 +38661,7 @@ static Napi::Value pyopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38686,9 +38684,9 @@ static Napi::Value pyopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("colorMatchTemplate");
+    jsRaiseCVOverloadException(info, "colorMatchTemplate");
 
     return info.Env().Null();
 }
@@ -38697,7 +38695,7 @@ static Napi::Value pyopencv_cv_ximgproc_computeBadPixelPercent(const Napi::Callb
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_GT = NULL;
@@ -38722,7 +38720,7 @@ static Napi::Value pyopencv_cv_ximgproc_computeBadPixelPercent(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38749,9 +38747,9 @@ static Napi::Value pyopencv_cv_ximgproc_computeBadPixelPercent(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeBadPixelPercent");
+    jsRaiseCVOverloadException(info, "computeBadPixelPercent");
 
     return info.Env().Null();
 }
@@ -38760,7 +38758,7 @@ static Napi::Value pyopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &inf
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_GT = NULL;
@@ -38782,7 +38780,7 @@ static Napi::Value pyopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38806,9 +38804,9 @@ static Napi::Value pyopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeMSE");
+    jsRaiseCVOverloadException(info, "computeMSE");
 
     return info.Env().Null();
 }
@@ -38817,7 +38815,7 @@ static Napi::Value pyopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -38838,7 +38836,7 @@ static Napi::Value pyopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38861,9 +38859,9 @@ static Napi::Value pyopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("contourSampling");
+    jsRaiseCVOverloadException(info, "contourSampling");
 
     return info.Env().Null();
 }
@@ -38872,7 +38870,7 @@ static Napi::Value pyopencv_cv_ximgproc_covarianceEstimation(const Napi::Callbac
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -38896,7 +38894,7 @@ static Napi::Value pyopencv_cv_ximgproc_covarianceEstimation(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38922,9 +38920,9 @@ static Napi::Value pyopencv_cv_ximgproc_covarianceEstimation(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("covarianceEstimation");
+    jsRaiseCVOverloadException(info, "covarianceEstimation");
 
     return info.Env().Null();
 }
@@ -38980,7 +38978,7 @@ static Napi::Value pyopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo 
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39008,7 +39006,7 @@ static Napi::Value pyopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39038,9 +39036,9 @@ static Napi::Value pyopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createDTFilter");
+    jsRaiseCVOverloadException(info, "createDTFilter");
 
     return info.Env().Null();
 }
@@ -39169,7 +39167,7 @@ static Napi::Value pyopencv_cv_ximgproc_createFastBilateralSolverFilter(const Na
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39203,7 +39201,7 @@ static Napi::Value pyopencv_cv_ximgproc_createFastBilateralSolverFilter(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39239,9 +39237,9 @@ static Napi::Value pyopencv_cv_ximgproc_createFastBilateralSolverFilter(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createFastBilateralSolverFilter");
+    jsRaiseCVOverloadException(info, "createFastBilateralSolverFilter");
 
     return info.Env().Null();
 }
@@ -39250,7 +39248,7 @@ static Napi::Value pyopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Nap
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39278,7 +39276,7 @@ static Napi::Value pyopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39308,9 +39306,9 @@ static Napi::Value pyopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createFastGlobalSmootherFilter");
+    jsRaiseCVOverloadException(info, "createFastGlobalSmootherFilter");
 
     return info.Env().Null();
 }
@@ -39353,7 +39351,7 @@ static Napi::Value pyopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackI
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39375,7 +39373,7 @@ static Napi::Value pyopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39399,9 +39397,9 @@ static Napi::Value pyopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createGuidedFilter");
+    jsRaiseCVOverloadException(info, "createGuidedFilter");
 
     return info.Env().Null();
 }
@@ -39410,7 +39408,7 @@ static Napi::Value pyopencv_cv_ximgproc_createQuaternionImage(const Napi::Callba
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -39428,7 +39426,7 @@ static Napi::Value pyopencv_cv_ximgproc_createQuaternionImage(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39448,9 +39446,9 @@ static Napi::Value pyopencv_cv_ximgproc_createQuaternionImage(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createQuaternionImage");
+    jsRaiseCVOverloadException(info, "createQuaternionImage");
 
     return info.Env().Null();
 }
@@ -39561,7 +39559,7 @@ static Napi::Value pyopencv_cv_ximgproc_createSuperpixelLSC(const Napi::Callback
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -39583,7 +39581,7 @@ static Napi::Value pyopencv_cv_ximgproc_createSuperpixelLSC(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39607,9 +39605,9 @@ static Napi::Value pyopencv_cv_ximgproc_createSuperpixelLSC(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createSuperpixelLSC");
+    jsRaiseCVOverloadException(info, "createSuperpixelLSC");
 
     return info.Env().Null();
 }
@@ -39658,7 +39656,7 @@ static Napi::Value pyopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::Callbac
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -39683,7 +39681,7 @@ static Napi::Value pyopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39710,9 +39708,9 @@ static Napi::Value pyopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createSuperpixelSLIC");
+    jsRaiseCVOverloadException(info, "createSuperpixelSLIC");
 
     return info.Env().Null();
 }
@@ -39721,7 +39719,7 @@ static Napi::Value pyopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39754,7 +39752,7 @@ static Napi::Value pyopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39789,9 +39787,9 @@ static Napi::Value pyopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("dtFilter");
+    jsRaiseCVOverloadException(info, "dtFilter");
 
     return info.Env().Null();
 }
@@ -39800,7 +39798,7 @@ static Napi::Value pyopencv_cv_ximgproc_edgePreservingFilter(const Napi::Callbac
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -39824,7 +39822,7 @@ static Napi::Value pyopencv_cv_ximgproc_edgePreservingFilter(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39850,9 +39848,9 @@ static Napi::Value pyopencv_cv_ximgproc_edgePreservingFilter(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("edgePreservingFilter");
+    jsRaiseCVOverloadException(info, "edgePreservingFilter");
 
     return info.Env().Null();
 }
@@ -39861,7 +39859,7 @@ static Napi::Value pyopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::Ca
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39903,7 +39901,7 @@ static Napi::Value pyopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39947,9 +39945,9 @@ static Napi::Value pyopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fastBilateralSolverFilter");
+    jsRaiseCVOverloadException(info, "fastBilateralSolverFilter");
 
     return info.Env().Null();
 }
@@ -39958,7 +39956,7 @@ static Napi::Value pyopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::Cal
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -39991,7 +39989,7 @@ static Napi::Value pyopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40026,9 +40024,9 @@ static Napi::Value pyopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fastGlobalSmootherFilter");
+    jsRaiseCVOverloadException(info, "fastGlobalSmootherFilter");
 
     return info.Env().Null();
 }
@@ -40037,7 +40035,7 @@ static Napi::Value pyopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &i
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -40064,7 +40062,7 @@ static Napi::Value pyopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40093,9 +40091,9 @@ static Napi::Value pyopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findEllipses");
+    jsRaiseCVOverloadException(info, "findEllipses");
 
     return info.Env().Null();
 }
@@ -40104,7 +40102,7 @@ static Napi::Value pyopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackIn
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40128,7 +40126,7 @@ static Napi::Value pyopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40154,9 +40152,9 @@ static Napi::Value pyopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fourierDescriptor");
+    jsRaiseCVOverloadException(info, "fourierDescriptor");
 
     return info.Env().Null();
 }
@@ -40165,7 +40163,7 @@ static Napi::Value pyopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40186,7 +40184,7 @@ static Napi::Value pyopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40209,9 +40207,9 @@ static Napi::Value pyopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getDisparityVis");
+    jsRaiseCVOverloadException(info, "getDisparityVis");
 
     return info.Env().Null();
 }
@@ -40220,7 +40218,7 @@ static Napi::Value pyopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &i
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_guide = NULL;
@@ -40250,7 +40248,7 @@ static Napi::Value pyopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40282,9 +40280,9 @@ static Napi::Value pyopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("guidedFilter");
+    jsRaiseCVOverloadException(info, "guidedFilter");
 
     return info.Env().Null();
 }
@@ -40293,7 +40291,7 @@ static Napi::Value pyopencv_cv_ximgproc_jointBilateralFilter(const Napi::Callbac
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_joint = NULL;
@@ -40326,7 +40324,7 @@ static Napi::Value pyopencv_cv_ximgproc_jointBilateralFilter(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40361,9 +40359,9 @@ static Napi::Value pyopencv_cv_ximgproc_jointBilateralFilter(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("jointBilateralFilter");
+    jsRaiseCVOverloadException(info, "jointBilateralFilter");
 
     return info.Env().Null();
 }
@@ -40372,7 +40370,7 @@ static Napi::Value pyopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40396,7 +40394,7 @@ static Napi::Value pyopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40422,9 +40420,9 @@ static Napi::Value pyopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("l0Smooth");
+    jsRaiseCVOverloadException(info, "l0Smooth");
 
     return info.Env().Null();
 }
@@ -40433,7 +40431,7 @@ static Napi::Value pyopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInf
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj__src = NULL;
@@ -40469,7 +40467,7 @@ static Napi::Value pyopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40507,9 +40505,9 @@ static Napi::Value pyopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("niBlackThreshold");
+    jsRaiseCVOverloadException(info, "niBlackThreshold");
 
     return info.Env().Null();
 }
@@ -40518,7 +40516,7 @@ static Napi::Value pyopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_qimg = NULL;
@@ -40536,7 +40534,7 @@ static Napi::Value pyopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40556,9 +40554,9 @@ static Napi::Value pyopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("qconj");
+    jsRaiseCVOverloadException(info, "qconj");
 
     return info.Env().Null();
 }
@@ -40567,7 +40565,7 @@ static Napi::Value pyopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -40591,7 +40589,7 @@ static Napi::Value pyopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40617,9 +40615,9 @@ static Napi::Value pyopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("qdft");
+    jsRaiseCVOverloadException(info, "qdft");
 
     return info.Env().Null();
 }
@@ -40628,7 +40626,7 @@ static Napi::Value pyopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src1 = NULL;
@@ -40649,7 +40647,7 @@ static Napi::Value pyopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40672,9 +40670,9 @@ static Napi::Value pyopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("qmultiply");
+    jsRaiseCVOverloadException(info, "qmultiply");
 
     return info.Env().Null();
 }
@@ -40683,7 +40681,7 @@ static Napi::Value pyopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_qimg = NULL;
@@ -40701,7 +40699,7 @@ static Napi::Value pyopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40721,9 +40719,9 @@ static Napi::Value pyopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("qunitary");
+    jsRaiseCVOverloadException(info, "qunitary");
 
     return info.Env().Null();
 }
@@ -40732,7 +40730,7 @@ static Napi::Value pyopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src_path = NULL;
@@ -40751,7 +40749,7 @@ static Napi::Value pyopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40772,9 +40770,9 @@ static Napi::Value pyopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readGT");
+    jsRaiseCVOverloadException(info, "readGT");
 
     return info.Env().Null();
 }
@@ -40783,7 +40781,7 @@ static Napi::Value pyopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::Callba
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40816,7 +40814,7 @@ static Napi::Value pyopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40851,9 +40849,9 @@ static Napi::Value pyopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rollingGuidanceFilter");
+    jsRaiseCVOverloadException(info, "rollingGuidanceFilter");
 
     return info.Env().Null();
 }
@@ -40862,7 +40860,7 @@ static Napi::Value pyopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40883,7 +40881,7 @@ static Napi::Value pyopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40906,9 +40904,9 @@ static Napi::Value pyopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("thinning");
+    jsRaiseCVOverloadException(info, "thinning");
 
     return info.Env().Null();
 }
@@ -40917,7 +40915,7 @@ static Napi::Value pyopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &in
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40941,7 +40939,7 @@ static Napi::Value pyopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40967,9 +40965,9 @@ static Napi::Value pyopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("transformFD");
+    jsRaiseCVOverloadException(info, "transformFD");
 
     return info.Env().Null();
 }
@@ -40978,7 +40976,7 @@ static Napi::Value pyopencv_cv_ximgproc_weightedMedianFilter(const Napi::Callbac
 {
     using namespace cv::ximgproc;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_joint = NULL;
@@ -41011,7 +41009,7 @@ static Napi::Value pyopencv_cv_ximgproc_weightedMedianFilter(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41046,9 +41044,9 @@ static Napi::Value pyopencv_cv_ximgproc_weightedMedianFilter(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("weightedMedianFilter");
+    jsRaiseCVOverloadException(info, "weightedMedianFilter");
 
     return info.Env().Null();
 }
@@ -41127,7 +41125,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
 {
     using namespace cv::ximgproc::segmentation;
 
-    pyPrepareArgumentConversionErrorsStorage(5);
+    jsPrepareArgumentConversionErrorsStorage(info, 5);
 
     {
     Ptr<SelectiveSearchSegmentationStrategyMultiple> retval;
@@ -41139,7 +41137,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41157,7 +41155,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41178,7 +41176,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41202,7 +41200,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41229,9 +41227,9 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("createSelectiveSearchSegmentationStrategyMultiple");
+    jsRaiseCVOverloadException(info, "createSelectiveSearchSegmentationStrategyMultiple");
 
     return info.Env().Null();
 }

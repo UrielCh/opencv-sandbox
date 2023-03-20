@@ -347,10 +347,10 @@ class FuncInfo(object):
         else:
             # try to execute each signature, add an interlude between function
             # calls to collect error from all conversions
-            code += '    pyPrepareArgumentConversionErrorsStorage({});\n'.format(len(all_code_variants))
+            code += '    jsPrepareArgumentConversionErrorsStorage(info, {});\n'.format(len(all_code_variants))
             code += '    \n'.join(gen_template_overloaded_function_call.substitute(variant=v)
                                   for v in all_code_variants)
-            code += '    pyRaiseCVOverloadException("{}");\n'.format(self.name)
+            code += '    jsRaiseCVOverloadException(info, "{}");\n'.format(self.name)
 
         def_ret = "info.Env().Null()"
         if self.isconstructor:

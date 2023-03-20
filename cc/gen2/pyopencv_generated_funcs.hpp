@@ -87,7 +87,7 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
         ERRWRAP2_NAPI(info, retval = cv::imdecode(buf, flags));
         return jsopencv_from(info, retval);
     }
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -108,9 +108,9 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imdecode");
+    jsRaiseCVOverloadException(info, "imdecode");
 
     return info.Env().Null();
 }
@@ -141,7 +141,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -165,9 +165,9 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imdecodemulti");
+    jsRaiseCVOverloadException(info, "imdecodemulti");
 
     return info.Env().Null();
 }
@@ -199,7 +199,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -224,9 +224,9 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imencode");
+    jsRaiseCVOverloadException(info, "imencode");
 
     return info.Env().Null();
 }
@@ -279,7 +279,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -309,9 +309,9 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imreadmulti");
+    jsRaiseCVOverloadException(info, "imreadmulti");
 
     return info.Env().Null();
 }
@@ -338,7 +338,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -358,7 +358,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -378,9 +378,9 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imshow");
+    jsRaiseCVOverloadException(info, "imshow");
 
     return info.Env().Null();
 }
@@ -411,7 +411,7 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -435,9 +435,9 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imwrite");
+    jsRaiseCVOverloadException(info, "imwrite");
 
     return info.Env().Null();
 }
@@ -468,7 +468,7 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -492,9 +492,9 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
     }
 
 
-        jsPopulateArgumentConversionErrors();
+        jsPopulateArgumentConversionErrors(info);
     }
-    jsRaiseCVOverloadException("imwritemulti");
+    jsRaiseCVOverloadException(info, "imwritemulti");
 
     return info.Env().Null();
 }

@@ -935,7 +935,7 @@ static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
     if (!pyopencv_Algorithm_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_fs = NULL;
@@ -950,7 +950,7 @@ static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -970,9 +970,9 @@ static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("write");
+    jsRaiseCVOverloadException(info, "write");
 
     return info.Env().Null();
 }
@@ -1042,7 +1042,7 @@ static Napi::Value pyopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
     if (!pyopencv_AlignExposures_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'AlignExposures' or its derivative)");
     Ptr<cv::AlignExposures> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -1066,7 +1066,7 @@ static Napi::Value pyopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1092,9 +1092,9 @@ static Napi::Value pyopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -1159,7 +1159,7 @@ static Napi::Value pyopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
     if (!pyopencv_AlignMTB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img0 = NULL;
@@ -1178,7 +1178,7 @@ static Napi::Value pyopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1199,9 +1199,9 @@ static Napi::Value pyopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calculateShift");
+    jsRaiseCVOverloadException(info, "calculateShift");
 
     return info.Env().Null();
 }
@@ -1215,7 +1215,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
     if (!pyopencv_AlignMTB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -1236,7 +1236,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1259,9 +1259,9 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeBitmaps");
+    jsRaiseCVOverloadException(info, "computeBitmaps");
 
     return info.Env().Null();
 }
@@ -1335,7 +1335,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     if (!pyopencv_AlignMTB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -1359,7 +1359,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1385,7 +1385,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1405,7 +1405,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1425,9 +1425,9 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -1510,7 +1510,7 @@ static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
     if (!pyopencv_AlignMTB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -1531,7 +1531,7 @@ static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1554,9 +1554,9 @@ static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("shiftMat");
+    jsRaiseCVOverloadException(info, "shiftMat");
 
     return info.Env().Null();
 }
@@ -1645,7 +1645,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     if (!pyopencv_AsyncArray_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'AsyncArray' or its derivative)");
     Ptr<cv::AsyncArray> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -1660,7 +1660,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1677,7 +1677,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1698,7 +1698,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1719,9 +1719,9 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("get");
+    jsRaiseCVOverloadException(info, "get");
 
     return info.Env().Null();
 }
@@ -2164,7 +2164,7 @@ static Napi::Value pyopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
     if (!pyopencv_BOWKMeansTrainer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'BOWKMeansTrainer' or its derivative)");
     Ptr<cv::BOWKMeansTrainer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Mat retval;
@@ -2176,7 +2176,7 @@ static Napi::Value pyopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2194,9 +2194,9 @@ static Napi::Value pyopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cluster");
+    jsRaiseCVOverloadException(info, "cluster");
 
     return info.Env().Null();
 }
@@ -2303,7 +2303,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
     if (!pyopencv_BOWTrainer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'BOWTrainer' or its derivative)");
     Ptr<cv::BOWTrainer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Mat retval;
@@ -2315,7 +2315,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2333,9 +2333,9 @@ static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("cluster");
+    jsRaiseCVOverloadException(info, "cluster");
 
     return info.Env().Null();
 }
@@ -2439,7 +2439,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_thresh = NULL;
@@ -2461,7 +2461,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2491,7 +2491,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2527,9 +2527,9 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -2750,7 +2750,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
     if (!pyopencv_BackgroundSubtractor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'BackgroundSubtractor' or its derivative)");
     Ptr<cv::BackgroundSubtractor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -2771,7 +2771,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2794,9 +2794,9 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("apply");
+    jsRaiseCVOverloadException(info, "apply");
 
     return info.Env().Null();
 }
@@ -2810,7 +2810,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
     if (!pyopencv_BackgroundSubtractor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'BackgroundSubtractor' or its derivative)");
     Ptr<cv::BackgroundSubtractor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_backgroundImage = NULL;
@@ -2825,7 +2825,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2842,9 +2842,9 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getBackgroundImage");
+    jsRaiseCVOverloadException(info, "getBackgroundImage");
 
     return info.Env().Null();
 }
@@ -3275,7 +3275,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
     if (!pyopencv_BackgroundSubtractorMOG2_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -3296,7 +3296,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3319,9 +3319,9 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("apply");
+    jsRaiseCVOverloadException(info, "apply");
 
     return info.Env().Null();
 }
@@ -3976,7 +3976,7 @@ static Napi::Value pyopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
     if (!pyopencv_CLAHE_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -3994,7 +3994,7 @@ static Napi::Value pyopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4014,9 +4014,9 @@ static Napi::Value pyopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("apply");
+    jsRaiseCVOverloadException(info, "apply");
 
     return info.Env().Null();
 }
@@ -4191,7 +4191,7 @@ static Napi::Value pyopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
     if (!pyopencv_CalibrateCRF_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'CalibrateCRF' or its derivative)");
     Ptr<cv::CalibrateCRF> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -4212,7 +4212,7 @@ static Napi::Value pyopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4235,9 +4235,9 @@ static Napi::Value pyopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -4643,7 +4643,7 @@ static int pyopencv_cv_CascadeClassifier_CascadeClassifier(pyopencv_CascadeClass
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -4655,7 +4655,7 @@ static int pyopencv_cv_CascadeClassifier_CascadeClassifier(pyopencv_CascadeClass
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4673,9 +4673,9 @@ static int pyopencv_cv_CascadeClassifier_CascadeClassifier(pyopencv_CascadeClass
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("CascadeClassifier");
+    jsRaiseCVOverloadException(info, "CascadeClassifier");
 
     return -1;
 }
@@ -4711,7 +4711,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
     if (!pyopencv_CascadeClassifier_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -4742,7 +4742,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4775,9 +4775,9 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectMultiScale");
+    jsRaiseCVOverloadException(info, "detectMultiScale");
 
     return info.Env().Null();
 }
@@ -4791,7 +4791,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
     if (!pyopencv_CascadeClassifier_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -4823,7 +4823,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4857,9 +4857,9 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectMultiScale2");
+    jsRaiseCVOverloadException(info, "detectMultiScale2");
 
     return info.Env().Null();
 }
@@ -4873,7 +4873,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
     if (!pyopencv_CascadeClassifier_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -4909,7 +4909,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4947,9 +4947,9 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectMultiScale3");
+    jsRaiseCVOverloadException(info, "detectMultiScale3");
 
     return info.Env().Null();
 }
@@ -6030,7 +6030,7 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
 
@@ -6041,7 +6041,7 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6064,7 +6064,7 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6090,9 +6090,9 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("DMatch");
+    jsRaiseCVOverloadException(info, "DMatch");
 
     return -1;
 }
@@ -6160,7 +6160,7 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
     if (!pyopencv_DenseOpticalFlow_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DenseOpticalFlow' or its derivative)");
     Ptr<cv::DenseOpticalFlow> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_I0 = NULL;
@@ -6181,7 +6181,7 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6204,9 +6204,9 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calc");
+    jsRaiseCVOverloadException(info, "calc");
 
     return info.Env().Null();
 }
@@ -6291,7 +6291,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
     if (!pyopencv_DescriptorMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_descriptors = NULL;
@@ -6306,7 +6306,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6323,9 +6323,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("add");
+    jsRaiseCVOverloadException(info, "add");
 
     return info.Env().Null();
 }
@@ -6377,7 +6377,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::Callb
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_descriptorMatcherType = NULL;
@@ -6393,7 +6393,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6411,9 +6411,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -6487,7 +6487,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     if (!pyopencv_DescriptorMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_queryDescriptors = NULL;
@@ -6515,7 +6515,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6545,7 +6545,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6572,7 +6572,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6599,9 +6599,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("knnMatch");
+    jsRaiseCVOverloadException(info, "knnMatch");
 
     return info.Env().Null();
 }
@@ -6615,7 +6615,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     if (!pyopencv_DescriptorMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_queryDescriptors = NULL;
@@ -6637,7 +6637,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6661,7 +6661,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6682,7 +6682,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6703,9 +6703,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("match");
+    jsRaiseCVOverloadException(info, "match");
 
     return info.Env().Null();
 }
@@ -6719,7 +6719,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     if (!pyopencv_DescriptorMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_queryDescriptors = NULL;
@@ -6747,7 +6747,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6777,7 +6777,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6804,7 +6804,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6831,9 +6831,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("radiusMatch");
+    jsRaiseCVOverloadException(info, "radiusMatch");
 
     return info.Env().Null();
 }
@@ -6847,7 +6847,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
     if (!pyopencv_DescriptorMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_fileName = NULL;
@@ -6862,7 +6862,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6879,9 +6879,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("read");
+    jsRaiseCVOverloadException(info, "read");
 
     return info.Env().Null();
 }
@@ -6914,7 +6914,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
     if (!pyopencv_DescriptorMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_fileName = NULL;
@@ -6929,7 +6929,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6949,9 +6949,9 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("write");
+    jsRaiseCVOverloadException(info, "write");
 
     return info.Env().Null();
 }
@@ -7068,7 +7068,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
     if (!pyopencv_FaceDetectorYN_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -7087,7 +7087,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7108,9 +7108,9 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -7356,7 +7356,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
     if (!pyopencv_FaceRecognizerSF_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
     Ptr<cv::FaceRecognizerSF> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src_img = NULL;
@@ -7377,7 +7377,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7400,9 +7400,9 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("alignCrop");
+    jsRaiseCVOverloadException(info, "alignCrop");
 
     return info.Env().Null();
 }
@@ -7444,7 +7444,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
     if (!pyopencv_FaceRecognizerSF_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
     Ptr<cv::FaceRecognizerSF> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_aligned_img = NULL;
@@ -7462,7 +7462,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7482,9 +7482,9 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("feature");
+    jsRaiseCVOverloadException(info, "feature");
 
     return info.Env().Null();
 }
@@ -7498,7 +7498,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
     if (!pyopencv_FaceRecognizerSF_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
     Ptr<cv::FaceRecognizerSF> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_face_feature1 = NULL;
@@ -7520,7 +7520,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7544,9 +7544,9 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("match");
+    jsRaiseCVOverloadException(info, "match");
 
     return info.Env().Null();
 }
@@ -8297,7 +8297,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     if (!pyopencv_Feature2D_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -8318,7 +8318,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8341,7 +8341,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8364,7 +8364,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8387,9 +8387,9 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -8463,7 +8463,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     if (!pyopencv_Feature2D_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -8482,7 +8482,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8503,7 +8503,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8524,7 +8524,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8545,9 +8545,9 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -8561,7 +8561,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
     if (!pyopencv_Feature2D_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -8586,7 +8586,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8613,9 +8613,9 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectAndCompute");
+    jsRaiseCVOverloadException(info, "detectAndCompute");
 
     return info.Env().Null();
 }
@@ -8669,7 +8669,7 @@ static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
     if (!pyopencv_Feature2D_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_fileName = NULL;
@@ -8684,7 +8684,7 @@ static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8701,9 +8701,9 @@ static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("read");
+    jsRaiseCVOverloadException(info, "read");
 
     return info.Env().Null();
 }
@@ -8717,7 +8717,7 @@ static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
     if (!pyopencv_Feature2D_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_fileName = NULL;
@@ -8732,7 +8732,7 @@ static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8752,9 +8752,9 @@ static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("write");
+    jsRaiseCVOverloadException(info, "write");
 
     return info.Env().Null();
 }
@@ -9271,7 +9271,7 @@ static int pyopencv_cv_FileStorage_FileStorage(pyopencv_FileStorage_t* self, PyO
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -9283,7 +9283,7 @@ static int pyopencv_cv_FileStorage_FileStorage(pyopencv_FileStorage_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9307,9 +9307,9 @@ static int pyopencv_cv_FileStorage_FileStorage(pyopencv_FileStorage_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("FileStorage");
+    jsRaiseCVOverloadException(info, "FileStorage");
 
     return -1;
 }
@@ -9546,7 +9546,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     if (!pyopencv_FileStorage_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(5);
+    jsPrepareArgumentConversionErrorsStorage(info, 5);
 
     {
     Napi::Value* pyobj_name = NULL;
@@ -9564,7 +9564,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9584,7 +9584,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9604,7 +9604,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9624,7 +9624,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9644,9 +9644,9 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("write");
+    jsRaiseCVOverloadException(info, "write");
 
     return info.Env().Null();
 }
@@ -9970,7 +9970,7 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_arg = NULL;
@@ -9985,7 +9985,7 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10002,7 +10002,7 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10019,9 +10019,9 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GCompileArg");
+    jsRaiseCVOverloadException(info, "GCompileArg");
 
     return -1;
 }
@@ -10080,7 +10080,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_ins = NULL;
@@ -10099,7 +10099,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10120,7 +10120,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10141,7 +10141,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10165,9 +10165,9 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GComputation");
+    jsRaiseCVOverloadException(info, "GComputation");
 
     return -1;
 }
@@ -10208,7 +10208,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     if (!pyopencv_GComputation_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GComputation' or its derivative)");
     Ptr<cv::GComputation> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_in_metas = NULL;
@@ -10227,7 +10227,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10245,7 +10245,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10266,9 +10266,9 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compileStreaming");
+    jsRaiseCVOverloadException(info, "compileStreaming");
 
     return info.Env().Null();
 }
@@ -10329,7 +10329,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create_static(const Napi::CallbackIn
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_maxCorners = NULL;
@@ -10360,7 +10360,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create_static(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10396,9 +10396,9 @@ static Napi::Value pyopencv_cv_GFTTDetector_create_static(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -10877,7 +10877,7 @@ static Napi::Value pyopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
     if (!pyopencv_GInferInputs_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GInferInputs' or its derivative)");
     cv::GInferInputs* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_name = NULL;
@@ -10896,7 +10896,7 @@ static Napi::Value pyopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10917,9 +10917,9 @@ static Napi::Value pyopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setInput");
+    jsRaiseCVOverloadException(info, "setInput");
 
     return info.Env().Null();
 }
@@ -10998,7 +10998,7 @@ static Napi::Value pyopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
     if (!pyopencv_GInferListInputs_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GInferListInputs' or its derivative)");
     cv::GInferListInputs* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_name = NULL;
@@ -11017,7 +11017,7 @@ static Napi::Value pyopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11038,9 +11038,9 @@ static Napi::Value pyopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setInput");
+    jsRaiseCVOverloadException(info, "setInput");
 
     return info.Env().Null();
 }
@@ -11417,7 +11417,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_d = NULL;
@@ -11441,7 +11441,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11461,7 +11461,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11481,7 +11481,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11494,9 +11494,9 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GMatDesc");
+    jsRaiseCVOverloadException(info, "GMatDesc");
 
     return -1;
 }
@@ -11530,7 +11530,7 @@ static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
     if (!pyopencv_GMatDesc_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     GMatDesc retval;
@@ -11542,7 +11542,7 @@ static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11560,9 +11560,9 @@ static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("asPlanar");
+    jsRaiseCVOverloadException(info, "asPlanar");
 
     return info.Env().Null();
 }
@@ -11624,7 +11624,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
     if (!pyopencv_GMatDesc_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_delta = NULL;
@@ -11640,7 +11640,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11661,9 +11661,9 @@ static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("withSizeDelta");
+    jsRaiseCVOverloadException(info, "withSizeDelta");
 
     return info.Env().Null();
 }
@@ -11899,7 +11899,7 @@ static int pyopencv_cv_GScalar_GScalar(pyopencv_GScalar_t* self, PyObject* py_ar
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -11910,7 +11910,7 @@ static int pyopencv_cv_GScalar_GScalar(pyopencv_GScalar_t* self, PyObject* py_ar
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11927,9 +11927,9 @@ static int pyopencv_cv_GScalar_GScalar(pyopencv_GScalar_t* self, PyObject* py_ar
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GScalar");
+    jsRaiseCVOverloadException(info, "GScalar");
 
     return -1;
 }
@@ -12213,7 +12213,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     if (!pyopencv_GeneralizedHough_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -12234,7 +12234,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12257,7 +12257,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12286,7 +12286,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12315,9 +12315,9 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -12546,7 +12546,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     if (!pyopencv_GeneralizedHough_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_templ = NULL;
@@ -12564,7 +12564,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12584,7 +12584,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12610,7 +12610,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12636,9 +12636,9 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setTemplate");
+    jsRaiseCVOverloadException(info, "setTemplate");
 
     return info.Env().Null();
 }
@@ -13504,7 +13504,7 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
 
@@ -13516,7 +13516,7 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13567,7 +13567,7 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13585,9 +13585,9 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HOGDescriptor");
+    jsRaiseCVOverloadException(info, "HOGDescriptor");
 
     return -1;
 }
@@ -13621,7 +13621,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
     if (!pyopencv_HOGDescriptor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -13646,7 +13646,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13673,9 +13673,9 @@ static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -13689,7 +13689,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
     if (!pyopencv_HOGDescriptor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -13716,7 +13716,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13745,9 +13745,9 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeGradient");
+    jsRaiseCVOverloadException(info, "computeGradient");
 
     return info.Env().Null();
 }
@@ -13761,7 +13761,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
     if (!pyopencv_HOGDescriptor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -13790,7 +13790,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13821,9 +13821,9 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -13837,7 +13837,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
     if (!pyopencv_HOGDescriptor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -13872,7 +13872,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13909,9 +13909,9 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectMultiScale");
+    jsRaiseCVOverloadException(info, "detectMultiScale");
 
     return info.Env().Null();
 }
@@ -14048,7 +14048,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
     if (!pyopencv_HOGDescriptor_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_svmdetector = NULL;
@@ -14063,7 +14063,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14080,9 +14080,9 @@ static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setSVMDetector");
+    jsRaiseCVOverloadException(info, "setSVMDetector");
 
     return info.Env().Null();
 }
@@ -14692,7 +14692,7 @@ static int pyopencv_cv_KalmanFilter_KalmanFilter(pyopencv_KalmanFilter_t* self, 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -14704,7 +14704,7 @@ static int pyopencv_cv_KalmanFilter_KalmanFilter(pyopencv_KalmanFilter_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14731,9 +14731,9 @@ static int pyopencv_cv_KalmanFilter_KalmanFilter(pyopencv_KalmanFilter_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("KalmanFilter");
+    jsRaiseCVOverloadException(info, "KalmanFilter");
 
     return -1;
 }
@@ -14942,7 +14942,7 @@ static int pyopencv_cv_KeyPoint_KeyPoint(pyopencv_KeyPoint_t* self, PyObject* py
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -14953,7 +14953,7 @@ static int pyopencv_cv_KeyPoint_KeyPoint(pyopencv_KeyPoint_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14988,9 +14988,9 @@ static int pyopencv_cv_KeyPoint_KeyPoint(pyopencv_KeyPoint_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("KeyPoint");
+    jsRaiseCVOverloadException(info, "KeyPoint");
 
     return -1;
 }
@@ -14999,7 +14999,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert_static(const Napi::CallbackInfo 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_keypoints = NULL;
@@ -15018,7 +15018,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert_static(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15048,9 +15048,9 @@ static Napi::Value pyopencv_cv_KeyPoint_convert_static(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convert");
+    jsRaiseCVOverloadException(info, "convert");
 
     return info.Env().Null();
 }
@@ -15144,7 +15144,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
     if (!pyopencv_LineSegmentDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
     Ptr<cv::LineSegmentDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_size = NULL;
@@ -15169,7 +15169,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15196,9 +15196,9 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compareSegments");
+    jsRaiseCVOverloadException(info, "compareSegments");
 
     return info.Env().Null();
 }
@@ -15212,7 +15212,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
     if (!pyopencv_LineSegmentDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
     Ptr<cv::LineSegmentDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -15239,7 +15239,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15268,9 +15268,9 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -15284,7 +15284,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
     if (!pyopencv_LineSegmentDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
     Ptr<cv::LineSegmentDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -15302,7 +15302,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15322,9 +15322,9 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawSegments");
+    jsRaiseCVOverloadException(info, "drawSegments");
 
     return info.Env().Null();
 }
@@ -15434,7 +15434,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
     if (!pyopencv_MSER_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -15451,7 +15451,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15470,9 +15470,9 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectRegions");
+    jsRaiseCVOverloadException(info, "detectRegions");
 
     return info.Env().Null();
 }
@@ -16009,7 +16009,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     if (!pyopencv_MergeDebevec_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'MergeDebevec' or its derivative)");
     Ptr<cv::MergeDebevec> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16033,7 +16033,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16059,7 +16059,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16082,7 +16082,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16105,9 +16105,9 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -16172,7 +16172,7 @@ static Napi::Value pyopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
     if (!pyopencv_MergeExposures_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'MergeExposures' or its derivative)");
     Ptr<cv::MergeExposures> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16196,7 +16196,7 @@ static Napi::Value pyopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16222,9 +16222,9 @@ static Napi::Value pyopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -16349,7 +16349,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     if (!pyopencv_MergeMertens_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16373,7 +16373,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16399,7 +16399,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16419,7 +16419,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16439,9 +16439,9 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -16581,7 +16581,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     if (!pyopencv_MergeRobertson_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'MergeRobertson' or its derivative)");
     Ptr<cv::MergeRobertson> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -16605,7 +16605,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16631,7 +16631,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16654,7 +16654,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16677,9 +16677,9 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -17460,7 +17460,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17482,7 +17482,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17506,9 +17506,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decode");
+    jsRaiseCVOverloadException(info, "decode");
 
     return info.Env().Null();
 }
@@ -17522,7 +17522,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17544,7 +17544,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17568,9 +17568,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decodeCurved");
+    jsRaiseCVOverloadException(info, "decodeCurved");
 
     return info.Env().Null();
 }
@@ -17584,7 +17584,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17607,7 +17607,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17632,9 +17632,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decodeMulti");
+    jsRaiseCVOverloadException(info, "decodeMulti");
 
     return info.Env().Null();
 }
@@ -17648,7 +17648,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17667,7 +17667,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17688,9 +17688,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -17704,7 +17704,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17726,7 +17726,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17750,9 +17750,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectAndDecode");
+    jsRaiseCVOverloadException(info, "detectAndDecode");
 
     return info.Env().Null();
 }
@@ -17766,7 +17766,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17788,7 +17788,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17812,9 +17812,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectAndDecodeCurved");
+    jsRaiseCVOverloadException(info, "detectAndDecodeCurved");
 
     return info.Env().Null();
 }
@@ -17828,7 +17828,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17851,7 +17851,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17876,9 +17876,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectAndDecodeMulti");
+    jsRaiseCVOverloadException(info, "detectAndDecodeMulti");
 
     return info.Env().Null();
 }
@@ -17892,7 +17892,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
     if (!pyopencv_QRCodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -17911,7 +17911,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17932,9 +17932,9 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectMulti");
+    jsRaiseCVOverloadException(info, "detectMulti");
 
     return info.Env().Null();
 }
@@ -18097,7 +18097,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
     if (!pyopencv_QRCodeEncoder_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeEncoder' or its derivative)");
     Ptr<cv::QRCodeEncoder> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_encoded_info = NULL;
@@ -18115,7 +18115,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18135,9 +18135,9 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("encode");
+    jsRaiseCVOverloadException(info, "encode");
 
     return info.Env().Null();
 }
@@ -18151,7 +18151,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
     if (!pyopencv_QRCodeEncoder_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'QRCodeEncoder' or its derivative)");
     Ptr<cv::QRCodeEncoder> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_encoded_info = NULL;
@@ -18169,7 +18169,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18189,9 +18189,9 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("encodeStructuredAppend");
+    jsRaiseCVOverloadException(info, "encodeStructuredAppend");
 
     return info.Env().Null();
 }
@@ -18381,7 +18381,7 @@ static Napi::Value pyopencv_cv_SIFT_create_static(const Napi::CallbackInfo &info
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_nfeatures = NULL;
@@ -18409,7 +18409,7 @@ static Napi::Value pyopencv_cv_SIFT_create_static(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18442,9 +18442,9 @@ static Napi::Value pyopencv_cv_SIFT_create_static(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -19296,7 +19296,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
     if (!pyopencv_SparseOpticalFlow_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'SparseOpticalFlow' or its derivative)");
     Ptr<cv::SparseOpticalFlow> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_prevImg = NULL;
@@ -19326,7 +19326,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19358,9 +19358,9 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calc");
+    jsRaiseCVOverloadException(info, "calc");
 
     return info.Env().Null();
 }
@@ -20165,7 +20165,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
     if (!pyopencv_StereoMatcher_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_left = NULL;
@@ -20186,7 +20186,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20209,9 +20209,9 @@ static Napi::Value pyopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -20866,7 +20866,7 @@ static int pyopencv_cv_Subdiv2D_Subdiv2D(pyopencv_Subdiv2D_t* self, PyObject* py
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -20878,7 +20878,7 @@ static int pyopencv_cv_Subdiv2D_Subdiv2D(pyopencv_Subdiv2D_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20896,9 +20896,9 @@ static int pyopencv_cv_Subdiv2D_Subdiv2D(pyopencv_Subdiv2D_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Subdiv2D");
+    jsRaiseCVOverloadException(info, "Subdiv2D");
 
     return -1;
 }
@@ -21147,7 +21147,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
     if (!pyopencv_Subdiv2D_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pt = NULL;
@@ -21163,7 +21163,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21180,9 +21180,9 @@ static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("insert");
+    jsRaiseCVOverloadException(info, "insert");
 
     return info.Env().Null();
 }
@@ -21675,7 +21675,7 @@ static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
     if (!pyopencv_Tonemap_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Tonemap' or its derivative)");
     Ptr<cv::Tonemap> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -21693,7 +21693,7 @@ static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21713,9 +21713,9 @@ static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -22270,7 +22270,7 @@ static Napi::Value pyopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
     if (!pyopencv_Tracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Tracker' or its derivative)");
     Ptr<cv::Tracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -22288,7 +22288,7 @@ static Napi::Value pyopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22308,9 +22308,9 @@ static Napi::Value pyopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("init");
+    jsRaiseCVOverloadException(info, "init");
 
     return info.Env().Null();
 }
@@ -22324,7 +22324,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
     if (!pyopencv_Tracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'Tracker' or its derivative)");
     Ptr<cv::Tracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -22341,7 +22341,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22360,9 +22360,9 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("update");
+    jsRaiseCVOverloadException(info, "update");
 
     return info.Env().Null();
 }
@@ -22447,7 +22447,7 @@ static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
     if (!pyopencv_TrackerCSRT_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'TrackerCSRT' or its derivative)");
     Ptr<cv::TrackerCSRT> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_mask = NULL;
@@ -22462,7 +22462,7 @@ static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22479,9 +22479,9 @@ static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setInitialMask");
+    jsRaiseCVOverloadException(info, "setInitialMask");
 
     return info.Env().Null();
 }
@@ -24277,7 +24277,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(9);
+    jsPrepareArgumentConversionErrorsStorage(info, 9);
 
     {
     Napi::Value* pyobj_usageFlags = NULL;
@@ -24293,7 +24293,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24320,7 +24320,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24344,7 +24344,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24374,7 +24374,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24401,7 +24401,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24419,7 +24419,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24443,7 +24443,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24464,7 +24464,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24485,9 +24485,9 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("UMat");
+    jsRaiseCVOverloadException(info, "UMat");
 
     return -1;
 }
@@ -24920,7 +24920,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
     if (!pyopencv_VariationalRefinement_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_I0 = NULL;
@@ -24944,7 +24944,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24970,9 +24970,9 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcUV");
+    jsRaiseCVOverloadException(info, "calcUV");
 
     return info.Env().Null();
 }
@@ -25318,7 +25318,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(5);
+    jsPrepareArgumentConversionErrorsStorage(info, 5);
 
     {
 
@@ -25330,7 +25330,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25351,7 +25351,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25375,7 +25375,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25396,7 +25396,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25420,9 +25420,9 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("VideoCapture");
+    jsRaiseCVOverloadException(info, "VideoCapture");
 
     return -1;
 }
@@ -25540,7 +25540,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     if (!pyopencv_VideoCapture_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -25559,7 +25559,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25583,7 +25583,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25604,7 +25604,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25628,9 +25628,9 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("open");
+    jsRaiseCVOverloadException(info, "open");
 
     return info.Env().Null();
 }
@@ -25644,7 +25644,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
     if (!pyopencv_VideoCapture_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -25660,7 +25660,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25678,9 +25678,9 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("read");
+    jsRaiseCVOverloadException(info, "read");
 
     return info.Env().Null();
 }
@@ -25713,7 +25713,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
     if (!pyopencv_VideoCapture_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -25732,7 +25732,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25753,9 +25753,9 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("retrieve");
+    jsRaiseCVOverloadException(info, "retrieve");
 
     return info.Env().Null();
 }
@@ -25899,7 +25899,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
 {
     using namespace cv;
 
-    pyPrepareArgumentConversionErrorsStorage(5);
+    jsPrepareArgumentConversionErrorsStorage(info, 5);
 
     {
 
@@ -25911,7 +25911,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25941,7 +25941,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25974,7 +25974,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26004,7 +26004,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26037,9 +26037,9 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("VideoWriter");
+    jsRaiseCVOverloadException(info, "VideoWriter");
 
     return -1;
 }
@@ -26145,7 +26145,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     if (!pyopencv_VideoWriter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_filename = NULL;
@@ -26173,7 +26173,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26206,7 +26206,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26236,7 +26236,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26269,9 +26269,9 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("open");
+    jsRaiseCVOverloadException(info, "open");
 
     return info.Env().Null();
 }
@@ -26331,7 +26331,7 @@ static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
     if (!pyopencv_VideoWriter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -26346,7 +26346,7 @@ static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26363,9 +26363,9 @@ static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("write");
+    jsRaiseCVOverloadException(info, "write");
 
     return info.Env().Null();
 }
@@ -26462,7 +26462,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
     if (!pyopencv_aruco_ArucoDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -26486,7 +26486,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26512,9 +26512,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectMarkers");
+    jsRaiseCVOverloadException(info, "detectMarkers");
 
     return info.Env().Null();
 }
@@ -26611,7 +26611,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
     if (!pyopencv_aruco_ArucoDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -26647,7 +26647,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26685,9 +26685,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("refineDetectedMarkers");
+    jsRaiseCVOverloadException(info, "refineDetectedMarkers");
 
     return info.Env().Null();
 }
@@ -26851,7 +26851,7 @@ static int pyopencv_cv_aruco_aruco_Board_Board(pyopencv_aruco_Board_t* self, PyO
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_objPoints = NULL;
@@ -26872,7 +26872,7 @@ static int pyopencv_cv_aruco_aruco_Board_Board(pyopencv_aruco_Board_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26895,9 +26895,9 @@ static int pyopencv_cv_aruco_aruco_Board_Board(pyopencv_aruco_Board_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Board");
+    jsRaiseCVOverloadException(info, "Board");
 
     return -1;
 }
@@ -26911,7 +26911,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
     if (!pyopencv_aruco_Board_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_outSize = NULL;
@@ -26935,7 +26935,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26961,9 +26961,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("generateImage");
+    jsRaiseCVOverloadException(info, "generateImage");
 
     return info.Env().Null();
 }
@@ -27057,7 +27057,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
     if (!pyopencv_aruco_Board_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_detectedCorners = NULL;
@@ -27081,7 +27081,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27107,9 +27107,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("matchImagePoints");
+    jsRaiseCVOverloadException(info, "matchImagePoints");
 
     return info.Env().Null();
 }
@@ -27174,7 +27174,7 @@ static int pyopencv_cv_aruco_aruco_CharucoBoard_CharucoBoard(pyopencv_aruco_Char
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_size = NULL;
@@ -27201,7 +27201,7 @@ static int pyopencv_cv_aruco_aruco_CharucoBoard_CharucoBoard(pyopencv_aruco_Char
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27230,9 +27230,9 @@ static int pyopencv_cv_aruco_aruco_CharucoBoard_CharucoBoard(pyopencv_aruco_Char
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("CharucoBoard");
+    jsRaiseCVOverloadException(info, "CharucoBoard");
 
     return -1;
 }
@@ -27246,7 +27246,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
     if (!pyopencv_aruco_CharucoBoard_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
     cv::aruco::CharucoBoard* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_charucoIds = NULL;
@@ -27262,7 +27262,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27280,9 +27280,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("checkCharucoCornersCollinear");
+    jsRaiseCVOverloadException(info, "checkCharucoCornersCollinear");
 
     return info.Env().Null();
 }
@@ -27459,7 +27459,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
     if (!pyopencv_aruco_CharucoDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -27486,7 +27486,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27515,9 +27515,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectBoard");
+    jsRaiseCVOverloadException(info, "detectBoard");
 
     return info.Env().Null();
 }
@@ -27531,7 +27531,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
     if (!pyopencv_aruco_CharucoDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -27558,7 +27558,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27587,9 +27587,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectDiamonds");
+    jsRaiseCVOverloadException(info, "detectDiamonds");
 
     return info.Env().Null();
 }
@@ -28618,7 +28618,7 @@ static int pyopencv_cv_aruco_aruco_Dictionary_Dictionary(pyopencv_aruco_Dictiona
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -28629,7 +28629,7 @@ static int pyopencv_cv_aruco_aruco_Dictionary_Dictionary(pyopencv_aruco_Dictiona
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28652,9 +28652,9 @@ static int pyopencv_cv_aruco_aruco_Dictionary_Dictionary(pyopencv_aruco_Dictiona
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Dictionary");
+    jsRaiseCVOverloadException(info, "Dictionary");
 
     return -1;
 }
@@ -28668,7 +28668,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
     if (!pyopencv_aruco_Dictionary_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_id = NULL;
@@ -28692,7 +28692,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28718,9 +28718,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("generateImageMarker");
+    jsRaiseCVOverloadException(info, "generateImageMarker");
 
     return info.Env().Null();
 }
@@ -28775,7 +28775,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
     if (!pyopencv_aruco_Dictionary_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_bits = NULL;
@@ -28797,7 +28797,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28821,9 +28821,9 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getDistanceToId");
+    jsRaiseCVOverloadException(info, "getDistanceToId");
 
     return info.Env().Null();
 }
@@ -28971,7 +28971,7 @@ static int pyopencv_cv_aruco_aruco_GridBoard_GridBoard(pyopencv_aruco_GridBoard_
 {
     using namespace cv::aruco;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_size = NULL;
@@ -28998,7 +28998,7 @@ static int pyopencv_cv_aruco_aruco_GridBoard_GridBoard(pyopencv_aruco_GridBoard_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29027,9 +29027,9 @@ static int pyopencv_cv_aruco_aruco_GridBoard_GridBoard(pyopencv_aruco_GridBoard_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GridBoard");
+    jsRaiseCVOverloadException(info, "GridBoard");
 
     return -1;
 }
@@ -29353,7 +29353,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
     if (!pyopencv_barcode_BarcodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
     Ptr<cv::barcode::BarcodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -29374,7 +29374,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29397,9 +29397,9 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("decode");
+    jsRaiseCVOverloadException(info, "decode");
 
     return info.Env().Null();
 }
@@ -29413,7 +29413,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
     if (!pyopencv_barcode_BarcodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
     Ptr<cv::barcode::BarcodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -29432,7 +29432,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29453,9 +29453,9 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -29469,7 +29469,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
     if (!pyopencv_barcode_BarcodeDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
     Ptr<cv::barcode::BarcodeDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -29490,7 +29490,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29513,9 +29513,9 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectAndDecode");
+    jsRaiseCVOverloadException(info, "detectAndDecode");
 
     return info.Env().Null();
 }
@@ -29577,7 +29577,7 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
 {
     using namespace cv::ccm;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -29596,7 +29596,7 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29620,7 +29620,7 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29647,9 +29647,9 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("ColorCorrectionModel");
+    jsRaiseCVOverloadException(info, "ColorCorrectionModel");
 
     return -1;
 }
@@ -30217,7 +30217,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
     if (!pyopencv_cuda_BufferPool_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_BufferPool' or its derivative)");
     Ptr<cv::cuda::BufferPool> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_rows = NULL;
@@ -30239,7 +30239,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30260,9 +30260,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getBuffer");
+    jsRaiseCVOverloadException(info, "getBuffer");
 
     return info.Env().Null();
 }
@@ -30323,7 +30323,7 @@ static int pyopencv_cv_cuda_cuda_DeviceInfo_DeviceInfo(pyopencv_cuda_DeviceInfo_
 {
     using namespace cv::cuda;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -30335,7 +30335,7 @@ static int pyopencv_cv_cuda_cuda_DeviceInfo_DeviceInfo(pyopencv_cuda_DeviceInfo_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30353,9 +30353,9 @@ static int pyopencv_cv_cuda_cuda_DeviceInfo_DeviceInfo(pyopencv_cuda_DeviceInfo_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("DeviceInfo");
+    jsRaiseCVOverloadException(info, "DeviceInfo");
 
     return -1;
 }
@@ -31808,7 +31808,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
 {
     using namespace cv::cuda;
 
-    pyPrepareArgumentConversionErrorsStorage(11);
+    jsPrepareArgumentConversionErrorsStorage(info, 11);
 
     {
     Napi::Value* pyobj_allocator = NULL;
@@ -31824,7 +31824,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31851,7 +31851,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31875,7 +31875,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31905,7 +31905,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31932,7 +31932,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31950,7 +31950,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31974,7 +31974,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31995,7 +31995,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32016,7 +32016,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32037,7 +32037,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32058,9 +32058,9 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GpuMat");
+    jsRaiseCVOverloadException(info, "GpuMat");
 
     return -1;
 }
@@ -32197,7 +32197,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_startcol = NULL;
@@ -32216,7 +32216,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32234,9 +32234,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("colRange");
+    jsRaiseCVOverloadException(info, "colRange");
 
     return info.Env().Null();
 }
@@ -32250,7 +32250,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(15);
+    jsPrepareArgumentConversionErrorsStorage(info, 15);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -32268,7 +32268,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32288,7 +32288,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32308,7 +32308,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32331,7 +32331,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32354,7 +32354,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32377,7 +32377,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32403,7 +32403,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32429,7 +32429,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32455,7 +32455,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32481,7 +32481,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32507,7 +32507,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32533,7 +32533,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32562,7 +32562,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32591,7 +32591,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32620,9 +32620,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("convertTo");
+    jsRaiseCVOverloadException(info, "convertTo");
 
     return info.Env().Null();
 }
@@ -32636,7 +32636,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(12);
+    jsPrepareArgumentConversionErrorsStorage(info, 12);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -32651,7 +32651,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32668,7 +32668,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32685,7 +32685,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32705,7 +32705,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32725,7 +32725,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32745,7 +32745,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32765,7 +32765,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32785,7 +32785,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32805,7 +32805,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32828,7 +32828,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32851,7 +32851,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32874,9 +32874,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("copyTo");
+    jsRaiseCVOverloadException(info, "copyTo");
 
     return info.Env().Null();
 }
@@ -32890,7 +32890,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_rows = NULL;
@@ -32911,7 +32911,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32931,9 +32931,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -33002,7 +33002,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(6);
+    jsPrepareArgumentConversionErrorsStorage(info, 6);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -33017,7 +33017,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33034,7 +33034,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33051,7 +33051,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33071,7 +33071,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33091,7 +33091,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33111,9 +33111,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("download");
+    jsRaiseCVOverloadException(info, "download");
 
     return info.Env().Null();
 }
@@ -33303,7 +33303,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_startrow = NULL;
@@ -33322,7 +33322,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33340,9 +33340,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("rowRange");
+    jsRaiseCVOverloadException(info, "rowRange");
 
     return info.Env().Null();
 }
@@ -33374,7 +33374,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(8);
+    jsPrepareArgumentConversionErrorsStorage(info, 8);
 
     {
     Napi::Value* pyobj_s = NULL;
@@ -33390,7 +33390,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33411,7 +33411,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33432,7 +33432,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33453,7 +33453,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33474,7 +33474,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33498,7 +33498,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33522,7 +33522,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33546,9 +33546,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setTo");
+    jsRaiseCVOverloadException(info, "setTo");
 
     return info.Env().Null();
 }
@@ -33664,7 +33664,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     if (!pyopencv_cuda_GpuMat_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(6);
+    jsPrepareArgumentConversionErrorsStorage(info, 6);
 
     {
     Napi::Value* pyobj_arr = NULL;
@@ -33679,7 +33679,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33696,7 +33696,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33713,7 +33713,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33733,7 +33733,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33753,7 +33753,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33773,9 +33773,9 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("upload");
+    jsRaiseCVOverloadException(info, "upload");
 
     return info.Env().Null();
 }
@@ -33970,7 +33970,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
 {
     using namespace cv::cuda;
 
-    pyPrepareArgumentConversionErrorsStorage(6);
+    jsPrepareArgumentConversionErrorsStorage(info, 6);
 
     {
     Napi::Value* pyobj_alloc_type = NULL;
@@ -33986,7 +33986,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34013,7 +34013,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34037,7 +34037,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34058,7 +34058,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34079,7 +34079,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34100,9 +34100,9 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("HostMem");
+    jsRaiseCVOverloadException(info, "HostMem");
 
     return -1;
 }
@@ -34729,7 +34729,7 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
 {
     using namespace cv::cuda;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
 
@@ -34741,7 +34741,7 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34759,7 +34759,7 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34777,9 +34777,9 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Stream");
+    jsRaiseCVOverloadException(info, "Stream");
 
     return -1;
 }
@@ -35151,7 +35151,7 @@ static int pyopencv_cv_dnn_dnn_ClassificationModel_ClassificationModel(pyopencv_
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -35169,7 +35169,7 @@ static int pyopencv_cv_dnn_dnn_ClassificationModel_ClassificationModel(pyopencv_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35186,9 +35186,9 @@ static int pyopencv_cv_dnn_dnn_ClassificationModel_ClassificationModel(pyopencv_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("ClassificationModel");
+    jsRaiseCVOverloadException(info, "ClassificationModel");
 
     return -1;
 }
@@ -35202,7 +35202,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
     if (!pyopencv_dnn_ClassificationModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
     cv::dnn::ClassificationModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -35219,7 +35219,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35238,9 +35238,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("classify");
+    jsRaiseCVOverloadException(info, "classify");
 
     return info.Env().Null();
 }
@@ -35346,7 +35346,7 @@ static int pyopencv_cv_dnn_dnn_DetectionModel_DetectionModel(pyopencv_dnn_Detect
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -35364,7 +35364,7 @@ static int pyopencv_cv_dnn_dnn_DetectionModel_DetectionModel(pyopencv_dnn_Detect
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35381,9 +35381,9 @@ static int pyopencv_cv_dnn_dnn_DetectionModel_DetectionModel(pyopencv_dnn_Detect
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("DetectionModel");
+    jsRaiseCVOverloadException(info, "DetectionModel");
 
     return -1;
 }
@@ -35397,7 +35397,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
     if (!pyopencv_dnn_DetectionModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
     cv::dnn::DetectionModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -35421,7 +35421,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35447,9 +35447,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -35555,7 +35555,7 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_i = NULL;
@@ -35571,7 +35571,7 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35589,7 +35589,7 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35607,9 +35607,9 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("DictValue");
+    jsRaiseCVOverloadException(info, "DictValue");
 
     return -1;
 }
@@ -35806,7 +35806,7 @@ static int pyopencv_cv_dnn_dnn_KeypointsModel_KeypointsModel(pyopencv_dnn_Keypoi
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -35824,7 +35824,7 @@ static int pyopencv_cv_dnn_dnn_KeypointsModel_KeypointsModel(pyopencv_dnn_Keypoi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35841,9 +35841,9 @@ static int pyopencv_cv_dnn_dnn_KeypointsModel_KeypointsModel(pyopencv_dnn_Keypoi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("KeypointsModel");
+    jsRaiseCVOverloadException(info, "KeypointsModel");
 
     return -1;
 }
@@ -35857,7 +35857,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
     if (!pyopencv_dnn_KeypointsModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_KeypointsModel' or its derivative)");
     cv::dnn::KeypointsModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -35876,7 +35876,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35897,9 +35897,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimate");
+    jsRaiseCVOverloadException(info, "estimate");
 
     return info.Env().Null();
 }
@@ -36012,7 +36012,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
     if (!pyopencv_dnn_Layer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Layer' or its derivative)");
     Ptr<cv::dnn::Layer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputs = NULL;
@@ -36030,7 +36030,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36050,9 +36050,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("finalize");
+    jsRaiseCVOverloadException(info, "finalize");
 
     return info.Env().Null();
 }
@@ -36171,7 +36171,7 @@ static int pyopencv_cv_dnn_dnn_Model_Model(pyopencv_dnn_Model_t* self, PyObject*
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -36189,7 +36189,7 @@ static int pyopencv_cv_dnn_dnn_Model_Model(pyopencv_dnn_Model_t* self, PyObject*
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36206,9 +36206,9 @@ static int pyopencv_cv_dnn_dnn_Model_Model(pyopencv_dnn_Model_t* self, PyObject*
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Model");
+    jsRaiseCVOverloadException(info, "Model");
 
     return -1;
 }
@@ -36222,7 +36222,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
     if (!pyopencv_dnn_Model_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -36240,7 +36240,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36260,9 +36260,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict");
+    jsRaiseCVOverloadException(info, "predict");
 
     return info.Env().Null();
 }
@@ -36383,7 +36383,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
     if (!pyopencv_dnn_Model_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_size = NULL;
@@ -36399,7 +36399,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36420,9 +36420,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setInputSize");
+    jsRaiseCVOverloadException(info, "setInputSize");
 
     return info.Env().Null();
 }
@@ -36716,7 +36716,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(5);
+    jsPrepareArgumentConversionErrorsStorage(info, 5);
 
     {
     Napi::Value* pyobj_outputName = NULL;
@@ -36732,7 +36732,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36752,7 +36752,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36772,7 +36772,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36792,7 +36792,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36812,9 +36812,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("forward");
+    jsRaiseCVOverloadException(info, "forward");
 
     return info.Env().Null();
 }
@@ -36876,7 +36876,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_netInputShapes = NULL;
@@ -36892,7 +36892,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36910,7 +36910,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36931,7 +36931,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36952,9 +36952,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getFLOPS");
+    jsRaiseCVOverloadException(info, "getFLOPS");
 
     return info.Env().Null();
 }
@@ -36989,7 +36989,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_layerId = NULL;
@@ -37005,7 +37005,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37023,7 +37023,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37041,9 +37041,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLayer");
+    jsRaiseCVOverloadException(info, "getLayer");
 
     return info.Env().Null();
 }
@@ -37145,7 +37145,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_netInputShapes = NULL;
@@ -37163,7 +37163,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37183,9 +37183,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLayersShapes");
+    jsRaiseCVOverloadException(info, "getLayersShapes");
 
     return info.Env().Null();
 }
@@ -37199,7 +37199,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_netInputShape = NULL;
@@ -37216,7 +37216,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37238,7 +37238,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37260,9 +37260,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getMemoryConsumption");
+    jsRaiseCVOverloadException(info, "getMemoryConsumption");
 
     return info.Env().Null();
 }
@@ -37297,7 +37297,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_layer = NULL;
@@ -37316,7 +37316,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37337,9 +37337,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getParam");
+    jsRaiseCVOverloadException(info, "getParam");
 
     return info.Env().Null();
 }
@@ -37414,7 +37414,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_calibData = NULL;
@@ -37439,7 +37439,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37466,9 +37466,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("quantize");
+    jsRaiseCVOverloadException(info, "quantize");
 
     return info.Env().Null();
 }
@@ -37477,7 +37477,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const N
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_xml = NULL;
@@ -37496,7 +37496,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37517,9 +37517,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("readFromModelOptimizer");
+    jsRaiseCVOverloadException(info, "readFromModelOptimizer");
 
     return info.Env().Null();
 }
@@ -37556,7 +37556,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_blob = NULL;
@@ -37580,7 +37580,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37606,9 +37606,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setInput");
+    jsRaiseCVOverloadException(info, "setInput");
 
     return info.Env().Null();
 }
@@ -37671,7 +37671,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
     if (!pyopencv_dnn_Net_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_layer = NULL;
@@ -37692,7 +37692,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37715,9 +37715,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setParam");
+    jsRaiseCVOverloadException(info, "setParam");
 
     return info.Env().Null();
 }
@@ -37854,7 +37854,7 @@ static int pyopencv_cv_dnn_dnn_SegmentationModel_SegmentationModel(pyopencv_dnn_
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model = NULL;
@@ -37872,7 +37872,7 @@ static int pyopencv_cv_dnn_dnn_SegmentationModel_SegmentationModel(pyopencv_dnn_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37889,9 +37889,9 @@ static int pyopencv_cv_dnn_dnn_SegmentationModel_SegmentationModel(pyopencv_dnn_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("SegmentationModel");
+    jsRaiseCVOverloadException(info, "SegmentationModel");
 
     return -1;
 }
@@ -37905,7 +37905,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
     if (!pyopencv_dnn_SegmentationModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_SegmentationModel' or its derivative)");
     cv::dnn::SegmentationModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -37923,7 +37923,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37943,9 +37943,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("segment");
+    jsRaiseCVOverloadException(info, "segment");
 
     return info.Env().Null();
 }
@@ -38010,7 +38010,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     if (!pyopencv_dnn_TextDetectionModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel' or its derivative)");
     cv::dnn::TextDetectionModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -38027,7 +38027,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38046,7 +38046,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38064,7 +38064,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38082,9 +38082,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -38098,7 +38098,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     if (!pyopencv_dnn_TextDetectionModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel' or its derivative)");
     cv::dnn::TextDetectionModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -38115,7 +38115,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38134,7 +38134,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38152,7 +38152,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38170,9 +38170,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectTextRectangles");
+    jsRaiseCVOverloadException(info, "detectTextRectangles");
 
     return info.Env().Null();
 }
@@ -38233,7 +38233,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_DB_TextDetectionModel_DB(pyope
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_network = NULL;
@@ -38248,7 +38248,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_DB_TextDetectionModel_DB(pyope
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38268,9 +38268,9 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_DB_TextDetectionModel_DB(pyope
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("TextDetectionModel_DB");
+    jsRaiseCVOverloadException(info, "TextDetectionModel_DB");
 
     return -1;
 }
@@ -38513,7 +38513,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_TextDetectionModel_EAST(p
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_network = NULL;
@@ -38528,7 +38528,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_TextDetectionModel_EAST(p
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38548,9 +38548,9 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_TextDetectionModel_EAST(p
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("TextDetectionModel_EAST");
+    jsRaiseCVOverloadException(info, "TextDetectionModel_EAST");
 
     return -1;
 }
@@ -38701,7 +38701,7 @@ static int pyopencv_cv_dnn_dnn_TextRecognitionModel_TextRecognitionModel(pyopenc
 {
     using namespace cv::dnn;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_network = NULL;
@@ -38716,7 +38716,7 @@ static int pyopencv_cv_dnn_dnn_TextRecognitionModel_TextRecognitionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38736,9 +38736,9 @@ static int pyopencv_cv_dnn_dnn_TextRecognitionModel_TextRecognitionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("TextRecognitionModel");
+    jsRaiseCVOverloadException(info, "TextRecognitionModel");
 
     return -1;
 }
@@ -38792,7 +38792,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     if (!pyopencv_dnn_TextRecognitionModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_frame = NULL;
@@ -38808,7 +38808,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38826,7 +38826,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38847,7 +38847,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38868,9 +38868,9 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("recognize");
+    jsRaiseCVOverloadException(info, "recognize");
 
     return info.Env().Null();
 }
@@ -39165,7 +39165,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     if (!pyopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -39183,7 +39183,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39203,9 +39203,9 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("upsample");
+    jsRaiseCVOverloadException(info, "upsample");
 
     return info.Env().Null();
 }
@@ -39219,7 +39219,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     if (!pyopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -39243,7 +39243,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39269,9 +39269,9 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("upsampleMultioutput");
+    jsRaiseCVOverloadException(info, "upsampleMultioutput");
 
     return info.Env().Null();
 }
@@ -39344,7 +39344,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
     if (!pyopencv_face_BIF_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_BIF' or its derivative)");
     Ptr<cv::face::BIF> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -39362,7 +39362,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39382,9 +39382,9 @@ static Napi::Value pyopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -39880,7 +39880,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
     if (!pyopencv_face_FaceRecognizer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -39897,7 +39897,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39916,9 +39916,9 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict");
+    jsRaiseCVOverloadException(info, "predict");
 
     return info.Env().Null();
 }
@@ -39932,7 +39932,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
     if (!pyopencv_face_FaceRecognizer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -39950,7 +39950,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39970,9 +39970,9 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict_collect");
+    jsRaiseCVOverloadException(info, "predict_collect");
 
     return info.Env().Null();
 }
@@ -39986,7 +39986,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
     if (!pyopencv_face_FaceRecognizer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40002,7 +40002,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40020,9 +40020,9 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict_label");
+    jsRaiseCVOverloadException(info, "predict_label");
 
     return info.Env().Null();
 }
@@ -40085,7 +40085,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
     if (!pyopencv_face_FaceRecognizer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40103,7 +40103,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40123,9 +40123,9 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("train");
+    jsRaiseCVOverloadException(info, "train");
 
     return info.Env().Null();
 }
@@ -40139,7 +40139,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
     if (!pyopencv_face_FaceRecognizer_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -40157,7 +40157,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40177,9 +40177,9 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("update");
+    jsRaiseCVOverloadException(info, "update");
 
     return info.Env().Null();
 }
@@ -40276,7 +40276,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
     if (!pyopencv_face_Facemark_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_Facemark' or its derivative)");
     Ptr<cv::face::Facemark> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -40298,7 +40298,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40322,9 +40322,9 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("fit");
+    jsRaiseCVOverloadException(info, "fit");
 
     return info.Env().Null();
 }
@@ -41099,7 +41099,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
     if (!pyopencv_face_MACE_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_MACE' or its derivative)");
     Ptr<cv::face::MACE> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_query = NULL;
@@ -41115,7 +41115,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41133,9 +41133,9 @@ static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("same");
+    jsRaiseCVOverloadException(info, "same");
 
     return info.Env().Null();
 }
@@ -41149,7 +41149,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
     if (!pyopencv_face_MACE_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'face_MACE' or its derivative)");
     Ptr<cv::face::MACE> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_images = NULL;
@@ -41164,7 +41164,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41181,9 +41181,9 @@ static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("train");
+    jsRaiseCVOverloadException(info, "train");
 
     return info.Env().Null();
 }
@@ -41434,7 +41434,7 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
 {
     using namespace cv::flann;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
 
@@ -41446,7 +41446,7 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41470,7 +41470,7 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41494,9 +41494,9 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Index");
+    jsRaiseCVOverloadException(info, "Index");
 
     return -1;
 }
@@ -41510,7 +41510,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
     if (!pyopencv_flann_Index_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_features = NULL;
@@ -41531,7 +41531,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41554,9 +41554,9 @@ static Napi::Value pyopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("build");
+    jsRaiseCVOverloadException(info, "build");
 
     return info.Env().Null();
 }
@@ -41610,7 +41610,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
     if (!pyopencv_flann_Index_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_query = NULL;
@@ -41637,7 +41637,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41666,9 +41666,9 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("knnSearch");
+    jsRaiseCVOverloadException(info, "knnSearch");
 
     return info.Env().Null();
 }
@@ -41682,7 +41682,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
     if (!pyopencv_flann_Index_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_features = NULL;
@@ -41701,7 +41701,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41722,9 +41722,9 @@ static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("load");
+    jsRaiseCVOverloadException(info, "load");
 
     return info.Env().Null();
 }
@@ -41738,7 +41738,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
     if (!pyopencv_flann_Index_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_query = NULL;
@@ -41769,7 +41769,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41802,9 +41802,9 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("radiusSearch");
+    jsRaiseCVOverloadException(info, "radiusSearch");
 
     return info.Env().Null();
 }
@@ -41913,7 +41913,7 @@ static int pyopencv_cv_gapi_gapi_GNetPackage_GNetPackage(pyopencv_gapi_GNetPacka
 {
     using namespace cv::gapi;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -41924,7 +41924,7 @@ static int pyopencv_cv_gapi_gapi_GNetPackage_GNetPackage(pyopencv_gapi_GNetPacka
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41941,9 +41941,9 @@ static int pyopencv_cv_gapi_gapi_GNetPackage_GNetPackage(pyopencv_gapi_GNetPacka
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("GNetPackage");
+    jsRaiseCVOverloadException(info, "GNetPackage");
 
     return -1;
 }
@@ -42052,7 +42052,7 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
 {
     using namespace cv::gapi::ie;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
 
@@ -42063,7 +42063,7 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42089,7 +42089,7 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42112,9 +42112,9 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PyParams");
+    jsRaiseCVOverloadException(info, "PyParams");
 
     return -1;
 }
@@ -42254,7 +42254,7 @@ static int pyopencv_cv_gapi_onnx_gapi_onnx_PyParams_PyParams(pyopencv_gapi_onnx_
 {
     using namespace cv::gapi::onnx;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -42265,7 +42265,7 @@ static int pyopencv_cv_gapi_onnx_gapi_onnx_PyParams_PyParams(pyopencv_gapi_onnx_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42285,9 +42285,9 @@ static int pyopencv_cv_gapi_onnx_gapi_onnx_PyParams_PyParams(pyopencv_gapi_onnx_
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("PyParams");
+    jsRaiseCVOverloadException(info, "PyParams");
 
     return -1;
 }
@@ -42712,7 +42712,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Circle_Circle(pyopencv_gapi_w
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_center_ = NULL;
@@ -42742,7 +42742,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Circle_Circle(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42755,9 +42755,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Circle_Circle(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Circle");
+    jsRaiseCVOverloadException(info, "Circle");
 
     return -1;
 }
@@ -42867,7 +42867,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Image_Image(pyopencv_gapi_wip
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_org_ = NULL;
@@ -42888,7 +42888,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Image_Image(pyopencv_gapi_wip
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42901,9 +42901,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Image_Image(pyopencv_gapi_wip
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Image");
+    jsRaiseCVOverloadException(info, "Image");
 
     return -1;
 }
@@ -43055,7 +43055,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Line_Line(pyopencv_gapi_wip_d
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pt1_ = NULL;
@@ -43085,7 +43085,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Line_Line(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43098,9 +43098,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Line_Line(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Line");
+    jsRaiseCVOverloadException(info, "Line");
 
     return -1;
 }
@@ -43210,7 +43210,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Mosaic_Mosaic(pyopencv_gapi_w
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -43221,7 +43221,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Mosaic_Mosaic(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43244,9 +43244,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Mosaic_Mosaic(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Mosaic");
+    jsRaiseCVOverloadException(info, "Mosaic");
 
     return -1;
 }
@@ -43383,7 +43383,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Poly_Poly(pyopencv_gapi_wip_d
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_points_ = NULL;
@@ -43410,7 +43410,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Poly_Poly(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43423,9 +43423,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Poly_Poly(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Poly");
+    jsRaiseCVOverloadException(info, "Poly");
 
     return -1;
 }
@@ -43564,7 +43564,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Rect_Rect(pyopencv_gapi_wip_d
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
 
@@ -43575,7 +43575,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Rect_Rect(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43604,9 +43604,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Rect_Rect(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Rect");
+    jsRaiseCVOverloadException(info, "Rect");
 
     return -1;
 }
@@ -43790,7 +43790,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Text_Text(pyopencv_gapi_wip_d
 {
     using namespace cv::gapi::wip::draw;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_text_ = NULL;
@@ -43826,7 +43826,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Text_Text(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43839,9 +43839,9 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Text_Text(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("Text");
+    jsRaiseCVOverloadException(info, "Text");
 
     return -1;
 }
@@ -44229,7 +44229,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
     if (!pyopencv_img_hash_ImgHashBase_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'img_hash_ImgHashBase' or its derivative)");
     Ptr<cv::img_hash::ImgHashBase> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_hashOne = NULL;
@@ -44248,7 +44248,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44269,9 +44269,9 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compare");
+    jsRaiseCVOverloadException(info, "compare");
 
     return info.Env().Null();
 }
@@ -44285,7 +44285,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
     if (!pyopencv_img_hash_ImgHashBase_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'img_hash_ImgHashBase' or its derivative)");
     Ptr<cv::img_hash::ImgHashBase> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputArr = NULL;
@@ -44303,7 +44303,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44323,9 +44323,9 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -44777,7 +44777,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
     if (!pyopencv_legacy_MultiTracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
     Ptr<cv::legacy::MultiTracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_newTracker = NULL;
@@ -44799,7 +44799,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44823,9 +44823,9 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("add");
+    jsRaiseCVOverloadException(info, "add");
 
     return info.Env().Null();
 }
@@ -44874,7 +44874,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
     if (!pyopencv_legacy_MultiTracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
     Ptr<cv::legacy::MultiTracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -44891,7 +44891,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44910,9 +44910,9 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("update");
+    jsRaiseCVOverloadException(info, "update");
 
     return info.Env().Null();
 }
@@ -44980,7 +44980,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
     if (!pyopencv_legacy_Tracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'legacy_Tracker' or its derivative)");
     Ptr<cv::legacy::Tracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -44999,7 +44999,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -45020,9 +45020,9 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("init");
+    jsRaiseCVOverloadException(info, "init");
 
     return info.Env().Null();
 }
@@ -45036,7 +45036,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
     if (!pyopencv_legacy_Tracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'legacy_Tracker' or its derivative)");
     Ptr<cv::legacy::Tracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -45053,7 +45053,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -45072,9 +45072,9 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("update");
+    jsRaiseCVOverloadException(info, "update");
 
     return info.Env().Null();
 }
@@ -45221,7 +45221,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
     if (!pyopencv_legacy_TrackerCSRT_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'legacy_TrackerCSRT' or its derivative)");
     Ptr<cv::legacy::TrackerCSRT> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_mask = NULL;
@@ -45236,7 +45236,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -45253,9 +45253,9 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setInitialMask");
+    jsRaiseCVOverloadException(info, "setInitialMask");
 
     return info.Env().Null();
 }
@@ -46042,7 +46042,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
     if (!pyopencv_mcc_CCheckerDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -46070,7 +46070,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -46100,9 +46100,9 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("process");
+    jsRaiseCVOverloadException(info, "process");
 
     return info.Env().Null();
 }
@@ -46116,7 +46116,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
     if (!pyopencv_mcc_CCheckerDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -46147,7 +46147,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -46180,9 +46180,9 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("processWithROI");
+    jsRaiseCVOverloadException(info, "processWithROI");
 
     return info.Env().Null();
 }
@@ -46301,7 +46301,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
     if (!pyopencv_mcc_CCheckerDraw_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDraw' or its derivative)");
     Ptr<cv::mcc::CCheckerDraw> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -46316,7 +46316,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -46333,9 +46333,9 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("draw");
+    jsRaiseCVOverloadException(info, "draw");
 
     return info.Env().Null();
 }
@@ -47260,7 +47260,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
     if (!pyopencv_ml_ANN_MLP_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj__layer_sizes = NULL;
@@ -47275,7 +47275,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -47292,9 +47292,9 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setLayerSizes");
+    jsRaiseCVOverloadException(info, "setLayerSizes");
 
     return info.Env().Null();
 }
@@ -48435,7 +48435,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
     if (!pyopencv_ml_EM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -48457,7 +48457,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48481,9 +48481,9 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict");
+    jsRaiseCVOverloadException(info, "predict");
 
     return info.Env().Null();
 }
@@ -48497,7 +48497,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
     if (!pyopencv_ml_EM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_sample = NULL;
@@ -48516,7 +48516,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48537,9 +48537,9 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict2");
+    jsRaiseCVOverloadException(info, "predict2");
 
     return info.Env().Null();
 }
@@ -48622,7 +48622,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
     if (!pyopencv_ml_EM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -48656,7 +48656,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48692,9 +48692,9 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("trainE");
+    jsRaiseCVOverloadException(info, "trainE");
 
     return info.Env().Null();
 }
@@ -48708,7 +48708,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
     if (!pyopencv_ml_EM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -48733,7 +48733,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48760,9 +48760,9 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("trainEM");
+    jsRaiseCVOverloadException(info, "trainEM");
 
     return info.Env().Null();
 }
@@ -48776,7 +48776,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
     if (!pyopencv_ml_EM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -48804,7 +48804,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48834,9 +48834,9 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("trainM");
+    jsRaiseCVOverloadException(info, "trainM");
 
     return info.Env().Null();
 }
@@ -48931,7 +48931,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
     if (!pyopencv_ml_KNearest_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -48959,7 +48959,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48989,9 +48989,9 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("findNearest");
+    jsRaiseCVOverloadException(info, "findNearest");
 
     return info.Env().Null();
 }
@@ -49434,7 +49434,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
     if (!pyopencv_ml_LogisticRegression_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -49456,7 +49456,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -49480,9 +49480,9 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict");
+    jsRaiseCVOverloadException(info, "predict");
 
     return info.Env().Null();
 }
@@ -49737,7 +49737,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
     if (!pyopencv_ml_NormalBayesClassifier_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_NormalBayesClassifier' or its derivative)");
     Ptr<cv::ml::NormalBayesClassifier> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputs = NULL;
@@ -49762,7 +49762,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -49789,9 +49789,9 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predictProb");
+    jsRaiseCVOverloadException(info, "predictProb");
 
     return info.Env().Null();
 }
@@ -50097,7 +50097,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
     if (!pyopencv_ml_RTrees_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -50118,7 +50118,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -50141,9 +50141,9 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getVotes");
+    jsRaiseCVOverloadException(info, "getVotes");
 
     return info.Env().Null();
 }
@@ -50384,7 +50384,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
     if (!pyopencv_ml_SVM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_i = NULL;
@@ -50406,7 +50406,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -50430,9 +50430,9 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getDecisionFunction");
+    jsRaiseCVOverloadException(info, "getDecisionFunction");
 
     return info.Env().Null();
 }
@@ -50894,7 +50894,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
     if (!pyopencv_ml_SVM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -50940,7 +50940,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -50988,9 +50988,9 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("trainAuto");
+    jsRaiseCVOverloadException(info, "trainAuto");
 
     return info.Env().Null();
 }
@@ -51509,7 +51509,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
     if (!pyopencv_ml_StatModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -51531,7 +51531,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51555,9 +51555,9 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("calcError");
+    jsRaiseCVOverloadException(info, "calcError");
 
     return info.Env().Null();
 }
@@ -51651,7 +51651,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
     if (!pyopencv_ml_StatModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -51673,7 +51673,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51697,9 +51697,9 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("predict");
+    jsRaiseCVOverloadException(info, "predict");
 
     return info.Env().Null();
 }
@@ -51713,7 +51713,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     if (!pyopencv_ml_StatModel_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_trainData = NULL;
@@ -51732,7 +51732,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51756,7 +51756,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51780,9 +51780,9 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("train");
+    jsRaiseCVOverloadException(info, "train");
 
     return info.Env().Null();
 }
@@ -51848,7 +51848,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_create_static(const Napi::Callbac
 {
     using namespace cv::ml;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_samples = NULL;
@@ -51882,7 +51882,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_create_static(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51918,9 +51918,9 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_create_static(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -52261,7 +52261,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
     if (!pyopencv_ml_TrainData_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_varIdx = NULL;
@@ -52282,7 +52282,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -52305,9 +52305,9 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getSample");
+    jsRaiseCVOverloadException(info, "getSample");
 
     return info.Env().Null();
 }
@@ -52618,7 +52618,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
     if (!pyopencv_ml_TrainData_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_vi = NULL;
@@ -52639,7 +52639,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -52662,9 +52662,9 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getValues");
+    jsRaiseCVOverloadException(info, "getValues");
 
     return info.Env().Null();
 }
@@ -54497,7 +54497,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
 {
     using namespace cv::plot;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_data = NULL;
@@ -54513,7 +54513,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54531,7 +54531,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54552,7 +54552,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54573,9 +54573,9 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -54589,7 +54589,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
     if (!pyopencv_plot_Plot2d_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj__plotResult = NULL;
@@ -54604,7 +54604,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54621,9 +54621,9 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("render");
+    jsRaiseCVOverloadException(info, "render");
 
     return info.Env().Null();
 }
@@ -55100,7 +55100,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     if (!pyopencv_quality_QualityBRISQUE_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualityBRISQUE' or its derivative)");
     Ptr<cv::quality::QualityBRISQUE> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -55116,7 +55116,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55134,7 +55134,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55158,7 +55158,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55182,9 +55182,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -55193,7 +55193,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_st
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -55211,7 +55211,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_st
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55231,9 +55231,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_st
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeFeatures");
+    jsRaiseCVOverloadException(info, "computeFeatures");
 
     return info.Env().Null();
 }
@@ -55242,7 +55242,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(cons
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_model_file_path = NULL;
@@ -55261,7 +55261,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55282,9 +55282,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -55370,7 +55370,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::C
     if (!pyopencv_quality_QualityBase_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
     Ptr<cv::quality::QualityBase> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -55386,7 +55386,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55404,9 +55404,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -55440,7 +55440,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const N
     if (!pyopencv_quality_QualityBase_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
     Ptr<cv::quality::QualityBase> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -55455,7 +55455,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55472,9 +55472,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getQualityMap");
+    jsRaiseCVOverloadException(info, "getQualityMap");
 
     return info.Env().Null();
 }
@@ -55561,7 +55561,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     if (!pyopencv_quality_QualityGMSD_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
     Ptr<cv::quality::QualityGMSD> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_cmp = NULL;
@@ -55577,7 +55577,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55595,7 +55595,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55619,7 +55619,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55643,9 +55643,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -55654,7 +55654,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const N
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -55670,7 +55670,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55688,9 +55688,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -55797,7 +55797,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     if (!pyopencv_quality_QualityMSE_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
     Ptr<cv::quality::QualityMSE> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_cmpImgs = NULL;
@@ -55813,7 +55813,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55831,7 +55831,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55855,7 +55855,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55879,9 +55879,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -55890,7 +55890,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Na
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -55906,7 +55906,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55924,9 +55924,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -56033,7 +56033,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     if (!pyopencv_quality_QualityPSNR_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
     Ptr<cv::quality::QualityPSNR> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_cmp = NULL;
@@ -56049,7 +56049,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56067,7 +56067,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56094,7 +56094,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56121,9 +56121,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -56132,7 +56132,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const N
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -56151,7 +56151,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56172,9 +56172,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -56326,7 +56326,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     if (!pyopencv_quality_QualitySSIM_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
     Ptr<cv::quality::QualitySSIM> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_cmp = NULL;
@@ -56342,7 +56342,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56360,7 +56360,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56384,7 +56384,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56408,9 +56408,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -56419,7 +56419,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const N
 {
     using namespace cv::quality;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ref = NULL;
@@ -56435,7 +56435,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56453,9 +56453,9 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -56538,7 +56538,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_GOSTracker_create_static(const Napi::
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pts3d = NULL;
@@ -56563,7 +56563,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_GOSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56590,9 +56590,9 @@ static Napi::Value pyopencv_cv_rapid_rapid_GOSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -56652,7 +56652,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_OLSTracker_create_static(const Napi::
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pts3d = NULL;
@@ -56677,7 +56677,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_OLSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56704,9 +56704,9 @@ static Napi::Value pyopencv_cv_rapid_rapid_OLSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -56766,7 +56766,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Rapid_create_static(const Napi::Callb
 {
     using namespace cv::rapid;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_pts3d = NULL;
@@ -56785,7 +56785,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Rapid_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56806,9 +56806,9 @@ static Napi::Value pyopencv_cv_rapid_rapid_Rapid_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -56892,7 +56892,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
     if (!pyopencv_rapid_Tracker_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'rapid_Tracker' or its derivative)");
     Ptr<cv::rapid::Tracker> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -56926,7 +56926,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56962,9 +56962,9 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("compute");
+    jsRaiseCVOverloadException(info, "compute");
 
     return info.Env().Null();
 }
@@ -57044,7 +57044,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     if (!pyopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -57060,7 +57060,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57078,9 +57078,9 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("applyImage");
+    jsRaiseCVOverloadException(info, "applyImage");
 
     return info.Env().Null();
 }
@@ -57094,7 +57094,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     if (!pyopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_non_edge = NULL;
@@ -57119,7 +57119,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57146,9 +57146,9 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("applyImageFeatures");
+    jsRaiseCVOverloadException(info, "applyImageFeatures");
 
     return info.Env().Null();
 }
@@ -57185,7 +57185,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
     if (!pyopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_targetPt = NULL;
@@ -57206,7 +57206,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57229,9 +57229,9 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getContour");
+    jsRaiseCVOverloadException(info, "getContour");
 
     return info.Env().Null();
 }
@@ -57559,7 +57559,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static(cons
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_classifier = NULL;
@@ -57590,7 +57590,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57623,9 +57623,9 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -57639,7 +57639,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     if (!pyopencv_text_OCRBeamSearchDecoder_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'text_OCRBeamSearchDecoder' or its derivative)");
     Ptr<cv::text::OCRBeamSearchDecoder> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -57661,7 +57661,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57685,7 +57685,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57712,7 +57712,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57739,9 +57739,9 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("run");
+    jsRaiseCVOverloadException(info, "run");
 
     return info.Env().Null();
 }
@@ -57852,7 +57852,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
 {
     using namespace cv::text;
 
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_classifier = NULL;
@@ -57880,7 +57880,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57910,7 +57910,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57943,7 +57943,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57976,9 +57976,9 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -57992,7 +57992,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     if (!pyopencv_text_OCRHMMDecoder_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'text_OCRHMMDecoder' or its derivative)");
     Ptr<cv::text::OCRHMMDecoder> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -58014,7 +58014,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58038,7 +58038,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58065,7 +58065,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58092,9 +58092,9 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("run");
+    jsRaiseCVOverloadException(info, "run");
 
     return info.Env().Null();
 }
@@ -58235,7 +58235,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     if (!pyopencv_text_OCRTesseract_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'text_OCRTesseract' or its derivative)");
     Ptr<cv::text::OCRTesseract> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(4);
+    jsPrepareArgumentConversionErrorsStorage(info, 4);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -58257,7 +58257,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58281,7 +58281,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58308,7 +58308,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58335,9 +58335,9 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("run");
+    jsRaiseCVOverloadException(info, "run");
 
     return info.Env().Null();
 }
@@ -58427,7 +58427,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
     if (!pyopencv_text_TextDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'text_TextDetector' or its derivative)");
     Ptr<cv::text::TextDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputImage = NULL;
@@ -58444,7 +58444,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58463,9 +58463,9 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -58552,7 +58552,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
     if (!pyopencv_text_TextDetectorCNN_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'text_TextDetectorCNN' or its derivative)");
     Ptr<cv::text::TextDetectorCNN> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_inputImage = NULL;
@@ -58569,7 +58569,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58588,9 +58588,9 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -59535,7 +59535,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static(const
 {
     using namespace cv::xfeatures2d;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_radius = NULL;
@@ -59572,7 +59572,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static(const
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -59611,9 +59611,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static(const
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -59807,7 +59807,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
     if (!pyopencv_xfeatures2d_DAISY_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_H = NULL;
@@ -59822,7 +59822,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -59839,9 +59839,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setH");
+    jsRaiseCVOverloadException(info, "setH");
 
     return info.Env().Null();
 }
@@ -61679,7 +61679,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
     if (!pyopencv_xfeatures2d_PCTSignatures_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -61697,7 +61697,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61717,9 +61717,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeSignature");
+    jsRaiseCVOverloadException(info, "computeSignature");
 
     return info.Env().Null();
 }
@@ -61754,7 +61754,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
 {
     using namespace cv::xfeatures2d;
 
-    pyPrepareArgumentConversionErrorsStorage(3);
+    jsPrepareArgumentConversionErrorsStorage(info, 3);
 
     {
     Napi::Value* pyobj_initSampleCount = NULL;
@@ -61776,7 +61776,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61797,7 +61797,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61818,9 +61818,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("create");
+    jsRaiseCVOverloadException(info, "create");
 
     return info.Env().Null();
 }
@@ -61829,7 +61829,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignatu
 {
     using namespace cv::xfeatures2d;
 
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_source = NULL;
@@ -61856,7 +61856,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignatu
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61885,9 +61885,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignatu
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawSignature");
+    jsRaiseCVOverloadException(info, "drawSignature");
 
     return info.Env().Null();
 }
@@ -62889,7 +62889,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
     if (!pyopencv_xfeatures2d_PCTSignaturesSQFD_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignaturesSQFD' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignaturesSQFD> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj__signature0 = NULL;
@@ -62908,7 +62908,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -62929,9 +62929,9 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeQuadraticFormDistance");
+    jsRaiseCVOverloadException(info, "computeQuadraticFormDistance");
 
     return info.Env().Null();
 }
@@ -64426,7 +64426,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
     if (!pyopencv_ximgproc_AdaptiveManifoldFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_AdaptiveManifoldFilter' or its derivative)");
     Ptr<cv::ximgproc::AdaptiveManifoldFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -64447,7 +64447,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64470,9 +64470,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter");
+    jsRaiseCVOverloadException(info, "filter");
 
     return info.Env().Null();
 }
@@ -64539,7 +64539,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
     if (!pyopencv_ximgproc_ContourFitting_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
     Ptr<cv::ximgproc::ContourFitting> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -64564,7 +64564,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64591,9 +64591,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("estimateTransformation");
+    jsRaiseCVOverloadException(info, "estimateTransformation");
 
     return info.Env().Null();
 }
@@ -64748,7 +64748,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
     if (!pyopencv_ximgproc_DTFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_DTFilter' or its derivative)");
     Ptr<cv::ximgproc::DTFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -64769,7 +64769,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64792,9 +64792,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter");
+    jsRaiseCVOverloadException(info, "filter");
 
     return info.Env().Null();
 }
@@ -64859,7 +64859,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
     if (!pyopencv_ximgproc_DisparityFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_disparity_map_left = NULL;
@@ -64889,7 +64889,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64921,9 +64921,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter");
+    jsRaiseCVOverloadException(info, "filter");
 
     return info.Env().Null();
 }
@@ -65644,7 +65644,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
     if (!pyopencv_ximgproc_EdgeBoxes_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_edge_map = NULL;
@@ -65666,7 +65666,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -65690,9 +65690,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getBoundingBoxes");
+    jsRaiseCVOverloadException(info, "getBoundingBoxes");
 
     return info.Env().Null();
 }
@@ -66257,7 +66257,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
     if (!pyopencv_ximgproc_EdgeDrawing_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -66272,7 +66272,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66289,9 +66289,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectEdges");
+    jsRaiseCVOverloadException(info, "detectEdges");
 
     return info.Env().Null();
 }
@@ -66305,7 +66305,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
     if (!pyopencv_ximgproc_EdgeDrawing_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_ellipses = NULL;
@@ -66320,7 +66320,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66337,9 +66337,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectEllipses");
+    jsRaiseCVOverloadException(info, "detectEllipses");
 
     return info.Env().Null();
 }
@@ -66353,7 +66353,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
     if (!pyopencv_ximgproc_EdgeDrawing_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_lines = NULL;
@@ -66368,7 +66368,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66385,9 +66385,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectLines");
+    jsRaiseCVOverloadException(info, "detectLines");
 
     return info.Env().Null();
 }
@@ -66401,7 +66401,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
     if (!pyopencv_ximgproc_EdgeDrawing_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -66416,7 +66416,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66433,9 +66433,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getEdgeImage");
+    jsRaiseCVOverloadException(info, "getEdgeImage");
 
     return info.Env().Null();
 }
@@ -66449,7 +66449,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
     if (!pyopencv_ximgproc_EdgeDrawing_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_dst = NULL;
@@ -66464,7 +66464,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66481,9 +66481,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getGradientImage");
+    jsRaiseCVOverloadException(info, "getGradientImage");
 
     return info.Env().Null();
 }
@@ -66890,7 +66890,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
     if (!pyopencv_ximgproc_FastBilateralSolverFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_FastBilateralSolverFilter' or its derivative)");
     Ptr<cv::ximgproc::FastBilateralSolverFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -66911,7 +66911,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66934,9 +66934,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter");
+    jsRaiseCVOverloadException(info, "filter");
 
     return info.Env().Null();
 }
@@ -67001,7 +67001,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
     if (!pyopencv_ximgproc_FastGlobalSmootherFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_FastGlobalSmootherFilter' or its derivative)");
     Ptr<cv::ximgproc::FastGlobalSmootherFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -67019,7 +67019,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67039,9 +67039,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter");
+    jsRaiseCVOverloadException(info, "filter");
 
     return info.Env().Null();
 }
@@ -67106,7 +67106,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
     if (!pyopencv_ximgproc_FastLineDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_FastLineDetector' or its derivative)");
     Ptr<cv::ximgproc::FastLineDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -67124,7 +67124,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67144,9 +67144,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detect");
+    jsRaiseCVOverloadException(info, "detect");
 
     return info.Env().Null();
 }
@@ -67160,7 +67160,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
     if (!pyopencv_ximgproc_FastLineDetector_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_FastLineDetector' or its derivative)");
     Ptr<cv::ximgproc::FastLineDetector> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -67187,7 +67187,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67216,9 +67216,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("drawSegments");
+    jsRaiseCVOverloadException(info, "drawSegments");
 
     return info.Env().Null();
 }
@@ -67284,7 +67284,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
     if (!pyopencv_ximgproc_GuidedFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_GuidedFilter' or its derivative)");
     Ptr<cv::ximgproc::GuidedFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -67305,7 +67305,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67328,9 +67328,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("filter");
+    jsRaiseCVOverloadException(info, "filter");
 
     return info.Env().Null();
 }
@@ -68186,7 +68186,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
     if (!pyopencv_ximgproc_RidgeDetectionFilter_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_RidgeDetectionFilter' or its derivative)");
     Ptr<cv::ximgproc::RidgeDetectionFilter> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj__img = NULL;
@@ -68204,7 +68204,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68224,9 +68224,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getRidgeFilteredImage");
+    jsRaiseCVOverloadException(info, "getRidgeFilteredImage");
 
     return info.Env().Null();
 }
@@ -68292,7 +68292,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
     if (!pyopencv_ximgproc_ScanSegment_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -68310,7 +68310,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68330,9 +68330,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabelContourMask");
+    jsRaiseCVOverloadException(info, "getLabelContourMask");
 
     return info.Env().Null();
 }
@@ -68346,7 +68346,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
     if (!pyopencv_ximgproc_ScanSegment_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_labels_out = NULL;
@@ -68361,7 +68361,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68378,9 +68378,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabels");
+    jsRaiseCVOverloadException(info, "getLabels");
 
     return info.Env().Null();
 }
@@ -68414,7 +68414,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
     if (!pyopencv_ximgproc_ScanSegment_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -68429,7 +68429,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68446,9 +68446,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("iterate");
+    jsRaiseCVOverloadException(info, "iterate");
 
     return info.Env().Null();
 }
@@ -68516,7 +68516,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
     if (!pyopencv_ximgproc_SparseMatchInterpolator_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SparseMatchInterpolator' or its derivative)");
     Ptr<cv::ximgproc::SparseMatchInterpolator> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_from_image = NULL;
@@ -68543,7 +68543,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68572,9 +68572,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("interpolate");
+    jsRaiseCVOverloadException(info, "interpolate");
 
     return info.Env().Null();
 }
@@ -68639,7 +68639,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
     if (!pyopencv_ximgproc_StructuredEdgeDetection_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
     Ptr<cv::ximgproc::StructuredEdgeDetection> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -68657,7 +68657,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68677,9 +68677,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("computeOrientation");
+    jsRaiseCVOverloadException(info, "computeOrientation");
 
     return info.Env().Null();
 }
@@ -68693,7 +68693,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
     if (!pyopencv_ximgproc_StructuredEdgeDetection_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
     Ptr<cv::ximgproc::StructuredEdgeDetection> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -68711,7 +68711,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68731,9 +68731,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("detectEdges");
+    jsRaiseCVOverloadException(info, "detectEdges");
 
     return info.Env().Null();
 }
@@ -68747,7 +68747,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
     if (!pyopencv_ximgproc_StructuredEdgeDetection_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
     Ptr<cv::ximgproc::StructuredEdgeDetection> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_edge_image = NULL;
@@ -68780,7 +68780,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68815,9 +68815,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("edgesNms");
+    jsRaiseCVOverloadException(info, "edgesNms");
 
     return info.Env().Null();
 }
@@ -68907,7 +68907,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
     if (!pyopencv_ximgproc_SuperpixelLSC_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -68925,7 +68925,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68945,9 +68945,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabelContourMask");
+    jsRaiseCVOverloadException(info, "getLabelContourMask");
 
     return info.Env().Null();
 }
@@ -68961,7 +68961,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
     if (!pyopencv_ximgproc_SuperpixelLSC_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_labels_out = NULL;
@@ -68976,7 +68976,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68993,9 +68993,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabels");
+    jsRaiseCVOverloadException(info, "getLabels");
 
     return info.Env().Null();
 }
@@ -69107,7 +69107,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
     if (!pyopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -69125,7 +69125,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69145,9 +69145,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabelContourMask");
+    jsRaiseCVOverloadException(info, "getLabelContourMask");
 
     return info.Env().Null();
 }
@@ -69161,7 +69161,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
     if (!pyopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_labels_out = NULL;
@@ -69176,7 +69176,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69193,9 +69193,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabels");
+    jsRaiseCVOverloadException(info, "getLabels");
 
     return info.Env().Null();
 }
@@ -69229,7 +69229,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
     if (!pyopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -69247,7 +69247,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69267,9 +69267,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("iterate");
+    jsRaiseCVOverloadException(info, "iterate");
 
     return info.Env().Null();
 }
@@ -69360,7 +69360,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
     if (!pyopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_image = NULL;
@@ -69378,7 +69378,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69398,9 +69398,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabelContourMask");
+    jsRaiseCVOverloadException(info, "getLabelContourMask");
 
     return info.Env().Null();
 }
@@ -69414,7 +69414,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
     if (!pyopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_labels_out = NULL;
@@ -69429,7 +69429,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69446,9 +69446,9 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("getLabels");
+    jsRaiseCVOverloadException(info, "getLabels");
 
     return info.Env().Null();
 }
@@ -69620,7 +69620,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
     if (!pyopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_src = NULL;
@@ -69638,7 +69638,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69658,9 +69658,9 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("processImage");
+    jsRaiseCVOverloadException(info, "processImage");
 
     return info.Env().Null();
 }
@@ -69823,7 +69823,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     if (!pyopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -69838,7 +69838,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69855,9 +69855,9 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("addImage");
+    jsRaiseCVOverloadException(info, "addImage");
 
     return info.Env().Null();
 }
@@ -69971,7 +69971,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     if (!pyopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -69986,7 +69986,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -70003,9 +70003,9 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setBaseImage");
+    jsRaiseCVOverloadException(info, "setBaseImage");
 
     return info.Env().Null();
 }
@@ -70217,7 +70217,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     if (!pyopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_getp(self, self1))
         return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> _self_ = *(self1);
-    pyPrepareArgumentConversionErrorsStorage(2);
+    jsPrepareArgumentConversionErrorsStorage(info, 2);
 
     {
     Napi::Value* pyobj_img = NULL;
@@ -70241,7 +70241,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
     
 
@@ -70267,9 +70267,9 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors();
+        pyPopulateArgumentConversionErrors(info);
     }
-    pyRaiseCVOverloadException("setImage");
+    jsRaiseCVOverloadException(info, "setImage");
 
     return info.Env().Null();
 }
