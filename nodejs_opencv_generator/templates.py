@@ -4,7 +4,7 @@ from string import Template
 gen_template_check_self = Template("""
     ${cname} * self1 = 0;
     if (!jsopencv_${name}_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be '${name}' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be '${name}' or its derivative)");
     ${pname} _self_ = ${cvt}(self1);
 """)
 gen_template_call_constructor_prelude = Template("""new (&(self->v)) Ptr<$cname>(); // init Ptr with placement new
@@ -115,7 +115,7 @@ static PyObject* jsopencv_${name}_get_${member}(jsopencv_${name}_t* p, void *clo
 {
     $cname* _self_ = dynamic_cast<$cname*>(p->v.get());
     if (!_self_)
-        return failmsgp("Incorrect type of object (must be '${name}' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of object (must be '${name}' or its derivative)");
     return jsopencv_from(info, _self_${access}${member});
 }
 """)
@@ -143,7 +143,7 @@ static int jsopencv_${name}_set_${member}(const Napi::CallbackInfo &info, jsopen
     $cname* _self_ = dynamic_cast<$cname*>(p->v.get());
     if (!_self_)
     {
-        failmsgp("Incorrect type of object (must be '${name}' or its derivative)");
+        failmsgp(info.Env(), "Incorrect type of object (must be '${name}' or its derivative)");
         return -1;
     }
     return jsopencv_to_safe(value, _self_${access}${member}, ArgInfo("value", false)) ? 0 : -1;

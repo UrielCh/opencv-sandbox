@@ -76,7 +76,14 @@ typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
 
 
 
+static inline bool strStartsWith(const std::string& str, const std::string& prefix) {
+    return prefix.empty() || \
+        (str.size() >= prefix.size() && std::memcmp(str.data(), prefix.data(), prefix.size()) == 0);
+}
 
+static inline bool strEndsWith(const std::string& str, char symbol) {
+    return !str.empty() && str[str.size() - 1] == symbol;
+}
 /**
  * \brief Creates a submodule of the `root`. Missing parents submodules
  * are created as needed. If name equals to parent module name than
@@ -92,23 +99,20 @@ typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
  *         If any of submodules can't be created than NULL is returned.
  */
 // PyObject * parent_module => Napi::Env env
-/*
-static PyObject* createSubmodule(Napi::Env env, const std::string& name)
+static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, const std::string& name)
 {
-    if (!parent_module)
-    {
-        return PyErr_Format(PyExc_ImportError,
-            "Bindings generation error. "
-            "Parent module is NULL during the submodule '%s' creation",
-            name.c_str()
-        );
+    if (!parent_module) {
+        return failmsgp(env, "Bindings generation error. Parent module is NULL during the submodule '%s' creation", name.c_str());
+        // Napi::TypeError::New(env, "Can't update module version").ThrowAsJavaScriptException();
+        // return PyErr_Format(PyExc_ImportError,
+        //     "Bindings generation error. "
+        //     "Parent module is NULL during the submodule '%s' creation",
+        //     name.c_str()
+        // );
     }
     if (strEndsWith(name, '.'))
     {
-        return PyErr_Format(PyExc_ImportError,
-            "Bindings generation error. "
-            "Submodule can't end with a dot. Got: %s", name.c_str()
-        );
+        return failmsgp(env, "Bindings generation error. Submodule can't end with a dot. Got: %s", name.c_str());
     }
 
     const std::string parent_name = PyModule_GetName(parent_module);
@@ -121,7 +125,7 @@ static PyObject* createSubmodule(Napi::Env env, const std::string& name)
 
     if (!strStartsWith(name, parent_name))
     {
-        return PyErr_Format(PyExc_ImportError,
+        return failmsgp(env,
             "Bindings generation error. "
             "Submodule name should always start with a parent module name. "
             "Parent name: %s. Submodule name: %s", parent_name.c_str(),
@@ -136,7 +140,7 @@ static PyObject* createSubmodule(Napi::Env env, const std::string& name)
         submodule_name_end = name.size();
     }
 
-    PyObject* submodule = parent_module;
+    Napi::Object submodule = parent_module;
 
     for (size_t submodule_name_start = parent_name.size() + 1;
          submodule_name_start < name.size(); )
@@ -147,7 +151,7 @@ static PyObject* createSubmodule(Napi::Env env, const std::string& name)
         const std::string full_submodule_name = name.substr(0, submodule_name_end);
 
 
-        PyObject* parent_module_dict = Napi::Object::New(submodule);
+        Napi::Object parent_module_dict = Napi::Object::New(env); // submodule
         /// If submodule already exists it can be found in the parent module dictionary,
         /// otherwise it should be added to it.
         submodule = PyDict_GetItemString(parent_module_dict,
@@ -181,7 +185,7 @@ static PyObject* createSubmodule(Napi::Env env, const std::string& name)
     }
     return submodule;
 }
-*/
+
 // PyObject * root => Napi::Env env
 static bool init_submodule(Napi::Env env, const char * name, PyMethodDef * methods, ConstDef * consts)
 {

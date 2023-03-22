@@ -58,7 +58,7 @@ static Napi::Value jsopencv_cv_AKAZE_getDefaultName(const Napi::CallbackInfo &in
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     String retval;
 
@@ -78,7 +78,7 @@ static Napi::Value jsopencv_cv_AKAZE_getDescriptorChannels(const Napi::CallbackI
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     int retval;
 
@@ -98,7 +98,7 @@ static Napi::Value jsopencv_cv_AKAZE_getDescriptorSize(const Napi::CallbackInfo 
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     int retval;
 
@@ -118,7 +118,7 @@ static Napi::Value jsopencv_cv_AKAZE_getDescriptorType(const Napi::CallbackInfo 
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     AKAZE::DescriptorType retval;
 
@@ -138,7 +138,7 @@ static Napi::Value jsopencv_cv_AKAZE_getDiffusivity(const Napi::CallbackInfo &in
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     KAZE::DiffusivityType retval;
 
@@ -158,7 +158,7 @@ static Napi::Value jsopencv_cv_AKAZE_getNOctaveLayers(const Napi::CallbackInfo &
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     int retval;
 
@@ -178,7 +178,7 @@ static Napi::Value jsopencv_cv_AKAZE_getNOctaves(const Napi::CallbackInfo &info)
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     int retval;
 
@@ -198,7 +198,7 @@ static Napi::Value jsopencv_cv_AKAZE_getThreshold(const Napi::CallbackInfo &info
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     double retval;
 
@@ -218,7 +218,7 @@ static Napi::Value jsopencv_cv_AKAZE_setDescriptorChannels(const Napi::CallbackI
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_dch = NULL;
     int dch=0;
@@ -241,7 +241,7 @@ static Napi::Value jsopencv_cv_AKAZE_setDescriptorSize(const Napi::CallbackInfo 
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_dsize = NULL;
     int dsize=0;
@@ -264,7 +264,7 @@ static Napi::Value jsopencv_cv_AKAZE_setDescriptorType(const Napi::CallbackInfo 
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_dtype = NULL;
     AKAZE_DescriptorType dtype=static_cast<AKAZE_DescriptorType>(0);
@@ -287,7 +287,7 @@ static Napi::Value jsopencv_cv_AKAZE_setDiffusivity(const Napi::CallbackInfo &in
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_diff = NULL;
     KAZE_DiffusivityType diff=static_cast<KAZE_DiffusivityType>(0);
@@ -310,7 +310,7 @@ static Napi::Value jsopencv_cv_AKAZE_setNOctaveLayers(const Napi::CallbackInfo &
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_octaveLayers = NULL;
     int octaveLayers=0;
@@ -333,7 +333,7 @@ static Napi::Value jsopencv_cv_AKAZE_setNOctaves(const Napi::CallbackInfo &info)
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_octaves = NULL;
     int octaves=0;
@@ -356,7 +356,7 @@ static Napi::Value jsopencv_cv_AKAZE_setThreshold(const Napi::CallbackInfo &info
 
     Ptr<cv::AKAZE> * self1 = 0;
     if (!jsopencv_AKAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AKAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AKAZE' or its derivative)");
     Ptr<cv::AKAZE> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     double threshold=0;
@@ -476,7 +476,7 @@ static Napi::Value jsopencv_cv_AffineFeature_getDefaultName(const Napi::Callback
 
     Ptr<cv::AffineFeature> * self1 = 0;
     if (!jsopencv_AffineFeature_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AffineFeature' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AffineFeature' or its derivative)");
     Ptr<cv::AffineFeature> _self_ = *(self1);
     String retval;
 
@@ -496,7 +496,7 @@ static Napi::Value jsopencv_cv_AffineFeature_getViewParams(const Napi::CallbackI
 
     Ptr<cv::AffineFeature> * self1 = 0;
     if (!jsopencv_AffineFeature_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AffineFeature' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AffineFeature' or its derivative)");
     Ptr<cv::AffineFeature> _self_ = *(self1);
     Napi::Value* jsobj_tilts = NULL;
     vector_float tilts;
@@ -522,7 +522,7 @@ static Napi::Value jsopencv_cv_AffineFeature_setViewParams(const Napi::CallbackI
 
     Ptr<cv::AffineFeature> * self1 = 0;
     if (!jsopencv_AffineFeature_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AffineFeature' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AffineFeature' or its derivative)");
     Ptr<cv::AffineFeature> _self_ = *(self1);
     Napi::Value* jsobj_tilts = NULL;
     vector_float tilts;
@@ -627,7 +627,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_getDefaultName(const Napi::C
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     String retval;
 
@@ -647,7 +647,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_getNonmaxSuppression(const N
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     bool retval;
 
@@ -667,7 +667,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_getThreshold(const Napi::Cal
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     int retval;
 
@@ -687,7 +687,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_getType(const Napi::Callback
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     AgastFeatureDetector::DetectorType retval;
 
@@ -707,7 +707,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_setNonmaxSuppression(const N
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_f = NULL;
     bool f=0;
@@ -730,7 +730,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_setThreshold(const Napi::Cal
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     int threshold=0;
@@ -753,7 +753,7 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_setType(const Napi::Callback
 
     Ptr<cv::AgastFeatureDetector> * self1 = 0;
     if (!jsopencv_AgastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AgastFeatureDetector' or its derivative)");
     Ptr<cv::AgastFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_type = NULL;
     AgastFeatureDetector_DetectorType type=static_cast<AgastFeatureDetector_DetectorType>(0);
@@ -834,7 +834,7 @@ static Napi::Value jsopencv_cv_Algorithm_clear(const Napi::CallbackInfo &info)
 
     Ptr<cv::Algorithm> * self1 = 0;
     if (!jsopencv_Algorithm_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -853,7 +853,7 @@ static Napi::Value jsopencv_cv_Algorithm_empty(const Napi::CallbackInfo &info)
 
     Ptr<cv::Algorithm> * self1 = 0;
     if (!jsopencv_Algorithm_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
     bool retval;
 
@@ -873,7 +873,7 @@ static Napi::Value jsopencv_cv_Algorithm_getDefaultName(const Napi::CallbackInfo
 
     Ptr<cv::Algorithm> * self1 = 0;
     if (!jsopencv_Algorithm_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
     String retval;
 
@@ -893,7 +893,7 @@ static Napi::Value jsopencv_cv_Algorithm_read(const Napi::CallbackInfo &info)
 
     Ptr<cv::Algorithm> * self1 = 0;
     if (!jsopencv_Algorithm_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
     Napi::Value* jsobj_fn = NULL;
     cv::FileNode fn;
@@ -916,7 +916,7 @@ static Napi::Value jsopencv_cv_Algorithm_save(const Napi::CallbackInfo &info)
 
     Ptr<cv::Algorithm> * self1 = 0;
     if (!jsopencv_Algorithm_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -939,7 +939,7 @@ static Napi::Value jsopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
 
     Ptr<cv::Algorithm> * self1 = 0;
     if (!jsopencv_Algorithm_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Algorithm' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Algorithm' or its derivative)");
     Ptr<cv::Algorithm> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1046,7 +1046,7 @@ static Napi::Value jsopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
 
     Ptr<cv::AlignExposures> * self1 = 0;
     if (!jsopencv_AlignExposures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignExposures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignExposures' or its derivative)");
     Ptr<cv::AlignExposures> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1163,7 +1163,7 @@ static Napi::Value jsopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1219,7 +1219,7 @@ static Napi::Value jsopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1279,7 +1279,7 @@ static Napi::Value jsopencv_cv_AlignMTB_getCut(const Napi::CallbackInfo &info)
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     bool retval;
 
@@ -1299,7 +1299,7 @@ static Napi::Value jsopencv_cv_AlignMTB_getExcludeRange(const Napi::CallbackInfo
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     int retval;
 
@@ -1319,7 +1319,7 @@ static Napi::Value jsopencv_cv_AlignMTB_getMaxBits(const Napi::CallbackInfo &inf
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     int retval;
 
@@ -1339,7 +1339,7 @@ static Napi::Value jsopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -1445,7 +1445,7 @@ static Napi::Value jsopencv_cv_AlignMTB_setCut(const Napi::CallbackInfo &info)
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     bool value=0;
@@ -1468,7 +1468,7 @@ static Napi::Value jsopencv_cv_AlignMTB_setExcludeRange(const Napi::CallbackInfo
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     Napi::Value* jsobj_exclude_range = NULL;
     int exclude_range=0;
@@ -1491,7 +1491,7 @@ static Napi::Value jsopencv_cv_AlignMTB_setMaxBits(const Napi::CallbackInfo &inf
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     Napi::Value* jsobj_max_bits = NULL;
     int max_bits=0;
@@ -1514,7 +1514,7 @@ static Napi::Value jsopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
 
     Ptr<cv::AlignMTB> * self1 = 0;
     if (!jsopencv_AlignMTB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AlignMTB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AlignMTB' or its derivative)");
     Ptr<cv::AlignMTB> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1649,7 +1649,7 @@ static Napi::Value jsopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
 
     Ptr<cv::AsyncArray> * self1 = 0;
     if (!jsopencv_AsyncArray_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AsyncArray' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AsyncArray' or its derivative)");
     Ptr<cv::AsyncArray> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -1739,7 +1739,7 @@ static Napi::Value jsopencv_cv_AsyncArray_release(const Napi::CallbackInfo &info
 
     Ptr<cv::AsyncArray> * self1 = 0;
     if (!jsopencv_AsyncArray_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AsyncArray' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AsyncArray' or its derivative)");
     Ptr<cv::AsyncArray> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -1758,7 +1758,7 @@ static Napi::Value jsopencv_cv_AsyncArray_valid(const Napi::CallbackInfo &info)
 
     Ptr<cv::AsyncArray> * self1 = 0;
     if (!jsopencv_AsyncArray_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AsyncArray' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AsyncArray' or its derivative)");
     Ptr<cv::AsyncArray> _self_ = *(self1);
     bool retval;
 
@@ -1778,7 +1778,7 @@ static Napi::Value jsopencv_cv_AsyncArray_wait_for(const Napi::CallbackInfo &inf
 
     Ptr<cv::AsyncArray> * self1 = 0;
     if (!jsopencv_AsyncArray_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'AsyncArray' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'AsyncArray' or its derivative)");
     Ptr<cv::AsyncArray> _self_ = *(self1);
     Napi::Value* jsobj_timeoutNs = NULL;
     double timeoutNs=0;
@@ -1973,7 +1973,7 @@ static Napi::Value jsopencv_cv_BOWImgDescriptorExtractor_compute(const Napi::Cal
 
     Ptr<cv::BOWImgDescriptorExtractor> * self1 = 0;
     if (!jsopencv_BOWImgDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
     Ptr<cv::BOWImgDescriptorExtractor> _self_ = *(self1);
     Napi::Value* jsobj_image = NULL;
     Mat image;
@@ -2002,7 +2002,7 @@ static Napi::Value jsopencv_cv_BOWImgDescriptorExtractor_descriptorSize(const Na
 
     Ptr<cv::BOWImgDescriptorExtractor> * self1 = 0;
     if (!jsopencv_BOWImgDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
     Ptr<cv::BOWImgDescriptorExtractor> _self_ = *(self1);
     int retval;
 
@@ -2022,7 +2022,7 @@ static Napi::Value jsopencv_cv_BOWImgDescriptorExtractor_descriptorType(const Na
 
     Ptr<cv::BOWImgDescriptorExtractor> * self1 = 0;
     if (!jsopencv_BOWImgDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
     Ptr<cv::BOWImgDescriptorExtractor> _self_ = *(self1);
     int retval;
 
@@ -2042,7 +2042,7 @@ static Napi::Value jsopencv_cv_BOWImgDescriptorExtractor_getVocabulary(const Nap
 
     Ptr<cv::BOWImgDescriptorExtractor> * self1 = 0;
     if (!jsopencv_BOWImgDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
     Ptr<cv::BOWImgDescriptorExtractor> _self_ = *(self1);
     Mat retval;
 
@@ -2062,7 +2062,7 @@ static Napi::Value jsopencv_cv_BOWImgDescriptorExtractor_setVocabulary(const Nap
 
     Ptr<cv::BOWImgDescriptorExtractor> * self1 = 0;
     if (!jsopencv_BOWImgDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWImgDescriptorExtractor' or its derivative)");
     Ptr<cv::BOWImgDescriptorExtractor> _self_ = *(self1);
     Napi::Value* jsobj_vocabulary = NULL;
     Mat vocabulary;
@@ -2168,7 +2168,7 @@ static Napi::Value jsopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
 
     Ptr<cv::BOWKMeansTrainer> * self1 = 0;
     if (!jsopencv_BOWKMeansTrainer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWKMeansTrainer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWKMeansTrainer' or its derivative)");
     Ptr<cv::BOWKMeansTrainer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2265,7 +2265,7 @@ static Napi::Value jsopencv_cv_BOWTrainer_add(const Napi::CallbackInfo &info)
 
     Ptr<cv::BOWTrainer> * self1 = 0;
     if (!jsopencv_BOWTrainer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWTrainer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWTrainer' or its derivative)");
     Ptr<cv::BOWTrainer> _self_ = *(self1);
     Napi::Value* jsobj_descriptors = NULL;
     Mat descriptors;
@@ -2288,7 +2288,7 @@ static Napi::Value jsopencv_cv_BOWTrainer_clear(const Napi::CallbackInfo &info)
 
     Ptr<cv::BOWTrainer> * self1 = 0;
     if (!jsopencv_BOWTrainer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWTrainer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWTrainer' or its derivative)");
     Ptr<cv::BOWTrainer> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -2307,7 +2307,7 @@ static Napi::Value jsopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
 
     Ptr<cv::BOWTrainer> * self1 = 0;
     if (!jsopencv_BOWTrainer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWTrainer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWTrainer' or its derivative)");
     Ptr<cv::BOWTrainer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2353,7 +2353,7 @@ static Napi::Value jsopencv_cv_BOWTrainer_descriptorsCount(const Napi::CallbackI
 
     Ptr<cv::BOWTrainer> * self1 = 0;
     if (!jsopencv_BOWTrainer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWTrainer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWTrainer' or its derivative)");
     Ptr<cv::BOWTrainer> _self_ = *(self1);
     int retval;
 
@@ -2373,7 +2373,7 @@ static Napi::Value jsopencv_cv_BOWTrainer_getDescriptors(const Napi::CallbackInf
 
     Ptr<cv::BOWTrainer> * self1 = 0;
     if (!jsopencv_BOWTrainer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BOWTrainer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BOWTrainer' or its derivative)");
     Ptr<cv::BOWTrainer> _self_ = *(self1);
     std::vector<Mat> retval;
 
@@ -2547,7 +2547,7 @@ static Napi::Value jsopencv_cv_BRISK_getDefaultName(const Napi::CallbackInfo &in
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     String retval;
 
@@ -2567,7 +2567,7 @@ static Napi::Value jsopencv_cv_BRISK_getOctaves(const Napi::CallbackInfo &info)
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     int retval;
 
@@ -2587,7 +2587,7 @@ static Napi::Value jsopencv_cv_BRISK_getPatternScale(const Napi::CallbackInfo &i
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     float retval;
 
@@ -2607,7 +2607,7 @@ static Napi::Value jsopencv_cv_BRISK_getThreshold(const Napi::CallbackInfo &info
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     int retval;
 
@@ -2627,7 +2627,7 @@ static Napi::Value jsopencv_cv_BRISK_setOctaves(const Napi::CallbackInfo &info)
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     Napi::Value* jsobj_octaves = NULL;
     int octaves=0;
@@ -2650,7 +2650,7 @@ static Napi::Value jsopencv_cv_BRISK_setPatternScale(const Napi::CallbackInfo &i
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     Napi::Value* jsobj_patternScale = NULL;
     float patternScale=0.f;
@@ -2673,7 +2673,7 @@ static Napi::Value jsopencv_cv_BRISK_setThreshold(const Napi::CallbackInfo &info
 
     Ptr<cv::BRISK> * self1 = 0;
     if (!jsopencv_BRISK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BRISK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BRISK' or its derivative)");
     Ptr<cv::BRISK> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     int threshold=0;
@@ -2754,7 +2754,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
 
     Ptr<cv::BackgroundSubtractor> * self1 = 0;
     if (!jsopencv_BackgroundSubtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractor' or its derivative)");
     Ptr<cv::BackgroundSubtractor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2814,7 +2814,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
 
     Ptr<cv::BackgroundSubtractor> * self1 = 0;
     if (!jsopencv_BackgroundSubtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractor' or its derivative)");
     Ptr<cv::BackgroundSubtractor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2914,7 +2914,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getDetectShadows(const Na
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     bool retval;
 
@@ -2934,7 +2934,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getDist2Threshold(const N
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     double retval;
 
@@ -2954,7 +2954,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getHistory(const Napi::Ca
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     int retval;
 
@@ -2974,7 +2974,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getNSamples(const Napi::C
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     int retval;
 
@@ -2994,7 +2994,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getShadowThreshold(const 
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     double retval;
 
@@ -3014,7 +3014,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getShadowValue(const Napi
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     int retval;
 
@@ -3034,7 +3034,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_getkNNSamples(const Napi:
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     int retval;
 
@@ -3054,7 +3054,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setDetectShadows(const Na
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj_detectShadows = NULL;
     bool detectShadows=0;
@@ -3077,7 +3077,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setDist2Threshold(const N
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj__dist2Threshold = NULL;
     double _dist2Threshold=0;
@@ -3100,7 +3100,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setHistory(const Napi::Ca
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj_history = NULL;
     int history=0;
@@ -3123,7 +3123,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setNSamples(const Napi::C
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj__nN = NULL;
     int _nN=0;
@@ -3146,7 +3146,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setShadowThreshold(const 
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     double threshold=0;
@@ -3169,7 +3169,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setShadowValue(const Napi
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     int value=0;
@@ -3192,7 +3192,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorKNN_setkNNSamples(const Napi:
 
     Ptr<cv::BackgroundSubtractorKNN> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorKNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorKNN' or its derivative)");
     Ptr<cv::BackgroundSubtractorKNN> _self_ = *(self1);
     Napi::Value* jsobj__nkNN = NULL;
     int _nkNN=0;
@@ -3279,7 +3279,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3339,7 +3339,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getBackgroundRatio(const
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3359,7 +3359,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getComplexityReductionTh
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3379,7 +3379,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getDetectShadows(const N
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     bool retval;
 
@@ -3399,7 +3399,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getHistory(const Napi::C
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     int retval;
 
@@ -3419,7 +3419,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getNMixtures(const Napi:
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     int retval;
 
@@ -3439,7 +3439,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getShadowThreshold(const
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3459,7 +3459,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getShadowValue(const Nap
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     int retval;
 
@@ -3479,7 +3479,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getVarInit(const Napi::C
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3499,7 +3499,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getVarMax(const Napi::Ca
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3519,7 +3519,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getVarMin(const Napi::Ca
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3539,7 +3539,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getVarThreshold(const Na
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3559,7 +3559,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_getVarThresholdGen(const
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     double retval;
 
@@ -3579,7 +3579,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setBackgroundRatio(const
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_ratio = NULL;
     double ratio=0;
@@ -3602,7 +3602,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setComplexityReductionTh
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_ct = NULL;
     double ct=0;
@@ -3625,7 +3625,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setDetectShadows(const N
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_detectShadows = NULL;
     bool detectShadows=0;
@@ -3648,7 +3648,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setHistory(const Napi::C
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_history = NULL;
     int history=0;
@@ -3671,7 +3671,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setNMixtures(const Napi:
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_nmixtures = NULL;
     int nmixtures=0;
@@ -3694,7 +3694,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setShadowThreshold(const
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     double threshold=0;
@@ -3717,7 +3717,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setShadowValue(const Nap
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     int value=0;
@@ -3740,7 +3740,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setVarInit(const Napi::C
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_varInit = NULL;
     double varInit=0;
@@ -3763,7 +3763,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setVarMax(const Napi::Ca
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_varMax = NULL;
     double varMax=0;
@@ -3786,7 +3786,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setVarMin(const Napi::Ca
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_varMin = NULL;
     double varMin=0;
@@ -3809,7 +3809,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setVarThreshold(const Na
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_varThreshold = NULL;
     double varThreshold=0;
@@ -3832,7 +3832,7 @@ static Napi::Value jsopencv_cv_BackgroundSubtractorMOG2_setVarThresholdGen(const
 
     Ptr<cv::BackgroundSubtractorMOG2> * self1 = 0;
     if (!jsopencv_BackgroundSubtractorMOG2_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'BackgroundSubtractorMOG2' or its derivative)");
     Ptr<cv::BackgroundSubtractorMOG2> _self_ = *(self1);
     Napi::Value* jsobj_varThresholdGen = NULL;
     double varThresholdGen=0;
@@ -3980,7 +3980,7 @@ static Napi::Value jsopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
 
     Ptr<cv::CLAHE> * self1 = 0;
     if (!jsopencv_CLAHE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4034,7 +4034,7 @@ static Napi::Value jsopencv_cv_CLAHE_collectGarbage(const Napi::CallbackInfo &in
 
     Ptr<cv::CLAHE> * self1 = 0;
     if (!jsopencv_CLAHE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -4053,7 +4053,7 @@ static Napi::Value jsopencv_cv_CLAHE_getClipLimit(const Napi::CallbackInfo &info
 
     Ptr<cv::CLAHE> * self1 = 0;
     if (!jsopencv_CLAHE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
     double retval;
 
@@ -4073,7 +4073,7 @@ static Napi::Value jsopencv_cv_CLAHE_getTilesGridSize(const Napi::CallbackInfo &
 
     Ptr<cv::CLAHE> * self1 = 0;
     if (!jsopencv_CLAHE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
     Size retval;
 
@@ -4093,7 +4093,7 @@ static Napi::Value jsopencv_cv_CLAHE_setClipLimit(const Napi::CallbackInfo &info
 
     Ptr<cv::CLAHE> * self1 = 0;
     if (!jsopencv_CLAHE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
     Napi::Value* jsobj_clipLimit = NULL;
     double clipLimit=0;
@@ -4116,7 +4116,7 @@ static Napi::Value jsopencv_cv_CLAHE_setTilesGridSize(const Napi::CallbackInfo &
 
     Ptr<cv::CLAHE> * self1 = 0;
     if (!jsopencv_CLAHE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CLAHE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CLAHE' or its derivative)");
     Ptr<cv::CLAHE> _self_ = *(self1);
     Napi::Value* jsobj_tileGridSize = NULL;
     Size tileGridSize;
@@ -4195,7 +4195,7 @@ static Napi::Value jsopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
 
     Ptr<cv::CalibrateCRF> * self1 = 0;
     if (!jsopencv_CalibrateCRF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateCRF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateCRF' or its derivative)");
     Ptr<cv::CalibrateCRF> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4306,7 +4306,7 @@ static Napi::Value jsopencv_cv_CalibrateDebevec_getLambda(const Napi::CallbackIn
 
     Ptr<cv::CalibrateDebevec> * self1 = 0;
     if (!jsopencv_CalibrateDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
     Ptr<cv::CalibrateDebevec> _self_ = *(self1);
     float retval;
 
@@ -4326,7 +4326,7 @@ static Napi::Value jsopencv_cv_CalibrateDebevec_getRandom(const Napi::CallbackIn
 
     Ptr<cv::CalibrateDebevec> * self1 = 0;
     if (!jsopencv_CalibrateDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
     Ptr<cv::CalibrateDebevec> _self_ = *(self1);
     bool retval;
 
@@ -4346,7 +4346,7 @@ static Napi::Value jsopencv_cv_CalibrateDebevec_getSamples(const Napi::CallbackI
 
     Ptr<cv::CalibrateDebevec> * self1 = 0;
     if (!jsopencv_CalibrateDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
     Ptr<cv::CalibrateDebevec> _self_ = *(self1);
     int retval;
 
@@ -4366,7 +4366,7 @@ static Napi::Value jsopencv_cv_CalibrateDebevec_setLambda(const Napi::CallbackIn
 
     Ptr<cv::CalibrateDebevec> * self1 = 0;
     if (!jsopencv_CalibrateDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
     Ptr<cv::CalibrateDebevec> _self_ = *(self1);
     Napi::Value* jsobj_lambda = NULL;
     float lambda=0.f;
@@ -4389,7 +4389,7 @@ static Napi::Value jsopencv_cv_CalibrateDebevec_setRandom(const Napi::CallbackIn
 
     Ptr<cv::CalibrateDebevec> * self1 = 0;
     if (!jsopencv_CalibrateDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
     Ptr<cv::CalibrateDebevec> _self_ = *(self1);
     Napi::Value* jsobj_random = NULL;
     bool random=0;
@@ -4412,7 +4412,7 @@ static Napi::Value jsopencv_cv_CalibrateDebevec_setSamples(const Napi::CallbackI
 
     Ptr<cv::CalibrateDebevec> * self1 = 0;
     if (!jsopencv_CalibrateDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateDebevec' or its derivative)");
     Ptr<cv::CalibrateDebevec> _self_ = *(self1);
     Napi::Value* jsobj_samples = NULL;
     int samples=0;
@@ -4491,7 +4491,7 @@ static Napi::Value jsopencv_cv_CalibrateRobertson_getMaxIter(const Napi::Callbac
 
     Ptr<cv::CalibrateRobertson> * self1 = 0;
     if (!jsopencv_CalibrateRobertson_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
     Ptr<cv::CalibrateRobertson> _self_ = *(self1);
     int retval;
 
@@ -4511,7 +4511,7 @@ static Napi::Value jsopencv_cv_CalibrateRobertson_getRadiance(const Napi::Callba
 
     Ptr<cv::CalibrateRobertson> * self1 = 0;
     if (!jsopencv_CalibrateRobertson_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
     Ptr<cv::CalibrateRobertson> _self_ = *(self1);
     Mat retval;
 
@@ -4531,7 +4531,7 @@ static Napi::Value jsopencv_cv_CalibrateRobertson_getThreshold(const Napi::Callb
 
     Ptr<cv::CalibrateRobertson> * self1 = 0;
     if (!jsopencv_CalibrateRobertson_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
     Ptr<cv::CalibrateRobertson> _self_ = *(self1);
     float retval;
 
@@ -4551,7 +4551,7 @@ static Napi::Value jsopencv_cv_CalibrateRobertson_setMaxIter(const Napi::Callbac
 
     Ptr<cv::CalibrateRobertson> * self1 = 0;
     if (!jsopencv_CalibrateRobertson_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
     Ptr<cv::CalibrateRobertson> _self_ = *(self1);
     Napi::Value* jsobj_max_iter = NULL;
     int max_iter=0;
@@ -4574,7 +4574,7 @@ static Napi::Value jsopencv_cv_CalibrateRobertson_setThreshold(const Napi::Callb
 
     Ptr<cv::CalibrateRobertson> * self1 = 0;
     if (!jsopencv_CalibrateRobertson_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CalibrateRobertson' or its derivative)");
     Ptr<cv::CalibrateRobertson> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     float threshold=0.f;
@@ -4715,7 +4715,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4795,7 +4795,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4877,7 +4877,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4967,7 +4967,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_empty(const Napi::CallbackInfo 
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     bool retval;
 
@@ -4987,7 +4987,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_getFeatureType(const Napi::Call
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     int retval;
 
@@ -5007,7 +5007,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_getOriginalWindowSize(const Nap
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     Size retval;
 
@@ -5027,7 +5027,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_isOldFormatCascade(const Napi::
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     bool retval;
 
@@ -5047,7 +5047,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_load(const Napi::CallbackInfo &
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -5071,7 +5071,7 @@ static Napi::Value jsopencv_cv_CascadeClassifier_read(const Napi::CallbackInfo &
 
     Ptr<cv::CascadeClassifier> * self1 = 0;
     if (!jsopencv_CascadeClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'CascadeClassifier' or its derivative)");
     Ptr<cv::CascadeClassifier> _self_ = *(self1);
     Napi::Value* jsobj_node = NULL;
     cv::FileNode node;
@@ -5478,7 +5478,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getFinestScale(const Napi::Callbac
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -5498,7 +5498,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getGradientDescentIterations(const
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -5518,7 +5518,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getPatchSize(const Napi::CallbackI
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -5538,7 +5538,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getPatchStride(const Napi::Callbac
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -5558,7 +5558,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getUseMeanNormalization(const Napi
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     bool retval;
 
@@ -5578,7 +5578,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getUseSpatialPropagation(const Nap
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     bool retval;
 
@@ -5598,7 +5598,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getVariationalRefinementAlpha(cons
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     float retval;
 
@@ -5618,7 +5618,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getVariationalRefinementDelta(cons
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     float retval;
 
@@ -5638,7 +5638,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getVariationalRefinementGamma(cons
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     float retval;
 
@@ -5658,7 +5658,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_getVariationalRefinementIterations
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -5678,7 +5678,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setFinestScale(const Napi::Callbac
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -5701,7 +5701,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setGradientDescentIterations(const
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -5724,7 +5724,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setPatchSize(const Napi::CallbackI
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -5747,7 +5747,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setPatchStride(const Napi::Callbac
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -5770,7 +5770,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setUseMeanNormalization(const Napi
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -5793,7 +5793,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setUseSpatialPropagation(const Nap
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -5816,7 +5816,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setVariationalRefinementAlpha(cons
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -5839,7 +5839,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setVariationalRefinementDelta(cons
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -5862,7 +5862,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setVariationalRefinementGamma(cons
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -5885,7 +5885,7 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_setVariationalRefinementIterations
 
     Ptr<cv::DISOpticalFlow> * self1 = 0;
     if (!jsopencv_DISOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DISOpticalFlow' or its derivative)");
     Ptr<cv::DISOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -6164,7 +6164,7 @@ static Napi::Value jsopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
 
     Ptr<cv::DenseOpticalFlow> * self1 = 0;
     if (!jsopencv_DenseOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DenseOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DenseOpticalFlow' or its derivative)");
     Ptr<cv::DenseOpticalFlow> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6224,7 +6224,7 @@ static Napi::Value jsopencv_cv_DenseOpticalFlow_collectGarbage(const Napi::Callb
 
     Ptr<cv::DenseOpticalFlow> * self1 = 0;
     if (!jsopencv_DenseOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DenseOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DenseOpticalFlow' or its derivative)");
     Ptr<cv::DenseOpticalFlow> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -6295,7 +6295,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6343,7 +6343,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_clear(const Napi::CallbackInfo 
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -6362,7 +6362,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_clone(const Napi::CallbackInfo 
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     Napi::Value* jsobj_emptyTrainData = NULL;
     bool emptyTrainData=false;
@@ -6431,7 +6431,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_empty(const Napi::CallbackInfo 
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     bool retval;
 
@@ -6451,7 +6451,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_getTrainDescriptors(const Napi:
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     std::vector<Mat> retval;
 
@@ -6471,7 +6471,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_isMaskSupported(const Napi::Cal
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     bool retval;
 
@@ -6491,7 +6491,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -6619,7 +6619,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -6723,7 +6723,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -6851,7 +6851,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6899,7 +6899,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_train(const Napi::CallbackInfo 
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -6918,7 +6918,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
 
     Ptr<cv::DescriptorMatcher> * self1 = 0;
     if (!jsopencv_DescriptorMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'DescriptorMatcher' or its derivative)");
     Ptr<cv::DescriptorMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7072,7 +7072,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7128,7 +7128,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_getInputSize(const Napi::CallbackI
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     Size retval;
 
@@ -7148,7 +7148,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_getNMSThreshold(const Napi::Callba
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     float retval;
 
@@ -7168,7 +7168,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_getScoreThreshold(const Napi::Call
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     float retval;
 
@@ -7188,7 +7188,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_getTopK(const Napi::CallbackInfo &
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     int retval;
 
@@ -7208,7 +7208,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_setInputSize(const Napi::CallbackI
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     Napi::Value* jsobj_input_size = NULL;
     Size input_size;
@@ -7231,7 +7231,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_setNMSThreshold(const Napi::Callba
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     Napi::Value* jsobj_nms_threshold = NULL;
     float nms_threshold=0.f;
@@ -7254,7 +7254,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_setScoreThreshold(const Napi::Call
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     Napi::Value* jsobj_score_threshold = NULL;
     float score_threshold=0.f;
@@ -7277,7 +7277,7 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_setTopK(const Napi::CallbackInfo &
 
     Ptr<cv::FaceDetectorYN> * self1 = 0;
     if (!jsopencv_FaceDetectorYN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceDetectorYN' or its derivative)");
     Ptr<cv::FaceDetectorYN> _self_ = *(self1);
     Napi::Value* jsobj_top_k = NULL;
     int top_k=0;
@@ -7360,7 +7360,7 @@ static Napi::Value jsopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
 
     Ptr<cv::FaceRecognizerSF> * self1 = 0;
     if (!jsopencv_FaceRecognizerSF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
     Ptr<cv::FaceRecognizerSF> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7448,7 +7448,7 @@ static Napi::Value jsopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
 
     Ptr<cv::FaceRecognizerSF> * self1 = 0;
     if (!jsopencv_FaceRecognizerSF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
     Ptr<cv::FaceRecognizerSF> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7502,7 +7502,7 @@ static Napi::Value jsopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
 
     Ptr<cv::FaceRecognizerSF> * self1 = 0;
     if (!jsopencv_FaceRecognizerSF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FaceRecognizerSF' or its derivative)");
     Ptr<cv::FaceRecognizerSF> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7658,7 +7658,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getFastPyramids(const Napi::
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     bool retval;
 
@@ -7678,7 +7678,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getFlags(const Napi::Callbac
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -7698,7 +7698,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getNumIters(const Napi::Call
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -7718,7 +7718,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getNumLevels(const Napi::Cal
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -7738,7 +7738,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getPolyN(const Napi::Callbac
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -7758,7 +7758,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getPolySigma(const Napi::Cal
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     double retval;
 
@@ -7778,7 +7778,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getPyrScale(const Napi::Call
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     double retval;
 
@@ -7798,7 +7798,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_getWinSize(const Napi::Callb
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -7818,7 +7818,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setFastPyramids(const Napi::
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_fastPyramids = NULL;
     bool fastPyramids=0;
@@ -7841,7 +7841,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setFlags(const Napi::Callbac
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_flags = NULL;
     int flags=0;
@@ -7864,7 +7864,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setNumIters(const Napi::Call
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_numIters = NULL;
     int numIters=0;
@@ -7887,7 +7887,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setNumLevels(const Napi::Cal
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_numLevels = NULL;
     int numLevels=0;
@@ -7910,7 +7910,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setPolyN(const Napi::Callbac
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_polyN = NULL;
     int polyN=0;
@@ -7933,7 +7933,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setPolySigma(const Napi::Cal
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_polySigma = NULL;
     double polySigma=0;
@@ -7956,7 +7956,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setPyrScale(const Napi::Call
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_pyrScale = NULL;
     double pyrScale=0;
@@ -7979,7 +7979,7 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_setWinSize(const Napi::Callb
 
     Ptr<cv::FarnebackOpticalFlow> * self1 = 0;
     if (!jsopencv_FarnebackOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FarnebackOpticalFlow' or its derivative)");
     Ptr<cv::FarnebackOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_winSize = NULL;
     int winSize=0;
@@ -8094,7 +8094,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_getDefaultName(const Napi::Ca
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     String retval;
 
@@ -8114,7 +8114,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_getNonmaxSuppression(const Na
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     bool retval;
 
@@ -8134,7 +8134,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_getThreshold(const Napi::Call
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     int retval;
 
@@ -8154,7 +8154,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_getType(const Napi::CallbackI
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     FastFeatureDetector::DetectorType retval;
 
@@ -8174,7 +8174,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_setNonmaxSuppression(const Na
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_f = NULL;
     bool f=0;
@@ -8197,7 +8197,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_setThreshold(const Napi::Call
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     int threshold=0;
@@ -8220,7 +8220,7 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_setType(const Napi::CallbackI
 
     Ptr<cv::FastFeatureDetector> * self1 = 0;
     if (!jsopencv_FastFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FastFeatureDetector' or its derivative)");
     Ptr<cv::FastFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_type = NULL;
     FastFeatureDetector_DetectorType type=static_cast<FastFeatureDetector_DetectorType>(0);
@@ -8301,7 +8301,7 @@ static Napi::Value jsopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -8407,7 +8407,7 @@ static Napi::Value jsopencv_cv_Feature2D_defaultNorm(const Napi::CallbackInfo &i
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     int retval;
 
@@ -8427,7 +8427,7 @@ static Napi::Value jsopencv_cv_Feature2D_descriptorSize(const Napi::CallbackInfo
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     int retval;
 
@@ -8447,7 +8447,7 @@ static Napi::Value jsopencv_cv_Feature2D_descriptorType(const Napi::CallbackInfo
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     int retval;
 
@@ -8467,7 +8467,7 @@ static Napi::Value jsopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -8565,7 +8565,7 @@ static Napi::Value jsopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8633,7 +8633,7 @@ static Napi::Value jsopencv_cv_Feature2D_empty(const Napi::CallbackInfo &info)
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     bool retval;
 
@@ -8653,7 +8653,7 @@ static Napi::Value jsopencv_cv_Feature2D_getDefaultName(const Napi::CallbackInfo
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     String retval;
 
@@ -8673,7 +8673,7 @@ static Napi::Value jsopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8721,7 +8721,7 @@ static Napi::Value jsopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
 
     Ptr<cv::Feature2D> * self1 = 0;
     if (!jsopencv_Feature2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Feature2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Feature2D' or its derivative)");
     Ptr<cv::Feature2D> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8846,7 +8846,7 @@ static Napi::Value jsopencv_cv_FileNode_at(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     Napi::Value* jsobj_i = NULL;
     int i=0;
@@ -8870,7 +8870,7 @@ static Napi::Value jsopencv_cv_FileNode_empty(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -8890,7 +8890,7 @@ static Napi::Value jsopencv_cv_FileNode_getNode(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     char* nodename=(char*)"";
     FileNode retval;
@@ -8912,7 +8912,7 @@ static Napi::Value jsopencv_cv_FileNode_isInt(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -8932,7 +8932,7 @@ static Napi::Value jsopencv_cv_FileNode_isMap(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -8952,7 +8952,7 @@ static Napi::Value jsopencv_cv_FileNode_isNamed(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -8972,7 +8972,7 @@ static Napi::Value jsopencv_cv_FileNode_isNone(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -8992,7 +8992,7 @@ static Napi::Value jsopencv_cv_FileNode_isReal(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -9012,7 +9012,7 @@ static Napi::Value jsopencv_cv_FileNode_isSeq(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -9032,7 +9032,7 @@ static Napi::Value jsopencv_cv_FileNode_isString(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     bool retval;
 
@@ -9052,7 +9052,7 @@ static Napi::Value jsopencv_cv_FileNode_keys(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     std::vector<String> retval;
 
@@ -9072,7 +9072,7 @@ static Napi::Value jsopencv_cv_FileNode_mat(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     Mat retval;
 
@@ -9092,7 +9092,7 @@ static Napi::Value jsopencv_cv_FileNode_name(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     std::string retval;
 
@@ -9112,7 +9112,7 @@ static Napi::Value jsopencv_cv_FileNode_rawSize(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     size_t retval;
 
@@ -9132,7 +9132,7 @@ static Napi::Value jsopencv_cv_FileNode_real(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     double retval;
 
@@ -9152,7 +9152,7 @@ static Napi::Value jsopencv_cv_FileNode_size(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     size_t retval;
 
@@ -9172,7 +9172,7 @@ static Napi::Value jsopencv_cv_FileNode_string(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     std::string retval;
 
@@ -9192,7 +9192,7 @@ static Napi::Value jsopencv_cv_FileNode_type(const Napi::CallbackInfo &info)
 
     cv::FileNode * self1 = 0;
     if (!jsopencv_FileNode_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileNode' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileNode' or its derivative)");
     cv::FileNode* _self_ = (self1);
     int retval;
 
@@ -9327,7 +9327,7 @@ static Napi::Value jsopencv_cv_FileStorage_endWriteStruct(const Napi::CallbackIn
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -9346,7 +9346,7 @@ static Napi::Value jsopencv_cv_FileStorage_getFirstTopLevelNode(const Napi::Call
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     FileNode retval;
 
@@ -9366,7 +9366,7 @@ static Napi::Value jsopencv_cv_FileStorage_getFormat(const Napi::CallbackInfo &i
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     int retval;
 
@@ -9386,7 +9386,7 @@ static Napi::Value jsopencv_cv_FileStorage_getNode(const Napi::CallbackInfo &inf
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     char* nodename=(char*)"";
     FileNode retval;
@@ -9408,7 +9408,7 @@ static Napi::Value jsopencv_cv_FileStorage_isOpened(const Napi::CallbackInfo &in
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     bool retval;
 
@@ -9428,7 +9428,7 @@ static Napi::Value jsopencv_cv_FileStorage_open(const Napi::CallbackInfo &info)
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -9458,7 +9458,7 @@ static Napi::Value jsopencv_cv_FileStorage_release(const Napi::CallbackInfo &inf
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -9477,7 +9477,7 @@ static Napi::Value jsopencv_cv_FileStorage_releaseAndGetString(const Napi::Callb
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     String retval;
 
@@ -9497,7 +9497,7 @@ static Napi::Value jsopencv_cv_FileStorage_root(const Napi::CallbackInfo &info)
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     Napi::Value* jsobj_streamidx = NULL;
     int streamidx=0;
@@ -9521,7 +9521,7 @@ static Napi::Value jsopencv_cv_FileStorage_startWriteStruct(const Napi::Callback
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     Napi::Value* jsobj_name = NULL;
     String name;
@@ -9550,7 +9550,7 @@ static Napi::Value jsopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(5);
 
@@ -9664,7 +9664,7 @@ static Napi::Value jsopencv_cv_FileStorage_writeComment(const Napi::CallbackInfo
 
     Ptr<cv::FileStorage> * self1 = 0;
     if (!jsopencv_FileStorage_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'FileStorage' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'FileStorage' or its derivative)");
     Ptr<cv::FileStorage> _self_ = *(self1);
     Napi::Value* jsobj_comment = NULL;
     String comment;
@@ -9908,7 +9908,7 @@ static Napi::Value jsopencv_cv_GArrayT_type(const Napi::CallbackInfo &info)
 
     cv::GArrayT * self1 = 0;
     if (!jsopencv_GArrayT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GArrayT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GArrayT' or its derivative)");
     cv::GArrayT* _self_ = (self1);
     gapi::ArgType retval;
 
@@ -10185,7 +10185,7 @@ static Napi::Value jsopencv_cv_GComputation_apply(const Napi::CallbackInfo &info
 
     Ptr<cv::GComputation> * self1 = 0;
     if (!jsopencv_GComputation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GComputation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GComputation' or its derivative)");
     Ptr<cv::GComputation> _self_ = *(self1);
     Napi::Value* jsobj_callback = NULL;
     detail_ExtractArgsCallback callback;
@@ -10212,7 +10212,7 @@ static Napi::Value jsopencv_cv_GComputation_compileStreaming(const Napi::Callbac
 
     Ptr<cv::GComputation> * self1 = 0;
     if (!jsopencv_GComputation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GComputation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GComputation' or its derivative)");
     Ptr<cv::GComputation> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -10416,7 +10416,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getBlockSize(const Napi::CallbackInf
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     int retval;
 
@@ -10436,7 +10436,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getDefaultName(const Napi::CallbackI
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     String retval;
 
@@ -10456,7 +10456,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getGradientSize(const Napi::Callback
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     int retval;
 
@@ -10476,7 +10476,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getHarrisDetector(const Napi::Callba
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     bool retval;
 
@@ -10496,7 +10496,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getK(const Napi::CallbackInfo &info)
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     double retval;
 
@@ -10516,7 +10516,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getMaxFeatures(const Napi::CallbackI
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     int retval;
 
@@ -10536,7 +10536,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getMinDistance(const Napi::CallbackI
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     double retval;
 
@@ -10556,7 +10556,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_getQualityLevel(const Napi::Callback
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     double retval;
 
@@ -10576,7 +10576,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setBlockSize(const Napi::CallbackInf
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_blockSize = NULL;
     int blockSize=0;
@@ -10599,7 +10599,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setGradientSize(const Napi::Callback
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_gradientSize_ = NULL;
     int gradientSize_=0;
@@ -10622,7 +10622,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setHarrisDetector(const Napi::Callba
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -10645,7 +10645,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setK(const Napi::CallbackInfo &info)
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_k = NULL;
     double k=0;
@@ -10668,7 +10668,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setMaxFeatures(const Napi::CallbackI
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_maxFeatures = NULL;
     int maxFeatures=0;
@@ -10691,7 +10691,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setMinDistance(const Napi::CallbackI
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_minDistance = NULL;
     double minDistance=0;
@@ -10714,7 +10714,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_setQualityLevel(const Napi::Callback
 
     Ptr<cv::GFTTDetector> * self1 = 0;
     if (!jsopencv_GFTTDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GFTTDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GFTTDetector' or its derivative)");
     Ptr<cv::GFTTDetector> _self_ = *(self1);
     Napi::Value* jsobj_qlevel = NULL;
     double qlevel=0;
@@ -10881,7 +10881,7 @@ static Napi::Value jsopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
 
     cv::GInferInputs * self1 = 0;
     if (!jsopencv_GInferInputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GInferInputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GInferInputs' or its derivative)");
     cv::GInferInputs* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11002,7 +11002,7 @@ static Napi::Value jsopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
 
     cv::GInferListInputs * self1 = 0;
     if (!jsopencv_GInferListInputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GInferListInputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GInferListInputs' or its derivative)");
     cv::GInferListInputs* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11123,7 +11123,7 @@ static Napi::Value jsopencv_cv_GInferListOutputs_at(const Napi::CallbackInfo &in
 
     cv::GInferListOutputs * self1 = 0;
     if (!jsopencv_GInferListOutputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GInferListOutputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GInferListOutputs' or its derivative)");
     cv::GInferListOutputs* _self_ = (self1);
     Napi::Value* jsobj_name = NULL;
     std::string name;
@@ -11212,7 +11212,7 @@ static Napi::Value jsopencv_cv_GInferOutputs_at(const Napi::CallbackInfo &info)
 
     cv::GInferOutputs * self1 = 0;
     if (!jsopencv_GInferOutputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GInferOutputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GInferOutputs' or its derivative)");
     cv::GInferOutputs* _self_ = (self1);
     Napi::Value* jsobj_name = NULL;
     std::string name;
@@ -11514,7 +11514,7 @@ static Napi::Value jsopencv_cv_GMatDesc_asInterleaved(const Napi::CallbackInfo &
 
     cv::GMatDesc * self1 = 0;
     if (!jsopencv_GMatDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
     GMatDesc retval;
 
@@ -11534,7 +11534,7 @@ static Napi::Value jsopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
 
     cv::GMatDesc * self1 = 0;
     if (!jsopencv_GMatDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11580,7 +11580,7 @@ static Napi::Value jsopencv_cv_GMatDesc_withDepth(const Napi::CallbackInfo &info
 
     cv::GMatDesc * self1 = 0;
     if (!jsopencv_GMatDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
     Napi::Value* jsobj_ddepth = NULL;
     int ddepth=0;
@@ -11604,7 +11604,7 @@ static Napi::Value jsopencv_cv_GMatDesc_withSize(const Napi::CallbackInfo &info)
 
     cv::GMatDesc * self1 = 0;
     if (!jsopencv_GMatDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
     Napi::Value* jsobj_sz = NULL;
     Size sz;
@@ -11628,7 +11628,7 @@ static Napi::Value jsopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
 
     cv::GMatDesc * self1 = 0;
     if (!jsopencv_GMatDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11681,7 +11681,7 @@ static Napi::Value jsopencv_cv_GMatDesc_withType(const Napi::CallbackInfo &info)
 
     cv::GMatDesc * self1 = 0;
     if (!jsopencv_GMatDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GMatDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GMatDesc' or its derivative)");
     cv::GMatDesc* _self_ = (self1);
     Napi::Value* jsobj_ddepth = NULL;
     int ddepth=0;
@@ -11837,7 +11837,7 @@ static Napi::Value jsopencv_cv_GOpaqueT_type(const Napi::CallbackInfo &info)
 
     cv::GOpaqueT * self1 = 0;
     if (!jsopencv_GOpaqueT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GOpaqueT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GOpaqueT' or its derivative)");
     cv::GOpaqueT* _self_ = (self1);
     gapi::ArgType retval;
 
@@ -12061,7 +12061,7 @@ static Napi::Value jsopencv_cv_GStreamingCompiled_pull(const Napi::CallbackInfo 
 
     cv::GStreamingCompiled * self1 = 0;
     if (!jsopencv_GStreamingCompiled_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
     cv::GStreamingCompiled* _self_ = (self1);
     std::tuple<bool, cv::util::variant<cv::GRunArgs, cv::GOptRunArgs>> retval;
 
@@ -12081,7 +12081,7 @@ static Napi::Value jsopencv_cv_GStreamingCompiled_running(const Napi::CallbackIn
 
     cv::GStreamingCompiled * self1 = 0;
     if (!jsopencv_GStreamingCompiled_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
     cv::GStreamingCompiled* _self_ = (self1);
     bool retval;
 
@@ -12101,7 +12101,7 @@ static Napi::Value jsopencv_cv_GStreamingCompiled_setSource(const Napi::Callback
 
     cv::GStreamingCompiled * self1 = 0;
     if (!jsopencv_GStreamingCompiled_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
     cv::GStreamingCompiled* _self_ = (self1);
     Napi::Value* jsobj_callback = NULL;
     detail_ExtractArgsCallback callback;
@@ -12124,7 +12124,7 @@ static Napi::Value jsopencv_cv_GStreamingCompiled_start(const Napi::CallbackInfo
 
     cv::GStreamingCompiled * self1 = 0;
     if (!jsopencv_GStreamingCompiled_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
     cv::GStreamingCompiled* _self_ = (self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -12143,7 +12143,7 @@ static Napi::Value jsopencv_cv_GStreamingCompiled_stop(const Napi::CallbackInfo 
 
     cv::GStreamingCompiled * self1 = 0;
     if (!jsopencv_GStreamingCompiled_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GStreamingCompiled' or its derivative)");
     cv::GStreamingCompiled* _self_ = (self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -12217,7 +12217,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -12335,7 +12335,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_getCannyHighThresh(const Napi::C
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     int retval;
 
@@ -12355,7 +12355,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_getCannyLowThresh(const Napi::Ca
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     int retval;
 
@@ -12375,7 +12375,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_getDp(const Napi::CallbackInfo &
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     double retval;
 
@@ -12395,7 +12395,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_getMaxBufferSize(const Napi::Cal
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     int retval;
 
@@ -12415,7 +12415,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_getMinDist(const Napi::CallbackI
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     double retval;
 
@@ -12435,7 +12435,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_setCannyHighThresh(const Napi::C
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     Napi::Value* jsobj_cannyHighThresh = NULL;
     int cannyHighThresh=0;
@@ -12458,7 +12458,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_setCannyLowThresh(const Napi::Ca
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     Napi::Value* jsobj_cannyLowThresh = NULL;
     int cannyLowThresh=0;
@@ -12481,7 +12481,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_setDp(const Napi::CallbackInfo &
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     Napi::Value* jsobj_dp = NULL;
     double dp=0;
@@ -12504,7 +12504,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_setMaxBufferSize(const Napi::Cal
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     Napi::Value* jsobj_maxBufferSize = NULL;
     int maxBufferSize=0;
@@ -12527,7 +12527,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_setMinDist(const Napi::CallbackI
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     Napi::Value* jsobj_minDist = NULL;
     double minDist=0;
@@ -12550,7 +12550,7 @@ static Napi::Value jsopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
 
     Ptr<cv::GeneralizedHough> * self1 = 0;
     if (!jsopencv_GeneralizedHough_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHough' or its derivative)");
     Ptr<cv::GeneralizedHough> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -12718,7 +12718,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughBallard_getLevels(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughBallard> * self1 = 0;
     if (!jsopencv_GeneralizedHoughBallard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
     Ptr<cv::GeneralizedHoughBallard> _self_ = *(self1);
     int retval;
 
@@ -12738,7 +12738,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughBallard_getVotesThreshold(const N
 
     Ptr<cv::GeneralizedHoughBallard> * self1 = 0;
     if (!jsopencv_GeneralizedHoughBallard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
     Ptr<cv::GeneralizedHoughBallard> _self_ = *(self1);
     int retval;
 
@@ -12758,7 +12758,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughBallard_setLevels(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughBallard> * self1 = 0;
     if (!jsopencv_GeneralizedHoughBallard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
     Ptr<cv::GeneralizedHoughBallard> _self_ = *(self1);
     Napi::Value* jsobj_levels = NULL;
     int levels=0;
@@ -12781,7 +12781,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughBallard_setVotesThreshold(const N
 
     Ptr<cv::GeneralizedHoughBallard> * self1 = 0;
     if (!jsopencv_GeneralizedHoughBallard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughBallard' or its derivative)");
     Ptr<cv::GeneralizedHoughBallard> _self_ = *(self1);
     Napi::Value* jsobj_votesThreshold = NULL;
     int votesThreshold=0;
@@ -12858,7 +12858,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getAngleEpsilon(const Napi::
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -12878,7 +12878,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getAngleStep(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -12898,7 +12898,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getAngleThresh(const Napi::C
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     int retval;
 
@@ -12918,7 +12918,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getLevels(const Napi::Callba
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     int retval;
 
@@ -12938,7 +12938,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getMaxAngle(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -12958,7 +12958,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getMaxScale(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -12978,7 +12978,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getMinAngle(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -12998,7 +12998,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getMinScale(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -13018,7 +13018,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getPosThresh(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     int retval;
 
@@ -13038,7 +13038,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getScaleStep(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -13058,7 +13058,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getScaleThresh(const Napi::C
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     int retval;
 
@@ -13078,7 +13078,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_getXi(const Napi::CallbackIn
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     double retval;
 
@@ -13098,7 +13098,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setAngleEpsilon(const Napi::
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_angleEpsilon = NULL;
     double angleEpsilon=0;
@@ -13121,7 +13121,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setAngleStep(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_angleStep = NULL;
     double angleStep=0;
@@ -13144,7 +13144,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setAngleThresh(const Napi::C
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_angleThresh = NULL;
     int angleThresh=0;
@@ -13167,7 +13167,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setLevels(const Napi::Callba
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_levels = NULL;
     int levels=0;
@@ -13190,7 +13190,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setMaxAngle(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_maxAngle = NULL;
     double maxAngle=0;
@@ -13213,7 +13213,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setMaxScale(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_maxScale = NULL;
     double maxScale=0;
@@ -13236,7 +13236,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setMinAngle(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_minAngle = NULL;
     double minAngle=0;
@@ -13259,7 +13259,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setMinScale(const Napi::Call
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_minScale = NULL;
     double minScale=0;
@@ -13282,7 +13282,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setPosThresh(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_posThresh = NULL;
     int posThresh=0;
@@ -13305,7 +13305,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setScaleStep(const Napi::Cal
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_scaleStep = NULL;
     double scaleStep=0;
@@ -13328,7 +13328,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setScaleThresh(const Napi::C
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_scaleThresh = NULL;
     int scaleThresh=0;
@@ -13351,7 +13351,7 @@ static Napi::Value jsopencv_cv_GeneralizedHoughGuil_setXi(const Napi::CallbackIn
 
     Ptr<cv::GeneralizedHoughGuil> * self1 = 0;
     if (!jsopencv_GeneralizedHoughGuil_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'GeneralizedHoughGuil' or its derivative)");
     Ptr<cv::GeneralizedHoughGuil> _self_ = *(self1);
     Napi::Value* jsobj_xi = NULL;
     double xi=0;
@@ -13605,7 +13605,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_checkDetectorSize(const Napi::Callb
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     bool retval;
 
@@ -13625,7 +13625,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13693,7 +13693,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13765,7 +13765,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13841,7 +13841,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13959,7 +13959,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_getDescriptorSize(const Napi::Callb
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     size_t retval;
 
@@ -13979,7 +13979,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_getWinSigma(const Napi::CallbackInf
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     double retval;
 
@@ -13999,7 +13999,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_load(const Napi::CallbackInfo &info
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -14026,7 +14026,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_save(const Napi::CallbackInfo &info
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -14052,7 +14052,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
 
     Ptr<cv::HOGDescriptor> * self1 = 0;
     if (!jsopencv_HOGDescriptor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'HOGDescriptor' or its derivative)");
     Ptr<cv::HOGDescriptor> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -14209,7 +14209,7 @@ static Napi::Value jsopencv_cv_KAZE_getDefaultName(const Napi::CallbackInfo &inf
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     String retval;
 
@@ -14229,7 +14229,7 @@ static Napi::Value jsopencv_cv_KAZE_getDiffusivity(const Napi::CallbackInfo &inf
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     KAZE::DiffusivityType retval;
 
@@ -14249,7 +14249,7 @@ static Napi::Value jsopencv_cv_KAZE_getExtended(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     bool retval;
 
@@ -14269,7 +14269,7 @@ static Napi::Value jsopencv_cv_KAZE_getNOctaveLayers(const Napi::CallbackInfo &i
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     int retval;
 
@@ -14289,7 +14289,7 @@ static Napi::Value jsopencv_cv_KAZE_getNOctaves(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     int retval;
 
@@ -14309,7 +14309,7 @@ static Napi::Value jsopencv_cv_KAZE_getThreshold(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     double retval;
 
@@ -14329,7 +14329,7 @@ static Napi::Value jsopencv_cv_KAZE_getUpright(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     bool retval;
 
@@ -14349,7 +14349,7 @@ static Napi::Value jsopencv_cv_KAZE_setDiffusivity(const Napi::CallbackInfo &inf
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     Napi::Value* jsobj_diff = NULL;
     KAZE_DiffusivityType diff=static_cast<KAZE_DiffusivityType>(0);
@@ -14372,7 +14372,7 @@ static Napi::Value jsopencv_cv_KAZE_setExtended(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     Napi::Value* jsobj_extended = NULL;
     bool extended=0;
@@ -14395,7 +14395,7 @@ static Napi::Value jsopencv_cv_KAZE_setNOctaveLayers(const Napi::CallbackInfo &i
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     Napi::Value* jsobj_octaveLayers = NULL;
     int octaveLayers=0;
@@ -14418,7 +14418,7 @@ static Napi::Value jsopencv_cv_KAZE_setNOctaves(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     Napi::Value* jsobj_octaves = NULL;
     int octaves=0;
@@ -14441,7 +14441,7 @@ static Napi::Value jsopencv_cv_KAZE_setThreshold(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     Napi::Value* jsobj_threshold = NULL;
     double threshold=0;
@@ -14464,7 +14464,7 @@ static Napi::Value jsopencv_cv_KAZE_setUpright(const Napi::CallbackInfo &info)
 
     Ptr<cv::KAZE> * self1 = 0;
     if (!jsopencv_KAZE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KAZE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KAZE' or its derivative)");
     Ptr<cv::KAZE> _self_ = *(self1);
     Napi::Value* jsobj_upright = NULL;
     bool upright=0;
@@ -14751,7 +14751,7 @@ static Napi::Value jsopencv_cv_KalmanFilter_correct(const Napi::CallbackInfo &in
 
     Ptr<cv::KalmanFilter> * self1 = 0;
     if (!jsopencv_KalmanFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KalmanFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KalmanFilter' or its derivative)");
     Ptr<cv::KalmanFilter> _self_ = *(self1);
     Napi::Value* jsobj_measurement = NULL;
     Mat measurement;
@@ -14775,7 +14775,7 @@ static Napi::Value jsopencv_cv_KalmanFilter_predict(const Napi::CallbackInfo &in
 
     Ptr<cv::KalmanFilter> * self1 = 0;
     if (!jsopencv_KalmanFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'KalmanFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'KalmanFilter' or its derivative)");
     Ptr<cv::KalmanFilter> _self_ = *(self1);
     Napi::Value* jsobj_control = NULL;
     Mat control;
@@ -15148,7 +15148,7 @@ static Napi::Value jsopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
 
     Ptr<cv::LineSegmentDetector> * self1 = 0;
     if (!jsopencv_LineSegmentDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
     Ptr<cv::LineSegmentDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15216,7 +15216,7 @@ static Napi::Value jsopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
 
     Ptr<cv::LineSegmentDetector> * self1 = 0;
     if (!jsopencv_LineSegmentDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
     Ptr<cv::LineSegmentDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15288,7 +15288,7 @@ static Napi::Value jsopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
 
     Ptr<cv::LineSegmentDetector> * self1 = 0;
     if (!jsopencv_LineSegmentDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'LineSegmentDetector' or its derivative)");
     Ptr<cv::LineSegmentDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15438,7 +15438,7 @@ static Napi::Value jsopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15490,7 +15490,7 @@ static Napi::Value jsopencv_cv_MSER_getAreaThreshold(const Napi::CallbackInfo &i
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     double retval;
 
@@ -15510,7 +15510,7 @@ static Napi::Value jsopencv_cv_MSER_getDefaultName(const Napi::CallbackInfo &inf
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     String retval;
 
@@ -15530,7 +15530,7 @@ static Napi::Value jsopencv_cv_MSER_getDelta(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     int retval;
 
@@ -15550,7 +15550,7 @@ static Napi::Value jsopencv_cv_MSER_getEdgeBlurSize(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     int retval;
 
@@ -15570,7 +15570,7 @@ static Napi::Value jsopencv_cv_MSER_getMaxArea(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     int retval;
 
@@ -15590,7 +15590,7 @@ static Napi::Value jsopencv_cv_MSER_getMaxEvolution(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     int retval;
 
@@ -15610,7 +15610,7 @@ static Napi::Value jsopencv_cv_MSER_getMaxVariation(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     double retval;
 
@@ -15630,7 +15630,7 @@ static Napi::Value jsopencv_cv_MSER_getMinArea(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     int retval;
 
@@ -15650,7 +15650,7 @@ static Napi::Value jsopencv_cv_MSER_getMinDiversity(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     double retval;
 
@@ -15670,7 +15670,7 @@ static Napi::Value jsopencv_cv_MSER_getMinMargin(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     double retval;
 
@@ -15690,7 +15690,7 @@ static Napi::Value jsopencv_cv_MSER_getPass2Only(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     bool retval;
 
@@ -15710,7 +15710,7 @@ static Napi::Value jsopencv_cv_MSER_setAreaThreshold(const Napi::CallbackInfo &i
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_areaThreshold = NULL;
     double areaThreshold=0;
@@ -15733,7 +15733,7 @@ static Napi::Value jsopencv_cv_MSER_setDelta(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_delta = NULL;
     int delta=0;
@@ -15756,7 +15756,7 @@ static Napi::Value jsopencv_cv_MSER_setEdgeBlurSize(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_edge_blur_size = NULL;
     int edge_blur_size=0;
@@ -15779,7 +15779,7 @@ static Napi::Value jsopencv_cv_MSER_setMaxArea(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_maxArea = NULL;
     int maxArea=0;
@@ -15802,7 +15802,7 @@ static Napi::Value jsopencv_cv_MSER_setMaxEvolution(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_maxEvolution = NULL;
     int maxEvolution=0;
@@ -15825,7 +15825,7 @@ static Napi::Value jsopencv_cv_MSER_setMaxVariation(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_maxVariation = NULL;
     double maxVariation=0;
@@ -15848,7 +15848,7 @@ static Napi::Value jsopencv_cv_MSER_setMinArea(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_minArea = NULL;
     int minArea=0;
@@ -15871,7 +15871,7 @@ static Napi::Value jsopencv_cv_MSER_setMinDiversity(const Napi::CallbackInfo &in
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_minDiversity = NULL;
     double minDiversity=0;
@@ -15894,7 +15894,7 @@ static Napi::Value jsopencv_cv_MSER_setMinMargin(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_min_margin = NULL;
     double min_margin=0;
@@ -15917,7 +15917,7 @@ static Napi::Value jsopencv_cv_MSER_setPass2Only(const Napi::CallbackInfo &info)
 
     Ptr<cv::MSER> * self1 = 0;
     if (!jsopencv_MSER_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MSER' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MSER' or its derivative)");
     Ptr<cv::MSER> _self_ = *(self1);
     Napi::Value* jsobj_f = NULL;
     bool f=0;
@@ -16013,7 +16013,7 @@ static Napi::Value jsopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
 
     Ptr<cv::MergeDebevec> * self1 = 0;
     if (!jsopencv_MergeDebevec_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeDebevec' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeDebevec' or its derivative)");
     Ptr<cv::MergeDebevec> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -16176,7 +16176,7 @@ static Napi::Value jsopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
 
     Ptr<cv::MergeExposures> * self1 = 0;
     if (!jsopencv_MergeExposures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeExposures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeExposures' or its derivative)");
     Ptr<cv::MergeExposures> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16293,7 +16293,7 @@ static Napi::Value jsopencv_cv_MergeMertens_getContrastWeight(const Napi::Callba
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     float retval;
 
@@ -16313,7 +16313,7 @@ static Napi::Value jsopencv_cv_MergeMertens_getExposureWeight(const Napi::Callba
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     float retval;
 
@@ -16333,7 +16333,7 @@ static Napi::Value jsopencv_cv_MergeMertens_getSaturationWeight(const Napi::Call
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     float retval;
 
@@ -16353,7 +16353,7 @@ static Napi::Value jsopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -16459,7 +16459,7 @@ static Napi::Value jsopencv_cv_MergeMertens_setContrastWeight(const Napi::Callba
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     Napi::Value* jsobj_contrast_weiht = NULL;
     float contrast_weiht=0.f;
@@ -16482,7 +16482,7 @@ static Napi::Value jsopencv_cv_MergeMertens_setExposureWeight(const Napi::Callba
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     Napi::Value* jsobj_exposure_weight = NULL;
     float exposure_weight=0.f;
@@ -16505,7 +16505,7 @@ static Napi::Value jsopencv_cv_MergeMertens_setSaturationWeight(const Napi::Call
 
     Ptr<cv::MergeMertens> * self1 = 0;
     if (!jsopencv_MergeMertens_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeMertens' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeMertens' or its derivative)");
     Ptr<cv::MergeMertens> _self_ = *(self1);
     Napi::Value* jsobj_saturation_weight = NULL;
     float saturation_weight=0.f;
@@ -16585,7 +16585,7 @@ static Napi::Value jsopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
 
     Ptr<cv::MergeRobertson> * self1 = 0;
     if (!jsopencv_MergeRobertson_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'MergeRobertson' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'MergeRobertson' or its derivative)");
     Ptr<cv::MergeRobertson> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -16972,7 +16972,7 @@ static Napi::Value jsopencv_cv_ORB_getDefaultName(const Napi::CallbackInfo &info
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     String retval;
 
@@ -16992,7 +16992,7 @@ static Napi::Value jsopencv_cv_ORB_getEdgeThreshold(const Napi::CallbackInfo &in
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17012,7 +17012,7 @@ static Napi::Value jsopencv_cv_ORB_getFastThreshold(const Napi::CallbackInfo &in
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17032,7 +17032,7 @@ static Napi::Value jsopencv_cv_ORB_getFirstLevel(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17052,7 +17052,7 @@ static Napi::Value jsopencv_cv_ORB_getMaxFeatures(const Napi::CallbackInfo &info
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17072,7 +17072,7 @@ static Napi::Value jsopencv_cv_ORB_getNLevels(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17092,7 +17092,7 @@ static Napi::Value jsopencv_cv_ORB_getPatchSize(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17112,7 +17112,7 @@ static Napi::Value jsopencv_cv_ORB_getScaleFactor(const Napi::CallbackInfo &info
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     double retval;
 
@@ -17132,7 +17132,7 @@ static Napi::Value jsopencv_cv_ORB_getScoreType(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     ORB::ScoreType retval;
 
@@ -17152,7 +17152,7 @@ static Napi::Value jsopencv_cv_ORB_getWTA_K(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     int retval;
 
@@ -17172,7 +17172,7 @@ static Napi::Value jsopencv_cv_ORB_setEdgeThreshold(const Napi::CallbackInfo &in
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_edgeThreshold = NULL;
     int edgeThreshold=0;
@@ -17195,7 +17195,7 @@ static Napi::Value jsopencv_cv_ORB_setFastThreshold(const Napi::CallbackInfo &in
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_fastThreshold = NULL;
     int fastThreshold=0;
@@ -17218,7 +17218,7 @@ static Napi::Value jsopencv_cv_ORB_setFirstLevel(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_firstLevel = NULL;
     int firstLevel=0;
@@ -17241,7 +17241,7 @@ static Napi::Value jsopencv_cv_ORB_setMaxFeatures(const Napi::CallbackInfo &info
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_maxFeatures = NULL;
     int maxFeatures=0;
@@ -17264,7 +17264,7 @@ static Napi::Value jsopencv_cv_ORB_setNLevels(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_nlevels = NULL;
     int nlevels=0;
@@ -17287,7 +17287,7 @@ static Napi::Value jsopencv_cv_ORB_setPatchSize(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_patchSize = NULL;
     int patchSize=0;
@@ -17310,7 +17310,7 @@ static Napi::Value jsopencv_cv_ORB_setScaleFactor(const Napi::CallbackInfo &info
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_scaleFactor = NULL;
     double scaleFactor=0;
@@ -17333,7 +17333,7 @@ static Napi::Value jsopencv_cv_ORB_setScoreType(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_scoreType = NULL;
     ORB_ScoreType scoreType=static_cast<ORB_ScoreType>(0);
@@ -17356,7 +17356,7 @@ static Napi::Value jsopencv_cv_ORB_setWTA_K(const Napi::CallbackInfo &info)
 
     Ptr<cv::ORB> * self1 = 0;
     if (!jsopencv_ORB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ORB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ORB' or its derivative)");
     Ptr<cv::ORB> _self_ = *(self1);
     Napi::Value* jsobj_wta_k = NULL;
     int wta_k=0;
@@ -17464,7 +17464,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17526,7 +17526,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17588,7 +17588,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17652,7 +17652,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17708,7 +17708,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17770,7 +17770,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17832,7 +17832,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17896,7 +17896,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17952,7 +17952,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_setEpsX(const Napi::CallbackInfo &
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     Napi::Value* jsobj_epsX = NULL;
     double epsX=0;
@@ -17975,7 +17975,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_setEpsY(const Napi::CallbackInfo &
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     Napi::Value* jsobj_epsY = NULL;
     double epsY=0;
@@ -17998,7 +17998,7 @@ static Napi::Value jsopencv_cv_QRCodeDetector_setUseAlignmentMarkers(const Napi:
 
     Ptr<cv::QRCodeDetector> * self1 = 0;
     if (!jsopencv_QRCodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeDetector' or its derivative)");
     Ptr<cv::QRCodeDetector> _self_ = *(self1);
     Napi::Value* jsobj_useAlignmentMarkers = NULL;
     bool useAlignmentMarkers=0;
@@ -18101,7 +18101,7 @@ static Napi::Value jsopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
 
     Ptr<cv::QRCodeEncoder> * self1 = 0;
     if (!jsopencv_QRCodeEncoder_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeEncoder' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeEncoder' or its derivative)");
     Ptr<cv::QRCodeEncoder> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18155,7 +18155,7 @@ static Napi::Value jsopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
 
     Ptr<cv::QRCodeEncoder> * self1 = 0;
     if (!jsopencv_QRCodeEncoder_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'QRCodeEncoder' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'QRCodeEncoder' or its derivative)");
     Ptr<cv::QRCodeEncoder> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18462,7 +18462,7 @@ static Napi::Value jsopencv_cv_SIFT_getContrastThreshold(const Napi::CallbackInf
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     double retval;
 
@@ -18482,7 +18482,7 @@ static Napi::Value jsopencv_cv_SIFT_getDefaultName(const Napi::CallbackInfo &inf
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     String retval;
 
@@ -18502,7 +18502,7 @@ static Napi::Value jsopencv_cv_SIFT_getEdgeThreshold(const Napi::CallbackInfo &i
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     double retval;
 
@@ -18522,7 +18522,7 @@ static Napi::Value jsopencv_cv_SIFT_getNFeatures(const Napi::CallbackInfo &info)
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     int retval;
 
@@ -18542,7 +18542,7 @@ static Napi::Value jsopencv_cv_SIFT_getNOctaveLayers(const Napi::CallbackInfo &i
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     int retval;
 
@@ -18562,7 +18562,7 @@ static Napi::Value jsopencv_cv_SIFT_getSigma(const Napi::CallbackInfo &info)
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     double retval;
 
@@ -18582,7 +18582,7 @@ static Napi::Value jsopencv_cv_SIFT_setContrastThreshold(const Napi::CallbackInf
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     Napi::Value* jsobj_contrastThreshold = NULL;
     double contrastThreshold=0;
@@ -18605,7 +18605,7 @@ static Napi::Value jsopencv_cv_SIFT_setEdgeThreshold(const Napi::CallbackInfo &i
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     Napi::Value* jsobj_edgeThreshold = NULL;
     double edgeThreshold=0;
@@ -18628,7 +18628,7 @@ static Napi::Value jsopencv_cv_SIFT_setNFeatures(const Napi::CallbackInfo &info)
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     Napi::Value* jsobj_maxFeatures = NULL;
     int maxFeatures=0;
@@ -18651,7 +18651,7 @@ static Napi::Value jsopencv_cv_SIFT_setNOctaveLayers(const Napi::CallbackInfo &i
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     Napi::Value* jsobj_nOctaveLayers = NULL;
     int nOctaveLayers=0;
@@ -18674,7 +18674,7 @@ static Napi::Value jsopencv_cv_SIFT_setSigma(const Napi::CallbackInfo &info)
 
     Ptr<cv::SIFT> * self1 = 0;
     if (!jsopencv_SIFT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SIFT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SIFT' or its derivative)");
     Ptr<cv::SIFT> _self_ = *(self1);
     Napi::Value* jsobj_sigma = NULL;
     double sigma=0;
@@ -18778,7 +18778,7 @@ static Napi::Value jsopencv_cv_SimpleBlobDetector_getBlobContours(const Napi::Ca
 
     Ptr<cv::SimpleBlobDetector> * self1 = 0;
     if (!jsopencv_SimpleBlobDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
     Ptr<cv::SimpleBlobDetector> _self_ = *(self1);
     std::vector<std::vector<cv::Point> > retval;
 
@@ -18798,7 +18798,7 @@ static Napi::Value jsopencv_cv_SimpleBlobDetector_getDefaultName(const Napi::Cal
 
     Ptr<cv::SimpleBlobDetector> * self1 = 0;
     if (!jsopencv_SimpleBlobDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
     Ptr<cv::SimpleBlobDetector> _self_ = *(self1);
     String retval;
 
@@ -18818,7 +18818,7 @@ static Napi::Value jsopencv_cv_SimpleBlobDetector_getParams(const Napi::Callback
 
     Ptr<cv::SimpleBlobDetector> * self1 = 0;
     if (!jsopencv_SimpleBlobDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
     Ptr<cv::SimpleBlobDetector> _self_ = *(self1);
     SimpleBlobDetector::Params retval;
 
@@ -18838,7 +18838,7 @@ static Napi::Value jsopencv_cv_SimpleBlobDetector_setParams(const Napi::Callback
 
     Ptr<cv::SimpleBlobDetector> * self1 = 0;
     if (!jsopencv_SimpleBlobDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SimpleBlobDetector' or its derivative)");
     Ptr<cv::SimpleBlobDetector> _self_ = *(self1);
     Napi::Value* jsobj_params = NULL;
     cv::SimpleBlobDetector::Params params;
@@ -19300,7 +19300,7 @@ static Napi::Value jsopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
 
     Ptr<cv::SparseOpticalFlow> * self1 = 0;
     if (!jsopencv_SparseOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparseOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparseOpticalFlow' or its derivative)");
     Ptr<cv::SparseOpticalFlow> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19460,7 +19460,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_getFlags(const Napi::Callb
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -19480,7 +19480,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_getMaxLevel(const Napi::Ca
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     int retval;
 
@@ -19500,7 +19500,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_getMinEigThreshold(const N
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     double retval;
 
@@ -19520,7 +19520,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_getTermCriteria(const Napi
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     TermCriteria retval;
 
@@ -19540,7 +19540,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_getWinSize(const Napi::Cal
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     Size retval;
 
@@ -19560,7 +19560,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_setFlags(const Napi::Callb
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_flags = NULL;
     int flags=0;
@@ -19583,7 +19583,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_setMaxLevel(const Napi::Ca
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_maxLevel = NULL;
     int maxLevel=0;
@@ -19606,7 +19606,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_setMinEigThreshold(const N
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_minEigThreshold = NULL;
     double minEigThreshold=0;
@@ -19629,7 +19629,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_setTermCriteria(const Napi
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_crit = NULL;
     TermCriteria crit;
@@ -19652,7 +19652,7 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_setWinSize(const Napi::Cal
 
     Ptr<cv::SparsePyrLKOpticalFlow> * self1 = 0;
     if (!jsopencv_SparsePyrLKOpticalFlow_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'SparsePyrLKOpticalFlow' or its derivative)");
     Ptr<cv::SparsePyrLKOpticalFlow> _self_ = *(self1);
     Napi::Value* jsobj_winSize = NULL;
     Size winSize;
@@ -19758,7 +19758,7 @@ static Napi::Value jsopencv_cv_StereoBM_getPreFilterCap(const Napi::CallbackInfo
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     int retval;
 
@@ -19778,7 +19778,7 @@ static Napi::Value jsopencv_cv_StereoBM_getPreFilterSize(const Napi::CallbackInf
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     int retval;
 
@@ -19798,7 +19798,7 @@ static Napi::Value jsopencv_cv_StereoBM_getPreFilterType(const Napi::CallbackInf
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     int retval;
 
@@ -19818,7 +19818,7 @@ static Napi::Value jsopencv_cv_StereoBM_getROI1(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Rect retval;
 
@@ -19838,7 +19838,7 @@ static Napi::Value jsopencv_cv_StereoBM_getROI2(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Rect retval;
 
@@ -19858,7 +19858,7 @@ static Napi::Value jsopencv_cv_StereoBM_getSmallerBlockSize(const Napi::Callback
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     int retval;
 
@@ -19878,7 +19878,7 @@ static Napi::Value jsopencv_cv_StereoBM_getTextureThreshold(const Napi::Callback
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     int retval;
 
@@ -19898,7 +19898,7 @@ static Napi::Value jsopencv_cv_StereoBM_getUniquenessRatio(const Napi::CallbackI
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     int retval;
 
@@ -19918,7 +19918,7 @@ static Napi::Value jsopencv_cv_StereoBM_setPreFilterCap(const Napi::CallbackInfo
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_preFilterCap = NULL;
     int preFilterCap=0;
@@ -19941,7 +19941,7 @@ static Napi::Value jsopencv_cv_StereoBM_setPreFilterSize(const Napi::CallbackInf
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_preFilterSize = NULL;
     int preFilterSize=0;
@@ -19964,7 +19964,7 @@ static Napi::Value jsopencv_cv_StereoBM_setPreFilterType(const Napi::CallbackInf
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_preFilterType = NULL;
     int preFilterType=0;
@@ -19987,7 +19987,7 @@ static Napi::Value jsopencv_cv_StereoBM_setROI1(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_roi1 = NULL;
     Rect roi1;
@@ -20010,7 +20010,7 @@ static Napi::Value jsopencv_cv_StereoBM_setROI2(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_roi2 = NULL;
     Rect roi2;
@@ -20033,7 +20033,7 @@ static Napi::Value jsopencv_cv_StereoBM_setSmallerBlockSize(const Napi::Callback
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_blockSize = NULL;
     int blockSize=0;
@@ -20056,7 +20056,7 @@ static Napi::Value jsopencv_cv_StereoBM_setTextureThreshold(const Napi::Callback
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_textureThreshold = NULL;
     int textureThreshold=0;
@@ -20079,7 +20079,7 @@ static Napi::Value jsopencv_cv_StereoBM_setUniquenessRatio(const Napi::CallbackI
 
     Ptr<cv::StereoBM> * self1 = 0;
     if (!jsopencv_StereoBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoBM' or its derivative)");
     Ptr<cv::StereoBM> _self_ = *(self1);
     Napi::Value* jsobj_uniquenessRatio = NULL;
     int uniquenessRatio=0;
@@ -20169,7 +20169,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20229,7 +20229,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_getBlockSize(const Napi::CallbackIn
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     int retval;
 
@@ -20249,7 +20249,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_getDisp12MaxDiff(const Napi::Callba
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     int retval;
 
@@ -20269,7 +20269,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_getMinDisparity(const Napi::Callbac
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     int retval;
 
@@ -20289,7 +20289,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_getNumDisparities(const Napi::Callb
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     int retval;
 
@@ -20309,7 +20309,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_getSpeckleRange(const Napi::Callbac
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     int retval;
 
@@ -20329,7 +20329,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_getSpeckleWindowSize(const Napi::Ca
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     int retval;
 
@@ -20349,7 +20349,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_setBlockSize(const Napi::CallbackIn
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     Napi::Value* jsobj_blockSize = NULL;
     int blockSize=0;
@@ -20372,7 +20372,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_setDisp12MaxDiff(const Napi::Callba
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     Napi::Value* jsobj_disp12MaxDiff = NULL;
     int disp12MaxDiff=0;
@@ -20395,7 +20395,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_setMinDisparity(const Napi::Callbac
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     Napi::Value* jsobj_minDisparity = NULL;
     int minDisparity=0;
@@ -20418,7 +20418,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_setNumDisparities(const Napi::Callb
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     Napi::Value* jsobj_numDisparities = NULL;
     int numDisparities=0;
@@ -20441,7 +20441,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_setSpeckleRange(const Napi::Callbac
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     Napi::Value* jsobj_speckleRange = NULL;
     int speckleRange=0;
@@ -20464,7 +20464,7 @@ static Napi::Value jsopencv_cv_StereoMatcher_setSpeckleWindowSize(const Napi::Ca
 
     Ptr<cv::StereoMatcher> * self1 = 0;
     if (!jsopencv_StereoMatcher_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoMatcher' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoMatcher' or its derivative)");
     Ptr<cv::StereoMatcher> _self_ = *(self1);
     Napi::Value* jsobj_speckleWindowSize = NULL;
     int speckleWindowSize=0;
@@ -20599,7 +20599,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_getMode(const Napi::CallbackInfo &info
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     int retval;
 
@@ -20619,7 +20619,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_getP1(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     int retval;
 
@@ -20639,7 +20639,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_getP2(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     int retval;
 
@@ -20659,7 +20659,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_getPreFilterCap(const Napi::CallbackIn
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     int retval;
 
@@ -20679,7 +20679,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_getUniquenessRatio(const Napi::Callbac
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     int retval;
 
@@ -20699,7 +20699,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_setMode(const Napi::CallbackInfo &info
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     Napi::Value* jsobj_mode = NULL;
     int mode=0;
@@ -20722,7 +20722,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_setP1(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     Napi::Value* jsobj_P1 = NULL;
     int P1=0;
@@ -20745,7 +20745,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_setP2(const Napi::CallbackInfo &info)
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     Napi::Value* jsobj_P2 = NULL;
     int P2=0;
@@ -20768,7 +20768,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_setPreFilterCap(const Napi::CallbackIn
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     Napi::Value* jsobj_preFilterCap = NULL;
     int preFilterCap=0;
@@ -20791,7 +20791,7 @@ static Napi::Value jsopencv_cv_StereoSGBM_setUniquenessRatio(const Napi::Callbac
 
     Ptr<cv::StereoSGBM> * self1 = 0;
     if (!jsopencv_StereoSGBM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'StereoSGBM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'StereoSGBM' or its derivative)");
     Ptr<cv::StereoSGBM> _self_ = *(self1);
     Napi::Value* jsobj_uniquenessRatio = NULL;
     int uniquenessRatio=0;
@@ -20916,7 +20916,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_edgeDst(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_edge = NULL;
     int edge=0;
@@ -20941,7 +20941,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_edgeOrg(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_edge = NULL;
     int edge=0;
@@ -20966,7 +20966,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_findNearest(const Napi::CallbackInfo &in
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_pt = NULL;
     Point2f pt;
@@ -20991,7 +20991,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_getEdge(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_edge = NULL;
     int edge=0;
@@ -21018,7 +21018,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_getEdgeList(const Napi::CallbackInfo &in
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     vector_Vec4f edgeList;
 
@@ -21038,7 +21038,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_getLeadingEdgeList(const Napi::CallbackI
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     vector_int leadingEdgeList;
 
@@ -21058,7 +21058,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_getTriangleList(const Napi::CallbackInfo
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     vector_Vec6f triangleList;
 
@@ -21078,7 +21078,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_getVertex(const Napi::CallbackInfo &info
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_vertex = NULL;
     int vertex=0;
@@ -21103,7 +21103,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_getVoronoiFacetList(const Napi::Callback
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_idx = NULL;
     vector_int idx;
@@ -21128,7 +21128,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_initDelaunay(const Napi::CallbackInfo &i
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_rect = NULL;
     Rect rect;
@@ -21151,7 +21151,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21200,7 +21200,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_locate(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_pt = NULL;
     Point2f pt;
@@ -21226,7 +21226,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_nextEdge(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_edge = NULL;
     int edge=0;
@@ -21250,7 +21250,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_rotateEdge(const Napi::CallbackInfo &inf
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_edge = NULL;
     int edge=0;
@@ -21277,7 +21277,7 @@ static Napi::Value jsopencv_cv_Subdiv2D_symEdge(const Napi::CallbackInfo &info)
 
     Ptr<cv::Subdiv2D> * self1 = 0;
     if (!jsopencv_Subdiv2D_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Subdiv2D' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Subdiv2D' or its derivative)");
     Ptr<cv::Subdiv2D> _self_ = *(self1);
     Napi::Value* jsobj_edge = NULL;
     int edge=0;
@@ -21381,7 +21381,7 @@ static Napi::Value jsopencv_cv_TickMeter_getAvgTimeMilli(const Napi::CallbackInf
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     double retval;
 
@@ -21401,7 +21401,7 @@ static Napi::Value jsopencv_cv_TickMeter_getAvgTimeSec(const Napi::CallbackInfo 
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     double retval;
 
@@ -21421,7 +21421,7 @@ static Napi::Value jsopencv_cv_TickMeter_getCounter(const Napi::CallbackInfo &in
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     int64 retval;
 
@@ -21441,7 +21441,7 @@ static Napi::Value jsopencv_cv_TickMeter_getFPS(const Napi::CallbackInfo &info)
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     double retval;
 
@@ -21461,7 +21461,7 @@ static Napi::Value jsopencv_cv_TickMeter_getTimeMicro(const Napi::CallbackInfo &
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     double retval;
 
@@ -21481,7 +21481,7 @@ static Napi::Value jsopencv_cv_TickMeter_getTimeMilli(const Napi::CallbackInfo &
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     double retval;
 
@@ -21501,7 +21501,7 @@ static Napi::Value jsopencv_cv_TickMeter_getTimeSec(const Napi::CallbackInfo &in
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     double retval;
 
@@ -21521,7 +21521,7 @@ static Napi::Value jsopencv_cv_TickMeter_getTimeTicks(const Napi::CallbackInfo &
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
     int64 retval;
 
@@ -21541,7 +21541,7 @@ static Napi::Value jsopencv_cv_TickMeter_reset(const Napi::CallbackInfo &info)
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -21560,7 +21560,7 @@ static Napi::Value jsopencv_cv_TickMeter_start(const Napi::CallbackInfo &info)
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -21579,7 +21579,7 @@ static Napi::Value jsopencv_cv_TickMeter_stop(const Napi::CallbackInfo &info)
 
     Ptr<cv::TickMeter> * self1 = 0;
     if (!jsopencv_TickMeter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TickMeter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TickMeter' or its derivative)");
     Ptr<cv::TickMeter> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -21659,7 +21659,7 @@ static Napi::Value jsopencv_cv_Tonemap_getGamma(const Napi::CallbackInfo &info)
 
     Ptr<cv::Tonemap> * self1 = 0;
     if (!jsopencv_Tonemap_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Tonemap' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Tonemap' or its derivative)");
     Ptr<cv::Tonemap> _self_ = *(self1);
     float retval;
 
@@ -21679,7 +21679,7 @@ static Napi::Value jsopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
 
     Ptr<cv::Tonemap> * self1 = 0;
     if (!jsopencv_Tonemap_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Tonemap' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Tonemap' or its derivative)");
     Ptr<cv::Tonemap> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21733,7 +21733,7 @@ static Napi::Value jsopencv_cv_Tonemap_setGamma(const Napi::CallbackInfo &info)
 
     Ptr<cv::Tonemap> * self1 = 0;
     if (!jsopencv_Tonemap_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Tonemap' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Tonemap' or its derivative)");
     Ptr<cv::Tonemap> _self_ = *(self1);
     Napi::Value* jsobj_gamma = NULL;
     float gamma=0.f;
@@ -21809,7 +21809,7 @@ static Napi::Value jsopencv_cv_TonemapDrago_getBias(const Napi::CallbackInfo &in
 
     Ptr<cv::TonemapDrago> * self1 = 0;
     if (!jsopencv_TonemapDrago_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapDrago' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapDrago' or its derivative)");
     Ptr<cv::TonemapDrago> _self_ = *(self1);
     float retval;
 
@@ -21829,7 +21829,7 @@ static Napi::Value jsopencv_cv_TonemapDrago_getSaturation(const Napi::CallbackIn
 
     Ptr<cv::TonemapDrago> * self1 = 0;
     if (!jsopencv_TonemapDrago_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapDrago' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapDrago' or its derivative)");
     Ptr<cv::TonemapDrago> _self_ = *(self1);
     float retval;
 
@@ -21849,7 +21849,7 @@ static Napi::Value jsopencv_cv_TonemapDrago_setBias(const Napi::CallbackInfo &in
 
     Ptr<cv::TonemapDrago> * self1 = 0;
     if (!jsopencv_TonemapDrago_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapDrago' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapDrago' or its derivative)");
     Ptr<cv::TonemapDrago> _self_ = *(self1);
     Napi::Value* jsobj_bias = NULL;
     float bias=0.f;
@@ -21872,7 +21872,7 @@ static Napi::Value jsopencv_cv_TonemapDrago_setSaturation(const Napi::CallbackIn
 
     Ptr<cv::TonemapDrago> * self1 = 0;
     if (!jsopencv_TonemapDrago_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapDrago' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapDrago' or its derivative)");
     Ptr<cv::TonemapDrago> _self_ = *(self1);
     Napi::Value* jsobj_saturation = NULL;
     float saturation=0.f;
@@ -21949,7 +21949,7 @@ static Napi::Value jsopencv_cv_TonemapMantiuk_getSaturation(const Napi::Callback
 
     Ptr<cv::TonemapMantiuk> * self1 = 0;
     if (!jsopencv_TonemapMantiuk_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
     Ptr<cv::TonemapMantiuk> _self_ = *(self1);
     float retval;
 
@@ -21969,7 +21969,7 @@ static Napi::Value jsopencv_cv_TonemapMantiuk_getScale(const Napi::CallbackInfo 
 
     Ptr<cv::TonemapMantiuk> * self1 = 0;
     if (!jsopencv_TonemapMantiuk_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
     Ptr<cv::TonemapMantiuk> _self_ = *(self1);
     float retval;
 
@@ -21989,7 +21989,7 @@ static Napi::Value jsopencv_cv_TonemapMantiuk_setSaturation(const Napi::Callback
 
     Ptr<cv::TonemapMantiuk> * self1 = 0;
     if (!jsopencv_TonemapMantiuk_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
     Ptr<cv::TonemapMantiuk> _self_ = *(self1);
     Napi::Value* jsobj_saturation = NULL;
     float saturation=0.f;
@@ -22012,7 +22012,7 @@ static Napi::Value jsopencv_cv_TonemapMantiuk_setScale(const Napi::CallbackInfo 
 
     Ptr<cv::TonemapMantiuk> * self1 = 0;
     if (!jsopencv_TonemapMantiuk_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapMantiuk' or its derivative)");
     Ptr<cv::TonemapMantiuk> _self_ = *(self1);
     Napi::Value* jsobj_scale = NULL;
     float scale=0.f;
@@ -22089,7 +22089,7 @@ static Napi::Value jsopencv_cv_TonemapReinhard_getColorAdaptation(const Napi::Ca
 
     Ptr<cv::TonemapReinhard> * self1 = 0;
     if (!jsopencv_TonemapReinhard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
     Ptr<cv::TonemapReinhard> _self_ = *(self1);
     float retval;
 
@@ -22109,7 +22109,7 @@ static Napi::Value jsopencv_cv_TonemapReinhard_getIntensity(const Napi::Callback
 
     Ptr<cv::TonemapReinhard> * self1 = 0;
     if (!jsopencv_TonemapReinhard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
     Ptr<cv::TonemapReinhard> _self_ = *(self1);
     float retval;
 
@@ -22129,7 +22129,7 @@ static Napi::Value jsopencv_cv_TonemapReinhard_getLightAdaptation(const Napi::Ca
 
     Ptr<cv::TonemapReinhard> * self1 = 0;
     if (!jsopencv_TonemapReinhard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
     Ptr<cv::TonemapReinhard> _self_ = *(self1);
     float retval;
 
@@ -22149,7 +22149,7 @@ static Napi::Value jsopencv_cv_TonemapReinhard_setColorAdaptation(const Napi::Ca
 
     Ptr<cv::TonemapReinhard> * self1 = 0;
     if (!jsopencv_TonemapReinhard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
     Ptr<cv::TonemapReinhard> _self_ = *(self1);
     Napi::Value* jsobj_color_adapt = NULL;
     float color_adapt=0.f;
@@ -22172,7 +22172,7 @@ static Napi::Value jsopencv_cv_TonemapReinhard_setIntensity(const Napi::Callback
 
     Ptr<cv::TonemapReinhard> * self1 = 0;
     if (!jsopencv_TonemapReinhard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
     Ptr<cv::TonemapReinhard> _self_ = *(self1);
     Napi::Value* jsobj_intensity = NULL;
     float intensity=0.f;
@@ -22195,7 +22195,7 @@ static Napi::Value jsopencv_cv_TonemapReinhard_setLightAdaptation(const Napi::Ca
 
     Ptr<cv::TonemapReinhard> * self1 = 0;
     if (!jsopencv_TonemapReinhard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TonemapReinhard' or its derivative)");
     Ptr<cv::TonemapReinhard> _self_ = *(self1);
     Napi::Value* jsobj_light_adapt = NULL;
     float light_adapt=0.f;
@@ -22274,7 +22274,7 @@ static Napi::Value jsopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
 
     Ptr<cv::Tracker> * self1 = 0;
     if (!jsopencv_Tracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Tracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Tracker' or its derivative)");
     Ptr<cv::Tracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22328,7 +22328,7 @@ static Napi::Value jsopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
 
     Ptr<cv::Tracker> * self1 = 0;
     if (!jsopencv_Tracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'Tracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'Tracker' or its derivative)");
     Ptr<cv::Tracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22451,7 +22451,7 @@ static Napi::Value jsopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
 
     Ptr<cv::TrackerCSRT> * self1 = 0;
     if (!jsopencv_TrackerCSRT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TrackerCSRT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TrackerCSRT' or its derivative)");
     Ptr<cv::TrackerCSRT> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23066,7 +23066,7 @@ static Napi::Value jsopencv_cv_TrackerDaSiamRPN_getTrackingScore(const Napi::Cal
 
     Ptr<cv::TrackerDaSiamRPN> * self1 = 0;
     if (!jsopencv_TrackerDaSiamRPN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TrackerDaSiamRPN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TrackerDaSiamRPN' or its derivative)");
     Ptr<cv::TrackerDaSiamRPN> _self_ = *(self1);
     float retval;
 
@@ -24071,7 +24071,7 @@ static Napi::Value jsopencv_cv_TrackerNano_getTrackingScore(const Napi::Callback
 
     Ptr<cv::TrackerNano> * self1 = 0;
     if (!jsopencv_TrackerNano_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'TrackerNano' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'TrackerNano' or its derivative)");
     Ptr<cv::TrackerNano> _self_ = *(self1);
     float retval;
 
@@ -24520,7 +24520,7 @@ static Napi::Value jsopencv_cv_UMat_get(const Napi::CallbackInfo &info)
 
     Ptr<cv::UMat> * self1 = 0;
     if (!jsopencv_UMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'UMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'UMat' or its derivative)");
     Ptr<cv::UMat> _self_ = *(self1);
     Mat retval;
 
@@ -24540,7 +24540,7 @@ static Napi::Value jsopencv_cv_UMat_handle(const Napi::CallbackInfo &info)
 
     Ptr<cv::UMat> * self1 = 0;
     if (!jsopencv_UMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'UMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'UMat' or its derivative)");
     Ptr<cv::UMat> _self_ = *(self1);
     Napi::Value* jsobj_accessFlags = NULL;
     AccessFlag accessFlags=static_cast<AccessFlag>(0);
@@ -24564,7 +24564,7 @@ static Napi::Value jsopencv_cv_UMat_isContinuous(const Napi::CallbackInfo &info)
 
     Ptr<cv::UMat> * self1 = 0;
     if (!jsopencv_UMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'UMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'UMat' or its derivative)");
     Ptr<cv::UMat> _self_ = *(self1);
     bool retval;
 
@@ -24584,7 +24584,7 @@ static Napi::Value jsopencv_cv_UMat_isSubmatrix(const Napi::CallbackInfo &info)
 
     Ptr<cv::UMat> * self1 = 0;
     if (!jsopencv_UMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'UMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'UMat' or its derivative)");
     Ptr<cv::UMat> _self_ = *(self1);
     bool retval;
 
@@ -24924,7 +24924,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25005,7 +25005,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_getAlpha(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     float retval;
 
@@ -25025,7 +25025,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_getDelta(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     float retval;
 
@@ -25045,7 +25045,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_getFixedPointIterations(con
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     int retval;
 
@@ -25065,7 +25065,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_getGamma(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     float retval;
 
@@ -25085,7 +25085,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_getOmega(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     float retval;
 
@@ -25105,7 +25105,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_getSorIterations(const Napi
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     int retval;
 
@@ -25125,7 +25125,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_setAlpha(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -25148,7 +25148,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_setDelta(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -25171,7 +25171,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_setFixedPointIterations(con
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -25194,7 +25194,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_setGamma(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -25217,7 +25217,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_setOmega(const Napi::Callba
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -25240,7 +25240,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_setSorIterations(const Napi
 
     Ptr<cv::VariationalRefinement> * self1 = 0;
     if (!jsopencv_VariationalRefinement_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VariationalRefinement' or its derivative)");
     Ptr<cv::VariationalRefinement> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -25440,7 +25440,7 @@ static Napi::Value jsopencv_cv_VideoCapture_get(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     Napi::Value* jsobj_propId = NULL;
     int propId=0;
@@ -25464,7 +25464,7 @@ static Napi::Value jsopencv_cv_VideoCapture_getBackendName(const Napi::CallbackI
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     String retval;
 
@@ -25484,7 +25484,7 @@ static Napi::Value jsopencv_cv_VideoCapture_getExceptionMode(const Napi::Callbac
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     bool retval;
 
@@ -25504,7 +25504,7 @@ static Napi::Value jsopencv_cv_VideoCapture_grab(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     bool retval;
 
@@ -25524,7 +25524,7 @@ static Napi::Value jsopencv_cv_VideoCapture_isOpened(const Napi::CallbackInfo &i
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     bool retval;
 
@@ -25544,7 +25544,7 @@ static Napi::Value jsopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -25648,7 +25648,7 @@ static Napi::Value jsopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25698,7 +25698,7 @@ static Napi::Value jsopencv_cv_VideoCapture_release(const Napi::CallbackInfo &in
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -25717,7 +25717,7 @@ static Napi::Value jsopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25773,7 +25773,7 @@ static Napi::Value jsopencv_cv_VideoCapture_set(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     Napi::Value* jsobj_propId = NULL;
     int propId=0;
@@ -25800,7 +25800,7 @@ static Napi::Value jsopencv_cv_VideoCapture_setExceptionMode(const Napi::Callbac
 
     Ptr<cv::VideoCapture> * self1 = 0;
     if (!jsopencv_VideoCapture_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoCapture' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoCapture' or its derivative)");
     Ptr<cv::VideoCapture> _self_ = *(self1);
     Napi::Value* jsobj_enable = NULL;
     bool enable=0;
@@ -26085,7 +26085,7 @@ static Napi::Value jsopencv_cv_VideoWriter_get(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
     Napi::Value* jsobj_propId = NULL;
     int propId=0;
@@ -26109,7 +26109,7 @@ static Napi::Value jsopencv_cv_VideoWriter_getBackendName(const Napi::CallbackIn
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
     String retval;
 
@@ -26129,7 +26129,7 @@ static Napi::Value jsopencv_cv_VideoWriter_isOpened(const Napi::CallbackInfo &in
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
     bool retval;
 
@@ -26149,7 +26149,7 @@ static Napi::Value jsopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -26289,7 +26289,7 @@ static Napi::Value jsopencv_cv_VideoWriter_release(const Napi::CallbackInfo &inf
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -26308,7 +26308,7 @@ static Napi::Value jsopencv_cv_VideoWriter_set(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
     Napi::Value* jsobj_propId = NULL;
     int propId=0;
@@ -26335,7 +26335,7 @@ static Napi::Value jsopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
 
     Ptr<cv::VideoWriter> * self1 = 0;
     if (!jsopencv_VideoWriter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'VideoWriter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'VideoWriter' or its derivative)");
     Ptr<cv::VideoWriter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26466,7 +26466,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26532,7 +26532,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_getDetectorParameters(c
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     DetectorParameters retval;
 
@@ -26552,7 +26552,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_getDictionary(const Nap
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     Dictionary retval;
 
@@ -26572,7 +26572,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_getRefineParameters(con
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     RefineParameters retval;
 
@@ -26592,7 +26592,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_read(const Napi::Callba
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_fn = NULL;
     cv::FileNode fn;
@@ -26615,7 +26615,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26705,7 +26705,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_setDetectorParameters(c
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_detectorParameters = NULL;
     DetectorParameters detectorParameters;
@@ -26728,7 +26728,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_setDictionary(const Nap
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_dictionary = NULL;
     Dictionary dictionary;
@@ -26751,7 +26751,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_setRefineParameters(con
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_refineParameters = NULL;
     RefineParameters refineParameters;
@@ -26774,7 +26774,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_ArucoDetector_write(const Napi::Callb
 
     Ptr<cv::aruco::ArucoDetector> * self1 = 0;
     if (!jsopencv_aruco_ArucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_ArucoDetector' or its derivative)");
     Ptr<cv::aruco::ArucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_fs = NULL;
     Ptr<cv::FileStorage> fs;
@@ -26915,7 +26915,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
 
     cv::aruco::Board * self1 = 0;
     if (!jsopencv_aruco_Board_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26981,7 +26981,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Board_getDictionary(const Napi::Callb
 
     cv::aruco::Board * self1 = 0;
     if (!jsopencv_aruco_Board_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
     Dictionary retval;
 
@@ -27001,7 +27001,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Board_getIds(const Napi::CallbackInfo
 
     cv::aruco::Board * self1 = 0;
     if (!jsopencv_aruco_Board_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
     std::vector<int> retval;
 
@@ -27021,7 +27021,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Board_getObjPoints(const Napi::Callba
 
     cv::aruco::Board * self1 = 0;
     if (!jsopencv_aruco_Board_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
     std::vector<std::vector<Point3f> > retval;
 
@@ -27041,7 +27041,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Board_getRightBottomCorner(const Napi
 
     cv::aruco::Board * self1 = 0;
     if (!jsopencv_aruco_Board_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
     Point3f retval;
 
@@ -27061,7 +27061,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
 
     cv::aruco::Board * self1 = 0;
     if (!jsopencv_aruco_Board_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Board' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Board' or its derivative)");
     cv::aruco::Board* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27250,7 +27250,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
 
     cv::aruco::CharucoBoard * self1 = 0;
     if (!jsopencv_aruco_CharucoBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
     cv::aruco::CharucoBoard* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27300,7 +27300,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoBoard_getChessboardCorners(con
 
     cv::aruco::CharucoBoard * self1 = 0;
     if (!jsopencv_aruco_CharucoBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
     cv::aruco::CharucoBoard* _self_ = (self1);
     std::vector<Point3f> retval;
 
@@ -27320,7 +27320,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoBoard_getChessboardSize(const 
 
     cv::aruco::CharucoBoard * self1 = 0;
     if (!jsopencv_aruco_CharucoBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
     cv::aruco::CharucoBoard* _self_ = (self1);
     Size retval;
 
@@ -27340,7 +27340,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoBoard_getMarkerLength(const Na
 
     cv::aruco::CharucoBoard * self1 = 0;
     if (!jsopencv_aruco_CharucoBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
     cv::aruco::CharucoBoard* _self_ = (self1);
     float retval;
 
@@ -27360,7 +27360,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoBoard_getSquareLength(const Na
 
     cv::aruco::CharucoBoard * self1 = 0;
     if (!jsopencv_aruco_CharucoBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoBoard' or its derivative)");
     cv::aruco::CharucoBoard* _self_ = (self1);
     float retval;
 
@@ -27463,7 +27463,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27535,7 +27535,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27607,7 +27607,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_getBoard(const Napi::
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     CharucoBoard retval;
 
@@ -27627,7 +27627,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_getCharucoParameters(
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     CharucoParameters retval;
 
@@ -27647,7 +27647,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_getDetectorParameters
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     DetectorParameters retval;
 
@@ -27667,7 +27667,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_getRefineParameters(c
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     RefineParameters retval;
 
@@ -27687,7 +27687,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_setBoard(const Napi::
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_board = NULL;
     CharucoBoard board;
@@ -27710,7 +27710,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_setCharucoParameters(
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_charucoParameters = NULL;
     CharucoParameters charucoParameters;
@@ -27733,7 +27733,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_setDetectorParameters
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_detectorParameters = NULL;
     DetectorParameters detectorParameters;
@@ -27756,7 +27756,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_CharucoDetector_setRefineParameters(c
 
     Ptr<cv::aruco::CharucoDetector> * self1 = 0;
     if (!jsopencv_aruco_CharucoDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_CharucoDetector' or its derivative)");
     Ptr<cv::aruco::CharucoDetector> _self_ = *(self1);
     Napi::Value* jsobj_refineParameters = NULL;
     RefineParameters refineParameters;
@@ -28447,7 +28447,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_DetectorParameters_readDetectorParame
 
     cv::aruco::DetectorParameters * self1 = 0;
     if (!jsopencv_aruco_DetectorParameters_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_DetectorParameters' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_DetectorParameters' or its derivative)");
     cv::aruco::DetectorParameters* _self_ = (self1);
     Napi::Value* jsobj_fn = NULL;
     cv::FileNode fn;
@@ -28471,7 +28471,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_DetectorParameters_writeDetectorParam
 
     cv::aruco::DetectorParameters * self1 = 0;
     if (!jsopencv_aruco_DetectorParameters_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_DetectorParameters' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_DetectorParameters' or its derivative)");
     cv::aruco::DetectorParameters* _self_ = (self1);
     Napi::Value* jsobj_fs = NULL;
     Ptr<cv::FileStorage> fs;
@@ -28672,7 +28672,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
 
     cv::aruco::Dictionary * self1 = 0;
     if (!jsopencv_aruco_Dictionary_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -28779,7 +28779,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
 
     cv::aruco::Dictionary * self1 = 0;
     if (!jsopencv_aruco_Dictionary_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -28841,7 +28841,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Dictionary_identify(const Napi::Callb
 
     cv::aruco::Dictionary * self1 = 0;
     if (!jsopencv_aruco_Dictionary_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
     Napi::Value* jsobj_onlyBits = NULL;
     Mat onlyBits;
@@ -28870,7 +28870,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Dictionary_readDictionary(const Napi:
 
     cv::aruco::Dictionary * self1 = 0;
     if (!jsopencv_aruco_Dictionary_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
     Napi::Value* jsobj_fn = NULL;
     cv::FileNode fn;
@@ -28894,7 +28894,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_Dictionary_writeDictionary(const Napi
 
     cv::aruco::Dictionary * self1 = 0;
     if (!jsopencv_aruco_Dictionary_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_Dictionary' or its derivative)");
     cv::aruco::Dictionary* _self_ = (self1);
     Napi::Value* jsobj_fs = NULL;
     Ptr<cv::FileStorage> fs;
@@ -29047,7 +29047,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_GridBoard_getGridSize(const Napi::Cal
 
     cv::aruco::GridBoard * self1 = 0;
     if (!jsopencv_aruco_GridBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_GridBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_GridBoard' or its derivative)");
     cv::aruco::GridBoard* _self_ = (self1);
     Size retval;
 
@@ -29067,7 +29067,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_GridBoard_getMarkerLength(const Napi:
 
     cv::aruco::GridBoard * self1 = 0;
     if (!jsopencv_aruco_GridBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_GridBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_GridBoard' or its derivative)");
     cv::aruco::GridBoard* _self_ = (self1);
     float retval;
 
@@ -29087,7 +29087,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_GridBoard_getMarkerSeparation(const N
 
     cv::aruco::GridBoard * self1 = 0;
     if (!jsopencv_aruco_GridBoard_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_GridBoard' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_GridBoard' or its derivative)");
     cv::aruco::GridBoard* _self_ = (self1);
     float retval;
 
@@ -29229,7 +29229,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_RefineParameters_readRefineParameters
 
     cv::aruco::RefineParameters * self1 = 0;
     if (!jsopencv_aruco_RefineParameters_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_RefineParameters' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_RefineParameters' or its derivative)");
     cv::aruco::RefineParameters* _self_ = (self1);
     Napi::Value* jsobj_fn = NULL;
     cv::FileNode fn;
@@ -29253,7 +29253,7 @@ static Napi::Value jsopencv_cv_aruco_aruco_RefineParameters_writeRefineParameter
 
     cv::aruco::RefineParameters * self1 = 0;
     if (!jsopencv_aruco_RefineParameters_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'aruco_RefineParameters' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'aruco_RefineParameters' or its derivative)");
     cv::aruco::RefineParameters* _self_ = (self1);
     Napi::Value* jsobj_fs = NULL;
     Ptr<cv::FileStorage> fs;
@@ -29357,7 +29357,7 @@ static Napi::Value jsopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
 
     Ptr<cv::barcode::BarcodeDetector> * self1 = 0;
     if (!jsopencv_barcode_BarcodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
     Ptr<cv::barcode::BarcodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29417,7 +29417,7 @@ static Napi::Value jsopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
 
     Ptr<cv::barcode::BarcodeDetector> * self1 = 0;
     if (!jsopencv_barcode_BarcodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
     Ptr<cv::barcode::BarcodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29473,7 +29473,7 @@ static Napi::Value jsopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
 
     Ptr<cv::barcode::BarcodeDetector> * self1 = 0;
     if (!jsopencv_barcode_BarcodeDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'barcode_BarcodeDetector' or its derivative)");
     Ptr<cv::barcode::BarcodeDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29667,7 +29667,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_getCCM(const Napi::C
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Mat retval;
 
@@ -29687,7 +29687,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_getLoss(const Napi::
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     double retval;
 
@@ -29707,7 +29707,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_getMask(const Napi::
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Mat retval;
 
@@ -29727,7 +29727,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_getWeights(const Nap
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Mat retval;
 
@@ -29747,7 +29747,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_get_dst_rgbl(const N
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Mat retval;
 
@@ -29767,7 +29767,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_get_src_rgbl(const N
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Mat retval;
 
@@ -29787,7 +29787,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_infer(const Napi::Ca
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_img = NULL;
     Mat img;
@@ -29814,7 +29814,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_run(const Napi::Call
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -29833,7 +29833,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setCCM_TYPE(const Na
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_ccm_type = NULL;
     CCM_TYPE ccm_type=static_cast<CCM_TYPE>(0);
@@ -29856,7 +29856,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setColorSpace(const 
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_cs = NULL;
     COLOR_SPACE cs=static_cast<COLOR_SPACE>(0);
@@ -29879,7 +29879,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setDistance(const Na
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_distance = NULL;
     DISTANCE_TYPE distance=static_cast<DISTANCE_TYPE>(0);
@@ -29902,7 +29902,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setEpsilon(const Nap
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_epsilon = NULL;
     double epsilon=0;
@@ -29925,7 +29925,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setInitialMethod(con
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_initial_method_type = NULL;
     INITIAL_METHOD_TYPE initial_method_type=static_cast<INITIAL_METHOD_TYPE>(0);
@@ -29948,7 +29948,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setLinear(const Napi
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_linear_type = NULL;
     LINEAR_TYPE linear_type=static_cast<LINEAR_TYPE>(0);
@@ -29971,7 +29971,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setLinearDegree(cons
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_deg = NULL;
     int deg=0;
@@ -29994,7 +29994,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setLinearGamma(const
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_gamma = NULL;
     double gamma=0;
@@ -30017,7 +30017,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setMaxCount(const Na
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_max_count = NULL;
     int max_count=0;
@@ -30040,7 +30040,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setSaturatedThreshol
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_lower = NULL;
     double lower=0;
@@ -30066,7 +30066,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setWeightCoeff(const
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_weights_coeff = NULL;
     double weights_coeff=0;
@@ -30089,7 +30089,7 @@ static Napi::Value jsopencv_cv_ccm_ccm_ColorCorrectionModel_setWeightsList(const
 
     Ptr<cv::ccm::ColorCorrectionModel> * self1 = 0;
     if (!jsopencv_ccm_ColorCorrectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ccm_ColorCorrectionModel' or its derivative)");
     Ptr<cv::ccm::ColorCorrectionModel> _self_ = *(self1);
     Napi::Value* jsobj_weights_list = NULL;
     Mat weights_list;
@@ -30201,7 +30201,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_BufferPool_getAllocator(const Napi::Cal
 
     Ptr<cv::cuda::BufferPool> * self1 = 0;
     if (!jsopencv_cuda_BufferPool_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_BufferPool' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_BufferPool' or its derivative)");
     Ptr<cv::cuda::BufferPool> _self_ = *(self1);
     Ptr<GpuMat::Allocator> retval;
 
@@ -30221,7 +30221,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
 
     Ptr<cv::cuda::BufferPool> * self1 = 0;
     if (!jsopencv_cuda_BufferPool_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_BufferPool' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_BufferPool' or its derivative)");
     Ptr<cv::cuda::BufferPool> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -30373,7 +30373,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_ECCEnabled(const Napi::Callb
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -30393,7 +30393,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_asyncEngineCount(const Napi:
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30413,7 +30413,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_canMapHostMemory(const Napi:
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -30433,7 +30433,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_clockRate(const Napi::Callba
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30453,7 +30453,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_computeMode(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     DeviceInfo::ComputeMode retval;
 
@@ -30473,7 +30473,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_concurrentKernels(const Napi
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -30493,7 +30493,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_deviceID(const Napi::Callbac
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30513,7 +30513,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_freeMemory(const Napi::Callb
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -30533,7 +30533,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_integrated(const Napi::Callb
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -30553,7 +30553,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_isCompatible(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -30573,7 +30573,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_kernelExecTimeoutEnabled(con
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -30593,7 +30593,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_l2CacheSize(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30613,7 +30613,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_majorVersion(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30633,7 +30633,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxGridSize(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -30653,7 +30653,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurface1D(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30673,7 +30673,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurface1DLayered(const Na
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30693,7 +30693,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurface2D(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30713,7 +30713,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurface2DLayered(const Na
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -30733,7 +30733,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurface3D(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -30753,7 +30753,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurfaceCubemap(const Napi
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30773,7 +30773,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxSurfaceCubemapLayered(con
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30793,7 +30793,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture1D(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30813,7 +30813,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DLayered(const Na
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30833,7 +30833,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DLinear(const Nap
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30853,7 +30853,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture1DMipmap(const Nap
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -30873,7 +30873,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture2D(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30893,7 +30893,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DGather(const Nap
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30913,7 +30913,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DLayered(const Na
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -30933,7 +30933,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DLinear(const Nap
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -30953,7 +30953,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture2DMipmap(const Nap
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -30973,7 +30973,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTexture3D(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -30993,7 +30993,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTextureCubemap(const Napi
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31013,7 +31013,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxTextureCubemapLayered(con
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec2i retval;
 
@@ -31033,7 +31033,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxThreadsDim(const Napi::Ca
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Vec3i retval;
 
@@ -31053,7 +31053,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxThreadsPerBlock(const Nap
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31073,7 +31073,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_maxThreadsPerMultiProcessor(
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31093,7 +31093,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_memPitch(const Napi::Callbac
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31113,7 +31113,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_memoryBusWidth(const Napi::C
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31133,7 +31133,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_memoryClockRate(const Napi::
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31153,7 +31153,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_minorVersion(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31173,7 +31173,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_multiProcessorCount(const Na
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31193,7 +31193,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_pciBusID(const Napi::Callbac
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31213,7 +31213,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_pciDeviceID(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31233,7 +31233,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_pciDomainID(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31253,7 +31253,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_queryMemory(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     Napi::Value* jsobj_totalMemory = NULL;
     size_t totalMemory=0;
@@ -31279,7 +31279,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_regsPerBlock(const Napi::Cal
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31299,7 +31299,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_sharedMemPerBlock(const Napi
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31319,7 +31319,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_surfaceAlignment(const Napi:
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31339,7 +31339,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_tccDriver(const Napi::Callba
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -31359,7 +31359,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_textureAlignment(const Napi:
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31379,7 +31379,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_texturePitchAlignment(const 
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31399,7 +31399,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_totalConstMem(const Napi::Ca
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31419,7 +31419,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_totalGlobalMem(const Napi::C
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31439,7 +31439,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_totalMemory(const Napi::Call
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     size_t retval;
 
@@ -31459,7 +31459,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_unifiedAddressing(const Napi
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     bool retval;
 
@@ -31479,7 +31479,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_DeviceInfo_warpSize(const Napi::Callbac
 
     Ptr<cv::cuda::DeviceInfo> * self1 = 0;
     if (!jsopencv_cuda_DeviceInfo_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_DeviceInfo' or its derivative)");
     Ptr<cv::cuda::DeviceInfo> _self_ = *(self1);
     int retval;
 
@@ -31646,7 +31646,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Event_queryIfComplete(const Napi::Callb
 
     Ptr<cv::cuda::Event> * self1 = 0;
     if (!jsopencv_cuda_Event_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Event' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Event' or its derivative)");
     Ptr<cv::cuda::Event> _self_ = *(self1);
     bool retval;
 
@@ -31666,7 +31666,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Event_record(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::Event> * self1 = 0;
     if (!jsopencv_cuda_Event_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Event' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Event' or its derivative)");
     Ptr<cv::cuda::Event> _self_ = *(self1);
     Napi::Value* jsobj_stream = NULL;
     Stream stream=Stream::Null();
@@ -31689,7 +31689,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Event_waitForCompletion(const Napi::Cal
 
     Ptr<cv::cuda::Event> * self1 = 0;
     if (!jsopencv_cuda_Event_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Event' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Event' or its derivative)");
     Ptr<cv::cuda::Event> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -32078,7 +32078,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_adjustROI(const Napi::CallbackIn
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_dtop = NULL;
     int dtop=0;
@@ -32111,7 +32111,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_assignTo(const Napi::CallbackInf
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_m = NULL;
     GpuMat m;
@@ -32137,7 +32137,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_channels(const Napi::CallbackInf
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     int retval;
 
@@ -32157,7 +32157,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_clone(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     GpuMat retval;
 
@@ -32177,7 +32177,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_col(const Napi::CallbackInfo &in
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_x = NULL;
     int x=0;
@@ -32201,7 +32201,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32254,7 +32254,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(15);
 
@@ -32640,7 +32640,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(12);
 
@@ -32894,7 +32894,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32951,7 +32951,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_cudaPtr(const Napi::CallbackInfo
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     void* retval;
 
@@ -32986,7 +32986,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_depth(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     int retval;
 
@@ -33006,7 +33006,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(6);
 
@@ -33131,7 +33131,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_elemSize(const Napi::CallbackInf
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     size_t retval;
 
@@ -33151,7 +33151,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_elemSize1(const Napi::CallbackIn
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     size_t retval;
 
@@ -33171,7 +33171,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_empty(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     bool retval;
 
@@ -33191,7 +33191,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_isContinuous(const Napi::Callbac
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     bool retval;
 
@@ -33211,7 +33211,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_locateROI(const Napi::CallbackIn
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_wholeSize = NULL;
     Size wholeSize;
@@ -33237,7 +33237,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_release(const Napi::CallbackInfo
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -33256,7 +33256,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_reshape(const Napi::CallbackInfo
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_cn = NULL;
     int cn=0;
@@ -33283,7 +33283,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_row(const Napi::CallbackInfo &in
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_y = NULL;
     int y=0;
@@ -33307,7 +33307,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -33378,7 +33378,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(8);
 
@@ -33566,7 +33566,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_size(const Napi::CallbackInfo &i
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Size retval;
 
@@ -33586,7 +33586,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_step1(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     size_t retval;
 
@@ -33606,7 +33606,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_swap(const Napi::CallbackInfo &i
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     Napi::Value* jsobj_mat = NULL;
     GpuMat mat;
@@ -33629,7 +33629,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_type(const Napi::CallbackInfo &i
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     int retval;
 
@@ -33649,7 +33649,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_updateContinuityFlag(const Napi:
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -33668,7 +33668,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::GpuMat> * self1 = 0;
     if (!jsopencv_cuda_GpuMat_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_GpuMat' or its derivative)");
     Ptr<cv::cuda::GpuMat> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(6);
 
@@ -34120,7 +34120,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_channels(const Napi::CallbackIn
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     int retval;
 
@@ -34140,7 +34140,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_clone(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     HostMem retval;
 
@@ -34160,7 +34160,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_create(const Napi::CallbackInfo
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     Napi::Value* jsobj_rows = NULL;
     int rows=0;
@@ -34189,7 +34189,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_createMatHeader(const Napi::Cal
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     Mat retval;
 
@@ -34209,7 +34209,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_depth(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     int retval;
 
@@ -34229,7 +34229,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_elemSize(const Napi::CallbackIn
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     size_t retval;
 
@@ -34249,7 +34249,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_elemSize1(const Napi::CallbackI
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     size_t retval;
 
@@ -34269,7 +34269,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_empty(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     bool retval;
 
@@ -34289,7 +34289,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_isContinuous(const Napi::Callba
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     bool retval;
 
@@ -34309,7 +34309,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_reshape(const Napi::CallbackInf
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     Napi::Value* jsobj_cn = NULL;
     int cn=0;
@@ -34336,7 +34336,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_size(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     Size retval;
 
@@ -34356,7 +34356,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_step1(const Napi::CallbackInfo 
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     size_t retval;
 
@@ -34376,7 +34376,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_swap(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     Napi::Value* jsobj_b = NULL;
     HostMem b;
@@ -34399,7 +34399,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_HostMem_type(const Napi::CallbackInfo &
 
     Ptr<cv::cuda::HostMem> * self1 = 0;
     if (!jsopencv_cuda_HostMem_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_HostMem' or its derivative)");
     Ptr<cv::cuda::HostMem> _self_ = *(self1);
     int retval;
 
@@ -34548,7 +34548,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_SURF_CUDA_defaultNorm(const Napi::Callb
 
     Ptr<cv::cuda::SURF_CUDA> * self1 = 0;
     if (!jsopencv_cuda_SURF_CUDA_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
     Ptr<cv::cuda::SURF_CUDA> _self_ = *(self1);
     int retval;
 
@@ -34568,7 +34568,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_SURF_CUDA_descriptorSize(const Napi::Ca
 
     Ptr<cv::cuda::SURF_CUDA> * self1 = 0;
     if (!jsopencv_cuda_SURF_CUDA_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
     Ptr<cv::cuda::SURF_CUDA> _self_ = *(self1);
     int retval;
 
@@ -34588,7 +34588,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_SURF_CUDA_detect(const Napi::CallbackIn
 
     Ptr<cv::cuda::SURF_CUDA> * self1 = 0;
     if (!jsopencv_cuda_SURF_CUDA_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
     Ptr<cv::cuda::SURF_CUDA> _self_ = *(self1);
     Napi::Value* jsobj_img = NULL;
     GpuMat img;
@@ -34617,7 +34617,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_SURF_CUDA_detectWithDescriptors(const N
 
     Ptr<cv::cuda::SURF_CUDA> * self1 = 0;
     if (!jsopencv_cuda_SURF_CUDA_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
     Ptr<cv::cuda::SURF_CUDA> _self_ = *(self1);
     Napi::Value* jsobj_img = NULL;
     GpuMat img;
@@ -34652,7 +34652,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_SURF_CUDA_downloadKeypoints(const Napi:
 
     Ptr<cv::cuda::SURF_CUDA> * self1 = 0;
     if (!jsopencv_cuda_SURF_CUDA_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_SURF_CUDA' or its derivative)");
     Ptr<cv::cuda::SURF_CUDA> _self_ = *(self1);
     Napi::Value* jsobj_keypointsGPU = NULL;
     GpuMat keypointsGPU;
@@ -34812,7 +34812,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Stream_cudaPtr(const Napi::CallbackInfo
 
     Ptr<cv::cuda::Stream> * self1 = 0;
     if (!jsopencv_cuda_Stream_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Stream' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Stream' or its derivative)");
     Ptr<cv::cuda::Stream> _self_ = *(self1);
     void* retval;
 
@@ -34832,7 +34832,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Stream_queryIfComplete(const Napi::Call
 
     Ptr<cv::cuda::Stream> * self1 = 0;
     if (!jsopencv_cuda_Stream_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Stream' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Stream' or its derivative)");
     Ptr<cv::cuda::Stream> _self_ = *(self1);
     bool retval;
 
@@ -34852,7 +34852,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Stream_waitEvent(const Napi::CallbackIn
 
     Ptr<cv::cuda::Stream> * self1 = 0;
     if (!jsopencv_cuda_Stream_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Stream' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Stream' or its derivative)");
     Ptr<cv::cuda::Stream> _self_ = *(self1);
     Napi::Value* jsobj_event = NULL;
     Event event;
@@ -34875,7 +34875,7 @@ static Napi::Value jsopencv_cv_cuda_cuda_Stream_waitForCompletion(const Napi::Ca
 
     Ptr<cv::cuda::Stream> * self1 = 0;
     if (!jsopencv_cuda_Stream_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'cuda_Stream' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'cuda_Stream' or its derivative)");
     Ptr<cv::cuda::Stream> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -35206,7 +35206,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
 
     cv::dnn::ClassificationModel * self1 = 0;
     if (!jsopencv_dnn_ClassificationModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
     cv::dnn::ClassificationModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35258,7 +35258,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_ClassificationModel_getEnableSoftmaxPostP
 
     cv::dnn::ClassificationModel * self1 = 0;
     if (!jsopencv_dnn_ClassificationModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
     cv::dnn::ClassificationModel* _self_ = (self1);
     bool retval;
 
@@ -35278,7 +35278,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_ClassificationModel_setEnableSoftmaxPostP
 
     cv::dnn::ClassificationModel * self1 = 0;
     if (!jsopencv_dnn_ClassificationModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_ClassificationModel' or its derivative)");
     cv::dnn::ClassificationModel* _self_ = (self1);
     Napi::Value* jsobj_enable = NULL;
     bool enable=0;
@@ -35401,7 +35401,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
 
     cv::dnn::DetectionModel * self1 = 0;
     if (!jsopencv_dnn_DetectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
     cv::dnn::DetectionModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35467,7 +35467,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DetectionModel_getNmsAcrossClasses(const 
 
     cv::dnn::DetectionModel * self1 = 0;
     if (!jsopencv_dnn_DetectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
     cv::dnn::DetectionModel* _self_ = (self1);
     bool retval;
 
@@ -35487,7 +35487,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DetectionModel_setNmsAcrossClasses(const 
 
     cv::dnn::DetectionModel * self1 = 0;
     if (!jsopencv_dnn_DetectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DetectionModel' or its derivative)");
     cv::dnn::DetectionModel* _self_ = (self1);
     Napi::Value* jsobj_value = NULL;
     bool value=0;
@@ -35627,7 +35627,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DictValue_getIntValue(const Napi::Callbac
 
     Ptr<cv::dnn::DictValue> * self1 = 0;
     if (!jsopencv_dnn_DictValue_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
     Ptr<cv::dnn::DictValue> _self_ = *(self1);
     Napi::Value* jsobj_idx = NULL;
     int idx=-1;
@@ -35651,7 +35651,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DictValue_getRealValue(const Napi::Callba
 
     Ptr<cv::dnn::DictValue> * self1 = 0;
     if (!jsopencv_dnn_DictValue_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
     Ptr<cv::dnn::DictValue> _self_ = *(self1);
     Napi::Value* jsobj_idx = NULL;
     int idx=-1;
@@ -35675,7 +35675,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DictValue_getStringValue(const Napi::Call
 
     Ptr<cv::dnn::DictValue> * self1 = 0;
     if (!jsopencv_dnn_DictValue_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
     Ptr<cv::dnn::DictValue> _self_ = *(self1);
     Napi::Value* jsobj_idx = NULL;
     int idx=-1;
@@ -35699,7 +35699,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DictValue_isInt(const Napi::CallbackInfo 
 
     Ptr<cv::dnn::DictValue> * self1 = 0;
     if (!jsopencv_dnn_DictValue_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
     Ptr<cv::dnn::DictValue> _self_ = *(self1);
     bool retval;
 
@@ -35719,7 +35719,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DictValue_isReal(const Napi::CallbackInfo
 
     Ptr<cv::dnn::DictValue> * self1 = 0;
     if (!jsopencv_dnn_DictValue_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
     Ptr<cv::dnn::DictValue> _self_ = *(self1);
     bool retval;
 
@@ -35739,7 +35739,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_DictValue_isString(const Napi::CallbackIn
 
     Ptr<cv::dnn::DictValue> * self1 = 0;
     if (!jsopencv_dnn_DictValue_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_DictValue' or its derivative)");
     Ptr<cv::dnn::DictValue> _self_ = *(self1);
     bool retval;
 
@@ -35861,7 +35861,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
 
     cv::dnn::KeypointsModel * self1 = 0;
     if (!jsopencv_dnn_KeypointsModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_KeypointsModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_KeypointsModel' or its derivative)");
     cv::dnn::KeypointsModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35962,7 +35962,7 @@ static PyObject* jsopencv_dnn_Layer_get_blobs(jsopencv_dnn_Layer_t* p, void *clo
 {
     cv::dnn::Layer* _self_ = dynamic_cast<cv::dnn::Layer*>(p->v.get());
     if (!_self_)
-        return failmsgp("Incorrect type of object (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of object (must be 'dnn_Layer' or its derivative)");
     return jsopencv_from(info, _self_->blobs);
 }
 
@@ -35976,7 +35976,7 @@ static int jsopencv_dnn_Layer_set_blobs(const Napi::CallbackInfo &info, jsopencv
     cv::dnn::Layer* _self_ = dynamic_cast<cv::dnn::Layer*>(p->v.get());
     if (!_self_)
     {
-        failmsgp("Incorrect type of object (must be 'dnn_Layer' or its derivative)");
+        failmsgp(info.Env(), "Incorrect type of object (must be 'dnn_Layer' or its derivative)");
         return -1;
     }
     return jsopencv_to_safe(value, _self_->blobs, ArgInfo("value", false)) ? 0 : -1;
@@ -35986,7 +35986,7 @@ static PyObject* jsopencv_dnn_Layer_get_name(jsopencv_dnn_Layer_t* p, void *clos
 {
     cv::dnn::Layer* _self_ = dynamic_cast<cv::dnn::Layer*>(p->v.get());
     if (!_self_)
-        return failmsgp("Incorrect type of object (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of object (must be 'dnn_Layer' or its derivative)");
     return jsopencv_from(info, _self_->name);
 }
 
@@ -35994,7 +35994,7 @@ static PyObject* jsopencv_dnn_Layer_get_preferableTarget(jsopencv_dnn_Layer_t* p
 {
     cv::dnn::Layer* _self_ = dynamic_cast<cv::dnn::Layer*>(p->v.get());
     if (!_self_)
-        return failmsgp("Incorrect type of object (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of object (must be 'dnn_Layer' or its derivative)");
     return jsopencv_from(info, _self_->preferableTarget);
 }
 
@@ -36002,7 +36002,7 @@ static PyObject* jsopencv_dnn_Layer_get_type(jsopencv_dnn_Layer_t* p, void *clos
 {
     cv::dnn::Layer* _self_ = dynamic_cast<cv::dnn::Layer*>(p->v.get());
     if (!_self_)
-        return failmsgp("Incorrect type of object (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of object (must be 'dnn_Layer' or its derivative)");
     return jsopencv_from(info, _self_->type);
 }
 
@@ -36016,7 +36016,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
 
     Ptr<cv::dnn::Layer> * self1 = 0;
     if (!jsopencv_dnn_Layer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Layer' or its derivative)");
     Ptr<cv::dnn::Layer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36070,7 +36070,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Layer_outputNameToIndex(const Napi::Callb
 
     Ptr<cv::dnn::Layer> * self1 = 0;
     if (!jsopencv_dnn_Layer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Layer' or its derivative)");
     Ptr<cv::dnn::Layer> _self_ = *(self1);
     Napi::Value* jsobj_outputName = NULL;
     String outputName;
@@ -36094,7 +36094,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Layer_run(const Napi::CallbackInfo &info)
 
     Ptr<cv::dnn::Layer> * self1 = 0;
     if (!jsopencv_dnn_Layer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Layer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Layer' or its derivative)");
     Ptr<cv::dnn::Layer> _self_ = *(self1);
     Napi::Value* jsobj_inputs = NULL;
     vector_Mat inputs;
@@ -36226,7 +36226,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36280,7 +36280,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setInputCrop(const Napi::CallbackIn
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_crop = NULL;
     bool crop=0;
@@ -36304,7 +36304,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setInputMean(const Napi::CallbackIn
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_mean = NULL;
     Scalar mean;
@@ -36328,7 +36328,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setInputParams(const Napi::Callback
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_scale = NULL;
     double scale=1.0;
@@ -36363,7 +36363,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setInputScale(const Napi::CallbackI
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_scale = NULL;
     double scale=0;
@@ -36387,7 +36387,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36440,7 +36440,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setInputSwapRB(const Napi::Callback
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_swapRB = NULL;
     bool swapRB=0;
@@ -36464,7 +36464,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setPreferableBackend(const Napi::Ca
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_backendId = NULL;
     dnn_Backend backendId=static_cast<dnn_Backend>(0);
@@ -36488,7 +36488,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Model_setPreferableTarget(const Napi::Cal
 
     cv::dnn::Model * self1 = 0;
     if (!jsopencv_dnn_Model_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Model' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Model' or its derivative)");
     cv::dnn::Model* _self_ = (self1);
     Napi::Value* jsobj_targetId = NULL;
     dnn_Target targetId=static_cast<dnn_Target>(0);
@@ -36585,7 +36585,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_connect(const Napi::CallbackInfo &inf
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_outPin = NULL;
     String outPin;
@@ -36611,7 +36611,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_dump(const Napi::CallbackInfo &info)
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     String retval;
 
@@ -36631,7 +36631,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_dumpToFile(const Napi::CallbackInfo &
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_path = NULL;
     String path;
@@ -36654,7 +36654,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_empty(const Napi::CallbackInfo &info)
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     bool retval;
 
@@ -36674,7 +36674,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_enableFusion(const Napi::CallbackInfo
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_fusion = NULL;
     bool fusion=0;
@@ -36697,7 +36697,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_enableWinograd(const Napi::CallbackIn
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_useWinograd = NULL;
     bool useWinograd=0;
@@ -36720,7 +36720,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(5);
 
@@ -36832,7 +36832,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_forwardAndRetrieve(const Napi::Callba
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     vector_vector_Mat outputBlobs;
     Napi::Value* jsobj_outBlobNames = NULL;
@@ -36856,7 +36856,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_forwardAsync(const Napi::CallbackInfo
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_outputName = NULL;
     String outputName;
@@ -36880,7 +36880,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -36972,7 +36972,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getInputDetails(const Napi::CallbackI
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     vector_float scales;
     vector_int zeropoints;
@@ -36993,7 +36993,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -37061,7 +37061,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getLayerId(const Napi::CallbackInfo &
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_layer = NULL;
     String layer;
@@ -37085,7 +37085,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getLayerNames(const Napi::CallbackInf
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     std::vector<String> retval;
 
@@ -37105,7 +37105,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getLayerTypes(const Napi::CallbackInf
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     vector_String layersTypes;
 
@@ -37125,7 +37125,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getLayersCount(const Napi::CallbackIn
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_layerType = NULL;
     String layerType;
@@ -37149,7 +37149,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37203,7 +37203,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -37280,7 +37280,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getOutputDetails(const Napi::Callback
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     vector_float scales;
     vector_int zeropoints;
@@ -37301,7 +37301,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37357,7 +37357,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getPerfProfile(const Napi::CallbackIn
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     vector_double timings;
     int64 retval;
@@ -37378,7 +37378,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getUnconnectedOutLayers(const Napi::C
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     std::vector<int> retval;
 
@@ -37398,7 +37398,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_getUnconnectedOutLayersNames(const Na
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     std::vector<String> retval;
 
@@ -37418,7 +37418,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37537,7 +37537,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setHalideScheduler(const Napi::Callba
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_scheduler = NULL;
     String scheduler;
@@ -37560,7 +37560,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37626,7 +37626,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setInputShape(const Napi::CallbackInf
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_inputName = NULL;
     String inputName;
@@ -37652,7 +37652,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setInputsNames(const Napi::CallbackIn
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_inputBlobNames = NULL;
     vector_String inputBlobNames;
@@ -37675,7 +37675,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37735,7 +37735,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setPreferableBackend(const Napi::Call
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_backendId = NULL;
     int backendId=0;
@@ -37758,7 +37758,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_Net_setPreferableTarget(const Napi::Callb
 
     cv::dnn::Net * self1 = 0;
     if (!jsopencv_dnn_Net_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_Net' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_Net' or its derivative)");
     cv::dnn::Net* _self_ = (self1);
     Napi::Value* jsobj_targetId = NULL;
     int targetId=0;
@@ -37909,7 +37909,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
 
     cv::dnn::SegmentationModel * self1 = 0;
     if (!jsopencv_dnn_SegmentationModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_SegmentationModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_SegmentationModel' or its derivative)");
     cv::dnn::SegmentationModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38014,7 +38014,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
 
     cv::dnn::TextDetectionModel * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel' or its derivative)");
     cv::dnn::TextDetectionModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -38102,7 +38102,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
 
     cv::dnn::TextDetectionModel * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel' or its derivative)");
     cv::dnn::TextDetectionModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -38288,7 +38288,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_getBinaryThreshold(
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     float retval;
 
@@ -38308,7 +38308,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_getMaxCandidates(co
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     int retval;
 
@@ -38328,7 +38328,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_getPolygonThreshold
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     float retval;
 
@@ -38348,7 +38348,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_getUnclipRatio(cons
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     double retval;
 
@@ -38368,7 +38368,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_setBinaryThreshold(
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     Napi::Value* jsobj_binaryThreshold = NULL;
     float binaryThreshold=0.f;
@@ -38392,7 +38392,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_setMaxCandidates(co
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     Napi::Value* jsobj_maxCandidates = NULL;
     int maxCandidates=0;
@@ -38416,7 +38416,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_setPolygonThreshold
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     Napi::Value* jsobj_polygonThreshold = NULL;
     float polygonThreshold=0.f;
@@ -38440,7 +38440,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_DB_setUnclipRatio(cons
 
     cv::dnn::TextDetectionModel_DB * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_DB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_DB' or its derivative)");
     cv::dnn::TextDetectionModel_DB* _self_ = (self1);
     Napi::Value* jsobj_unclipRatio = NULL;
     double unclipRatio=0;
@@ -38568,7 +38568,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_EAST_getConfidenceThre
 
     cv::dnn::TextDetectionModel_EAST * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_EAST_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
     cv::dnn::TextDetectionModel_EAST* _self_ = (self1);
     float retval;
 
@@ -38588,7 +38588,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_EAST_getNMSThreshold(c
 
     cv::dnn::TextDetectionModel_EAST * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_EAST_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
     cv::dnn::TextDetectionModel_EAST* _self_ = (self1);
     float retval;
 
@@ -38608,7 +38608,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_EAST_setConfidenceThre
 
     cv::dnn::TextDetectionModel_EAST * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_EAST_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
     cv::dnn::TextDetectionModel_EAST* _self_ = (self1);
     Napi::Value* jsobj_confThreshold = NULL;
     float confThreshold=0.f;
@@ -38632,7 +38632,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextDetectionModel_EAST_setNMSThreshold(c
 
     cv::dnn::TextDetectionModel_EAST * self1 = 0;
     if (!jsopencv_dnn_TextDetectionModel_EAST_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextDetectionModel_EAST' or its derivative)");
     cv::dnn::TextDetectionModel_EAST* _self_ = (self1);
     Napi::Value* jsobj_nmsThreshold = NULL;
     float nmsThreshold=0.f;
@@ -38756,7 +38756,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextRecognitionModel_getDecodeType(const 
 
     cv::dnn::TextRecognitionModel * self1 = 0;
     if (!jsopencv_dnn_TextRecognitionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
     std::string retval;
 
@@ -38776,7 +38776,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextRecognitionModel_getVocabulary(const 
 
     cv::dnn::TextRecognitionModel * self1 = 0;
     if (!jsopencv_dnn_TextRecognitionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
     std::vector<std::string> retval;
 
@@ -38796,7 +38796,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
 
     cv::dnn::TextRecognitionModel * self1 = 0;
     if (!jsopencv_dnn_TextRecognitionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -38888,7 +38888,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextRecognitionModel_setDecodeOptsCTCPref
 
     cv::dnn::TextRecognitionModel * self1 = 0;
     if (!jsopencv_dnn_TextRecognitionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
     Napi::Value* jsobj_beamSize = NULL;
     int beamSize=0;
@@ -38915,7 +38915,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextRecognitionModel_setDecodeType(const 
 
     cv::dnn::TextRecognitionModel * self1 = 0;
     if (!jsopencv_dnn_TextRecognitionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
     Napi::Value* jsobj_decodeType = NULL;
     std::string decodeType;
@@ -38939,7 +38939,7 @@ static Napi::Value jsopencv_cv_dnn_dnn_TextRecognitionModel_setVocabulary(const 
 
     cv::dnn::TextRecognitionModel * self1 = 0;
     if (!jsopencv_dnn_TextRecognitionModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_TextRecognitionModel' or its derivative)");
     cv::dnn::TextRecognitionModel* _self_ = (self1);
     Napi::Value* jsobj_vocabulary = NULL;
     vector_string vocabulary;
@@ -39034,7 +39034,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getAlgo
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     String retval;
 
@@ -39054,7 +39054,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getScal
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     int retval;
 
@@ -39074,7 +39074,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_readMod
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     Napi::Value* jsobj_path = NULL;
     String path;
@@ -39097,7 +39097,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setMode
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     Napi::Value* jsobj_algo = NULL;
     String algo;
@@ -39123,7 +39123,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setPref
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     Napi::Value* jsobj_backendId = NULL;
     int backendId=0;
@@ -39146,7 +39146,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_setPref
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     Napi::Value* jsobj_targetId = NULL;
     int targetId=0;
@@ -39169,7 +39169,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39223,7 +39223,7 @@ static Napi::Value jsopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
 
     Ptr<cv::dnn_superres::DnnSuperResImpl> * self1 = 0;
     if (!jsopencv_dnn_superres_DnnSuperResImpl_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'dnn_superres_DnnSuperResImpl' or its derivative)");
     Ptr<cv::dnn_superres::DnnSuperResImpl> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39348,7 +39348,7 @@ static Napi::Value jsopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
 
     Ptr<cv::face::BIF> * self1 = 0;
     if (!jsopencv_face_BIF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BIF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BIF' or its derivative)");
     Ptr<cv::face::BIF> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39424,7 +39424,7 @@ static Napi::Value jsopencv_cv_face_face_BIF_getNumBands(const Napi::CallbackInf
 
     Ptr<cv::face::BIF> * self1 = 0;
     if (!jsopencv_face_BIF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BIF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BIF' or its derivative)");
     Ptr<cv::face::BIF> _self_ = *(self1);
     int retval;
 
@@ -39444,7 +39444,7 @@ static Napi::Value jsopencv_cv_face_face_BIF_getNumRotations(const Napi::Callbac
 
     Ptr<cv::face::BIF> * self1 = 0;
     if (!jsopencv_face_BIF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BIF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BIF' or its derivative)");
     Ptr<cv::face::BIF> _self_ = *(self1);
     int retval;
 
@@ -39518,7 +39518,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getEigenValues(cons
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     cv::Mat retval;
 
@@ -39538,7 +39538,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getEigenVectors(con
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     cv::Mat retval;
 
@@ -39558,7 +39558,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getLabels(const Nap
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     cv::Mat retval;
 
@@ -39578,7 +39578,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getMean(const Napi:
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     cv::Mat retval;
 
@@ -39598,7 +39598,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getNumComponents(co
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     int retval;
 
@@ -39618,7 +39618,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getProjections(cons
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     std::vector<cv::Mat> retval;
 
@@ -39638,7 +39638,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_getThreshold(const 
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     double retval;
 
@@ -39658,7 +39658,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_setNumComponents(co
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -39681,7 +39681,7 @@ static Napi::Value jsopencv_cv_face_face_BasicFaceRecognizer_setThreshold(const 
 
     Ptr<cv::face::BasicFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_BasicFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_BasicFaceRecognizer' or its derivative)");
     Ptr<cv::face::BasicFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -39836,7 +39836,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_getLabelInfo(const Napi:
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_label = NULL;
     int label=0;
@@ -39860,7 +39860,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_getLabelsByString(const 
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_str = NULL;
     String str;
@@ -39884,7 +39884,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39936,7 +39936,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39990,7 +39990,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40040,7 +40040,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_read(const Napi::Callbac
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -40063,7 +40063,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_setLabelInfo(const Napi:
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_label = NULL;
     int label=0;
@@ -40089,7 +40089,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40143,7 +40143,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40197,7 +40197,7 @@ static Napi::Value jsopencv_cv_face_face_FaceRecognizer_write(const Napi::Callba
 
     Ptr<cv::face::FaceRecognizer> * self1 = 0;
     if (!jsopencv_face_FaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_FaceRecognizer' or its derivative)");
     Ptr<cv::face::FaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -40280,7 +40280,7 @@ static Napi::Value jsopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
 
     Ptr<cv::face::Facemark> * self1 = 0;
     if (!jsopencv_face_Facemark_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_Facemark' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_Facemark' or its derivative)");
     Ptr<cv::face::Facemark> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40342,7 +40342,7 @@ static Napi::Value jsopencv_cv_face_face_Facemark_loadModel(const Napi::Callback
 
     Ptr<cv::face::Facemark> * self1 = 0;
     if (!jsopencv_face_Facemark_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_Facemark' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_Facemark' or its derivative)");
     Ptr<cv::face::Facemark> _self_ = *(self1);
     Napi::Value* jsobj_model = NULL;
     String model;
@@ -40721,7 +40721,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getGridX(const Napi:
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     int retval;
 
@@ -40741,7 +40741,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getGridY(const Napi:
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     int retval;
 
@@ -40761,7 +40761,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getHistograms(const 
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     std::vector<cv::Mat> retval;
 
@@ -40781,7 +40781,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getLabels(const Napi
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     cv::Mat retval;
 
@@ -40801,7 +40801,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getNeighbors(const N
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     int retval;
 
@@ -40821,7 +40821,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getRadius(const Napi
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     int retval;
 
@@ -40841,7 +40841,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_getThreshold(const N
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     double retval;
 
@@ -40861,7 +40861,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_setGridX(const Napi:
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -40884,7 +40884,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_setGridY(const Napi:
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -40907,7 +40907,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_setNeighbors(const N
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -40930,7 +40930,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_setRadius(const Napi
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -40953,7 +40953,7 @@ static Napi::Value jsopencv_cv_face_face_LBPHFaceRecognizer_setThreshold(const N
 
     Ptr<cv::face::LBPHFaceRecognizer> * self1 = 0;
     if (!jsopencv_face_LBPHFaceRecognizer_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_LBPHFaceRecognizer' or its derivative)");
     Ptr<cv::face::LBPHFaceRecognizer> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -41080,7 +41080,7 @@ static Napi::Value jsopencv_cv_face_face_MACE_salt(const Napi::CallbackInfo &inf
 
     Ptr<cv::face::MACE> * self1 = 0;
     if (!jsopencv_face_MACE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_MACE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_MACE' or its derivative)");
     Ptr<cv::face::MACE> _self_ = *(self1);
     Napi::Value* jsobj_passphrase = NULL;
     String passphrase;
@@ -41103,7 +41103,7 @@ static Napi::Value jsopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
 
     Ptr<cv::face::MACE> * self1 = 0;
     if (!jsopencv_face_MACE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_MACE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_MACE' or its derivative)");
     Ptr<cv::face::MACE> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41153,7 +41153,7 @@ static Napi::Value jsopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
 
     Ptr<cv::face::MACE> * self1 = 0;
     if (!jsopencv_face_MACE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_MACE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_MACE' or its derivative)");
     Ptr<cv::face::MACE> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41325,7 +41325,7 @@ static Napi::Value jsopencv_cv_face_face_StandardCollector_getMinDist(const Napi
 
     Ptr<cv::face::StandardCollector> * self1 = 0;
     if (!jsopencv_face_StandardCollector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_StandardCollector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_StandardCollector' or its derivative)");
     Ptr<cv::face::StandardCollector> _self_ = *(self1);
     double retval;
 
@@ -41345,7 +41345,7 @@ static Napi::Value jsopencv_cv_face_face_StandardCollector_getMinLabel(const Nap
 
     Ptr<cv::face::StandardCollector> * self1 = 0;
     if (!jsopencv_face_StandardCollector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_StandardCollector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_StandardCollector' or its derivative)");
     Ptr<cv::face::StandardCollector> _self_ = *(self1);
     int retval;
 
@@ -41365,7 +41365,7 @@ static Napi::Value jsopencv_cv_face_face_StandardCollector_getResults(const Napi
 
     Ptr<cv::face::StandardCollector> * self1 = 0;
     if (!jsopencv_face_StandardCollector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'face_StandardCollector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'face_StandardCollector' or its derivative)");
     Ptr<cv::face::StandardCollector> _self_ = *(self1);
     Napi::Value* jsobj_sorted = NULL;
     bool sorted=false;
@@ -41514,7 +41514,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41574,7 +41574,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_getAlgorithm(const Napi::Callba
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     cvflann::flann_algorithm_t retval;
 
@@ -41594,7 +41594,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_getDistance(const Napi::Callbac
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     cvflann::flann_distance_t retval;
 
@@ -41614,7 +41614,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41686,7 +41686,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41742,7 +41742,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41822,7 +41822,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_release(const Napi::CallbackInf
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -41841,7 +41841,7 @@ static Napi::Value jsopencv_cv_flann_flann_Index_save(const Napi::CallbackInfo &
 
     Ptr<cv::flann::Index> * self1 = 0;
     if (!jsopencv_flann_Index_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'flann_Index' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'flann_Index' or its derivative)");
     Ptr<cv::flann::Index> _self_ = *(self1);
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -42132,7 +42132,7 @@ static Napi::Value jsopencv_cv_gapi_ie_gapi_ie_PyParams_cfgBatchSize(const Napi:
 
     cv::gapi::ie::PyParams * self1 = 0;
     if (!jsopencv_gapi_ie_PyParams_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_ie_PyParams' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_ie_PyParams' or its derivative)");
     cv::gapi::ie::PyParams* _self_ = (self1);
     Napi::Value* jsobj_size = NULL;
     size_t size=0;
@@ -42156,7 +42156,7 @@ static Napi::Value jsopencv_cv_gapi_ie_gapi_ie_PyParams_cfgNumRequests(const Nap
 
     cv::gapi::ie::PyParams * self1 = 0;
     if (!jsopencv_gapi_ie_PyParams_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_ie_PyParams' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_ie_PyParams' or its derivative)");
     cv::gapi::ie::PyParams* _self_ = (self1);
     Napi::Value* jsobj_nireq = NULL;
     size_t nireq=0;
@@ -42180,7 +42180,7 @@ static Napi::Value jsopencv_cv_gapi_ie_gapi_ie_PyParams_constInput(const Napi::C
 
     cv::gapi::ie::PyParams * self1 = 0;
     if (!jsopencv_gapi_ie_PyParams_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_ie_PyParams' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_ie_PyParams' or its derivative)");
     cv::gapi::ie::PyParams* _self_ = (self1);
     Napi::Value* jsobj_layer_name = NULL;
     std::string layer_name;
@@ -42439,7 +42439,7 @@ static Napi::Value jsopencv_cv_gapi_wip_gapi_wip_GOutputs_getGArray(const Napi::
 
     cv::gapi::wip::GOutputs * self1 = 0;
     if (!jsopencv_gapi_wip_GOutputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
     cv::gapi::wip::GOutputs* _self_ = (self1);
     Napi::Value* jsobj_type = NULL;
     gapi_ArgType type=static_cast<gapi_ArgType>(0);
@@ -42463,7 +42463,7 @@ static Napi::Value jsopencv_cv_gapi_wip_gapi_wip_GOutputs_getGMat(const Napi::Ca
 
     cv::gapi::wip::GOutputs * self1 = 0;
     if (!jsopencv_gapi_wip_GOutputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
     cv::gapi::wip::GOutputs* _self_ = (self1);
     cv::GMat retval;
 
@@ -42483,7 +42483,7 @@ static Napi::Value jsopencv_cv_gapi_wip_gapi_wip_GOutputs_getGOpaque(const Napi:
 
     cv::gapi::wip::GOutputs * self1 = 0;
     if (!jsopencv_gapi_wip_GOutputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
     cv::gapi::wip::GOutputs* _self_ = (self1);
     Napi::Value* jsobj_type = NULL;
     gapi_ArgType type=static_cast<gapi_ArgType>(0);
@@ -42507,7 +42507,7 @@ static Napi::Value jsopencv_cv_gapi_wip_gapi_wip_GOutputs_getGScalar(const Napi:
 
     cv::gapi::wip::GOutputs * self1 = 0;
     if (!jsopencv_gapi_wip_GOutputs_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'gapi_wip_GOutputs' or its derivative)");
     cv::gapi::wip::GOutputs* _self_ = (self1);
     cv::GScalar retval;
 
@@ -44071,7 +44071,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_BlockMeanHash_getMean(const Nap
 
     Ptr<cv::img_hash::BlockMeanHash> * self1 = 0;
     if (!jsopencv_img_hash_BlockMeanHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_BlockMeanHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_BlockMeanHash' or its derivative)");
     Ptr<cv::img_hash::BlockMeanHash> _self_ = *(self1);
     std::vector<double> retval;
 
@@ -44091,7 +44091,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_BlockMeanHash_setMode(const Nap
 
     Ptr<cv::img_hash::BlockMeanHash> * self1 = 0;
     if (!jsopencv_img_hash_BlockMeanHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_BlockMeanHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_BlockMeanHash' or its derivative)");
     Ptr<cv::img_hash::BlockMeanHash> _self_ = *(self1);
     Napi::Value* jsobj_mode = NULL;
     int mode=0;
@@ -44233,7 +44233,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
 
     Ptr<cv::img_hash::ImgHashBase> * self1 = 0;
     if (!jsopencv_img_hash_ImgHashBase_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_ImgHashBase' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_ImgHashBase' or its derivative)");
     Ptr<cv::img_hash::ImgHashBase> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -44289,7 +44289,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
 
     Ptr<cv::img_hash::ImgHashBase> * self1 = 0;
     if (!jsopencv_img_hash_ImgHashBase_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_ImgHashBase' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_ImgHashBase' or its derivative)");
     Ptr<cv::img_hash::ImgHashBase> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -44417,7 +44417,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_MarrHildrethHash_getAlpha(const
 
     Ptr<cv::img_hash::MarrHildrethHash> * self1 = 0;
     if (!jsopencv_img_hash_MarrHildrethHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_MarrHildrethHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_MarrHildrethHash' or its derivative)");
     Ptr<cv::img_hash::MarrHildrethHash> _self_ = *(self1);
     float retval;
 
@@ -44437,7 +44437,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_MarrHildrethHash_getScale(const
 
     Ptr<cv::img_hash::MarrHildrethHash> * self1 = 0;
     if (!jsopencv_img_hash_MarrHildrethHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_MarrHildrethHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_MarrHildrethHash' or its derivative)");
     Ptr<cv::img_hash::MarrHildrethHash> _self_ = *(self1);
     float retval;
 
@@ -44457,7 +44457,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_MarrHildrethHash_setKernelParam
 
     Ptr<cv::img_hash::MarrHildrethHash> * self1 = 0;
     if (!jsopencv_img_hash_MarrHildrethHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_MarrHildrethHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_MarrHildrethHash' or its derivative)");
     Ptr<cv::img_hash::MarrHildrethHash> _self_ = *(self1);
     Napi::Value* jsobj_alpha = NULL;
     float alpha=0.f;
@@ -44625,7 +44625,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_RadialVarianceHash_getNumOfAngl
 
     Ptr<cv::img_hash::RadialVarianceHash> * self1 = 0;
     if (!jsopencv_img_hash_RadialVarianceHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
     Ptr<cv::img_hash::RadialVarianceHash> _self_ = *(self1);
     int retval;
 
@@ -44645,7 +44645,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_RadialVarianceHash_getSigma(con
 
     Ptr<cv::img_hash::RadialVarianceHash> * self1 = 0;
     if (!jsopencv_img_hash_RadialVarianceHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
     Ptr<cv::img_hash::RadialVarianceHash> _self_ = *(self1);
     double retval;
 
@@ -44665,7 +44665,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_RadialVarianceHash_setNumOfAngl
 
     Ptr<cv::img_hash::RadialVarianceHash> * self1 = 0;
     if (!jsopencv_img_hash_RadialVarianceHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
     Ptr<cv::img_hash::RadialVarianceHash> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     int value=0;
@@ -44688,7 +44688,7 @@ static Napi::Value jsopencv_cv_img_hash_img_hash_RadialVarianceHash_setSigma(con
 
     Ptr<cv::img_hash::RadialVarianceHash> * self1 = 0;
     if (!jsopencv_img_hash_RadialVarianceHash_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'img_hash_RadialVarianceHash' or its derivative)");
     Ptr<cv::img_hash::RadialVarianceHash> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     double value=0;
@@ -44781,7 +44781,7 @@ static Napi::Value jsopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
 
     Ptr<cv::legacy::MultiTracker> * self1 = 0;
     if (!jsopencv_legacy_MultiTracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
     Ptr<cv::legacy::MultiTracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -44858,7 +44858,7 @@ static Napi::Value jsopencv_cv_legacy_legacy_MultiTracker_getObjects(const Napi:
 
     Ptr<cv::legacy::MultiTracker> * self1 = 0;
     if (!jsopencv_legacy_MultiTracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
     Ptr<cv::legacy::MultiTracker> _self_ = *(self1);
     std::vector<Rect2d> retval;
 
@@ -44878,7 +44878,7 @@ static Napi::Value jsopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
 
     Ptr<cv::legacy::MultiTracker> * self1 = 0;
     if (!jsopencv_legacy_MultiTracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'legacy_MultiTracker' or its derivative)");
     Ptr<cv::legacy::MultiTracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -44984,7 +44984,7 @@ static Napi::Value jsopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
 
     Ptr<cv::legacy::Tracker> * self1 = 0;
     if (!jsopencv_legacy_Tracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'legacy_Tracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'legacy_Tracker' or its derivative)");
     Ptr<cv::legacy::Tracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -45040,7 +45040,7 @@ static Napi::Value jsopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
 
     Ptr<cv::legacy::Tracker> * self1 = 0;
     if (!jsopencv_legacy_Tracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'legacy_Tracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'legacy_Tracker' or its derivative)");
     Ptr<cv::legacy::Tracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -45225,7 +45225,7 @@ static Napi::Value jsopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
 
     Ptr<cv::legacy::TrackerCSRT> * self1 = 0;
     if (!jsopencv_legacy_TrackerCSRT_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'legacy_TrackerCSRT' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'legacy_TrackerCSRT' or its derivative)");
     Ptr<cv::legacy::TrackerCSRT> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -45670,7 +45670,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_getBox(const Napi::CallbackInfo 
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     std::vector<Point2f> retval;
 
@@ -45690,7 +45690,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_getCenter(const Napi::CallbackIn
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Point2f retval;
 
@@ -45710,7 +45710,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_getChartsRGB(const Napi::Callbac
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Mat retval;
 
@@ -45730,7 +45730,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_getChartsYCbCr(const Napi::Callb
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Mat retval;
 
@@ -45750,7 +45750,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_getCost(const Napi::CallbackInfo
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     float retval;
 
@@ -45770,7 +45770,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_getTarget(const Napi::CallbackIn
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     TYPECHART retval;
 
@@ -45790,7 +45790,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_setBox(const Napi::CallbackInfo 
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Napi::Value* jsobj__box = NULL;
     vector_Point2f _box;
@@ -45813,7 +45813,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_setCenter(const Napi::CallbackIn
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Napi::Value* jsobj__center = NULL;
     Point2f _center;
@@ -45836,7 +45836,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_setChartsRGB(const Napi::Callbac
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Napi::Value* jsobj__chartsRGB = NULL;
     Mat _chartsRGB;
@@ -45859,7 +45859,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_setChartsYCbCr(const Napi::Callb
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Napi::Value* jsobj__chartsYCbCr = NULL;
     Mat _chartsYCbCr;
@@ -45882,7 +45882,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_setCost(const Napi::CallbackInfo
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Napi::Value* jsobj__cost = NULL;
     float _cost=0.f;
@@ -45905,7 +45905,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CChecker_setTarget(const Napi::CallbackIn
 
     Ptr<cv::mcc::CChecker> * self1 = 0;
     if (!jsopencv_mcc_CChecker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CChecker' or its derivative)");
     Ptr<cv::mcc::CChecker> _self_ = *(self1);
     Napi::Value* jsobj__target = NULL;
     TYPECHART _target=static_cast<TYPECHART>(0);
@@ -46006,7 +46006,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CCheckerDetector_getBestColorChecker(cons
 
     Ptr<cv::mcc::CCheckerDetector> * self1 = 0;
     if (!jsopencv_mcc_CCheckerDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
     Ptr<mcc::CChecker> retval;
 
@@ -46026,7 +46026,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CCheckerDetector_getListColorChecker(cons
 
     Ptr<cv::mcc::CCheckerDetector> * self1 = 0;
     if (!jsopencv_mcc_CCheckerDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
     std::vector<Ptr<CChecker>> retval;
 
@@ -46046,7 +46046,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
 
     Ptr<cv::mcc::CCheckerDetector> * self1 = 0;
     if (!jsopencv_mcc_CCheckerDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -46120,7 +46120,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
 
     Ptr<cv::mcc::CCheckerDetector> * self1 = 0;
     if (!jsopencv_mcc_CCheckerDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -46200,7 +46200,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CCheckerDetector_setNet(const Napi::Callb
 
     Ptr<cv::mcc::CCheckerDetector> * self1 = 0;
     if (!jsopencv_mcc_CCheckerDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CCheckerDetector' or its derivative)");
     Ptr<cv::mcc::CCheckerDetector> _self_ = *(self1);
     Napi::Value* jsobj_net = NULL;
     cv::dnn::Net net;
@@ -46305,7 +46305,7 @@ static Napi::Value jsopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
 
     Ptr<cv::mcc::CCheckerDraw> * self1 = 0;
     if (!jsopencv_mcc_CCheckerDraw_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'mcc_CCheckerDraw' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'mcc_CCheckerDraw' or its derivative)");
     Ptr<cv::mcc::CCheckerDraw> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -46774,7 +46774,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getAnnealCoolingRatio(const Napi::C
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46794,7 +46794,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getAnnealFinalT(const Napi::Callbac
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46814,7 +46814,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getAnnealInitialT(const Napi::Callb
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46834,7 +46834,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getAnnealItePerStep(const Napi::Cal
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     int retval;
 
@@ -46854,7 +46854,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getBackpropMomentumScale(const Napi
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46874,7 +46874,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getBackpropWeightScale(const Napi::
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46894,7 +46894,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getLayerSizes(const Napi::CallbackI
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     cv::Mat retval;
 
@@ -46914,7 +46914,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getRpropDW0(const Napi::CallbackInf
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46934,7 +46934,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getRpropDWMax(const Napi::CallbackI
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46954,7 +46954,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getRpropDWMin(const Napi::CallbackI
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46974,7 +46974,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getRpropDWMinus(const Napi::Callbac
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -46994,7 +46994,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getRpropDWPlus(const Napi::Callback
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     double retval;
 
@@ -47014,7 +47014,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getTermCriteria(const Napi::Callbac
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     TermCriteria retval;
 
@@ -47034,7 +47034,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getTrainMethod(const Napi::Callback
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     int retval;
 
@@ -47054,7 +47054,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_getWeights(const Napi::CallbackInfo
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_layerIdx = NULL;
     int layerIdx=0;
@@ -47097,7 +47097,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setActivationFunction(const Napi::C
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_type = NULL;
     int type=0;
@@ -47126,7 +47126,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setAnnealCoolingRatio(const Napi::C
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47149,7 +47149,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setAnnealFinalT(const Napi::Callbac
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47172,7 +47172,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setAnnealInitialT(const Napi::Callb
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47195,7 +47195,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setAnnealItePerStep(const Napi::Cal
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -47218,7 +47218,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setBackpropMomentumScale(const Napi
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47241,7 +47241,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setBackpropWeightScale(const Napi::
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47264,7 +47264,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -47312,7 +47312,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setRpropDW0(const Napi::CallbackInf
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47335,7 +47335,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setRpropDWMax(const Napi::CallbackI
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47358,7 +47358,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setRpropDWMin(const Napi::CallbackI
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47381,7 +47381,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setRpropDWMinus(const Napi::Callbac
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47404,7 +47404,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setRpropDWPlus(const Napi::Callback
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47427,7 +47427,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setTermCriteria(const Napi::Callbac
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     TermCriteria val;
@@ -47450,7 +47450,7 @@ static Napi::Value jsopencv_cv_ml_ml_ANN_MLP_setTrainMethod(const Napi::Callback
 
     Ptr<cv::ml::ANN_MLP> * self1 = 0;
     if (!jsopencv_ml_ANN_MLP_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_ANN_MLP' or its derivative)");
     Ptr<cv::ml::ANN_MLP> _self_ = *(self1);
     Napi::Value* jsobj_method = NULL;
     int method=0;
@@ -47576,7 +47576,7 @@ static Napi::Value jsopencv_cv_ml_ml_Boost_getBoostType(const Napi::CallbackInfo
 
     Ptr<cv::ml::Boost> * self1 = 0;
     if (!jsopencv_ml_Boost_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_Boost' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_Boost' or its derivative)");
     Ptr<cv::ml::Boost> _self_ = *(self1);
     int retval;
 
@@ -47596,7 +47596,7 @@ static Napi::Value jsopencv_cv_ml_ml_Boost_getWeakCount(const Napi::CallbackInfo
 
     Ptr<cv::ml::Boost> * self1 = 0;
     if (!jsopencv_ml_Boost_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_Boost' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_Boost' or its derivative)");
     Ptr<cv::ml::Boost> _self_ = *(self1);
     int retval;
 
@@ -47616,7 +47616,7 @@ static Napi::Value jsopencv_cv_ml_ml_Boost_getWeightTrimRate(const Napi::Callbac
 
     Ptr<cv::ml::Boost> * self1 = 0;
     if (!jsopencv_ml_Boost_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_Boost' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_Boost' or its derivative)");
     Ptr<cv::ml::Boost> _self_ = *(self1);
     double retval;
 
@@ -47658,7 +47658,7 @@ static Napi::Value jsopencv_cv_ml_ml_Boost_setBoostType(const Napi::CallbackInfo
 
     Ptr<cv::ml::Boost> * self1 = 0;
     if (!jsopencv_ml_Boost_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_Boost' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_Boost' or its derivative)");
     Ptr<cv::ml::Boost> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -47681,7 +47681,7 @@ static Napi::Value jsopencv_cv_ml_ml_Boost_setWeakCount(const Napi::CallbackInfo
 
     Ptr<cv::ml::Boost> * self1 = 0;
     if (!jsopencv_ml_Boost_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_Boost' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_Boost' or its derivative)");
     Ptr<cv::ml::Boost> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -47704,7 +47704,7 @@ static Napi::Value jsopencv_cv_ml_ml_Boost_setWeightTrimRate(const Napi::Callbac
 
     Ptr<cv::ml::Boost> * self1 = 0;
     if (!jsopencv_ml_Boost_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_Boost' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_Boost' or its derivative)");
     Ptr<cv::ml::Boost> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -47800,7 +47800,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getCVFolds(const Napi::CallbackInfo 
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     int retval;
 
@@ -47820,7 +47820,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getMaxCategories(const Napi::Callbac
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     int retval;
 
@@ -47840,7 +47840,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getMaxDepth(const Napi::CallbackInfo
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     int retval;
 
@@ -47860,7 +47860,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getMinSampleCount(const Napi::Callba
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     int retval;
 
@@ -47880,7 +47880,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getPriors(const Napi::CallbackInfo &
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     cv::Mat retval;
 
@@ -47900,7 +47900,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getRegressionAccuracy(const Napi::Ca
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     float retval;
 
@@ -47920,7 +47920,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getTruncatePrunedTree(const Napi::Ca
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     bool retval;
 
@@ -47940,7 +47940,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getUse1SERule(const Napi::CallbackIn
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     bool retval;
 
@@ -47960,7 +47960,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_getUseSurrogates(const Napi::Callbac
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     bool retval;
 
@@ -48002,7 +48002,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setCVFolds(const Napi::CallbackInfo 
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -48025,7 +48025,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setMaxCategories(const Napi::Callbac
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -48048,7 +48048,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setMaxDepth(const Napi::CallbackInfo
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -48071,7 +48071,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setMinSampleCount(const Napi::Callba
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -48094,7 +48094,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setPriors(const Napi::CallbackInfo &
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     Mat val;
@@ -48117,7 +48117,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setRegressionAccuracy(const Napi::Ca
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -48140,7 +48140,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setTruncatePrunedTree(const Napi::Ca
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -48163,7 +48163,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setUse1SERule(const Napi::CallbackIn
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -48186,7 +48186,7 @@ static Napi::Value jsopencv_cv_ml_ml_DTrees_setUseSurrogates(const Napi::Callbac
 
     Ptr<cv::ml::DTrees> * self1 = 0;
     if (!jsopencv_ml_DTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_DTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_DTrees' or its derivative)");
     Ptr<cv::ml::DTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -48294,7 +48294,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_getClustersNumber(const Napi::CallbackIn
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     int retval;
 
@@ -48314,7 +48314,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_getCovarianceMatrixType(const Napi::Call
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     int retval;
 
@@ -48334,7 +48334,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_getCovs(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     Napi::Value* jsobj_covs = NULL;
     vector_Mat covs;
@@ -48357,7 +48357,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_getMeans(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     Mat retval;
 
@@ -48377,7 +48377,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_getTermCriteria(const Napi::CallbackInfo
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     TermCriteria retval;
 
@@ -48397,7 +48397,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_getWeights(const Napi::CallbackInfo &inf
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     Mat retval;
 
@@ -48439,7 +48439,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -48501,7 +48501,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -48557,7 +48557,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_setClustersNumber(const Napi::CallbackIn
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -48580,7 +48580,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_setCovarianceMatrixType(const Napi::Call
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -48603,7 +48603,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_setTermCriteria(const Napi::CallbackInfo
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     TermCriteria val;
@@ -48626,7 +48626,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -48712,7 +48712,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -48780,7 +48780,7 @@ static Napi::Value jsopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::EM> * self1 = 0;
     if (!jsopencv_ml_EM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_EM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_EM' or its derivative)");
     Ptr<cv::ml::EM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -48935,7 +48935,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -49009,7 +49009,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_getAlgorithmType(const Napi::Callb
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     int retval;
 
@@ -49029,7 +49029,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_getDefaultK(const Napi::CallbackIn
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     int retval;
 
@@ -49049,7 +49049,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_getEmax(const Napi::CallbackInfo &
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     int retval;
 
@@ -49069,7 +49069,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_getIsClassifier(const Napi::Callba
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     bool retval;
 
@@ -49108,7 +49108,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_setAlgorithmType(const Napi::Callb
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49131,7 +49131,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_setDefaultK(const Napi::CallbackIn
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49154,7 +49154,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_setEmax(const Napi::CallbackInfo &
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49177,7 +49177,7 @@ static Napi::Value jsopencv_cv_ml_ml_KNearest_setIsClassifier(const Napi::Callba
 
     Ptr<cv::ml::KNearest> * self1 = 0;
     if (!jsopencv_ml_KNearest_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_KNearest' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_KNearest' or its derivative)");
     Ptr<cv::ml::KNearest> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -49276,7 +49276,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_getIterations(const Napi
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     int retval;
 
@@ -49296,7 +49296,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_getLearningRate(const Na
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     double retval;
 
@@ -49316,7 +49316,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_getMiniBatchSize(const N
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     int retval;
 
@@ -49336,7 +49336,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_getRegularization(const 
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     int retval;
 
@@ -49356,7 +49356,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_getTermCriteria(const Na
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     TermCriteria retval;
 
@@ -49376,7 +49376,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_getTrainMethod(const Nap
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     int retval;
 
@@ -49396,7 +49396,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_get_learnt_thetas(const 
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Mat retval;
 
@@ -49438,7 +49438,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -49500,7 +49500,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_setIterations(const Napi
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49523,7 +49523,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_setLearningRate(const Na
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -49546,7 +49546,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_setMiniBatchSize(const N
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49569,7 +49569,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_setRegularization(const 
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49592,7 +49592,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_setTermCriteria(const Na
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     TermCriteria val;
@@ -49615,7 +49615,7 @@ static Napi::Value jsopencv_cv_ml_ml_LogisticRegression_setTrainMethod(const Nap
 
     Ptr<cv::ml::LogisticRegression> * self1 = 0;
     if (!jsopencv_ml_LogisticRegression_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_LogisticRegression' or its derivative)");
     Ptr<cv::ml::LogisticRegression> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -49741,7 +49741,7 @@ static Napi::Value jsopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
 
     Ptr<cv::ml::NormalBayesClassifier> * self1 = 0;
     if (!jsopencv_ml_NormalBayesClassifier_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_NormalBayesClassifier' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_NormalBayesClassifier' or its derivative)");
     Ptr<cv::ml::NormalBayesClassifier> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -50001,7 +50001,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_getActiveVarCount(const Napi::Callba
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     int retval;
 
@@ -50021,7 +50021,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_getCalculateVarImportance(const Napi
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     bool retval;
 
@@ -50041,7 +50041,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_getOOBError(const Napi::CallbackInfo
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     double retval;
 
@@ -50061,7 +50061,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_getTermCriteria(const Napi::Callback
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     TermCriteria retval;
 
@@ -50081,7 +50081,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_getVarImportance(const Napi::Callbac
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     Mat retval;
 
@@ -50101,7 +50101,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -50183,7 +50183,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_setActiveVarCount(const Napi::Callba
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -50206,7 +50206,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_setCalculateVarImportance(const Napi
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     bool val=0;
@@ -50229,7 +50229,7 @@ static Napi::Value jsopencv_cv_ml_ml_RTrees_setTermCriteria(const Napi::Callback
 
     Ptr<cv::ml::RTrees> * self1 = 0;
     if (!jsopencv_ml_RTrees_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_RTrees' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_RTrees' or its derivative)");
     Ptr<cv::ml::RTrees> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     TermCriteria val;
@@ -50328,7 +50328,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getC(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     double retval;
 
@@ -50348,7 +50348,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getClassWeights(const Napi::CallbackInf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     cv::Mat retval;
 
@@ -50368,7 +50368,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getCoef0(const Napi::CallbackInfo &info
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     double retval;
 
@@ -50388,7 +50388,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -50469,7 +50469,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getDegree(const Napi::CallbackInfo &inf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     double retval;
 
@@ -50489,7 +50489,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getGamma(const Napi::CallbackInfo &info
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     double retval;
 
@@ -50509,7 +50509,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getKernelType(const Napi::CallbackInfo 
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     int retval;
 
@@ -50529,7 +50529,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getNu(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     double retval;
 
@@ -50549,7 +50549,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getP(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     double retval;
 
@@ -50569,7 +50569,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getSupportVectors(const Napi::CallbackI
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Mat retval;
 
@@ -50589,7 +50589,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getTermCriteria(const Napi::CallbackInf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     cv::TermCriteria retval;
 
@@ -50609,7 +50609,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getType(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     int retval;
 
@@ -50629,7 +50629,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_getUncompressedSupportVectors(const Nap
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Mat retval;
 
@@ -50668,7 +50668,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setC(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -50691,7 +50691,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setClassWeights(const Napi::CallbackInf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     Mat val;
@@ -50714,7 +50714,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setCoef0(const Napi::CallbackInfo &info
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -50737,7 +50737,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setDegree(const Napi::CallbackInfo &inf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -50760,7 +50760,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setGamma(const Napi::CallbackInfo &info
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -50783,7 +50783,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setKernel(const Napi::CallbackInfo &inf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_kernelType = NULL;
     int kernelType=0;
@@ -50806,7 +50806,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setNu(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -50829,7 +50829,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setP(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -50852,7 +50852,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setTermCriteria(const Napi::CallbackInf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     TermCriteria val;
@@ -50875,7 +50875,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_setType(const Napi::CallbackInfo &info)
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     int val=0;
@@ -50898,7 +50898,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
 
     Ptr<cv::ml::SVM> * self1 = 0;
     if (!jsopencv_ml_SVM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVM' or its derivative)");
     Ptr<cv::ml::SVM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -51100,7 +51100,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getInitialStepSize(const Napi::Callb
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     float retval;
 
@@ -51120,7 +51120,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getMarginRegularization(const Napi::
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     float retval;
 
@@ -51140,7 +51140,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getMarginType(const Napi::CallbackIn
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     int retval;
 
@@ -51160,7 +51160,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getShift(const Napi::CallbackInfo &i
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     float retval;
 
@@ -51180,7 +51180,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getStepDecreasingPower(const Napi::C
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     float retval;
 
@@ -51200,7 +51200,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getSvmsgdType(const Napi::CallbackIn
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     int retval;
 
@@ -51220,7 +51220,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getTermCriteria(const Napi::Callback
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     TermCriteria retval;
 
@@ -51240,7 +51240,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_getWeights(const Napi::CallbackInfo 
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Mat retval;
 
@@ -51282,7 +51282,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setInitialStepSize(const Napi::Callb
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_InitialStepSize = NULL;
     float InitialStepSize=0.f;
@@ -51305,7 +51305,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setMarginRegularization(const Napi::
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_marginRegularization = NULL;
     float marginRegularization=0.f;
@@ -51328,7 +51328,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setMarginType(const Napi::CallbackIn
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_marginType = NULL;
     int marginType=0;
@@ -51351,7 +51351,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setOptimalParameters(const Napi::Cal
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_svmsgdType = NULL;
     int svmsgdType=SVMSGD::ASGD;
@@ -51377,7 +51377,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setStepDecreasingPower(const Napi::C
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_stepDecreasingPower = NULL;
     float stepDecreasingPower=0.f;
@@ -51400,7 +51400,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setSvmsgdType(const Napi::CallbackIn
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_svmsgdType = NULL;
     int svmsgdType=0;
@@ -51423,7 +51423,7 @@ static Napi::Value jsopencv_cv_ml_ml_SVMSGD_setTermCriteria(const Napi::Callback
 
     Ptr<cv::ml::SVMSGD> * self1 = 0;
     if (!jsopencv_ml_SVMSGD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_SVMSGD' or its derivative)");
     Ptr<cv::ml::SVMSGD> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     TermCriteria val;
@@ -51513,7 +51513,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -51575,7 +51575,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_empty(const Napi::CallbackInfo &i
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     bool retval;
 
@@ -51595,7 +51595,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_getVarCount(const Napi::CallbackI
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     int retval;
 
@@ -51615,7 +51615,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_isClassifier(const Napi::Callback
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     bool retval;
 
@@ -51635,7 +51635,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_isTrained(const Napi::CallbackInf
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     bool retval;
 
@@ -51655,7 +51655,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -51717,7 +51717,7 @@ static Napi::Value jsopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
 
     Ptr<cv::ml::StatModel> * self1 = 0;
     if (!jsopencv_ml_StatModel_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_StatModel' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_StatModel' or its derivative)");
     Ptr<cv::ml::StatModel> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -51938,7 +51938,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getCatCount(const Napi::CallbackI
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Napi::Value* jsobj_vi = NULL;
     int vi=0;
@@ -51962,7 +51962,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getCatMap(const Napi::CallbackInf
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -51982,7 +51982,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getCatOfs(const Napi::CallbackInf
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52002,7 +52002,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getClassLabels(const Napi::Callba
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52022,7 +52022,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getDefaultSubstValues(const Napi:
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52042,7 +52042,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getLayout(const Napi::CallbackInf
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52062,7 +52062,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getMissing(const Napi::CallbackIn
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52082,7 +52082,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNAllVars(const Napi::CallbackI
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52102,7 +52102,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNSamples(const Napi::CallbackI
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52122,7 +52122,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNTestSamples(const Napi::Callb
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52142,7 +52142,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNTrainSamples(const Napi::Call
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52162,7 +52162,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNVars(const Napi::CallbackInfo
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52182,7 +52182,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNames(const Napi::CallbackInfo
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Napi::Value* jsobj_names = NULL;
     vector_String names;
@@ -52205,7 +52205,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getNormCatResponses(const Napi::C
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52225,7 +52225,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getResponseType(const Napi::Callb
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     int retval;
 
@@ -52245,7 +52245,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getResponses(const Napi::Callback
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52265,7 +52265,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -52325,7 +52325,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getSampleWeights(const Napi::Call
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52345,7 +52345,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getSamples(const Napi::CallbackIn
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52412,7 +52412,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTestNormCatResponses(const Nap
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52432,7 +52432,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTestResponses(const Napi::Call
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52452,7 +52452,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTestSampleIdx(const Napi::Call
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52472,7 +52472,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTestSampleWeights(const Napi::
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52492,7 +52492,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTestSamples(const Napi::Callba
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52512,7 +52512,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTrainNormCatResponses(const Na
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52532,7 +52532,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTrainResponses(const Napi::Cal
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52552,7 +52552,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTrainSampleIdx(const Napi::Cal
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52572,7 +52572,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTrainSampleWeights(const Napi:
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52592,7 +52592,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getTrainSamples(const Napi::Callb
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Napi::Value* jsobj_layout = NULL;
     int layout=ROW_SAMPLE;
@@ -52622,7 +52622,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -52682,7 +52682,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getVarIdx(const Napi::CallbackInf
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52702,7 +52702,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getVarSymbolFlags(const Napi::Cal
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52722,7 +52722,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_getVarType(const Napi::CallbackIn
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Mat retval;
 
@@ -52742,7 +52742,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_setTrainTestSplit(const Napi::Cal
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Napi::Value* jsobj_count = NULL;
     int count=0;
@@ -52768,7 +52768,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_setTrainTestSplitRatio(const Napi
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
     Napi::Value* jsobj_ratio = NULL;
     double ratio=0;
@@ -52794,7 +52794,7 @@ static Napi::Value jsopencv_cv_ml_ml_TrainData_shuffleTrainTest(const Napi::Call
 
     Ptr<cv::ml::TrainData> * self1 = 0;
     if (!jsopencv_ml_TrainData_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ml_TrainData' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ml_TrainData' or its derivative)");
     Ptr<cv::ml::TrainData> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -52916,7 +52916,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_OpenCLVersion(const Napi::Callback
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -52936,7 +52936,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_OpenCL_C_Version(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -52956,7 +52956,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_addressBits(const Napi::CallbackIn
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -52976,7 +52976,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_available(const Napi::CallbackInfo
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -52996,7 +52996,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_compilerAvailable(const Napi::Call
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53016,7 +53016,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_deviceVersionMajor(const Napi::Cal
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53036,7 +53036,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_deviceVersionMinor(const Napi::Cal
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53056,7 +53056,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_doubleFPConfig(const Napi::Callbac
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53076,7 +53076,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_driverVersion(const Napi::Callback
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -53096,7 +53096,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_endianLittle(const Napi::CallbackI
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53116,7 +53116,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_errorCorrectionSupport(const Napi:
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53136,7 +53136,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_executionCapabilities(const Napi::
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53156,7 +53156,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_extensions(const Napi::CallbackInf
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -53191,7 +53191,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_globalMemCacheLineSize(const Napi:
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53211,7 +53211,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_globalMemCacheSize(const Napi::Cal
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53231,7 +53231,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_globalMemCacheType(const Napi::Cal
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53251,7 +53251,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_globalMemSize(const Napi::Callback
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53271,7 +53271,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_halfFPConfig(const Napi::CallbackI
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53291,7 +53291,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_hostUnifiedMemory(const Napi::Call
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53311,7 +53311,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_image2DMaxHeight(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53331,7 +53331,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_image2DMaxWidth(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53351,7 +53351,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_image3DMaxDepth(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53371,7 +53371,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_image3DMaxHeight(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53391,7 +53391,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_image3DMaxWidth(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53411,7 +53411,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_imageFromBufferSupport(const Napi:
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53431,7 +53431,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_imageMaxArraySize(const Napi::Call
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53451,7 +53451,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_imageMaxBufferSize(const Napi::Cal
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53471,7 +53471,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_imageSupport(const Napi::CallbackI
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53491,7 +53491,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_intelSubgroupsSupport(const Napi::
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53511,7 +53511,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_isAMD(const Napi::CallbackInfo &in
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53531,7 +53531,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_isExtensionSupported(const Napi::C
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     Napi::Value* jsobj_extensionName = NULL;
     String extensionName;
@@ -53555,7 +53555,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_isIntel(const Napi::CallbackInfo &
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53575,7 +53575,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_isNVidia(const Napi::CallbackInfo 
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53595,7 +53595,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_linkerAvailable(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     bool retval;
 
@@ -53615,7 +53615,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_localMemSize(const Napi::CallbackI
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53635,7 +53635,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_localMemType(const Napi::CallbackI
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53655,7 +53655,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxClockFrequency(const Napi::Call
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53675,7 +53675,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxComputeUnits(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53695,7 +53695,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxConstantArgs(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53715,7 +53715,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxConstantBufferSize(const Napi::
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53735,7 +53735,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxMemAllocSize(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53755,7 +53755,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxParameterSize(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53775,7 +53775,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxReadImageArgs(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53795,7 +53795,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxSamplers(const Napi::CallbackIn
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53815,7 +53815,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxWorkGroupSize(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -53835,7 +53835,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxWorkItemDims(const Napi::Callba
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53855,7 +53855,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_maxWriteImageArgs(const Napi::Call
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53875,7 +53875,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_memBaseAddrAlign(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53895,7 +53895,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_name(const Napi::CallbackInfo &inf
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -53915,7 +53915,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthChar(const Napi::
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53935,7 +53935,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthDouble(const Napi
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53955,7 +53955,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthFloat(const Napi:
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53975,7 +53975,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthHalf(const Napi::
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -53995,7 +53995,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthInt(const Napi::C
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54015,7 +54015,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthLong(const Napi::
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54035,7 +54035,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_nativeVectorWidthShort(const Napi:
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54055,7 +54055,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthChar(const Nap
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54075,7 +54075,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthDouble(const N
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54095,7 +54095,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthFloat(const Na
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54115,7 +54115,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthHalf(const Nap
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54135,7 +54135,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthInt(const Napi
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54155,7 +54155,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthLong(const Nap
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54175,7 +54175,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_preferredVectorWidthShort(const Na
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54195,7 +54195,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_printfBufferSize(const Napi::Callb
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -54215,7 +54215,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_profilingTimerResolution(const Nap
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     size_t retval;
 
@@ -54235,7 +54235,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_singleFPConfig(const Napi::Callbac
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54255,7 +54255,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_type(const Napi::CallbackInfo &inf
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54275,7 +54275,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_vendorID(const Napi::CallbackInfo 
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     int retval;
 
@@ -54295,7 +54295,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_vendorName(const Napi::CallbackInf
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -54315,7 +54315,7 @@ static Napi::Value jsopencv_cv_ocl_ocl_Device_version(const Napi::CallbackInfo &
 
     cv::ocl::Device * self1 = 0;
     if (!jsopencv_ocl_Device_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ocl_Device' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ocl_Device' or its derivative)");
     cv::ocl::Device* _self_ = (self1);
     String retval;
 
@@ -54593,7 +54593,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -54641,7 +54641,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setGridLinesNumber(const Napi::C
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj_gridLinesNumber = NULL;
     int gridLinesNumber=0;
@@ -54664,7 +54664,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setInvertOrientation(const Napi:
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__invertOrientation = NULL;
     bool _invertOrientation=0;
@@ -54687,7 +54687,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setMaxX(const Napi::CallbackInfo
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotMaxX = NULL;
     double _plotMaxX=0;
@@ -54710,7 +54710,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setMaxY(const Napi::CallbackInfo
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotMaxY = NULL;
     double _plotMaxY=0;
@@ -54733,7 +54733,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setMinX(const Napi::CallbackInfo
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotMinX = NULL;
     double _plotMinX=0;
@@ -54756,7 +54756,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setMinY(const Napi::CallbackInfo
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotMinY = NULL;
     double _plotMinY=0;
@@ -54779,7 +54779,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setNeedPlotLine(const Napi::Call
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__needPlotLine = NULL;
     bool _needPlotLine=0;
@@ -54802,7 +54802,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotAxisColor(const Napi::Cal
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotAxisColor = NULL;
     Scalar _plotAxisColor;
@@ -54825,7 +54825,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotBackgroundColor(const Nap
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotBackgroundColor = NULL;
     Scalar _plotBackgroundColor;
@@ -54848,7 +54848,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotGridColor(const Napi::Cal
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotGridColor = NULL;
     Scalar _plotGridColor;
@@ -54871,7 +54871,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotLineColor(const Napi::Cal
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotLineColor = NULL;
     Scalar _plotLineColor;
@@ -54894,7 +54894,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotLineWidth(const Napi::Cal
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotLineWidth = NULL;
     int _plotLineWidth=0;
@@ -54917,7 +54917,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotSize(const Napi::Callback
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotSizeWidth = NULL;
     int _plotSizeWidth=0;
@@ -54943,7 +54943,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPlotTextColor(const Napi::Cal
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj__plotTextColor = NULL;
     Scalar _plotTextColor;
@@ -54966,7 +54966,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setPointIdxToPrint(const Napi::C
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj_pointIdx = NULL;
     int pointIdx=0;
@@ -54989,7 +54989,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setShowGrid(const Napi::Callback
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj_needShowGrid = NULL;
     bool needShowGrid=0;
@@ -55012,7 +55012,7 @@ static Napi::Value jsopencv_cv_plot_plot_Plot2d_setShowText(const Napi::Callback
 
     Ptr<cv::plot::Plot2d> * self1 = 0;
     if (!jsopencv_plot_Plot2d_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'plot_Plot2d' or its derivative)");
     Ptr<cv::plot::Plot2d> _self_ = *(self1);
     Napi::Value* jsobj_needShowText = NULL;
     bool needShowText=0;
@@ -55104,7 +55104,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
 
     Ptr<cv::quality::QualityBRISQUE> * self1 = 0;
     if (!jsopencv_quality_QualityBRISQUE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityBRISQUE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityBRISQUE' or its derivative)");
     Ptr<cv::quality::QualityBRISQUE> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -55355,7 +55355,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityBase_clear(const Napi::Cal
 
     Ptr<cv::quality::QualityBase> * self1 = 0;
     if (!jsopencv_quality_QualityBase_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
     Ptr<cv::quality::QualityBase> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -55374,7 +55374,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityBase_compute(const Napi::C
 
     Ptr<cv::quality::QualityBase> * self1 = 0;
     if (!jsopencv_quality_QualityBase_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
     Ptr<cv::quality::QualityBase> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -55424,7 +55424,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityBase_empty(const Napi::Cal
 
     Ptr<cv::quality::QualityBase> * self1 = 0;
     if (!jsopencv_quality_QualityBase_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
     Ptr<cv::quality::QualityBase> _self_ = *(self1);
     bool retval;
 
@@ -55444,7 +55444,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityBase_getQualityMap(const N
 
     Ptr<cv::quality::QualityBase> * self1 = 0;
     if (!jsopencv_quality_QualityBase_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityBase' or its derivative)");
     Ptr<cv::quality::QualityBase> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -55546,7 +55546,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityGMSD_clear(const Napi::Cal
 
     Ptr<cv::quality::QualityGMSD> * self1 = 0;
     if (!jsopencv_quality_QualityGMSD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
     Ptr<cv::quality::QualityGMSD> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -55565,7 +55565,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
 
     Ptr<cv::quality::QualityGMSD> * self1 = 0;
     if (!jsopencv_quality_QualityGMSD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
     Ptr<cv::quality::QualityGMSD> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -55708,7 +55708,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityGMSD_empty(const Napi::Cal
 
     Ptr<cv::quality::QualityGMSD> * self1 = 0;
     if (!jsopencv_quality_QualityGMSD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityGMSD' or its derivative)");
     Ptr<cv::quality::QualityGMSD> _self_ = *(self1);
     bool retval;
 
@@ -55782,7 +55782,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityMSE_clear(const Napi::Call
 
     Ptr<cv::quality::QualityMSE> * self1 = 0;
     if (!jsopencv_quality_QualityMSE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
     Ptr<cv::quality::QualityMSE> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -55801,7 +55801,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
 
     Ptr<cv::quality::QualityMSE> * self1 = 0;
     if (!jsopencv_quality_QualityMSE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
     Ptr<cv::quality::QualityMSE> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -55944,7 +55944,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityMSE_empty(const Napi::Call
 
     Ptr<cv::quality::QualityMSE> * self1 = 0;
     if (!jsopencv_quality_QualityMSE_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityMSE' or its derivative)");
     Ptr<cv::quality::QualityMSE> _self_ = *(self1);
     bool retval;
 
@@ -56018,7 +56018,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityPSNR_clear(const Napi::Cal
 
     Ptr<cv::quality::QualityPSNR> * self1 = 0;
     if (!jsopencv_quality_QualityPSNR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
     Ptr<cv::quality::QualityPSNR> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -56037,7 +56037,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
 
     Ptr<cv::quality::QualityPSNR> * self1 = 0;
     if (!jsopencv_quality_QualityPSNR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
     Ptr<cv::quality::QualityPSNR> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -56192,7 +56192,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityPSNR_empty(const Napi::Cal
 
     Ptr<cv::quality::QualityPSNR> * self1 = 0;
     if (!jsopencv_quality_QualityPSNR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
     Ptr<cv::quality::QualityPSNR> _self_ = *(self1);
     bool retval;
 
@@ -56212,7 +56212,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityPSNR_getMaxPixelValue(cons
 
     Ptr<cv::quality::QualityPSNR> * self1 = 0;
     if (!jsopencv_quality_QualityPSNR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
     Ptr<cv::quality::QualityPSNR> _self_ = *(self1);
     double retval;
 
@@ -56232,7 +56232,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualityPSNR_setMaxPixelValue(cons
 
     Ptr<cv::quality::QualityPSNR> * self1 = 0;
     if (!jsopencv_quality_QualityPSNR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualityPSNR' or its derivative)");
     Ptr<cv::quality::QualityPSNR> _self_ = *(self1);
     Napi::Value* jsobj_val = NULL;
     double val=0;
@@ -56311,7 +56311,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualitySSIM_clear(const Napi::Cal
 
     Ptr<cv::quality::QualitySSIM> * self1 = 0;
     if (!jsopencv_quality_QualitySSIM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
     Ptr<cv::quality::QualitySSIM> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -56330,7 +56330,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
 
     Ptr<cv::quality::QualitySSIM> * self1 = 0;
     if (!jsopencv_quality_QualitySSIM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
     Ptr<cv::quality::QualitySSIM> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -56473,7 +56473,7 @@ static Napi::Value jsopencv_cv_quality_quality_QualitySSIM_empty(const Napi::Cal
 
     Ptr<cv::quality::QualitySSIM> * self1 = 0;
     if (!jsopencv_quality_QualitySSIM_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'quality_QualitySSIM' or its derivative)");
     Ptr<cv::quality::QualitySSIM> _self_ = *(self1);
     bool retval;
 
@@ -56877,7 +56877,7 @@ static Napi::Value jsopencv_cv_rapid_rapid_Tracker_clearState(const Napi::Callba
 
     Ptr<cv::rapid::Tracker> * self1 = 0;
     if (!jsopencv_rapid_Tracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'rapid_Tracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'rapid_Tracker' or its derivative)");
     Ptr<cv::rapid::Tracker> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -56896,7 +56896,7 @@ static Napi::Value jsopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
 
     Ptr<cv::rapid::Tracker> * self1 = 0;
     if (!jsopencv_rapid_Tracker_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'rapid_Tracker' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'rapid_Tracker' or its derivative)");
     Ptr<cv::rapid::Tracker> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -57048,7 +57048,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -57098,7 +57098,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -57166,7 +57166,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_b
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     Napi::Value* jsobj_sourcePt = NULL;
     Point sourcePt;
@@ -57189,7 +57189,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -57249,7 +57249,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     Napi::Value* jsobj_threshold1 = NULL;
     double threshold1=0;
@@ -57282,7 +57282,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     Napi::Value* jsobj_gradient_magnitude_min_value = NULL;
     float gradient_magnitude_min_value=0.0f;
@@ -57306,7 +57306,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     Napi::Value* jsobj_gradient_magnitude_threshold_max = NULL;
     float gradient_magnitude_threshold_max=0.0f;
@@ -57330,7 +57330,7 @@ static Napi::Value jsopencv_cv_segmentation_segmentation_IntelligentScissorsMB_s
 
     cv::segmentation::IntelligentScissorsMB * self1 = 0;
     if (!jsopencv_segmentation_IntelligentScissorsMB_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'segmentation_IntelligentScissorsMB' or its derivative)");
     cv::segmentation::IntelligentScissorsMB* _self_ = (self1);
     Napi::Value* jsobj_weight_non_edge = NULL;
     float weight_non_edge=0.f;
@@ -57643,7 +57643,7 @@ static Napi::Value jsopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
 
     Ptr<cv::text::OCRBeamSearchDecoder> * self1 = 0;
     if (!jsopencv_text_OCRBeamSearchDecoder_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'text_OCRBeamSearchDecoder' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'text_OCRBeamSearchDecoder' or its derivative)");
     Ptr<cv::text::OCRBeamSearchDecoder> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -57996,7 +57996,7 @@ static Napi::Value jsopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
 
     Ptr<cv::text::OCRHMMDecoder> * self1 = 0;
     if (!jsopencv_text_OCRHMMDecoder_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'text_OCRHMMDecoder' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'text_OCRHMMDecoder' or its derivative)");
     Ptr<cv::text::OCRHMMDecoder> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -58239,7 +58239,7 @@ static Napi::Value jsopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
 
     Ptr<cv::text::OCRTesseract> * self1 = 0;
     if (!jsopencv_text_OCRTesseract_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'text_OCRTesseract' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'text_OCRTesseract' or its derivative)");
     Ptr<cv::text::OCRTesseract> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -58355,7 +58355,7 @@ static Napi::Value jsopencv_cv_text_text_OCRTesseract_setWhiteList(const Napi::C
 
     Ptr<cv::text::OCRTesseract> * self1 = 0;
     if (!jsopencv_text_OCRTesseract_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'text_OCRTesseract' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'text_OCRTesseract' or its derivative)");
     Ptr<cv::text::OCRTesseract> _self_ = *(self1);
     Napi::Value* jsobj_char_whitelist = NULL;
     String char_whitelist;
@@ -58431,7 +58431,7 @@ static Napi::Value jsopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
 
     Ptr<cv::text::TextDetector> * self1 = 0;
     if (!jsopencv_text_TextDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'text_TextDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'text_TextDetector' or its derivative)");
     Ptr<cv::text::TextDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -58556,7 +58556,7 @@ static Napi::Value jsopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
 
     Ptr<cv::text::TextDetectorCNN> * self1 = 0;
     if (!jsopencv_text_TextDetectorCNN_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'text_TextDetectorCNN' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'text_TextDetectorCNN' or its derivative)");
     Ptr<cv::text::TextDetectorCNN> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -58772,7 +58772,7 @@ static Napi::Value jsopencv_cv_utils_nested_utils_nested_OriginalClassName_getFl
 
     Ptr<cv::utils::nested::OriginalClassName> * self1 = 0;
     if (!jsopencv_utils_nested_OriginalClassName_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'utils_nested_OriginalClassName' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'utils_nested_OriginalClassName' or its derivative)");
     Ptr<cv::utils::nested::OriginalClassName> _self_ = *(self1);
     float retval;
 
@@ -58792,7 +58792,7 @@ static Napi::Value jsopencv_cv_utils_nested_utils_nested_OriginalClassName_getIn
 
     Ptr<cv::utils::nested::OriginalClassName> * self1 = 0;
     if (!jsopencv_utils_nested_OriginalClassName_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'utils_nested_OriginalClassName' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'utils_nested_OriginalClassName' or its derivative)");
     Ptr<cv::utils::nested::OriginalClassName> _self_ = *(self1);
     int retval;
 
@@ -59056,7 +59056,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getDefaultName(con
 
     Ptr<cv::xfeatures2d::BEBLID> * self1 = 0;
     if (!jsopencv_xfeatures2d_BEBLID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BEBLID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BEBLID' or its derivative)");
     Ptr<cv::xfeatures2d::BEBLID> _self_ = *(self1);
     String retval;
 
@@ -59076,7 +59076,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getScaleFactor(con
 
     Ptr<cv::xfeatures2d::BEBLID> * self1 = 0;
     if (!jsopencv_xfeatures2d_BEBLID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BEBLID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BEBLID' or its derivative)");
     Ptr<cv::xfeatures2d::BEBLID> _self_ = *(self1);
     float retval;
 
@@ -59096,7 +59096,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BEBLID_setScaleFactor(con
 
     Ptr<cv::xfeatures2d::BEBLID> * self1 = 0;
     if (!jsopencv_xfeatures2d_BEBLID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BEBLID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BEBLID' or its derivative)");
     Ptr<cv::xfeatures2d::BEBLID> _self_ = *(self1);
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -59198,7 +59198,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getDefaultName(
 
     Ptr<cv::xfeatures2d::BoostDesc> * self1 = 0;
     if (!jsopencv_xfeatures2d_BoostDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
     Ptr<cv::xfeatures2d::BoostDesc> _self_ = *(self1);
     String retval;
 
@@ -59218,7 +59218,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getScaleFactor(
 
     Ptr<cv::xfeatures2d::BoostDesc> * self1 = 0;
     if (!jsopencv_xfeatures2d_BoostDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
     Ptr<cv::xfeatures2d::BoostDesc> _self_ = *(self1);
     float retval;
 
@@ -59238,7 +59238,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getUseScaleOrie
 
     Ptr<cv::xfeatures2d::BoostDesc> * self1 = 0;
     if (!jsopencv_xfeatures2d_BoostDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
     Ptr<cv::xfeatures2d::BoostDesc> _self_ = *(self1);
     bool retval;
 
@@ -59258,7 +59258,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_setScaleFactor(
 
     Ptr<cv::xfeatures2d::BoostDesc> * self1 = 0;
     if (!jsopencv_xfeatures2d_BoostDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
     Ptr<cv::xfeatures2d::BoostDesc> _self_ = *(self1);
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -59281,7 +59281,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_setUseScaleOrie
 
     Ptr<cv::xfeatures2d::BoostDesc> * self1 = 0;
     if (!jsopencv_xfeatures2d_BoostDesc_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BoostDesc' or its derivative)");
     Ptr<cv::xfeatures2d::BoostDesc> _self_ = *(self1);
     Napi::Value* jsobj_use_scale_orientation = NULL;
     bool use_scale_orientation=0;
@@ -59382,7 +59382,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
 
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> * self1 = 0;
     if (!jsopencv_xfeatures2d_BriefDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> _self_ = *(self1);
     String retval;
 
@@ -59402,7 +59402,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
 
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> * self1 = 0;
     if (!jsopencv_xfeatures2d_BriefDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> _self_ = *(self1);
     int retval;
 
@@ -59422,7 +59422,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
 
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> * self1 = 0;
     if (!jsopencv_xfeatures2d_BriefDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> _self_ = *(self1);
     bool retval;
 
@@ -59442,7 +59442,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
 
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> * self1 = 0;
     if (!jsopencv_xfeatures2d_BriefDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> _self_ = *(self1);
     Napi::Value* jsobj_bytes = NULL;
     int bytes=0;
@@ -59465,7 +59465,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_
 
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> * self1 = 0;
     if (!jsopencv_xfeatures2d_BriefDescriptorExtractor_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_BriefDescriptorExtractor' or its derivative)");
     Ptr<cv::xfeatures2d::BriefDescriptorExtractor> _self_ = *(self1);
     Napi::Value* jsobj_use_orientation = NULL;
     bool use_orientation=0;
@@ -59631,7 +59631,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getDefaultName(cons
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     String retval;
 
@@ -59651,7 +59651,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getH(const Napi::Ca
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     cv::Mat retval;
 
@@ -59671,7 +59671,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getInterpolation(co
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     bool retval;
 
@@ -59691,7 +59691,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getNorm(const Napi:
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     int retval;
 
@@ -59711,7 +59711,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQHist(const Napi
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     int retval;
 
@@ -59731,7 +59731,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQRadius(const Na
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     int retval;
 
@@ -59751,7 +59751,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getQTheta(const Nap
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     int retval;
 
@@ -59771,7 +59771,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getRadius(const Nap
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     float retval;
 
@@ -59791,7 +59791,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_getUseOrientation(c
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     bool retval;
 
@@ -59811,7 +59811,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -59859,7 +59859,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setInterpolation(co
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_interpolation = NULL;
     bool interpolation=0;
@@ -59882,7 +59882,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setNorm(const Napi:
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_norm = NULL;
     int norm=0;
@@ -59905,7 +59905,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQHist(const Napi
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_q_hist = NULL;
     int q_hist=0;
@@ -59928,7 +59928,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQRadius(const Na
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_q_radius = NULL;
     int q_radius=0;
@@ -59951,7 +59951,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setQTheta(const Nap
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_q_theta = NULL;
     int q_theta=0;
@@ -59974,7 +59974,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setRadius(const Nap
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_radius = NULL;
     float radius=0.f;
@@ -59997,7 +59997,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_DAISY_setUseOrientation(c
 
     Ptr<cv::xfeatures2d::DAISY> * self1 = 0;
     if (!jsopencv_xfeatures2d_DAISY_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_DAISY' or its derivative)");
     Ptr<cv::xfeatures2d::DAISY> _self_ = *(self1);
     Napi::Value* jsobj_use_orientation = NULL;
     bool use_orientation=0;
@@ -60119,7 +60119,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_getDefaultName(cons
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     String retval;
 
@@ -60139,7 +60139,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_getNOctaves(const N
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     int retval;
 
@@ -60159,7 +60159,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_getOrientationNorma
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     bool retval;
 
@@ -60179,7 +60179,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_getPatternScale(con
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     double retval;
 
@@ -60199,7 +60199,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_getScaleNormalized(
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     bool retval;
 
@@ -60219,7 +60219,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_setNOctaves(const N
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     Napi::Value* jsobj_nOctaves = NULL;
     int nOctaves=0;
@@ -60242,7 +60242,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_setOrientationNorma
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     Napi::Value* jsobj_orientationNormalized = NULL;
     bool orientationNormalized=0;
@@ -60265,7 +60265,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_setPatternScale(con
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     Napi::Value* jsobj_patternScale = NULL;
     double patternScale=0;
@@ -60288,7 +60288,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_FREAK_setScaleNormalized(
 
     Ptr<cv::xfeatures2d::FREAK> * self1 = 0;
     if (!jsopencv_xfeatures2d_FREAK_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_FREAK' or its derivative)");
     Ptr<cv::xfeatures2d::FREAK> _self_ = *(self1);
     Napi::Value* jsobj_scaleNormalized = NULL;
     bool scaleNormalized=0;
@@ -60402,7 +60402,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     float retval;
 
@@ -60422,7 +60422,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     float retval;
 
@@ -60442,7 +60442,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     String retval;
 
@@ -60462,7 +60462,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     int retval;
 
@@ -60482,7 +60482,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     int retval;
 
@@ -60502,7 +60502,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     int retval;
 
@@ -60522,7 +60522,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_corn_thresh_ = NULL;
     float corn_thresh_=0.f;
@@ -60545,7 +60545,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_DOG_thresh_ = NULL;
     float DOG_thresh_=0.f;
@@ -60568,7 +60568,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_maxCorners_ = NULL;
     int maxCorners_=0;
@@ -60591,7 +60591,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_num_layers_ = NULL;
     int num_layers_=0;
@@ -60614,7 +60614,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetec
 
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_HarrisLaplaceFeatureDetector' or its derivative)");
     Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> _self_ = *(self1);
     Napi::Value* jsobj_numOctaves_ = NULL;
     int numOctaves_=0;
@@ -60727,7 +60727,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_getBytes(const Napi
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     int retval;
 
@@ -60747,7 +60747,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_getDefaultName(cons
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     String retval;
 
@@ -60767,7 +60767,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_getHalfSSDsize(cons
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     int retval;
 
@@ -60787,7 +60787,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_getRotationInvarian
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     bool retval;
 
@@ -60807,7 +60807,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_getSigma(const Napi
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     double retval;
 
@@ -60827,7 +60827,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_setBytes(const Napi
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     Napi::Value* jsobj_bytes = NULL;
     int bytes=0;
@@ -60850,7 +60850,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_setHalfSSDsize(cons
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     Napi::Value* jsobj_half_ssd_size = NULL;
     int half_ssd_size=0;
@@ -60873,7 +60873,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_setRotationInvarian
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     Napi::Value* jsobj_rotationInvariance = NULL;
     bool rotationInvariance=0;
@@ -60896,7 +60896,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LATCH_setSigma(const Napi
 
     Ptr<cv::xfeatures2d::LATCH> * self1 = 0;
     if (!jsopencv_xfeatures2d_LATCH_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LATCH' or its derivative)");
     Ptr<cv::xfeatures2d::LATCH> _self_ = *(self1);
     Napi::Value* jsobj_sigma = NULL;
     double sigma=0;
@@ -61001,7 +61001,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LUCID_getBlurKernel(const
 
     Ptr<cv::xfeatures2d::LUCID> * self1 = 0;
     if (!jsopencv_xfeatures2d_LUCID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
     Ptr<cv::xfeatures2d::LUCID> _self_ = *(self1);
     int retval;
 
@@ -61021,7 +61021,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LUCID_getDefaultName(cons
 
     Ptr<cv::xfeatures2d::LUCID> * self1 = 0;
     if (!jsopencv_xfeatures2d_LUCID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
     Ptr<cv::xfeatures2d::LUCID> _self_ = *(self1);
     String retval;
 
@@ -61041,7 +61041,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LUCID_getLucidKernel(cons
 
     Ptr<cv::xfeatures2d::LUCID> * self1 = 0;
     if (!jsopencv_xfeatures2d_LUCID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
     Ptr<cv::xfeatures2d::LUCID> _self_ = *(self1);
     int retval;
 
@@ -61061,7 +61061,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LUCID_setBlurKernel(const
 
     Ptr<cv::xfeatures2d::LUCID> * self1 = 0;
     if (!jsopencv_xfeatures2d_LUCID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
     Ptr<cv::xfeatures2d::LUCID> _self_ = *(self1);
     Napi::Value* jsobj_blur_kernel = NULL;
     int blur_kernel=0;
@@ -61084,7 +61084,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_LUCID_setLucidKernel(cons
 
     Ptr<cv::xfeatures2d::LUCID> * self1 = 0;
     if (!jsopencv_xfeatures2d_LUCID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_LUCID' or its derivative)");
     Ptr<cv::xfeatures2d::LUCID> _self_ = *(self1);
     Napi::Value* jsobj_lucid_kernel = NULL;
     int lucid_kernel=0;
@@ -61206,7 +61206,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getComputeOri
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     bool retval;
 
@@ -61226,7 +61226,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getDefaultNam
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     String retval;
 
@@ -61246,7 +61246,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getKNN(const 
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     int retval;
 
@@ -61266,7 +61266,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNScales(co
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     int retval;
 
@@ -61286,7 +61286,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNmsRadius(
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     int retval;
 
@@ -61306,7 +61306,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getNmsScaleRa
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     int retval;
 
@@ -61326,7 +61326,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getPatchRadiu
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     int retval;
 
@@ -61346,7 +61346,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getScaleFacto
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     float retval;
 
@@ -61366,7 +61366,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getSearchArea
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     int retval;
 
@@ -61386,7 +61386,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getThSaliency
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     float retval;
 
@@ -61406,7 +61406,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setComputeOri
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_compute_orientation = NULL;
     bool compute_orientation=0;
@@ -61429,7 +61429,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setKNN(const 
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_kNN = NULL;
     int kNN=0;
@@ -61452,7 +61452,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNScales(co
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_use_orientation = NULL;
     int use_orientation=0;
@@ -61475,7 +61475,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNmsRadius(
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_nms_radius = NULL;
     int nms_radius=0;
@@ -61498,7 +61498,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setNmsScaleRa
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_nms_scale_radius = NULL;
     int nms_scale_radius=0;
@@ -61521,7 +61521,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setPatchRadiu
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_patch_radius = NULL;
     int patch_radius=0;
@@ -61544,7 +61544,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setScaleFacto
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -61567,7 +61567,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setSearchArea
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_use_orientation = NULL;
     int use_orientation=0;
@@ -61590,7 +61590,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_setThSaliency
 
     Ptr<cv::xfeatures2d::MSDDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_MSDDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_MSDDetector' or its derivative)");
     Ptr<cv::xfeatures2d::MSDDetector> _self_ = *(self1);
     Napi::Value* jsobj_th_saliency = NULL;
     float th_saliency=0.f;
@@ -61683,7 +61683,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -61737,7 +61737,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_images = NULL;
     vector_Mat images;
@@ -61929,7 +61929,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getClusterM
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -61949,7 +61949,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getDistance
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -61969,7 +61969,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getDropThre
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -61989,7 +61989,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getGrayscal
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -62009,7 +62009,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getInitSeed
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -62029,7 +62029,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getInitSeed
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     std::vector<int> retval;
 
@@ -62049,7 +62049,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getIteratio
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -62069,7 +62069,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getJoiningD
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62089,7 +62089,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getMaxClust
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -62109,7 +62109,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getSampleCo
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -62129,7 +62129,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getSampling
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     std::vector<Point2f> retval;
 
@@ -62149,7 +62149,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightA(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62169,7 +62169,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightB(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62189,7 +62189,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightCo
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62209,7 +62209,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightEn
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62229,7 +62229,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightL(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62249,7 +62249,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightX(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62269,7 +62269,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWeightY(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     float retval;
 
@@ -62289,7 +62289,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_getWindowRa
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     int retval;
 
@@ -62309,7 +62309,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setClusterM
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_clusterMinSize = NULL;
     int clusterMinSize=0;
@@ -62332,7 +62332,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setDistance
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_distanceFunction = NULL;
     int distanceFunction=0;
@@ -62355,7 +62355,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setDropThre
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_dropThreshold = NULL;
     float dropThreshold=0.f;
@@ -62378,7 +62378,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setGrayscal
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_grayscaleBits = NULL;
     int grayscaleBits=0;
@@ -62401,7 +62401,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setInitSeed
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_initSeedIndexes = NULL;
     vector_int initSeedIndexes;
@@ -62424,7 +62424,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setIteratio
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_iterationCount = NULL;
     int iterationCount=0;
@@ -62447,7 +62447,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setJoiningD
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_joiningDistance = NULL;
     float joiningDistance=0.f;
@@ -62470,7 +62470,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setMaxClust
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_maxClustersCount = NULL;
     int maxClustersCount=0;
@@ -62493,7 +62493,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setSampling
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_samplingPoints = NULL;
     vector_Point2f samplingPoints;
@@ -62516,7 +62516,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setTranslat
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_idx = NULL;
     int idx=0;
@@ -62542,7 +62542,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setTranslat
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_translations = NULL;
     vector_float translations;
@@ -62565,7 +62565,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeight(c
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_idx = NULL;
     int idx=0;
@@ -62591,7 +62591,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightA(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62614,7 +62614,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightB(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62637,7 +62637,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightCo
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62660,7 +62660,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightEn
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62683,7 +62683,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightL(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62706,7 +62706,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightX(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62729,7 +62729,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeightY(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weight = NULL;
     float weight=0.f;
@@ -62752,7 +62752,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWeights(
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_weights = NULL;
     vector_float weights;
@@ -62775,7 +62775,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_setWindowRa
 
     Ptr<cv::xfeatures2d::PCTSignatures> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignatures_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignatures' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignatures> _self_ = *(self1);
     Napi::Value* jsobj_radius = NULL;
     int radius=0;
@@ -62893,7 +62893,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
 
     Ptr<cv::xfeatures2d::PCTSignaturesSQFD> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignaturesSQFD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignaturesSQFD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignaturesSQFD' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignaturesSQFD> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -62949,7 +62949,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
 
     Ptr<cv::xfeatures2d::PCTSignaturesSQFD> * self1 = 0;
     if (!jsopencv_xfeatures2d_PCTSignaturesSQFD_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_PCTSignaturesSQFD' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_PCTSignaturesSQFD' or its derivative)");
     Ptr<cv::xfeatures2d::PCTSignaturesSQFD> _self_ = *(self1);
     Napi::Value* jsobj_sourceSignature = NULL;
     Mat sourceSignature;
@@ -63087,7 +63087,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_getDefaultName(const
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     String retval;
 
@@ -63107,7 +63107,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_getExtended(const Na
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     bool retval;
 
@@ -63127,7 +63127,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_getHessianThreshold(
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     double retval;
 
@@ -63147,7 +63147,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_getNOctaveLayers(con
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     int retval;
 
@@ -63167,7 +63167,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_getNOctaves(const Na
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     int retval;
 
@@ -63187,7 +63187,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_getUpright(const Nap
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     bool retval;
 
@@ -63207,7 +63207,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_setExtended(const Na
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     Napi::Value* jsobj_extended = NULL;
     bool extended=0;
@@ -63230,7 +63230,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_setHessianThreshold(
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     Napi::Value* jsobj_hessianThreshold = NULL;
     double hessianThreshold=0;
@@ -63253,7 +63253,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_setNOctaveLayers(con
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     Napi::Value* jsobj_nOctaveLayers = NULL;
     int nOctaveLayers=0;
@@ -63276,7 +63276,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_setNOctaves(const Na
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     Napi::Value* jsobj_nOctaves = NULL;
     int nOctaves=0;
@@ -63299,7 +63299,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_SURF_setUpright(const Nap
 
     Ptr<cv::xfeatures2d::SURF> * self1 = 0;
     if (!jsopencv_xfeatures2d_SURF_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_SURF' or its derivative)");
     Ptr<cv::xfeatures2d::SURF> _self_ = *(self1);
     Napi::Value* jsobj_upright = NULL;
     bool upright=0;
@@ -63415,7 +63415,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getDefaultNa
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     String retval;
 
@@ -63435,7 +63435,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getLineThres
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     int retval;
 
@@ -63455,7 +63455,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getLineThres
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     int retval;
 
@@ -63475,7 +63475,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getMaxSize(c
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     int retval;
 
@@ -63495,7 +63495,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getResponseT
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     int retval;
 
@@ -63515,7 +63515,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getSuppressN
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     int retval;
 
@@ -63535,7 +63535,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setLineThres
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     Napi::Value* jsobj__lineThresholdBinarized = NULL;
     int _lineThresholdBinarized=0;
@@ -63558,7 +63558,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setLineThres
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     Napi::Value* jsobj__lineThresholdProjected = NULL;
     int _lineThresholdProjected=0;
@@ -63581,7 +63581,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setMaxSize(c
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     Napi::Value* jsobj__maxSize = NULL;
     int _maxSize=0;
@@ -63604,7 +63604,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setResponseT
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     Napi::Value* jsobj__responseThreshold = NULL;
     int _responseThreshold=0;
@@ -63627,7 +63627,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_StarDetector_setSuppressN
 
     Ptr<cv::xfeatures2d::StarDetector> * self1 = 0;
     if (!jsopencv_xfeatures2d_StarDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_StarDetector' or its derivative)");
     Ptr<cv::xfeatures2d::StarDetector> _self_ = *(self1);
     Napi::Value* jsobj__suppressNonmaxSize = NULL;
     int _suppressNonmaxSize=0;
@@ -63740,7 +63740,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMaxAreaRelative(c
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     float retval;
 
@@ -63760,7 +63760,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMinArea(const Nap
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     int retval;
 
@@ -63780,7 +63780,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_getNScales(const Nap
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     int retval;
 
@@ -63800,7 +63800,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_getScaleFactor(const
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     float retval;
 
@@ -63820,7 +63820,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_setMaxAreaRelative(c
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     Napi::Value* jsobj_maxArea = NULL;
     float maxArea=0.f;
@@ -63843,7 +63843,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_setMinArea(const Nap
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     Napi::Value* jsobj_minArea = NULL;
     int minArea=0;
@@ -63866,7 +63866,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_setNScales(const Nap
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     Napi::Value* jsobj_n_scales = NULL;
     int n_scales=0;
@@ -63889,7 +63889,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TBMR_setScaleFactor(const
 
     Ptr<cv::xfeatures2d::TBMR> * self1 = 0;
     if (!jsopencv_xfeatures2d_TBMR_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TBMR' or its derivative)");
     Ptr<cv::xfeatures2d::TBMR> _self_ = *(self1);
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -63993,7 +63993,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_TEBLID_getDefaultName(con
 
     Ptr<cv::xfeatures2d::TEBLID> * self1 = 0;
     if (!jsopencv_xfeatures2d_TEBLID_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_TEBLID' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_TEBLID' or its derivative)");
     Ptr<cv::xfeatures2d::TEBLID> _self_ = *(self1);
     String retval;
 
@@ -64099,7 +64099,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_getDefaultName(const 
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     String retval;
 
@@ -64119,7 +64119,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_getScaleFactor(const 
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     float retval;
 
@@ -64139,7 +64139,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_getSigma(const Napi::
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     float retval;
 
@@ -64159,7 +64159,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseNormalizeDescri
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     bool retval;
 
@@ -64179,7 +64179,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseNormalizeImage(
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     bool retval;
 
@@ -64199,7 +64199,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_getUseScaleOrientatio
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     bool retval;
 
@@ -64219,7 +64219,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_setScaleFactor(const 
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -64242,7 +64242,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_setSigma(const Napi::
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     Napi::Value* jsobj_isigma = NULL;
     float isigma=0.f;
@@ -64265,7 +64265,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseNormalizeDescri
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     Napi::Value* jsobj_dsc_normalize = NULL;
     bool dsc_normalize=0;
@@ -64288,7 +64288,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseNormalizeImage(
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     Napi::Value* jsobj_img_normalize = NULL;
     bool img_normalize=0;
@@ -64311,7 +64311,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_xfeatures2d_VGG_setUseScaleOrientatio
 
     Ptr<cv::xfeatures2d::VGG> * self1 = 0;
     if (!jsopencv_xfeatures2d_VGG_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'xfeatures2d_VGG' or its derivative)");
     Ptr<cv::xfeatures2d::VGG> _self_ = *(self1);
     Napi::Value* jsobj_use_scale_orientation = NULL;
     bool use_scale_orientation=0;
@@ -64396,7 +64396,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_collectG
 
     Ptr<cv::ximgproc::AdaptiveManifoldFilter> * self1 = 0;
     if (!jsopencv_ximgproc_AdaptiveManifoldFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_AdaptiveManifoldFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_AdaptiveManifoldFilter' or its derivative)");
     Ptr<cv::ximgproc::AdaptiveManifoldFilter> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -64430,7 +64430,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
 
     Ptr<cv::ximgproc::AdaptiveManifoldFilter> * self1 = 0;
     if (!jsopencv_ximgproc_AdaptiveManifoldFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_AdaptiveManifoldFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_AdaptiveManifoldFilter' or its derivative)");
     Ptr<cv::ximgproc::AdaptiveManifoldFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -64543,7 +64543,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
 
     Ptr<cv::ximgproc::ContourFitting> * self1 = 0;
     if (!jsopencv_ximgproc_ContourFitting_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
     Ptr<cv::ximgproc::ContourFitting> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -64611,7 +64611,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ContourFitting_getCtrSize(const
 
     Ptr<cv::ximgproc::ContourFitting> * self1 = 0;
     if (!jsopencv_ximgproc_ContourFitting_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
     Ptr<cv::ximgproc::ContourFitting> _self_ = *(self1);
     int retval;
 
@@ -64631,7 +64631,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ContourFitting_getFDSize(const 
 
     Ptr<cv::ximgproc::ContourFitting> * self1 = 0;
     if (!jsopencv_ximgproc_ContourFitting_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
     Ptr<cv::ximgproc::ContourFitting> _self_ = *(self1);
     int retval;
 
@@ -64651,7 +64651,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ContourFitting_setCtrSize(const
 
     Ptr<cv::ximgproc::ContourFitting> * self1 = 0;
     if (!jsopencv_ximgproc_ContourFitting_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
     Ptr<cv::ximgproc::ContourFitting> _self_ = *(self1);
     Napi::Value* jsobj_n = NULL;
     int n=0;
@@ -64674,7 +64674,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ContourFitting_setFDSize(const 
 
     Ptr<cv::ximgproc::ContourFitting> * self1 = 0;
     if (!jsopencv_ximgproc_ContourFitting_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ContourFitting' or its derivative)");
     Ptr<cv::ximgproc::ContourFitting> _self_ = *(self1);
     Napi::Value* jsobj_n = NULL;
     int n=0;
@@ -64752,7 +64752,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
 
     Ptr<cv::ximgproc::DTFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DTFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DTFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DTFilter' or its derivative)");
     Ptr<cv::ximgproc::DTFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -64863,7 +64863,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
 
     Ptr<cv::ximgproc::DisparityFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -64992,7 +64992,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getConfidenc
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     Mat retval;
 
@@ -65012,7 +65012,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getDepthDisc
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     int retval;
 
@@ -65032,7 +65032,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getLRCthresh
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     int retval;
 
@@ -65052,7 +65052,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getLambda(co
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     double retval;
 
@@ -65072,7 +65072,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getROI(const
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     Rect retval;
 
@@ -65092,7 +65092,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getSigmaColo
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     double retval;
 
@@ -65112,7 +65112,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setDepthDisc
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     Napi::Value* jsobj__disc_radius = NULL;
     int _disc_radius=0;
@@ -65135,7 +65135,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setLRCthresh
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     Napi::Value* jsobj__LRC_thresh = NULL;
     int _LRC_thresh=0;
@@ -65158,7 +65158,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setLambda(co
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     Napi::Value* jsobj__lambda = NULL;
     double _lambda=0;
@@ -65181,7 +65181,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_setSigmaColo
 
     Ptr<cv::ximgproc::DisparityWLSFilter> * self1 = 0;
     if (!jsopencv_ximgproc_DisparityWLSFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_DisparityWLSFilter' or its derivative)");
     Ptr<cv::ximgproc::DisparityWLSFilter> _self_ = *(self1);
     Napi::Value* jsobj__sigma_color = NULL;
     double _sigma_color=0;
@@ -65264,7 +65264,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSLam
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     float retval;
 
@@ -65284,7 +65284,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSSig
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     float retval;
 
@@ -65304,7 +65304,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getK(cons
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     int retval;
 
@@ -65324,7 +65324,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getLambda
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     float retval;
 
@@ -65344,7 +65344,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getSigma(
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     float retval;
 
@@ -65364,7 +65364,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getUsePos
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     bool retval;
 
@@ -65384,7 +65384,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setCostMa
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__costMap = NULL;
     Mat _costMap;
@@ -65407,7 +65407,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setFGSLam
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__lambda = NULL;
     float _lambda=0.f;
@@ -65430,7 +65430,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setFGSSig
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__sigma = NULL;
     float _sigma=0.f;
@@ -65453,7 +65453,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setK(cons
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__k = NULL;
     int _k=0;
@@ -65476,7 +65476,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setLambda
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__lambda = NULL;
     float _lambda=0.f;
@@ -65499,7 +65499,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setSigma(
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__sigma = NULL;
     float _sigma=0.f;
@@ -65522,7 +65522,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_setUsePos
 
     Ptr<cv::ximgproc::EdgeAwareInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeAwareInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeAwareInterpolator' or its derivative)");
     Ptr<cv::ximgproc::EdgeAwareInterpolator> _self_ = *(self1);
     Napi::Value* jsobj__use_post_proc = NULL;
     bool _use_post_proc=0;
@@ -65608,7 +65608,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getAlpha(const Napi::
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65628,7 +65628,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBeta(const Napi::C
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65648,7 +65648,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -65710,7 +65710,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getClusterMinMag(cons
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65730,7 +65730,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEdgeMergeThr(const
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65750,7 +65750,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEdgeMinMag(const N
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65770,7 +65770,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getEta(const Napi::Ca
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65790,7 +65790,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getGamma(const Napi::
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65810,7 +65810,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getKappa(const Napi::
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65830,7 +65830,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMaxAspectRatio(con
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65850,7 +65850,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMaxBoxes(const Nap
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     int retval;
 
@@ -65870,7 +65870,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMinBoxArea(const N
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65890,7 +65890,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_getMinScore(const Nap
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     float retval;
 
@@ -65910,7 +65910,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setAlpha(const Napi::
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -65933,7 +65933,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setBeta(const Napi::C
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -65956,7 +65956,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setClusterMinMag(cons
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -65979,7 +65979,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEdgeMergeThr(const
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66002,7 +66002,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEdgeMinMag(const N
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66025,7 +66025,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setEta(const Napi::Ca
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66048,7 +66048,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setGamma(const Napi::
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66071,7 +66071,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setKappa(const Napi::
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66094,7 +66094,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMaxAspectRatio(con
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66117,7 +66117,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMaxBoxes(const Nap
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     int value=0;
@@ -66140,7 +66140,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMinBoxArea(const N
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66163,7 +66163,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeBoxes_setMinScore(const Nap
 
     Ptr<cv::ximgproc::EdgeBoxes> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeBoxes_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeBoxes' or its derivative)");
     Ptr<cv::ximgproc::EdgeBoxes> _self_ = *(self1);
     Napi::Value* jsobj_value = NULL;
     float value=0.f;
@@ -66261,7 +66261,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -66309,7 +66309,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -66357,7 +66357,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -66405,7 +66405,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -66453,7 +66453,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -66501,7 +66501,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_getSegmentIndicesOf
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     std::vector<int> retval;
 
@@ -66521,7 +66521,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_getSegments(const N
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     std::vector<std::vector<Point> > retval;
 
@@ -66541,7 +66541,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_EdgeDrawing_setParams(const Nap
 
     Ptr<cv::ximgproc::EdgeDrawing> * self1 = 0;
     if (!jsopencv_ximgproc_EdgeDrawing_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_EdgeDrawing' or its derivative)");
     Ptr<cv::ximgproc::EdgeDrawing> _self_ = *(self1);
     Napi::Value* jsobj_parameters = NULL;
     EdgeDrawing_Params parameters;
@@ -66894,7 +66894,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
 
     Ptr<cv::ximgproc::FastBilateralSolverFilter> * self1 = 0;
     if (!jsopencv_ximgproc_FastBilateralSolverFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_FastBilateralSolverFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_FastBilateralSolverFilter' or its derivative)");
     Ptr<cv::ximgproc::FastBilateralSolverFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -67005,7 +67005,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
 
     Ptr<cv::ximgproc::FastGlobalSmootherFilter> * self1 = 0;
     if (!jsopencv_ximgproc_FastGlobalSmootherFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_FastGlobalSmootherFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_FastGlobalSmootherFilter' or its derivative)");
     Ptr<cv::ximgproc::FastGlobalSmootherFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -67110,7 +67110,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
 
     Ptr<cv::ximgproc::FastLineDetector> * self1 = 0;
     if (!jsopencv_ximgproc_FastLineDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_FastLineDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_FastLineDetector' or its derivative)");
     Ptr<cv::ximgproc::FastLineDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -67164,7 +67164,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
 
     Ptr<cv::ximgproc::FastLineDetector> * self1 = 0;
     if (!jsopencv_ximgproc_FastLineDetector_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_FastLineDetector' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_FastLineDetector' or its derivative)");
     Ptr<cv::ximgproc::FastLineDetector> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -67288,7 +67288,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
 
     Ptr<cv::ximgproc::GuidedFilter> * self1 = 0;
     if (!jsopencv_ximgproc_GuidedFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_GuidedFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_GuidedFilter' or its derivative)");
     Ptr<cv::ximgproc::GuidedFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -67399,7 +67399,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RFFeatureGetter_getFeatures(con
 
     Ptr<cv::ximgproc::RFFeatureGetter> * self1 = 0;
     if (!jsopencv_ximgproc_RFFeatureGetter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RFFeatureGetter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RFFeatureGetter' or its derivative)");
     Ptr<cv::ximgproc::RFFeatureGetter> _self_ = *(self1);
     Napi::Value* jsobj_src = NULL;
     Mat src;
@@ -67491,7 +67491,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getAlpha(const 
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     float retval;
 
@@ -67511,7 +67511,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSLambda(co
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     float retval;
 
@@ -67531,7 +67531,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSSigma(con
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     float retval;
 
@@ -67551,7 +67551,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getK(const Napi
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     int retval;
 
@@ -67571,7 +67571,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getMaxFlow(cons
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     float retval;
 
@@ -67591,7 +67591,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getModelIter(co
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     int retval;
 
@@ -67611,7 +67611,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getRefineModels
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     bool retval;
 
@@ -67631,7 +67631,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelMo
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     int retval;
 
@@ -67651,7 +67651,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelNN
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     int retval;
 
@@ -67671,7 +67671,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelRu
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     float retval;
 
@@ -67691,7 +67691,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getSuperpixelSi
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     int retval;
 
@@ -67711,7 +67711,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getUseGlobalSmo
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     bool retval;
 
@@ -67731,7 +67731,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_getUseVariation
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     bool retval;
 
@@ -67751,7 +67751,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setAlpha(const 
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_alpha = NULL;
     float alpha=0.7f;
@@ -67774,7 +67774,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setCostMap(cons
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_costMap = NULL;
     Mat costMap;
@@ -67797,7 +67797,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setFGSLambda(co
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_lambda = NULL;
     float lambda=500.f;
@@ -67820,7 +67820,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setFGSSigma(con
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_sigma = NULL;
     float sigma=1.5f;
@@ -67843,7 +67843,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setK(const Napi
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_k = NULL;
     int k=32;
@@ -67866,7 +67866,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setMaxFlow(cons
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_maxFlow = NULL;
     float maxFlow=250.f;
@@ -67889,7 +67889,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setModelIter(co
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_modelIter = NULL;
     int modelIter=4;
@@ -67912,7 +67912,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setRefineModels
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_refineModles = NULL;
     bool refineModles=true;
@@ -67935,7 +67935,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelMo
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_mode = NULL;
     int mode=100;
@@ -67958,7 +67958,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelNN
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_spNN = NULL;
     int spNN=150;
@@ -67981,7 +67981,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelRu
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_ruler = NULL;
     float ruler=15.f;
@@ -68004,7 +68004,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setSuperpixelSi
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_spSize = NULL;
     int spSize=15;
@@ -68027,7 +68027,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setUseGlobalSmo
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_use_FGS = NULL;
     bool use_FGS=true;
@@ -68050,7 +68050,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RICInterpolator_setUseVariation
 
     Ptr<cv::ximgproc::RICInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_RICInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RICInterpolator' or its derivative)");
     Ptr<cv::ximgproc::RICInterpolator> _self_ = *(self1);
     Napi::Value* jsobj_use_variational_refinement = NULL;
     bool use_variational_refinement=false;
@@ -68190,7 +68190,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
 
     Ptr<cv::ximgproc::RidgeDetectionFilter> * self1 = 0;
     if (!jsopencv_ximgproc_RidgeDetectionFilter_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_RidgeDetectionFilter' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_RidgeDetectionFilter' or its derivative)");
     Ptr<cv::ximgproc::RidgeDetectionFilter> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68296,7 +68296,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
 
     Ptr<cv::ximgproc::ScanSegment> * self1 = 0;
     if (!jsopencv_ximgproc_ScanSegment_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68350,7 +68350,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
 
     Ptr<cv::ximgproc::ScanSegment> * self1 = 0;
     if (!jsopencv_ximgproc_ScanSegment_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68398,7 +68398,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ScanSegment_getNumberOfSuperpix
 
     Ptr<cv::ximgproc::ScanSegment> * self1 = 0;
     if (!jsopencv_ximgproc_ScanSegment_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
     int retval;
 
@@ -68418,7 +68418,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
 
     Ptr<cv::ximgproc::ScanSegment> * self1 = 0;
     if (!jsopencv_ximgproc_ScanSegment_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_ScanSegment' or its derivative)");
     Ptr<cv::ximgproc::ScanSegment> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68520,7 +68520,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
 
     Ptr<cv::ximgproc::SparseMatchInterpolator> * self1 = 0;
     if (!jsopencv_ximgproc_SparseMatchInterpolator_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SparseMatchInterpolator' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SparseMatchInterpolator' or its derivative)");
     Ptr<cv::ximgproc::SparseMatchInterpolator> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68643,7 +68643,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
 
     Ptr<cv::ximgproc::StructuredEdgeDetection> * self1 = 0;
     if (!jsopencv_ximgproc_StructuredEdgeDetection_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
     Ptr<cv::ximgproc::StructuredEdgeDetection> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68697,7 +68697,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
 
     Ptr<cv::ximgproc::StructuredEdgeDetection> * self1 = 0;
     if (!jsopencv_ximgproc_StructuredEdgeDetection_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
     Ptr<cv::ximgproc::StructuredEdgeDetection> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68751,7 +68751,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
 
     Ptr<cv::ximgproc::StructuredEdgeDetection> * self1 = 0;
     if (!jsopencv_ximgproc_StructuredEdgeDetection_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_StructuredEdgeDetection' or its derivative)");
     Ptr<cv::ximgproc::StructuredEdgeDetection> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68888,7 +68888,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelLSC_enforceLabelConne
 
     Ptr<cv::ximgproc::SuperpixelLSC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelLSC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
     Napi::Value* jsobj_min_element_size = NULL;
     int min_element_size=25;
@@ -68911,7 +68911,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
 
     Ptr<cv::ximgproc::SuperpixelLSC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelLSC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -68965,7 +68965,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
 
     Ptr<cv::ximgproc::SuperpixelLSC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelLSC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69013,7 +69013,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getNumberOfSuperp
 
     Ptr<cv::ximgproc::SuperpixelLSC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelLSC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
     int retval;
 
@@ -69033,7 +69033,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelLSC_iterate(const Nap
 
     Ptr<cv::ximgproc::SuperpixelLSC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelLSC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelLSC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelLSC> _self_ = *(self1);
     Napi::Value* jsobj_num_iterations = NULL;
     int num_iterations=10;
@@ -69111,7 +69111,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
 
     Ptr<cv::ximgproc::SuperpixelSEEDS> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69165,7 +69165,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
 
     Ptr<cv::ximgproc::SuperpixelSEEDS> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69213,7 +69213,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getNumberOfSupe
 
     Ptr<cv::ximgproc::SuperpixelSEEDS> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
     int retval;
 
@@ -69233,7 +69233,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
 
     Ptr<cv::ximgproc::SuperpixelSEEDS> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSEEDS_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSEEDS' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSEEDS> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69341,7 +69341,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_enforceLabelConn
 
     Ptr<cv::ximgproc::SuperpixelSLIC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
     Napi::Value* jsobj_min_element_size = NULL;
     int min_element_size=25;
@@ -69364,7 +69364,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
 
     Ptr<cv::ximgproc::SuperpixelSLIC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69418,7 +69418,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
 
     Ptr<cv::ximgproc::SuperpixelSLIC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69466,7 +69466,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getNumberOfSuper
 
     Ptr<cv::ximgproc::SuperpixelSLIC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
     int retval;
 
@@ -69486,7 +69486,7 @@ static Napi::Value jsopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_iterate(const Na
 
     Ptr<cv::ximgproc::SuperpixelSLIC> * self1 = 0;
     if (!jsopencv_ximgproc_SuperpixelSLIC_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_SuperpixelSLIC' or its derivative)");
     Ptr<cv::ximgproc::SuperpixelSLIC> _self_ = *(self1);
     Napi::Value* jsobj_num_iterations = NULL;
     int num_iterations=10;
@@ -69564,7 +69564,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     float retval;
 
@@ -69584,7 +69584,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     int retval;
 
@@ -69604,7 +69604,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     double retval;
 
@@ -69624,7 +69624,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69678,7 +69678,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_k = NULL;
     float k=0.f;
@@ -69701,7 +69701,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_min_size = NULL;
     int min_size=0;
@@ -69724,7 +69724,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
 
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_GraphSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_GraphSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::GraphSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_sigma = NULL;
     double sigma=0;
@@ -69804,7 +69804,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_g = NULL;
     Ptr<GraphSegmentation> g;
@@ -69827,7 +69827,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -69875,7 +69875,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_s = NULL;
     Ptr<SelectiveSearchSegmentationStrategy> s;
@@ -69898,7 +69898,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -69917,7 +69917,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -69936,7 +69936,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
@@ -69955,7 +69955,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     vector_Rect rects;
 
@@ -69975,7 +69975,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -70023,7 +70023,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_base_k = NULL;
     int base_k=150;
@@ -70052,7 +70052,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_base_k = NULL;
     int base_k=150;
@@ -70081,7 +70081,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentation' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> _self_ = *(self1);
     Napi::Value* jsobj_k = NULL;
     int k=200;
@@ -70168,7 +70168,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> _self_ = *(self1);
     Napi::Value* jsobj_r1 = NULL;
     int r1=0;
@@ -70195,7 +70195,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> _self_ = *(self1);
     Napi::Value* jsobj_r1 = NULL;
     int r1=0;
@@ -70221,7 +70221,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategy' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> _self_ = *(self1);
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -70440,7 +70440,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> _self_ = *(self1);
     Napi::Value* jsobj_g = NULL;
     Ptr<SelectiveSearchSegmentationStrategy> g;
@@ -70466,7 +70466,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
 
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> * self1 = 0;
     if (!jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_getp(self, self1))
-        return failmsgp("Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple' or its derivative)");
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple' or its derivative)");
     Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> _self_ = *(self1);
 
     if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
