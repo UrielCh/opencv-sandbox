@@ -2,7 +2,7 @@
     "targets": [{
         "target_name": "cv2",
         "sources": [
-            "./cc/module.cc",
+            "./cc/module.cpp",
             "./cc/node/js_as_py.cpp",
             "./cc/node/cv2_util.cpp",
             "./cc/node/cv2_convert.cpp",
