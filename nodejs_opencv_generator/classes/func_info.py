@@ -75,7 +75,7 @@ class FuncInfo(object):
     def get_wrapper_prototype(self, codegen):
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
-            return "static int {fn_name}(pyopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
+            return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
                     fn_name=full_fname, type_name=codegen.classes[self.classname].name)
 
         if self.classname:
@@ -212,7 +212,7 @@ class FuncInfo(object):
 
                 parse_name = a.name
                 if a.py_inputarg and arg_type_info.strict_conversion:
-                    parse_name = "pyobj_" + a.full_name.replace('.', '_')
+                    parse_name = "jsobj_" + a.full_name.replace('.', '_')
                     code_decl += "    Napi::Value* %s = NULL;\n" % (parse_name,)
                     if a.tp == 'char':
                         code_cvt_list.append("convert_to_char(%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
@@ -322,7 +322,7 @@ class FuncInfo(object):
                     parse_arglist=", ".join(["&" + all_cargs[argno][1] for _, argno in v.py_arglist]),
                     code_cvt=" &&\n        ".join(code_cvt_list))
             else:
-                code_parse = "if (PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
+                code_parse = "if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
 
             if len(v.py_outlist) == 0:
                 code_ret = "Py_RETURN_NONE"
@@ -331,12 +331,12 @@ class FuncInfo(object):
                     code_ret = "return 0"
                 else:
                     aname, argno = v.py_outlist[0]
-                    code_ret = "return jsopencv_from(%s)" % (aname,)
+                    code_ret = "return jsopencv_from(info, %s)" % (aname,)
             else:
                 # there is more than 1 return parameter; form the tuple out of them
                 fmtspec = "N"*len(v.py_outlist)
                 code_ret = "return Js_BuildValue(info, \"(%s)\", %s)" % \
-                    (fmtspec, ", ".join(["jsopencv_from(" + aname + ")" for aname, argno in v.py_outlist]))
+                    (fmtspec, ", ".join(["jsopencv_from(info, " + aname + ")" for aname, argno in v.py_outlist]))
 
             all_code_variants.append(gen_template_func_body.substitute(code_decl=code_decl,
                 code_parse=code_parse, code_prelude=code_prelude, code_fcall=code_fcall, code_ret=code_ret))
@@ -347,7 +347,7 @@ class FuncInfo(object):
         else:
             # try to execute each signature, add an interlude between function
             # calls to collect error from all conversions
-            code += '    jsPrepareArgumentConversionErrorsStorage(info, {});\n'.format(len(all_code_variants))
+            code += '    jsPrepareArgumentConversionErrorsStorage({});\n'.format(len(all_code_variants))
             code += '    \n'.join(gen_template_overloaded_function_call.substitute(variant=v)
                                   for v in all_code_variants)
             code += '    jsRaiseCVOverloadException(info, "{}");\n'.format(self.name)
