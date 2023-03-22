@@ -956,7 +956,7 @@ static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -976,7 +976,7 @@ static Napi::Value pyopencv_cv_Algorithm_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "write");
 
@@ -1072,7 +1072,7 @@ static Napi::Value pyopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1098,7 +1098,7 @@ static Napi::Value pyopencv_cv_AlignExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -1184,7 +1184,7 @@ static Napi::Value pyopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1205,7 +1205,7 @@ static Napi::Value pyopencv_cv_AlignMTB_calculateShift(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "calculateShift");
 
@@ -1242,7 +1242,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1265,7 +1265,7 @@ static Napi::Value pyopencv_cv_AlignMTB_computeBitmaps(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "computeBitmaps");
 
@@ -1365,7 +1365,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1391,7 +1391,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1411,7 +1411,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1431,7 +1431,7 @@ static Napi::Value pyopencv_cv_AlignMTB_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -1537,7 +1537,7 @@ static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1560,7 +1560,7 @@ static Napi::Value pyopencv_cv_AlignMTB_shiftMat(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "shiftMat");
 
@@ -1666,7 +1666,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1683,7 +1683,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1704,7 +1704,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -1725,7 +1725,7 @@ static Napi::Value pyopencv_cv_AsyncArray_get(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "get");
 
@@ -2182,7 +2182,7 @@ static Napi::Value pyopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2200,7 +2200,7 @@ static Napi::Value pyopencv_cv_BOWKMeansTrainer_cluster(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "cluster");
 
@@ -2321,7 +2321,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2339,7 +2339,7 @@ static Napi::Value pyopencv_cv_BOWTrainer_cluster(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "cluster");
 
@@ -2467,7 +2467,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2497,7 +2497,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2533,7 +2533,7 @@ static Napi::Value pyopencv_cv_BRISK_create_static(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -2777,7 +2777,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2800,7 +2800,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_apply(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "apply");
 
@@ -2831,7 +2831,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -2848,7 +2848,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractor_getBackgroundImage(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getBackgroundImage");
 
@@ -3302,7 +3302,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -3325,7 +3325,7 @@ static Napi::Value pyopencv_cv_BackgroundSubtractorMOG2_apply(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "apply");
 
@@ -4000,7 +4000,7 @@ static Napi::Value pyopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4020,7 +4020,7 @@ static Napi::Value pyopencv_cv_CLAHE_apply(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "apply");
 
@@ -4218,7 +4218,7 @@ static Napi::Value pyopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4241,7 +4241,7 @@ static Napi::Value pyopencv_cv_CalibrateCRF_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -4661,7 +4661,7 @@ static int pyopencv_cv_CascadeClassifier_CascadeClassifier(pyopencv_CascadeClass
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4679,7 +4679,7 @@ static int pyopencv_cv_CascadeClassifier_CascadeClassifier(pyopencv_CascadeClass
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "CascadeClassifier");
 
@@ -4748,7 +4748,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4781,7 +4781,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectMultiScale");
 
@@ -4829,7 +4829,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4863,7 +4863,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale2(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectMultiScale2");
 
@@ -4915,7 +4915,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -4953,7 +4953,7 @@ static Napi::Value pyopencv_cv_CascadeClassifier_detectMultiScale3(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectMultiScale3");
 
@@ -6047,7 +6047,7 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6070,7 +6070,7 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6096,7 +6096,7 @@ static int pyopencv_cv_DMatch_DMatch(pyopencv_DMatch_t* self, PyObject* py_args,
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "DMatch");
 
@@ -6187,7 +6187,7 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6210,7 +6210,7 @@ static Napi::Value pyopencv_cv_DenseOpticalFlow_calc(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "calc");
 
@@ -6312,7 +6312,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6329,7 +6329,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_add(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "add");
 
@@ -6399,7 +6399,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6417,7 +6417,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -6521,7 +6521,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6551,7 +6551,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6578,7 +6578,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6605,7 +6605,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_knnMatch(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "knnMatch");
 
@@ -6643,7 +6643,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6667,7 +6667,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6688,7 +6688,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6709,7 +6709,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_match(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "match");
 
@@ -6753,7 +6753,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6783,7 +6783,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6810,7 +6810,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6837,7 +6837,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_radiusMatch(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "radiusMatch");
 
@@ -6868,7 +6868,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6885,7 +6885,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_read(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "read");
 
@@ -6935,7 +6935,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -6955,7 +6955,7 @@ static Napi::Value pyopencv_cv_DescriptorMatcher_write(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "write");
 
@@ -7093,7 +7093,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7114,7 +7114,7 @@ static Napi::Value pyopencv_cv_FaceDetectorYN_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -7383,7 +7383,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7406,7 +7406,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_alignCrop(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "alignCrop");
 
@@ -7468,7 +7468,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7488,7 +7488,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_feature(const Napi::CallbackInfo
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "feature");
 
@@ -7526,7 +7526,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -7550,7 +7550,7 @@ static Napi::Value pyopencv_cv_FaceRecognizerSF_match(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "match");
 
@@ -8324,7 +8324,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8347,7 +8347,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8370,7 +8370,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8393,7 +8393,7 @@ static Napi::Value pyopencv_cv_Feature2D_compute(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -8488,7 +8488,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8509,7 +8509,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8530,7 +8530,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8551,7 +8551,7 @@ static Napi::Value pyopencv_cv_Feature2D_detect(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -8592,7 +8592,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8619,7 +8619,7 @@ static Napi::Value pyopencv_cv_Feature2D_detectAndCompute(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectAndCompute");
 
@@ -8690,7 +8690,7 @@ static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8707,7 +8707,7 @@ static Napi::Value pyopencv_cv_Feature2D_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "read");
 
@@ -8738,7 +8738,7 @@ static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -8758,7 +8758,7 @@ static Napi::Value pyopencv_cv_Feature2D_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "write");
 
@@ -9289,7 +9289,7 @@ static int pyopencv_cv_FileStorage_FileStorage(pyopencv_FileStorage_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9313,7 +9313,7 @@ static int pyopencv_cv_FileStorage_FileStorage(pyopencv_FileStorage_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "FileStorage");
 
@@ -9570,7 +9570,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9590,7 +9590,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9610,7 +9610,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9630,7 +9630,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -9650,7 +9650,7 @@ static Napi::Value pyopencv_cv_FileStorage_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "write");
 
@@ -9991,7 +9991,7 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10008,7 +10008,7 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10025,7 +10025,7 @@ static int pyopencv_cv_GCompileArg_GCompileArg(pyopencv_GCompileArg_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GCompileArg");
 
@@ -10105,7 +10105,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10126,7 +10126,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10147,7 +10147,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10171,7 +10171,7 @@ static int pyopencv_cv_GComputation_GComputation(pyopencv_GComputation_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GComputation");
 
@@ -10233,7 +10233,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10251,7 +10251,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10272,7 +10272,7 @@ static Napi::Value pyopencv_cv_GComputation_compileStreaming(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compileStreaming");
 
@@ -10366,7 +10366,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create_static(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10402,7 +10402,7 @@ static Napi::Value pyopencv_cv_GFTTDetector_create_static(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -10902,7 +10902,7 @@ static Napi::Value pyopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -10923,7 +10923,7 @@ static Napi::Value pyopencv_cv_GInferInputs_setInput(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setInput");
 
@@ -11023,7 +11023,7 @@ static Napi::Value pyopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11044,7 +11044,7 @@ static Napi::Value pyopencv_cv_GInferListInputs_setInput(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setInput");
 
@@ -11447,7 +11447,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11467,7 +11467,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11487,7 +11487,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11500,7 +11500,7 @@ static int pyopencv_cv_GMatDesc_GMatDesc(pyopencv_GMatDesc_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GMatDesc");
 
@@ -11548,7 +11548,7 @@ static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11566,7 +11566,7 @@ static Napi::Value pyopencv_cv_GMatDesc_asPlanar(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "asPlanar");
 
@@ -11646,7 +11646,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11667,7 +11667,7 @@ static Napi::Value pyopencv_cv_GMatDesc_withSizeDelta(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "withSizeDelta");
 
@@ -11916,7 +11916,7 @@ static int pyopencv_cv_GScalar_GScalar(pyopencv_GScalar_t* self, PyObject* py_ar
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -11933,7 +11933,7 @@ static int pyopencv_cv_GScalar_GScalar(pyopencv_GScalar_t* self, PyObject* py_ar
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GScalar");
 
@@ -12240,7 +12240,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12263,7 +12263,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12292,7 +12292,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12321,7 +12321,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_detect(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -12570,7 +12570,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12590,7 +12590,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12616,7 +12616,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -12642,7 +12642,7 @@ static Napi::Value pyopencv_cv_GeneralizedHough_setTemplate(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setTemplate");
 
@@ -13522,7 +13522,7 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13573,7 +13573,7 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13591,7 +13591,7 @@ static int pyopencv_cv_HOGDescriptor_HOGDescriptor(pyopencv_HOGDescriptor_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "HOGDescriptor");
 
@@ -13652,7 +13652,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13679,7 +13679,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -13722,7 +13722,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13751,7 +13751,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_computeGradient(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "computeGradient");
 
@@ -13796,7 +13796,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13827,7 +13827,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detect(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -13878,7 +13878,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -13915,7 +13915,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_detectMultiScale(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectMultiScale");
 
@@ -14069,7 +14069,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14086,7 +14086,7 @@ static Napi::Value pyopencv_cv_HOGDescriptor_setSVMDetector(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setSVMDetector");
 
@@ -14710,7 +14710,7 @@ static int pyopencv_cv_KalmanFilter_KalmanFilter(pyopencv_KalmanFilter_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14737,7 +14737,7 @@ static int pyopencv_cv_KalmanFilter_KalmanFilter(pyopencv_KalmanFilter_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "KalmanFilter");
 
@@ -14959,7 +14959,7 @@ static int pyopencv_cv_KeyPoint_KeyPoint(pyopencv_KeyPoint_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -14994,7 +14994,7 @@ static int pyopencv_cv_KeyPoint_KeyPoint(pyopencv_KeyPoint_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "KeyPoint");
 
@@ -15024,7 +15024,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert_static(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15054,7 +15054,7 @@ static Napi::Value pyopencv_cv_KeyPoint_convert_static(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "convert");
 
@@ -15175,7 +15175,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15202,7 +15202,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_compareSegments(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compareSegments");
 
@@ -15245,7 +15245,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15274,7 +15274,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_detect(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -15308,7 +15308,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15328,7 +15328,7 @@ static Napi::Value pyopencv_cv_LineSegmentDetector_drawSegments(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "drawSegments");
 
@@ -15457,7 +15457,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -15476,7 +15476,7 @@ static Napi::Value pyopencv_cv_MSER_detectRegions(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectRegions");
 
@@ -16039,7 +16039,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16065,7 +16065,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16088,7 +16088,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16111,7 +16111,7 @@ static Napi::Value pyopencv_cv_MergeDebevec_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -16202,7 +16202,7 @@ static Napi::Value pyopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16228,7 +16228,7 @@ static Napi::Value pyopencv_cv_MergeExposures_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -16379,7 +16379,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16405,7 +16405,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16425,7 +16425,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16445,7 +16445,7 @@ static Napi::Value pyopencv_cv_MergeMertens_process(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -16611,7 +16611,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16637,7 +16637,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16660,7 +16660,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -16683,7 +16683,7 @@ static Napi::Value pyopencv_cv_MergeRobertson_process(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -17488,7 +17488,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17512,7 +17512,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decode(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "decode");
 
@@ -17550,7 +17550,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17574,7 +17574,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeCurved(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "decodeCurved");
 
@@ -17613,7 +17613,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17638,7 +17638,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_decodeMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "decodeMulti");
 
@@ -17673,7 +17673,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17694,7 +17694,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detect(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -17732,7 +17732,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17756,7 +17756,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecode(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectAndDecode");
 
@@ -17794,7 +17794,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17818,7 +17818,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeCurved(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectAndDecodeCurved");
 
@@ -17857,7 +17857,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17882,7 +17882,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectAndDecodeMulti(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectAndDecodeMulti");
 
@@ -17917,7 +17917,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -17938,7 +17938,7 @@ static Napi::Value pyopencv_cv_QRCodeDetector_detectMulti(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectMulti");
 
@@ -18121,7 +18121,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18141,7 +18141,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encode(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "encode");
 
@@ -18175,7 +18175,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18195,7 +18195,7 @@ static Napi::Value pyopencv_cv_QRCodeEncoder_encodeStructuredAppend(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "encodeStructuredAppend");
 
@@ -18415,7 +18415,7 @@ static Napi::Value pyopencv_cv_SIFT_create_static(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -18448,7 +18448,7 @@ static Napi::Value pyopencv_cv_SIFT_create_static(const Napi::CallbackInfo &info
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -19332,7 +19332,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -19364,7 +19364,7 @@ static Napi::Value pyopencv_cv_SparseOpticalFlow_calc(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "calc");
 
@@ -20192,7 +20192,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20215,7 +20215,7 @@ static Napi::Value pyopencv_cv_StereoMatcher_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -20884,7 +20884,7 @@ static int pyopencv_cv_Subdiv2D_Subdiv2D(pyopencv_Subdiv2D_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -20902,7 +20902,7 @@ static int pyopencv_cv_Subdiv2D_Subdiv2D(pyopencv_Subdiv2D_t* self, PyObject* py
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Subdiv2D");
 
@@ -21169,7 +21169,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21186,7 +21186,7 @@ static Napi::Value pyopencv_cv_Subdiv2D_insert(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "insert");
 
@@ -21699,7 +21699,7 @@ static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -21719,7 +21719,7 @@ static Napi::Value pyopencv_cv_Tonemap_process(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -22294,7 +22294,7 @@ static Napi::Value pyopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22314,7 +22314,7 @@ static Napi::Value pyopencv_cv_Tracker_init(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "init");
 
@@ -22347,7 +22347,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22366,7 +22366,7 @@ static Napi::Value pyopencv_cv_Tracker_update(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "update");
 
@@ -22468,7 +22468,7 @@ static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -22485,7 +22485,7 @@ static Napi::Value pyopencv_cv_TrackerCSRT_setInitialMask(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setInitialMask");
 
@@ -24299,7 +24299,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24326,7 +24326,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24350,7 +24350,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24380,7 +24380,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24407,7 +24407,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24425,7 +24425,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24449,7 +24449,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24470,7 +24470,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24491,7 +24491,7 @@ static int pyopencv_cv_UMat_UMat(pyopencv_UMat_t* self, PyObject* py_args, PyObj
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "UMat");
 
@@ -24950,7 +24950,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -24976,7 +24976,7 @@ static Napi::Value pyopencv_cv_VariationalRefinement_calcUV(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "calcUV");
 
@@ -25336,7 +25336,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25357,7 +25357,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25381,7 +25381,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25402,7 +25402,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25426,7 +25426,7 @@ static int pyopencv_cv_VideoCapture_VideoCapture(pyopencv_VideoCapture_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "VideoCapture");
 
@@ -25565,7 +25565,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25589,7 +25589,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25610,7 +25610,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25634,7 +25634,7 @@ static Napi::Value pyopencv_cv_VideoCapture_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "open");
 
@@ -25666,7 +25666,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25684,7 +25684,7 @@ static Napi::Value pyopencv_cv_VideoCapture_read(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "read");
 
@@ -25738,7 +25738,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25759,7 +25759,7 @@ static Napi::Value pyopencv_cv_VideoCapture_retrieve(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "retrieve");
 
@@ -25917,7 +25917,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25947,7 +25947,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -25980,7 +25980,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26010,7 +26010,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26043,7 +26043,7 @@ static int pyopencv_cv_VideoWriter_VideoWriter(pyopencv_VideoWriter_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "VideoWriter");
 
@@ -26179,7 +26179,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26212,7 +26212,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26242,7 +26242,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26275,7 +26275,7 @@ static Napi::Value pyopencv_cv_VideoWriter_open(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "open");
 
@@ -26352,7 +26352,7 @@ static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26369,7 +26369,7 @@ static Napi::Value pyopencv_cv_VideoWriter_write(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "write");
 
@@ -26492,7 +26492,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26518,7 +26518,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectMarkers");
 
@@ -26653,7 +26653,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26691,7 +26691,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_ArucoDetector_refineDetectedMarkers(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "refineDetectedMarkers");
 
@@ -26878,7 +26878,7 @@ static int pyopencv_cv_aruco_aruco_Board_Board(pyopencv_aruco_Board_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26901,7 +26901,7 @@ static int pyopencv_cv_aruco_aruco_Board_Board(pyopencv_aruco_Board_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Board");
 
@@ -26941,7 +26941,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -26967,7 +26967,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_generateImage(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "generateImage");
 
@@ -27087,7 +27087,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27113,7 +27113,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Board_matchImagePoints(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "matchImagePoints");
 
@@ -27207,7 +27207,7 @@ static int pyopencv_cv_aruco_aruco_CharucoBoard_CharucoBoard(pyopencv_aruco_Char
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27236,7 +27236,7 @@ static int pyopencv_cv_aruco_aruco_CharucoBoard_CharucoBoard(pyopencv_aruco_Char
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "CharucoBoard");
 
@@ -27268,7 +27268,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27286,7 +27286,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersColli
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "checkCharucoCornersCollinear");
 
@@ -27492,7 +27492,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27521,7 +27521,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectBoard");
 
@@ -27564,7 +27564,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -27593,7 +27593,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectDiamonds");
 
@@ -28635,7 +28635,7 @@ static int pyopencv_cv_aruco_aruco_Dictionary_Dictionary(pyopencv_aruco_Dictiona
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28658,7 +28658,7 @@ static int pyopencv_cv_aruco_aruco_Dictionary_Dictionary(pyopencv_aruco_Dictiona
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Dictionary");
 
@@ -28698,7 +28698,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28724,7 +28724,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "generateImageMarker");
 
@@ -28803,7 +28803,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -28827,7 +28827,7 @@ static Napi::Value pyopencv_cv_aruco_aruco_Dictionary_getDistanceToId(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getDistanceToId");
 
@@ -29004,7 +29004,7 @@ static int pyopencv_cv_aruco_aruco_GridBoard_GridBoard(pyopencv_aruco_GridBoard_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29033,7 +29033,7 @@ static int pyopencv_cv_aruco_aruco_GridBoard_GridBoard(pyopencv_aruco_GridBoard_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GridBoard");
 
@@ -29380,7 +29380,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29403,7 +29403,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_decode(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "decode");
 
@@ -29438,7 +29438,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29459,7 +29459,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detect(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -29496,7 +29496,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29519,7 +29519,7 @@ static Napi::Value pyopencv_cv_barcode_barcode_BarcodeDetector_detectAndDecode(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectAndDecode");
 
@@ -29602,7 +29602,7 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29626,7 +29626,7 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -29653,7 +29653,7 @@ static int pyopencv_cv_ccm_ccm_ColorCorrectionModel_ColorCorrectionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "ColorCorrectionModel");
 
@@ -30245,7 +30245,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30266,7 +30266,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_BufferPool_getBuffer(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getBuffer");
 
@@ -30341,7 +30341,7 @@ static int pyopencv_cv_cuda_cuda_DeviceInfo_DeviceInfo(pyopencv_cuda_DeviceInfo_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -30359,7 +30359,7 @@ static int pyopencv_cv_cuda_cuda_DeviceInfo_DeviceInfo(pyopencv_cuda_DeviceInfo_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "DeviceInfo");
 
@@ -31830,7 +31830,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31857,7 +31857,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31881,7 +31881,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31911,7 +31911,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31938,7 +31938,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31956,7 +31956,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -31980,7 +31980,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32001,7 +32001,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32022,7 +32022,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32043,7 +32043,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32064,7 +32064,7 @@ static int pyopencv_cv_cuda_cuda_GpuMat_GpuMat(pyopencv_cuda_GpuMat_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GpuMat");
 
@@ -32222,7 +32222,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32240,7 +32240,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_colRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "colRange");
 
@@ -32274,7 +32274,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32294,7 +32294,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32314,7 +32314,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32337,7 +32337,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32360,7 +32360,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32383,7 +32383,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32409,7 +32409,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32435,7 +32435,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32461,7 +32461,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32487,7 +32487,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32513,7 +32513,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32539,7 +32539,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32568,7 +32568,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32597,7 +32597,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32626,7 +32626,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_convertTo(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "convertTo");
 
@@ -32657,7 +32657,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32674,7 +32674,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32691,7 +32691,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32711,7 +32711,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32731,7 +32731,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32751,7 +32751,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32771,7 +32771,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32791,7 +32791,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32811,7 +32811,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32834,7 +32834,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32857,7 +32857,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32880,7 +32880,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_copyTo(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "copyTo");
 
@@ -32917,7 +32917,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -32937,7 +32937,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_create(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -33023,7 +33023,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33040,7 +33040,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33057,7 +33057,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33077,7 +33077,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33097,7 +33097,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33117,7 +33117,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_download(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "download");
 
@@ -33328,7 +33328,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33346,7 +33346,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_rowRange(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "rowRange");
 
@@ -33396,7 +33396,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33417,7 +33417,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33438,7 +33438,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33459,7 +33459,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33480,7 +33480,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33504,7 +33504,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33528,7 +33528,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33552,7 +33552,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_setTo(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setTo");
 
@@ -33685,7 +33685,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33702,7 +33702,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33719,7 +33719,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33739,7 +33739,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33759,7 +33759,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -33779,7 +33779,7 @@ static Napi::Value pyopencv_cv_cuda_cuda_GpuMat_upload(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "upload");
 
@@ -33992,7 +33992,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34019,7 +34019,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34043,7 +34043,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34064,7 +34064,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34085,7 +34085,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34106,7 +34106,7 @@ static int pyopencv_cv_cuda_cuda_HostMem_HostMem(pyopencv_cuda_HostMem_t* self, 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "HostMem");
 
@@ -34747,7 +34747,7 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34765,7 +34765,7 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -34783,7 +34783,7 @@ static int pyopencv_cv_cuda_cuda_Stream_Stream(pyopencv_cuda_Stream_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Stream");
 
@@ -35175,7 +35175,7 @@ static int pyopencv_cv_dnn_dnn_ClassificationModel_ClassificationModel(pyopencv_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35192,7 +35192,7 @@ static int pyopencv_cv_dnn_dnn_ClassificationModel_ClassificationModel(pyopencv_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "ClassificationModel");
 
@@ -35225,7 +35225,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35244,7 +35244,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_ClassificationModel_classify(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "classify");
 
@@ -35370,7 +35370,7 @@ static int pyopencv_cv_dnn_dnn_DetectionModel_DetectionModel(pyopencv_dnn_Detect
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35387,7 +35387,7 @@ static int pyopencv_cv_dnn_dnn_DetectionModel_DetectionModel(pyopencv_dnn_Detect
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "DetectionModel");
 
@@ -35427,7 +35427,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35453,7 +35453,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_DetectionModel_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -35577,7 +35577,7 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35595,7 +35595,7 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35613,7 +35613,7 @@ static int pyopencv_cv_dnn_dnn_DictValue_DictValue(pyopencv_dnn_DictValue_t* sel
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "DictValue");
 
@@ -35830,7 +35830,7 @@ static int pyopencv_cv_dnn_dnn_KeypointsModel_KeypointsModel(pyopencv_dnn_Keypoi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35847,7 +35847,7 @@ static int pyopencv_cv_dnn_dnn_KeypointsModel_KeypointsModel(pyopencv_dnn_Keypoi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "KeypointsModel");
 
@@ -35882,7 +35882,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -35903,7 +35903,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_KeypointsModel_estimate(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "estimate");
 
@@ -36036,7 +36036,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36056,7 +36056,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Layer_finalize(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "finalize");
 
@@ -36195,7 +36195,7 @@ static int pyopencv_cv_dnn_dnn_Model_Model(pyopencv_dnn_Model_t* self, PyObject*
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36212,7 +36212,7 @@ static int pyopencv_cv_dnn_dnn_Model_Model(pyopencv_dnn_Model_t* self, PyObject*
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Model");
 
@@ -36246,7 +36246,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36266,7 +36266,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_predict(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict");
 
@@ -36405,7 +36405,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36426,7 +36426,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Model_setInputSize(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setInputSize");
 
@@ -36738,7 +36738,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36758,7 +36758,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36778,7 +36778,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36798,7 +36798,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36818,7 +36818,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_forward(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "forward");
 
@@ -36898,7 +36898,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36916,7 +36916,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36937,7 +36937,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -36958,7 +36958,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getFLOPS(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getFLOPS");
 
@@ -37011,7 +37011,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37029,7 +37029,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37047,7 +37047,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayer(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLayer");
 
@@ -37169,7 +37169,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37189,7 +37189,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getLayersShapes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLayersShapes");
 
@@ -37222,7 +37222,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37244,7 +37244,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37266,7 +37266,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getMemoryConsumption(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getMemoryConsumption");
 
@@ -37322,7 +37322,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37343,7 +37343,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_getParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getParam");
 
@@ -37445,7 +37445,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37472,7 +37472,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_quantize(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "quantize");
 
@@ -37502,7 +37502,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37523,7 +37523,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_readFromModelOptimizer_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "readFromModelOptimizer");
 
@@ -37586,7 +37586,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37612,7 +37612,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setInput(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setInput");
 
@@ -37698,7 +37698,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37721,7 +37721,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_Net_setParam(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setParam");
 
@@ -37878,7 +37878,7 @@ static int pyopencv_cv_dnn_dnn_SegmentationModel_SegmentationModel(pyopencv_dnn_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37895,7 +37895,7 @@ static int pyopencv_cv_dnn_dnn_SegmentationModel_SegmentationModel(pyopencv_dnn_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "SegmentationModel");
 
@@ -37929,7 +37929,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -37949,7 +37949,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_SegmentationModel_segment(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "segment");
 
@@ -38033,7 +38033,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38052,7 +38052,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38070,7 +38070,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38088,7 +38088,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detect(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -38121,7 +38121,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38140,7 +38140,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38158,7 +38158,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38176,7 +38176,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectTextRectangles");
 
@@ -38254,7 +38254,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_DB_TextDetectionModel_DB(pyope
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38274,7 +38274,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_DB_TextDetectionModel_DB(pyope
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "TextDetectionModel_DB");
 
@@ -38534,7 +38534,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_TextDetectionModel_EAST(p
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38554,7 +38554,7 @@ static int pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_TextDetectionModel_EAST(p
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "TextDetectionModel_EAST");
 
@@ -38722,7 +38722,7 @@ static int pyopencv_cv_dnn_dnn_TextRecognitionModel_TextRecognitionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38742,7 +38742,7 @@ static int pyopencv_cv_dnn_dnn_TextRecognitionModel_TextRecognitionModel(pyopenc
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "TextRecognitionModel");
 
@@ -38814,7 +38814,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38832,7 +38832,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38853,7 +38853,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -38874,7 +38874,7 @@ static Napi::Value pyopencv_cv_dnn_dnn_TextRecognitionModel_recognize(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "recognize");
 
@@ -39189,7 +39189,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39209,7 +39209,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "upsample");
 
@@ -39249,7 +39249,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39275,7 +39275,7 @@ static Napi::Value pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_upsampl
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "upsampleMultioutput");
 
@@ -39368,7 +39368,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39388,7 +39388,7 @@ static Napi::Value pyopencv_cv_face_face_BIF_compute(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -39903,7 +39903,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39922,7 +39922,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict");
 
@@ -39956,7 +39956,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -39976,7 +39976,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_collect(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict_collect");
 
@@ -40008,7 +40008,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40026,7 +40026,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_predict_label(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict_label");
 
@@ -40109,7 +40109,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40129,7 +40129,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_train(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "train");
 
@@ -40163,7 +40163,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40183,7 +40183,7 @@ static Napi::Value pyopencv_cv_face_face_FaceRecognizer_update(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "update");
 
@@ -40304,7 +40304,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -40328,7 +40328,7 @@ static Napi::Value pyopencv_cv_face_face_Facemark_fit(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "fit");
 
@@ -41121,7 +41121,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41139,7 +41139,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_same(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "same");
 
@@ -41170,7 +41170,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41187,7 +41187,7 @@ static Napi::Value pyopencv_cv_face_face_MACE_train(const Napi::CallbackInfo &in
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "train");
 
@@ -41452,7 +41452,7 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41476,7 +41476,7 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41500,7 +41500,7 @@ static int pyopencv_cv_flann_flann_Index_Index(pyopencv_flann_Index_t* self, PyO
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Index");
 
@@ -41537,7 +41537,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41560,7 +41560,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_build(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "build");
 
@@ -41643,7 +41643,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41672,7 +41672,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_knnSearch(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "knnSearch");
 
@@ -41707,7 +41707,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41728,7 +41728,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_load(const Napi::CallbackInfo &
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "load");
 
@@ -41775,7 +41775,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41808,7 +41808,7 @@ static Napi::Value pyopencv_cv_flann_flann_Index_radiusSearch(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "radiusSearch");
 
@@ -41930,7 +41930,7 @@ static int pyopencv_cv_gapi_gapi_GNetPackage_GNetPackage(pyopencv_gapi_GNetPacka
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -41947,7 +41947,7 @@ static int pyopencv_cv_gapi_gapi_GNetPackage_GNetPackage(pyopencv_gapi_GNetPacka
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "GNetPackage");
 
@@ -42069,7 +42069,7 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42095,7 +42095,7 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42118,7 +42118,7 @@ static int pyopencv_cv_gapi_ie_gapi_ie_PyParams_PyParams(pyopencv_gapi_ie_PyPara
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "PyParams");
 
@@ -42271,7 +42271,7 @@ static int pyopencv_cv_gapi_onnx_gapi_onnx_PyParams_PyParams(pyopencv_gapi_onnx_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42291,7 +42291,7 @@ static int pyopencv_cv_gapi_onnx_gapi_onnx_PyParams_PyParams(pyopencv_gapi_onnx_
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "PyParams");
 
@@ -42748,7 +42748,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Circle_Circle(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42761,7 +42761,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Circle_Circle(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Circle");
 
@@ -42894,7 +42894,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Image_Image(pyopencv_gapi_wip
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -42907,7 +42907,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Image_Image(pyopencv_gapi_wip
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Image");
 
@@ -43091,7 +43091,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Line_Line(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43104,7 +43104,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Line_Line(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Line");
 
@@ -43227,7 +43227,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Mosaic_Mosaic(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43250,7 +43250,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Mosaic_Mosaic(pyopencv_gapi_w
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Mosaic");
 
@@ -43416,7 +43416,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Poly_Poly(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43429,7 +43429,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Poly_Poly(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Poly");
 
@@ -43581,7 +43581,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Rect_Rect(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43610,7 +43610,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Rect_Rect(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Rect");
 
@@ -43832,7 +43832,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Text_Text(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -43845,7 +43845,7 @@ static int pyopencv_cv_gapi_wip_draw_gapi_wip_draw_Text_Text(pyopencv_gapi_wip_d
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "Text");
 
@@ -44254,7 +44254,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44275,7 +44275,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compare(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compare");
 
@@ -44309,7 +44309,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44329,7 +44329,7 @@ static Napi::Value pyopencv_cv_img_hash_img_hash_ImgHashBase_compute(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -44805,7 +44805,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44829,7 +44829,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_add(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "add");
 
@@ -44897,7 +44897,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -44916,7 +44916,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_MultiTracker_update(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "update");
 
@@ -45005,7 +45005,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -45026,7 +45026,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_init(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "init");
 
@@ -45059,7 +45059,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -45078,7 +45078,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_Tracker_update(const Napi::Callback
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "update");
 
@@ -45242,7 +45242,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -45259,7 +45259,7 @@ static Napi::Value pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setInitialMask");
 
@@ -46076,7 +46076,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -46106,7 +46106,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_process(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "process");
 
@@ -46153,7 +46153,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -46186,7 +46186,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDetector_processWithROI(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "processWithROI");
 
@@ -46322,7 +46322,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -46339,7 +46339,7 @@ static Napi::Value pyopencv_cv_mcc_mcc_CCheckerDraw_draw(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "draw");
 
@@ -47281,7 +47281,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -47298,7 +47298,7 @@ static Napi::Value pyopencv_cv_ml_ml_ANN_MLP_setLayerSizes(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setLayerSizes");
 
@@ -48463,7 +48463,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48487,7 +48487,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict");
 
@@ -48522,7 +48522,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48543,7 +48543,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_predict2(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict2");
 
@@ -48662,7 +48662,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48698,7 +48698,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainE(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "trainE");
 
@@ -48739,7 +48739,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48766,7 +48766,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainEM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "trainEM");
 
@@ -48810,7 +48810,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48840,7 +48840,7 @@ static Napi::Value pyopencv_cv_ml_ml_EM_trainM(const Napi::CallbackInfo &info)
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "trainM");
 
@@ -48965,7 +48965,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -48995,7 +48995,7 @@ static Napi::Value pyopencv_cv_ml_ml_KNearest_findNearest(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "findNearest");
 
@@ -49462,7 +49462,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -49486,7 +49486,7 @@ static Napi::Value pyopencv_cv_ml_ml_LogisticRegression_predict(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict");
 
@@ -49768,7 +49768,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -49795,7 +49795,7 @@ static Napi::Value pyopencv_cv_ml_ml_NormalBayesClassifier_predictProb(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predictProb");
 
@@ -50124,7 +50124,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -50147,7 +50147,7 @@ static Napi::Value pyopencv_cv_ml_ml_RTrees_getVotes(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getVotes");
 
@@ -50412,7 +50412,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -50436,7 +50436,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_getDecisionFunction(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getDecisionFunction");
 
@@ -50946,7 +50946,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -50994,7 +50994,7 @@ static Napi::Value pyopencv_cv_ml_ml_SVM_trainAuto(const Napi::CallbackInfo &inf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "trainAuto");
 
@@ -51537,7 +51537,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51561,7 +51561,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_calcError(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "calcError");
 
@@ -51679,7 +51679,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51703,7 +51703,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_predict(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "predict");
 
@@ -51738,7 +51738,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51762,7 +51762,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51786,7 +51786,7 @@ static Napi::Value pyopencv_cv_ml_ml_StatModel_train(const Napi::CallbackInfo &i
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "train");
 
@@ -51888,7 +51888,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_create_static(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -51924,7 +51924,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_create_static(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -52288,7 +52288,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -52311,7 +52311,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getSample(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getSample");
 
@@ -52645,7 +52645,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -52668,7 +52668,7 @@ static Napi::Value pyopencv_cv_ml_ml_TrainData_getValues(const Napi::CallbackInf
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getValues");
 
@@ -54519,7 +54519,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54537,7 +54537,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54558,7 +54558,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54579,7 +54579,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_create_static(const Napi::Callba
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -54610,7 +54610,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -54627,7 +54627,7 @@ static Napi::Value pyopencv_cv_plot_plot_Plot2d_render(const Napi::CallbackInfo 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "render");
 
@@ -55122,7 +55122,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55140,7 +55140,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55164,7 +55164,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55188,7 +55188,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_compute(const Napi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -55217,7 +55217,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_st
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55237,7 +55237,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_st
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "computeFeatures");
 
@@ -55267,7 +55267,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55288,7 +55288,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBRISQUE_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -55392,7 +55392,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55410,7 +55410,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -55461,7 +55461,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55478,7 +55478,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityBase_getQualityMap(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getQualityMap");
 
@@ -55583,7 +55583,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55601,7 +55601,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55625,7 +55625,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55649,7 +55649,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -55676,7 +55676,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55694,7 +55694,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityGMSD_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -55819,7 +55819,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55837,7 +55837,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55861,7 +55861,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55885,7 +55885,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_compute(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -55912,7 +55912,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -55930,7 +55930,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityMSE_create_static(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -56055,7 +56055,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56073,7 +56073,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56100,7 +56100,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56127,7 +56127,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -56157,7 +56157,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56178,7 +56178,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualityPSNR_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -56348,7 +56348,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56366,7 +56366,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56390,7 +56390,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56414,7 +56414,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_compute(const Napi::C
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -56441,7 +56441,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56459,7 +56459,7 @@ static Napi::Value pyopencv_cv_quality_quality_QualitySSIM_create_static(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -56569,7 +56569,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_GOSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56596,7 +56596,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_GOSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -56683,7 +56683,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_OLSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56710,7 +56710,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_OLSTracker_create_static(const Napi::
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -56791,7 +56791,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Rapid_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56812,7 +56812,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Rapid_create_static(const Napi::Callb
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -56932,7 +56932,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -56968,7 +56968,7 @@ static Napi::Value pyopencv_cv_rapid_rapid_Tracker_compute(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "compute");
 
@@ -57066,7 +57066,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57084,7 +57084,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "applyImage");
 
@@ -57125,7 +57125,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57152,7 +57152,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_a
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "applyImageFeatures");
 
@@ -57212,7 +57212,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57235,7 +57235,7 @@ static Napi::Value pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_g
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getContour");
 
@@ -57596,7 +57596,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57629,7 +57629,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -57667,7 +57667,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57691,7 +57691,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57718,7 +57718,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57745,7 +57745,7 @@ static Napi::Value pyopencv_cv_text_text_OCRBeamSearchDecoder_run(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "run");
 
@@ -57886,7 +57886,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57916,7 +57916,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57949,7 +57949,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -57982,7 +57982,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_create_static(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -58020,7 +58020,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58044,7 +58044,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58071,7 +58071,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58098,7 +58098,7 @@ static Napi::Value pyopencv_cv_text_text_OCRHMMDecoder_run(const Napi::CallbackI
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "run");
 
@@ -58263,7 +58263,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58287,7 +58287,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58314,7 +58314,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58341,7 +58341,7 @@ static Napi::Value pyopencv_cv_text_text_OCRTesseract_run(const Napi::CallbackIn
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "run");
 
@@ -58450,7 +58450,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58469,7 +58469,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetector_detect(const Napi::Callbac
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -58575,7 +58575,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -58594,7 +58594,7 @@ static Napi::Value pyopencv_cv_text_text_TextDetectorCNN_detect(const Napi::Call
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -59578,7 +59578,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static(const
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -59617,7 +59617,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static(const
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -59828,7 +59828,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -59845,7 +59845,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_setH(const Napi::Ca
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setH");
 
@@ -61703,7 +61703,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61723,7 +61723,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSign
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "computeSignature");
 
@@ -61782,7 +61782,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61803,7 +61803,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61824,7 +61824,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_create_stat
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "create");
 
@@ -61862,7 +61862,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignatu
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -61891,7 +61891,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_drawSignatu
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "drawSignature");
 
@@ -62914,7 +62914,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -62935,7 +62935,7 @@ static Napi::Value pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_compute
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "computeQuadraticFormDistance");
 
@@ -64453,7 +64453,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64476,7 +64476,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_filter(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "filter");
 
@@ -64570,7 +64570,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64597,7 +64597,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransfor
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "estimateTransformation");
 
@@ -64775,7 +64775,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64798,7 +64798,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DTFilter_filter(const Napi::Cal
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "filter");
 
@@ -64895,7 +64895,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -64927,7 +64927,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter(const Na
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "filter");
 
@@ -65672,7 +65672,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -65696,7 +65696,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBoundingBoxes(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getBoundingBoxes");
 
@@ -66278,7 +66278,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66295,7 +66295,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectEdges");
 
@@ -66326,7 +66326,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66343,7 +66343,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses(cons
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectEllipses");
 
@@ -66374,7 +66374,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66391,7 +66391,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectLines(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectLines");
 
@@ -66422,7 +66422,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66439,7 +66439,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getEdgeImage(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getEdgeImage");
 
@@ -66470,7 +66470,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66487,7 +66487,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_getGradientImage(co
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getGradientImage");
 
@@ -66917,7 +66917,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -66940,7 +66940,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filte
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "filter");
 
@@ -67025,7 +67025,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67045,7 +67045,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "filter");
 
@@ -67130,7 +67130,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67150,7 +67150,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detect");
 
@@ -67193,7 +67193,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67222,7 +67222,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments(c
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "drawSegments");
 
@@ -67311,7 +67311,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -67334,7 +67334,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "filter");
 
@@ -68210,7 +68210,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68230,7 +68230,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFi
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getRidgeFilteredImage");
 
@@ -68316,7 +68316,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68336,7 +68336,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabelContourMask");
 
@@ -68367,7 +68367,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68384,7 +68384,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels(const Nap
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabels");
 
@@ -68435,7 +68435,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68452,7 +68452,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_ScanSegment_iterate(const Napi:
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "iterate");
 
@@ -68549,7 +68549,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68578,7 +68578,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpo
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "interpolate");
 
@@ -68663,7 +68663,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68683,7 +68683,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_compute
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "computeOrientation");
 
@@ -68717,7 +68717,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68737,7 +68737,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectE
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "detectEdges");
 
@@ -68786,7 +68786,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68821,7 +68821,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_edgesNm
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "edgesNms");
 
@@ -68931,7 +68931,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68951,7 +68951,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMa
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabelContourMask");
 
@@ -68982,7 +68982,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -68999,7 +68999,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabels(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabels");
 
@@ -69131,7 +69131,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69151,7 +69151,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContour
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabelContourMask");
 
@@ -69182,7 +69182,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69199,7 +69199,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels(const
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabels");
 
@@ -69253,7 +69253,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69273,7 +69273,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_iterate(const N
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "iterate");
 
@@ -69384,7 +69384,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69404,7 +69404,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourM
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabelContourMask");
 
@@ -69435,7 +69435,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69452,7 +69452,7 @@ static Napi::Value pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabels(const 
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "getLabels");
 
@@ -69644,7 +69644,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69664,7 +69664,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Graph
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "processImage");
 
@@ -69844,7 +69844,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -69861,7 +69861,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "addImage");
 
@@ -69992,7 +69992,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -70009,7 +70009,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setBaseImage");
 
@@ -70247,7 +70247,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     
 
@@ -70273,7 +70273,7 @@ static Napi::Value pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_Selec
     }
 
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "setImage");
 

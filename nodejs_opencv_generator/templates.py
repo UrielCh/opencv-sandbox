@@ -161,6 +161,6 @@ gen_template_overloaded_function_call = Template("""
     {
 ${variant}
 
-        pyPopulateArgumentConversionErrors(info);
+        jsPopulateArgumentConversionErrors(info);
     }
 """)

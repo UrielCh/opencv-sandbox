@@ -29,15 +29,15 @@ doc: https://docs.conda.io/projects/conda/en/4.6.0/user-guide/tasks/manage-envir
 # list availible env:
 conda info --envs
 # list package in the dedicate env:
+conda create --name opencv-sandbox python=3.7
 conda list -n opencv-sandbox
-conda create --file environment.yml python=3.7
 conda activate opencv-sandbox
 ```
 
 ### Install the python package locally
 
 ```bash
-pip install .
+pip install -e .
 ```
 
 ### Prepare the headers
