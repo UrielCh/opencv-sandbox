@@ -9,9 +9,10 @@ int failmsg(const Napi::CallbackInfo& info, const char* format, ...);
 Napi::Value failmsgp(const Napi::CallbackInfo& info, const char *format, ...);
 
 void pyRaiseCVOverloadException(const std::string& functionName);
+// global Error object
+extern Napi::Value* opencv_error;
 
 void pyPopulateArgumentConversionErrors();
-
 
 #define ERRWRAP2_NAPI(info, expr)                                              \
     try                                                                         \

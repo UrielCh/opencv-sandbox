@@ -2,6 +2,9 @@
 #include <napi.h>
 #include <opencv2/opencv.hpp>
 
+// global Error object
+Napi::Value* opencv_error = NULL;
+
 /**
  * @brief Throws an exception exception-object
  */
