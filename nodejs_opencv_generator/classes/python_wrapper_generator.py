@@ -36,24 +36,24 @@ class PythonWrapperGenerator(object):
         self.class_idx = 0
         
         self.code_funcs.write("#include <napi.h>\n")
-        self.code_funcs.write("#include <../parse.hh>\n")
+        self.code_funcs.write("#include <../node/js_as_py.hpp>\n")
         self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
         self.code_funcs.write("#include <opencv2/opencv.hpp>\n")
         self.code_funcs.write("\n")
 
         self.code_enums.write("#include <napi.h>\n")
-        self.code_enums.write("#include <../parse.hh>\n")
+        self.code_enums.write("#include <../node/js_as_py.hpp>\n")
         self.code_enums.write("#include <../node/cv2_convert.hpp>\n")
         self.code_enums.write("#include <../node/jscompat.hpp>\n")
         self.code_enums.write("\n")
 
         self.code_ns_init.write("#include <napi.h>\n")
-        self.code_ns_init.write("#include <../parse.hh>\n")
+        self.code_ns_init.write("#include <../node/js_as_py.hpp>\n")
         self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n")
         self.code_ns_init.write("\n")
 
         self.code_types.write("#include <napi.h>\n")
-        self.code_types.write("#include <../parse.hh>\n")
+        self.code_types.write("#include <../node/js_as_py.hpp>\n")
         self.code_types.write("#include <../node/cv2_convert.hpp>\n")
         self.code_types.write("#include <node/cv2.hpp>\n")
         self.code_types.write("#include <node/cv2_util.hpp>\n")

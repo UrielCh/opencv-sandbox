@@ -1,5 +1,5 @@
 #include <napi.h>
-#include <../parse.hh>
+#include <../node/js_as_py.hpp>
 #include <../node/cv2_convert.hpp>
 #include <node/cv2.hpp>
 #include <node/cv2_util.hpp>
