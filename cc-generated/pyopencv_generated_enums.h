@@ -1,6 +1,7 @@
 #include <napi.h>
 #include <../parse.hh>
 #include <../node/cv2_convert.hpp>
+#include <../node/jscompat.hpp>
 
 typedef cv::AKAZE::DescriptorType AKAZE_DescriptorType;
 CV_JS_FROM_ENUM(AKAZE_DescriptorType);

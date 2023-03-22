@@ -1,1 +1,0 @@
-CVJS_MODULE("", cv);

@@ -43,6 +43,7 @@ class PythonWrapperGenerator(object):
         self.code_enums.write("#include <napi.h>\n")
         self.code_enums.write("#include <../parse.hh>\n")
         self.code_enums.write("#include <../node/cv2_convert.hpp>\n\n")
+        self.code_enums.write("#include <../node/jscompat.hpp>\n\n")
 
         self.code_ns_init.write("#include <napi.h>\n")
         self.code_ns_init.write("#include <../parse.hh>\n")

@@ -29,6 +29,12 @@ static inline std::string getJsObjectNameAttr(Napi::Value obj) {
     
     return obj_name;
 }
+
+// the colloing cod contains macro:
+// CV_JS_TO_CLASS     CV_JS_FROM_CLASS
+// CV_JS_TO_CLASS_PTR CV_JS_FROM_CLASS_PTR
+// CV_JS_TO_ENUM      CV_JS_FROM_ENUM
+
 //      CV_PY_TO_CLASS
 #define CV_JS_TO_CLASS(TYPE)                                               \
 template<>                                                                 \
@@ -74,7 +80,7 @@ static Napi::Value jsopencv_from(const Napi::CallbackInfo &info, TYPE*& src) \
 //      CV_PY_TO_ENUM
 #define CV_JS_TO_ENUM(TYPE)                                                \
 template<>                                                                 \
-bool jsopencv_to(const Napi::CallbackInfo &info, const Napi::Value &dst, TYPE& src, const ArgInfo& argInfo) \
+bool jsopencv_to(const Napi::CallbackInfo &info, const Napi::Value* dst, TYPE& src, const ArgInfo& argInfo) \
 {                                                                          \
     if (dst.IsNull() || dst.IsUndefined())                                 \
         return true;                                                       \
