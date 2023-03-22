@@ -38,16 +38,19 @@ class PythonWrapperGenerator(object):
         self.code_funcs.write("#include <napi.h>\n")
         self.code_funcs.write("#include <../parse.hh>\n")
         self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
-        self.code_funcs.write("#include <opencv2/opencv.hpp>\n\n")
+        self.code_funcs.write("#include <opencv2/opencv.hpp>\n")
+        self.code_funcs.write("\n")
 
         self.code_enums.write("#include <napi.h>\n")
         self.code_enums.write("#include <../parse.hh>\n")
-        self.code_enums.write("#include <../node/cv2_convert.hpp>\n\n")
-        self.code_enums.write("#include <../node/jscompat.hpp>\n\n")
+        self.code_enums.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_enums.write("#include <../node/jscompat.hpp>\n")
+        self.code_enums.write("\n")
 
         self.code_ns_init.write("#include <napi.h>\n")
         self.code_ns_init.write("#include <../parse.hh>\n")
-        self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n\n")
+        self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_ns_init.write("\n")
 
         self.code_types.write("#include <napi.h>\n")
         self.code_types.write("#include <../parse.hh>\n")
@@ -55,6 +58,14 @@ class PythonWrapperGenerator(object):
         self.code_types.write("#include <node/cv2.hpp>\n")
         self.code_types.write("#include <node/cv2_util.hpp>\n")
         self.code_types.write("\n")
+
+        self.code_ns_reg.write("#include <napi.h>\n")
+        self.code_ns_reg.write("#include <../node/jscompat.hpp>\n")
+        self.code_ns_reg.write("\n")
+
+        self.code_type_publish.write("#include \"../node/cv2_macro.hpp\"\n")
+        self.code_type_publish.write("\n")
+
 
     def add_class(self, stype, name, decl):
         classinfo = ClassInfo(name, decl, self)
@@ -205,7 +216,7 @@ class PythonWrapperGenerator(object):
         ns = self.namespaces[ns_name]
         wname = normalize_class_name(ns_name)
 
-        self.code_ns_reg.write('static PyMethodDef methods_%s[] = {\n'%wname)
+        self.code_ns_reg.write('static JsMethodDef methods_%s[] = {\n'%wname)
         for name, func in sorted(ns.funcs.items()):
             if func.isconstructor:
                 continue

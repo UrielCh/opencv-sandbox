@@ -381,7 +381,7 @@ static PyGetSetDef jsopencv_AKAZE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_AKAZE_methods[] =
+static JsMethodDef jsopencv_AKAZE_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_AKAZE_create_static, METH_STATIC), "create([, descriptor_type[, descriptor_size[, descriptor_channels[, threshold[, nOctaves[, nOctaveLayers[, diffusivity]]]]]]]) -> retval\n.   @brief The AKAZE constructor\n.   \n.       @param descriptor_type Type of the extracted descriptor: DESCRIPTOR_KAZE,\n.       DESCRIPTOR_KAZE_UPRIGHT, DESCRIPTOR_MLDB or DESCRIPTOR_MLDB_UPRIGHT.\n.       @param descriptor_size Size of the descriptor in bits. 0 -\\> Full size\n.       @param descriptor_channels Number of channels in the descriptor (1, 2, 3)\n.       @param threshold Detector response threshold to accept point\n.       @param nOctaves Maximum octave evolution of the image\n.       @param nOctaveLayers Default number of sublevels per scale level\n.       @param diffusivity Diffusivity type. DIFF_PM_G1, DIFF_PM_G2, DIFF_WEICKERT or\n.       DIFF_CHARBONNIER"},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_AKAZE_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -550,7 +550,7 @@ static PyGetSetDef jsopencv_AffineFeature_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_AffineFeature_methods[] =
+static JsMethodDef jsopencv_AffineFeature_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_AffineFeature_create_static, METH_STATIC), "create(backend[, maxTilt[, minTilt[, tiltStep[, rotateStepBase]]]]) -> retval\n.   @param backend The detector/extractor you want to use as backend.\n.       @param maxTilt The highest power index of tilt factor. 5 is used in the paper as tilt sampling range n.\n.       @param minTilt The lowest power index of tilt factor. 0 is used in the paper.\n.       @param tiltStep Tilt sampling step \\f$\\delta_t\\f$ in Algorithm 1 in the paper.\n.       @param rotateStepBase Rotation sampling step factor b in Algorithm 1 in the paper."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_AffineFeature_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -778,7 +778,7 @@ static PyGetSetDef jsopencv_AgastFeatureDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_AgastFeatureDetector_methods[] =
+static JsMethodDef jsopencv_AgastFeatureDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_AgastFeatureDetector_create_static, METH_STATIC), "create([, threshold[, nonmaxSuppression[, type]]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_AgastFeatureDetector_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -992,7 +992,7 @@ static PyGetSetDef jsopencv_Algorithm_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_Algorithm_methods[] =
+static JsMethodDef jsopencv_Algorithm_methods[] =
 {
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_Algorithm_clear, 0), "clear() -> None\n.   @brief Clears the algorithm state"},
     {"empty", CV_JS_FN_WITH_KW_(pyopencv_cv_Algorithm_empty, 0), "empty() -> retval\n.   @brief Returns true if the Algorithm is empty (e.g. in the very beginning or after unsuccessful read"},
@@ -1114,7 +1114,7 @@ static PyGetSetDef jsopencv_AlignExposures_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_AlignExposures_methods[] =
+static JsMethodDef jsopencv_AlignExposures_methods[] =
 {
     {"process", CV_JS_FN_WITH_KW_(pyopencv_cv_AlignExposures_process, 0), "process(src, dst, times, response) -> None\n.   @brief Aligns images\n.   \n.       @param src vector of input images\n.       @param dst vector of aligned images\n.       @param times vector of exposure time values for each image\n.       @param response 256x1 matrix with inverse camera response function for each pixel value, it should\n.       have the same number of channels as images."},
 
@@ -1576,7 +1576,7 @@ static PyGetSetDef jsopencv_AlignMTB_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_AlignMTB_methods[] =
+static JsMethodDef jsopencv_AlignMTB_methods[] =
 {
     {"calculateShift", CV_JS_FN_WITH_KW_(pyopencv_cv_AlignMTB_calculateShift, 0), "calculateShift(img0, img1) -> retval\n.   @brief Calculates shift between two images, i. e. how to shift the second image to correspond it with the\n.       first.\n.   \n.       @param img0 first image\n.       @param img1 second image"},
     {"computeBitmaps", CV_JS_FN_WITH_KW_(pyopencv_cv_AlignMTB_computeBitmaps, 0), "computeBitmaps(img[, tb[, eb]]) -> tb, eb\n.   @brief Computes median threshold and exclude bitmaps of given image.\n.   \n.       @param img input image\n.       @param tb median threshold bitmap\n.       @param eb exclude bitmap"},
@@ -1804,7 +1804,7 @@ static PyGetSetDef jsopencv_AsyncArray_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_AsyncArray_methods[] =
+static JsMethodDef jsopencv_AsyncArray_methods[] =
 {
     {"get", CV_JS_FN_WITH_KW_(pyopencv_cv_AsyncArray_get, 0), "get([, dst]) -> dst\n.   Fetch the result.\n.       @param[out] dst destination array\n.   \n.       Waits for result until container has valid result.\n.       Throws exception if exception was stored as a result.\n.   \n.       Throws exception on invalid container state.\n.   \n.       @note Result or stored exception can be fetched only once.\n\n\n\nget(timeoutNs[, dst]) -> retval, dst\n.   Retrieving the result with timeout\n.       @param[out] dst destination array\n.       @param[in] timeoutNs timeout in nanoseconds, -1 for infinite wait\n.   \n.       @returns true if result is ready, false if the timeout has expired\n.   \n.       @note Result or stored exception can be fetched only once."},
     {"release", CV_JS_FN_WITH_KW_(pyopencv_cv_AsyncArray_release, 0), "release() -> None\n."},
@@ -1902,7 +1902,7 @@ static PyGetSetDef jsopencv_BFMatcher_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BFMatcher_methods[] =
+static JsMethodDef jsopencv_BFMatcher_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_BFMatcher_create_static, METH_STATIC), "create([, normType[, crossCheck]]) -> retval\n.   @brief Brute-force matcher create method.\n.       @param normType One of NORM_L1, NORM_L2, NORM_HAMMING, NORM_HAMMING2. L1 and L2 norms are\n.       preferable choices for SIFT and SURF descriptors, NORM_HAMMING should be used with ORB, BRISK and\n.       BRIEF, NORM_HAMMING2 should be used with ORB when WTA_K==3 or 4 (see ORB::ORB constructor\n.       description).\n.       @param crossCheck If it is false, this is will be default BFMatcher behaviour when it finds the k\n.       nearest neighbors for each query descriptor. If crossCheck==true, then the knnMatch() method with\n.       k=1 will only return pairs (i,j) such that for i-th query descriptor the j-th descriptor in the\n.       matcher's collection is the nearest and vice versa, i.e. the BFMatcher will only return consistent\n.       pairs. Such technique usually produces best results with minimal number of outliers when there are\n.       enough matches. This is alternative to the ratio test, used by D. Lowe in SIFT paper."},
 
@@ -2087,7 +2087,7 @@ static PyGetSetDef jsopencv_BOWImgDescriptorExtractor_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BOWImgDescriptorExtractor_methods[] =
+static JsMethodDef jsopencv_BOWImgDescriptorExtractor_methods[] =
 {
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_BOWImgDescriptorExtractor_compute, 0), "compute(image, keypoints[, imgDescriptor]) -> imgDescriptor\n.   @overload\n.       @param keypointDescriptors Computed descriptors to match with vocabulary.\n.       @param imgDescriptor Computed output image descriptor.\n.       @param pointIdxsOfClusters Indices of keypoints that belong to the cluster. This means that\n.       pointIdxsOfClusters[i] are keypoint indices that belong to the i -th cluster (word of vocabulary)\n.       returned if it is non-zero."},
     {"descriptorSize", CV_JS_FN_WITH_KW_(pyopencv_cv_BOWImgDescriptorExtractor_descriptorSize, 0), "descriptorSize() -> retval\n.   @brief Returns an image descriptor size if the vocabulary is set. Otherwise, it returns 0."},
@@ -2216,7 +2216,7 @@ static PyGetSetDef jsopencv_BOWKMeansTrainer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BOWKMeansTrainer_methods[] =
+static JsMethodDef jsopencv_BOWKMeansTrainer_methods[] =
 {
     {"cluster", CV_JS_FN_WITH_KW_(pyopencv_cv_BOWKMeansTrainer_cluster, 0), "cluster() -> retval\n.   \n\n\n\ncluster(descriptors) -> retval\n."},
 
@@ -2395,7 +2395,7 @@ static PyGetSetDef jsopencv_BOWTrainer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BOWTrainer_methods[] =
+static JsMethodDef jsopencv_BOWTrainer_methods[] =
 {
     {"add", CV_JS_FN_WITH_KW_(pyopencv_cv_BOWTrainer_add, 0), "add(descriptors) -> None\n.   @brief Adds descriptors to a training set.\n.   \n.       @param descriptors Descriptors to add to a training set. Each row of the descriptors matrix is a\n.       descriptor.\n.   \n.       The training set is clustered using clustermethod to construct the vocabulary."},
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_BOWTrainer_clear, 0), "clear() -> None\n."},
@@ -2698,7 +2698,7 @@ static PyGetSetDef jsopencv_BRISK_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BRISK_methods[] =
+static JsMethodDef jsopencv_BRISK_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_BRISK_create_static, METH_STATIC), "create([, thresh[, octaves[, patternScale]]]) -> retval\n.   @brief The BRISK constructor\n.   \n.       @param thresh AGAST detection threshold score.\n.       @param octaves detection octaves. Use 0 to do single scale.\n.       @param patternScale apply this scale to the pattern used for sampling the neighbourhood of a\n.       keypoint.\n\n\n\ncreate(radiusList, numberList[, dMax[, dMin[, indexChange]]]) -> retval\n.   @brief The BRISK constructor for a custom pattern\n.   \n.       @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for\n.       keypoint scale 1).\n.       @param numberList defines the number of sampling points on the sampling circle. Must be the same\n.       size as radiusList..\n.       @param dMax threshold for the short pairings used for descriptor formation (in pixels for keypoint\n.       scale 1).\n.       @param dMin threshold for the long pairings used for orientation determination (in pixels for\n.       keypoint scale 1).\n.   @param indexChange index remapping of the bits.\n\n\n\ncreate(thresh, octaves, radiusList, numberList[, dMax[, dMin[, indexChange]]]) -> retval\n.   @brief The BRISK constructor for a custom pattern, detection threshold and octaves\n.   \n.       @param thresh AGAST detection threshold score.\n.       @param octaves detection octaves. Use 0 to do single scale.\n.       @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for\n.       keypoint scale 1).\n.       @param numberList defines the number of sampling points on the sampling circle. Must be the same\n.       size as radiusList..\n.       @param dMax threshold for the short pairings used for descriptor formation (in pixels for keypoint\n.       scale 1).\n.       @param dMin threshold for the long pairings used for orientation determination (in pixels for\n.       keypoint scale 1).\n.   @param indexChange index remapping of the bits."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_BRISK_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -2864,7 +2864,7 @@ static PyGetSetDef jsopencv_BackgroundSubtractor_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BackgroundSubtractor_methods[] =
+static JsMethodDef jsopencv_BackgroundSubtractor_methods[] =
 {
     {"apply", CV_JS_FN_WITH_KW_(pyopencv_cv_BackgroundSubtractor_apply, 0), "apply(image[, fgmask[, learningRate]]) -> fgmask\n.   @brief Computes a foreground mask.\n.   \n.       @param image Next video frame.\n.       @param fgmask The output foreground mask as an 8-bit binary image.\n.       @param learningRate The value between 0 and 1 that indicates how fast the background model is\n.       learnt. Negative parameter value makes the algorithm to use some automatically chosen learning\n.       rate. 0 means that the background model is not updated at all, 1 means that the background model\n.       is completely reinitialized from the last frame."},
     {"getBackgroundImage", CV_JS_FN_WITH_KW_(pyopencv_cv_BackgroundSubtractor_getBackgroundImage, 0), "getBackgroundImage([, backgroundImage]) -> backgroundImage\n.   @brief Computes a background image.\n.   \n.       @param backgroundImage The output background image.\n.   \n.       @note Sometimes the background image can be very blurry, as it contain the average background\n.       statistics."},
@@ -3217,7 +3217,7 @@ static PyGetSetDef jsopencv_BackgroundSubtractorKNN_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BackgroundSubtractorKNN_methods[] =
+static JsMethodDef jsopencv_BackgroundSubtractorKNN_methods[] =
 {
     {"getDetectShadows", CV_JS_FN_WITH_KW_(pyopencv_cv_BackgroundSubtractorKNN_getDetectShadows, 0), "getDetectShadows() -> retval\n.   @brief Returns the shadow detection flag\n.   \n.       If true, the algorithm detects shadows and marks them. See createBackgroundSubtractorKNN for\n.       details."},
     {"getDist2Threshold", CV_JS_FN_WITH_KW_(pyopencv_cv_BackgroundSubtractorKNN_getDist2Threshold, 0), "getDist2Threshold() -> retval\n.   @brief Returns the threshold on the squared distance between the pixel and the sample\n.   \n.       The threshold on the squared distance between the pixel and the sample to decide whether a pixel is\n.       close to a data sample."},
@@ -3857,7 +3857,7 @@ static PyGetSetDef jsopencv_BackgroundSubtractorMOG2_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BackgroundSubtractorMOG2_methods[] =
+static JsMethodDef jsopencv_BackgroundSubtractorMOG2_methods[] =
 {
     {"apply", CV_JS_FN_WITH_KW_(pyopencv_cv_BackgroundSubtractorMOG2_apply, 0), "apply(image[, fgmask[, learningRate]]) -> fgmask\n.   @brief Computes a foreground mask.\n.   \n.       @param image Next video frame. Floating point frame will be used without scaling and should be in range \\f$[0,255]\\f$.\n.       @param fgmask The output foreground mask as an 8-bit binary image.\n.       @param learningRate The value between 0 and 1 that indicates how fast the background model is\n.       learnt. Negative parameter value makes the algorithm to use some automatically chosen learning\n.       rate. 0 means that the background model is not updated at all, 1 means that the background model\n.       is completely reinitialized from the last frame."},
     {"getBackgroundRatio", CV_JS_FN_WITH_KW_(pyopencv_cv_BackgroundSubtractorMOG2_getBackgroundRatio, 0), "getBackgroundRatio() -> retval\n.   @brief Returns the \"background ratio\" parameter of the algorithm\n.   \n.       If a foreground pixel keeps semi-constant value for about backgroundRatio\\*history frames, it's\n.       considered background and added to the model as a center of a new component. It corresponds to TB\n.       parameter in the paper."},
@@ -3932,7 +3932,7 @@ static PyGetSetDef jsopencv_BaseCascadeClassifier_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_BaseCascadeClassifier_methods[] =
+static JsMethodDef jsopencv_BaseCascadeClassifier_methods[] =
 {
 
     {NULL,          NULL}
@@ -4141,7 +4141,7 @@ static PyGetSetDef jsopencv_CLAHE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_CLAHE_methods[] =
+static JsMethodDef jsopencv_CLAHE_methods[] =
 {
     {"apply", CV_JS_FN_WITH_KW_(pyopencv_cv_CLAHE_apply, 0), "apply(src[, dst]) -> dst\n.   @brief Equalizes the histogram of a grayscale image using Contrast Limited Adaptive Histogram Equalization.\n.   \n.       @param src Source image of type CV_8UC1 or CV_16UC1.\n.       @param dst Destination image."},
     {"collectGarbage", CV_JS_FN_WITH_KW_(pyopencv_cv_CLAHE_collectGarbage, 0), "collectGarbage() -> None\n."},
@@ -4257,7 +4257,7 @@ static PyGetSetDef jsopencv_CalibrateCRF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_CalibrateCRF_methods[] =
+static JsMethodDef jsopencv_CalibrateCRF_methods[] =
 {
     {"process", CV_JS_FN_WITH_KW_(pyopencv_cv_CalibrateCRF_process, 0), "process(src, times[, dst]) -> dst\n.   @brief Recovers inverse camera response.\n.   \n.       @param src vector of input images\n.       @param dst 256x1 matrix with inverse camera response function\n.       @param times vector of exposure time values for each image"},
 
@@ -4437,7 +4437,7 @@ static PyGetSetDef jsopencv_CalibrateDebevec_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_CalibrateDebevec_methods[] =
+static JsMethodDef jsopencv_CalibrateDebevec_methods[] =
 {
     {"getLambda", CV_JS_FN_WITH_KW_(pyopencv_cv_CalibrateDebevec_getLambda, 0), "getLambda() -> retval\n."},
     {"getRandom", CV_JS_FN_WITH_KW_(pyopencv_cv_CalibrateDebevec_getRandom, 0), "getRandom() -> retval\n."},
@@ -4599,7 +4599,7 @@ static PyGetSetDef jsopencv_CalibrateRobertson_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_CalibrateRobertson_methods[] =
+static JsMethodDef jsopencv_CalibrateRobertson_methods[] =
 {
     {"getMaxIter", CV_JS_FN_WITH_KW_(pyopencv_cv_CalibrateRobertson_getMaxIter, 0), "getMaxIter() -> retval\n."},
     {"getRadiance", CV_JS_FN_WITH_KW_(pyopencv_cv_CalibrateRobertson_getRadiance, 0), "getRadiance() -> retval\n."},
@@ -5097,7 +5097,7 @@ static PyGetSetDef jsopencv_CascadeClassifier_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_CascadeClassifier_methods[] =
+static JsMethodDef jsopencv_CascadeClassifier_methods[] =
 {
     {"convert", CV_JS_FN_WITH_KW_(pyopencv_cv_CascadeClassifier_convert_static, METH_STATIC), "convert(oldcascade, newcascade) -> retval\n."},
     {"detectMultiScale", CV_JS_FN_WITH_KW_(pyopencv_cv_CascadeClassifier_detectMultiScale, 0), "detectMultiScale(image[, scaleFactor[, minNeighbors[, flags[, minSize[, maxSize]]]]]) -> objects\n.   @brief Detects objects of different sizes in the input image. The detected objects are returned as a list\n.       of rectangles.\n.   \n.       @param image Matrix of the type CV_8U containing an image where objects are detected.\n.       @param objects Vector of rectangles where each rectangle contains the detected object, the\n.       rectangles may be partially outside the original image.\n.       @param scaleFactor Parameter specifying how much the image size is reduced at each image scale.\n.       @param minNeighbors Parameter specifying how many neighbors each candidate rectangle should have\n.       to retain it.\n.       @param flags Parameter with the same meaning for an old cascade as in the function\n.       cvHaarDetectObjects. It is not used for a new cascade.\n.       @param minSize Minimum possible object size. Objects smaller than that are ignored.\n.       @param maxSize Maximum possible object size. Objects larger than that are ignored. If `maxSize == minSize` model is evaluated on single scale."},
@@ -5411,7 +5411,7 @@ static PyGetSetDef jsopencv_CirclesGridFinderParameters_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_CirclesGridFinderParameters_methods[] =
+static JsMethodDef jsopencv_CirclesGridFinderParameters_methods[] =
 {
 
     {NULL,          NULL}
@@ -5910,7 +5910,7 @@ static PyGetSetDef jsopencv_DISOpticalFlow_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_DISOpticalFlow_methods[] =
+static JsMethodDef jsopencv_DISOpticalFlow_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_DISOpticalFlow_create_static, METH_STATIC), "create([, preset]) -> retval\n.   @brief Creates an instance of DISOpticalFlow\n.   \n.       @param preset one of PRESET_ULTRAFAST, PRESET_FAST and PRESET_MEDIUM"},
     {"getFinestScale", CV_JS_FN_WITH_KW_(pyopencv_cv_DISOpticalFlow_getFinestScale, 0), "getFinestScale() -> retval\n.   @brief Finest level of the Gaussian pyramid on which the flow is computed (zero level\n.           corresponds to the original image resolution). The final flow is obtained by bilinear upscaling.\n.   @see setFinestScale"},
@@ -6116,7 +6116,7 @@ static PyGetSetDef jsopencv_DMatch_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_DMatch_methods[] =
+static JsMethodDef jsopencv_DMatch_methods[] =
 {
 
     {NULL,          NULL}
@@ -6245,7 +6245,7 @@ static PyGetSetDef jsopencv_DenseOpticalFlow_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_DenseOpticalFlow_methods[] =
+static JsMethodDef jsopencv_DenseOpticalFlow_methods[] =
 {
     {"calc", CV_JS_FN_WITH_KW_(pyopencv_cv_DenseOpticalFlow_calc, 0), "calc(I0, I1, flow) -> flow\n.   @brief Calculates an optical flow.\n.   \n.       @param I0 first 8-bit single-channel input image.\n.       @param I1 second input image of the same size and the same type as prev.\n.       @param flow computed flow image that has the same size as prev and type CV_32FC2."},
     {"collectGarbage", CV_JS_FN_WITH_KW_(pyopencv_cv_DenseOpticalFlow_collectGarbage, 0), "collectGarbage() -> None\n.   @brief Releases all inner buffers."},
@@ -6971,7 +6971,7 @@ static PyGetSetDef jsopencv_DescriptorMatcher_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_DescriptorMatcher_methods[] =
+static JsMethodDef jsopencv_DescriptorMatcher_methods[] =
 {
     {"add", CV_JS_FN_WITH_KW_(pyopencv_cv_DescriptorMatcher_add, 0), "add(descriptors) -> None\n.   @brief Adds descriptors to train a CPU(trainDescCollectionis) or GPU(utrainDescCollectionis) descriptor\n.       collection.\n.   \n.       If the collection is not empty, the new descriptors are added to existing train descriptors.\n.   \n.       @param descriptors Descriptors to add. Each descriptors[i] is a set of descriptors from the same\n.       train image."},
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_DescriptorMatcher_clear, 0), "clear() -> None\n.   @brief Clears the train descriptor collections."},
@@ -7302,7 +7302,7 @@ static PyGetSetDef jsopencv_FaceDetectorYN_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FaceDetectorYN_methods[] =
+static JsMethodDef jsopencv_FaceDetectorYN_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_FaceDetectorYN_create_static, METH_STATIC), "create(model, config, input_size[, score_threshold[, nms_threshold[, top_k[, backend_id[, target_id]]]]]) -> retval\n.   @brief Creates an instance of this class with given parameters\n.        *\n.        *  @param model the path to the requested model\n.        *  @param config the path to the config file for compability, which is not requested for ONNX models\n.        *  @param input_size the size of the input image\n.        *  @param score_threshold the threshold to filter out bounding boxes of score smaller than the given value\n.        *  @param nms_threshold the threshold to suppress bounding boxes of IoU bigger than the given value\n.        *  @param top_k keep top K bboxes before NMS\n.        *  @param backend_id the id of backend\n.        *  @param target_id the id of target device"},
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_FaceDetectorYN_detect, 0), "detect(image[, faces]) -> retval, faces\n.   @brief A simple interface to detect face from given image\n.        *\n.        *  @param image an image to detect\n.        *  @param faces detection results stored in a cv::Mat"},
@@ -7566,7 +7566,7 @@ static PyGetSetDef jsopencv_FaceRecognizerSF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FaceRecognizerSF_methods[] =
+static JsMethodDef jsopencv_FaceRecognizerSF_methods[] =
 {
     {"alignCrop", CV_JS_FN_WITH_KW_(pyopencv_cv_FaceRecognizerSF_alignCrop, 0), "alignCrop(src_img, face_box[, aligned_img]) -> aligned_img\n.   @brief Aligning image to put face on the standard position\n.        *  @param src_img input image\n.        *  @param face_box the detection result used for indicate face in input image\n.        *  @param aligned_img output aligned image"},
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_FaceRecognizerSF_create_static, METH_STATIC), "create(model, config[, backend_id[, target_id]]) -> retval\n.   @brief Creates an instance of this class with given parameters\n.        *  @param model the path of the onnx model used for face recognition\n.        *  @param config the path to the config file for compability, which is not requested for ONNX models\n.        *  @param backend_id the id of backend\n.        *  @param target_id the id of target device"},
@@ -8004,7 +8004,7 @@ static PyGetSetDef jsopencv_FarnebackOpticalFlow_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FarnebackOpticalFlow_methods[] =
+static JsMethodDef jsopencv_FarnebackOpticalFlow_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_FarnebackOpticalFlow_create_static, METH_STATIC), "create([, numLevels[, pyrScale[, fastPyramids[, winSize[, numIters[, polyN[, polySigma[, flags]]]]]]]]) -> retval\n."},
     {"getFastPyramids", CV_JS_FN_WITH_KW_(pyopencv_cv_FarnebackOpticalFlow_getFastPyramids, 0), "getFastPyramids() -> retval\n."},
@@ -8245,7 +8245,7 @@ static PyGetSetDef jsopencv_FastFeatureDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FastFeatureDetector_methods[] =
+static JsMethodDef jsopencv_FastFeatureDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_FastFeatureDetector_create_static, METH_STATIC), "create([, threshold[, nonmaxSuppression[, type]]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_FastFeatureDetector_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -8774,7 +8774,7 @@ static PyGetSetDef jsopencv_Feature2D_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_Feature2D_methods[] =
+static JsMethodDef jsopencv_Feature2D_methods[] =
 {
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_Feature2D_compute, 0), "compute(image, keypoints[, descriptors]) -> keypoints, descriptors\n.   @brief Computes the descriptors for a set of keypoints detected in an image (first variant) or image set\n.       (second variant).\n.   \n.       @param image Image.\n.       @param keypoints Input collection of keypoints. Keypoints for which a descriptor cannot be\n.       computed are removed. Sometimes new keypoints can be added, for example: SIFT duplicates keypoint\n.       with several dominant orientations (for each orientation).\n.       @param descriptors Computed descriptors. In the second variant of the method descriptors[i] are\n.       descriptors computed for a keypoints[i]. Row j is the keypoints (or keypoints[i]) is the\n.       descriptor for keypoint j-th keypoint.\n\n\n\ncompute(images, keypoints[, descriptors]) -> keypoints, descriptors\n.   @overload\n.   \n.       @param images Image set.\n.       @param keypoints Input collection of keypoints. Keypoints for which a descriptor cannot be\n.       computed are removed. Sometimes new keypoints can be added, for example: SIFT duplicates keypoint\n.       with several dominant orientations (for each orientation).\n.       @param descriptors Computed descriptors. In the second variant of the method descriptors[i] are\n.       descriptors computed for a keypoints[i]. Row j is the keypoints (or keypoints[i]) is the\n.       descriptor for keypoint j-th keypoint."},
     {"defaultNorm", CV_JS_FN_WITH_KW_(pyopencv_cv_Feature2D_defaultNorm, 0), "defaultNorm() -> retval\n."},
@@ -9214,7 +9214,7 @@ static PyGetSetDef jsopencv_FileNode_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FileNode_methods[] =
+static JsMethodDef jsopencv_FileNode_methods[] =
 {
     {"at", CV_JS_FN_WITH_KW_(pyopencv_cv_FileNode_at, 0), "at(i) -> retval\n.   @overload\n.        @param i Index of an element in the sequence node."},
     {"empty", CV_JS_FN_WITH_KW_(pyopencv_cv_FileNode_empty, 0), "empty() -> retval\n."},
@@ -9692,7 +9692,7 @@ static PyGetSetDef jsopencv_FileStorage_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FileStorage_methods[] =
+static JsMethodDef jsopencv_FileStorage_methods[] =
 {
     {"endWriteStruct", CV_JS_FN_WITH_KW_(pyopencv_cv_FileStorage_endWriteStruct, 0), "endWriteStruct() -> None\n.   @brief Finishes writing nested structure (should pair startWriteStruct())"},
     {"getFirstTopLevelNode", CV_JS_FN_WITH_KW_(pyopencv_cv_FileStorage_getFirstTopLevelNode, 0), "getFirstTopLevelNode() -> retval\n.   @brief Returns the first element of the top-level mapping.\n.        @returns The first element of the top-level mapping."},
@@ -9791,7 +9791,7 @@ static PyGetSetDef jsopencv_FlannBasedMatcher_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_FlannBasedMatcher_methods[] =
+static JsMethodDef jsopencv_FlannBasedMatcher_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_FlannBasedMatcher_create_static, METH_STATIC), "create() -> retval\n."},
 
@@ -9842,7 +9842,7 @@ static PyGetSetDef jsopencv_GArrayDesc_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GArrayDesc_methods[] =
+static JsMethodDef jsopencv_GArrayDesc_methods[] =
 {
 
     {NULL,          NULL}
@@ -9930,7 +9930,7 @@ static PyGetSetDef jsopencv_GArrayT_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GArrayT_methods[] =
+static JsMethodDef jsopencv_GArrayT_methods[] =
 {
     {"type", CV_JS_FN_WITH_KW_(pyopencv_cv_GArrayT_type, 0), "type() -> retval\n."},
 
@@ -10041,7 +10041,7 @@ static PyGetSetDef jsopencv_GCompileArg_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GCompileArg_methods[] =
+static JsMethodDef jsopencv_GCompileArg_methods[] =
 {
 
     {NULL,          NULL}
@@ -10288,7 +10288,7 @@ static PyGetSetDef jsopencv_GComputation_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GComputation_methods[] =
+static JsMethodDef jsopencv_GComputation_methods[] =
 {
     {"apply", CV_JS_FN_WITH_KW_(pyopencv_cv_GComputation_apply, 0), "apply(callback[, args]) -> retval\n.   * @brief Compile graph on-the-fly and immediately execute it on\n.        * the inputs data vectors.\n.        *\n.        * Number of input/output data objects must match GComputation's\n.        * protocol, also types of host data objects (cv::Mat, cv::Scalar)\n.        * must match the shapes of data objects from protocol (cv::GMat,\n.        * cv::GScalar). If there's a mismatch, a run-time exception will\n.        * be generated.\n.        *\n.        * Internally, a cv::GCompiled object is created for the given\n.        * input format configuration, which then is executed on the input\n.        * data immediately. cv::GComputation caches compiled objects\n.        * produced within apply() -- if this method would be called next\n.        * time with the same input parameters (image formats, image\n.        * resolution, etc), the underlying compiled graph will be reused\n.        * without recompilation. If new metadata doesn't match the cached\n.        * one, the underlying compiled graph is regenerated.\n.        *\n.        * @note compile() always triggers a compilation process and\n.        * produces a new GCompiled object regardless if a similar one has\n.        * been cached via apply() or not.\n.        *\n.        * @param ins vector of input data to process. Don't create\n.        * GRunArgs object manually, use cv::gin() wrapper instead.\n.        * @param outs vector of output data to fill results in. cv::Mat\n.        * objects may be empty in this vector, G-API will automatically\n.        * initialize it with the required format & dimensions. Don't\n.        * create GRunArgsP object manually, use cv::gout() wrapper instead.\n.        * @param args a list of compilation arguments to pass to the\n.        * underlying compilation process. Don't create GCompileArgs\n.        * object manually, use cv::compile_args() wrapper instead.\n.        *\n.        * @sa @ref gapi_data_objects, @ref gapi_compile_args"},
     {"compileStreaming", CV_JS_FN_WITH_KW_(pyopencv_cv_GComputation_compileStreaming, 0), "compileStreaming(in_metas[, args]) -> retval\n.   * @brief Compile the computation for streaming mode.\n.        *\n.        * This method triggers compilation process and produces a new\n.        * GStreamingCompiled object which then can process video stream\n.        * data of the given format. Passing a stream in a different\n.        * format to the compiled computation will generate a run-time\n.        * exception.\n.        *\n.        * @param in_metas vector of input metadata configuration. Grab\n.        * metadata from real data objects (like cv::Mat or cv::Scalar)\n.        * using cv::descr_of(), or create it on your own.\n.        *\n.        * @param args compilation arguments for this compilation\n.        * process. Compilation arguments directly affect what kind of\n.        * executable object would be produced, e.g. which kernels (and\n.        * thus, devices) would be used to execute computation.\n.        *\n.        * @return GStreamingCompiled, a streaming-oriented executable\n.        * computation compiled specifically for the given input\n.        * parameters.\n.        *\n.        * @sa @ref gapi_compile_args\n\n\n\ncompileStreaming([, args]) -> retval\n.   * @brief Compile the computation for streaming mode.\n.        *\n.        * This method triggers compilation process and produces a new\n.        * GStreamingCompiled object which then can process video stream\n.        * data in any format. Underlying mechanisms will be adjusted to\n.        * every new input video stream automatically, but please note that\n.        * _not all_ existing backends support this (see reshape()).\n.        *\n.        * @param args compilation arguments for this compilation\n.        * process. Compilation arguments directly affect what kind of\n.        * executable object would be produced, e.g. which kernels (and\n.        * thus, devices) would be used to execute computation.\n.        *\n.        * @return GStreamingCompiled, a streaming-oriented executable\n.        * computation compiled for any input image format.\n.        *\n.        * @sa @ref gapi_compile_args\n\n\n\ncompileStreaming(callback[, args]) -> retval\n."},
@@ -10739,7 +10739,7 @@ static PyGetSetDef jsopencv_GFTTDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GFTTDetector_methods[] =
+static JsMethodDef jsopencv_GFTTDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_GFTTDetector_create_static, METH_STATIC), "create([, maxCorners[, qualityLevel[, minDistance[, blockSize[, useHarrisDetector[, k]]]]]]) -> retval\n.   \n\n\n\ncreate(maxCorners, qualityLevel, minDistance, blockSize, gradiantSize[, useHarrisDetector[, k]]) -> retval\n."},
     {"getBlockSize", CV_JS_FN_WITH_KW_(pyopencv_cv_GFTTDetector_getBlockSize, 0), "getBlockSize() -> retval\n."},
@@ -10819,7 +10819,7 @@ static PyGetSetDef jsopencv_GFrame_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GFrame_methods[] =
+static JsMethodDef jsopencv_GFrame_methods[] =
 {
 
     {NULL,          NULL}
@@ -10939,7 +10939,7 @@ static PyGetSetDef jsopencv_GInferInputs_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GInferInputs_methods[] =
+static JsMethodDef jsopencv_GInferInputs_methods[] =
 {
     {"setInput", CV_JS_FN_WITH_KW_(pyopencv_cv_GInferInputs_setInput, 0), "setInput(name, value) -> retval\n."},
 
@@ -11060,7 +11060,7 @@ static PyGetSetDef jsopencv_GInferListInputs_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GInferListInputs_methods[] =
+static JsMethodDef jsopencv_GInferListInputs_methods[] =
 {
     {"setInput", CV_JS_FN_WITH_KW_(pyopencv_cv_GInferListInputs_setInput, 0), "setInput(name, value) -> retval\n."},
 
@@ -11149,7 +11149,7 @@ static PyGetSetDef jsopencv_GInferListOutputs_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GInferListOutputs_methods[] =
+static JsMethodDef jsopencv_GInferListOutputs_methods[] =
 {
     {"at", CV_JS_FN_WITH_KW_(pyopencv_cv_GInferListOutputs_at, 0), "at(name) -> retval\n."},
 
@@ -11238,7 +11238,7 @@ static PyGetSetDef jsopencv_GInferOutputs_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GInferOutputs_methods[] =
+static JsMethodDef jsopencv_GInferOutputs_methods[] =
 {
     {"at", CV_JS_FN_WITH_KW_(pyopencv_cv_GInferOutputs_at, 0), "at(name) -> retval\n."},
 
@@ -11289,7 +11289,7 @@ static PyGetSetDef jsopencv_GKernelPackage_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GKernelPackage_methods[] =
+static JsMethodDef jsopencv_GKernelPackage_methods[] =
 {
 
     {NULL,          NULL}
@@ -11353,7 +11353,7 @@ static PyGetSetDef jsopencv_GMat_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GMat_methods[] =
+static JsMethodDef jsopencv_GMat_methods[] =
 {
 
     {NULL,          NULL}
@@ -11715,7 +11715,7 @@ static PyGetSetDef jsopencv_GMatDesc_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GMatDesc_methods[] =
+static JsMethodDef jsopencv_GMatDesc_methods[] =
 {
     {"asInterleaved", CV_JS_FN_WITH_KW_(pyopencv_cv_GMatDesc_asInterleaved, 0), "asInterleaved() -> retval\n."},
     {"asPlanar", CV_JS_FN_WITH_KW_(pyopencv_cv_GMatDesc_asPlanar, 0), "asPlanar() -> retval\n.   \n\n\n\nasPlanar(planes) -> retval\n."},
@@ -11771,7 +11771,7 @@ static PyGetSetDef jsopencv_GOpaqueDesc_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GOpaqueDesc_methods[] =
+static JsMethodDef jsopencv_GOpaqueDesc_methods[] =
 {
 
     {NULL,          NULL}
@@ -11859,7 +11859,7 @@ static PyGetSetDef jsopencv_GOpaqueT_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GOpaqueT_methods[] =
+static JsMethodDef jsopencv_GOpaqueT_methods[] =
 {
     {"type", CV_JS_FN_WITH_KW_(pyopencv_cv_GOpaqueT_type, 0), "type() -> retval\n."},
 
@@ -11949,7 +11949,7 @@ static PyGetSetDef jsopencv_GScalar_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GScalar_methods[] =
+static JsMethodDef jsopencv_GScalar_methods[] =
 {
 
     {NULL,          NULL}
@@ -11999,7 +11999,7 @@ static PyGetSetDef jsopencv_GScalarDesc_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GScalarDesc_methods[] =
+static JsMethodDef jsopencv_GScalarDesc_methods[] =
 {
 
     {NULL,          NULL}
@@ -12164,7 +12164,7 @@ static PyGetSetDef jsopencv_GStreamingCompiled_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GStreamingCompiled_methods[] =
+static JsMethodDef jsopencv_GStreamingCompiled_methods[] =
 {
     {"pull", CV_JS_FN_WITH_KW_(pyopencv_cv_GStreamingCompiled_pull, 0), "pull() -> retval\n.   * @brief Get the next processed frame from the pipeline.\n.        *\n.        * Use gout() to create an output parameter vector.\n.        *\n.        * Output vectors must have the same number of elements as defined\n.        * in the cv::GComputation protocol (at the moment of its\n.        * construction). Shapes of elements also must conform to protocol\n.        * (e.g. cv::Mat needs to be passed where cv::GMat has been\n.        * declared as output, and so on). Run-time exception is generated\n.        * on type mismatch.\n.        *\n.        * This method writes new data into objects passed via output\n.        * vector.  If there is no data ready yet, this method blocks. Use\n.        * try_pull() if you need a non-blocking version.\n.        *\n.        * @param outs vector of output parameters to obtain.\n.        * @return true if next result has been obtained,\n.        *    false marks end of the stream."},
     {"running", CV_JS_FN_WITH_KW_(pyopencv_cv_GStreamingCompiled_running, 0), "running() -> retval\n.   * @brief Test if the pipeline is running.\n.        *\n.        * @note This method is not thread-safe (with respect to the user\n.        * side) at the moment. Protect the access if\n.        * start()/stop()/setSource() may be called on the same object in\n.        * multiple threads in your application.\n.        *\n.        * @return true if the current stream is not over yet."},
@@ -12658,7 +12658,7 @@ static PyGetSetDef jsopencv_GeneralizedHough_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GeneralizedHough_methods[] =
+static JsMethodDef jsopencv_GeneralizedHough_methods[] =
 {
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_GeneralizedHough_detect, 0), "detect(image[, positions[, votes]]) -> positions, votes\n.   \n\n\n\ndetect(edges, dx, dy[, positions[, votes]]) -> positions, votes\n."},
     {"getCannyHighThresh", CV_JS_FN_WITH_KW_(pyopencv_cv_GeneralizedHough_getCannyHighThresh, 0), "getCannyHighThresh() -> retval\n."},
@@ -12806,7 +12806,7 @@ static PyGetSetDef jsopencv_GeneralizedHoughBallard_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GeneralizedHoughBallard_methods[] =
+static JsMethodDef jsopencv_GeneralizedHoughBallard_methods[] =
 {
     {"getLevels", CV_JS_FN_WITH_KW_(pyopencv_cv_GeneralizedHoughBallard_getLevels, 0), "getLevels() -> retval\n."},
     {"getVotesThreshold", CV_JS_FN_WITH_KW_(pyopencv_cv_GeneralizedHoughBallard_getVotesThreshold, 0), "getVotesThreshold() -> retval\n."},
@@ -13376,7 +13376,7 @@ static PyGetSetDef jsopencv_GeneralizedHoughGuil_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_GeneralizedHoughGuil_methods[] =
+static JsMethodDef jsopencv_GeneralizedHoughGuil_methods[] =
 {
     {"getAngleEpsilon", CV_JS_FN_WITH_KW_(pyopencv_cv_GeneralizedHoughGuil_getAngleEpsilon, 0), "getAngleEpsilon() -> retval\n."},
     {"getAngleStep", CV_JS_FN_WITH_KW_(pyopencv_cv_GeneralizedHoughGuil_getAngleStep, 0), "getAngleStep() -> retval\n."},
@@ -14115,7 +14115,7 @@ static PyGetSetDef jsopencv_HOGDescriptor_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_HOGDescriptor_methods[] =
+static JsMethodDef jsopencv_HOGDescriptor_methods[] =
 {
     {"checkDetectorSize", CV_JS_FN_WITH_KW_(pyopencv_cv_HOGDescriptor_checkDetectorSize, 0), "checkDetectorSize() -> retval\n.   @brief Checks if detector size equal to descriptor size."},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_HOGDescriptor_compute, 0), "compute(img[, winStride[, padding[, locations]]]) -> descriptors\n.   @brief Computes HOG descriptors of given image.\n.       @param img Matrix of the type CV_8U containing an image where HOG features will be calculated.\n.       @param descriptors Matrix of the type CV_32F\n.       @param winStride Window stride. It must be a multiple of block stride.\n.       @param padding Padding\n.       @param locations Vector of Point"},
@@ -14489,7 +14489,7 @@ static PyGetSetDef jsopencv_KAZE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_KAZE_methods[] =
+static JsMethodDef jsopencv_KAZE_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_KAZE_create_static, METH_STATIC), "create([, extended[, upright[, threshold[, nOctaves[, nOctaveLayers[, diffusivity]]]]]]) -> retval\n.   @brief The KAZE constructor\n.   \n.       @param extended Set to enable extraction of extended (128-byte) descriptor.\n.       @param upright Set to enable use of upright descriptors (non rotation-invariant).\n.       @param threshold Detector response threshold to accept point\n.       @param nOctaves Maximum octave evolution of the image\n.       @param nOctaveLayers Default number of sublevels per scale level\n.       @param diffusivity Diffusivity type. DIFF_PM_G1, DIFF_PM_G2, DIFF_WEICKERT or\n.       DIFF_CHARBONNIER"},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_KAZE_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -14811,7 +14811,7 @@ static PyGetSetDef jsopencv_KalmanFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_KalmanFilter_methods[] =
+static JsMethodDef jsopencv_KalmanFilter_methods[] =
 {
     {"correct", CV_JS_FN_WITH_KW_(pyopencv_cv_KalmanFilter_correct, 0), "correct(measurement) -> retval\n.   @brief Updates the predicted state from the measurement.\n.   \n.       @param measurement The measured system parameters"},
     {"predict", CV_JS_FN_WITH_KW_(pyopencv_cv_KalmanFilter_predict, 0), "predict([, control]) -> retval\n.   @brief Computes a predicted state.\n.   \n.       @param control The optional input control"},
@@ -15098,7 +15098,7 @@ static PyGetSetDef jsopencv_KeyPoint_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_KeyPoint_methods[] =
+static JsMethodDef jsopencv_KeyPoint_methods[] =
 {
     {"convert", CV_JS_FN_WITH_KW_(pyopencv_cv_KeyPoint_convert_static, METH_STATIC), "convert(keypoints[, keypointIndexes]) -> points2f\n.   This method converts vector of keypoints to vector of points or the reverse, where each keypoint is\n.       assigned the same size and the same orientation.\n.   \n.       @param keypoints Keypoints obtained from any feature detection algorithm like SIFT/SURF/ORB\n.       @param points2f Array of (x,y) coordinates of each keypoint\n.       @param keypointIndexes Array of indexes of keypoints to be converted to points. (Acts like a mask to\n.       convert only specified keypoints)\n\n\n\nconvert(points2f[, size[, response[, octave[, class_id]]]]) -> keypoints\n.   @overload\n.       @param points2f Array of (x,y) coordinates of each keypoint\n.       @param keypoints Keypoints obtained from any feature detection algorithm like SIFT/SURF/ORB\n.       @param size keypoint diameter\n.       @param response keypoint detector response on the keypoint (that is, strength of the keypoint)\n.       @param octave pyramid octave in which the keypoint has been detected\n.       @param class_id object id"},
     {"overlap", CV_JS_FN_WITH_KW_(pyopencv_cv_KeyPoint_overlap_static, METH_STATIC), "overlap(kp1, kp2) -> retval\n.   This method computes overlap for pair of keypoints. Overlap is the ratio between area of keypoint\n.       regions' intersection and area of keypoint regions' union (considering keypoint region as circle).\n.       If they don't overlap, we get zero. If they coincide at same location with same size, we get 1.\n.       @param kp1 First keypoint\n.       @param kp2 Second keypoint"},
@@ -15344,7 +15344,7 @@ static PyGetSetDef jsopencv_LineSegmentDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_LineSegmentDetector_methods[] =
+static JsMethodDef jsopencv_LineSegmentDetector_methods[] =
 {
     {"compareSegments", CV_JS_FN_WITH_KW_(pyopencv_cv_LineSegmentDetector_compareSegments, 0), "compareSegments(size, lines1, lines2[, image]) -> retval, image\n.   @brief Draws two groups of lines in blue and red, counting the non overlapping (mismatching) pixels.\n.   \n.       @param size The size of the image, where lines1 and lines2 were found.\n.       @param lines1 The first group of lines that needs to be drawn. It is visualized in blue color.\n.       @param lines2 The second group of lines. They visualized in red color.\n.       @param image Optional image, where the lines will be drawn. The image should be color(3-channel)\n.       in order for lines1 and lines2 to be drawn in the above mentioned colors."},
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_LineSegmentDetector_detect, 0), "detect(image[, lines[, width[, prec[, nfa]]]]) -> lines, width, prec, nfa\n.   @brief Finds lines in the input image.\n.   \n.       This is the output of the default parameters of the algorithm on the above shown image.\n.   \n.       ![image](pics/building_lsd.png)\n.   \n.       @param image A grayscale (CV_8UC1) input image. If only a roi needs to be selected, use:\n.       `lsd_ptr-\\>detect(image(roi), lines, ...); lines += Scalar(roi.x, roi.y, roi.x, roi.y);`\n.       @param lines A vector of Vec4f elements specifying the beginning and ending point of a line. Where\n.       Vec4f is (x1, y1, x2, y2), point 1 is the start, point 2 - end. Returned lines are strictly\n.       oriented depending on the gradient.\n.       @param width Vector of widths of the regions, where the lines are found. E.g. Width of line.\n.       @param prec Vector of precisions with which the lines are found.\n.       @param nfa Vector containing number of false alarms in the line region, with precision of 10%. The\n.       bigger the value, logarithmically better the detection.\n.       - -1 corresponds to 10 mean false alarms\n.       - 0 corresponds to 1 mean false alarm\n.       - 1 corresponds to 0.1 mean false alarms\n.       This vector will be calculated only when the objects type is #LSD_REFINE_ADV."},
@@ -15942,7 +15942,7 @@ static PyGetSetDef jsopencv_MSER_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_MSER_methods[] =
+static JsMethodDef jsopencv_MSER_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_MSER_create_static, METH_STATIC), "create([, delta[, min_area[, max_area[, max_variation[, min_diversity[, max_evolution[, area_threshold[, min_margin[, edge_blur_size]]]]]]]]]) -> retval\n.   @brief Full constructor for %MSER detector\n.   \n.       @param delta it compares \\f$(size_{i}-size_{i-delta})/size_{i-delta}\\f$\n.       @param min_area prune the area which smaller than minArea\n.       @param max_area prune the area which bigger than maxArea\n.       @param max_variation prune the area have similar size to its children\n.       @param min_diversity for color image, trace back to cut off mser with diversity less than min_diversity\n.       @param max_evolution  for color image, the evolution steps\n.       @param area_threshold for color image, the area threshold to cause re-initialize\n.       @param min_margin for color image, ignore too small margin\n.       @param edge_blur_size for color image, the aperture size for edge blur"},
     {"detectRegions", CV_JS_FN_WITH_KW_(pyopencv_cv_MSER_detectRegions, 0), "detectRegions(image) -> msers, bboxes\n.   @brief Detect %MSER regions\n.   \n.       @param image input image (8UC1, 8UC3 or 8UC4, must be greater or equal than 3x3)\n.       @param msers resulting list of point sets\n.       @param bboxes resulting bounding boxes"},
@@ -16127,7 +16127,7 @@ static PyGetSetDef jsopencv_MergeDebevec_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_MergeDebevec_methods[] =
+static JsMethodDef jsopencv_MergeDebevec_methods[] =
 {
     {"process", CV_JS_FN_WITH_KW_(pyopencv_cv_MergeDebevec_process, 0), "process(src, times, response[, dst]) -> dst\n.   \n\n\n\nprocess(src, times[, dst]) -> dst\n."},
 
@@ -16244,7 +16244,7 @@ static PyGetSetDef jsopencv_MergeExposures_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_MergeExposures_methods[] =
+static JsMethodDef jsopencv_MergeExposures_methods[] =
 {
     {"process", CV_JS_FN_WITH_KW_(pyopencv_cv_MergeExposures_process, 0), "process(src, times, response[, dst]) -> dst\n.   @brief Merges images.\n.   \n.       @param src vector of input images\n.       @param dst result image\n.       @param times vector of exposure time values for each image\n.       @param response 256x1 matrix with inverse camera response function for each pixel value, it should\n.       have the same number of channels as images."},
 
@@ -16530,7 +16530,7 @@ static PyGetSetDef jsopencv_MergeMertens_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_MergeMertens_methods[] =
+static JsMethodDef jsopencv_MergeMertens_methods[] =
 {
     {"getContrastWeight", CV_JS_FN_WITH_KW_(pyopencv_cv_MergeMertens_getContrastWeight, 0), "getContrastWeight() -> retval\n."},
     {"getExposureWeight", CV_JS_FN_WITH_KW_(pyopencv_cv_MergeMertens_getExposureWeight, 0), "getExposureWeight() -> retval\n."},
@@ -16699,7 +16699,7 @@ static PyGetSetDef jsopencv_MergeRobertson_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_MergeRobertson_methods[] =
+static JsMethodDef jsopencv_MergeRobertson_methods[] =
 {
     {"process", CV_JS_FN_WITH_KW_(pyopencv_cv_MergeRobertson_process, 0), "process(src, times, response[, dst]) -> dst\n.   \n\n\n\nprocess(src, times[, dst]) -> dst\n."},
 
@@ -17381,7 +17381,7 @@ static PyGetSetDef jsopencv_ORB_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ORB_methods[] =
+static JsMethodDef jsopencv_ORB_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ORB_create_static, METH_STATIC), "create([, nfeatures[, scaleFactor[, nlevels[, edgeThreshold[, firstLevel[, WTA_K[, scoreType[, patchSize[, fastThreshold]]]]]]]]]) -> retval\n.   @brief The ORB constructor\n.   \n.       @param nfeatures The maximum number of features to retain.\n.       @param scaleFactor Pyramid decimation ratio, greater than 1. scaleFactor==2 means the classical\n.       pyramid, where each next level has 4x less pixels than the previous, but such a big scale factor\n.       will degrade feature matching scores dramatically. On the other hand, too close to 1 scale factor\n.       will mean that to cover certain scale range you will need more pyramid levels and so the speed\n.       will suffer.\n.       @param nlevels The number of pyramid levels. The smallest level will have linear size equal to\n.       input_image_linear_size/pow(scaleFactor, nlevels - firstLevel).\n.       @param edgeThreshold This is size of the border where the features are not detected. It should\n.       roughly match the patchSize parameter.\n.       @param firstLevel The level of pyramid to put source image to. Previous layers are filled\n.       with upscaled source image.\n.       @param WTA_K The number of points that produce each element of the oriented BRIEF descriptor. The\n.       default value 2 means the BRIEF where we take a random point pair and compare their brightnesses,\n.       so we get 0/1 response. Other possible values are 3 and 4. For example, 3 means that we take 3\n.       random points (of course, those point coordinates are random, but they are generated from the\n.       pre-defined seed, so each element of BRIEF descriptor is computed deterministically from the pixel\n.       rectangle), find point of maximum brightness and output index of the winner (0, 1 or 2). Such\n.       output will occupy 2 bits, and therefore it will need a special variant of Hamming distance,\n.       denoted as NORM_HAMMING2 (2 bits per bin). When WTA_K=4, we take 4 random points to compute each\n.       bin (that will also occupy 2 bits with possible values 0, 1, 2 or 3).\n.       @param scoreType The default HARRIS_SCORE means that Harris algorithm is used to rank features\n.       (the score is written to KeyPoint::score and is used to retain best nfeatures features);\n.       FAST_SCORE is alternative value of the parameter that produces slightly less stable keypoints,\n.       but it is a little faster to compute.\n.       @param patchSize size of the patch used by the oriented BRIEF descriptor. Of course, on smaller\n.       pyramid layers the perceived image area covered by a feature will be larger.\n.       @param fastThreshold the fast threshold"},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_ORB_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -18023,7 +18023,7 @@ static PyGetSetDef jsopencv_QRCodeDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_QRCodeDetector_methods[] =
+static JsMethodDef jsopencv_QRCodeDetector_methods[] =
 {
     {"decode", CV_JS_FN_WITH_KW_(pyopencv_cv_QRCodeDetector_decode, 0), "decode(img, points[, straight_qrcode]) -> retval, straight_qrcode\n.   @brief Decodes QR code in image once it's found by the detect() method.\n.   \n.        Returns UTF8-encoded output string or empty string if the code cannot be decoded.\n.        @param img grayscale or color (BGR) image containing QR code.\n.        @param points Quadrangle vertices found by detect() method (or some other algorithm).\n.        @param straight_qrcode The optional output image containing rectified and binarized QR code"},
     {"decodeCurved", CV_JS_FN_WITH_KW_(pyopencv_cv_QRCodeDetector_decodeCurved, 0), "decodeCurved(img, points[, straight_qrcode]) -> retval, straight_qrcode\n.   @brief Decodes QR code on a curved surface in image once it's found by the detect() method.\n.   \n.        Returns UTF8-encoded output string or empty string if the code cannot be decoded.\n.        @param img grayscale or color (BGR) image containing QR code.\n.        @param points Quadrangle vertices found by detect() method (or some other algorithm).\n.        @param straight_qrcode The optional output image containing rectified and binarized QR code"},
@@ -18211,7 +18211,7 @@ static PyGetSetDef jsopencv_QRCodeEncoder_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_QRCodeEncoder_methods[] =
+static JsMethodDef jsopencv_QRCodeEncoder_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_QRCodeEncoder_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Constructor\n.       @param parameters QR code encoder parameters QRCodeEncoder::Params"},
     {"encode", CV_JS_FN_WITH_KW_(pyopencv_cv_QRCodeEncoder_encode, 0), "encode(encoded_info[, qrcode]) -> qrcode\n.   @brief Generates QR code from input string.\n.        @param encoded_info Input string to encode.\n.        @param qrcode Generated QR code."},
@@ -18342,7 +18342,7 @@ static PyGetSetDef jsopencv_QRCodeEncoder_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_QRCodeEncoder_Params_methods[] =
+static JsMethodDef jsopencv_QRCodeEncoder_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -18699,7 +18699,7 @@ static PyGetSetDef jsopencv_SIFT_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_SIFT_methods[] =
+static JsMethodDef jsopencv_SIFT_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_SIFT_create_static, METH_STATIC), "create([, nfeatures[, nOctaveLayers[, contrastThreshold[, edgeThreshold[, sigma]]]]]) -> retval\n.   @param nfeatures The number of best features to retain. The features are ranked by their scores\n.       (measured in SIFT algorithm as the local contrast)\n.   \n.       @param nOctaveLayers The number of layers in each octave. 3 is the value used in D. Lowe paper. The\n.       number of octaves is computed automatically from the image resolution.\n.   \n.       @param contrastThreshold The contrast threshold used to filter out weak features in semi-uniform\n.       (low-contrast) regions. The larger the threshold, the less features are produced by the detector.\n.   \n.       @note The contrast threshold will be divided by nOctaveLayers when the filtering is applied. When\n.       nOctaveLayers is set to default and if you want to use the value used in D. Lowe paper, 0.03, set\n.       this argument to 0.09.\n.   \n.       @param edgeThreshold The threshold used to filter out edge-like features. Note that the its meaning\n.       is different from the contrastThreshold, i.e. the larger the edgeThreshold, the less features are\n.       filtered out (more features are retained).\n.   \n.       @param sigma The sigma of the Gaussian applied to the input image at the octave \\#0. If your image\n.       is captured with a weak camera with soft lenses, you might want to reduce the number.\n\n\n\ncreate(nfeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma, descriptorType) -> retval\n.   @brief Create SIFT with specified descriptorType.\n.       @param nfeatures The number of best features to retain. The features are ranked by their scores\n.       (measured in SIFT algorithm as the local contrast)\n.   \n.       @param nOctaveLayers The number of layers in each octave. 3 is the value used in D. Lowe paper. The\n.       number of octaves is computed automatically from the image resolution.\n.   \n.       @param contrastThreshold The contrast threshold used to filter out weak features in semi-uniform\n.       (low-contrast) regions. The larger the threshold, the less features are produced by the detector.\n.   \n.       @note The contrast threshold will be divided by nOctaveLayers when the filtering is applied. When\n.       nOctaveLayers is set to default and if you want to use the value used in D. Lowe paper, 0.03, set\n.       this argument to 0.09.\n.   \n.       @param edgeThreshold The threshold used to filter out edge-like features. Note that the its meaning\n.       is different from the contrastThreshold, i.e. the larger the edgeThreshold, the less features are\n.       filtered out (more features are retained).\n.   \n.       @param sigma The sigma of the Gaussian applied to the input image at the octave \\#0. If your image\n.       is captured with a weak camera with soft lenses, you might want to reduce the number.\n.   \n.       @param descriptorType The type of descriptors. Only CV_32F and CV_8U are supported."},
     {"getContrastThreshold", CV_JS_FN_WITH_KW_(pyopencv_cv_SIFT_getContrastThreshold, 0), "getContrastThreshold() -> retval\n."},
@@ -18863,7 +18863,7 @@ static PyGetSetDef jsopencv_SimpleBlobDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_SimpleBlobDetector_methods[] =
+static JsMethodDef jsopencv_SimpleBlobDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_SimpleBlobDetector_create_static, METH_STATIC), "create([, parameters]) -> retval\n."},
     {"getBlobContours", CV_JS_FN_WITH_KW_(pyopencv_cv_SimpleBlobDetector_getBlobContours, 0), "getBlobContours() -> retval\n."},
@@ -19252,7 +19252,7 @@ static PyGetSetDef jsopencv_SimpleBlobDetector_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_SimpleBlobDetector_Params_methods[] =
+static JsMethodDef jsopencv_SimpleBlobDetector_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -19380,7 +19380,7 @@ static PyGetSetDef jsopencv_SparseOpticalFlow_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_SparseOpticalFlow_methods[] =
+static JsMethodDef jsopencv_SparseOpticalFlow_methods[] =
 {
     {"calc", CV_JS_FN_WITH_KW_(pyopencv_cv_SparseOpticalFlow_calc, 0), "calc(prevImg, nextImg, prevPts, nextPts[, status[, err]]) -> nextPts, status, err\n.   @brief Calculates a sparse optical flow.\n.   \n.       @param prevImg First input image.\n.       @param nextImg Second input image of the same size and the same type as prevImg.\n.       @param prevPts Vector of 2D points for which the flow needs to be found.\n.       @param nextPts Output vector of 2D points containing the calculated new positions of input features in the second image.\n.       @param status Output status vector. Each element of the vector is set to 1 if the\n.                     flow for the corresponding features has been found. Otherwise, it is set to 0.\n.       @param err Optional output vector that contains error response for each point (inverse confidence)."},
 
@@ -19677,7 +19677,7 @@ static PyGetSetDef jsopencv_SparsePyrLKOpticalFlow_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_SparsePyrLKOpticalFlow_methods[] =
+static JsMethodDef jsopencv_SparsePyrLKOpticalFlow_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_SparsePyrLKOpticalFlow_create_static, METH_STATIC), "create([, winSize[, maxLevel[, crit[, flags[, minEigThreshold]]]]]) -> retval\n."},
     {"getFlags", CV_JS_FN_WITH_KW_(pyopencv_cv_SparsePyrLKOpticalFlow_getFlags, 0), "getFlags() -> retval\n."},
@@ -20104,7 +20104,7 @@ static PyGetSetDef jsopencv_StereoBM_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_StereoBM_methods[] =
+static JsMethodDef jsopencv_StereoBM_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_StereoBM_create_static, METH_STATIC), "create([, numDisparities[, blockSize]]) -> retval\n.   @brief Creates StereoBM object\n.   \n.       @param numDisparities the disparity search range. For each pixel algorithm will find the best\n.       disparity from 0 (default minimum disparity) to numDisparities. The search range can then be\n.       shifted by changing the minimum disparity.\n.       @param blockSize the linear size of the blocks compared by the algorithm. The size should be odd\n.       (as the block is centered at the current pixel). Larger block size implies smoother, though less\n.       accurate disparity map. Smaller block size gives more detailed disparity map, but there is higher\n.       chance for algorithm to find a wrong correspondence.\n.   \n.       The function create StereoBM object. You can then call StereoBM::compute() to compute disparity for\n.       a specific stereo pair."},
     {"getPreFilterCap", CV_JS_FN_WITH_KW_(pyopencv_cv_StereoBM_getPreFilterCap, 0), "getPreFilterCap() -> retval\n."},
@@ -20489,7 +20489,7 @@ static PyGetSetDef jsopencv_StereoMatcher_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_StereoMatcher_methods[] =
+static JsMethodDef jsopencv_StereoMatcher_methods[] =
 {
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_StereoMatcher_compute, 0), "compute(left, right[, disparity]) -> disparity\n.   @brief Computes disparity map for the specified stereo pair\n.   \n.       @param left Left 8-bit single-channel image.\n.       @param right Right image of the same size and the same type as the left one.\n.       @param disparity Output disparity map. It has the same size as the input images. Some algorithms,\n.       like StereoBM or StereoSGBM compute 16-bit fixed-point disparity map (where each disparity value\n.       has 4 fractional bits), whereas other algorithms output 32-bit floating-point disparity map."},
     {"getBlockSize", CV_JS_FN_WITH_KW_(pyopencv_cv_StereoMatcher_getBlockSize, 0), "getBlockSize() -> retval\n."},
@@ -20816,7 +20816,7 @@ static PyGetSetDef jsopencv_StereoSGBM_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_StereoSGBM_methods[] =
+static JsMethodDef jsopencv_StereoSGBM_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_StereoSGBM_create_static, METH_STATIC), "create([, minDisparity[, numDisparities[, blockSize[, P1[, P2[, disp12MaxDiff[, preFilterCap[, uniquenessRatio[, speckleWindowSize[, speckleRange[, mode]]]]]]]]]]]) -> retval\n.   @brief Creates StereoSGBM object\n.   \n.       @param minDisparity Minimum possible disparity value. Normally, it is zero but sometimes\n.       rectification algorithms can shift images, so this parameter needs to be adjusted accordingly.\n.       @param numDisparities Maximum disparity minus minimum disparity. The value is always greater than\n.       zero. In the current implementation, this parameter must be divisible by 16.\n.       @param blockSize Matched block size. It must be an odd number \\>=1 . Normally, it should be\n.       somewhere in the 3..11 range.\n.       @param P1 The first parameter controlling the disparity smoothness. See below.\n.       @param P2 The second parameter controlling the disparity smoothness. The larger the values are,\n.       the smoother the disparity is. P1 is the penalty on the disparity change by plus or minus 1\n.       between neighbor pixels. P2 is the penalty on the disparity change by more than 1 between neighbor\n.       pixels. The algorithm requires P2 \\> P1 . See stereo_match.cpp sample where some reasonably good\n.       P1 and P2 values are shown (like 8\\*number_of_image_channels\\*blockSize\\*blockSize and\n.       32\\*number_of_image_channels\\*blockSize\\*blockSize , respectively).\n.       @param disp12MaxDiff Maximum allowed difference (in integer pixel units) in the left-right\n.       disparity check. Set it to a non-positive value to disable the check.\n.       @param preFilterCap Truncation value for the prefiltered image pixels. The algorithm first\n.       computes x-derivative at each pixel and clips its value by [-preFilterCap, preFilterCap] interval.\n.       The result values are passed to the Birchfield-Tomasi pixel cost function.\n.       @param uniquenessRatio Margin in percentage by which the best (minimum) computed cost function\n.       value should \"win\" the second best value to consider the found match correct. Normally, a value\n.       within the 5-15 range is good enough.\n.       @param speckleWindowSize Maximum size of smooth disparity regions to consider their noise speckles\n.       and invalidate. Set it to 0 to disable speckle filtering. Otherwise, set it somewhere in the\n.       50-200 range.\n.       @param speckleRange Maximum disparity variation within each connected component. If you do speckle\n.       filtering, set the parameter to a positive value, it will be implicitly multiplied by 16.\n.       Normally, 1 or 2 is good enough.\n.       @param mode Set it to StereoSGBM::MODE_HH to run the full-scale two-pass dynamic programming\n.       algorithm. It will consume O(W\\*H\\*numDisparities) bytes, which is large for 640x480 stereo and\n.       huge for HD-size pictures. By default, it is set to false .\n.   \n.       The first constructor initializes StereoSGBM with all the default parameters. So, you only have to\n.       set StereoSGBM::numDisparities at minimum. The second constructor enables you to set each parameter\n.       to a custom value."},
     {"getMode", CV_JS_FN_WITH_KW_(pyopencv_cv_StereoSGBM_getMode, 0), "getMode() -> retval\n."},
@@ -21303,7 +21303,7 @@ static PyGetSetDef jsopencv_Subdiv2D_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_Subdiv2D_methods[] =
+static JsMethodDef jsopencv_Subdiv2D_methods[] =
 {
     {"edgeDst", CV_JS_FN_WITH_KW_(pyopencv_cv_Subdiv2D_edgeDst, 0), "edgeDst(edge) -> retval, dstpt\n.   @brief Returns the edge destination.\n.   \n.       @param edge Subdivision edge ID.\n.       @param dstpt Output vertex location.\n.   \n.       @returns vertex ID."},
     {"edgeOrg", CV_JS_FN_WITH_KW_(pyopencv_cv_Subdiv2D_edgeOrg, 0), "edgeOrg(edge) -> retval, orgpt\n.   @brief Returns the edge origin.\n.   \n.       @param edge Subdivision edge ID.\n.       @param orgpt Output vertex location.\n.   \n.       @returns vertex ID."},
@@ -21600,7 +21600,7 @@ static PyGetSetDef jsopencv_TickMeter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TickMeter_methods[] =
+static JsMethodDef jsopencv_TickMeter_methods[] =
 {
     {"getAvgTimeMilli", CV_JS_FN_WITH_KW_(pyopencv_cv_TickMeter_getAvgTimeMilli, 0), "getAvgTimeMilli() -> retval\n."},
     {"getAvgTimeSec", CV_JS_FN_WITH_KW_(pyopencv_cv_TickMeter_getAvgTimeSec, 0), "getAvgTimeSec() -> retval\n."},
@@ -21758,7 +21758,7 @@ static PyGetSetDef jsopencv_Tonemap_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_Tonemap_methods[] =
+static JsMethodDef jsopencv_Tonemap_methods[] =
 {
     {"getGamma", CV_JS_FN_WITH_KW_(pyopencv_cv_Tonemap_getGamma, 0), "getGamma() -> retval\n."},
     {"process", CV_JS_FN_WITH_KW_(pyopencv_cv_Tonemap_process, 0), "process(src[, dst]) -> dst\n.   @brief Tonemaps image\n.   \n.       @param src source image - CV_32FC3 Mat (float 32 bits 3 channels)\n.       @param dst destination image - CV_32FC3 Mat with values in [0, 1] range"},
@@ -21897,7 +21897,7 @@ static PyGetSetDef jsopencv_TonemapDrago_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TonemapDrago_methods[] =
+static JsMethodDef jsopencv_TonemapDrago_methods[] =
 {
     {"getBias", CV_JS_FN_WITH_KW_(pyopencv_cv_TonemapDrago_getBias, 0), "getBias() -> retval\n."},
     {"getSaturation", CV_JS_FN_WITH_KW_(pyopencv_cv_TonemapDrago_getSaturation, 0), "getSaturation() -> retval\n."},
@@ -22037,7 +22037,7 @@ static PyGetSetDef jsopencv_TonemapMantiuk_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TonemapMantiuk_methods[] =
+static JsMethodDef jsopencv_TonemapMantiuk_methods[] =
 {
     {"getSaturation", CV_JS_FN_WITH_KW_(pyopencv_cv_TonemapMantiuk_getSaturation, 0), "getSaturation() -> retval\n."},
     {"getScale", CV_JS_FN_WITH_KW_(pyopencv_cv_TonemapMantiuk_getScale, 0), "getScale() -> retval\n."},
@@ -22220,7 +22220,7 @@ static PyGetSetDef jsopencv_TonemapReinhard_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TonemapReinhard_methods[] =
+static JsMethodDef jsopencv_TonemapReinhard_methods[] =
 {
     {"getColorAdaptation", CV_JS_FN_WITH_KW_(pyopencv_cv_TonemapReinhard_getColorAdaptation, 0), "getColorAdaptation() -> retval\n."},
     {"getIntensity", CV_JS_FN_WITH_KW_(pyopencv_cv_TonemapReinhard_getIntensity, 0), "getIntensity() -> retval\n."},
@@ -22382,7 +22382,7 @@ static PyGetSetDef jsopencv_Tracker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_Tracker_methods[] =
+static JsMethodDef jsopencv_Tracker_methods[] =
 {
     {"init", CV_JS_FN_WITH_KW_(pyopencv_cv_Tracker_init, 0), "init(image, boundingBox) -> None\n.   @brief Initialize the tracker with a known bounding box that surrounded the target\n.       @param image The initial frame\n.       @param boundingBox The initial bounding box"},
     {"update", CV_JS_FN_WITH_KW_(pyopencv_cv_Tracker_update, 0), "update(image) -> retval, boundingBox\n.   @brief Update the tracker, find the new most likely bounding box for the target\n.       @param image The current frame\n.       @param boundingBox The bounding box that represent the new target location, if true was returned, not\n.       modified otherwise\n.   \n.       @return True means that target was located and false means that tracker cannot locate target in\n.       current frame. Note, that latter *does not* imply that tracker has failed, maybe target is indeed\n.       missing from the frame (say, out of sight)"},
@@ -22501,7 +22501,7 @@ static PyGetSetDef jsopencv_TrackerCSRT_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerCSRT_methods[] =
+static JsMethodDef jsopencv_TrackerCSRT_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerCSRT_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Create CSRT tracker instance\n.       @param parameters CSRT parameters TrackerCSRT::Params"},
     {"setInitialMask", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerCSRT_setInitialMask, 0), "setInitialMask(mask) -> None\n."},
@@ -22999,7 +22999,7 @@ static PyGetSetDef jsopencv_TrackerCSRT_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerCSRT_Params_methods[] =
+static JsMethodDef jsopencv_TrackerCSRT_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -23088,7 +23088,7 @@ static PyGetSetDef jsopencv_TrackerDaSiamRPN_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerDaSiamRPN_methods[] =
+static JsMethodDef jsopencv_TrackerDaSiamRPN_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerDaSiamRPN_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Constructor\n.       @param parameters DaSiamRPN parameters TrackerDaSiamRPN::Params"},
     {"getTrackingScore", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerDaSiamRPN_getTrackingScore, 0), "getTrackingScore() -> retval\n.   @brief Return tracking score"},
@@ -23234,7 +23234,7 @@ static PyGetSetDef jsopencv_TrackerDaSiamRPN_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerDaSiamRPN_Params_methods[] =
+static JsMethodDef jsopencv_TrackerDaSiamRPN_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -23303,7 +23303,7 @@ static PyGetSetDef jsopencv_TrackerGOTURN_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerGOTURN_methods[] =
+static JsMethodDef jsopencv_TrackerGOTURN_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerGOTURN_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Constructor\n.       @param parameters GOTURN parameters TrackerGOTURN::Params"},
 
@@ -23400,7 +23400,7 @@ static PyGetSetDef jsopencv_TrackerGOTURN_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerGOTURN_Params_methods[] =
+static JsMethodDef jsopencv_TrackerGOTURN_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -23469,7 +23469,7 @@ static PyGetSetDef jsopencv_TrackerKCF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerKCF_methods[] =
+static JsMethodDef jsopencv_TrackerKCF_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerKCF_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Create KCF tracker instance\n.       @param parameters KCF parameters TrackerKCF::Params"},
 
@@ -23758,7 +23758,7 @@ static PyGetSetDef jsopencv_TrackerKCF_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerKCF_Params_methods[] =
+static JsMethodDef jsopencv_TrackerKCF_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -23827,7 +23827,7 @@ static PyGetSetDef jsopencv_TrackerMIL_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerMIL_methods[] =
+static JsMethodDef jsopencv_TrackerMIL_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerMIL_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Create MIL tracker instance\n.        *  @param parameters MIL parameters TrackerMIL::Params"},
 
@@ -24004,7 +24004,7 @@ static PyGetSetDef jsopencv_TrackerMIL_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerMIL_Params_methods[] =
+static JsMethodDef jsopencv_TrackerMIL_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -24093,7 +24093,7 @@ static PyGetSetDef jsopencv_TrackerNano_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerNano_methods[] =
+static JsMethodDef jsopencv_TrackerNano_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerNano_create_static, METH_STATIC), "create([, parameters]) -> retval\n.   @brief Constructor\n.       @param parameters NanoTrack parameters TrackerNano::Params"},
     {"getTrackingScore", CV_JS_FN_WITH_KW_(pyopencv_cv_TrackerNano_getTrackingScore, 0), "getTrackingScore() -> retval\n.   @brief Return tracking score"},
@@ -24223,7 +24223,7 @@ static PyGetSetDef jsopencv_TrackerNano_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_TrackerNano_Params_methods[] =
+static JsMethodDef jsopencv_TrackerNano_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -24622,7 +24622,7 @@ static PyGetSetDef jsopencv_UMat_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_UMat_methods[] =
+static JsMethodDef jsopencv_UMat_methods[] =
 {
     {"context", CV_JS_FN_WITH_KW_(pyopencv_cv_UMat_context_static, METH_STATIC), "context() -> retval\n."},
     {"get", CV_JS_FN_WITH_KW_(pyopencv_cv_UMat_get, 0), "get() -> retval\n."},
@@ -24876,7 +24876,7 @@ static PyGetSetDef jsopencv_UsacParams_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_UsacParams_methods[] =
+static JsMethodDef jsopencv_UsacParams_methods[] =
 {
 
     {NULL,          NULL}
@@ -25265,7 +25265,7 @@ static PyGetSetDef jsopencv_VariationalRefinement_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_VariationalRefinement_methods[] =
+static JsMethodDef jsopencv_VariationalRefinement_methods[] =
 {
     {"calcUV", CV_JS_FN_WITH_KW_(pyopencv_cv_VariationalRefinement_calcUV, 0), "calcUV(I0, I1, flow_u, flow_v) -> flow_u, flow_v\n.   @brief @ref calc function overload to handle separate horizontal (u) and vertical (v) flow components\n.   (to avoid extra splits/merges)"},
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_VariationalRefinement_create_static, METH_STATIC), "create() -> retval\n.   @brief Creates an instance of VariationalRefinement"},
@@ -25848,7 +25848,7 @@ static PyGetSetDef jsopencv_VideoCapture_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_VideoCapture_methods[] =
+static JsMethodDef jsopencv_VideoCapture_methods[] =
 {
     {"get", CV_JS_FN_WITH_KW_(pyopencv_cv_VideoCapture_get, 0), "get(propId) -> retval\n.   @brief Returns the specified VideoCapture property\n.   \n.       @param propId Property identifier from cv::VideoCaptureProperties (eg. cv::CAP_PROP_POS_MSEC, cv::CAP_PROP_POS_FRAMES, ...)\n.       or one from @ref videoio_flags_others\n.       @return Value for the specified property. Value 0 is returned when querying a property that is\n.       not supported by the backend used by the VideoCapture instance.\n.   \n.       @note Reading / writing properties involves many layers. Some unexpected result might happens\n.       along this chain.\n.       @code{.txt}\n.       VideoCapture -> API Backend -> Operating System -> Device Driver -> Device Hardware\n.       @endcode\n.       The returned value might be different from what really used by the device or it could be encoded\n.       using device dependent rules (eg. steps or percentage). Effective behaviour depends from device\n.       driver and API Backend"},
     {"getBackendName", CV_JS_FN_WITH_KW_(pyopencv_cv_VideoCapture_getBackendName, 0), "getBackendName() -> retval\n.   @brief Returns used backend API name\n.   \n.        @note Stream should be opened."},
@@ -26385,7 +26385,7 @@ static PyGetSetDef jsopencv_VideoWriter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_VideoWriter_methods[] =
+static JsMethodDef jsopencv_VideoWriter_methods[] =
 {
     {"fourcc", CV_JS_FN_WITH_KW_(pyopencv_cv_VideoWriter_fourcc_static, METH_STATIC), "fourcc(c1, c2, c3, c4) -> retval\n.   @brief Concatenates 4 chars to a fourcc code\n.   \n.       @return a fourcc code\n.   \n.       This static method constructs the fourcc code of the codec to be used in the constructor\n.       VideoWriter::VideoWriter or VideoWriter::open."},
     {"get", CV_JS_FN_WITH_KW_(pyopencv_cv_VideoWriter_get, 0), "get(propId) -> retval\n.   @brief Returns the specified VideoWriter property\n.   \n.        @param propId Property identifier from cv::VideoWriterProperties (eg. cv::VIDEOWRITER_PROP_QUALITY)\n.        or one of @ref videoio_flags_others\n.   \n.        @return Value for the specified property. Value 0 is returned when querying a property that is\n.        not supported by the backend used by the VideoWriter instance."},
@@ -26802,7 +26802,7 @@ static PyGetSetDef jsopencv_aruco_ArucoDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_ArucoDetector_methods[] =
+static JsMethodDef jsopencv_aruco_ArucoDetector_methods[] =
 {
     {"detectMarkers", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_ArucoDetector_detectMarkers, 0), "detectMarkers(image[, corners[, ids[, rejectedImgPoints]]]) -> corners, ids, rejectedImgPoints\n.   @brief Basic marker detection\n.        *\n.        * @param image input image\n.        * @param corners vector of detected marker corners. For each marker, its four corners\n.        * are provided, (e.g std::vector<std::vector<cv::Point2f> > ). For N detected markers,\n.        * the dimensions of this array is Nx4. The order of the corners is clockwise.\n.        * @param ids vector of identifiers of the detected markers. The identifier is of type int\n.        * (e.g. std::vector<int>). For N detected markers, the size of ids is also N.\n.        * The identifiers have the same order than the markers in the imgPoints array.\n.        * @param rejectedImgPoints contains the imgPoints of those squares whose inner code has not a\n.        * correct codification. Useful for debugging purposes.\n.        *\n.        * Performs marker detection in the input image. Only markers included in the specific dictionary\n.        * are searched. For each detected marker, it returns the 2D position of its corner in the image\n.        * and its corresponding identifier.\n.        * Note that this function does not perform pose estimation.\n.        * @note The function does not correct lens distortion or takes it into account. It's recommended to undistort\n.        * input image with corresponging camera model, if camera parameters are known\n.        * @sa undistort, estimatePoseSingleMarkers,  estimatePoseBoard"},
     {"getDetectorParameters", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_ArucoDetector_getDetectorParameters, 0), "getDetectorParameters() -> retval\n."},
@@ -27129,7 +27129,7 @@ static PyGetSetDef jsopencv_aruco_Board_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_Board_methods[] =
+static JsMethodDef jsopencv_aruco_Board_methods[] =
 {
     {"generateImage", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_Board_generateImage, 0), "generateImage(outSize[, img[, marginSize[, borderBits]]]) -> img\n.   @brief Draw a planar board\n.        *\n.        * @param outSize size of the output image in pixels.\n.        * @param img output image with the board. The size of this image will be outSize\n.        * and the board will be on the center, keeping the board proportions.\n.        * @param marginSize minimum margins (in pixels) of the board in the output image\n.        * @param borderBits width of the marker borders.\n.        *\n.        * This function return the image of the board, ready to be printed."},
     {"getDictionary", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_Board_getDictionary, 0), "getDictionary() -> retval\n.   @brief return the Dictionary of markers employed for this board"},
@@ -27382,7 +27382,7 @@ static PyGetSetDef jsopencv_aruco_CharucoBoard_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_CharucoBoard_methods[] =
+static JsMethodDef jsopencv_aruco_CharucoBoard_methods[] =
 {
     {"checkCharucoCornersCollinear", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_CharucoBoard_checkCharucoCornersCollinear, 0), "checkCharucoCornersCollinear(charucoIds) -> retval\n.   @brief check whether the ChArUco markers are collinear\n.        *\n.        * @param charucoIds list of identifiers for each corner in charucoCorners per frame.\n.        * @return bool value, 1 (true) if detected corners form a line, 0 (false) if they do not.\n.        * solvePnP, calibration functions will fail if the corners are collinear (true).\n.        *\n.        * The number of ids in charucoIDs should be <= the number of chessboard corners in the board.\n.        * This functions checks whether the charuco corners are on a straight line (returns true, if so), or not (false).\n.        * Axis parallel, as well as diagonal and other straight lines detected.  Degenerate cases:\n.        * for number of charucoIDs <= 2,the function returns true."},
     {"getChessboardCorners", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_CharucoBoard_getChessboardCorners, 0), "getChessboardCorners() -> retval\n.   @brief get CharucoBoard::chessboardCorners"},
@@ -27781,7 +27781,7 @@ static PyGetSetDef jsopencv_aruco_CharucoDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_CharucoDetector_methods[] =
+static JsMethodDef jsopencv_aruco_CharucoDetector_methods[] =
 {
     {"detectBoard", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_CharucoDetector_detectBoard, 0), "detectBoard(image[, charucoCorners[, charucoIds[, markerCorners[, markerIds]]]]) -> charucoCorners, charucoIds, markerCorners, markerIds\n.   * @brief detect aruco markers and interpolate position of ChArUco board corners\n.        * @param image input image necesary for corner refinement. Note that markers are not detected and\n.        * should be sent in corners and ids parameters.\n.        * @param charucoCorners interpolated chessboard corners.\n.        * @param charucoIds interpolated chessboard corners identifiers.\n.        * @param markerCorners vector of already detected markers corners. For each marker, its four\n.        * corners are provided, (e.g std::vector<std::vector<cv::Point2f> > ). For N detected markers, the\n.        * dimensions of this array should be Nx4. The order of the corners should be clockwise.\n.        * If markerCorners and markerCorners are empty, the function detect aruco markers and ids.\n.        * @param markerIds list of identifiers for each marker in corners.\n.        *  If markerCorners and markerCorners are empty, the function detect aruco markers and ids.\n.        *\n.        * This function receives the detected markers and returns the 2D position of the chessboard corners\n.        * from a ChArUco board using the detected Aruco markers.\n.        *\n.        * If markerCorners and markerCorners are empty, the detectMarkers() will run and detect aruco markers and ids.\n.        *\n.        * If camera parameters are provided, the process is based in an approximated pose estimation, else it is based on local homography.\n.        * Only visible corners are returned. For each corner, its corresponding identifier is also returned in charucoIds.\n.        * @sa findChessboardCorners"},
     {"detectDiamonds", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_CharucoDetector_detectDiamonds, 0), "detectDiamonds(image[, diamondCorners[, diamondIds[, markerCorners[, markerIds]]]]) -> diamondCorners, diamondIds, markerCorners, markerIds\n.   * @brief Detect ChArUco Diamond markers\n.        *\n.        * @param image input image necessary for corner subpixel.\n.        * @param diamondCorners output list of detected diamond corners (4 corners per diamond). The order\n.        * is the same than in marker corners: top left, top right, bottom right and bottom left. Similar\n.        * format than the corners returned by detectMarkers (e.g std::vector<std::vector<cv::Point2f> > ).\n.        * @param diamondIds ids of the diamonds in diamondCorners. The id of each diamond is in fact of\n.        * type Vec4i, so each diamond has 4 ids, which are the ids of the aruco markers composing the\n.        * diamond.\n.        * @param markerCorners list of detected marker corners from detectMarkers function.\n.        * If markerCorners and markerCorners are empty, the function detect aruco markers and ids.\n.        * @param markerIds list of marker ids in markerCorners.\n.        * If markerCorners and markerCorners are empty, the function detect aruco markers and ids.\n.        *\n.        * This function detects Diamond markers from the previous detected ArUco markers. The diamonds\n.        * are returned in the diamondCorners and diamondIds parameters. If camera calibration parameters\n.        * are provided, the diamond search is based on reprojection. If not, diamond search is based on\n.        * homography. Homography is faster than reprojection, but less accurate."},
@@ -27905,7 +27905,7 @@ static PyGetSetDef jsopencv_aruco_CharucoParameters_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_CharucoParameters_methods[] =
+static JsMethodDef jsopencv_aruco_CharucoParameters_methods[] =
 {
 
     {NULL,          NULL}
@@ -28532,7 +28532,7 @@ static PyGetSetDef jsopencv_aruco_DetectorParameters_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_DetectorParameters_methods[] =
+static JsMethodDef jsopencv_aruco_DetectorParameters_methods[] =
 {
     {"readDetectorParameters", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_DetectorParameters_readDetectorParameters, 0), "readDetectorParameters(fn) -> retval\n.   @brief Read a new set of DetectorParameters from FileNode (use FileStorage.root())."},
     {"writeDetectorParameters", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_DetectorParameters_writeDetectorParameters, 0), "writeDetectorParameters(fs[, name]) -> retval\n.   @brief Write a set of DetectorParameters to FileStorage"},
@@ -28925,7 +28925,7 @@ static PyGetSetDef jsopencv_aruco_Dictionary_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_Dictionary_methods[] =
+static JsMethodDef jsopencv_aruco_Dictionary_methods[] =
 {
     {"generateImageMarker", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_Dictionary_generateImageMarker, 0), "generateImageMarker(id, sidePixels[, _img[, borderBits]]) -> _img\n.   @brief Generate a canonical marker image"},
     {"getBitsFromByteList", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_Dictionary_getBitsFromByteList_static, METH_STATIC), "getBitsFromByteList(byteList, markerSize) -> retval\n.   @brief Transform list of bytes to matrix of bits"},
@@ -29109,7 +29109,7 @@ static PyGetSetDef jsopencv_aruco_GridBoard_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_GridBoard_methods[] =
+static JsMethodDef jsopencv_aruco_GridBoard_methods[] =
 {
     {"getGridSize", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_GridBoard_getGridSize, 0), "getGridSize() -> retval\n."},
     {"getMarkerLength", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_GridBoard_getMarkerLength, 0), "getMarkerLength() -> retval\n."},
@@ -29285,7 +29285,7 @@ static PyGetSetDef jsopencv_aruco_RefineParameters_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_aruco_RefineParameters_methods[] =
+static JsMethodDef jsopencv_aruco_RefineParameters_methods[] =
 {
     {"readRefineParameters", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_RefineParameters_readRefineParameters, 0), "readRefineParameters(fn) -> retval\n.   @brief Read a new set of RefineParameters from FileNode (use FileStorage.root())."},
     {"writeRefineParameters", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_aruco_RefineParameters_writeRefineParameters, 0), "writeRefineParameters(fs[, name]) -> retval\n.   @brief Write a set of RefineParameters to FileStorage"},
@@ -29535,7 +29535,7 @@ static PyGetSetDef jsopencv_barcode_BarcodeDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_barcode_BarcodeDetector_methods[] =
+static JsMethodDef jsopencv_barcode_BarcodeDetector_methods[] =
 {
     {"decode", CV_JS_FN_WITH_KW_(pyopencv_cv_barcode_barcode_BarcodeDetector_decode, 0), "decode(img, points) -> retval, decoded_info, decoded_type\n.   @brief Decodes barcode in image once it's found by the detect() method.\n.        *\n.        * @param img grayscale or color (BGR) image containing bar code.\n.        * @param points vector of rotated rectangle vertices found by detect() method (or some other algorithm).\n.        * For N detected barcodes, the dimensions of this array should be [N][4].\n.        * Order of four points in vector<Point2f> is bottomLeft, topLeft, topRight, bottomRight.\n.        * @param decoded_info UTF8-encoded output vector of string or empty vector of string if the codes cannot be decoded.\n.        * @param decoded_type vector of BarcodeType, specifies the type of these barcodes"},
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_barcode_barcode_BarcodeDetector_detect, 0), "detect(img[, points]) -> retval, points\n.   @brief Detects Barcode in image and returns the rectangle(s) containing the code.\n.        *\n.        * @param img grayscale or color (BGR) image containing (or not) Barcode.\n.        * @param points Output vector of vector of vertices of the minimum-area rotated rectangle containing the codes.\n.        * For N detected barcodes, the dimensions of this array should be [N][4].\n.        * Order of four points in vector< Point2f> is bottomLeft, topLeft, topRight, bottomRight."},
@@ -30114,7 +30114,7 @@ static PyGetSetDef jsopencv_ccm_ColorCorrectionModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ccm_ColorCorrectionModel_methods[] =
+static JsMethodDef jsopencv_ccm_ColorCorrectionModel_methods[] =
 {
     {"getCCM", CV_JS_FN_WITH_KW_(pyopencv_cv_ccm_ccm_ColorCorrectionModel_getCCM, 0), "getCCM() -> retval\n."},
     {"getLoss", CV_JS_FN_WITH_KW_(pyopencv_cv_ccm_ccm_ColorCorrectionModel_getLoss, 0), "getLoss() -> retval\n."},
@@ -30282,7 +30282,7 @@ static PyGetSetDef jsopencv_cuda_BufferPool_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_BufferPool_methods[] =
+static JsMethodDef jsopencv_cuda_BufferPool_methods[] =
 {
     {"getAllocator", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_BufferPool_getAllocator, 0), "getAllocator() -> retval\n."},
     {"getBuffer", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_BufferPool_getBuffer, 0), "getBuffer(rows, cols, type) -> retval\n.   \n\n\n\ngetBuffer(size, type) -> retval\n."},
@@ -31501,7 +31501,7 @@ static PyGetSetDef jsopencv_cuda_DeviceInfo_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_DeviceInfo_methods[] =
+static JsMethodDef jsopencv_cuda_DeviceInfo_methods[] =
 {
     {"ECCEnabled", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_DeviceInfo_ECCEnabled, 0), "ECCEnabled() -> retval\n."},
     {"asyncEngineCount", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_DeviceInfo_asyncEngineCount, 0), "asyncEngineCount() -> retval\n."},
@@ -31710,7 +31710,7 @@ static PyGetSetDef jsopencv_cuda_Event_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_Event_methods[] =
+static JsMethodDef jsopencv_cuda_Event_methods[] =
 {
     {"elapsedTime", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_Event_elapsedTime_static, METH_STATIC), "elapsedTime(start, end) -> retval\n."},
     {"queryIfComplete", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_Event_queryIfComplete, 0), "queryIfComplete() -> retval\n."},
@@ -31764,7 +31764,7 @@ static PyGetSetDef jsopencv_cuda_GpuData_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_GpuData_methods[] =
+static JsMethodDef jsopencv_cuda_GpuData_methods[] =
 {
 
     {NULL,          NULL}
@@ -33796,7 +33796,7 @@ static PyGetSetDef jsopencv_cuda_GpuMat_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_GpuMat_methods[] =
+static JsMethodDef jsopencv_cuda_GpuMat_methods[] =
 {
     {"adjustROI", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_GpuMat_adjustROI, 0), "adjustROI(dtop, dbottom, dleft, dright) -> retval\n."},
     {"assignTo", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_GpuMat_assignTo, 0), "assignTo(m[, type]) -> None\n."},
@@ -33876,7 +33876,7 @@ static PyGetSetDef jsopencv_cuda_GpuMatND_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_GpuMatND_methods[] =
+static JsMethodDef jsopencv_cuda_GpuMatND_methods[] =
 {
 
     {NULL,          NULL}
@@ -33926,7 +33926,7 @@ static PyGetSetDef jsopencv_cuda_GpuMat_Allocator_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_GpuMat_Allocator_methods[] =
+static JsMethodDef jsopencv_cuda_GpuMat_Allocator_methods[] =
 {
 
     {NULL,          NULL}
@@ -34422,7 +34422,7 @@ static PyGetSetDef jsopencv_cuda_HostMem_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_HostMem_methods[] =
+static JsMethodDef jsopencv_cuda_HostMem_methods[] =
 {
     {"channels", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_HostMem_channels, 0), "channels() -> retval\n."},
     {"clone", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_HostMem_clone, 0), "clone() -> retval\n."},
@@ -34684,7 +34684,7 @@ static PyGetSetDef jsopencv_cuda_SURF_CUDA_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_SURF_CUDA_methods[] =
+static JsMethodDef jsopencv_cuda_SURF_CUDA_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_SURF_CUDA_create_static, METH_STATIC), "create(_hessianThreshold[, _nOctaves[, _nOctaveLayers[, _extended[, _keypointsRatio[, _upright]]]]]) -> retval\n.   @param _hessianThreshold Threshold for hessian keypoint detector used in SURF.\n.       @param _nOctaves Number of pyramid octaves the keypoint detector will use.\n.       @param _nOctaveLayers Number of octave layers within each octave.\n.       @param _extended Extended descriptor flag (true - use extended 128-element descriptors; false - use\n.       64-element descriptors).\n.       @param _keypointsRatio\n.       @param _upright Up-right or rotated features flag (true - do not compute orientation of features;\n.       false - compute orientation)."},
     {"defaultNorm", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_SURF_CUDA_defaultNorm, 0), "defaultNorm() -> retval\n."},
@@ -34896,7 +34896,7 @@ static PyGetSetDef jsopencv_cuda_Stream_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_Stream_methods[] =
+static JsMethodDef jsopencv_cuda_Stream_methods[] =
 {
     {"Null", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_Stream_Null_static, METH_STATIC), "Null() -> retval\n.   @brief Adds a callback to be called on the host after all currently enqueued items in the stream have\n.       completed.\n.   \n.       @note Callbacks must not make any CUDA API calls. Callbacks must not perform any synchronization\n.       that may depend on outstanding device work or other callbacks that are not mandated to run earlier.\n.       Callbacks without a mandated order (in independent streams) execute in undefined order and may be\n.       serialized."},
     {"cudaPtr", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_Stream_cudaPtr, 0), "cudaPtr() -> retval\n."},
@@ -35105,7 +35105,7 @@ static PyGetSetDef jsopencv_cuda_TargetArchs_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_cuda_TargetArchs_methods[] =
+static JsMethodDef jsopencv_cuda_TargetArchs_methods[] =
 {
     {"has", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_TargetArchs_has_static, METH_STATIC), "has(major, minor) -> retval\n.   @brief There is a set of methods to check whether the module contains intermediate (PTX) or binary CUDA\n.       code for the given architecture(s):\n.   \n.       @param major Major compute capability version.\n.       @param minor Minor compute capability version."},
     {"hasBin", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_cuda_TargetArchs_hasBin_static, METH_STATIC), "hasBin(major, minor) -> retval\n."},
@@ -35304,7 +35304,7 @@ static PyGetSetDef jsopencv_dnn_ClassificationModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_ClassificationModel_methods[] =
+static JsMethodDef jsopencv_dnn_ClassificationModel_methods[] =
 {
     {"classify", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_ClassificationModel_classify, 0), "classify(frame) -> classId, conf\n.   @overload"},
     {"getEnableSoftmaxPostProcessing", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_ClassificationModel_getEnableSoftmaxPostProcessing, 0), "getEnableSoftmaxPostProcessing() -> retval\n.   * @brief Get enable/disable softmax post processing option.\n.             *\n.             * This option defaults to false, softmax post processing is not applied within the classify() function."},
@@ -35513,7 +35513,7 @@ static PyGetSetDef jsopencv_dnn_DetectionModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_DetectionModel_methods[] =
+static JsMethodDef jsopencv_dnn_DetectionModel_methods[] =
 {
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_DetectionModel_detect, 0), "detect(frame[, confThreshold[, nmsThreshold]]) -> classIds, confidences, boxes\n.   @brief Given the @p input frame, create input blob, run net and return result detections.\n.             *  @param[in]  frame  The input image.\n.             *  @param[out] classIds Class indexes in result detection.\n.             *  @param[out] confidences A set of corresponding confidences.\n.             *  @param[out] boxes A set of bounding boxes.\n.             *  @param[in] confThreshold A threshold used to filter boxes by confidences.\n.             *  @param[in] nmsThreshold A threshold used in non maximum suppression."},
     {"getNmsAcrossClasses", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_DetectionModel_getNmsAcrossClasses, 0), "getNmsAcrossClasses() -> retval\n.   * @brief Getter for nmsAcrossClasses. This variable defaults to false,\n.             * such that when non max suppression is used during the detect() function, it will do so only per-class"},
@@ -35761,7 +35761,7 @@ static PyGetSetDef jsopencv_dnn_DictValue_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_DictValue_methods[] =
+static JsMethodDef jsopencv_dnn_DictValue_methods[] =
 {
     {"getIntValue", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_DictValue_getIntValue, 0), "getIntValue([, idx]) -> retval\n."},
     {"getRealValue", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_DictValue_getRealValue, 0), "getRealValue([, idx]) -> retval\n."},
@@ -35919,7 +35919,7 @@ static PyGetSetDef jsopencv_dnn_KeypointsModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_KeypointsModel_methods[] =
+static JsMethodDef jsopencv_dnn_KeypointsModel_methods[] =
 {
     {"estimate", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_KeypointsModel_estimate, 0), "estimate(frame[, thresh]) -> retval\n.   @brief Given the @p input frame, create input blob, run net\n.             *  @param[in]  frame  The input image.\n.             *  @param thresh minimum confidence threshold to select a keypoint\n.             *  @returns a vector holding the x and y coordinates of each detected keypoint\n.             *"},
 
@@ -36129,7 +36129,7 @@ static PyGetSetDef jsopencv_dnn_Layer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_Layer_methods[] =
+static JsMethodDef jsopencv_dnn_Layer_methods[] =
 {
     {"finalize", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_Layer_finalize, 0), "finalize(inputs[, outputs]) -> outputs\n.   @brief Computes and sets internal parameters according to inputs, outputs and blobs.\n.            *  @param[in]  inputs  vector of already allocated input blobs\n.            *  @param[out] outputs vector of already allocated output blobs\n.            *\n.            * If this method is called after network has allocated all memory for input and output blobs\n.            * and before inferencing."},
     {"outputNameToIndex", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_Layer_outputNameToIndex, 0), "outputNameToIndex(outputName) -> retval\n.   @brief Returns index of output blob in output array.\n.            *  @see inputNameToIndex()"},
@@ -36514,7 +36514,7 @@ static PyGetSetDef jsopencv_dnn_Model_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_Model_methods[] =
+static JsMethodDef jsopencv_dnn_Model_methods[] =
 {
     {"predict", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_Model_predict, 0), "predict(frame[, outs]) -> outs\n.   @brief Given the @p input frame, create input blob, run net and return the output @p blobs.\n.             *  @param[in]  frame  The input image.\n.             *  @param[out] outs Allocated output blobs, which will store results of the computation."},
     {"setInputCrop", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_Model_setInputCrop, 0), "setInputCrop(crop) -> retval\n.   @brief Set flag crop for frame.\n.             *  @param[in] crop Flag which indicates whether image will be cropped after resize or not."},
@@ -37783,7 +37783,7 @@ static PyGetSetDef jsopencv_dnn_Net_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_Net_methods[] =
+static JsMethodDef jsopencv_dnn_Net_methods[] =
 {
     {"connect", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_Net_connect, 0), "connect(outPin, inpPin) -> None\n.   @brief Connects output of the first layer to input of the second layer.\n.            *  @param outPin descriptor of the first layer output.\n.            *  @param inpPin descriptor of the second layer input.\n.            *\n.            * Descriptors have the following template <DFN>&lt;layer_name&gt;[.input_number]</DFN>:\n.            * - the first part of the template <DFN>layer_name</DFN> is string name of the added layer.\n.            *   If this part is empty then the network input pseudo layer will be used;\n.            * - the second optional part of the template <DFN>input_number</DFN>\n.            *   is either number of the layer input, either label one.\n.            *   If this part is omitted then the first layer input will be used.\n.            *\n.            *  @see setNetInputs(), Layer::inputNameToIndex(), Layer::outputNameToIndex()"},
     {"dump", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_Net_dump, 0), "dump() -> retval\n.   @brief Dump net to String\n.            *  @returns String with structure, hyperparameters, backend, target and fusion\n.            *  Call method after setInput(). To see correct backend, target and fusion run after forward()."},
@@ -37965,7 +37965,7 @@ static PyGetSetDef jsopencv_dnn_SegmentationModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_SegmentationModel_methods[] =
+static JsMethodDef jsopencv_dnn_SegmentationModel_methods[] =
 {
     {"segment", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_SegmentationModel_segment, 0), "segment(frame[, mask]) -> mask\n.   @brief Given the @p input frame, create input blob, run net\n.             *  @param[in]  frame  The input image.\n.             *  @param[out] mask Allocated class prediction for each pixel"},
 
@@ -38192,7 +38192,7 @@ static PyGetSetDef jsopencv_dnn_TextDetectionModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_TextDetectionModel_methods[] =
+static JsMethodDef jsopencv_dnn_TextDetectionModel_methods[] =
 {
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextDetectionModel_detect, 0), "detect(frame) -> detections, confidences\n.   @brief Performs detection\n.        *\n.        * Given the input @p frame, prepare network input, run network inference, post-process network output and return result detections.\n.        *\n.        * Each result is quadrangle's 4 points in this order:\n.        * - bottom-left\n.        * - top-left\n.        * - top-right\n.        * - bottom-right\n.        *\n.        * Use cv::getPerspectiveTransform function to retrieve image region without perspective transformations.\n.        *\n.        * @note If DL model doesn't support that kind of output then result may be derived from detectTextRectangles() output.\n.        *\n.        * @param[in] frame The input image\n.        * @param[out] detections array with detections' quadrangles (4 points per result)\n.        * @param[out] confidences array with detection confidences\n\n\n\ndetect(frame) -> detections\n.   @overload"},
     {"detectTextRectangles", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextDetectionModel_detectTextRectangles, 0), "detectTextRectangles(frame) -> detections, confidences\n.   @brief Performs detection\n.        *\n.        * Given the input @p frame, prepare network input, run network inference, post-process network output and return result detections.\n.        *\n.        * Each result is rotated rectangle.\n.        *\n.        * @note Result may be inaccurate in case of strong perspective transformations.\n.        *\n.        * @param[in] frame the input image\n.        * @param[out] detections array with detections' RotationRect results\n.        * @param[out] confidences array with detection confidences\n\n\n\ndetectTextRectangles(frame) -> detections\n.   @overload"},
@@ -38466,7 +38466,7 @@ static PyGetSetDef jsopencv_dnn_TextDetectionModel_DB_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_TextDetectionModel_DB_methods[] =
+static JsMethodDef jsopencv_dnn_TextDetectionModel_DB_methods[] =
 {
     {"getBinaryThreshold", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getBinaryThreshold, 0), "getBinaryThreshold() -> retval\n."},
     {"getMaxCandidates", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextDetectionModel_DB_getMaxCandidates, 0), "getMaxCandidates() -> retval\n."},
@@ -38658,7 +38658,7 @@ static PyGetSetDef jsopencv_dnn_TextDetectionModel_EAST_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_TextDetectionModel_EAST_methods[] =
+static JsMethodDef jsopencv_dnn_TextDetectionModel_EAST_methods[] =
 {
     {"getConfidenceThreshold", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_getConfidenceThreshold, 0), "getConfidenceThreshold() -> retval\n.   * @brief Get the detection confidence threshold"},
     {"getNMSThreshold", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextDetectionModel_EAST_getNMSThreshold, 0), "getNMSThreshold() -> retval\n.   * @brief Get the detection confidence threshold"},
@@ -38965,7 +38965,7 @@ static PyGetSetDef jsopencv_dnn_TextRecognitionModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_TextRecognitionModel_methods[] =
+static JsMethodDef jsopencv_dnn_TextRecognitionModel_methods[] =
 {
     {"getDecodeType", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextRecognitionModel_getDecodeType, 0), "getDecodeType() -> retval\n.   * @brief Get the decoding method\n.        * @return the decoding method"},
     {"getVocabulary", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_dnn_TextRecognitionModel_getVocabulary, 0), "getVocabulary() -> retval\n.   * @brief Get the vocabulary for recognition.\n.        * @return vocabulary the associated vocabulary"},
@@ -39291,7 +39291,7 @@ static PyGetSetDef jsopencv_dnn_superres_DnnSuperResImpl_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_dnn_superres_DnnSuperResImpl_methods[] =
+static JsMethodDef jsopencv_dnn_superres_DnnSuperResImpl_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_create_static, METH_STATIC), "create() -> retval\n.   @brief Empty constructor for python"},
     {"getAlgorithm", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_superres_dnn_superres_DnnSuperResImpl_getAlgorithm, 0), "getAlgorithm() -> retval\n.   @brief Returns the scale factor of the model:\n.       @return Current algorithm."},
@@ -39466,7 +39466,7 @@ static PyGetSetDef jsopencv_face_BIF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_BIF_methods[] =
+static JsMethodDef jsopencv_face_BIF_methods[] =
 {
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_BIF_compute, 0), "compute(image[, features]) -> features\n.   Computes features sby input image.\n.        *  @param image Input image (CV_32FC1).\n.        *  @param features Feature vector (CV_32FC1)."},
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_BIF_create_static, METH_STATIC), "create([, num_bands[, num_rotations]]) -> retval\n.   * @param num_bands The number of filter bands (<=8) used for computing BIF.\n.        * @param num_rotations The number of image rotations for computing BIF.\n.        * @returns Object for computing BIF."},
@@ -39706,7 +39706,7 @@ static PyGetSetDef jsopencv_face_BasicFaceRecognizer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_BasicFaceRecognizer_methods[] =
+static JsMethodDef jsopencv_face_BasicFaceRecognizer_methods[] =
 {
     {"getEigenValues", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_BasicFaceRecognizer_getEigenValues, 0), "getEigenValues() -> retval\n."},
     {"getEigenVectors", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_BasicFaceRecognizer_getEigenVectors, 0), "getEigenVectors() -> retval\n."},
@@ -39787,7 +39787,7 @@ static PyGetSetDef jsopencv_face_EigenFaceRecognizer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_EigenFaceRecognizer_methods[] =
+static JsMethodDef jsopencv_face_EigenFaceRecognizer_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_EigenFaceRecognizer_create_static, METH_STATIC), "create([, num_components[, threshold]]) -> retval\n.   @param num_components The number of components (read: Eigenfaces) kept for this Principal\n.       Component Analysis. As a hint: There's no rule how many components (read: Eigenfaces) should be\n.       kept for good reconstruction capabilities. It is based on your input data, so experiment with the\n.       number. Keeping 80 components should almost always be sufficient.\n.       @param threshold The threshold applied in the prediction.\n.   \n.       ### Notes:\n.   \n.       -   Training and prediction must be done on grayscale images, use cvtColor to convert between the\n.           color spaces.\n.       -   **THE EIGENFACES METHOD MAKES THE ASSUMPTION, THAT THE TRAINING AND TEST IMAGES ARE OF EQUAL\n.           SIZE.** (caps-lock, because I got so many mails asking for this). You have to make sure your\n.           input data has the correct shape, else a meaningful exception is thrown. Use resize to resize\n.           the images.\n.       -   This model does not support updating.\n.   \n.       ### Model internal data:\n.   \n.       -   num_components see EigenFaceRecognizer::create.\n.       -   threshold see EigenFaceRecognizer::create.\n.       -   eigenvalues The eigenvalues for this Principal Component Analysis (ordered descending).\n.       -   eigenvectors The eigenvectors for this Principal Component Analysis (ordered by their\n.           eigenvalue).\n.       -   mean The sample mean calculated from the training data.\n.       -   projections The projections of the training data.\n.       -   labels The threshold applied in the prediction. If the distance to the nearest neighbor is\n.           larger than the threshold, this method returns -1."},
 
@@ -40222,7 +40222,7 @@ static PyGetSetDef jsopencv_face_FaceRecognizer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_FaceRecognizer_methods[] =
+static JsMethodDef jsopencv_face_FaceRecognizer_methods[] =
 {
     {"getLabelInfo", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_FaceRecognizer_getLabelInfo, 0), "getLabelInfo(label) -> retval\n.   @brief Gets string information by label.\n.   \n.       If an unknown label id is provided or there is no label information associated with the specified\n.       label id the method returns an empty string."},
     {"getLabelsByString", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_FaceRecognizer_getLabelsByString, 0), "getLabelsByString(str) -> retval\n.   @brief Gets vector of labels by string.\n.   \n.       The function searches for the labels containing the specified sub-string in the associated string\n.       info."},
@@ -40367,7 +40367,7 @@ static PyGetSetDef jsopencv_face_Facemark_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_Facemark_methods[] =
+static JsMethodDef jsopencv_face_Facemark_methods[] =
 {
     {"fit", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_Facemark_fit, 0), "fit(image, faces[, landmarks]) -> retval, landmarks\n.   @brief Detect facial landmarks from an image.\n.       @param image Input image.\n.       @param faces Output of the function which represent region of interest of the detected faces.\n.       Each face is stored in cv::Rect container.\n.       @param landmarks The detected landmark points for each faces.\n.   \n.       <B>Example of usage</B>\n.       @code\n.       Mat image = imread(\"image.jpg\");\n.       std::vector<Rect> faces;\n.       std::vector<std::vector<Point2f> > landmarks;\n.       facemark->fit(image, faces, landmarks);\n.       @endcode"},
     {"loadModel", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_Facemark_loadModel, 0), "loadModel(model) -> None\n.   @brief A function to load the trained model before the fitting process.\n.       @param model A string represent the filename of a trained model.\n.   \n.       <B>Example of usage</B>\n.       @code\n.       facemark->loadModel(\"../data/lbf.model\");\n.       @endcode"},
@@ -40419,7 +40419,7 @@ static PyGetSetDef jsopencv_face_FacemarkAAM_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_FacemarkAAM_methods[] =
+static JsMethodDef jsopencv_face_FacemarkAAM_methods[] =
 {
 
     {NULL,          NULL}
@@ -40469,7 +40469,7 @@ static PyGetSetDef jsopencv_face_FacemarkKazemi_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_FacemarkKazemi_methods[] =
+static JsMethodDef jsopencv_face_FacemarkKazemi_methods[] =
 {
 
     {NULL,          NULL}
@@ -40519,7 +40519,7 @@ static PyGetSetDef jsopencv_face_FacemarkLBF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_FacemarkLBF_methods[] =
+static JsMethodDef jsopencv_face_FacemarkLBF_methods[] =
 {
 
     {NULL,          NULL}
@@ -40569,7 +40569,7 @@ static PyGetSetDef jsopencv_face_FacemarkTrain_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_FacemarkTrain_methods[] =
+static JsMethodDef jsopencv_face_FacemarkTrain_methods[] =
 {
 
     {NULL,          NULL}
@@ -40641,7 +40641,7 @@ static PyGetSetDef jsopencv_face_FisherFaceRecognizer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_FisherFaceRecognizer_methods[] =
+static JsMethodDef jsopencv_face_FisherFaceRecognizer_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_FisherFaceRecognizer_create_static, METH_STATIC), "create([, num_components[, threshold]]) -> retval\n.   @param num_components The number of components (read: Fisherfaces) kept for this Linear\n.       Discriminant Analysis with the Fisherfaces criterion. It's useful to keep all components, that\n.       means the number of your classes c (read: subjects, persons you want to recognize). If you leave\n.       this at the default (0) or set it to a value less-equal 0 or greater (c-1), it will be set to the\n.       correct number (c-1) automatically.\n.       @param threshold The threshold applied in the prediction. If the distance to the nearest neighbor\n.       is larger than the threshold, this method returns -1.\n.   \n.       ### Notes:\n.   \n.       -   Training and prediction must be done on grayscale images, use cvtColor to convert between the\n.           color spaces.\n.       -   **THE FISHERFACES METHOD MAKES THE ASSUMPTION, THAT THE TRAINING AND TEST IMAGES ARE OF EQUAL\n.           SIZE.** (caps-lock, because I got so many mails asking for this). You have to make sure your\n.           input data has the correct shape, else a meaningful exception is thrown. Use resize to resize\n.           the images.\n.       -   This model does not support updating.\n.   \n.       ### Model internal data:\n.   \n.       -   num_components see FisherFaceRecognizer::create.\n.       -   threshold see FisherFaceRecognizer::create.\n.       -   eigenvalues The eigenvalues for this Linear Discriminant Analysis (ordered descending).\n.       -   eigenvectors The eigenvectors for this Linear Discriminant Analysis (ordered by their\n.           eigenvalue).\n.       -   mean The sample mean calculated from the training data.\n.       -   projections The projections of the training data.\n.       -   labels The labels corresponding to the projections."},
 
@@ -40978,7 +40978,7 @@ static PyGetSetDef jsopencv_face_LBPHFaceRecognizer_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_LBPHFaceRecognizer_methods[] =
+static JsMethodDef jsopencv_face_LBPHFaceRecognizer_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_LBPHFaceRecognizer_create_static, METH_STATIC), "create([, radius[, neighbors[, grid_x[, grid_y[, threshold]]]]]) -> retval\n.   @param radius The radius used for building the Circular Local Binary Pattern. The greater the\n.       radius, the smoother the image but more spatial information you can get.\n.       @param neighbors The number of sample points to build a Circular Local Binary Pattern from. An\n.       appropriate value is to use `8` sample points. Keep in mind: the more sample points you include,\n.       the higher the computational cost.\n.       @param grid_x The number of cells in the horizontal direction, 8 is a common value used in\n.       publications. The more cells, the finer the grid, the higher the dimensionality of the resulting\n.       feature vector.\n.       @param grid_y The number of cells in the vertical direction, 8 is a common value used in\n.       publications. The more cells, the finer the grid, the higher the dimensionality of the resulting\n.       feature vector.\n.       @param threshold The threshold applied in the prediction. If the distance to the nearest neighbor\n.       is larger than the threshold, this method returns -1.\n.   \n.       ### Notes:\n.   \n.       -   The Circular Local Binary Patterns (used in training and prediction) expect the data given as\n.           grayscale images, use cvtColor to convert between the color spaces.\n.       -   This model supports updating.\n.   \n.       ### Model internal data:\n.   \n.       -   radius see LBPHFaceRecognizer::create.\n.       -   neighbors see LBPHFaceRecognizer::create.\n.       -   grid_x see LLBPHFaceRecognizer::create.\n.       -   grid_y see LBPHFaceRecognizer::create.\n.       -   threshold see LBPHFaceRecognizer::create.\n.       -   histograms Local Binary Patterns Histograms calculated from the given training data (empty if\n.           none was given).\n.       -   labels Labels corresponding to the calculated Local Binary Patterns Histograms."},
     {"getGridX", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_LBPHFaceRecognizer_getGridX, 0), "getGridX() -> retval\n.   @see setGridX"},
@@ -41203,7 +41203,7 @@ static PyGetSetDef jsopencv_face_MACE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_MACE_methods[] =
+static JsMethodDef jsopencv_face_MACE_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_MACE_create_static, METH_STATIC), "create([, IMGSIZE]) -> retval\n.   @brief constructor\n.       @param IMGSIZE  images will get resized to this (should be an even number)"},
     {"load", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_MACE_load_static, METH_STATIC), "load(filename[, objname]) -> retval\n.   @brief constructor\n.       @param filename  build a new MACE instance from a pre-serialized FileStorage\n.       @param objname (optional) top-level node in the FileStorage"},
@@ -41258,7 +41258,7 @@ static PyGetSetDef jsopencv_face_PredictCollector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_PredictCollector_methods[] =
+static JsMethodDef jsopencv_face_PredictCollector_methods[] =
 {
 
     {NULL,          NULL}
@@ -41391,7 +41391,7 @@ static PyGetSetDef jsopencv_face_StandardCollector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_face_StandardCollector_methods[] =
+static JsMethodDef jsopencv_face_StandardCollector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_StandardCollector_create_static, METH_STATIC), "create([, threshold]) -> retval\n.   @brief Static constructor\n.       @param threshold set threshold"},
     {"getMinDist", CV_JS_FN_WITH_KW_(pyopencv_cv_face_face_StandardCollector_getMinDist, 0), "getMinDist() -> retval\n.   @brief Returns minimal distance value"},
@@ -41866,7 +41866,7 @@ static PyGetSetDef jsopencv_flann_Index_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_flann_Index_methods[] =
+static JsMethodDef jsopencv_flann_Index_methods[] =
 {
     {"build", CV_JS_FN_WITH_KW_(pyopencv_cv_flann_flann_Index_build, 0), "build(features, params[, distType]) -> None\n."},
     {"getAlgorithm", CV_JS_FN_WITH_KW_(pyopencv_cv_flann_flann_Index_getAlgorithm, 0), "getAlgorithm() -> retval\n."},
@@ -41963,7 +41963,7 @@ static PyGetSetDef jsopencv_gapi_GNetPackage_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_GNetPackage_methods[] =
+static JsMethodDef jsopencv_gapi_GNetPackage_methods[] =
 {
 
     {NULL,          NULL}
@@ -42013,7 +42013,7 @@ static PyGetSetDef jsopencv_gapi_GNetParam_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_GNetParam_methods[] =
+static JsMethodDef jsopencv_gapi_GNetParam_methods[] =
 {
 
     {NULL,          NULL}
@@ -42212,7 +42212,7 @@ static PyGetSetDef jsopencv_gapi_ie_PyParams_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_ie_PyParams_methods[] =
+static JsMethodDef jsopencv_gapi_ie_PyParams_methods[] =
 {
     {"cfgBatchSize", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_ie_gapi_ie_PyParams_cfgBatchSize, 0), "cfgBatchSize(size) -> retval\n."},
     {"cfgNumRequests", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_ie_gapi_ie_PyParams_cfgNumRequests, 0), "cfgNumRequests(nireq) -> retval\n."},
@@ -42307,7 +42307,7 @@ static PyGetSetDef jsopencv_gapi_onnx_PyParams_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_onnx_PyParams_methods[] =
+static JsMethodDef jsopencv_gapi_onnx_PyParams_methods[] =
 {
 
     {NULL,          NULL}
@@ -42391,7 +42391,7 @@ static PyGetSetDef jsopencv_gapi_streaming_queue_capacity_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_streaming_queue_capacity_methods[] =
+static JsMethodDef jsopencv_gapi_streaming_queue_capacity_methods[] =
 {
 
     {NULL,          NULL}
@@ -42529,7 +42529,7 @@ static PyGetSetDef jsopencv_gapi_wip_GOutputs_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_GOutputs_methods[] =
+static JsMethodDef jsopencv_gapi_wip_GOutputs_methods[] =
 {
     {"getGArray", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGArray, 0), "getGArray(type) -> retval\n."},
     {"getGMat", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_gapi_wip_GOutputs_getGMat, 0), "getGMat() -> retval\n."},
@@ -42583,7 +42583,7 @@ static PyGetSetDef jsopencv_gapi_wip_IStreamSource_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_IStreamSource_methods[] =
+static JsMethodDef jsopencv_gapi_wip_IStreamSource_methods[] =
 {
 
     {NULL,          NULL}
@@ -42783,7 +42783,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Circle_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Circle_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Circle_methods[] =
 {
 
     {NULL,          NULL}
@@ -42926,7 +42926,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Image_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Image_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Image_methods[] =
 {
 
     {NULL,          NULL}
@@ -43126,7 +43126,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Line_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Line_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Line_methods[] =
 {
 
     {NULL,          NULL}
@@ -43269,7 +43269,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Mosaic_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Mosaic_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Mosaic_methods[] =
 {
 
     {NULL,          NULL}
@@ -43450,7 +43450,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Poly_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Poly_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Poly_methods[] =
 {
 
     {NULL,          NULL}
@@ -43631,7 +43631,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Rect_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Rect_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Rect_methods[] =
 {
 
     {NULL,          NULL}
@@ -43869,7 +43869,7 @@ static PyGetSetDef jsopencv_gapi_wip_draw_Text_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_draw_Text_methods[] =
+static JsMethodDef jsopencv_gapi_wip_draw_Text_methods[] =
 {
 
     {NULL,          NULL}
@@ -43938,7 +43938,7 @@ static PyGetSetDef jsopencv_gapi_wip_gst_GStreamerPipeline_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_gapi_wip_gst_GStreamerPipeline_methods[] =
+static JsMethodDef jsopencv_gapi_wip_gst_GStreamerPipeline_methods[] =
 {
 
     {NULL,          NULL}
@@ -44003,7 +44003,7 @@ static PyGetSetDef jsopencv_img_hash_AverageHash_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_AverageHash_methods[] =
+static JsMethodDef jsopencv_img_hash_AverageHash_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_AverageHash_create_static, METH_STATIC), "create() -> retval\n."},
 
@@ -44116,7 +44116,7 @@ static PyGetSetDef jsopencv_img_hash_BlockMeanHash_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_BlockMeanHash_methods[] =
+static JsMethodDef jsopencv_img_hash_BlockMeanHash_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_BlockMeanHash_create_static, METH_STATIC), "create([, mode]) -> retval\n."},
     {"getMean", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_BlockMeanHash_getMean, 0), "getMean() -> retval\n."},
@@ -44184,7 +44184,7 @@ static PyGetSetDef jsopencv_img_hash_ColorMomentHash_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_ColorMomentHash_methods[] =
+static JsMethodDef jsopencv_img_hash_ColorMomentHash_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_ColorMomentHash_create_static, METH_STATIC), "create() -> retval\n."},
 
@@ -44345,7 +44345,7 @@ static PyGetSetDef jsopencv_img_hash_ImgHashBase_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_ImgHashBase_methods[] =
+static JsMethodDef jsopencv_img_hash_ImgHashBase_methods[] =
 {
     {"compare", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_ImgHashBase_compare, 0), "compare(hashOne, hashTwo) -> retval\n.   @brief Compare the hash value between inOne and inTwo\n.           @param hashOne Hash value one\n.           @param hashTwo Hash value two\n.           @return value indicate similarity between inOne and inTwo, the meaning\n.           of the value vary from algorithms to algorithms"},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_ImgHashBase_compute, 0), "compute(inputArr[, outputArr]) -> outputArr\n.   @brief Computes hash of the input image\n.           @param inputArr input image want to compute hash value\n.           @param outputArr hash of the image"},
@@ -44485,7 +44485,7 @@ static PyGetSetDef jsopencv_img_hash_MarrHildrethHash_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_MarrHildrethHash_methods[] =
+static JsMethodDef jsopencv_img_hash_MarrHildrethHash_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_MarrHildrethHash_create_static, METH_STATIC), "create([, alpha[, scale]]) -> retval\n.   @param alpha int scale factor for marr wavelet (default=2).\n.           @param scale int level of scale factor (default = 1)"},
     {"getAlpha", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_MarrHildrethHash_getAlpha, 0), "getAlpha() -> retval\n.   * @brief self explain"},
@@ -44554,7 +44554,7 @@ static PyGetSetDef jsopencv_img_hash_PHash_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_PHash_methods[] =
+static JsMethodDef jsopencv_img_hash_PHash_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_PHash_create_static, METH_STATIC), "create() -> retval\n."},
 
@@ -44713,7 +44713,7 @@ static PyGetSetDef jsopencv_img_hash_RadialVarianceHash_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_img_hash_RadialVarianceHash_methods[] =
+static JsMethodDef jsopencv_img_hash_RadialVarianceHash_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_RadialVarianceHash_create_static, METH_STATIC), "create([, sigma[, numOfAngleLine]]) -> retval\n."},
     {"getNumOfAngleLine", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_img_hash_RadialVarianceHash_getNumOfAngleLine, 0), "getNumOfAngleLine() -> retval\n."},
@@ -44932,7 +44932,7 @@ static PyGetSetDef jsopencv_legacy_MultiTracker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_MultiTracker_methods[] =
+static JsMethodDef jsopencv_legacy_MultiTracker_methods[] =
 {
     {"add", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_MultiTracker_add, 0), "add(newTracker, image, boundingBox) -> retval\n.   * \\brief Add a new object to be tracked.\n.     *\n.     * @param newTracker tracking algorithm to be used\n.     * @param image input image\n.     * @param boundingBox a rectangle represents ROI of the tracked object"},
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_MultiTracker_create_static, METH_STATIC), "create() -> retval\n.   * \\brief Returns a pointer to a new instance of MultiTracker"},
@@ -45094,7 +45094,7 @@ static PyGetSetDef jsopencv_legacy_Tracker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_Tracker_methods[] =
+static JsMethodDef jsopencv_legacy_Tracker_methods[] =
 {
     {"init", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_Tracker_init, 0), "init(image, boundingBox) -> retval\n.   @brief Initialize the tracker with a known bounding box that surrounded the target\n.       @param image The initial frame\n.       @param boundingBox The initial bounding box\n.   \n.       @return True if initialization went succesfully, false otherwise"},
     {"update", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_Tracker_update, 0), "update(image) -> retval, boundingBox\n.   @brief Update the tracker, find the new most likely bounding box for the target\n.       @param image The current frame\n.       @param boundingBox The bounding box that represent the new target location, if true was returned, not\n.       modified otherwise\n.   \n.       @return True means that target was located and false means that tracker cannot locate target in\n.       current frame. Note, that latter *does not* imply that tracker has failed, maybe target is indeed\n.       missing from the frame (say, out of sight)"},
@@ -45161,7 +45161,7 @@ static PyGetSetDef jsopencv_legacy_TrackerBoosting_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerBoosting_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerBoosting_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerBoosting_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor\n.       @param parameters BOOSTING parameters TrackerBoosting::Params"},
 
@@ -45275,7 +45275,7 @@ static PyGetSetDef jsopencv_legacy_TrackerCSRT_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerCSRT_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerCSRT_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerCSRT_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor\n.     @param parameters CSRT parameters TrackerCSRT::Params"},
     {"setInitialMask", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerCSRT_setInitialMask, 0), "setInitialMask(mask) -> None\n."},
@@ -45342,7 +45342,7 @@ static PyGetSetDef jsopencv_legacy_TrackerKCF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerKCF_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerKCF_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerKCF_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor\n.     @param parameters KCF parameters TrackerKCF::Params"},
 
@@ -45408,7 +45408,7 @@ static PyGetSetDef jsopencv_legacy_TrackerMIL_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerMIL_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerMIL_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerMIL_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor\n.       @param parameters MIL parameters TrackerMIL::Params"},
 
@@ -45474,7 +45474,7 @@ static PyGetSetDef jsopencv_legacy_TrackerMOSSE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerMOSSE_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerMOSSE_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerMOSSE_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor"},
 
@@ -45540,7 +45540,7 @@ static PyGetSetDef jsopencv_legacy_TrackerMedianFlow_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerMedianFlow_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerMedianFlow_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerMedianFlow_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor\n.       @param parameters Median Flow parameters TrackerMedianFlow::Params"},
 
@@ -45606,7 +45606,7 @@ static PyGetSetDef jsopencv_legacy_TrackerTLD_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_legacy_TrackerTLD_methods[] =
+static JsMethodDef jsopencv_legacy_TrackerTLD_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_legacy_TrackerTLD_create_static, METH_STATIC), "create() -> retval\n.   @brief Constructor\n.       @param parameters TLD parameters TrackerTLD::Params"},
 
@@ -45930,7 +45930,7 @@ static PyGetSetDef jsopencv_mcc_CChecker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_mcc_CChecker_methods[] =
+static JsMethodDef jsopencv_mcc_CChecker_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_CChecker_create_static, METH_STATIC), "create() -> retval\n.   \\brief Create a new CChecker object.\n.       * \\return A pointer to the implementation of the CChecker"},
     {"getBox", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_CChecker_getBox, 0), "getBox() -> retval\n."},
@@ -46226,7 +46226,7 @@ static PyGetSetDef jsopencv_mcc_CCheckerDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_mcc_CCheckerDetector_methods[] =
+static JsMethodDef jsopencv_mcc_CCheckerDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_CCheckerDetector_create_static, METH_STATIC), "create() -> retval\n.   \\brief Returns the implementation of the CCheckerDetector.\n.       *"},
     {"getBestColorChecker", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_CCheckerDetector_getBestColorChecker, 0), "getBestColorChecker() -> retval\n.   \\brief Get the best color checker. By the best it means the one\n.       *         detected with the highest confidence.\n.       * \\return checker A single colorchecker, if atleast one colorchecker\n.       *                 was detected, 'nullptr' otherwise."},
@@ -46355,7 +46355,7 @@ static PyGetSetDef jsopencv_mcc_CCheckerDraw_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_mcc_CCheckerDraw_methods[] =
+static JsMethodDef jsopencv_mcc_CCheckerDraw_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_CCheckerDraw_create_static, METH_STATIC), "create(pChecker[, color[, thickness]]) -> retval\n.   \\brief Create a new CCheckerDraw object.\n.       * \\param pChecker The checker which will be drawn by this object.\n.       * \\param color The color by with which the squares of the checker\n.       *              will be drawn\n.       * \\param thickness The thickness with which the sqaures will be\n.       *                  drawn\n.       * \\return A pointer to the implementation of the CCheckerDraw"},
     {"draw", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_CCheckerDraw_draw, 0), "draw(img) -> img\n.   \\brief Draws the checker to the given image.\n.       * \\param img image in color space BGR\n.       * \\return void"},
@@ -46710,7 +46710,7 @@ static PyGetSetDef jsopencv_mcc_DetectorParameters_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_mcc_DetectorParameters_methods[] =
+static JsMethodDef jsopencv_mcc_DetectorParameters_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_mcc_DetectorParameters_create_static, METH_STATIC), "create() -> retval\n."},
 
@@ -47481,7 +47481,7 @@ static PyGetSetDef jsopencv_ml_ANN_MLP_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_ANN_MLP_methods[] =
+static JsMethodDef jsopencv_ml_ANN_MLP_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_ANN_MLP_create_static, METH_STATIC), "create() -> retval\n.   @brief Creates empty model\n.   \n.       Use StatModel::train to train the model, Algorithm::load\\<ANN_MLP\\>(filename) to load the pre-trained model.\n.       Note that the train method has optional flags: ANN_MLP::TrainFlags."},
     {"getAnnealCoolingRatio", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_ANN_MLP_getAnnealCoolingRatio, 0), "getAnnealCoolingRatio() -> retval\n.   @see setAnnealCoolingRatio"},
@@ -47729,7 +47729,7 @@ static PyGetSetDef jsopencv_ml_Boost_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_Boost_methods[] =
+static JsMethodDef jsopencv_ml_Boost_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_Boost_create_static, METH_STATIC), "create() -> retval\n.   Creates the empty model.\n.   Use StatModel::train to train the model, Algorithm::load\\<Boost\\>(filename) to load the pre-trained model."},
     {"getBoostType", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_Boost_getBoostType, 0), "getBoostType() -> retval\n.   @see setBoostType"},
@@ -48211,7 +48211,7 @@ static PyGetSetDef jsopencv_ml_DTrees_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_DTrees_methods[] =
+static JsMethodDef jsopencv_ml_DTrees_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_DTrees_create_static, METH_STATIC), "create() -> retval\n.   @brief Creates the empty model\n.   \n.       The static method creates empty decision tree with the specified parameters. It should be then\n.       trained using train method (see StatModel::train). Alternatively, you can load the model from\n.       file using Algorithm::load\\<DTrees\\>(filename)."},
     {"getCVFolds", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_DTrees_getCVFolds, 0), "getCVFolds() -> retval\n.   @see setCVFolds"},
@@ -48856,7 +48856,7 @@ static PyGetSetDef jsopencv_ml_EM_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_EM_methods[] =
+static JsMethodDef jsopencv_ml_EM_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_EM_create_static, METH_STATIC), "create() -> retval\n.   Creates empty %EM model.\n.       The model should be trained then using StatModel::train(traindata, flags) method. Alternatively, you\n.       can use one of the EM::train\\* methods or load it from file using Algorithm::load\\<EM\\>(filename)."},
     {"getClustersNumber", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_EM_getClustersNumber, 0), "getClustersNumber() -> retval\n.   @see setClustersNumber"},
@@ -49202,7 +49202,7 @@ static PyGetSetDef jsopencv_ml_KNearest_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_KNearest_methods[] =
+static JsMethodDef jsopencv_ml_KNearest_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_KNearest_create_static, METH_STATIC), "create() -> retval\n.   @brief Creates the empty model\n.   \n.       The static method creates empty %KNearest classifier. It should be then trained using StatModel::train method."},
     {"findNearest", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_KNearest_findNearest, 0), "findNearest(samples, k[, results[, neighborResponses[, dist]]]) -> retval, results, neighborResponses, dist\n.   @brief Finds the neighbors and predicts responses for input vectors.\n.   \n.       @param samples Input samples stored by rows. It is a single-precision floating-point matrix of\n.           `<number_of_samples> * k` size.\n.       @param k Number of used nearest neighbors. Should be greater than 1.\n.       @param results Vector with results of prediction (regression or classification) for each input\n.           sample. It is a single-precision floating-point vector with `<number_of_samples>` elements.\n.       @param neighborResponses Optional output values for corresponding neighbors. It is a single-\n.           precision floating-point matrix of `<number_of_samples> * k` size.\n.       @param dist Optional output distances from the input vectors to the corresponding neighbors. It\n.           is a single-precision floating-point matrix of `<number_of_samples> * k` size.\n.   \n.       For each input vector (a row of the matrix samples), the method finds the k nearest neighbors.\n.       In case of regression, the predicted result is a mean value of the particular vector's neighbor\n.       responses. In case of classification, the class is determined by voting.\n.   \n.       For each input vector, the neighbors are sorted by their distances to the vector.\n.   \n.       In case of C++ interface you can use output pointers to empty matrices and the function will\n.       allocate memory itself.\n.   \n.       If only a single input vector is passed, all output matrices are optional and the predicted\n.       value is returned by the method.\n.   \n.       The function is parallelized with the TBB library."},
@@ -49640,7 +49640,7 @@ static PyGetSetDef jsopencv_ml_LogisticRegression_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_LogisticRegression_methods[] =
+static JsMethodDef jsopencv_ml_LogisticRegression_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_LogisticRegression_create_static, METH_STATIC), "create() -> retval\n.   @brief Creates empty model.\n.   \n.       Creates Logistic Regression model with parameters given."},
     {"getIterations", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_LogisticRegression_getIterations, 0), "getIterations() -> retval\n.   @see setIterations"},
@@ -49811,7 +49811,7 @@ static PyGetSetDef jsopencv_ml_NormalBayesClassifier_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_NormalBayesClassifier_methods[] =
+static JsMethodDef jsopencv_ml_NormalBayesClassifier_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_NormalBayesClassifier_create_static, METH_STATIC), "create() -> retval\n.   Creates empty model\n.   Use StatModel::train to train the model after creation."},
     {"load", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_NormalBayesClassifier_load_static, METH_STATIC), "load(filepath[, nodeName]) -> retval\n.   @brief Loads and creates a serialized NormalBayesClassifier from a file\n.        *\n.        * Use NormalBayesClassifier::save to serialize and store an NormalBayesClassifier to disk.\n.        * Load the NormalBayesClassifier from this file again, by calling this function with the path to the file.\n.        * Optionally specify the node for the file containing the classifier\n.        *\n.        * @param filepath path to serialized NormalBayesClassifier\n.        * @param nodeName name of node containing the classifier"},
@@ -49937,7 +49937,7 @@ static PyGetSetDef jsopencv_ml_ParamGrid_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_ParamGrid_methods[] =
+static JsMethodDef jsopencv_ml_ParamGrid_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_ParamGrid_create_static, METH_STATIC), "create([, minVal[, maxVal[, logstep]]]) -> retval\n.   @brief Creates a ParamGrid Ptr that can be given to the %SVM::trainAuto method\n.   \n.       @param minVal minimum value of the parameter grid\n.       @param maxVal maximum value of the parameter grid\n.       @param logstep Logarithmic step for iterating the statmodel parameter"},
 
@@ -50254,7 +50254,7 @@ static PyGetSetDef jsopencv_ml_RTrees_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_RTrees_methods[] =
+static JsMethodDef jsopencv_ml_RTrees_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_RTrees_create_static, METH_STATIC), "create() -> retval\n.   Creates the empty model.\n.       Use StatModel::train to train the model, StatModel::train to create and train the model,\n.       Algorithm::load to load the pre-trained model."},
     {"getActiveVarCount", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_RTrees_getActiveVarCount, 0), "getActiveVarCount() -> retval\n.   @see setActiveVarCount"},
@@ -51010,7 +51010,7 @@ static PyGetSetDef jsopencv_ml_SVM_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_SVM_methods[] =
+static JsMethodDef jsopencv_ml_SVM_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_SVM_create_static, METH_STATIC), "create() -> retval\n.   Creates empty model.\n.       Use StatModel::train to train the model. Since %SVM has several parameters, you may want to\n.   find the best parameters for your problem, it can be done with SVM::trainAuto."},
     {"getC", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_SVM_getC, 0), "getC() -> retval\n.   @see setC"},
@@ -51448,7 +51448,7 @@ static PyGetSetDef jsopencv_ml_SVMSGD_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_SVMSGD_methods[] =
+static JsMethodDef jsopencv_ml_SVMSGD_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_SVMSGD_create_static, METH_STATIC), "create() -> retval\n.   @brief Creates empty model.\n.        * Use StatModel::train to train the model. Since %SVMSGD has several parameters, you may want to\n.        * find the best parameters for your problem or use setOptimalParameters() to set some default parameters."},
     {"getInitialStepSize", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_SVMSGD_getInitialStepSize, 0), "getInitialStepSize() -> retval\n.   @see setInitialStepSize"},
@@ -51802,7 +51802,7 @@ static PyGetSetDef jsopencv_ml_StatModel_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_StatModel_methods[] =
+static JsMethodDef jsopencv_ml_StatModel_methods[] =
 {
     {"calcError", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_StatModel_calcError, 0), "calcError(data, test[, resp]) -> retval, resp\n.   @brief Computes error on the training or test dataset\n.   \n.       @param data the training data\n.       @param test if true, the error is computed over the test subset of the data, otherwise it's\n.           computed over the training subset of the data. Please note that if you loaded a completely\n.           different dataset to evaluate already trained classifier, you will probably want not to set\n.           the test subset at all with TrainData::setTrainTestSplitRatio and specify test=false, so\n.           that the error is computed for the whole new set. Yes, this sounds a bit confusing.\n.       @param resp the optional output responses.\n.   \n.       The method uses StatModel::predict to compute the error. For regression models the error is\n.       computed as RMS, for classifiers - as a percent of missclassified samples (0%-100%)."},
     {"empty", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_StatModel_empty, 0), "empty() -> retval\n."},
@@ -52815,7 +52815,7 @@ static PyGetSetDef jsopencv_ml_TrainData_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ml_TrainData_methods[] =
+static JsMethodDef jsopencv_ml_TrainData_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_TrainData_create_static, METH_STATIC), "create(samples, layout, responses[, varIdx[, sampleIdx[, sampleWeights[, varType]]]]) -> retval\n.   @brief Creates training data from in-memory arrays.\n.   \n.       @param samples matrix of samples. It should have CV_32F type.\n.       @param layout see ml::SampleTypes.\n.       @param responses matrix of responses. If the responses are scalar, they should be stored as a\n.           single row or as a single column. The matrix should have type CV_32F or CV_32S (in the\n.           former case the responses are considered as ordered by default; in the latter case - as\n.           categorical)\n.       @param varIdx vector specifying which variables to use for training. It can be an integer vector\n.           (CV_32S) containing 0-based variable indices or byte vector (CV_8U) containing a mask of\n.           active variables.\n.       @param sampleIdx vector specifying which samples to use for training. It can be an integer\n.           vector (CV_32S) containing 0-based sample indices or byte vector (CV_8U) containing a mask\n.           of training samples.\n.       @param sampleWeights optional vector with weights for each sample. It should have CV_32F type.\n.       @param varType optional vector of type CV_8U and size `<number_of_variables_in_samples> +\n.           <number_of_variables_in_responses>`, containing types of each input and output variable. See\n.           ml::VariableTypes."},
     {"getCatCount", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ml_TrainData_getCatCount, 0), "getCatCount(vi) -> retval\n."},
@@ -54337,7 +54337,7 @@ static PyGetSetDef jsopencv_ocl_Device_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ocl_Device_methods[] =
+static JsMethodDef jsopencv_ocl_Device_methods[] =
 {
     {"OpenCLVersion", CV_JS_FN_WITH_KW_(pyopencv_cv_ocl_ocl_Device_OpenCLVersion, 0), "OpenCLVersion() -> retval\n."},
     {"OpenCL_C_Version", CV_JS_FN_WITH_KW_(pyopencv_cv_ocl_ocl_Device_OpenCL_C_Version, 0), "OpenCL_C_Version() -> retval\n."},
@@ -54458,7 +54458,7 @@ static PyGetSetDef jsopencv_ocl_OpenCLExecutionContext_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ocl_OpenCLExecutionContext_methods[] =
+static JsMethodDef jsopencv_ocl_OpenCLExecutionContext_methods[] =
 {
 
     {NULL,          NULL}
@@ -55037,7 +55037,7 @@ static PyGetSetDef jsopencv_plot_Plot2d_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_plot_Plot2d_methods[] =
+static JsMethodDef jsopencv_plot_Plot2d_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_plot_plot_Plot2d_create_static, METH_STATIC), "create(data) -> retval\n.   * @brief Creates Plot2d object\n.                *\n.                * @param data \\f$1xN\\f$ or \\f$Nx1\\f$ matrix containing \\f$Y\\f$ values of points to plot. \\f$X\\f$ values\n.                * will be equal to indexes of correspondind elements in data matrix.\n\n\n\ncreate(dataX, dataY) -> retval\n.   * @brief Creates Plot2d object\n.                *\n.                * @param dataX \\f$1xN\\f$ or \\f$Nx1\\f$ matrix \\f$X\\f$ values of points to plot.\n.                * @param dataY \\f$1xN\\f$ or \\f$Nx1\\f$ matrix containing \\f$Y\\f$ values of points to plot."},
     {"render", CV_JS_FN_WITH_KW_(pyopencv_cv_plot_plot_Plot2d_render, 0), "render([, _plotResult]) -> _plotResult\n."},
@@ -55304,7 +55304,7 @@ static PyGetSetDef jsopencv_quality_QualityBRISQUE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_quality_QualityBRISQUE_methods[] =
+static JsMethodDef jsopencv_quality_QualityBRISQUE_methods[] =
 {
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityBRISQUE_compute, 0), "compute(img) -> retval\n.   @brief Computes BRISQUE quality score for input image\n.       @param img Image for which to compute quality\n.       @returns cv::Scalar with the score in the first element.  The score ranges from 0 (best quality) to 100 (worst quality)\n\n\n\ncompute(img, model_file_path, range_file_path) -> retval\n.   @brief static method for computing quality\n.       @param img image for which to compute quality\n.       @param model_file_path cv::String which contains a path to the BRISQUE model data, eg. /path/to/brisque_model_live.yml\n.       @param range_file_path cv::String which contains a path to the BRISQUE range data, eg. /path/to/brisque_range_live.yml\n.       @returns cv::Scalar with the score in the first element.  The score ranges from 0 (best quality) to 100 (worst quality)"},
     {"computeFeatures", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityBRISQUE_computeFeatures_static, METH_STATIC), "computeFeatures(img[, features]) -> features\n.   @brief static method for computing image features used by the BRISQUE algorithm\n.       @param img image (BGR(A) or grayscale) for which to compute features\n.       @param features output row vector of features to cv::Mat or cv::UMat"},
@@ -55494,7 +55494,7 @@ static PyGetSetDef jsopencv_quality_QualityBase_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_quality_QualityBase_methods[] =
+static JsMethodDef jsopencv_quality_QualityBase_methods[] =
 {
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityBase_clear, 0), "clear() -> None\n.   @brief Implements Algorithm::clear()"},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityBase_compute, 0), "compute(img) -> retval\n.   @brief Compute quality score per channel with the per-channel score in each element of the resulting cv::Scalar.  See specific algorithm for interpreting result scores\n.       @param img comparison image, or image to evalute for no-reference quality algorithms"},
@@ -55730,7 +55730,7 @@ static PyGetSetDef jsopencv_quality_QualityGMSD_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_quality_QualityGMSD_methods[] =
+static JsMethodDef jsopencv_quality_QualityGMSD_methods[] =
 {
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityGMSD_clear, 0), "clear() -> None\n.   @brief Implements Algorithm::clear()"},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityGMSD_compute, 0), "compute(cmp) -> retval\n.   @brief Compute GMSD\n.       @param cmp comparison image\n.       @returns cv::Scalar with per-channel quality value.  Values range from 0 (worst) to 1 (best)\n\n\n\ncompute(ref, cmp[, qualityMap]) -> retval, qualityMap\n.   @brief static method for computing quality\n.       @param ref reference image\n.       @param cmp comparison image\n.       @param qualityMap output quality map, or cv::noArray()\n.       @returns cv::Scalar with per-channel quality value.  Values range from 0 (worst) to 1 (best)"},
@@ -55966,7 +55966,7 @@ static PyGetSetDef jsopencv_quality_QualityMSE_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_quality_QualityMSE_methods[] =
+static JsMethodDef jsopencv_quality_QualityMSE_methods[] =
 {
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityMSE_clear, 0), "clear() -> None\n.   @brief Implements Algorithm::clear()"},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityMSE_compute, 0), "compute(cmpImgs) -> retval\n.   @brief Computes MSE for reference images supplied in class constructor and provided comparison images\n.       @param cmpImgs Comparison image(s)\n.       @returns cv::Scalar with per-channel quality values.  Values range from 0 (best) to potentially max float (worst)\n\n\n\ncompute(ref, cmp[, qualityMap]) -> retval, qualityMap\n.   @brief static method for computing quality\n.       @param ref reference image\n.       @param cmp comparison image=\n.       @param qualityMap output quality map, or cv::noArray()\n.       @returns cv::Scalar with per-channel quality values.  Values range from 0 (best) to max float (worst)"},
@@ -56257,7 +56257,7 @@ static PyGetSetDef jsopencv_quality_QualityPSNR_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_quality_QualityPSNR_methods[] =
+static JsMethodDef jsopencv_quality_QualityPSNR_methods[] =
 {
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityPSNR_clear, 0), "clear() -> None\n.   @brief Implements Algorithm::clear()"},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualityPSNR_compute, 0), "compute(cmp) -> retval\n.   @brief Compute the PSNR\n.       @param cmp Comparison image\n.       @returns Per-channel PSNR value, or std::numeric_limits<double>::infinity() if the MSE between the two images == 0\n\n\n\ncompute(ref, cmp[, qualityMap[, maxPixelValue]]) -> retval, qualityMap\n.   @brief static method for computing quality\n.       @param ref reference image\n.       @param cmp comparison image\n.       @param qualityMap output quality map, or cv::noArray()\n.       @param maxPixelValue maximum per-channel value for any individual pixel; eg 255 for uint8 image\n.       @returns PSNR value, or std::numeric_limits<double>::infinity() if the MSE between the two images == 0"},
@@ -56495,7 +56495,7 @@ static PyGetSetDef jsopencv_quality_QualitySSIM_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_quality_QualitySSIM_methods[] =
+static JsMethodDef jsopencv_quality_QualitySSIM_methods[] =
 {
     {"clear", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualitySSIM_clear, 0), "clear() -> None\n.   @brief Implements Algorithm::clear()"},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_quality_QualitySSIM_compute, 0), "compute(cmp) -> retval\n.   @brief Computes SSIM\n.       @param cmp Comparison image\n.       @returns cv::Scalar with per-channel quality values.  Values range from 0 (worst) to 1 (best)\n\n\n\ncompute(ref, cmp[, qualityMap]) -> retval, qualityMap\n.   @brief static method for computing quality\n.       @param ref reference image\n.       @param cmp comparison image\n.       @param qualityMap output quality map, or cv::noArray()\n.       @returns cv::Scalar with per-channel quality values.  Values range from 0 (worst) to 1 (best)"},
@@ -56612,7 +56612,7 @@ static PyGetSetDef jsopencv_rapid_GOSTracker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_rapid_GOSTracker_methods[] =
+static JsMethodDef jsopencv_rapid_GOSTracker_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_rapid_GOSTracker_create_static, METH_STATIC), "create(pts3d, tris[, histBins[, sobelThesh]]) -> retval\n."},
 
@@ -56726,7 +56726,7 @@ static PyGetSetDef jsopencv_rapid_OLSTracker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_rapid_OLSTracker_methods[] =
+static JsMethodDef jsopencv_rapid_OLSTracker_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_rapid_OLSTracker_create_static, METH_STATIC), "create(pts3d, tris[, histBins[, sobelThesh]]) -> retval\n."},
 
@@ -56828,7 +56828,7 @@ static PyGetSetDef jsopencv_rapid_Rapid_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_rapid_Rapid_methods[] =
+static JsMethodDef jsopencv_rapid_Rapid_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_rapid_Rapid_create_static, METH_STATIC), "create(pts3d, tris) -> retval\n."},
 
@@ -56984,7 +56984,7 @@ static PyGetSetDef jsopencv_rapid_Tracker_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_rapid_Tracker_methods[] =
+static JsMethodDef jsopencv_rapid_Tracker_methods[] =
 {
     {"clearState", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_rapid_Tracker_clearState, 0), "clearState() -> None\n."},
     {"compute", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_rapid_Tracker_compute, 0), "compute(img, num, len, K, rvec, tvec[, termcrit]) -> retval, rvec, tvec\n."},
@@ -57362,7 +57362,7 @@ static PyGetSetDef jsopencv_segmentation_IntelligentScissorsMB_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_segmentation_IntelligentScissorsMB_methods[] =
+static JsMethodDef jsopencv_segmentation_IntelligentScissorsMB_methods[] =
 {
     {"applyImage", CV_JS_FN_WITH_KW_(pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_applyImage, 0), "applyImage(image) -> retval\n.   @brief Specify input image and extract image features\n.        *\n.        * @param image input image. Type is #CV_8UC1 / #CV_8UC3"},
     {"applyImageFeatures", CV_JS_FN_WITH_KW_(pyopencv_cv_segmentation_segmentation_IntelligentScissorsMB_applyImageFeatures, 0), "applyImageFeatures(non_edge, gradient_direction, gradient_magnitude[, image]) -> retval\n.   @brief Specify custom features of input image\n.        *\n.        * Customized advanced variant of applyImage() call.\n.        *\n.        * @param non_edge Specify cost of non-edge pixels. Type is CV_8UC1. Expected values are `{0, 1}`.\n.        * @param gradient_direction Specify gradient direction feature. Type is CV_32FC2. Values are expected to be normalized: `x^2 + y^2 == 1`\n.        * @param gradient_magnitude Specify cost of gradient magnitude function: Type is CV_32FC1. Values should be in range `[0, 1]`.\n.        * @param image **Optional parameter**. Must be specified if subset of features is specified (non-specified features are calculated internally)"},
@@ -57420,7 +57420,7 @@ static PyGetSetDef jsopencv_text_BaseOCR_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_BaseOCR_methods[] =
+static JsMethodDef jsopencv_text_BaseOCR_methods[] =
 {
 
     {NULL,          NULL}
@@ -57470,7 +57470,7 @@ static PyGetSetDef jsopencv_text_ERFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_ERFilter_methods[] =
+static JsMethodDef jsopencv_text_ERFilter_methods[] =
 {
 
     {NULL,          NULL}
@@ -57520,7 +57520,7 @@ static PyGetSetDef jsopencv_text_ERFilter_Callback_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_ERFilter_Callback_methods[] =
+static JsMethodDef jsopencv_text_ERFilter_Callback_methods[] =
 {
 
     {NULL,          NULL}
@@ -57761,7 +57761,7 @@ static PyGetSetDef jsopencv_text_OCRBeamSearchDecoder_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_OCRBeamSearchDecoder_methods[] =
+static JsMethodDef jsopencv_text_OCRBeamSearchDecoder_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_OCRBeamSearchDecoder_create_static, METH_STATIC), "create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table[, mode[, beam_size]]) -> retval\n.   @brief Creates an instance of the OCRBeamSearchDecoder class. Initializes HMMDecoder.\n.   \n.       @param classifier The character classifier with built in feature extractor.\n.   \n.       @param vocabulary The language vocabulary (chars when ASCII English text). vocabulary.size()\n.       must be equal to the number of classes of the classifier.\n.   \n.       @param transition_probabilities_table Table with transition probabilities between character\n.       pairs. cols == rows == vocabulary.size().\n.   \n.       @param emission_probabilities_table Table with observation emission probabilities. cols ==\n.       rows == vocabulary.size().\n.   \n.       @param mode HMM Decoding algorithm. Only OCR_DECODER_VITERBI is available for the moment\n.       (<http://en.wikipedia.org/wiki/Viterbi_algorithm>).\n.   \n.       @param beam_size Size of the beam in Beam Search algorithm."},
     {"run", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_OCRBeamSearchDecoder_run, 0), "run(image, min_confidence[, component_level]) -> retval\n.   @brief Recognize text using Beam Search.\n.   \n.       Takes image on input and returns recognized text in the output_text parameter. Optionally\n.       provides also the Rects for individual text elements found (e.g. words), and the list of those\n.       text elements with their confidence values.\n.   \n.       @param image Input binary image CV_8UC1 with a single text line (or word).\n.   \n.       @param output_text Output text. Most likely character sequence found by the HMM decoder.\n.   \n.       @param component_rects If provided the method will output a list of Rects for the individual\n.       text elements found (e.g. words).\n.   \n.       @param component_texts If provided the method will output a list of text strings for the\n.       recognition of individual text elements found (e.g. words).\n.   \n.       @param component_confidences If provided the method will output a list of confidence values\n.       for the recognition of individual text elements found (e.g. words).\n.   \n.       @param component_level Only OCR_LEVEL_WORD is supported.\n\n\n\nrun(image, mask, min_confidence[, component_level]) -> retval\n."},
@@ -57813,7 +57813,7 @@ static PyGetSetDef jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_getsete
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_methods[] =
+static JsMethodDef jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_methods[] =
 {
 
     {NULL,          NULL}
@@ -58114,7 +58114,7 @@ static PyGetSetDef jsopencv_text_OCRHMMDecoder_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_OCRHMMDecoder_methods[] =
+static JsMethodDef jsopencv_text_OCRHMMDecoder_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_OCRHMMDecoder_create_static, METH_STATIC), "create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table[, mode]) -> retval\n.   @brief Creates an instance of the OCRHMMDecoder class. Initializes HMMDecoder.\n.   \n.       @param classifier The character classifier with built in feature extractor.\n.   \n.       @param vocabulary The language vocabulary (chars when ascii english text). vocabulary.size()\n.       must be equal to the number of classes of the classifier.\n.   \n.       @param transition_probabilities_table Table with transition probabilities between character\n.       pairs. cols == rows == vocabulary.size().\n.   \n.       @param emission_probabilities_table Table with observation emission probabilities. cols ==\n.       rows == vocabulary.size().\n.   \n.       @param mode HMM Decoding algorithm. Only OCR_DECODER_VITERBI is available for the moment\n.       (<http://en.wikipedia.org/wiki/Viterbi_algorithm>).\n\n\n\ncreate(filename, vocabulary, transition_probabilities_table, emission_probabilities_table[, mode[, classifier]]) -> retval\n.   @brief Creates an instance of the OCRHMMDecoder class. Loads and initializes HMMDecoder from the specified path\n.   \n.        @overload"},
     {"run", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_OCRHMMDecoder_run, 0), "run(image, min_confidence[, component_level]) -> retval\n.   @brief Recognize text using HMM.\n.   \n.       Takes an image and a mask (where each connected component corresponds to a segmented character)\n.       on input and returns recognized text in the output_text parameter. Optionally\n.       provides also the Rects for individual text elements found (e.g. words), and the list of those\n.       text elements with their confidence values.\n.   \n.       @param image Input image CV_8UC1 or CV_8UC3 with a single text line (or word).\n.       @param mask Input binary image CV_8UC1 same size as input image. Each connected component in mask corresponds to a segmented character in the input image.\n.   \n.       @param output_text Output text. Most likely character sequence found by the HMM decoder.\n.   \n.       @param component_rects If provided the method will output a list of Rects for the individual\n.       text elements found (e.g. words).\n.   \n.       @param component_texts If provided the method will output a list of text strings for the\n.       recognition of individual text elements found (e.g. words).\n.   \n.       @param component_confidences If provided the method will output a list of confidence values\n.       for the recognition of individual text elements found (e.g. words).\n.   \n.       @param component_level Only OCR_LEVEL_WORD is supported.\n\n\n\nrun(image, mask, min_confidence[, component_level]) -> retval\n."},
@@ -58166,7 +58166,7 @@ static PyGetSetDef jsopencv_text_OCRHMMDecoder_ClassifierCallback_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_OCRHMMDecoder_ClassifierCallback_methods[] =
+static JsMethodDef jsopencv_text_OCRHMMDecoder_ClassifierCallback_methods[] =
 {
 
     {NULL,          NULL}
@@ -58380,7 +58380,7 @@ static PyGetSetDef jsopencv_text_OCRTesseract_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_OCRTesseract_methods[] =
+static JsMethodDef jsopencv_text_OCRTesseract_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_OCRTesseract_create_static, METH_STATIC), "create([, datapath[, language[, char_whitelist[, oem[, psmode]]]]]) -> retval\n.   @brief Creates an instance of the OCRTesseract class. Initializes Tesseract.\n.   \n.       @param datapath the name of the parent directory of tessdata ended with \"/\", or NULL to use the\n.       system's default directory.\n.       @param language an ISO 639-3 code or NULL will default to \"eng\".\n.       @param char_whitelist specifies the list of characters used for recognition. NULL defaults to\n.       \"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\".\n.       @param oem tesseract-ocr offers different OCR Engine Modes (OEM), by default\n.       tesseract::OEM_DEFAULT is used. See the tesseract-ocr API documentation for other possible\n.       values.\n.       @param psmode tesseract-ocr offers different Page Segmentation Modes (PSM) tesseract::PSM_AUTO\n.       (fully automatic layout analysis) is used. See the tesseract-ocr API documentation for other\n.       possible values."},
     {"run", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_OCRTesseract_run, 0), "run(image, min_confidence[, component_level]) -> retval\n.   @brief Recognize text using the tesseract-ocr API.\n.   \n.       Takes image on input and returns recognized text in the output_text parameter. Optionally\n.       provides also the Rects for individual text elements found (e.g. words), and the list of those\n.       text elements with their confidence values.\n.   \n.       @param image Input image CV_8UC1 or CV_8UC3\n.       @param output_text Output text of the tesseract-ocr.\n.       @param component_rects If provided the method will output a list of Rects for the individual\n.       text elements found (e.g. words or text lines).\n.       @param component_texts If provided the method will output a list of text strings for the\n.       recognition of individual text elements found (e.g. words or text lines).\n.       @param component_confidences If provided the method will output a list of confidence values\n.       for the recognition of individual text elements found (e.g. words or text lines).\n.       @param component_level OCR_LEVEL_WORD (by default), or OCR_LEVEL_TEXTLINE.\n\n\n\nrun(image, mask, min_confidence[, component_level]) -> retval\n."},
@@ -58485,7 +58485,7 @@ static PyGetSetDef jsopencv_text_TextDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_TextDetector_methods[] =
+static JsMethodDef jsopencv_text_TextDetector_methods[] =
 {
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_TextDetector_detect, 0), "detect(inputImage) -> Bbox, confidence\n.   @brief Method that provides a quick and simple interface to detect text inside an image\n.   \n.       @param inputImage an image to process\n.       @param Bbox a vector of Rect that will store the detected word bounding box\n.       @param confidence a vector of float that will be updated with the confidence the classifier has for the selected bounding box"},
 
@@ -58610,7 +58610,7 @@ static PyGetSetDef jsopencv_text_TextDetectorCNN_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_text_TextDetectorCNN_methods[] =
+static JsMethodDef jsopencv_text_TextDetectorCNN_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_TextDetectorCNN_create_static, METH_STATIC), "create(modelArchFilename, modelWeightsFilename) -> retval\n.   @overload"},
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_text_text_TextDetectorCNN_detect, 0), "detect(inputImage) -> Bbox, confidence\n.   @overload\n.   \n.       @param inputImage an image expected to be a CV_U8C3 of any size\n.       @param Bbox a vector of Rect that will store the detected word bounding box\n.       @param confidence a vector of float that will be updated with the confidence the classifier has for the selected bounding box"},
@@ -58705,7 +58705,7 @@ static PyGetSetDef jsopencv_utils_ClassWithKeywordProperties_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_utils_ClassWithKeywordProperties_methods[] =
+static JsMethodDef jsopencv_utils_ClassWithKeywordProperties_methods[] =
 {
 
     {NULL,          NULL}
@@ -58829,7 +58829,7 @@ static PyGetSetDef jsopencv_utils_nested_OriginalClassName_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_utils_nested_OriginalClassName_methods[] =
+static JsMethodDef jsopencv_utils_nested_OriginalClassName_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_nested_utils_nested_OriginalClassName_create_static, METH_STATIC), "create([, params]) -> retval\n."},
     {"getFloatParam", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_nested_utils_nested_OriginalClassName_getFloatParam, 0), "getFloatParam() -> retval\n."},
@@ -58936,7 +58936,7 @@ static PyGetSetDef jsopencv_utils_nested_OriginalClassName_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_utils_nested_OriginalClassName_Params_methods[] =
+static JsMethodDef jsopencv_utils_nested_OriginalClassName_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -58986,7 +58986,7 @@ static PyGetSetDef jsopencv_xfeatures2d_AffineFeature2D_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_AffineFeature2D_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_AffineFeature2D_methods[] =
 {
 
     {NULL,          NULL}
@@ -59121,7 +59121,7 @@ static PyGetSetDef jsopencv_xfeatures2d_BEBLID_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_BEBLID_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_BEBLID_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_create_static, METH_STATIC), "create(scale_factor[, n_bits]) -> retval\n.   @brief Creates the BEBLID descriptor.\n.       @param scale_factor Adjust the sampling window around detected keypoints:\n.       - <b> 1.00f </b> should be the scale for ORB keypoints\n.       - <b> 6.75f </b> should be the scale for SIFT detected keypoints\n.       - <b> 6.25f </b> is default and fits for KAZE, SURF detected keypoints\n.       - <b> 5.00f </b> should be the scale for AKAZE, MSD, AGAST, FAST, BRISK keypoints\n.       @param n_bits Determine the number of bits in the descriptor. Should be either\n.        BEBLID::SIZE_512_BITS or BEBLID::SIZE_256_BITS."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_BEBLID_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -59306,7 +59306,7 @@ static PyGetSetDef jsopencv_xfeatures2d_BoostDesc_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_BoostDesc_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_BoostDesc_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_create_static, METH_STATIC), "create([, desc[, use_scale_orientation[, scale_factor]]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_BoostDesc_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -59490,7 +59490,7 @@ static PyGetSetDef jsopencv_xfeatures2d_BriefDescriptorExtractor_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_BriefDescriptorExtractor_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_BriefDescriptorExtractor_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_create_static, METH_STATIC), "create([, bytes[, use_orientation]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_BriefDescriptorExtractor_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -60022,7 +60022,7 @@ static PyGetSetDef jsopencv_xfeatures2d_DAISY_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_DAISY_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_DAISY_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_create_static, METH_STATIC), "create([, radius[, q_radius[, q_theta[, q_hist[, norm[, H[, interpolation[, use_orientation]]]]]]]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_DAISY_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -60313,7 +60313,7 @@ static PyGetSetDef jsopencv_xfeatures2d_FREAK_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_FREAK_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_FREAK_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_create_static, METH_STATIC), "create([, orientationNormalized[, scaleNormalized[, patternScale[, nOctaves[, selectedPairs]]]]]) -> retval\n.   @param orientationNormalized Enable orientation normalization.\n.       @param scaleNormalized Enable scale normalization.\n.       @param patternScale Scaling of the description pattern.\n.       @param nOctaves Number of octaves covered by the detected keypoints.\n.       @param selectedPairs (Optional) user defined selected pairs indexes,"},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_FREAK_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -60639,7 +60639,7 @@ static PyGetSetDef jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getseters[]
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_create_static, METH_STATIC), "create([, numOctaves[, corn_thresh[, DOG_thresh[, maxCorners[, num_layers]]]]]) -> retval\n.   * @brief Creates a new implementation instance.\n.        *\n.        * @param numOctaves the number of octaves in the scale-space pyramid\n.        * @param corn_thresh the threshold for the Harris cornerness measure\n.        * @param DOG_thresh the threshold for the Difference-of-Gaussians scale selection\n.        * @param maxCorners the maximum number of corners to consider\n.        * @param num_layers the number of intermediate scales per octave"},
     {"getCornThresh", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_HarrisLaplaceFeatureDetector_getCornThresh, 0), "getCornThresh() -> retval\n."},
@@ -60921,7 +60921,7 @@ static PyGetSetDef jsopencv_xfeatures2d_LATCH_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_LATCH_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_LATCH_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_create_static, METH_STATIC), "create([, bytes[, rotationInvariance[, half_ssd_size[, sigma]]]]) -> retval\n."},
     {"getBytes", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_LATCH_getBytes, 0), "getBytes() -> retval\n."},
@@ -61109,7 +61109,7 @@ static PyGetSetDef jsopencv_xfeatures2d_LUCID_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_LUCID_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_LUCID_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_create_static, METH_STATIC), "create([, lucid_kernel[, blur_kernel]]) -> retval\n.   * @param lucid_kernel kernel for descriptor construction, where 1=3x3, 2=5x5, 3=7x7 and so forth\n.        * @param blur_kernel kernel for blurring image prior to descriptor construction, where 1=3x3, 2=5x5, 3=7x7 and so forth"},
     {"getBlurKernel", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_LUCID_getBlurKernel, 0), "getBlurKernel() -> retval\n."},
@@ -61615,7 +61615,7 @@ static PyGetSetDef jsopencv_xfeatures2d_MSDDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_MSDDetector_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_MSDDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_create_static, METH_STATIC), "create([, m_patch_radius[, m_search_area_radius[, m_nms_radius[, m_nms_scale_radius[, m_th_saliency[, m_kNN[, m_scale_factor[, m_n_scales[, m_compute_orientation]]]]]]]]]) -> retval\n."},
     {"getComputeOrientation", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_MSDDetector_getComputeOrientation, 0), "getComputeOrientation() -> retval\n."},
@@ -62800,7 +62800,7 @@ static PyGetSetDef jsopencv_xfeatures2d_PCTSignatures_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_PCTSignatures_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_PCTSignatures_methods[] =
 {
     {"computeSignature", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSignature, 0), "computeSignature(image[, signature]) -> signature\n.   * @brief Computes signature of given image.\n.       * @param image Input image of CV_8U type.\n.       * @param signature Output computed signature."},
     {"computeSignatures", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignatures_computeSignatures, 0), "computeSignatures(images, signatures) -> None\n.   * @brief Computes signatures for multiple images in parallel.\n.       * @param images Vector of input images of CV_8U type.\n.       * @param signatures Vector of computed signatures."},
@@ -63005,7 +63005,7 @@ static PyGetSetDef jsopencv_xfeatures2d_PCTSignaturesSQFD_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_PCTSignaturesSQFD_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_PCTSignaturesSQFD_methods[] =
 {
     {"computeQuadraticFormDistance", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_computeQuadraticFormDistance, 0), "computeQuadraticFormDistance(_signature0, _signature1) -> retval\n.   * @brief Computes Signature Quadratic Form Distance of two signatures.\n.       * @param _signature0 The first signature.\n.       * @param _signature1 The second signature."},
     {"computeQuadraticFormDistances", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_PCTSignaturesSQFD_computeQuadraticFormDistances, 0), "computeQuadraticFormDistances(sourceSignature, imageSignatures, distances) -> None\n.   * @brief Computes Signature Quadratic Form Distance between the reference signature\n.       *       and each of the other image signatures.\n.       * @param sourceSignature The signature to measure distance of other signatures from.\n.       * @param imageSignatures Vector of signatures to measure distance from the source signature.\n.       * @param distances Output vector of measured distances."},
@@ -63324,7 +63324,7 @@ static PyGetSetDef jsopencv_xfeatures2d_SURF_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_SURF_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_SURF_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_SURF_create_static, METH_STATIC), "create([, hessianThreshold[, nOctaves[, nOctaveLayers[, extended[, upright]]]]]) -> retval\n.   @param hessianThreshold Threshold for hessian keypoint detector used in SURF.\n.       @param nOctaves Number of pyramid octaves the keypoint detector will use.\n.       @param nOctaveLayers Number of octave layers within each octave.\n.       @param extended Extended descriptor flag (true - use extended 128-element descriptors; false - use\n.       64-element descriptors).\n.       @param upright Up-right or rotated features flag (true - do not compute orientation of features;\n.       false - compute orientation)."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_SURF_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -63652,7 +63652,7 @@ static PyGetSetDef jsopencv_xfeatures2d_StarDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_StarDetector_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_StarDetector_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_create_static, METH_STATIC), "create([, maxSize[, responseThreshold[, lineThresholdProjected[, lineThresholdBinarized[, suppressNonmaxSize]]]]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_StarDetector_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -63914,7 +63914,7 @@ static PyGetSetDef jsopencv_xfeatures2d_TBMR_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_TBMR_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_TBMR_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_create_static, METH_STATIC), "create([, min_area[, max_area_relative[, scale_factor[, n_scales]]]]) -> retval\n."},
     {"getMaxAreaRelative", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_TBMR_getMaxAreaRelative, 0), "getMaxAreaRelative() -> retval\n."},
@@ -64015,7 +64015,7 @@ static PyGetSetDef jsopencv_xfeatures2d_TEBLID_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_TEBLID_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_TEBLID_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_TEBLID_create_static, METH_STATIC), "create(scale_factor[, n_bits]) -> retval\n.   @brief Creates the TEBLID descriptor.\n.       @param scale_factor Adjust the sampling window around detected keypoints:\n.       - <b> 1.00f </b> should be the scale for ORB keypoints\n.       - <b> 6.75f </b> should be the scale for SIFT detected keypoints\n.       - <b> 6.25f </b> is default and fits for KAZE, SURF detected keypoints\n.       - <b> 5.00f </b> should be the scale for AKAZE, MSD, AGAST, FAST, BRISK keypoints\n.       @param n_bits Determine the number of bits in the descriptor. Should be either\n.        TEBLID::SIZE_256_BITS or TEBLID::SIZE_512_BITS."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_TEBLID_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -64336,7 +64336,7 @@ static PyGetSetDef jsopencv_xfeatures2d_VGG_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_xfeatures2d_VGG_methods[] =
+static JsMethodDef jsopencv_xfeatures2d_VGG_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_VGG_create_static, METH_STATIC), "create([, desc[, isigma[, img_normalize[, use_scale_orientation[, scale_factor[, dsc_normalize]]]]]]) -> retval\n."},
     {"getDefaultName", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_xfeatures2d_VGG_getDefaultName, 0), "getDefaultName() -> retval\n."},
@@ -64492,7 +64492,7 @@ static PyGetSetDef jsopencv_ximgproc_AdaptiveManifoldFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_AdaptiveManifoldFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_AdaptiveManifoldFilter_methods[] =
 {
     {"collectGarbage", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_collectGarbage, 0), "collectGarbage() -> None\n."},
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_AdaptiveManifoldFilter_create_static, METH_STATIC), "create() -> retval\n."},
@@ -64699,7 +64699,7 @@ static PyGetSetDef jsopencv_ximgproc_ContourFitting_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_ContourFitting_methods[] =
+static JsMethodDef jsopencv_ximgproc_ContourFitting_methods[] =
 {
     {"estimateTransformation", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_ContourFitting_estimateTransformation, 0), "estimateTransformation(src, dst[, alphaPhiST[, fdContour]]) -> alphaPhiST, dist\n.   @brief Fit two closed curves using fourier descriptors. More details in @cite PersoonFu1977 and @cite BergerRaghunathan1998\n.   \n.           @param src Contour defining first shape.\n.           @param dst Contour defining second shape (Target).\n.           @param alphaPhiST : \\f$ \\alpha \\f$=alphaPhiST(0,0), \\f$ \\phi \\f$=alphaPhiST(0,1) (in radian), s=alphaPhiST(0,2), Tx=alphaPhiST(0,3), Ty=alphaPhiST(0,4) rotation center\n.           @param dist distance between src and dst after matching.\n.           @param fdContour false then src and dst are contours and true src and dst are fourier descriptors."},
     {"getCtrSize", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_ContourFitting_getCtrSize, 0), "getCtrSize() -> retval\n.   @returns number of fourier descriptors"},
@@ -64814,7 +64814,7 @@ static PyGetSetDef jsopencv_ximgproc_DTFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_DTFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_DTFilter_methods[] =
 {
     {"filter", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_DTFilter_filter, 0), "filter(src[, dst[, dDepth]]) -> dst\n.   @brief Produce domain transform filtering operation on source image.\n.   \n.       @param src filtering image with unsigned 8-bit or floating-point 32-bit depth and up to 4 channels.\n.   \n.       @param dst destination image.\n.   \n.       @param dDepth optional depth of the output image. dDepth can be set to -1, which will be equivalent\n.       to src.depth()."},
 
@@ -64943,7 +64943,7 @@ static PyGetSetDef jsopencv_ximgproc_DisparityFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_DisparityFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_DisparityFilter_methods[] =
 {
     {"filter", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_DisparityFilter_filter, 0), "filter(disparity_map_left, left_view[, filtered_disparity_map[, disparity_map_right[, ROI[, right_view]]]]) -> filtered_disparity_map\n.   @brief Apply filtering to the disparity map.\n.   \n.       @param disparity_map_left disparity map of the left view, 1 channel, CV_16S type. Implicitly assumes that disparity\n.       values are scaled by 16 (one-pixel disparity corresponds to the value of 16 in the disparity map). Disparity map\n.       can have any resolution, it will be automatically resized to fit left_view resolution.\n.   \n.       @param left_view left view of the original stereo-pair to guide the filtering process, 8-bit single-channel\n.       or three-channel image.\n.   \n.       @param filtered_disparity_map output disparity map.\n.   \n.       @param disparity_map_right optional argument, some implementations might also use the disparity map\n.       of the right view to compute confidence maps, for instance.\n.   \n.       @param ROI region of the disparity map to filter. Optional, usually it should be set automatically.\n.   \n.       @param right_view optional argument, some implementations might also use the right view of the original\n.       stereo-pair."},
 
@@ -65206,7 +65206,7 @@ static PyGetSetDef jsopencv_ximgproc_DisparityWLSFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_DisparityWLSFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_DisparityWLSFilter_methods[] =
 {
     {"getConfidenceMap", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getConfidenceMap, 0), "getConfidenceMap() -> retval\n.   @brief Get the confidence map that was used in the last filter call. It is a CV_32F one-channel image\n.       with values ranging from 0.0 (totally untrusted regions of the raw disparity map) to 255.0 (regions containing\n.       correct disparity values with a high degree of confidence)."},
     {"getDepthDiscontinuityRadius", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_DisparityWLSFilter_getDepthDiscontinuityRadius, 0), "getDepthDiscontinuityRadius() -> retval\n.   @brief DepthDiscontinuityRadius is a parameter used in confidence computation. It defines the size of\n.       low-confidence regions around depth discontinuities."},
@@ -65547,7 +65547,7 @@ static PyGetSetDef jsopencv_ximgproc_EdgeAwareInterpolator_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_EdgeAwareInterpolator_methods[] =
+static JsMethodDef jsopencv_ximgproc_EdgeAwareInterpolator_methods[] =
 {
     {"getFGSLambda", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSLambda, 0), "getFGSLambda() -> retval\n.   @see setFGSLambda"},
     {"getFGSSigma", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_EdgeAwareInterpolator_getFGSSigma, 0), "getFGSSigma() -> retval\n.   @see setFGSLambda"},
@@ -66188,7 +66188,7 @@ static PyGetSetDef jsopencv_ximgproc_EdgeBoxes_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_EdgeBoxes_methods[] =
+static JsMethodDef jsopencv_ximgproc_EdgeBoxes_methods[] =
 {
     {"getAlpha", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getAlpha, 0), "getAlpha() -> retval\n.   @brief Returns the step size of sliding window search."},
     {"getBeta", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_EdgeBoxes_getBeta, 0), "getBeta() -> retval\n.   @brief Returns the nms threshold for object proposals."},
@@ -66566,7 +66566,7 @@ static PyGetSetDef jsopencv_ximgproc_EdgeDrawing_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_EdgeDrawing_methods[] =
+static JsMethodDef jsopencv_ximgproc_EdgeDrawing_methods[] =
 {
     {"detectEdges", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEdges, 0), "detectEdges(src) -> None\n.   @brief Detects edges in a grayscale image and prepares them to detect lines and ellipses.\n.   \n.       @param src 8-bit, single-channel, grayscale input image."},
     {"detectEllipses", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_EdgeDrawing_detectEllipses, 0), "detectEllipses([, ellipses]) -> ellipses\n.   @brief Detects circles and ellipses.\n.   \n.       @param ellipses  output Vec<6d> contains center point and perimeter for circles, center point, axes and angle for ellipses.\n.       @note you should call detectEdges() before calling this function."},
@@ -66846,7 +66846,7 @@ static PyGetSetDef jsopencv_ximgproc_EdgeDrawing_Params_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_EdgeDrawing_Params_methods[] =
+static JsMethodDef jsopencv_ximgproc_EdgeDrawing_Params_methods[] =
 {
 
     {NULL,          NULL}
@@ -66956,7 +66956,7 @@ static PyGetSetDef jsopencv_ximgproc_FastBilateralSolverFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_FastBilateralSolverFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_FastBilateralSolverFilter_methods[] =
 {
     {"filter", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_FastBilateralSolverFilter_filter, 0), "filter(src, confidence[, dst]) -> dst\n.   @brief Apply smoothing operation to the source image.\n.   \n.       @param src source image for filtering with unsigned 8-bit or signed 16-bit or floating-point 32-bit depth and up to 3 channels.\n.   \n.       @param confidence confidence image with unsigned 8-bit or floating-point 32-bit confidence and 1 channel.\n.   \n.       @param dst destination image.\n.   \n.       @note Confidence images with CV_8U depth are expected to in [0, 255] and CV_32F in [0, 1] range."},
 
@@ -67061,7 +67061,7 @@ static PyGetSetDef jsopencv_ximgproc_FastGlobalSmootherFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_FastGlobalSmootherFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_FastGlobalSmootherFilter_methods[] =
 {
     {"filter", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_FastGlobalSmootherFilter_filter, 0), "filter(src[, dst]) -> dst\n.   @brief Apply smoothing operation to the source image.\n.   \n.       @param src source image for filtering with unsigned 8-bit or signed 16-bit or floating-point 32-bit depth and up to 4 channels.\n.   \n.       @param dst destination image."},
 
@@ -67238,7 +67238,7 @@ static PyGetSetDef jsopencv_ximgproc_FastLineDetector_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_FastLineDetector_methods[] =
+static JsMethodDef jsopencv_ximgproc_FastLineDetector_methods[] =
 {
     {"detect", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_FastLineDetector_detect, 0), "detect(image[, lines]) -> lines\n.   @brief Finds lines in the input image.\n.         This is the output of the default parameters of the algorithm on the above\n.         shown image.\n.   \n.         ![image](pics/corridor_fld.jpg)\n.   \n.         @param image A grayscale (CV_8UC1) input image. If only a roi needs to be\n.         selected, use: `fld_ptr-\\>detect(image(roi), lines, ...);\n.         lines += Scalar(roi.x, roi.y, roi.x, roi.y);`\n.         @param lines A vector of Vec4f elements specifying the beginning\n.         and ending point of a line.  Where Vec4f is (x1, y1, x2, y2), point\n.         1 is the start, point 2 - end. Returned lines are directed so that the\n.         brighter side is on their left."},
     {"drawSegments", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_FastLineDetector_drawSegments, 0), "drawSegments(image, lines[, draw_arrow[, linecolor[, linethickness]]]) -> image\n.   @brief Draws the line segments on a given image.\n.         @param image The image, where the lines will be drawn. Should be bigger\n.         or equal to the image, where the lines were found.\n.         @param lines A vector of the lines that needed to be drawn.\n.         @param draw_arrow If true, arrow heads will be drawn.\n.         @param linecolor Line color.\n.         @param linethickness Line thickness."},
@@ -67350,7 +67350,7 @@ static PyGetSetDef jsopencv_ximgproc_GuidedFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_GuidedFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_GuidedFilter_methods[] =
 {
     {"filter", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_GuidedFilter_filter, 0), "filter(src[, dst[, dDepth]]) -> dst\n.   @brief Apply Guided Filter to the filtering image.\n.   \n.       @param src filtering image with any numbers of channels.\n.   \n.       @param dst output image.\n.   \n.       @param dDepth optional depth of the output image. dDepth can be set to -1, which will be equivalent\n.       to src.depth()."},
 
@@ -67442,7 +67442,7 @@ static PyGetSetDef jsopencv_ximgproc_RFFeatureGetter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_RFFeatureGetter_methods[] =
+static JsMethodDef jsopencv_ximgproc_RFFeatureGetter_methods[] =
 {
     {"getFeatures", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_RFFeatureGetter_getFeatures, 0), "getFeatures(src, features, gnrmRad, gsmthRad, shrink, outNum, gradNum) -> None\n."},
 
@@ -68075,7 +68075,7 @@ static PyGetSetDef jsopencv_ximgproc_RICInterpolator_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_RICInterpolator_methods[] =
+static JsMethodDef jsopencv_ximgproc_RICInterpolator_methods[] =
 {
     {"getAlpha", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getAlpha, 0), "getAlpha() -> retval\n.   @copybrief setAlpha\n.        *  @see setAlpha"},
     {"getFGSLambda", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_RICInterpolator_getFGSLambda, 0), "getFGSLambda() -> retval\n.   @copybrief setFGSLambda\n.        *  @see setFGSLambda"},
@@ -68246,7 +68246,7 @@ static PyGetSetDef jsopencv_ximgproc_RidgeDetectionFilter_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_RidgeDetectionFilter_methods[] =
+static JsMethodDef jsopencv_ximgproc_RidgeDetectionFilter_methods[] =
 {
     {"create", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_create_static, METH_STATIC), "create([, ddepth[, dx[, dy[, ksize[, out_dtype[, scale[, delta[, borderType]]]]]]]]) -> retval\n.   @brief Create pointer to the Ridge detection filter.\n.       @param ddepth  Specifies output image depth. Defualt is CV_32FC1\n.       @param dx Order of derivative x, default is 1\n.       @param dy  Order of derivative y, default is 1\n.       @param ksize Sobel kernel size , default is 3\n.       @param out_dtype Converted format for output, default is CV_8UC1\n.       @param scale Optional scale value for derivative values, default is 1\n.       @param delta  Optional bias added to output, default is 0\n.       @param borderType Pixel extrapolation method, default is BORDER_DEFAULT\n.       @see Sobel, threshold, getStructuringElement, morphologyEx.( for additional refinement)"},
     {"getRidgeFilteredImage", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_RidgeDetectionFilter_getRidgeFilteredImage, 0), "getRidgeFilteredImage(_img[, out]) -> out\n.   @brief Apply Ridge detection filter on input image.\n.       @param _img InputArray as supported by Sobel. img can be 1-Channel or 3-Channels.\n.       @param out OutputAray of structure as RidgeDetectionFilter::ddepth. Output image with ridges."},
@@ -68468,7 +68468,7 @@ static PyGetSetDef jsopencv_ximgproc_ScanSegment_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_ScanSegment_methods[] =
+static JsMethodDef jsopencv_ximgproc_ScanSegment_methods[] =
 {
     {"getLabelContourMask", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabelContourMask, 0), "getLabelContourMask([, image[, thick_line]]) -> image\n.   @brief Returns the mask of the superpixel segmentation stored in the ScanSegment object.\n.   \n.       The function return the boundaries of the superpixel segmentation.\n.   \n.       @param image Return: CV_8UC1 image mask where -1 indicates that the pixel is a superpixel border, and 0 otherwise.\n.       @param thick_line If false, the border is only one pixel wide, otherwise all pixels at the border are masked."},
     {"getLabels", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_ScanSegment_getLabels, 0), "getLabels([, labels_out]) -> labels_out\n.   @brief Returns the segmentation labeling of the image.\n.   \n.       Each label represents a superpixel, and each pixel is assigned to one superpixel label.\n.   \n.       @param labels_out Return: A CV_32UC1 integer array containing the labels of the superpixel\n.       segmentation. The labels are in the range [0, getNumberOfSuperpixels()]."},
@@ -68594,7 +68594,7 @@ static PyGetSetDef jsopencv_ximgproc_SparseMatchInterpolator_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_SparseMatchInterpolator_methods[] =
+static JsMethodDef jsopencv_ximgproc_SparseMatchInterpolator_methods[] =
 {
     {"interpolate", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SparseMatchInterpolator_interpolate, 0), "interpolate(from_image, from_points, to_image, to_points[, dense_flow]) -> dense_flow\n.   @brief Interpolate input sparse matches.\n.   \n.       @param from_image first of the two matched images, 8-bit single-channel or three-channel.\n.   \n.       @param from_points points of the from_image for which there are correspondences in the\n.       to_image (Point2f vector or Mat of depth CV_32F)\n.   \n.       @param to_image second of the two matched images, 8-bit single-channel or three-channel.\n.   \n.       @param to_points points in the to_image corresponding to from_points\n.       (Point2f vector or Mat of depth CV_32F)\n.   \n.       @param dense_flow output dense matching (two-channel CV_32F image)"},
 
@@ -68837,7 +68837,7 @@ static PyGetSetDef jsopencv_ximgproc_StructuredEdgeDetection_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_StructuredEdgeDetection_methods[] =
+static JsMethodDef jsopencv_ximgproc_StructuredEdgeDetection_methods[] =
 {
     {"computeOrientation", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_computeOrientation, 0), "computeOrientation(src[, dst]) -> dst\n.   @brief The function computes orientation from edge image.\n.   \n.       @param src edge image.\n.       @param dst orientation image."},
     {"detectEdges", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_StructuredEdgeDetection_detectEdges, 0), "detectEdges(src[, dst]) -> dst\n.   @brief The function detects edges in src and draw them to dst.\n.   \n.       The algorithm underlies this function is much more robust to texture presence, than common\n.       approaches, e.g. Sobel\n.       @param src source image (RGB, float, in [0;1]) to detect edges\n.       @param dst destination image (grayscale, float, in [0;1]) where edges are drawn\n.       @sa Sobel, Canny"},
@@ -69058,7 +69058,7 @@ static PyGetSetDef jsopencv_ximgproc_SuperpixelLSC_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_SuperpixelLSC_methods[] =
+static JsMethodDef jsopencv_ximgproc_SuperpixelLSC_methods[] =
 {
     {"enforceLabelConnectivity", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_enforceLabelConnectivity, 0), "enforceLabelConnectivity([, min_element_size]) -> None\n.   @brief Enforce label connectivity.\n.   \n.       @param min_element_size The minimum element size in percents that should be absorbed into a bigger\n.       superpixel. Given resulted average superpixel size valid value should be in 0-100 range, 25 means\n.       that less then a quarter sized superpixel should be absorbed, this is default.\n.   \n.       The function merge component that is too small, assigning the previously found adjacent label\n.       to this component. Calling this function may change the final number of superpixels."},
     {"getLabelContourMask", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SuperpixelLSC_getLabelContourMask, 0), "getLabelContourMask([, image[, thick_line]]) -> image\n.   @brief Returns the mask of the superpixel segmentation stored in SuperpixelLSC object.\n.   \n.       @param image Return: CV_8U1 image mask where -1 indicates that the pixel is a superpixel border,\n.       and 0 otherwise.\n.   \n.       @param thick_line If false, the border is only one pixel wide, otherwise all pixels at the border\n.       are masked.\n.   \n.       The function return the boundaries of the superpixel segmentation."},
@@ -69289,7 +69289,7 @@ static PyGetSetDef jsopencv_ximgproc_SuperpixelSEEDS_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_SuperpixelSEEDS_methods[] =
+static JsMethodDef jsopencv_ximgproc_SuperpixelSEEDS_methods[] =
 {
     {"getLabelContourMask", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabelContourMask, 0), "getLabelContourMask([, image[, thick_line]]) -> image\n.   @brief Returns the mask of the superpixel segmentation stored in SuperpixelSEEDS object.\n.   \n.       @param image Return: CV_8UC1 image mask where -1 indicates that the pixel is a superpixel border,\n.       and 0 otherwise.\n.   \n.       @param thick_line If false, the border is only one pixel wide, otherwise all pixels at the border\n.       are masked.\n.   \n.       The function return the boundaries of the superpixel segmentation.\n.   \n.       @note\n.          -   (Python) A demo on how to generate superpixels in images from the webcam can be found at\n.               opencv_source_code/samples/python2/seeds.py\n.           -   (cpp) A demo on how to generate superpixels in images from the webcam can be found at\n.               opencv_source_code/modules/ximgproc/samples/seeds.cpp. By adding a file image as a command\n.               line argument, the static image will be used instead of the webcam.\n.           -   It will show a window with the video from the webcam with the superpixel boundaries marked\n.               in red (see below). Use Space to switch between different output modes. At the top of the\n.               window there are 4 sliders, from which the user can change on-the-fly the number of\n.               superpixels, the number of block levels, the strength of the boundary prior term to modify\n.               the shape, and the number of iterations at pixel level. This is useful to play with the\n.               parameters and set them to the user convenience. In the console the frame-rate of the\n.               algorithm is indicated.\n.   \n.       ![image](pics/superpixels_demo.png)"},
     {"getLabels", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SuperpixelSEEDS_getLabels, 0), "getLabels([, labels_out]) -> labels_out\n.   @brief Returns the segmentation labeling of the image.\n.   \n.       Each label represents a superpixel, and each pixel is assigned to one superpixel label.\n.   \n.       @param labels_out Return: A CV_32UC1 integer array containing the labels of the superpixel\n.       segmentation. The labels are in the range [0, getNumberOfSuperpixels()].\n.   \n.       The function returns an image with ssthe labels of the superpixel segmentation. The labels are in\n.       the range [0, getNumberOfSuperpixels()]."},
@@ -69511,7 +69511,7 @@ static PyGetSetDef jsopencv_ximgproc_SuperpixelSLIC_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_SuperpixelSLIC_methods[] =
+static JsMethodDef jsopencv_ximgproc_SuperpixelSLIC_methods[] =
 {
     {"enforceLabelConnectivity", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_enforceLabelConnectivity, 0), "enforceLabelConnectivity([, min_element_size]) -> None\n.   @brief Enforce label connectivity.\n.   \n.       @param min_element_size The minimum element size in percents that should be absorbed into a bigger\n.       superpixel. Given resulted average superpixel size valid value should be in 0-100 range, 25 means\n.       that less then a quarter sized superpixel should be absorbed, this is default.\n.   \n.       The function merge component that is too small, assigning the previously found adjacent label\n.       to this component. Calling this function may change the final number of superpixels."},
     {"getLabelContourMask", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_ximgproc_SuperpixelSLIC_getLabelContourMask, 0), "getLabelContourMask([, image[, thick_line]]) -> image\n.   @brief Returns the mask of the superpixel segmentation stored in SuperpixelSLIC object.\n.   \n.       @param image Return: CV_8U1 image mask where -1 indicates that the pixel is a superpixel border,\n.       and 0 otherwise.\n.   \n.       @param thick_line If false, the border is only one pixel wide, otherwise all pixels at the border\n.       are masked.\n.   \n.       The function return the boundaries of the superpixel segmentation."},
@@ -69749,7 +69749,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_GraphSegmentation_getseters[] 
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_GraphSegmentation_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_GraphSegmentation_methods[] =
 {
     {"getK", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_getK, 0), "getK() -> retval\n."},
     {"getMinSize", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_GraphSegmentation_getMinSize, 0), "getMinSize() -> retval\n."},
@@ -70109,7 +70109,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_ge
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_methods[] =
 {
     {"addGraphSegmentation", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_addGraphSegmentation, 0), "addGraphSegmentation(g) -> None\n.   @brief Add a new graph segmentation in the list of graph segementations to process.\n.                                   @param g The graph segmentation"},
     {"addImage", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentation_addImage, 0), "addImage(img) -> None\n.   @brief Add a new image in the list of images to process.\n.                                   @param img The image"},
@@ -70289,7 +70289,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_methods[] =
 {
     {"get", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_get, 0), "get(r1, r2) -> retval\n.   @brief Return the score between two regions (between 0 and 1)\n.                                   @param r1 The first region\n.                                   @param r2 The second region"},
     {"merge", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_merge, 0), "merge(r1, r2) -> None\n.   @brief Inform the strategy that two regions will be merged\n.                                   @param r1 The first region\n.                                   @param r2 The second region"},
@@ -70342,7 +70342,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyColor_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyColor_methods[] =
 {
 
     {NULL,          NULL}
@@ -70392,7 +70392,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyFill_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyFill_methods[] =
 {
 
     {NULL,          NULL}
@@ -70487,7 +70487,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_methods[] =
 {
     {"addStrategy", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_addStrategy, 0), "addStrategy(g, weight) -> None\n.   @brief Add a new sub-strategy\n.                                   @param g The strategy\n.                                   @param weight The weight of the strategy"},
     {"clearStrategies", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_clearStrategies, 0), "clearStrategies() -> None\n.   @brief Remove all sub-strategies"},
@@ -70539,7 +70539,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategySize_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategySize_methods[] =
 {
 
     {NULL,          NULL}
@@ -70589,7 +70589,7 @@ static PyGetSetDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyTexture_methods[] =
+static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyTexture_methods[] =
 {
 
     {NULL,          NULL}

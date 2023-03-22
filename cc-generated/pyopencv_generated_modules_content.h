@@ -1,4 +1,7 @@
-static PyMethodDef methods_cv[] = {
+#include <napi.h>
+#include <../node/jscompat.hpp>
+
+static JsMethodDef methods_cv[] = {
     {"AKAZE_create", CV_JS_FN_WITH_KW_(pyopencv_cv_AKAZE_create, 0), "AKAZE_create([, descriptor_type[, descriptor_size[, descriptor_channels[, threshold[, nOctaves[, nOctaveLayers[, diffusivity]]]]]]]) -> retval\n.   @brief The AKAZE constructor\n.   \n.       @param descriptor_type Type of the extracted descriptor: DESCRIPTOR_KAZE,\n.       DESCRIPTOR_KAZE_UPRIGHT, DESCRIPTOR_MLDB or DESCRIPTOR_MLDB_UPRIGHT.\n.       @param descriptor_size Size of the descriptor in bits. 0 -\\> Full size\n.       @param descriptor_channels Number of channels in the descriptor (1, 2, 3)\n.       @param threshold Detector response threshold to accept point\n.       @param nOctaves Maximum octave evolution of the image\n.       @param nOctaveLayers Default number of sublevels per scale level\n.       @param diffusivity Diffusivity type. DIFF_PM_G1, DIFF_PM_G2, DIFF_WEICKERT or\n.       DIFF_CHARBONNIER"},
     {"AffineFeature_create", CV_JS_FN_WITH_KW_(pyopencv_cv_AffineFeature_create, 0), "AffineFeature_create(backend[, maxTilt[, minTilt[, tiltStep[, rotateStepBase]]]]) -> retval\n.   @param backend The detector/extractor you want to use as backend.\n.       @param maxTilt The highest power index of tilt factor. 5 is used in the paper as tilt sampling range n.\n.       @param minTilt The lowest power index of tilt factor. 0 is used in the paper.\n.       @param tiltStep Tilt sampling step \\f$\\delta_t\\f$ in Algorithm 1 in the paper.\n.       @param rotateStepBase Rotation sampling step factor b in Algorithm 1 in the paper."},
     {"AgastFeatureDetector_create", CV_JS_FN_WITH_KW_(pyopencv_cv_AgastFeatureDetector_create, 0), "AgastFeatureDetector_create([, threshold[, nonmaxSuppression[, type]]]) -> retval\n."},
@@ -2054,7 +2057,7 @@ static ConstDef consts_cv[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_Error[] = {
+static JsMethodDef methods_Error[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_ERROR
     PYOPENCV_EXTRA_METHODS_ERROR
 #endif
@@ -2178,7 +2181,7 @@ static ConstDef consts_Error[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_aruco[] = {
+static JsMethodDef methods_aruco[] = {
     {"Dictionary_getBitsFromByteList", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_Dictionary_getBitsFromByteList, 0), "Dictionary_getBitsFromByteList(byteList, markerSize) -> retval\n.   @brief Transform list of bytes to matrix of bits"},
     {"Dictionary_getByteListFromBits", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_Dictionary_getByteListFromBits, 0), "Dictionary_getByteListFromBits(bits) -> retval\n.   @brief Transform matrix of bits to list of bytes in the 4 rotations"},
     {"drawDetectedCornersCharuco", CV_JS_FN_WITH_KW_(pyopencv_cv_aruco_drawDetectedCornersCharuco, 0), "drawDetectedCornersCharuco(image, charucoCorners[, charucoIds[, cornerColor]]) -> image\n.   * @brief Draws a set of Charuco corners\n.    * @param image input/output image. It must have 1 or 3 channels. The number of channels is not\n.    * altered.\n.    * @param charucoCorners vector of detected charuco corners\n.    * @param charucoIds list of identifiers for each corner in charucoCorners\n.    * @param cornerColor color of the square surrounding each corner\n.    *\n.    * This function draws a set of detected Charuco corners. If identifiers vector is provided, it also\n.    * draws the id of each corner."},
@@ -2229,7 +2232,7 @@ static ConstDef consts_aruco[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_barcode[] = {
+static JsMethodDef methods_barcode[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_BARCODE
     PYOPENCV_EXTRA_METHODS_BARCODE
 #endif
@@ -2249,7 +2252,7 @@ static ConstDef consts_barcode[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ccm[] = {
+static JsMethodDef methods_ccm[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_CCM
     PYOPENCV_EXTRA_METHODS_CCM
 #endif
@@ -2351,7 +2354,7 @@ static ConstDef consts_ccm[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_cuda[] = {
+static JsMethodDef methods_cuda[] = {
     {"Event_elapsedTime", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_Event_elapsedTime, 0), "Event_elapsedTime(start, end) -> retval\n."},
     {"GpuMat_defaultAllocator", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_GpuMat_defaultAllocator, 0), "GpuMat_defaultAllocator() -> retval\n."},
     {"GpuMat_setDefaultAllocator", CV_JS_FN_WITH_KW_(pyopencv_cv_cuda_GpuMat_setDefaultAllocator, 0), "GpuMat_setDefaultAllocator(allocator) -> None\n."},
@@ -2437,7 +2440,7 @@ static ConstDef consts_cuda[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_detail[] = {
+static JsMethodDef methods_detail[] = {
     {"strip", CV_JS_FN_WITH_KW_(pyopencv_cv_detail_strip, 0), "strip(params) -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_DETAIL
     PYOPENCV_EXTRA_METHODS_DETAIL
@@ -2541,7 +2544,7 @@ static ConstDef consts_detail[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_dnn[] = {
+static JsMethodDef methods_dnn[] = {
     {"NMSBoxes", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_NMSBoxes, 0), "NMSBoxes(bboxes, scores, score_threshold, nms_threshold[, eta[, top_k]]) -> indices\n.   @brief Performs non maximum suppression given boxes and corresponding scores.\n.   \n.        * @param bboxes a set of bounding boxes to apply NMS.\n.        * @param scores a set of corresponding confidences.\n.        * @param score_threshold a threshold used to filter boxes by score.\n.        * @param nms_threshold a threshold used in non maximum suppression.\n.        * @param indices the kept indices of bboxes after NMS.\n.        * @param eta a coefficient in adaptive threshold formula: \\f$nms\\_threshold_{i+1}=eta\\cdot nms\\_threshold_i\\f$.\n.        * @param top_k if `>0`, keep at most @p top_k picked indices."},
     {"NMSBoxesBatched", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_NMSBoxesBatched, 0), "NMSBoxesBatched(bboxes, scores, class_ids, score_threshold, nms_threshold[, eta[, top_k]]) -> indices\n.   @brief Performs batched non maximum suppression on given boxes and corresponding scores across different classes.\n.   \n.        * @param bboxes a set of bounding boxes to apply NMS.\n.        * @param scores a set of corresponding confidences.\n.        * @param class_ids a set of corresponding class ids. Ids are integer and usually start from 0.\n.        * @param score_threshold a threshold used to filter boxes by score.\n.        * @param nms_threshold a threshold used in non maximum suppression.\n.        * @param indices the kept indices of bboxes after NMS.\n.        * @param eta a coefficient in adaptive threshold formula: \\f$nms\\_threshold_{i+1}=eta\\cdot nms\\_threshold_i\\f$.\n.        * @param top_k if `>0`, keep at most @p top_k picked indices."},
     {"NMSBoxesRotated", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_NMSBoxesRotated, 0), "NMSBoxesRotated(bboxes, scores, score_threshold, nms_threshold[, eta[, top_k]]) -> indices\n."},
@@ -2598,7 +2601,7 @@ static ConstDef consts_dnn[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_dnn_superres[] = {
+static JsMethodDef methods_dnn_superres[] = {
     {"DnnSuperResImpl_create", CV_JS_FN_WITH_KW_(pyopencv_cv_dnn_superres_DnnSuperResImpl_create, 0), "DnnSuperResImpl_create() -> retval\n.   @brief Empty constructor for python"},
 #ifdef PYOPENCV_EXTRA_METHODS_DNN_SUPERRES
     PYOPENCV_EXTRA_METHODS_DNN_SUPERRES
@@ -2613,7 +2616,7 @@ static ConstDef consts_dnn_superres[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_face[] = {
+static JsMethodDef methods_face[] = {
     {"BIF_create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_BIF_create, 0), "BIF_create([, num_bands[, num_rotations]]) -> retval\n.   * @param num_bands The number of filter bands (<=8) used for computing BIF.\n.        * @param num_rotations The number of image rotations for computing BIF.\n.        * @returns Object for computing BIF."},
     {"EigenFaceRecognizer_create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_EigenFaceRecognizer_create, 0), "EigenFaceRecognizer_create([, num_components[, threshold]]) -> retval\n.   @param num_components The number of components (read: Eigenfaces) kept for this Principal\n.       Component Analysis. As a hint: There's no rule how many components (read: Eigenfaces) should be\n.       kept for good reconstruction capabilities. It is based on your input data, so experiment with the\n.       number. Keeping 80 components should almost always be sufficient.\n.       @param threshold The threshold applied in the prediction.\n.   \n.       ### Notes:\n.   \n.       -   Training and prediction must be done on grayscale images, use cvtColor to convert between the\n.           color spaces.\n.       -   **THE EIGENFACES METHOD MAKES THE ASSUMPTION, THAT THE TRAINING AND TEST IMAGES ARE OF EQUAL\n.           SIZE.** (caps-lock, because I got so many mails asking for this). You have to make sure your\n.           input data has the correct shape, else a meaningful exception is thrown. Use resize to resize\n.           the images.\n.       -   This model does not support updating.\n.   \n.       ### Model internal data:\n.   \n.       -   num_components see EigenFaceRecognizer::create.\n.       -   threshold see EigenFaceRecognizer::create.\n.       -   eigenvalues The eigenvalues for this Principal Component Analysis (ordered descending).\n.       -   eigenvectors The eigenvectors for this Principal Component Analysis (ordered by their\n.           eigenvalue).\n.       -   mean The sample mean calculated from the training data.\n.       -   projections The projections of the training data.\n.       -   labels The threshold applied in the prediction. If the distance to the nearest neighbor is\n.           larger than the threshold, this method returns -1."},
     {"FisherFaceRecognizer_create", CV_JS_FN_WITH_KW_(pyopencv_cv_face_FisherFaceRecognizer_create, 0), "FisherFaceRecognizer_create([, num_components[, threshold]]) -> retval\n.   @param num_components The number of components (read: Fisherfaces) kept for this Linear\n.       Discriminant Analysis with the Fisherfaces criterion. It's useful to keep all components, that\n.       means the number of your classes c (read: subjects, persons you want to recognize). If you leave\n.       this at the default (0) or set it to a value less-equal 0 or greater (c-1), it will be set to the\n.       correct number (c-1) automatically.\n.       @param threshold The threshold applied in the prediction. If the distance to the nearest neighbor\n.       is larger than the threshold, this method returns -1.\n.   \n.       ### Notes:\n.   \n.       -   Training and prediction must be done on grayscale images, use cvtColor to convert between the\n.           color spaces.\n.       -   **THE FISHERFACES METHOD MAKES THE ASSUMPTION, THAT THE TRAINING AND TEST IMAGES ARE OF EQUAL\n.           SIZE.** (caps-lock, because I got so many mails asking for this). You have to make sure your\n.           input data has the correct shape, else a meaningful exception is thrown. Use resize to resize\n.           the images.\n.       -   This model does not support updating.\n.   \n.       ### Model internal data:\n.   \n.       -   num_components see FisherFaceRecognizer::create.\n.       -   threshold see FisherFaceRecognizer::create.\n.       -   eigenvalues The eigenvalues for this Linear Discriminant Analysis (ordered descending).\n.       -   eigenvectors The eigenvectors for this Linear Discriminant Analysis (ordered by their\n.           eigenvalue).\n.       -   mean The sample mean calculated from the training data.\n.       -   projections The projections of the training data.\n.       -   labels The labels corresponding to the projections."},
@@ -2642,7 +2645,7 @@ static ConstDef consts_face[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_fisheye[] = {
+static JsMethodDef methods_fisheye[] = {
     {"calibrate", CV_JS_FN_WITH_KW_(pyopencv_cv_fisheye_calibrate, 0), "calibrate(objectPoints, imagePoints, image_size, K, D[, rvecs[, tvecs[, flags[, criteria]]]]) -> retval, K, D, rvecs, tvecs\n.   @brief Performs camera calibration\n.   \n.       @param objectPoints vector of vectors of calibration pattern points in the calibration pattern\n.       coordinate space.\n.       @param imagePoints vector of vectors of the projections of calibration pattern points.\n.       imagePoints.size() and objectPoints.size() and imagePoints[i].size() must be equal to\n.       objectPoints[i].size() for each i.\n.       @param image_size Size of the image used only to initialize the camera intrinsic matrix.\n.       @param K Output 3x3 floating-point camera intrinsic matrix\n.       \\f$\\cameramatrix{A}\\f$ . If\n.       @ref fisheye::CALIB_USE_INTRINSIC_GUESS is specified, some or all of fx, fy, cx, cy must be\n.       initialized before calling the function.\n.       @param D Output vector of distortion coefficients \\f$\\distcoeffsfisheye\\f$.\n.       @param rvecs Output vector of rotation vectors (see Rodrigues ) estimated for each pattern view.\n.       That is, each k-th rotation vector together with the corresponding k-th translation vector (see\n.       the next output parameter description) brings the calibration pattern from the model coordinate\n.       space (in which object points are specified) to the world coordinate space, that is, a real\n.       position of the calibration pattern in the k-th pattern view (k=0.. *M* -1).\n.       @param tvecs Output vector of translation vectors estimated for each pattern view.\n.       @param flags Different flags that may be zero or a combination of the following values:\n.       -    @ref fisheye::CALIB_USE_INTRINSIC_GUESS  cameraMatrix contains valid initial values of\n.       fx, fy, cx, cy that are optimized further. Otherwise, (cx, cy) is initially set to the image\n.       center ( imageSize is used), and focal distances are computed in a least-squares fashion.\n.       -    @ref fisheye::CALIB_RECOMPUTE_EXTRINSIC  Extrinsic will be recomputed after each iteration\n.       of intrinsic optimization.\n.       -    @ref fisheye::CALIB_CHECK_COND  The functions will check validity of condition number.\n.       -    @ref fisheye::CALIB_FIX_SKEW  Skew coefficient (alpha) is set to zero and stay zero.\n.       -    @ref fisheye::CALIB_FIX_K1,..., @ref fisheye::CALIB_FIX_K4 Selected distortion coefficients\n.       are set to zeros and stay zero.\n.       -    @ref fisheye::CALIB_FIX_PRINCIPAL_POINT  The principal point is not changed during the global\n.   optimization. It stays at the center or at a different location specified when @ref fisheye::CALIB_USE_INTRINSIC_GUESS is set too.\n.       -    @ref fisheye::CALIB_FIX_FOCAL_LENGTH The focal length is not changed during the global\n.   optimization. It is the \\f$max(width,height)/\\pi\\f$ or the provided \\f$f_x\\f$, \\f$f_y\\f$ when @ref fisheye::CALIB_USE_INTRINSIC_GUESS is set too.\n.       @param criteria Termination criteria for the iterative optimization algorithm."},
     {"distortPoints", CV_JS_FN_WITH_KW_(pyopencv_cv_fisheye_distortPoints, 0), "distortPoints(undistorted, K, D[, distorted[, alpha]]) -> distorted\n.   @brief Distorts 2D points using fisheye model.\n.   \n.       @param undistorted Array of object points, 1xN/Nx1 2-channel (or vector\\<Point2f\\> ), where N is\n.       the number of points in the view.\n.       @param K Camera intrinsic matrix \\f$cameramatrix{K}\\f$.\n.       @param D Input vector of distortion coefficients \\f$\\distcoeffsfisheye\\f$.\n.       @param alpha The skew coefficient.\n.       @param distorted Output array of image points, 1xN/Nx1 2-channel, or vector\\<Point2f\\> .\n.   \n.       Note that the function assumes the camera intrinsic matrix of the undistorted points to be identity.\n.       This means if you want to distort image points you have to multiply them with \\f$K^{-1}\\f$."},
     {"estimateNewCameraMatrixForUndistortRectify", CV_JS_FN_WITH_KW_(pyopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectify, 0), "estimateNewCameraMatrixForUndistortRectify(K, D, image_size, R[, P[, balance[, new_size[, fov_scale]]]]) -> P\n.   @brief Estimates new camera intrinsic matrix for undistortion or rectification.\n.   \n.       @param K Camera intrinsic matrix \\f$cameramatrix{K}\\f$.\n.       @param image_size Size of the image\n.       @param D Input vector of distortion coefficients \\f$\\distcoeffsfisheye\\f$.\n.       @param R Rectification transformation in the object space: 3x3 1-channel, or vector: 3x1/1x3\n.       1-channel or 1x1 3-channel\n.       @param P New camera intrinsic matrix (3x3) or new projection matrix (3x4)\n.       @param balance Sets the new focal length in range between the min focal length and the max focal\n.       length. Balance is in range of [0, 1].\n.       @param new_size the new size\n.       @param fov_scale Divisor for new focal length."},
@@ -2677,7 +2680,7 @@ static ConstDef consts_fisheye[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_flann[] = {
+static JsMethodDef methods_flann[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_FLANN
     PYOPENCV_EXTRA_METHODS_FLANN
 #endif
@@ -2702,7 +2705,7 @@ static ConstDef consts_flann[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi[] = {
+static JsMethodDef methods_gapi[] = {
     {"BGR2Gray", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_BGR2Gray, 0), "BGR2Gray(src) -> retval\n.   @brief Converts an image from BGR color space to gray-scaled.\n.   \n.   The conventional ranges for B, G, and R channel values are 0 to 255.\n.   Resulting gray color value computed as\n.   \\f[\\texttt{dst} (I)= \\texttt{0.114} * \\texttt{src}(I).B + \\texttt{0.587} * \\texttt{src}(I).G  + \\texttt{0.299} * \\texttt{src}(I).R \\f]\n.   \n.   @note Function textual ID is \"org.opencv.imgproc.colorconvert.bgr2gray\"\n.   \n.   @param src input image: 8-bit unsigned 3-channel image @ref CV_8UC1.\n.   @sa BGR2LUV"},
     {"BGR2I420", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_BGR2I420, 0), "BGR2I420(src) -> retval\n.   @brief Converts an image from BGR color space to I420 color space.\n.   \n.   The function converts an input image from BGR color space to I420.\n.   The conventional ranges for R, G, and B channel values are 0 to 255.\n.   \n.   Output image must be 8-bit unsigned 1-channel image. @ref CV_8UC1.\n.   Width of I420 output image must be the same as width of input image.\n.   Height of I420 output image must be equal 3/2 from height of input image.\n.   \n.   @note Function textual ID is \"org.opencv.imgproc.colorconvert.bgr2i420\"\n.   \n.   @param src input image: 8-bit unsigned 3-channel image @ref CV_8UC3.\n.   @sa I4202BGR"},
     {"BGR2LUV", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_BGR2LUV, 0), "BGR2LUV(src) -> retval\n.   @brief Converts an image from BGR color space to LUV color space.\n.   \n.   The function converts an input image from BGR color space to LUV.\n.   The conventional ranges for B, G, and R channel values are 0 to 255.\n.   \n.   Output image must be 8-bit unsigned 3-channel image @ref CV_8UC3.\n.   \n.   @note Function textual ID is \"org.opencv.imgproc.colorconvert.bgr2luv\"\n.   \n.   @param src input image: 8-bit unsigned 3-channel image @ref CV_8UC3.\n.   @sa RGB2Lab, RGB2LUV"},
@@ -2849,7 +2852,7 @@ static ConstDef consts_gapi[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_core_cpu[] = {
+static JsMethodDef methods_gapi_core_cpu[] = {
     {"kernels", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_core_cpu_kernels, 0), "kernels() -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_CORE_CPU
     PYOPENCV_EXTRA_METHODS_GAPI_CORE_CPU
@@ -2864,7 +2867,7 @@ static ConstDef consts_gapi_core_cpu[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_core_fluid[] = {
+static JsMethodDef methods_gapi_core_fluid[] = {
     {"kernels", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_core_fluid_kernels, 0), "kernels() -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_CORE_FLUID
     PYOPENCV_EXTRA_METHODS_GAPI_CORE_FLUID
@@ -2879,7 +2882,7 @@ static ConstDef consts_gapi_core_fluid[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_core_ocl[] = {
+static JsMethodDef methods_gapi_core_ocl[] = {
     {"kernels", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_core_ocl_kernels, 0), "kernels() -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_CORE_OCL
     PYOPENCV_EXTRA_METHODS_GAPI_CORE_OCL
@@ -2894,7 +2897,7 @@ static ConstDef consts_gapi_core_ocl[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_ie[] = {
+static JsMethodDef methods_gapi_ie[] = {
     {"params", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_ie_params, 0), "params(tag, model, weights, device) -> retval\n.   \n\n\n\nparams(tag, model, device) -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_IE
     PYOPENCV_EXTRA_METHODS_GAPI_IE
@@ -2917,7 +2920,7 @@ static ConstDef consts_gapi_ie[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_ie_detail[] = {
+static JsMethodDef methods_gapi_ie_detail[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_IE_DETAIL
     PYOPENCV_EXTRA_METHODS_GAPI_IE_DETAIL
 #endif
@@ -2935,7 +2938,7 @@ static ConstDef consts_gapi_ie_detail[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_oak[] = {
+static JsMethodDef methods_gapi_oak[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_OAK
     PYOPENCV_EXTRA_METHODS_GAPI_OAK
 #endif
@@ -2969,7 +2972,7 @@ static ConstDef consts_gapi_oak[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_onnx[] = {
+static JsMethodDef methods_gapi_onnx[] = {
     {"params", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_onnx_params, 0), "params(tag, model_path) -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_ONNX
     PYOPENCV_EXTRA_METHODS_GAPI_ONNX
@@ -2988,7 +2991,7 @@ static ConstDef consts_gapi_onnx[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_own_detail[] = {
+static JsMethodDef methods_gapi_own_detail[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_OWN_DETAIL
     PYOPENCV_EXTRA_METHODS_GAPI_OWN_DETAIL
 #endif
@@ -3006,7 +3009,7 @@ static ConstDef consts_gapi_own_detail[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_render_ocv[] = {
+static JsMethodDef methods_gapi_render_ocv[] = {
     {"kernels", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_render_ocv_kernels, 0), "kernels() -> retval\n.   * @brief This namespace contains G-API CPU rendering backend functions,\n.    * structures, and symbols. See @ref gapi_draw for details."},
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_RENDER_OCV
     PYOPENCV_EXTRA_METHODS_GAPI_RENDER_OCV
@@ -3021,7 +3024,7 @@ static ConstDef consts_gapi_render_ocv[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_streaming[] = {
+static JsMethodDef methods_gapi_streaming[] = {
     {"desync", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_streaming_desync, 0), "desync(g) -> retval\n."},
     {"seqNo", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_streaming_seqNo, 0), "seqNo(arg1) -> retval\n."},
     {"seq_id", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_streaming_seq_id, 0), "seq_id(arg1) -> retval\n."},
@@ -3044,7 +3047,7 @@ static ConstDef consts_gapi_streaming[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_video[] = {
+static JsMethodDef methods_gapi_video[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_VIDEO
     PYOPENCV_EXTRA_METHODS_GAPI_VIDEO
 #endif
@@ -3060,7 +3063,7 @@ static ConstDef consts_gapi_video[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_wip[] = {
+static JsMethodDef methods_gapi_wip[] = {
     {"get_streaming_source", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_get_streaming_source, 0), "get_streaming_source(pipeline, appsinkName[, outputType]) -> retval\n."},
     {"make_capture_src", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_make_capture_src, 0), "make_capture_src(path) -> retval\n.   * @brief OpenCV's VideoCapture-based streaming source.\n.    *\n.    * This class implements IStreamSource interface.\n.    * Its constructor takes the same parameters as cv::VideoCapture does.\n.    *\n.    * Please make sure that videoio OpenCV module is available before using\n.    * this in your application (G-API doesn't depend on it directly).\n.    *\n.    * @note stream sources are passed to G-API via shared pointers, so\n.    *  please gapi::make_src<> to create objects and ptr() to pass a\n.    *  GCaptureSource to cv::gin().\n\n\n\nmake_capture_src(id) -> retval\n."},
     {"make_gst_src", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_make_gst_src, 0), "make_gst_src(pipeline[, outputType]) -> retval\n."},
@@ -3077,7 +3080,7 @@ static ConstDef consts_gapi_wip[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_wip_draw[] = {
+static JsMethodDef methods_gapi_wip_draw[] = {
     {"render", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_draw_render, 0), "render(bgr, prims[, args]) -> None\n.   @brief The function renders on the input image passed drawing primitivies\n.   \n.   @param bgr input image: 8-bit unsigned 3-channel image @ref CV_8UC3.\n.   @param prims vector of drawing primitivies\n.   @param args graph compile time parameters\n\n\n\nrender(y_plane, uv_plane, prims[, args]) -> None\n.   @brief The function renders on two NV12 planes passed drawing primitivies\n.   \n.   @param y_plane input image: 8-bit unsigned 1-channel image @ref CV_8UC1.\n.   @param uv_plane input image: 8-bit unsigned 2-channel image @ref CV_8UC2.\n.   @param prims vector of drawing primitivies\n.   @param args graph compile time parameters"},
     {"render3ch", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_draw_render3ch, 0), "render3ch(src, prims) -> retval\n.   @brief Renders on 3 channels input\n.   \n.   Output image must be 8-bit unsigned planar 3-channel image\n.   \n.   @param src input image: 8-bit unsigned 3-channel image @ref CV_8UC3\n.   @param prims draw primitives"},
     {"renderNV12", CV_JS_FN_WITH_KW_(pyopencv_cv_gapi_wip_draw_renderNV12, 0), "renderNV12(y, uv, prims) -> retval\n.   @brief Renders on two planes\n.   \n.   Output y image must be 8-bit unsigned planar 1-channel image @ref CV_8UC1\n.   uv image must be 8-bit unsigned planar 2-channel image @ref CV_8UC2\n.   \n.   @param y  input image: 8-bit unsigned 1-channel image @ref CV_8UC1\n.   @param uv input image: 8-bit unsigned 2-channel image @ref CV_8UC2\n.   @param prims draw primitives"},
@@ -3094,7 +3097,7 @@ static ConstDef consts_gapi_wip_draw[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_wip_gst[] = {
+static JsMethodDef methods_gapi_wip_gst[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_WIP_GST
     PYOPENCV_EXTRA_METHODS_GAPI_WIP_GST
 #endif
@@ -3112,7 +3115,7 @@ static ConstDef consts_gapi_wip_gst[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_gapi_wip_onevpl[] = {
+static JsMethodDef methods_gapi_wip_onevpl[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_GAPI_WIP_ONEVPL
     PYOPENCV_EXTRA_METHODS_GAPI_WIP_ONEVPL
 #endif
@@ -3134,7 +3137,7 @@ static ConstDef consts_gapi_wip_onevpl[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_img_hash[] = {
+static JsMethodDef methods_img_hash[] = {
     {"AverageHash_create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_AverageHash_create, 0), "AverageHash_create() -> retval\n."},
     {"BlockMeanHash_create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_BlockMeanHash_create, 0), "BlockMeanHash_create([, mode]) -> retval\n."},
     {"ColorMomentHash_create", CV_JS_FN_WITH_KW_(pyopencv_cv_img_hash_ColorMomentHash_create, 0), "ColorMomentHash_create() -> retval\n."},
@@ -3162,7 +3165,7 @@ static ConstDef consts_img_hash[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_intensity_transform[] = {
+static JsMethodDef methods_intensity_transform[] = {
     {"BIMEF", CV_JS_FN_WITH_KW_(pyopencv_cv_intensity_transform_BIMEF, 0), "BIMEF(input[, output[, mu[, a[, b]]]]) -> output\n.   * @brief Given an input color image, enhance low-light images using the BIMEF method (@cite ying2017bio @cite ying2017new).\n.    *\n.    * @param input input color image.\n.    * @param output resulting image.\n.    * @param mu enhancement ratio.\n.    * @param a a-parameter in the Camera Response Function (CRF).\n.    * @param b b-parameter in the Camera Response Function (CRF).\n.    *\n.    * @warning This is a C++ implementation of the [original MATLAB algorithm](https://github.com/baidut/BIMEF).\n.    * Compared to the original code, this implementation is a little bit slower and does not provide the same results.\n.    * In particular, quality of the image enhancement is degraded for the bright areas in certain conditions."},
     {"BIMEF2", CV_JS_FN_WITH_KW_(pyopencv_cv_intensity_transform_BIMEF2, 0), "BIMEF2(input, k, mu, a, b[, output]) -> output\n.   * @brief Given an input color image, enhance low-light images using the BIMEF method (@cite ying2017bio @cite ying2017new).\n.    *\n.    * This is an overloaded function with the exposure ratio given as parameter.\n.    *\n.    * @param input input color image.\n.    * @param output resulting image.\n.    * @param k exposure ratio.\n.    * @param mu enhancement ratio.\n.    * @param a a-parameter in the Camera Response Function (CRF).\n.    * @param b b-parameter in the Camera Response Function (CRF).\n.    *\n.    * @warning This is a C++ implementation of the [original MATLAB algorithm](https://github.com/baidut/BIMEF).\n.    * Compared to the original code, this implementation is a little bit slower and does not provide the same results.\n.    * In particular, quality of the image enhancement is degraded for the bright areas in certain conditions."},
     {"autoscaling", CV_JS_FN_WITH_KW_(pyopencv_cv_intensity_transform_autoscaling, 0), "autoscaling(input, output) -> None\n.   * @brief Given an input bgr or grayscale image, apply autoscaling on domain [0, 255] to increase\n.    * the contrast of the input image and return the resulting image.\n.    *\n.    * @param input input bgr or grayscale image.\n.    * @param output resulting image of autoscaling."},
@@ -3182,7 +3185,7 @@ static ConstDef consts_intensity_transform[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ipp[] = {
+static JsMethodDef methods_ipp[] = {
     {"getIppVersion", CV_JS_FN_WITH_KW_(pyopencv_cv_ipp_getIppVersion, 0), "getIppVersion() -> retval\n."},
     {"setUseIPP", CV_JS_FN_WITH_KW_(pyopencv_cv_ipp_setUseIPP, 0), "setUseIPP(flag) -> None\n."},
     {"setUseIPP_NotExact", CV_JS_FN_WITH_KW_(pyopencv_cv_ipp_setUseIPP_NotExact, 0), "setUseIPP_NotExact(flag) -> None\n."},
@@ -3201,7 +3204,7 @@ static ConstDef consts_ipp[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_legacy[] = {
+static JsMethodDef methods_legacy[] = {
     {"MultiTracker_create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_MultiTracker_create, 0), "MultiTracker_create() -> retval\n.   * \\brief Returns a pointer to a new instance of MultiTracker"},
     {"TrackerBoosting_create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_TrackerBoosting_create, 0), "TrackerBoosting_create() -> retval\n.   @brief Constructor\n.       @param parameters BOOSTING parameters TrackerBoosting::Params"},
     {"TrackerCSRT_create", CV_JS_FN_WITH_KW_(pyopencv_cv_legacy_TrackerCSRT_create, 0), "TrackerCSRT_create() -> retval\n.   @brief Constructor\n.     @param parameters CSRT parameters TrackerCSRT::Params"},
@@ -3224,7 +3227,7 @@ static ConstDef consts_legacy[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_mcc[] = {
+static JsMethodDef methods_mcc[] = {
     {"CCheckerDetector_create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_CCheckerDetector_create, 0), "CCheckerDetector_create() -> retval\n.   \\brief Returns the implementation of the CCheckerDetector.\n.       *"},
     {"CCheckerDraw_create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_CCheckerDraw_create, 0), "CCheckerDraw_create(pChecker[, color[, thickness]]) -> retval\n.   \\brief Create a new CCheckerDraw object.\n.       * \\param pChecker The checker which will be drawn by this object.\n.       * \\param color The color by with which the squares of the checker\n.       *              will be drawn\n.       * \\param thickness The thickness with which the sqaures will be\n.       *                  drawn\n.       * \\return A pointer to the implementation of the CCheckerDraw"},
     {"CChecker_create", CV_JS_FN_WITH_KW_(pyopencv_cv_mcc_CChecker_create, 0), "CChecker_create() -> retval\n.   \\brief Create a new CChecker object.\n.       * \\return A pointer to the implementation of the CChecker"},
@@ -3245,7 +3248,7 @@ static ConstDef consts_mcc[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ml[] = {
+static JsMethodDef methods_ml[] = {
     {"ANN_MLP_create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ANN_MLP_create, 0), "ANN_MLP_create() -> retval\n.   @brief Creates empty model\n.   \n.       Use StatModel::train to train the model, Algorithm::load\\<ANN_MLP\\>(filename) to load the pre-trained model.\n.       Note that the train method has optional flags: ANN_MLP::TrainFlags."},
     {"ANN_MLP_load", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_ANN_MLP_load, 0), "ANN_MLP_load(filepath) -> retval\n.   @brief Loads and creates a serialized ANN from a file\n.        *\n.        * Use ANN::save to serialize and store an ANN to disk.\n.        * Load the ANN from this file again, by calling this function with the path to the file.\n.        *\n.        * @param filepath path to serialized ANN"},
     {"Boost_create", CV_JS_FN_WITH_KW_(pyopencv_cv_ml_Boost_create, 0), "Boost_create() -> retval\n.   Creates the empty model.\n.   Use StatModel::train to train the model, Algorithm::load\\<Boost\\>(filename) to load the pre-trained model."},
@@ -3371,7 +3374,7 @@ static ConstDef consts_ml[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ocl[] = {
+static JsMethodDef methods_ocl[] = {
     {"Device_getDefault", CV_JS_FN_WITH_KW_(pyopencv_cv_ocl_Device_getDefault, 0), "Device_getDefault() -> retval\n."},
     {"finish", CV_JS_FN_WITH_KW_(pyopencv_cv_ocl_finish, 0), "finish() -> None\n."},
     {"haveAmdBlas", CV_JS_FN_WITH_KW_(pyopencv_cv_ocl_haveAmdBlas, 0), "haveAmdBlas() -> retval\n."},
@@ -3463,7 +3466,7 @@ static ConstDef consts_ocl[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ogl[] = {
+static JsMethodDef methods_ogl[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_OGL
     PYOPENCV_EXTRA_METHODS_OGL
 #endif
@@ -3509,7 +3512,7 @@ static ConstDef consts_ogl[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_parallel[] = {
+static JsMethodDef methods_parallel[] = {
     {"setParallelForBackend", CV_JS_FN_WITH_KW_(pyopencv_cv_parallel_setParallelForBackend, 0), "setParallelForBackend(backendName[, propagateNumThreads]) -> retval\n.   @brief Change OpenCV parallel_for backend\n.    *\n.    * @note This call is not thread-safe. Consider calling this function from the `main()` before any other OpenCV processing functions (and without any other created threads)."},
 #ifdef PYOPENCV_EXTRA_METHODS_PARALLEL
     PYOPENCV_EXTRA_METHODS_PARALLEL
@@ -3524,7 +3527,7 @@ static ConstDef consts_parallel[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_plot[] = {
+static JsMethodDef methods_plot[] = {
     {"Plot2d_create", CV_JS_FN_WITH_KW_(pyopencv_cv_plot_Plot2d_create, 0), "Plot2d_create(data) -> retval\n.   * @brief Creates Plot2d object\n.                *\n.                * @param data \\f$1xN\\f$ or \\f$Nx1\\f$ matrix containing \\f$Y\\f$ values of points to plot. \\f$X\\f$ values\n.                * will be equal to indexes of correspondind elements in data matrix.\n\n\n\nPlot2d_create(dataX, dataY) -> retval\n.   * @brief Creates Plot2d object\n.                *\n.                * @param dataX \\f$1xN\\f$ or \\f$Nx1\\f$ matrix \\f$X\\f$ values of points to plot.\n.                * @param dataY \\f$1xN\\f$ or \\f$Nx1\\f$ matrix containing \\f$Y\\f$ values of points to plot."},
 #ifdef PYOPENCV_EXTRA_METHODS_PLOT
     PYOPENCV_EXTRA_METHODS_PLOT
@@ -3539,7 +3542,7 @@ static ConstDef consts_plot[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_quality[] = {
+static JsMethodDef methods_quality[] = {
     {"QualityBRISQUE_compute", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_QualityBRISQUE_compute, 0), "QualityBRISQUE_compute(img, model_file_path, range_file_path) -> retval\n.   @brief static method for computing quality\n.       @param img image for which to compute quality\n.       @param model_file_path cv::String which contains a path to the BRISQUE model data, eg. /path/to/brisque_model_live.yml\n.       @param range_file_path cv::String which contains a path to the BRISQUE range data, eg. /path/to/brisque_range_live.yml\n.       @returns cv::Scalar with the score in the first element.  The score ranges from 0 (best quality) to 100 (worst quality)"},
     {"QualityBRISQUE_computeFeatures", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_QualityBRISQUE_computeFeatures, 0), "QualityBRISQUE_computeFeatures(img[, features]) -> features\n.   @brief static method for computing image features used by the BRISQUE algorithm\n.       @param img image (BGR(A) or grayscale) for which to compute features\n.       @param features output row vector of features to cv::Mat or cv::UMat"},
     {"QualityBRISQUE_create", CV_JS_FN_WITH_KW_(pyopencv_cv_quality_QualityBRISQUE_create, 0), "QualityBRISQUE_create(model_file_path, range_file_path) -> retval\n.   @brief Create an object which calculates quality\n.       @param model_file_path cv::String which contains a path to the BRISQUE model data, eg. /path/to/brisque_model_live.yml\n.       @param range_file_path cv::String which contains a path to the BRISQUE range data, eg. /path/to/brisque_range_live.yml\n\n\n\nQualityBRISQUE_create(model, range) -> retval\n.   @brief Create an object which calculates quality\n.       @param model cv::Ptr<cv::ml::SVM> which contains a loaded BRISQUE model\n.       @param range cv::Mat which contains BRISQUE range data"},
@@ -3564,7 +3567,7 @@ static ConstDef consts_quality[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_rapid[] = {
+static JsMethodDef methods_rapid[] = {
     {"GOSTracker_create", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_GOSTracker_create, 0), "GOSTracker_create(pts3d, tris[, histBins[, sobelThesh]]) -> retval\n."},
     {"OLSTracker_create", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_OLSTracker_create, 0), "OLSTracker_create(pts3d, tris[, histBins[, sobelThesh]]) -> retval\n."},
     {"Rapid_create", CV_JS_FN_WITH_KW_(pyopencv_cv_rapid_Rapid_create, 0), "Rapid_create(pts3d, tris) -> retval\n."},
@@ -3589,7 +3592,7 @@ static ConstDef consts_rapid[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_samples[] = {
+static JsMethodDef methods_samples[] = {
     {"addSamplesDataSearchPath", CV_JS_FN_WITH_KW_(pyopencv_cv_samples_addSamplesDataSearchPath, 0), "addSamplesDataSearchPath(path) -> None\n.   @brief Override search data path by adding new search location\n.   \n.   Use this only to override default behavior\n.   Passed paths are used in LIFO order.\n.   \n.   @param path Path to used samples data"},
     {"addSamplesDataSearchSubDirectory", CV_JS_FN_WITH_KW_(pyopencv_cv_samples_addSamplesDataSearchSubDirectory, 0), "addSamplesDataSearchSubDirectory(subdir) -> None\n.   @brief Append samples search data sub directory\n.   \n.   General usage is to add OpenCV modules name (`<opencv_contrib>/modules/<name>/samples/data` -> `<name>/samples/data` + `modules/<name>/samples/data`).\n.   Passed subdirectories are used in LIFO order.\n.   \n.   @param subdir samples data sub directory"},
     {"findFile", CV_JS_FN_WITH_KW_(pyopencv_cv_samples_findFile, 0), "findFile(relative_path[, required[, silentMode]]) -> retval\n.   @brief Try to find requested data file\n.   \n.   Search directories:\n.   \n.   1. Directories passed via `addSamplesDataSearchPath()`\n.   2. OPENCV_SAMPLES_DATA_PATH_HINT environment variable\n.   3. OPENCV_SAMPLES_DATA_PATH environment variable\n.      If parameter value is not empty and nothing is found then stop searching.\n.   4. Detects build/install path based on:\n.      a. current working directory (CWD)\n.      b. and/or binary module location (opencv_core/opencv_world, doesn't work with static linkage)\n.   5. Scan `<source>/{,data,samples/data}` directories if build directory is detected or the current directory is in source tree.\n.   6. Scan `<install>/share/OpenCV` directory if install directory is detected.\n.   \n.   @see cv::utils::findDataFile\n.   \n.   @param relative_path Relative path to data file\n.   @param required Specify \"file not found\" handling.\n.          If true, function prints information message and raises cv::Exception.\n.          If false, function returns empty result\n.   @param silentMode Disables messages\n.   @return Returns path (absolute or relative to the current directory) or empty string if file is not found"},
@@ -3607,7 +3610,7 @@ static ConstDef consts_samples[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_segmentation[] = {
+static JsMethodDef methods_segmentation[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_SEGMENTATION
     PYOPENCV_EXTRA_METHODS_SEGMENTATION
 #endif
@@ -3621,7 +3624,7 @@ static ConstDef consts_segmentation[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_text[] = {
+static JsMethodDef methods_text[] = {
     {"OCRBeamSearchDecoder_create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_OCRBeamSearchDecoder_create, 0), "OCRBeamSearchDecoder_create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table[, mode[, beam_size]]) -> retval\n.   @brief Creates an instance of the OCRBeamSearchDecoder class. Initializes HMMDecoder.\n.   \n.       @param classifier The character classifier with built in feature extractor.\n.   \n.       @param vocabulary The language vocabulary (chars when ASCII English text). vocabulary.size()\n.       must be equal to the number of classes of the classifier.\n.   \n.       @param transition_probabilities_table Table with transition probabilities between character\n.       pairs. cols == rows == vocabulary.size().\n.   \n.       @param emission_probabilities_table Table with observation emission probabilities. cols ==\n.       rows == vocabulary.size().\n.   \n.       @param mode HMM Decoding algorithm. Only OCR_DECODER_VITERBI is available for the moment\n.       (<http://en.wikipedia.org/wiki/Viterbi_algorithm>).\n.   \n.       @param beam_size Size of the beam in Beam Search algorithm."},
     {"OCRHMMDecoder_create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_OCRHMMDecoder_create, 0), "OCRHMMDecoder_create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table[, mode]) -> retval\n.   @brief Creates an instance of the OCRHMMDecoder class. Initializes HMMDecoder.\n.   \n.       @param classifier The character classifier with built in feature extractor.\n.   \n.       @param vocabulary The language vocabulary (chars when ascii english text). vocabulary.size()\n.       must be equal to the number of classes of the classifier.\n.   \n.       @param transition_probabilities_table Table with transition probabilities between character\n.       pairs. cols == rows == vocabulary.size().\n.   \n.       @param emission_probabilities_table Table with observation emission probabilities. cols ==\n.       rows == vocabulary.size().\n.   \n.       @param mode HMM Decoding algorithm. Only OCR_DECODER_VITERBI is available for the moment\n.       (<http://en.wikipedia.org/wiki/Viterbi_algorithm>).\n\n\n\nOCRHMMDecoder_create(filename, vocabulary, transition_probabilities_table, emission_probabilities_table[, mode[, classifier]]) -> retval\n.   @brief Creates an instance of the OCRHMMDecoder class. Loads and initializes HMMDecoder from the specified path\n.   \n.        @overload"},
     {"OCRTesseract_create", CV_JS_FN_WITH_KW_(pyopencv_cv_text_OCRTesseract_create, 0), "OCRTesseract_create([, datapath[, language[, char_whitelist[, oem[, psmode]]]]]) -> retval\n.   @brief Creates an instance of the OCRTesseract class. Initializes Tesseract.\n.   \n.       @param datapath the name of the parent directory of tessdata ended with \"/\", or NULL to use the\n.       system's default directory.\n.       @param language an ISO 639-3 code or NULL will default to \"eng\".\n.       @param char_whitelist specifies the list of characters used for recognition. NULL defaults to\n.       \"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\".\n.       @param oem tesseract-ocr offers different OCR Engine Modes (OEM), by default\n.       tesseract::OEM_DEFAULT is used. See the tesseract-ocr API documentation for other possible\n.       values.\n.       @param psmode tesseract-ocr offers different Page Segmentation Modes (PSM) tesseract::PSM_AUTO\n.       (fully automatic layout analysis) is used. See the tesseract-ocr API documentation for other\n.       possible values."},
@@ -3678,7 +3681,7 @@ static ConstDef consts_text[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_utils[] = {
+static JsMethodDef methods_utils[] = {
     {"dumpBool", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_dumpBool, 0), "dumpBool(argument) -> retval\n."},
     {"dumpCString", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_dumpCString, 0), "dumpCString(argument) -> retval\n."},
     {"dumpDouble", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_dumpDouble, 0), "dumpDouble(argument) -> retval\n."},
@@ -3723,7 +3726,7 @@ static ConstDef consts_utils[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_utils_fs[] = {
+static JsMethodDef methods_utils_fs[] = {
     {"getCacheDirectoryForDownloads", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_fs_getCacheDirectoryForDownloads, 0), "getCacheDirectoryForDownloads() -> retval\n."},
 #ifdef PYOPENCV_EXTRA_METHODS_UTILS_FS
     PYOPENCV_EXTRA_METHODS_UTILS_FS
@@ -3738,7 +3741,7 @@ static ConstDef consts_utils_fs[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_utils_nested[] = {
+static JsMethodDef methods_utils_nested[] = {
     {"ExportClassName_create", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_nested_ExportClassName_create, 0), "ExportClassName_create([, params]) -> retval\n."},
     {"ExportClassName_originalName", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_nested_ExportClassName_originalName, 0), "ExportClassName_originalName() -> retval\n."},
     {"OriginalClassName_create", CV_JS_FN_WITH_KW_(pyopencv_cv_utils_nested_OriginalClassName_create, 0), "OriginalClassName_create([, params]) -> retval\n."},
@@ -3757,7 +3760,7 @@ static ConstDef consts_utils_nested[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_videoio_registry[] = {
+static JsMethodDef methods_videoio_registry[] = {
     {"getBackendName", CV_JS_FN_WITH_KW_(pyopencv_cv_videoio_registry_getBackendName, 0), "getBackendName(api) -> retval\n.   @brief Returns backend API name or \"UnknownVideoAPI(xxx)\"\n.   @param api backend ID (#VideoCaptureAPIs)"},
     {"getBackends", CV_JS_FN_WITH_KW_(pyopencv_cv_videoio_registry_getBackends, 0), "getBackends() -> retval\n.   @brief Returns list of all available backends"},
     {"getCameraBackendPluginVersion", CV_JS_FN_WITH_KW_(pyopencv_cv_videoio_registry_getCameraBackendPluginVersion, 0), "getCameraBackendPluginVersion(api) -> retval, version_ABI, version_API\n.   @brief Returns description and ABI/API version of videoio plugin's camera interface"},
@@ -3781,7 +3784,7 @@ static ConstDef consts_videoio_registry[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_videostab[] = {
+static JsMethodDef methods_videostab[] = {
 #ifdef PYOPENCV_EXTRA_METHODS_VIDEOSTAB
     PYOPENCV_EXTRA_METHODS_VIDEOSTAB
 #endif
@@ -3803,7 +3806,7 @@ static ConstDef consts_videostab[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_xfeatures2d[] = {
+static JsMethodDef methods_xfeatures2d[] = {
     {"BEBLID_create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_BEBLID_create, 0), "BEBLID_create(scale_factor[, n_bits]) -> retval\n.   @brief Creates the BEBLID descriptor.\n.       @param scale_factor Adjust the sampling window around detected keypoints:\n.       - <b> 1.00f </b> should be the scale for ORB keypoints\n.       - <b> 6.75f </b> should be the scale for SIFT detected keypoints\n.       - <b> 6.25f </b> is default and fits for KAZE, SURF detected keypoints\n.       - <b> 5.00f </b> should be the scale for AKAZE, MSD, AGAST, FAST, BRISK keypoints\n.       @param n_bits Determine the number of bits in the descriptor. Should be either\n.        BEBLID::SIZE_512_BITS or BEBLID::SIZE_256_BITS."},
     {"BoostDesc_create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_BoostDesc_create, 0), "BoostDesc_create([, desc[, use_scale_orientation[, scale_factor]]]) -> retval\n."},
     {"BriefDescriptorExtractor_create", CV_JS_FN_WITH_KW_(pyopencv_cv_xfeatures2d_BriefDescriptorExtractor_create, 0), "BriefDescriptorExtractor_create([, bytes[, use_orientation]]) -> retval\n."},
@@ -3872,7 +3875,7 @@ static ConstDef consts_xfeatures2d[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ximgproc[] = {
+static JsMethodDef methods_ximgproc[] = {
     {"AdaptiveManifoldFilter_create", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_AdaptiveManifoldFilter_create, 0), "AdaptiveManifoldFilter_create() -> retval\n."},
     {"FastHoughTransform", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_FastHoughTransform, 0), "FastHoughTransform(src, dstMatDepth[, dst[, angleRange[, op[, makeSkew]]]]) -> dst\n.   * @brief   Calculates 2D Fast Hough transform of an image.\n.   * @param   dst         The destination image, result of transformation.\n.   * @param   src         The source (input) image.\n.   * @param   dstMatDepth The depth of destination image\n.   * @param   op          The operation to be applied, see cv::HoughOp\n.   * @param   angleRange  The part of Hough space to calculate, see cv::AngleRangeOption\n.   * @param   makeSkew    Specifies to do or not to do image skewing, see cv::HoughDeskewOption\n.   *\n.   * The function calculates the fast Hough transform for full, half or quarter\n.   * range of angles."},
     {"GradientDericheX", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_GradientDericheX, 0), "GradientDericheX(op, alpha, omega[, dst]) -> dst\n.   * @brief   Applies X Deriche filter to an image.\n.   *\n.   * For more details about this implementation, please see http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.476.5736&rep=rep1&type=pdf\n.   *\n.   * @param   op         Source 8-bit or 16bit image, 1-channel or 3-channel image.\n.   * @param   dst        result CV_32FC image with same number of channel than _op.\n.   * @param   alpha double see paper\n.   * @param   omega   double see paper\n.   *"},
@@ -3986,7 +3989,7 @@ static ConstDef consts_ximgproc[] = {
     {NULL, 0}
 };
 
-static PyMethodDef methods_ximgproc_segmentation[] = {
+static JsMethodDef methods_ximgproc_segmentation[] = {
     {"createGraphSegmentation", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_createGraphSegmentation, 0), "createGraphSegmentation([, sigma[, k[, min_size]]]) -> retval\n.   @brief Creates a graph based segmentor\n.                           @param sigma The sigma parameter, used to smooth image\n.                           @param k The k parameter of the algorythm\n.                           @param min_size The minimum size of segments"},
     {"createSelectiveSearchSegmentation", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentation, 0), "createSelectiveSearchSegmentation() -> retval\n.   @brief Create a new SelectiveSearchSegmentation class."},
     {"createSelectiveSearchSegmentationStrategyColor", CV_JS_FN_WITH_KW_(pyopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentationStrategyColor, 0), "createSelectiveSearchSegmentationStrategyColor() -> retval\n.   @brief Create a new color-based strategy"},

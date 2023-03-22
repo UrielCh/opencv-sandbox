@@ -172,7 +172,7 @@ class ClassInfo(object):
         if self.constructor is not None:
             constructor_name = self.constructor.get_wrapper_name()
 
-        return 'CVPY_TYPE({}, {}, {}, {}, {}, {}, "{}");\n'.format(
+        return 'CVJS_TYPE({}, {}, {}, {}, {}, {}, "{}");\n'.format(
             self.export_name,
             self.class_id,
             self.cname if self.issimple else "Ptr<{}>".format(self.cname),

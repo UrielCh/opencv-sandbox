@@ -95,7 +95,7 @@ static PyGetSetDef jsopencv_${name}_getseters[] =
     {NULL}  /* Sentinel */
 };
 
-static PyMethodDef jsopencv_${name}_methods[] =
+static JsMethodDef jsopencv_${name}_methods[] =
 {
 ${methods_inits}
     {NULL,          NULL}

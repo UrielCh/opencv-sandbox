@@ -58,6 +58,14 @@ typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
 // #  pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 // #endif
 
+#include "./cv2_macro.hpp"
+// #include "pyopencv_generated_types.h"
+// #undef CVPY_TYPE
+// #include "pyopencv_custom_headers.h"
+// #include "pyopencv_generated_types_content.h"
+// #include "pyopencv_generated_funcs.h"
+
+
 
 // from cv2.cpp L:471
 #define CVJS_MODULE(NAMESTR, NAME) \
