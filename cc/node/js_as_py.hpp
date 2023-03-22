@@ -1,5 +1,5 @@
-#ifndef __JSASPY_HPP__
-#define __JSASPY_HPP__
+#ifndef __JS_AS_PY_HPP__
+#define __JS_AS_PY_HPP__
 
 #include <napi.h>
 
@@ -23,10 +23,16 @@ Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ..
 
 struct JsMethodDef {
     const char  *ml_name;   /* The name of the built-in function/method */
-    JsCFunction ml_meth;    /* The C function that implements it */
+    // JsCFunction ml_meth;    /* The C function that implements it */
+    using JsCFunction = Napi::Value (*)(const Napi::CallbackInfo &info);   /* The C function that implements it */
     int         ml_flags;   /* Combination of METH_xxx flags, which mostly
                                describe the args expected by the C func */
     const char  *ml_doc;    /* The __doc__ attribute, or NULL */
 };
+
+bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo &info, const char *format, char **keywords, ...);
+
+
+;
 
 #endif
