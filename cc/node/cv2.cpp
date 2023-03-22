@@ -1,7 +1,16 @@
 #include "cv2.hpp"
 
-#include "cv2_util.hpp"
-#include "cv2_convert.hpp"
+#include "opencv2/opencv_modules.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/core/utils/logger.hpp"
+
+#include "jsopencv_generated_include.h"
+#include "opencv2/core/types_c.h"
+
+#include "./cv2_util.hpp"
+// #include "cv2_numpy.hpp"
+#include "./cv2_convert.hpp"
+// #include "cv2_highgui.hpp"
 
 using namespace cv;
 
@@ -57,14 +66,13 @@ typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
 // #  pragma GCC diagnostic ignored "-Wunused-parameter"
 // #  pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 // #endif
-
+// ./cv2_macro.hpp define CVJS_TYPE
 #include "./cv2_macro.hpp"
 // #include "pyopencv_generated_types.h"
 // #undef CVPY_TYPE
 // #include "pyopencv_custom_headers.h"
-// #include "pyopencv_generated_types_content.h"
-// #include "pyopencv_generated_funcs.h"
-
+#include "jsopencv_generated_types_content.h"
+#include "jsopencv_generated_funcs.h"
 
 
 // from cv2.cpp L:471
@@ -73,5 +81,5 @@ typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
     { \
         return false; \
     }
-    #include "pyopencv_generated_modules.h"
+    #include "jsopencv_generated_modules.h"
 #undef CVPY_MODULE

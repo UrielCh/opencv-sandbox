@@ -221,7 +221,7 @@ class PythonWrapperGenerator(object):
             if func.isconstructor:
                 continue
             self.code_ns_reg.write(func.get_tab_entry())
-        custom_entries_macro = 'PYOPENCV_EXTRA_METHODS_{}'.format(wname.upper())
+        custom_entries_macro = 'JSOPENCV_EXTRA_METHODS_{}'.format(wname.upper())
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, NULL}\n};\n\n')
 
@@ -231,7 +231,7 @@ class PythonWrapperGenerator(object):
             compat_name = re.sub(r"([a-z])([A-Z])", r"\1_\2", name).upper()
             if name != compat_name:
                 self.code_ns_reg.write('    {"%s", static_cast<long>(%s)},\n'%(compat_name, cname))
-        custom_entries_macro = 'PYOPENCV_EXTRA_CONSTANTS_{}'.format(wname.upper())
+        custom_entries_macro = 'JSOPENCV_EXTRA_CONSTANTS_{}'.format(wname.upper())
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, 0}\n};\n\n')
 
@@ -401,11 +401,11 @@ class PythonWrapperGenerator(object):
             self.gen_const_reg(constinfo)
 
         # That's it. Now save all the files
-        self.save(output_path, "pyopencv_generated_include.h", self.code_include)
-        self.save(output_path, "pyopencv_generated_funcs.h", self.code_funcs)
-        self.save(output_path, "pyopencv_generated_enums.h", self.code_enums)
-        self.save(output_path, "pyopencv_generated_types.h", self.code_type_publish)
-        self.save(output_path, "pyopencv_generated_types_content.h", self.code_types)
-        self.save(output_path, "pyopencv_generated_modules.h", self.code_ns_init)
-        self.save(output_path, "pyopencv_generated_modules_content.h", self.code_ns_reg)
-        self.save_json(output_path, "pyopencv_signatures.json", self.py_signatures)
+        self.save(output_path, "jsopencv_generated_include.h", self.code_include)
+        self.save(output_path, "jsopencv_generated_funcs.h", self.code_funcs)
+        self.save(output_path, "jsopencv_generated_enums.h", self.code_enums)
+        self.save(output_path, "jsopencv_generated_types.h", self.code_type_publish)
+        self.save(output_path, "jsopencv_generated_types_content.h", self.code_types)
+        self.save(output_path, "jsopencv_generated_modules.h", self.code_ns_init)
+        self.save(output_path, "jsopencv_generated_modules_content.h", self.code_ns_reg)
+        self.save_json(output_path, "jsopencv_signatures.json", self.py_signatures)

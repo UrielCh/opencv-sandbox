@@ -41,7 +41,7 @@ gen_template_type_decl = Template("""
 // Converter (${name})
 
 template<>
-struct PyOpenCV_Converter< ${cname} >
+struct JsOpenCV_Converter< ${cname} >
 {
     static PyObject* from(const ${cname}& r)
     {

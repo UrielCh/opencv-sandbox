@@ -70,7 +70,7 @@ class FuncInfo(object):
         if self.is_static:
             name += "_static"
 
-        return "pyopencv_" + self.namespace.replace('.','_') + '_' + classname + name
+        return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
 
     def get_wrapper_prototype(self, codegen):
         full_fname = self.get_wrapper_name()

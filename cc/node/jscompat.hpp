@@ -7,6 +7,8 @@
 #include <string>
 #include <napi.h>
 
+#include "jsAsPy.hpp";
+
 static inline bool getUnicodeString(Napi::Value obj, std::string &str) {
     bool res = false;
     if (obj.IsString())
@@ -34,10 +36,6 @@ static inline std::string getJsObjectNameAttr(Napi::Value obj) {
     return obj_name;
 }
 
-// PyCFunction(PyObject *self, PyObject *args);
-Napi::Value JsCFunction(const Napi::CallbackInfo &info);
-// PyCFunctionWithKeywords(PyObject *self, PyObject *args, PyObject *kwargs);
-Napi::Value JsCFunctionWithKeywords(const Napi::CallbackInfo &info);
 // the colloing cod contains macro:
 // CV_JS_JS_WITH_KW_  CV_JS_FN_NOARGS_
 // CV_JS_JS_WITH_KW   CV_JS_FN_NOARGS
@@ -269,18 +267,5 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
             ERROR_HANDLER; \
         } \
     }
-
-
-// 
-// convert from PythonC code base
-//
-#define Js_RETURN_NONE return info.Env().Null()
-
-void JsErr_SetString(const Napi::Env &env, const std::string &message)
-{
-    Napi::Error::New(env, message).ThrowAsJavaScriptException();
-}
-
-Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
 
 #endif // END HEADER GUARD
