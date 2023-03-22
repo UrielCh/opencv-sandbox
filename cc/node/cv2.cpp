@@ -57,3 +57,13 @@ typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
 // #  pragma GCC diagnostic ignored "-Wunused-parameter"
 // #  pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 // #endif
+
+
+// from cv2.cpp L:471
+#define CVJS_MODULE(NAMESTR, NAME) \
+    if (!init_submodule(m, MODULESTR NAMESTR, methods_##NAME, consts_##NAME)) \
+    { \
+        return false; \
+    }
+    #include "pyopencv_generated_modules.h"
+#undef CVPY_MODULE

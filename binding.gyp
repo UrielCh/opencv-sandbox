@@ -3,6 +3,7 @@
         "target_name": "cv2",
         "sources": [
             "./cc/module.cc",
+            "./cc/parse.cc",
             "./cc/node/cv2_util.cpp",
             "./cc/node/cv2_convert.cpp",
         ],
