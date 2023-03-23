@@ -1,3 +1,5 @@
+#ifndef __JSOPENCV_GENERATED_FUNCS_H__
+#define __JSOPENCV_GENERATED_FUNCS_H__
 #include <napi.h>
 #include <../node/js_as_py.hpp>
 #include <../node/cv2_convert.hpp>
@@ -41266,3 +41268,4 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     return info.Env().Null();
 }
 
+#endif

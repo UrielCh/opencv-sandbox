@@ -25,33 +25,43 @@ class PythonWrapperGenerator(object):
         self.namespaces = {}
         self.consts = {}
         self.enums = {}
-        self.code_include = StringIO()
-        self.code_enums = StringIO()
-        self.code_types = StringIO()
-        self.code_funcs = StringIO()
-        self.code_ns_reg = StringIO()
-        self.code_ns_init = StringIO()
-        self.code_type_publish = StringIO()
-        self.py_signatures = dict()
+        self.code_include = StringIO()      # jsopencv_generated_include.h
+        self.code_enums = StringIO()        # jsopencv_generated_enums.h
+        self.code_types = StringIO()        # jsopencv_generated_types_content.h
+        self.code_funcs = StringIO()        # jsopencv_generated_funcs.h
+        self.code_ns_reg = StringIO()       # jsopencv_generated_modules_content.h
+        self.code_ns_init = StringIO()      # jsopencv_generated_modules.h
+        self.code_type_publish = StringIO() # jsopencv_generated_types.h
+        self.py_signatures = dict()         # jsopencv_signatures.json
         self.class_idx = 0
         
+        self.code_funcs.write("#ifndef __JSOPENCV_GENERATED_FUNCS_H__\n")
+        self.code_funcs.write("#define __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#include <napi.h>\n")
         self.code_funcs.write("#include <../node/js_as_py.hpp>\n")
         self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
         self.code_funcs.write("#include <opencv2/opencv.hpp>\n")
+        self.code_funcs.write("#include <jsopencv_generated_enums.h>\n")
+        self.code_funcs.write("#include <cv2_macro.hpp>\n")
         self.code_funcs.write("\n")
 
+        self.code_enums.write("#ifndef __JSOPENCV_GENERATED_ENUMS_H__\n")
+        self.code_enums.write("#define __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#include <napi.h>\n")
         self.code_enums.write("#include <../node/js_as_py.hpp>\n")
         self.code_enums.write("#include <../node/cv2_convert.hpp>\n")
         self.code_enums.write("#include <../node/jscompat.hpp>\n")
         self.code_enums.write("\n")
 
+        self.code_ns_init.write("#ifndef __JSOPENCV_GENERATED_MODULES_H__\n")
+        self.code_ns_init.write("#define __JSOPENCV_GENERATED_MODULES_H__\n")
         self.code_ns_init.write("#include <napi.h>\n")
         self.code_ns_init.write("#include <../node/js_as_py.hpp>\n")
         self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n")
         self.code_ns_init.write("\n")
 
+        self.code_types.write("#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
+        self.code_types.write("#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
         self.code_types.write("#include <napi.h>\n")
         self.code_types.write("#include <../node/js_as_py.hpp>\n")
         self.code_types.write("#include <../node/cv2_convert.hpp>\n")
@@ -59,10 +69,15 @@ class PythonWrapperGenerator(object):
         self.code_types.write("#include <node/cv2_util.hpp>\n")
         self.code_types.write("\n")
 
+        self.code_ns_reg.write("#ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
+        self.code_ns_reg.write("#define __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
         self.code_ns_reg.write("#include <napi.h>\n")
         self.code_ns_reg.write("#include <../node/jscompat.hpp>\n")
+        self.code_ns_reg.write("#include <jsopencv_generated_funcs.h>\n")
         self.code_ns_reg.write("\n")
 
+        self.code_type_publish.write("#ifndef __JSOPENCV_GENERATED_TYPES_H__\n")
+        self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#include \"../node/cv2_macro.hpp\"\n")
         self.code_type_publish.write("\n")
 
@@ -399,6 +414,13 @@ class PythonWrapperGenerator(object):
         constlist.sort()
         for name, constinfo in constlist:
             self.gen_const_reg(constinfo)
+
+        self.code_funcs.write("#endif\n")
+        self.code_enums.write("#endif\n")
+        self.code_ns_init.write("#endif\n")
+        self.code_types.write("#endif\n")
+        self.code_ns_reg.write("#endif\n")
+        self.code_type_publish.write("#endif\n")
 
         # That's it. Now save all the files
         self.save(output_path, "jsopencv_generated_include.h", self.code_include)

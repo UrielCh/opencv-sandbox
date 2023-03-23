@@ -1,3 +1,5 @@
+#ifndef __JSOPENCV_GENERATED_TYPES_H__
+#define __JSOPENCV_GENERATED_TYPES_H__
 #include "../node/cv2_macro.hpp"
 
 CVJS_TYPE(Algorithm, Algorithm, Ptr<cv::Algorithm>, Ptr, NoBase, 0, "");
@@ -273,3 +275,4 @@ CVJS_TYPE(TrackerKCF, legacy_TrackerKCF, Ptr<cv::legacy::TrackerKCF>, Ptr, legac
 CVJS_TYPE(TrackerMOSSE, legacy_TrackerMOSSE, Ptr<cv::legacy::TrackerMOSSE>, Ptr, legacy_Tracker, 0, ".legacy");
 CVJS_TYPE(MultiTracker, legacy_MultiTracker, Ptr<cv::legacy::MultiTracker>, Ptr, Algorithm, jsopencv_cv_legacy_legacy_MultiTracker_MultiTracker, ".legacy");
 CVJS_TYPE(TrackerCSRT, legacy_TrackerCSRT, Ptr<cv::legacy::TrackerCSRT>, Ptr, legacy_Tracker, 0, ".legacy");
+#endif

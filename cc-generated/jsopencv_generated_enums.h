@@ -1,3 +1,5 @@
+#ifndef __JSOPENCV_GENERATED_ENUMS_H__
+#define __JSOPENCV_GENERATED_ENUMS_H__
 #include <napi.h>
 #include <../node/js_as_py.hpp>
 #include <../node/cv2_convert.hpp>
@@ -681,3 +683,4 @@ typedef cv::ximgproc::WMFWeightType ximgproc_WMFWeightType;
 CV_JS_FROM_ENUM(ximgproc_WMFWeightType);
 CV_JS_TO_ENUM(ximgproc_WMFWeightType);
 
+#endif

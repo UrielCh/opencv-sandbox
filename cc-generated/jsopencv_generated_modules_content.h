@@ -1,3 +1,5 @@
+#ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__
+#define __JSOPENCV_GENERATED_MODULES_CONTENT_H__
 #include <napi.h>
 #include <../node/jscompat.hpp>
 #include <jsopencv_generated_funcs.h>
@@ -4011,3 +4013,4 @@ static ConstDef consts_ximgproc_segmentation[] = {
     {NULL, 0}
 };
 
+#endif

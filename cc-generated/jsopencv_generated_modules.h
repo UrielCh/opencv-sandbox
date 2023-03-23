@@ -1,3 +1,5 @@
+#ifndef __JSOPENCV_GENERATED_MODULES_H__
+#define __JSOPENCV_GENERATED_MODULES_H__
 #include <napi.h>
 #include <../node/js_as_py.hpp>
 #include <../node/cv2_convert.hpp>
@@ -53,3 +55,4 @@ CVJS_MODULE(".videostab", videostab);
 CVJS_MODULE(".xfeatures2d", xfeatures2d);
 CVJS_MODULE(".ximgproc", ximgproc);
 CVJS_MODULE(".ximgproc.segmentation", ximgproc_segmentation);
+#endif

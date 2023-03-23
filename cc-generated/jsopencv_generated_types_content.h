@@ -1,3 +1,5 @@
+#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__
+#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__
 #include <napi.h>
 #include <../node/js_as_py.hpp>
 #include <../node/cv2_convert.hpp>
@@ -70620,3 +70622,4 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
     }
 };
 
+#endif
