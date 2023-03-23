@@ -2,6 +2,8 @@
 #include <../node/js_as_py.hpp>
 #include <../node/cv2_convert.hpp>
 #include <opencv2/opencv.hpp>
+#include <jsopencv_generated_enums.h>
+#include <cv2_macro.hpp>
 
 static Napi::Value jsopencv_cv_AKAZE_create(const Napi::CallbackInfo &info)
 {

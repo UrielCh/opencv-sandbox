@@ -45,9 +45,14 @@ static inline std::string getJsObjectNameAttr(Napi::Value obj) {
 
 
 
+// #define CV_JS_FN_WITH_KW_(fn, flags) (JsCFunction)(void*)(JsCFunctionWithKeywords)(fn), (flags) | METH_VARARGS | METH_KEYWORDS
+
+
 // CV_PY_FN_WITH_KW_ and CV_PY_FN_NOARGS_
-#define CV_JS_FN_WITH_KW_(fn, flags) (JsCFunction)(void*)(JsCFunctionWithKeywords)(fn), (flags) | METH_VARARGS | METH_KEYWORDS
-#define CV_JS_FN_NOARGS_(fn, flags) (JsCFunction)(fn), (flags) | METH_NOARGS
+#define CV_JS_FN_WITH_KW_(fn, flags) (JsCFunction)(void*)(JsCFunctionWithKeywords)(fn), (flags)
+
+// #define CV_JS_FN_NOARGS_(fn, flags) (JsCFunction)(fn), (flags) | METH_NOARGS
+#define CV_JS_FN_NOARGS_(fn, flags) (JsCFunction)(fn), (flags)
 // CV_PY_FN_WITH_KW and CV_PY_FN_NOARGS
 #define CV_JS_FN_WITH_KW(fn) CV_JS_FN_WITH_KW_(fn, 0)
 #define CV_JS_FN_NOARGS(fn) CV_JS_FN_NOARGS_(fn, 0)

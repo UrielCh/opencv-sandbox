@@ -14,39 +14,7 @@
 
 using namespace cv;
 
-typedef std::vector<uchar> vector_uchar;
-typedef std::vector<char> vector_char;
-typedef std::vector<int> vector_int;
-typedef std::vector<float> vector_float;
-typedef std::vector<double> vector_double;
-typedef std::vector<size_t> vector_size_t;
-typedef std::vector<Point> vector_Point;
-typedef std::vector<Point2f> vector_Point2f;
-typedef std::vector<Point3f> vector_Point3f;
-typedef std::vector<Size> vector_Size;
-typedef std::vector<Vec2f> vector_Vec2f;
-typedef std::vector<Vec3f> vector_Vec3f;
-typedef std::vector<Vec4f> vector_Vec4f;
-typedef std::vector<Vec6f> vector_Vec6f;
-typedef std::vector<Vec4i> vector_Vec4i;
-typedef std::vector<Rect> vector_Rect;
-typedef std::vector<Rect2d> vector_Rect2d;
-typedef std::vector<RotatedRect> vector_RotatedRect;
-typedef std::vector<KeyPoint> vector_KeyPoint;
-typedef std::vector<Mat> vector_Mat;
-typedef std::vector<std::vector<Mat> > vector_vector_Mat;
-typedef std::vector<UMat> vector_UMat;
-typedef std::vector<DMatch> vector_DMatch;
-typedef std::vector<String> vector_String;
-typedef std::vector<std::string> vector_string;
-typedef std::vector<Scalar> vector_Scalar;
-
-typedef std::vector<std::vector<char> > vector_vector_char;
-typedef std::vector<std::vector<Point> > vector_vector_Point;
-typedef std::vector<std::vector<Point2f> > vector_vector_Point2f;
-typedef std::vector<std::vector<Point3f> > vector_vector_Point3f;
-typedef std::vector<std::vector<DMatch> > vector_vector_DMatch;
-typedef std::vector<std::vector<KeyPoint> > vector_vector_KeyPoint;
+// typedef moved to cv2_macro.hpp
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -115,6 +83,7 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
         return failmsgp(env, "Bindings generation error. Submodule can't end with a dot. Got: %s", name.c_str());
     }
 
+    // return __name__ 
     const std::string parent_name = PyModule_GetName(parent_module);
 
     /// Special case handling when caller tries to register a submodule of the parent module with
@@ -145,34 +114,27 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
     for (size_t submodule_name_start = parent_name.size() + 1;
          submodule_name_start < name.size(); )
     {
-        const std::string submodule_name = name.substr(submodule_name_start,
-                                                       submodule_name_end - submodule_name_start);
-
+        const std::string submodule_name = name.substr(submodule_name_start, submodule_name_end - submodule_name_start);
         const std::string full_submodule_name = name.substr(0, submodule_name_end);
-
 
         Napi::Object parent_module_dict = Napi::Object::New(env); // submodule
         /// If submodule already exists it can be found in the parent module dictionary,
         /// otherwise it should be added to it.
-        submodule = PyDict_GetItemString(parent_module_dict,
-                                         submodule_name.c_str());
-        if (!submodule)
-        {
+        submodule = parent_module_dict.Get(submodule_name.c_str()).ToObject();
+        if (!submodule) {
             /// Populates global modules dictionary and returns borrowed reference to it
-            submodule = PyImport_AddModule(full_submodule_name.c_str());
-            if (!submodule)
-            {
+            submodule = Napi::Object::New(env);
+            submodule.Set("name", full_submodule_name.c_str());
+            // PyImport_AddModule(full_submodule_name.c_str());
+            if (!submodule) {
                 /// Return `PyImport_AddModule` NULL with an exception set on failure.
-                return NULL;
+                return env.Null();
             }
             /// Populates parent module dictionary. Submodule lifetime should be managed
             /// by the global modules dictionary and parent module dictionary, so Py_DECREF after
             /// successfull call to the `PyDict_SetItemString` is redundant.
-            if (PyDict_SetItemString(parent_module_dict, submodule_name.c_str(), submodule) < 0) {
-                return PyErr_Format(PyExc_ImportError,
-                    "Can't register a submodule '%s' (full name: '%s')",
-                    submodule_name.c_str(), full_submodule_name.c_str()
-                );
+            if (!parent_module_dict.Set(submodule_name.c_str(), submodule)) {
+                return failmsgp(env, "Can't register a submodule '%s' (full name: '%s')", submodule_name.c_str(), full_submodule_name.c_str());
             }
         }
 
@@ -187,10 +149,10 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
 }
 
 // PyObject * root => Napi::Env env
-static bool init_submodule(Napi::Env env, const char * name, PyMethodDef * methods, ConstDef * consts)
+static bool init_submodule(Napi::Env env, Napi::Object current, const char * name, PyMethodDef * methods, ConstDef * consts)
 {
     // traverse and create nested submodules
-    Napi::Value submodule = createSubmodule(env, name);
+    Napi::Value submodule = createSubmodule(env, current, name);
     if (!submodule)
     {
         return false;
@@ -229,6 +191,7 @@ static bool init_submodule(Napi::Env env, const char * name, PyMethodDef * metho
 // PyObject * m
 static bool init_body(Napi::Env env, Napi::Object exports) {
 // from cv2.cpp L:471
+// check jsopencv_generated_modules_content.h content
 //#define CVJS_MODULE(NAMESTR, NAME) \
 //    if (!init_submodule(m, MODULESTR NAMESTR, methods_##NAME, consts_##NAME)) \
 //    { \

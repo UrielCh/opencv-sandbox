@@ -32,7 +32,4 @@ struct JsMethodDef {
 
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo &info, const char *format, char **keywords, ...);
 
-
-;
-
 #endif
