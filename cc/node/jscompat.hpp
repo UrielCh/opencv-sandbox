@@ -143,7 +143,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
     static JsTypeObject * jsopencv_##CLASS_ID##_TypePtr = &jsopencv_##CLASS_ID##_TypeXXX; \
     static bool jsopencv_##CLASS_ID##_getp(Napi::Value * self, STORAGE * & dst) \
     { \
-        if (PyObject_TypeCheck(self, jsopencv_##CLASS_ID##_TypePtr)) \
+        if (JsObject_TypeCheck(self, jsopencv_##CLASS_ID##_TypePtr)) \
         { \
             dst = &(((jsopencv_##CLASS_ID##_t*)self)->v); \
             return true; \
@@ -165,7 +165,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
     { \
         char str[1000]; \
         snprintf(str, sizeof(str), "< " MODULESTR SCOPE"."#EXPORT_NAME" %p>", self); \
-        return PyString_FromString(str); \
+        return JsString_FromString(self->Env(), str); \
     }
 
 
@@ -203,7 +203,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
     static PyObject * jsopencv_##CLASS_ID##_TypePtr = 0; \
     static bool jsopencv_##CLASS_ID##_getp(Napi::Value * self, STORAGE * & dst) \
     { \
-        if (PyObject_TypeCheck(self, (JsTypeObject*)jsopencv_##CLASS_ID##_TypePtr)) \
+        if (JsObject_TypeCheck(self, (JsTypeObject*)jsopencv_##CLASS_ID##_TypePtr)) \
         { \
             dst = &(((jsopencv_##CLASS_ID##_t*)self)->v); \
             return true; \
@@ -225,7 +225,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
     { \
         char str[1000]; \
         snprintf(str, sizeof(str), "< " MODULESTR SCOPE"."#EXPORT_NAME" %p>", self); \
-        return PyString_FromString(str); \
+        return JsString_FromString(self->Env(), str); \
     } \
     static PyType_Slot jsopencv_##CLASS_ID##_Slots[] =  \
     { \

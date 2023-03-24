@@ -79,6 +79,7 @@ class PythonWrapperGenerator(object):
         self.code_type_publish.write("#ifndef __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#include \"../node/cv2_macro.hpp\"\n")
+        self.code_type_publish.write("#include \"../node/js_as_py.hpp\"\n")
         self.code_type_publish.write("\n")
 
         self.py_signatures = dict()         # jsopencv_signatures.json

@@ -71,4 +71,30 @@ static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
     return Js_IS_TYPE(ob, type);//  || PyType_IsSubtype(Py_TYPE(ob), type);
 }
 
+// naive version:
+// static inline Napi::String JsString_FromString(const Napi::Env& env, const char* str) {
+//     return Napi::String::New(env, str);
+// }
+
+// use std::shared_ptr
+// static inline std::shared_ptr<Napi::String> JsString_FromString(const Napi::Env& env, const char* str) {
+//     if (str == nullptr) {
+//         throw std::invalid_argument("Input string is null");
+//     }
+// 
+//     // Create a new Napi::String and wrap it with a shared_ptr
+//     auto result = std::make_shared<Napi::String>(Napi::String::New(env, str));
+//     return result;
+// }
+
+static Napi::Value* JsString_FromString(const Napi::Env& env, const char* str) {
+    if (str == nullptr) {
+        throw std::invalid_argument("Input string is null");
+    }
+
+    // Create a new Napi::String and allocate it on the heap
+    Napi::Value* result = new Napi::String(Napi::String::New(env, str));
+    return result;
+}
+
 #endif
