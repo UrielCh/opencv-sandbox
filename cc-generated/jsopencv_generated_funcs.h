@@ -7,6 +7,8 @@
 #include <jsopencv_generated_enums.h>
 #include <cv2_macro.hpp>
 
+using namespace cv;
+
 static Napi::Value jsopencv_cv_AKAZE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
@@ -715,7 +717,7 @@ static Napi::Value jsopencv_cv_FlannBasedMatcher_create(const Napi::CallbackInfo
 
     Ptr<FlannBasedMatcher> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::FlannBasedMatcher::create());
         return jsopencv_from(info, retval);
@@ -881,7 +883,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_getDaimlerPeopleDetector(const Napi
 
     std::vector<float> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::HOGDescriptor::getDaimlerPeopleDetector());
         return jsopencv_from(info, retval);
@@ -896,7 +898,7 @@ static Napi::Value jsopencv_cv_HOGDescriptor_getDefaultPeopleDetector(const Napi
 
     std::vector<float> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::HOGDescriptor::getDefaultPeopleDetector());
         return jsopencv_from(info, retval);
@@ -2985,7 +2987,7 @@ static Napi::Value jsopencv_cv_UMat_context(const Napi::CallbackInfo &info)
 
     void* retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv_UMat_context());
         return jsopencv_from(info, retval);
@@ -3000,7 +3002,7 @@ static Napi::Value jsopencv_cv_UMat_queue(const Napi::CallbackInfo &info)
 
     void* retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv_UMat_queue());
         return jsopencv_from(info, retval);
@@ -3015,7 +3017,7 @@ static Napi::Value jsopencv_cv_VariationalRefinement_create(const Napi::Callback
 
     Ptr<VariationalRefinement> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::VariationalRefinement::create());
         return jsopencv_from(info, retval);
@@ -3544,7 +3546,7 @@ static Napi::Value jsopencv_cv_addText(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_spacing, spacing, ArgInfo("spacing", 0)))
     {
         ERRWRAP2_NAPI(info, cv::addText(img, text, org, nameFont, pointSize, color, weight, style, spacing));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -8049,7 +8051,7 @@ static Napi::Value jsopencv_cv_createGeneralizedHoughBallard(const Napi::Callbac
 
     Ptr<GeneralizedHoughBallard> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createGeneralizedHoughBallard());
         return jsopencv_from(info, retval);
@@ -8064,7 +8066,7 @@ static Napi::Value jsopencv_cv_createGeneralizedHoughGuil(const Napi::CallbackIn
 
     Ptr<GeneralizedHoughGuil> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createGeneralizedHoughGuil());
         return jsopencv_from(info, retval);
@@ -8174,7 +8176,7 @@ static Napi::Value jsopencv_cv_createMergeDebevec(const Napi::CallbackInfo &info
 
     Ptr<MergeDebevec> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createMergeDebevec());
         return jsopencv_from(info, retval);
@@ -8214,7 +8216,7 @@ static Napi::Value jsopencv_cv_createMergeRobertson(const Napi::CallbackInfo &in
 
     Ptr<MergeRobertson> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createMergeRobertson());
         return jsopencv_from(info, retval);
@@ -8868,7 +8870,7 @@ static Napi::Value jsopencv_cv_denoise_TVL1(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_niters, niters, ArgInfo("niters", 0)))
     {
         ERRWRAP2_NAPI(info, cv::denoise_TVL1(observations, result, lambda, niters));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -8879,10 +8881,10 @@ static Napi::Value jsopencv_cv_destroyAllWindows(const Napi::CallbackInfo &info)
     using namespace cv;
 
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::destroyAllWindows());
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -8900,7 +8902,7 @@ static Napi::Value jsopencv_cv_destroyWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_winname, winname, ArgInfo("winname", 0)))
     {
         ERRWRAP2_NAPI(info, cv::destroyWindow(winname));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -9170,7 +9172,7 @@ static Napi::Value jsopencv_cv_displayOverlay(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_delayms, delayms, ArgInfo("delayms", 0)))
     {
         ERRWRAP2_NAPI(info, cv::displayOverlay(winname, text, delayms));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -9194,7 +9196,7 @@ static Napi::Value jsopencv_cv_displayStatusBar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_delayms, delayms, ArgInfo("delayms", 0)))
     {
         ERRWRAP2_NAPI(info, cv::displayStatusBar(winname, text, delayms));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -10565,7 +10567,7 @@ static Napi::Value jsopencv_cv_empty_array_desc(const Napi::CallbackInfo &info)
 
     GArrayDesc retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::empty_array_desc());
         return jsopencv_from(info, retval);
@@ -10580,7 +10582,7 @@ static Napi::Value jsopencv_cv_empty_gopaque_desc(const Napi::CallbackInfo &info
 
     GOpaqueDesc retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::empty_gopaque_desc());
         return jsopencv_from(info, retval);
@@ -10595,7 +10597,7 @@ static Napi::Value jsopencv_cv_empty_scalar_desc(const Napi::CallbackInfo &info)
 
     GScalarDesc retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::empty_scalar_desc());
         return jsopencv_from(info, retval);
@@ -14032,7 +14034,7 @@ static Napi::Value jsopencv_cv_getBuildInformation(const Napi::CallbackInfo &inf
 
     String retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getBuildInformation());
         return jsopencv_from(info, retval);
@@ -14047,7 +14049,7 @@ static Napi::Value jsopencv_cv_getCPUFeaturesLine(const Napi::CallbackInfo &info
 
     std::string retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getCPUFeaturesLine());
         return jsopencv_from(info, retval);
@@ -14062,7 +14064,7 @@ static Napi::Value jsopencv_cv_getCPUTickCount(const Napi::CallbackInfo &info)
 
     int64 retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getCPUTickCount());
         return jsopencv_from(info, retval);
@@ -14319,7 +14321,7 @@ static Napi::Value jsopencv_cv_getLogLevel(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getLogLevel());
         return jsopencv_from(info, retval);
@@ -14334,7 +14336,7 @@ static Napi::Value jsopencv_cv_getNumThreads(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getNumThreads());
         return jsopencv_from(info, retval);
@@ -14349,7 +14351,7 @@ static Napi::Value jsopencv_cv_getNumberOfCPUs(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getNumberOfCPUs());
         return jsopencv_from(info, retval);
@@ -14663,7 +14665,7 @@ static Napi::Value jsopencv_cv_getThreadNum(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getThreadNum());
         return jsopencv_from(info, retval);
@@ -14678,7 +14680,7 @@ static Napi::Value jsopencv_cv_getTickCount(const Napi::CallbackInfo &info)
 
     int64 retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getTickCount());
         return jsopencv_from(info, retval);
@@ -14693,7 +14695,7 @@ static Napi::Value jsopencv_cv_getTickFrequency(const Napi::CallbackInfo &info)
 
     double retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getTickFrequency());
         return jsopencv_from(info, retval);
@@ -14761,7 +14763,7 @@ static Napi::Value jsopencv_cv_getVersionMajor(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionMajor());
         return jsopencv_from(info, retval);
@@ -14776,7 +14778,7 @@ static Napi::Value jsopencv_cv_getVersionMinor(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionMinor());
         return jsopencv_from(info, retval);
@@ -14791,7 +14793,7 @@ static Napi::Value jsopencv_cv_getVersionRevision(const Napi::CallbackInfo &info
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionRevision());
         return jsopencv_from(info, retval);
@@ -14806,7 +14808,7 @@ static Napi::Value jsopencv_cv_getVersionString(const Napi::CallbackInfo &info)
 
     String retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionString());
         return jsopencv_from(info, retval);
@@ -15286,7 +15288,7 @@ static Napi::Value jsopencv_cv_haveOpenVX(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::haveOpenVX());
         return jsopencv_from(info, retval);
@@ -15819,7 +15821,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -15839,7 +15841,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -15859,7 +15861,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -18190,7 +18192,7 @@ static Napi::Value jsopencv_cv_moveWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_y, y, ArgInfo("y", 0)))
     {
         ERRWRAP2_NAPI(info, cv::moveWindow(winname, x, y));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -18418,7 +18420,7 @@ static Napi::Value jsopencv_cv_namedWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::namedWindow(winname, flags));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -19041,7 +19043,7 @@ static Napi::Value jsopencv_cv_pollKey(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::pollKey());
         return jsopencv_from(info, retval);
@@ -20981,7 +20983,7 @@ static Napi::Value jsopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_height, height, ArgInfo("height", 0)))
     {
         ERRWRAP2_NAPI(info, cv::resizeWindow(winname, width, height));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -21001,7 +21003,7 @@ static Napi::Value jsopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_size, size, ArgInfo("size", 0)))
     {
         ERRWRAP2_NAPI(info, cv::resizeWindow(winname, size));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -21654,7 +21656,7 @@ static Napi::Value jsopencv_cv_setNumThreads(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_nthreads, nthreads, ArgInfo("nthreads", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setNumThreads(nthreads));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21672,7 +21674,7 @@ static Napi::Value jsopencv_cv_setRNGSeed(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_seed, seed, ArgInfo("seed", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setRNGSeed(seed));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21696,7 +21698,7 @@ static Napi::Value jsopencv_cv_setTrackbarMax(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_maxval, maxval, ArgInfo("maxval", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setTrackbarMax(trackbarname, winname, maxval));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21720,7 +21722,7 @@ static Napi::Value jsopencv_cv_setTrackbarMin(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_minval, minval, ArgInfo("minval", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setTrackbarMin(trackbarname, winname, minval));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21744,7 +21746,7 @@ static Napi::Value jsopencv_cv_setTrackbarPos(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_pos, pos, ArgInfo("pos", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setTrackbarPos(trackbarname, winname, pos));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21762,7 +21764,7 @@ static Napi::Value jsopencv_cv_setUseOpenVX(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setUseOpenVX(flag));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21780,7 +21782,7 @@ static Napi::Value jsopencv_cv_setUseOptimized(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_onoff, onoff, ArgInfo("onoff", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setUseOptimized(onoff));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21804,7 +21806,7 @@ static Napi::Value jsopencv_cv_setWindowProperty(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_prop_value, prop_value, ArgInfo("prop_value", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setWindowProperty(winname, prop_id, prop_value));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -21825,7 +21827,7 @@ static Napi::Value jsopencv_cv_setWindowTitle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_title, title, ArgInfo("title", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setWindowTitle(winname, title));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -23100,7 +23102,7 @@ static Napi::Value jsopencv_cv_startWindowThread(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::startWindowThread());
         return jsopencv_from(info, retval);
@@ -24583,7 +24585,7 @@ static Napi::Value jsopencv_cv_useOpenVX(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::useOpenVX());
         return jsopencv_from(info, retval);
@@ -24598,7 +24600,7 @@ static Napi::Value jsopencv_cv_useOptimized(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::useOptimized());
         return jsopencv_from(info, retval);
@@ -25458,7 +25460,7 @@ static Napi::Value jsopencv_cv_cuda_GpuMat_defaultAllocator(const Napi::Callback
 
     GpuMat::Allocator* retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::GpuMat::defaultAllocator());
         return jsopencv_from(info, retval);
@@ -25479,7 +25481,7 @@ static Napi::Value jsopencv_cv_cuda_GpuMat_setDefaultAllocator(const Napi::Callb
         jsopencv_to_safe(info, jsobj_allocator, allocator, ArgInfo("allocator", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::GpuMat::setDefaultAllocator(allocator));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -25525,7 +25527,7 @@ static Napi::Value jsopencv_cv_cuda_Stream_Null(const Napi::CallbackInfo &info)
 
     Stream retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::Stream::Null());
         return jsopencv_from(info, retval);
@@ -25937,7 +25939,7 @@ static Napi::Value jsopencv_cv_cuda_getCudaEnabledDeviceCount(const Napi::Callba
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::getCudaEnabledDeviceCount());
         return jsopencv_from(info, retval);
@@ -25952,7 +25954,7 @@ static Napi::Value jsopencv_cv_cuda_getDevice(const Napi::CallbackInfo &info)
 
     int retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::getDevice());
         return jsopencv_from(info, retval);
@@ -26009,7 +26011,7 @@ static Napi::Value jsopencv_cv_cuda_printCudaDeviceInfo(const Napi::CallbackInfo
         jsopencv_to_safe(info, jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::printCudaDeviceInfo(device));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26027,7 +26029,7 @@ static Napi::Value jsopencv_cv_cuda_printShortCudaDeviceInfo(const Napi::Callbac
         jsopencv_to_safe(info, jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::printShortCudaDeviceInfo(device));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26045,7 +26047,7 @@ static Napi::Value jsopencv_cv_cuda_registerPageLocked(const Napi::CallbackInfo 
         jsopencv_to_safe(info, jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::registerPageLocked(m));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26056,10 +26058,10 @@ static Napi::Value jsopencv_cv_cuda_resetDevice(const Napi::CallbackInfo &info)
     using namespace cv::cuda;
 
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::cuda::resetDevice());
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26083,7 +26085,7 @@ static Napi::Value jsopencv_cv_cuda_setBufferPoolConfig(const Napi::CallbackInfo
         jsopencv_to_safe(info, jsobj_stackCount, stackCount, ArgInfo("stackCount", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::setBufferPoolConfig(deviceId, stackSize, stackCount));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26101,7 +26103,7 @@ static Napi::Value jsopencv_cv_cuda_setBufferPoolUsage(const Napi::CallbackInfo 
         jsopencv_to_safe(info, jsobj_on, on, ArgInfo("on", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::setBufferPoolUsage(on));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26119,7 +26121,7 @@ static Napi::Value jsopencv_cv_cuda_setDevice(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::setDevice(device));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26137,7 +26139,7 @@ static Napi::Value jsopencv_cv_cuda_unregisterPageLocked(const Napi::CallbackInf
         jsopencv_to_safe(info, jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::unregisterPageLocked(m));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -26964,7 +26966,7 @@ static Napi::Value jsopencv_cv_dnn_shrinkCaffeModel(const Napi::CallbackInfo &in
         jsopencv_to_safe(info, jsobj_layersTypes, layersTypes, ArgInfo("layersTypes", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::shrinkCaffeModel(src, dst, layersTypes));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -27023,7 +27025,7 @@ static Napi::Value jsopencv_cv_dnn_writeTextGraph(const Napi::CallbackInfo &info
         jsopencv_to_safe(info, jsobj_output, output, ArgInfo("output", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::writeTextGraph(model, output));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -27035,7 +27037,7 @@ static Napi::Value jsopencv_cv_dnn_superres_DnnSuperResImpl_create(const Napi::C
 
     Ptr<DnnSuperResImpl> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn_superres::DnnSuperResImpl::create());
         return jsopencv_from(info, retval);
@@ -27207,7 +27209,7 @@ static Napi::Value jsopencv_cv_face_createFacemarkAAM(const Napi::CallbackInfo &
 
     Ptr<Facemark> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::createFacemarkAAM());
         return jsopencv_from(info, retval);
@@ -27222,7 +27224,7 @@ static Napi::Value jsopencv_cv_face_createFacemarkKazemi(const Napi::CallbackInf
 
     Ptr<Facemark> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::createFacemarkKazemi());
         return jsopencv_from(info, retval);
@@ -27237,7 +27239,7 @@ static Napi::Value jsopencv_cv_face_createFacemarkLBF(const Napi::CallbackInfo &
 
     Ptr<Facemark> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::createFacemarkLBF());
         return jsopencv_from(info, retval);
@@ -31750,7 +31752,7 @@ static Napi::Value jsopencv_cv_gapi_core_cpu_kernels(const Napi::CallbackInfo &i
 
     cv::GKernelPackage retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::core::cpu::kernels());
         return jsopencv_from(info, retval);
@@ -31765,7 +31767,7 @@ static Napi::Value jsopencv_cv_gapi_core_fluid_kernels(const Napi::CallbackInfo 
 
     cv::GKernelPackage retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::core::fluid::kernels());
         return jsopencv_from(info, retval);
@@ -31780,7 +31782,7 @@ static Napi::Value jsopencv_cv_gapi_core_ocl_kernels(const Napi::CallbackInfo &i
 
     cv::GKernelPackage retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::core::ocl::kernels());
         return jsopencv_from(info, retval);
@@ -31877,7 +31879,7 @@ static Napi::Value jsopencv_cv_gapi_render_ocv_kernels(const Napi::CallbackInfo 
 
     cv::GKernelPackage retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::render::ocv::kernels());
         return jsopencv_from(info, retval);
@@ -32138,7 +32140,7 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
         jsopencv_to_safe(info, jsobj_args, args, ArgInfo("args", 0)))
     {
         ERRWRAP2_NAPI(info, cv::gapi::wip::draw::render(bgr, prims, std::move(args)));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -32164,7 +32166,7 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
         jsopencv_to_safe(info, jsobj_args, args, ArgInfo("args", 0)))
     {
         ERRWRAP2_NAPI(info, cv::gapi::wip::draw::render(y_plane, uv_plane, prims, std::move(args)));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
 
@@ -32228,7 +32230,7 @@ static Napi::Value jsopencv_cv_img_hash_AverageHash_create(const Napi::CallbackI
 
     Ptr<AverageHash> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::AverageHash::create());
         return jsopencv_from(info, retval);
@@ -32262,7 +32264,7 @@ static Napi::Value jsopencv_cv_img_hash_ColorMomentHash_create(const Napi::Callb
 
     Ptr<ColorMomentHash> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::ColorMomentHash::create());
         return jsopencv_from(info, retval);
@@ -32299,7 +32301,7 @@ static Napi::Value jsopencv_cv_img_hash_PHash_create(const Napi::CallbackInfo &i
 
     Ptr<PHash> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::PHash::create());
         return jsopencv_from(info, retval);
@@ -32809,7 +32811,7 @@ static Napi::Value jsopencv_cv_intensity_transform_autoscaling(const Napi::Callb
         jsopencv_to_safe(info, jsobj_output, output, ArgInfo("output", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::autoscaling(input, output));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -32842,7 +32844,7 @@ static Napi::Value jsopencv_cv_intensity_transform_contrastStretching(const Napi
         jsopencv_to_safe(info, jsobj_s2, s2, ArgInfo("s2", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::contrastStretching(input, output, r1, s1, r2, s2));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -32866,7 +32868,7 @@ static Napi::Value jsopencv_cv_intensity_transform_gammaCorrection(const Napi::C
         jsopencv_to_safe(info, jsobj_gamma, gamma, ArgInfo("gamma", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::gammaCorrection(input, output, gamma));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -32887,7 +32889,7 @@ static Napi::Value jsopencv_cv_intensity_transform_logTransform(const Napi::Call
         jsopencv_to_safe(info, jsobj_output, output, ArgInfo("output", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::logTransform(input, output));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -32899,7 +32901,7 @@ static Napi::Value jsopencv_cv_ipp_getIppVersion(const Napi::CallbackInfo &info)
 
     String retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ipp::getIppVersion());
         return jsopencv_from(info, retval);
@@ -32920,7 +32922,7 @@ static Napi::Value jsopencv_cv_ipp_setUseIPP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ipp::setUseIPP(flag));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -32938,7 +32940,7 @@ static Napi::Value jsopencv_cv_ipp_setUseIPP_NotExact(const Napi::CallbackInfo &
         jsopencv_to_safe(info, jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ipp::setUseIPP_NotExact(flag));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -32950,7 +32952,7 @@ static Napi::Value jsopencv_cv_ipp_useIPP(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ipp::useIPP());
         return jsopencv_from(info, retval);
@@ -32965,7 +32967,7 @@ static Napi::Value jsopencv_cv_ipp_useIPP_NotExact(const Napi::CallbackInfo &inf
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ipp::useIPP_NotExact());
         return jsopencv_from(info, retval);
@@ -32980,7 +32982,7 @@ static Napi::Value jsopencv_cv_legacy_MultiTracker_create(const Napi::CallbackIn
 
     Ptr<MultiTracker> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::MultiTracker::create());
         return jsopencv_from(info, retval);
@@ -32995,7 +32997,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerBoosting_create(const Napi::Callbac
 
     Ptr<legacy::TrackerBoosting> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerBoosting::create());
         return jsopencv_from(info, retval);
@@ -33010,7 +33012,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerCSRT_create(const Napi::CallbackInf
 
     Ptr<legacy::TrackerCSRT> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerCSRT::create());
         return jsopencv_from(info, retval);
@@ -33025,7 +33027,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerKCF_create(const Napi::CallbackInfo
 
     Ptr<legacy::TrackerKCF> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerKCF::create());
         return jsopencv_from(info, retval);
@@ -33040,7 +33042,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerMIL_create(const Napi::CallbackInfo
 
     Ptr<legacy::TrackerMIL> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerMIL::create());
         return jsopencv_from(info, retval);
@@ -33055,7 +33057,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerMOSSE_create(const Napi::CallbackIn
 
     Ptr<legacy::TrackerMOSSE> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerMOSSE::create());
         return jsopencv_from(info, retval);
@@ -33070,7 +33072,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerMedianFlow_create(const Napi::Callb
 
     Ptr<legacy::TrackerMedianFlow> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerMedianFlow::create());
         return jsopencv_from(info, retval);
@@ -33085,7 +33087,7 @@ static Napi::Value jsopencv_cv_legacy_TrackerTLD_create(const Napi::CallbackInfo
 
     Ptr<legacy::TrackerTLD> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerTLD::create());
         return jsopencv_from(info, retval);
@@ -33119,7 +33121,7 @@ static Napi::Value jsopencv_cv_mcc_CCheckerDetector_create(const Napi::CallbackI
 
     Ptr<CCheckerDetector> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::CCheckerDetector::create());
         return jsopencv_from(info, retval);
@@ -33159,7 +33161,7 @@ static Napi::Value jsopencv_cv_mcc_CChecker_create(const Napi::CallbackInfo &inf
 
     Ptr<CChecker> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::CChecker::create());
         return jsopencv_from(info, retval);
@@ -33174,7 +33176,7 @@ static Napi::Value jsopencv_cv_mcc_DetectorParameters_create(const Napi::Callbac
 
     Ptr<DetectorParameters> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::DetectorParameters::create());
         return jsopencv_from(info, retval);
@@ -33189,7 +33191,7 @@ static Napi::Value jsopencv_cv_ml_ANN_MLP_create(const Napi::CallbackInfo &info)
 
     Ptr<ANN_MLP> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::ANN_MLP::create());
         return jsopencv_from(info, retval);
@@ -33223,7 +33225,7 @@ static Napi::Value jsopencv_cv_ml_Boost_create(const Napi::CallbackInfo &info)
 
     Ptr<Boost> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::Boost::create());
         return jsopencv_from(info, retval);
@@ -33260,7 +33262,7 @@ static Napi::Value jsopencv_cv_ml_DTrees_create(const Napi::CallbackInfo &info)
 
     Ptr<DTrees> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::DTrees::create());
         return jsopencv_from(info, retval);
@@ -33297,7 +33299,7 @@ static Napi::Value jsopencv_cv_ml_EM_create(const Napi::CallbackInfo &info)
 
     Ptr<EM> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::EM::create());
         return jsopencv_from(info, retval);
@@ -33334,7 +33336,7 @@ static Napi::Value jsopencv_cv_ml_KNearest_create(const Napi::CallbackInfo &info
 
     Ptr<KNearest> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::KNearest::create());
         return jsopencv_from(info, retval);
@@ -33368,7 +33370,7 @@ static Napi::Value jsopencv_cv_ml_LogisticRegression_create(const Napi::Callback
 
     Ptr<LogisticRegression> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::LogisticRegression::create());
         return jsopencv_from(info, retval);
@@ -33405,7 +33407,7 @@ static Napi::Value jsopencv_cv_ml_NormalBayesClassifier_create(const Napi::Callb
 
     Ptr<NormalBayesClassifier> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::NormalBayesClassifier::create());
         return jsopencv_from(info, retval);
@@ -33467,7 +33469,7 @@ static Napi::Value jsopencv_cv_ml_RTrees_create(const Napi::CallbackInfo &info)
 
     Ptr<RTrees> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::RTrees::create());
         return jsopencv_from(info, retval);
@@ -33504,7 +33506,7 @@ static Napi::Value jsopencv_cv_ml_SVMSGD_create(const Napi::CallbackInfo &info)
 
     Ptr<SVMSGD> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVMSGD::create());
         return jsopencv_from(info, retval);
@@ -33541,7 +33543,7 @@ static Napi::Value jsopencv_cv_ml_SVM_create(const Napi::CallbackInfo &info)
 
     Ptr<SVM> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVM::create());
         return jsopencv_from(info, retval);
@@ -33722,7 +33724,7 @@ static Napi::Value jsopencv_cv_ocl_Device_getDefault(const Napi::CallbackInfo &i
 
     Device retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::Device::getDefault());
         return jsopencv_from(info, retval);
@@ -33736,10 +33738,10 @@ static Napi::Value jsopencv_cv_ocl_finish(const Napi::CallbackInfo &info)
     using namespace cv::ocl;
 
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::ocl::finish());
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -33751,7 +33753,7 @@ static Napi::Value jsopencv_cv_ocl_haveAmdBlas(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::haveAmdBlas());
         return jsopencv_from(info, retval);
@@ -33766,7 +33768,7 @@ static Napi::Value jsopencv_cv_ocl_haveAmdFft(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::haveAmdFft());
         return jsopencv_from(info, retval);
@@ -33781,7 +33783,7 @@ static Napi::Value jsopencv_cv_ocl_haveOpenCL(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::haveOpenCL());
         return jsopencv_from(info, retval);
@@ -33802,7 +33804,7 @@ static Napi::Value jsopencv_cv_ocl_setUseOpenCL(const Napi::CallbackInfo &info)
         jsopencv_to_safe(info, jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ocl::setUseOpenCL(flag));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -33814,7 +33816,7 @@ static Napi::Value jsopencv_cv_ocl_useOpenCL(const Napi::CallbackInfo &info)
 
     bool retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::useOpenCL());
         return jsopencv_from(info, retval);
@@ -35256,7 +35258,7 @@ static Napi::Value jsopencv_cv_samples_addSamplesDataSearchPath(const Napi::Call
         jsopencv_to_safe(info, jsobj_path, path, ArgInfo("path", 0)))
     {
         ERRWRAP2_NAPI(info, cv::samples::addSamplesDataSearchPath(path));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -35274,7 +35276,7 @@ static Napi::Value jsopencv_cv_samples_addSamplesDataSearchSubDirectory(const Na
         jsopencv_to_safe(info, jsobj_subdir, subdir, ArgInfo("subdir", 0)))
     {
         ERRWRAP2_NAPI(info, cv::samples::addSamplesDataSearchSubDirectory(subdir));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -36772,7 +36774,7 @@ static Napi::Value jsopencv_cv_utils_testAsyncException(const Napi::CallbackInfo
 
     AsyncArray retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testAsyncException());
         return jsopencv_from(info, retval);
@@ -36853,10 +36855,10 @@ static Napi::Value jsopencv_cv_utils_testRaiseGeneralException(const Napi::Callb
     using namespace cv::utils;
 
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::utils::testRaiseGeneralException());
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -36955,7 +36957,7 @@ static Napi::Value jsopencv_cv_utils_fs_getCacheDirectoryForDownloads(const Napi
 
     cv::String retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::fs::getCacheDirectoryForDownloads());
         return jsopencv_from(info, retval);
@@ -36989,7 +36991,7 @@ static Napi::Value jsopencv_cv_utils_nested_ExportClassName_originalName(const N
 
     std::string retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::OriginalClassName::originalName());
         return jsopencv_from(info, retval);
@@ -37023,7 +37025,7 @@ static Napi::Value jsopencv_cv_utils_nested_OriginalClassName_originalName(const
 
     std::string retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::OriginalClassName::originalName());
         return jsopencv_from(info, retval);
@@ -37076,7 +37078,7 @@ static Napi::Value jsopencv_cv_videoio_registry_getBackends(const Napi::Callback
 
     std::vector<VideoCaptureAPIs> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getBackends());
         return jsopencv_from(info, retval);
@@ -37112,7 +37114,7 @@ static Napi::Value jsopencv_cv_videoio_registry_getCameraBackends(const Napi::Ca
 
     std::vector<VideoCaptureAPIs> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getCameraBackends());
         return jsopencv_from(info, retval);
@@ -37148,7 +37150,7 @@ static Napi::Value jsopencv_cv_videoio_registry_getStreamBackends(const Napi::Ca
 
     std::vector<VideoCaptureAPIs> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getStreamBackends());
         return jsopencv_from(info, retval);
@@ -37184,7 +37186,7 @@ static Napi::Value jsopencv_cv_videoio_registry_getWriterBackends(const Napi::Ca
 
     std::vector<VideoCaptureAPIs> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getWriterBackends());
         return jsopencv_from(info, retval);
@@ -37727,7 +37729,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_generateInitPoints(cons
         jsopencv_to_safe(info, jsobj_pointDistribution, pointDistribution, ArgInfo("pointDistribution", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::PCTSignatures::generateInitPoints(initPoints, count, pointDistribution));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -37974,7 +37976,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_matchLOGOS(const Napi::CallbackInfo &
         jsopencv_to_safe(info, jsobj_matches1to2, matches1to2, ArgInfo("matches1to2", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::matchLOGOS(keypoints1, keypoints2, nn1, nn2, matches1to2));
-        Py_RETURN_NONE;
+        return info.Env().Null();;
     }
 
     return info.Env().Null();
@@ -37986,7 +37988,7 @@ static Napi::Value jsopencv_cv_ximgproc_AdaptiveManifoldFilter_create(const Napi
 
     Ptr<AdaptiveManifoldFilter> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::AdaptiveManifoldFilter::create());
         return jsopencv_from(info, retval);
@@ -39091,7 +39093,7 @@ static Napi::Value jsopencv_cv_ximgproc_createEdgeAwareInterpolator(const Napi::
 
     Ptr<EdgeAwareInterpolator> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createEdgeAwareInterpolator());
         return jsopencv_from(info, retval);
@@ -39158,7 +39160,7 @@ static Napi::Value jsopencv_cv_ximgproc_createEdgeDrawing(const Napi::CallbackIn
 
     Ptr<EdgeDrawing> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createEdgeDrawing());
         return jsopencv_from(info, retval);
@@ -39463,7 +39465,7 @@ static Napi::Value jsopencv_cv_ximgproc_createRFFeatureGetter(const Napi::Callba
 
     Ptr<RFFeatureGetter> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createRFFeatureGetter());
         return jsopencv_from(info, retval);
@@ -39478,7 +39480,7 @@ static Napi::Value jsopencv_cv_ximgproc_createRICInterpolator(const Napi::Callba
 
     Ptr<RICInterpolator> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createRICInterpolator());
         return jsopencv_from(info, retval);
@@ -41086,7 +41088,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
 
     Ptr<SelectiveSearchSegmentation> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentation());
         return jsopencv_from(info, retval);
@@ -41101,7 +41103,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
 
     Ptr<SelectiveSearchSegmentationStrategyColor> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyColor());
         return jsopencv_from(info, retval);
@@ -41116,7 +41118,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
 
     Ptr<SelectiveSearchSegmentationStrategyFill> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyFill());
         return jsopencv_from(info, retval);
@@ -41134,7 +41136,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     {
     Ptr<SelectiveSearchSegmentationStrategyMultiple> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyMultiple());
         return jsopencv_from(info, retval);
@@ -41244,7 +41246,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
 
     Ptr<SelectiveSearchSegmentationStrategySize> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategySize());
         return jsopencv_from(info, retval);
@@ -41259,7 +41261,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
 
     Ptr<SelectiveSearchSegmentationStrategyTexture> retval;
 
-    if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyTexture());
         return jsopencv_from(info, retval);

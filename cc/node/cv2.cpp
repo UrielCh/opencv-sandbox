@@ -12,8 +12,6 @@
 #include "./cv2_convert.hpp"
 // #include "cv2_highgui.hpp"
 
-using namespace cv;
-
 // typedef moved to cv2_macro.hpp
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +34,8 @@ using namespace cv;
 // #endif
 // ./cv2_macro.hpp define CVJS_TYPE
 #include "./cv2_macro.hpp"
+// cv2_macro.hpp also define struct ConstDef
+
 // #include "pyopencv_generated_types.h"
 // #undef CVPY_TYPE
 // #include "pyopencv_custom_headers.h"

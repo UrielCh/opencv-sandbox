@@ -322,10 +322,12 @@ class FuncInfo(object):
                     parse_arglist=", ".join(["&" + all_cargs[argno][1] for _, argno in v.py_arglist]),
                     code_cvt=" &&\n        ".join(code_cvt_list))
             else:
-                code_parse = "if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
+                # code_parse = "if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
+                code_parse = "if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))"
 
             if len(v.py_outlist) == 0:
-                code_ret = "Py_RETURN_NONE"
+                code_ret = "return info.Env().Null();"
+                # "Py_RETURN_NONE"
             elif len(v.py_outlist) == 1:
                 if self.isconstructor:
                     code_ret = "return 0"
