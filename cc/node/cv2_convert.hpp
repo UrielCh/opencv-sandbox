@@ -12,7 +12,9 @@
 // --- Generic
 
 template <typename T>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, T& value, const ArgInfo& argInfo) { return false; } //  return JsOpenCV_Converter<T>::to(obj, p, info);
+bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, T& value, const ArgInfo& argInfo) {
+    return JsOpenCV_Converter<T>::to(info, obj, value, argInfo);
+} 
 
 template<typename T>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const T& src) { 

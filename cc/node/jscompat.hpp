@@ -129,39 +129,39 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
 #define CVJS_TYPE_INCREF(T) Py_INCREF(T)
 
 #define CVJS_TYPE_DECLARE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, SCOPE) \
-    struct pyopencv_##CLASS_ID##_t \
+    struct jsopencv_##CLASS_ID##_t \
     { \
-        PyObject_HEAD \
+        JsObject_HEAD \
         STORAGE v; \
     }; \
-    static PyTypeObject pyopencv_##CLASS_ID##_TypeXXX = \
+    static JsTypeObject jsopencv_##CLASS_ID##_TypeXXX = \
     { \
         CVJS_TYPE_HEAD \
         MODULESTR SCOPE"."#EXPORT_NAME, \
-        sizeof(pyopencv_##CLASS_ID##_t), \
+        sizeof(jsopencv_##CLASS_ID##_t), \
     }; \
-    static PyTypeObject * pyopencv_##CLASS_ID##_TypePtr = &pyopencv_##CLASS_ID##_TypeXXX; \
-    static bool pyopencv_##CLASS_ID##_getp(PyObject * self, STORAGE * & dst) \
+    static JsTypeObject * jsopencv_##CLASS_ID##_TypePtr = &jsopencv_##CLASS_ID##_TypeXXX; \
+    static bool jsopencv_##CLASS_ID##_getp(Napi::Value * self, STORAGE * & dst) \
     { \
-        if (PyObject_TypeCheck(self, pyopencv_##CLASS_ID##_TypePtr)) \
+        if (PyObject_TypeCheck(self, jsopencv_##CLASS_ID##_TypePtr)) \
         { \
-            dst = &(((pyopencv_##CLASS_ID##_t*)self)->v); \
+            dst = &(((jsopencv_##CLASS_ID##_t*)self)->v); \
             return true; \
         } \
         return false; \
     } \
-    static PyObject * pyopencv_##CLASS_ID##_Instance(const STORAGE &r) \
+    static Napi::Value * jsopencv_##CLASS_ID##_Instance(const STORAGE &r) \
     { \
-        pyopencv_##CLASS_ID##_t *m = PyObject_NEW(pyopencv_##CLASS_ID##_t, pyopencv_##CLASS_ID##_TypePtr); \
+        jsopencv_##CLASS_ID##_t *m = PyObject_NEW(jsopencv_##CLASS_ID##_t, jsopencv_##CLASS_ID##_TypePtr); \
         new (&(m->v)) STORAGE(r); \
-        return (PyObject*)m; \
+        return (Napi::Value*)m; \
     } \
-    static void pyopencv_##CLASS_ID##_dealloc(PyObject* self) \
+    static void jsopencv_##CLASS_ID##_dealloc(Napi::Value* self) \
     { \
-        ((pyopencv_##CLASS_ID##_t*)self)->v.STORAGE::~SNAME(); \
+        ((jsopencv_##CLASS_ID##_t*)self)->v.STORAGE::~SNAME(); \
         PyObject_Del(self); \
     } \
-    static PyObject* pyopencv_##CLASS_ID##_repr(PyObject* self) \
+    static Napi::Value* jsopencv_##CLASS_ID##_repr(Napi::Value* self) \
     { \
         char str[1000]; \
         snprintf(str, sizeof(str), "< " MODULESTR SCOPE"."#EXPORT_NAME" %p>", self); \
@@ -171,21 +171,21 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
 
 #define CVJS_TYPE_INIT_STATIC(EXPORT_NAME, CLASS_ID, ERROR_HANDLER, BASE, CONSTRUCTOR, SCOPE) \
     { \
-        pyopencv_##CLASS_ID##_TypePtr->tp_base = pyopencv_##BASE##_TypePtr; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_dealloc = pyopencv_##CLASS_ID##_dealloc; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_repr = pyopencv_##CLASS_ID##_repr; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_getset = pyopencv_##CLASS_ID##_getseters; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_init = (initproc) CONSTRUCTOR; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_methods = pyopencv_##CLASS_ID##_methods; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_alloc = PyType_GenericAlloc; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_new = PyType_GenericNew; \
-        pyopencv_##CLASS_ID##_TypePtr->tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE; \
-        if (PyType_Ready(pyopencv_##CLASS_ID##_TypePtr) != 0) \
+        jsopencv_##CLASS_ID##_TypePtr->tp_base = jsopencv_##BASE##_TypePtr; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_dealloc = jsopencv_##CLASS_ID##_dealloc; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_repr = jsopencv_##CLASS_ID##_repr; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_getset = jsopencv_##CLASS_ID##_getseters; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_init = (initproc) CONSTRUCTOR; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_methods = jsopencv_##CLASS_ID##_methods; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_alloc = PyType_GenericAlloc; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_new = PyType_GenericNew; \
+        jsopencv_##CLASS_ID##_TypePtr->tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE; \
+        if (PyType_Ready(jsopencv_##CLASS_ID##_TypePtr) != 0) \
         { \
             ERROR_HANDLER; \
         } \
-        CVJS_TYPE_INCREF(pyopencv_##CLASS_ID##_TypePtr); \
-        if (!registerNewType(m, #EXPORT_NAME, (PyObject*)pyopencv_##CLASS_ID##_TypePtr, SCOPE)) \
+        CVJS_TYPE_INCREF(jsopencv_##CLASS_ID##_TypePtr); \
+        if (!registerNewType(m, #EXPORT_NAME, (Napi::Value*)jsopencv_##CLASS_ID##_TypePtr, SCOPE)) \
         { \
             printf("Failed to register a new type: " #EXPORT_NAME  ", base (" #BASE ") in " SCOPE " \n"); \
             ERROR_HANDLER; \
@@ -195,39 +195,39 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
 //==================================================================================================
 
 #define CVJS_TYPE_DECLARE_DYNAMIC(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, SCOPE) \
-    struct pyopencv_##CLASS_ID##_t \
+    struct jsopencv_##CLASS_ID##_t \
     { \
-        PyObject_HEAD \
+        JsObject_HEAD \
         STORAGE v; \
     }; \
-    static PyObject * pyopencv_##CLASS_ID##_TypePtr = 0; \
-    static bool pyopencv_##CLASS_ID##_getp(PyObject * self, STORAGE * & dst) \
+    static PyObject * jsopencv_##CLASS_ID##_TypePtr = 0; \
+    static bool jsopencv_##CLASS_ID##_getp(Napi::Value * self, STORAGE * & dst) \
     { \
-        if (PyObject_TypeCheck(self, (PyTypeObject*)pyopencv_##CLASS_ID##_TypePtr)) \
+        if (PyObject_TypeCheck(self, (JsTypeObject*)jsopencv_##CLASS_ID##_TypePtr)) \
         { \
-            dst = &(((pyopencv_##CLASS_ID##_t*)self)->v); \
+            dst = &(((jsopencv_##CLASS_ID##_t*)self)->v); \
             return true; \
         } \
         return false; \
     } \
-    static PyObject * pyopencv_##CLASS_ID##_Instance(const STORAGE &r) \
+    static Napi::Value * jsopencv_##CLASS_ID##_Instance(const STORAGE &r) \
     { \
-        pyopencv_##CLASS_ID##_t *m = PyObject_New(pyopencv_##CLASS_ID##_t, (PyTypeObject*)pyopencv_##CLASS_ID##_TypePtr); \
+        jsopencv_##CLASS_ID##_t *m = PyObject_New(jsopencv_##CLASS_ID##_t, (JsTypeObject*)jsopencv_##CLASS_ID##_TypePtr); \
         new (&(m->v)) STORAGE(r); \
-        return (PyObject*)m; \
+        return (Napi::Value*)m; \
     } \
-    static void pyopencv_##CLASS_ID##_dealloc(PyObject* self) \
+    static void jsopencv_##CLASS_ID##_dealloc(Napi::Value* self) \
     { \
-        ((pyopencv_##CLASS_ID##_t*)self)->v.STORAGE::~SNAME(); \
+        ((jsopencv_##CLASS_ID##_t*)self)->v.STORAGE::~SNAME(); \
         PyObject_Del(self); \
     } \
-    static PyObject* pyopencv_##CLASS_ID##_repr(PyObject* self) \
+    static Napi::Value* jsopencv_##CLASS_ID##_repr(Napi::Value* self) \
     { \
         char str[1000]; \
         snprintf(str, sizeof(str), "< " MODULESTR SCOPE"."#EXPORT_NAME" %p>", self); \
         return PyString_FromString(str); \
     } \
-    static PyType_Slot pyopencv_##CLASS_ID##_Slots[] =  \
+    static PyType_Slot jsopencv_##CLASS_ID##_Slots[] =  \
     { \
         {Py_tp_dealloc, 0}, \
         {Py_tp_repr, 0}, \
@@ -238,34 +238,34 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
         {Py_tp_new, 0}, \
         {0, 0} \
     }; \
-    static PyType_Spec pyopencv_##CLASS_ID##_Spec = \
+    static PyType_Spec jsopencv_##CLASS_ID##_Spec = \
     { \
         MODULESTR SCOPE"."#EXPORT_NAME, \
-        sizeof(pyopencv_##CLASS_ID##_t), \
+        sizeof(jsopencv_##CLASS_ID##_t), \
         0, \
         Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE, \
-        pyopencv_##CLASS_ID##_Slots  \
+        jsopencv_##CLASS_ID##_Slots  \
     };
 
 #define CVJS_TYPE_INIT_DYNAMIC(EXPORT_NAME, CLASS_ID, ERROR_HANDLER, BASE, CONSTRUCTOR, SCOPE) \
     { \
-        pyopencv_##CLASS_ID##_Slots[0].pfunc /*tp_dealloc*/ = (void*)pyopencv_##CLASS_ID##_dealloc; \
-        pyopencv_##CLASS_ID##_Slots[1].pfunc /*tp_repr*/ = (void*)pyopencv_##CLASS_ID##_repr; \
-        pyopencv_##CLASS_ID##_Slots[2].pfunc /*tp_getset*/ = (void*)pyopencv_##CLASS_ID##_getseters; \
-        pyopencv_##CLASS_ID##_Slots[3].pfunc /*tp_init*/ = (void*) CONSTRUCTOR; \
-        pyopencv_##CLASS_ID##_Slots[4].pfunc /*tp_methods*/ = pyopencv_##CLASS_ID##_methods; \
-        pyopencv_##CLASS_ID##_Slots[5].pfunc /*tp_alloc*/ = (void*)PyType_GenericAlloc; \
-        pyopencv_##CLASS_ID##_Slots[6].pfunc /*tp_new*/ = (void*)PyType_GenericNew; \
-        PyObject * bases = 0; \
-        if (pyopencv_##BASE##_TypePtr) \
-            bases = PyTuple_Pack(1, pyopencv_##BASE##_TypePtr); \
-        pyopencv_##CLASS_ID##_TypePtr = PyType_FromSpecWithBases(&pyopencv_##CLASS_ID##_Spec, bases); \
-        if (!pyopencv_##CLASS_ID##_TypePtr) \
+        jsopencv_##CLASS_ID##_Slots[0].pfunc /*tp_dealloc*/ = (void*)jsopencv_##CLASS_ID##_dealloc; \
+        jsopencv_##CLASS_ID##_Slots[1].pfunc /*tp_repr*/    = (void*)jsopencv_##CLASS_ID##_repr; \
+        jsopencv_##CLASS_ID##_Slots[2].pfunc /*tp_getset*/  = (void*)jsopencv_##CLASS_ID##_getseters; \
+        jsopencv_##CLASS_ID##_Slots[3].pfunc /*tp_init*/    = (void*) CONSTRUCTOR; \
+        jsopencv_##CLASS_ID##_Slots[4].pfunc /*tp_methods*/ = jsopencv_##CLASS_ID##_methods; \
+        jsopencv_##CLASS_ID##_Slots[5].pfunc /*tp_alloc*/   = (void*)PyType_GenericAlloc; \
+        jsopencv_##CLASS_ID##_Slots[6].pfunc /*tp_new*/     = (void*)PyType_GenericNew; \
+        Napi::Value * bases = 0; \
+        if (jsopencv_##BASE##_TypePtr) \
+            bases = PyTuple_Pack(1, jsopencv_##BASE##_TypePtr); \
+        jsopencv_##CLASS_ID##_TypePtr = PyType_FromSpecWithBases(&jsopencv_##CLASS_ID##_Spec, bases); \
+        if (!jsopencv_##CLASS_ID##_TypePtr) \
         { \
             printf("Failed to create type from spec: " #CLASS_ID ", base (" #BASE ")\n"); \
             ERROR_HANDLER; \
         } \
-        if (!registerNewType(m, #EXPORT_NAME, (PyObject*)pyopencv_##CLASS_ID##_TypePtr, SCOPE)) \
+        if (!registerNewType(m, #EXPORT_NAME, (Napi::Value*)jsopencv_##CLASS_ID##_TypePtr, SCOPE)) \
         { \
             printf("Failed to register a new type: " #EXPORT_NAME  ", base (" #BASE ") in " SCOPE " \n"); \
             ERROR_HANDLER; \

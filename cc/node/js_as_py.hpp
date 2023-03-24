@@ -32,4 +32,43 @@ struct JsMethodDef {
 
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo &info, const char *format, char **keywords, ...);
 
+// typedef struct _object PyObject;
+
+#define JsObject                        Napi::Value
+// #define PyObject_HEAD                PyObject ob_base;
+#define JsObject_HEAD                   JsObject ob_base;
+// 
+// If this structure is modified, Doc/includes/typestruct.h should be updated
+// as well.
+// struct _typeobject {
+#define JsTypeObject                    Napi::Value
+
+#define JsObject     Napi::Value
+
+static inline JsTypeObject* Js_TYPE(Napi::Value *value) {
+  if (!value->IsObject()) {
+    return nullptr;
+  }
+
+  Napi::Object object = value->As<Napi::Object>();
+  Napi::Value prototype_val = object.Get(Napi::String::New(object.Env(), "__proto__"));
+
+  if (!prototype_val.IsObject()) {
+    return nullptr;
+  }
+
+  Napi::Object prototype = prototype_val.As<Napi::Object>();
+  return &prototype;
+}
+
+static inline int Js_IS_TYPE(Napi::Value *ob, JsTypeObject *type) {
+    return Js_TYPE(ob) == type;
+}
+// static inline int PyObject_TypeCheck(PyObject *ob, PyTypeObject *type) {
+//     return Py_IS_TYPE(ob, type) || PyType_IsSubtype(Py_TYPE(ob), type);
+// }
+static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
+    return Js_IS_TYPE(ob, type);//  || PyType_IsSubtype(Py_TYPE(ob), type);
+}
+
 #endif
