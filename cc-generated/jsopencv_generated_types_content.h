@@ -16736,9 +16736,9 @@ struct JsOpenCV_Converter< Ptr<cv::MergeRobertson> >
 //================================================================================
 // Moments (Map)
 //================================================================================
-static bool jsopencv_to(PyObject* src, cv::Moments& dst, const ArgInfo& info)
+static bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* src, cv::Moments& dst, const ArgInfo& info)
 {
-    PyObject* tmp;
+    Napi::Value* tmp;
     bool ok;
 
     if( PyMapping_HasKeyString(src, (char*)"m00") )
@@ -16912,7 +16912,7 @@ static bool jsopencv_to(PyObject* src, cv::Moments& dst, const ArgInfo& info)
     return true;
 }
 
-template<> bool jsopencv_to(PyObject* src, cv::Moments& dst, const ArgInfo& info);
+template<> bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* src, cv::Moments& dst, const ArgInfo& argInfo);
 
 //================================================================================
 // ORB (Generic)

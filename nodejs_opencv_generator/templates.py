@@ -66,7 +66,7 @@ struct JsOpenCV_Converter< ${cname} >
 """)
 
 gen_template_map_type_cvt = Template("""
-template<> bool jsopencv_to(PyObject* src, ${cname}& dst, const ArgInfo& info);
+template<> bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* src, ${cname}& dst, const ArgInfo& argInfo);
 
 """)
 
