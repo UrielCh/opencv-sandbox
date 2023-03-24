@@ -1,6 +1,7 @@
 #ifndef __JSOPENCV_GENERATED_TYPES_H__
 #define __JSOPENCV_GENERATED_TYPES_H__
 #include "../node/cv2_macro.hpp"
+#include "../node/js_as_py.hpp"
 
 CVJS_TYPE(Algorithm, Algorithm, Ptr<cv::Algorithm>, Ptr, NoBase, 0, "");
 CVJS_TYPE(AsyncArray, AsyncArray, Ptr<cv::AsyncArray>, Ptr, NoBase, jsopencv_cv_AsyncArray_AsyncArray, "");
