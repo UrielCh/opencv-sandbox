@@ -68,11 +68,10 @@ class PythonWrapperGenerator(object):
         self.code_ns_reg.write("\n")
 
         self.code_ns_init = StringIO()      # jsopencv_generated_modules.h
-        self.code_ns_init.write("#ifndef __JSOPENCV_GENERATED_MODULES_H__\n")
-        self.code_ns_init.write("#define __JSOPENCV_GENERATED_MODULES_H__\n")
-        self.code_ns_init.write("#include <napi.h>\n")
-        self.code_ns_init.write("#include <../node/js_as_py.hpp>\n")
-        self.code_ns_init.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_ns_init.write("// This code will be import within the function:\n")
+        self.code_ns_init.write("// init_body(Napi::Env env, Napi::Object exports) function in cv2.cpp\n")
+        self.code_ns_init.write("// an Napi::Env env, and a Napi::Object exports will be provided\n")
+        self.code_ns_init.write("// CVJS_MODULE macro will invoque init_submodule\n")
         self.code_ns_init.write("\n")
 
         self.code_type_publish = StringIO() # jsopencv_generated_types.h
@@ -421,7 +420,7 @@ class PythonWrapperGenerator(object):
 
         self.code_funcs.write("#endif\n")
         self.code_enums.write("#endif\n")
-        self.code_ns_init.write("#endif\n")
+        # self.code_ns_init.write("#endif\n")
         self.code_types.write("#endif\n")
         self.code_ns_reg.write("#endif\n")
         self.code_type_publish.write("#endif\n")

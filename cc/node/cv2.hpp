@@ -3,6 +3,8 @@
 
 #include <napi.h>
 
+#define MODULESTR "cv2"
+
 class ArgInfo
 {
 public:

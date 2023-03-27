@@ -80,3 +80,10 @@ python nodejs_opencv_generator/gen2.py cc-generated data/headers.txt
 ```
 
 The code whould be visible in `cc-generated`
+
+
+### References
+
+- [cpython](https://github.com/python/cpython) fo check the unbderlying implementation of python functions.
+- [opencv](https://github.com/opencv/opencv) opencv source code
+- [opencv build helper](https://github.com/UrielCh/npm-opencv-build)

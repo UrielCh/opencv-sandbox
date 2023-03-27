@@ -43,13 +43,14 @@
 #include "jsopencv_generated_funcs.h"
 
 
-
-static inline bool strStartsWith(const std::string& str, const std::string& prefix) {
-    return prefix.empty() || \
-        (str.size() >= prefix.size() && std::memcmp(str.data(), prefix.data(), prefix.size()) == 0);
+static inline bool strStartsWith(const std::string &str, const std::string &prefix)
+{
+    return prefix.empty() ||
+           (str.size() >= prefix.size() && std::memcmp(str.data(), prefix.data(), prefix.size()) == 0);
 }
 
-static inline bool strEndsWith(const std::string& str, char symbol) {
+static inline bool strEndsWith(const std::string &str, char symbol)
+{
     return !str.empty() && str[str.size() - 1] == symbol;
 }
 /**
@@ -67,9 +68,10 @@ static inline bool strEndsWith(const std::string& str, char symbol) {
  *         If any of submodules can't be created than NULL is returned.
  */
 // PyObject * parent_module => Napi::Env env
-static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, const std::string& name)
+static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, const std::string name)
 {
-    if (!parent_module) {
+    if (!parent_module)
+    {
         return failmsgp(env, "Bindings generation error. Parent module is NULL during the submodule '%s' creation", name.c_str());
         // Napi::TypeError::New(env, "Can't update module version").ThrowAsJavaScriptException();
         // return PyErr_Format(PyExc_ImportError,
@@ -83,23 +85,24 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
         return failmsgp(env, "Bindings generation error. Submodule can't end with a dot. Got: %s", name.c_str());
     }
 
-    // return __name__ 
-    const std::string parent_name = PyModule_GetName(parent_module);
+    // return __name__
+    const std::string parent_name = JsModule_GetName(parent_module); // Napi::Object *parent_module,
 
     /// Special case handling when caller tries to register a submodule of the parent module with
     /// the same name
-    if (name == parent_name) {
-        return parent_module;
+    if (name == parent_name)
+    {
+        return parent_module->As<Napi::Value>();
     }
 
     if (!strStartsWith(name, parent_name))
     {
         return failmsgp(env,
-            "Bindings generation error. "
-            "Submodule name should always start with a parent module name. "
-            "Parent name: %s. Submodule name: %s", parent_name.c_str(),
-            name.c_str()
-        );
+                        "Bindings generation error. "
+                        "Submodule name should always start with a parent module name. "
+                        "Parent name: %s. Submodule name: %s",
+                        parent_name.c_str(),
+                        name.c_str());
     }
 
     size_t submodule_name_end = name.find('.', parent_name.size() + 1);
@@ -109,10 +112,10 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
         submodule_name_end = name.size();
     }
 
-    Napi::Object submodule = parent_module;
+    Napi::Object *submodule = parent_module;
 
     for (size_t submodule_name_start = parent_name.size() + 1;
-         submodule_name_start < name.size(); )
+         submodule_name_start < name.size();)
     {
         const std::string submodule_name = name.substr(submodule_name_start, submodule_name_end - submodule_name_start);
         const std::string full_submodule_name = name.substr(0, submodule_name_end);
@@ -120,20 +123,23 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
         Napi::Object parent_module_dict = Napi::Object::New(env); // submodule
         /// If submodule already exists it can be found in the parent module dictionary,
         /// otherwise it should be added to it.
-        submodule = parent_module_dict.Get(submodule_name.c_str()).ToObject();
-        if (!submodule) {
+        submodule = &parent_module_dict.Get(submodule_name.c_str()).ToObject();
+        if (!submodule)
+        {
             /// Populates global modules dictionary and returns borrowed reference to it
-            submodule = Napi::Object::New(env);
-            submodule.Set("name", full_submodule_name.c_str());
+            submodule = &Napi::Object::New(env);
+            submodule->Set("name", full_submodule_name.c_str());
             // PyImport_AddModule(full_submodule_name.c_str());
-            if (!submodule) {
+            if (!submodule)
+            {
                 /// Return `PyImport_AddModule` NULL with an exception set on failure.
                 return env.Null();
             }
             /// Populates parent module dictionary. Submodule lifetime should be managed
             /// by the global modules dictionary and parent module dictionary, so Py_DECREF after
             /// successfull call to the `PyDict_SetItemString` is redundant.
-            if (!parent_module_dict.Set(submodule_name.c_str(), submodule)) {
+            if (!parent_module_dict.Set(submodule_name.c_str(), submodule))
+            {
                 return failmsgp(env, "Can't register a submodule '%s' (full name: '%s')", submodule_name.c_str(), full_submodule_name.c_str());
             }
         }
@@ -141,45 +147,42 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object parent_module, co
         submodule_name_start = submodule_name_end + 1;
 
         submodule_name_end = name.find('.', submodule_name_start);
-        if (submodule_name_end == std::string::npos) {
+        if (submodule_name_end == std::string::npos)
+        {
             submodule_name_end = name.size();
         }
     }
-    return submodule;
+    return *submodule;
 }
 
 // PyObject * root => Napi::Env env
-static bool init_submodule(Napi::Env env, Napi::Object current, const char * name, PyMethodDef * methods, ConstDef * consts)
+static bool init_submodule(Napi::Env env, Napi::Object current, const char *name, JsMethodDef *methods, ConstDef *consts)
 {
     // traverse and create nested submodules
-    Napi::Value submodule = createSubmodule(env, current, name);
+    Napi::Value submodule = createSubmodule(env, &current, name);
     if (!submodule)
     {
         return false;
     }
     // populate module's dict
     Napi::Object d = Napi::Object::New(env); // submodule
-    for (PyMethodDef * m = methods; m->ml_name != NULL; ++m)
+    for (JsMethodDef *m = methods; m->ml_name != NULL; ++m)
     {
-        PyObject * method_obj = PyCFunction_NewEx(m, NULL, NULL);
-        if (PyDict_SetItemString(d, m->ml_name, method_obj) < 0)
+        Napi::Value *method_obj = JsCFunction_NewEx(m, NULL, NULL);
+        if (JsDict_SetItemString(&d, m->ml_name, method_obj) < 0)
         {
-            PyErr_Format(PyExc_ImportError,
-                "Can't register function %s in module: %s", m->ml_name, name
-            );
-            Py_CLEAR(method_obj);
+            failmsg(env, "Can't register constant %s in module %s", m->ml_name, name);
+            // Py_CLEAR(method_obj);
             return false;
         }
         // Py_DECREF(method_obj);
     }
-    for (ConstDef * c = consts; c->name != NULL; ++c)
+    for (ConstDef *c = consts; c->name != NULL; ++c)
     {
-        PyObject* const_obj = PyLong_FromLongLong(c->val);
-        if (PyDict_SetItemString(d, c->name, const_obj) < 0)
+        Napi::Number const_obj = JsLong_FromLongLong(env, c->val);
+        if (JsDict_SetItemString(&d, c->name, &const_obj) < 0)
         {
-            PyErr_Format(PyExc_ImportError,
-                "Can't register constant %s in module %s", c->name, name
-            );
+            failmsg(env, "Can't register constant %s in module %s", c->name, name);
             // Py_CLEAR(const_obj);
             return false;
         }
@@ -192,13 +195,11 @@ static bool init_submodule(Napi::Env env, Napi::Object current, const char * nam
 static bool init_body(Napi::Env env, Napi::Object exports) {
 // from cv2.cpp L:471
 // check jsopencv_generated_modules_content.h content
-//#define CVJS_MODULE(NAMESTR, NAME) \
-//    if (!init_submodule(m, MODULESTR NAMESTR, methods_##NAME, consts_##NAME)) \
-//    { \
-//        return false; \
-//    }
-//    #include "jsopencv_generated_modules.h"
-//#undef CVPY_MODULE
+#define CVJS_MODULE(NAMESTR, NAME) \
+    if (!init_submodule(env, exports, MODULESTR NAMESTR, methods_##NAME, consts_##NAME)) \
+    { return false; }
+    #include "jsopencv_generated_modules.h"
+    #undef CVPY_MODULE
 //
 // #define CVPY_TYPE(EXPORT_NAME, CLASS_ID, _1, _2, BASE, CONSTRUCTOR, SCOPE) CVPY_TYPE_INIT_STATIC(EXPORT_NAME, CLASS_ID, return false, BASE, CONSTRUCTOR, SCOPE)
 //     PyTypeObject * pyopencv_NoBase_TypePtr = NULL;
@@ -214,7 +215,7 @@ static bool init_body(Napi::Env env, Napi::Object exports) {
         // Py_CLEAR(version_obj);
         return false;
     }
-    Py_DECREF(version_obj);
+    // Py_DECREF(version_obj);
 
     Napi::Object opencv_error_dict = Napi::Object::New(env);
     opencv_error_dict.Set("file", env.Undefined());

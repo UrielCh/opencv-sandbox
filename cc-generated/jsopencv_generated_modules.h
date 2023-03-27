@@ -1,8 +1,7 @@
-#ifndef __JSOPENCV_GENERATED_MODULES_H__
-#define __JSOPENCV_GENERATED_MODULES_H__
-#include <napi.h>
-#include <../node/js_as_py.hpp>
-#include <../node/cv2_convert.hpp>
+// This code will be import within the function:
+// init_body(Napi::Env env, Napi::Object exports) function in cv2.cpp
+// an Napi::Env env, and a Napi::Object exports will be provided
+// CVJS_MODULE macro will invoque init_submodule
 
 CVJS_MODULE("", cv);
 CVJS_MODULE(".Error", Error);
@@ -55,4 +54,3 @@ CVJS_MODULE(".videostab", videostab);
 CVJS_MODULE(".xfeatures2d", xfeatures2d);
 CVJS_MODULE(".ximgproc", ximgproc);
 CVJS_MODULE(".ximgproc.segmentation", ximgproc_segmentation);
-#endif
