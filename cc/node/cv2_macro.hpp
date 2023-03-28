@@ -3,6 +3,8 @@
 
 #include "opencv2/core/types_c.h"
 
+#define MODULESTR "cv2"
+
 typedef std::vector<uchar> vector_uchar;
 typedef std::vector<char> vector_char;
 typedef std::vector<int> vector_int;
