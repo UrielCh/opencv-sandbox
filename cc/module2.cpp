@@ -19,8 +19,8 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 
     const char* keywords[] = { "filename", "flags", NULL };
     if( JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &jsobj_filename, &jsobj_flags) &&
-        jsopencv_to_safe(info, jsobj_filename, filename, ArgInfo("filename", 0)) &&
-        jsopencv_to_safe(info, jsobj_flags, flags, ArgInfo("flags", 0)) )
+        jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
+        jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)) )
     {
         //ERRWRAP2(
         retval = cv::imread(filename, flags);
