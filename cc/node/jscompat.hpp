@@ -61,7 +61,7 @@ static inline std::string getJsObjectNameAttr(Napi::Value obj) {
 //      CV_PY_TO_CLASS
 #define CV_JS_TO_CLASS(TYPE)                                               \
 template<>                                                                 \
-bool jsopencv_to(const Napi::CallbackInfo &info, const Napi::Value &dst, TYPE& src, const ArgInfo& argInfo) \
+bool jsopencv_to(const Napi::Value *dst, TYPE& src, const ArgInfo& argInfo) \
 {                                                                          \
     if (dst.IsNull() || dst.IsUndefined())                                 \
         return true;                                                       \
@@ -84,9 +84,9 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE &src) \
 //      CV_PY_TO_CLASS_PTR
 #define CV_JS_TO_CLASS_PTR(TYPE)                                           \
 template<>                                                                 \
-bool jsopencv_to(const Napi::CallbackInfo &info, const Napi::Value &dst, TYPE*& src, const ArgInfo& argInfo) \
+bool jsopencv_to(const Napi::Value *dst, TYPE*& src, const ArgInfo& argInfo) \
 {                                                                          \
-    if (dst.IsNull() || dst.IsUndefined())                                 \
+    if (dst->IsNull() || dst->IsUndefined())                                 \
         return true;                                                       \
     cv::Ptr<TYPE> ptr;                                                     \
                                                                            \
@@ -103,13 +103,13 @@ static Napi::Value jsopencv_from(const Napi::CallbackInfo &info, TYPE*& src) \
 //      CV_PY_TO_ENUM
 #define CV_JS_TO_ENUM(TYPE)                                                \
 template<>                                                                 \
-bool jsopencv_to(const Napi::CallbackInfo &info, const Napi::Value* dst, TYPE& src, const ArgInfo& argInfo) \
+bool jsopencv_to(const Napi::Value* dst, TYPE& src, const ArgInfo& argInfo) \
 {                                                                          \
-    if (dst.IsNull() || dst.IsUndefined())                                 \
+    if (dst->IsNull() || dst->IsUndefined())                               \
         return true;                                                       \
     int underlying = 0;                                                    \
                                                                            \
-    if (!jsopencv_to(info, dst, underlying, argInfo)) return false;        \
+    if (!jsopencv_to(dst, underlying, argInfo)) return false;              \
     src = static_cast<TYPE>(underlying);                                   \
     return true;                                                           \
 }

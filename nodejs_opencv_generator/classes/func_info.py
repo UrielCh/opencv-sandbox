@@ -217,7 +217,7 @@ class FuncInfo(object):
                     if a.tp == 'char':
                         code_cvt_list.append("convert_to_char(%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
                     else:
-                        code_cvt_list.append("jsopencv_to_safe(info, %s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
+                        code_cvt_list.append("jsopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
 
                 all_cargs.append([arg_type_info, parse_name])
 

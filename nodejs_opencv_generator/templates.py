@@ -66,7 +66,7 @@ struct JsOpenCV_Converter< ${cname} >
 """)
 
 gen_template_map_type_cvt = Template("""
-template<> bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* src, ${cname}& dst, const ArgInfo& argInfo);
+template<> bool jsopencv_to(const Napi::Value* src, ${cname}& dst, const ArgInfo& argInfo);
 
 """)
 
@@ -128,7 +128,7 @@ static int pjsopencv_${name}_set_${member}(const Napi::CallbackInfo &info, jsope
         JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ${member} attribute");
         return -1;
     }
-    return jsopencv_to_safe(info, value, p->v${access}${member}, ArgInfo("value", false)) ? 0 : -1;
+    return jsopencv_to_safe(value, p->v${access}${member}, ArgInfo("value", false)) ? 0 : -1;
 }
 """)
 
