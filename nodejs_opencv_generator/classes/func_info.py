@@ -215,7 +215,7 @@ class FuncInfo(object):
                     parse_name = "jsobj_" + a.full_name.replace('.', '_')
                     code_decl += "    Napi::Value* %s = NULL;\n" % (parse_name,)
                     if a.tp == 'char':
-                        code_cvt_list.append("convert_to_char(%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
+                        code_cvt_list.append("jsconvert_to_char(*%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
                     else:
                         code_cvt_list.append("jsopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
 

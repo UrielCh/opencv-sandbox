@@ -1,5 +1,5 @@
-#ifndef CV2_UTIL_HPP2
-#define CV2_UTIL_HPP2
+#ifndef CV2_JS_UTIL_HPP
+#define CV2_JS_UTIL_HPP
 
 #include "cv2.hpp"
 #include "opencv2/core.hpp"
@@ -49,4 +49,4 @@ inline void jsPrepareArgumentConversionErrorsStorage(std::size_t size)
 void jsRaiseCVOverloadException(const Napi::CallbackInfo &info, const std::string& functionName);
 void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info);
 
-#endif // CV2_UTIL_HPP2
+#endif // CV2_JS_UTIL_HPP

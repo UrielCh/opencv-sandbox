@@ -3065,10 +3065,10 @@ static Napi::Value jsopencv_cv_VideoWriter_fourcc(const Napi::CallbackInfo &info
 
     const char* keywords[] = { "c1", "c2", "c3", "c4", NULL };
     if (JsArg_ParseTupleAndKeywords(info, "OOOO:VideoWriter_fourcc", (char**)keywords, &jsobj_c1, &jsobj_c2, &jsobj_c3, &jsobj_c4) &&
-        convert_to_char(jsobj_c1, &c1, ArgInfo("c1", 0)) &&
-        convert_to_char(jsobj_c2, &c2, ArgInfo("c2", 0)) &&
-        convert_to_char(jsobj_c3, &c3, ArgInfo("c3", 0)) &&
-        convert_to_char(jsobj_c4, &c4, ArgInfo("c4", 0)))
+        jsconvert_to_char(*jsobj_c1, &c1, ArgInfo("c1", 0)) &&
+        jsconvert_to_char(*jsobj_c2, &c2, ArgInfo("c2", 0)) &&
+        jsconvert_to_char(*jsobj_c3, &c3, ArgInfo("c3", 0)) &&
+        jsconvert_to_char(*jsobj_c4, &c4, ArgInfo("c4", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::VideoWriter::fourcc(c1, c2, c3, c4));
         return jsopencv_from(info, retval);
@@ -27469,7 +27469,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(jsobj_images, images, ArgInfo("images", 0)) &&
         jsopencv_to_safe(jsobj_facePoints, facePoints, ArgInfo("facePoints", 1)) &&
-        convert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
+        jsconvert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, images, facePoints, delim, offset));
@@ -27499,7 +27499,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(jsobj_images, images, ArgInfo("images", 0)) &&
         jsopencv_to_safe(jsobj_facePoints, facePoints, ArgInfo("facePoints", 1)) &&
-        convert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
+        jsconvert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, images, facePoints, delim, offset));

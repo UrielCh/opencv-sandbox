@@ -26068,10 +26068,10 @@ static Napi::Value jsopencv_cv_VideoWriter_fourcc_static(const Napi::CallbackInf
 
     const char* keywords[] = { "c1", "c2", "c3", "c4", NULL };
     if (JsArg_ParseTupleAndKeywords(info, "OOOO:VideoWriter.fourcc", (char**)keywords, &jsobj_c1, &jsobj_c2, &jsobj_c3, &jsobj_c4) &&
-        convert_to_char(jsobj_c1, &c1, ArgInfo("c1", 0)) &&
-        convert_to_char(jsobj_c2, &c2, ArgInfo("c2", 0)) &&
-        convert_to_char(jsobj_c3, &c3, ArgInfo("c3", 0)) &&
-        convert_to_char(jsobj_c4, &c4, ArgInfo("c4", 0)))
+        jsconvert_to_char(*jsobj_c1, &c1, ArgInfo("c1", 0)) &&
+        jsconvert_to_char(*jsobj_c2, &c2, ArgInfo("c2", 0)) &&
+        jsconvert_to_char(*jsobj_c3, &c3, ArgInfo("c3", 0)) &&
+        jsconvert_to_char(*jsobj_c4, &c4, ArgInfo("c4", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::VideoWriter::fourcc(c1, c2, c3, c4));
         return jsopencv_from(info, retval);

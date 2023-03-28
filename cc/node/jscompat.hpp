@@ -8,7 +8,7 @@
 #include <napi.h>
 #include "./js_as_py.hpp";
 
-static inline bool getUnicodeString(Napi::Value obj, std::string &str) {
+static inline bool getJsUnicodeString(Napi::Value &obj, std::string &str) {
     bool res = false;
     if (obj.IsString())
     {
@@ -19,12 +19,25 @@ static inline bool getUnicodeString(Napi::Value obj, std::string &str) {
     return res;
 }
 
-static inline std::string getJsObjectNameAttr(Napi::Value obj) {
+
+static inline int jsconvert_to_char(Napi::Value &obj, char *dst, const ArgInfo& info)
+{
+    std::string str;
+    if (getJsUnicodeString(obj, str))
+    {
+        *dst = str[0];
+        return 1;
+    }
+    (*dst) = 0;
+    return failmsg(obj.Env(), "Expected single character string for argument '%s'", info.name);
+}
+
+static inline std::string getJsObjectNameAttr(Napi::Value &obj) {
     std::string obj_name;
     Napi::Object js_obj = obj.As<Napi::Object>();
     Napi::Value cls_name_obj = js_obj.Get("__name__");
     
-    if (!getUnicodeString(cls_name_obj, obj_name)) {
+    if (!getJsUnicodeString(cls_name_obj, obj_name)) {
         obj_name.clear();
     }
 

@@ -16,10 +16,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-// static int convert_to_char(PyObject *o, char *dst, const ArgInfo& info)
+// static int jsconvert_to_char(PyObject *o, char *dst, const ArgInfo& info)
 // {
 //     std::string str;
-//     if (getUnicodeString(o, str))
+//     if (getJsUnicodeString(o, str))
 //     {
 //         *dst = str[0];
 //         return 1;
