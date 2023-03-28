@@ -137,7 +137,9 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
 
 
 // CVPY_TYPE_HEAD
-#define CVJS_TYPE_HEAD PyVarObject_HEAD_INIT(&PyType_Type, 0)
+// #define CVJS_TYPE_HEAD PyVarObject_HEAD_INIT(&PyType_Type, 0)
+#define CVJS_TYPE_HEAD JsVarObject_HEAD_INIT(&PyType_Type) 0,
+
 // CVPY_TYPE_INCREF
 #define CVJS_TYPE_INCREF(T) Py_INCREF(T)
 
