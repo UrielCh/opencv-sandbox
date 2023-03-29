@@ -1,5 +1,6 @@
-#include <napi.h>
 #include "./js_as_py.hpp";
+
+#include <napi.h>
 #include <vector>
 #include <unordered_map>
 #include <cstring>

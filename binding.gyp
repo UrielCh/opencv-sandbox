@@ -2,10 +2,9 @@
     "targets": [{
         "target_name": "cv2",
         "sources": [
-            "./cc/module.cpp",
-            "./cc/node/js_as_py.cpp",
-            "./cc/node/cv2_util.cpp",
-            "./cc/node/cv2_convert.cpp",
+#            "cc-v3/js_as_py.cpp",
+#            "cc-v3/module.cpp",
+            "<!@(node -p \"require('fs').readdirSync('./cc-v4').filter(a=>a.endsWith('.cpp')).map(f=>'cc-v4/'+f).join(' ')\")"
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
@@ -20,6 +19,11 @@
         ],
         "libraries": [
             "<!@(node ./install/compileLib.js)",
+            "<!@(node -p \"require('fs').readdirSync(`${process.env.OPENCV_BUILD_ROOT}/latest/build/lib/Release/`).filter(a=>a.endsWith('.lib')).map(f=>`${process.env.OPENCV_BUILD_ROOT}/latest/build/lib/Release/${f}`).join(' ')\")"
+            #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_ximgproc470.lib",
+            #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_core470.lib",
+            #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_ximgproc470.lib",
+            #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_imgcodecs470.lib",
         ],
         'cflags!': ['-fno-exceptions', '-fno-rtti'],
         'cflags_cc!': ['-fno-exceptions', '-fno-rtti'],
