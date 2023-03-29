@@ -4,7 +4,7 @@
         "sources": [
 #            "cc-v3/js_as_py.cpp",
 #            "cc-v3/module.cpp",
-            "<!@(node -p \"require('fs').readdirSync('./cc-v4').filter(a=>a.endsWith('.cpp')).map(f=>'cc-v4/'+f).join(' ')\")"
+            "<!@(node -p \"require('fs').readdirSync('./cc-v5').filter(a=>a.endsWith('.cpp')).map(f=>'cc-v5/'+f).join(' ')\")"
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
