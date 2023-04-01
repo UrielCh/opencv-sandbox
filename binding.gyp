@@ -4,22 +4,21 @@
         "sources": [
 #            "cc-v3/js_as_py.cpp",
 #            "cc-v3/module.cpp",
-            "<!@(node -p \"require('fs').readdirSync('./cc-v5').filter(a=>a.endsWith('.cpp')).map(f=>'cc-v5/'+f).join(' ')\")"
+            "<!@(node listFiles.mjs cc-v5 cpp)"
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
-                "$(OPENCV_BUILD_ROOT)/latest/build/include",
-                "$(OPENCV_BUILD_ROOT)/latest/build/include/opencv4",
+                "$(OPENCV_BUILD_ROOT)/opencv-4.7.0-8b1ea/build/include",
+                "$(OPENCV_BUILD_ROOT)/opencv-4.7.0-8b1ea/build/include/opencv4",
                 "cc",
                 ],
         'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
-
         "defines": [
             "<!@(node ./install/parseEnv.js OPENCV4NODEJS_DEFINES)",
         ],
         "libraries": [
             "<!@(node ./install/compileLib.js)",
-            "<!@(node -p \"require('fs').readdirSync(`${process.env.OPENCV_BUILD_ROOT}/latest/build/lib/Release/`).filter(a=>a.endsWith('.lib')).map(f=>`${process.env.OPENCV_BUILD_ROOT}/latest/build/lib/Release/${f}`).join(' ')\")"
+            "<!@(node listFiles.mjs ${OPENCV_BUILD_ROOT}/opencv-4.7.0-8b1ea/build/lib/Release/ lib,so)",
             #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_ximgproc470.lib",
             #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_core470.lib",
             #"$(OPENCV_BUILD_ROOT)/latest/build/lib/Release/opencv_ximgproc470.lib",

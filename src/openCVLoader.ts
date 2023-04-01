@@ -1,11 +1,12 @@
 import path from 'path'
 import fs from 'fs'
 
-
 export function getModulePath(): string {
     let opencvBinDir = '';
     if (process.env.OPENCV_BUILD_ROOT) {
         opencvBinDir = path.join(process.env.OPENCV_BUILD_ROOT, 'opencv-4.7.0-8b1ea', 'build', 'bin', 'Release')
+        if (!fs.existsSync(opencvBinDir))
+            throw Error(`OPENCV_BUILD_ROOT is set but the path does not exist: ${opencvBinDir}`)
     }
     if (opencvBinDir && process.env.path && !process.env.path.includes(opencvBinDir)) {
         console.log(`Adding opencvBinDir: ${opencvBinDir} to path`)
@@ -26,7 +27,7 @@ export function getModulePath(): string {
         }
     }
 
-    console.log({ impPath });
+    console.log({ impPath, path: process.env.path });
     if (!impPath) {
         console.error('module not found')
         process.exit(1);

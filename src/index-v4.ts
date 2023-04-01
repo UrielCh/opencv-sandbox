@@ -29,6 +29,8 @@ function allocationTest() {
         }
     }
     console.log(`\n`)
+    // if (global)
+    //     (global as any).gc();
 }
 allocationTest();
 
