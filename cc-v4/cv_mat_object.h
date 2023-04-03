@@ -19,7 +19,7 @@ private:
     Napi::Value Rows(const Napi::CallbackInfo& info);
     Napi::Value Cols(const Napi::CallbackInfo& info);
     Napi::Value Type(const Napi::CallbackInfo& info);
-    Napi::Value Release(const Napi::CallbackInfo& info);
+    // Napi::Value Release(const Napi::CallbackInfo& info);
 };
 
 #endif

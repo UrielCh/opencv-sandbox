@@ -9,10 +9,6 @@ console.log('require cv2.node called');
 const theModule = theModuleTmp as typeof import('../types/cv-v4');
 
 function allocationTest() {
-    // const cv2 = cv2tmp as typeof import('../types/cv-v1');
-    // main.ts
-    // import cvMatObject = require('./cvMatObjectWrapper');
-
     console.log(`the current module Type is: ${typeof(theModule)}`)
     console.log(`the current module contains ${Object.keys(theModule).length} exports:`)
     for (const key of Object.keys(theModule)) {
@@ -30,6 +26,8 @@ function allocationTest() {
     console.log(`\n`)
 }
 allocationTest();
+
+
 
 setTimeout(() => console.log('\ntimeout all buffer should had been released'), 1000);
 

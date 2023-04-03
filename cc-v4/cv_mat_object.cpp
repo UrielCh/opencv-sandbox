@@ -3,6 +3,8 @@
 
 Napi::FunctionReference cvMatObject::constructor;
 
+int releaseCnt = 0;
+
 /**
  * @brief register the object with the node runtime
  */
@@ -13,7 +15,7 @@ Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports) {
         InstanceAccessor("rows", &cvMatObject::Rows, nullptr),
         InstanceAccessor("cols", &cvMatObject::Cols, nullptr),
         InstanceAccessor("type", &cvMatObject::Type, nullptr),
-        InstanceMethod<&cvMatObject::Release>("Release"),
+        // InstanceMethod<&cvMatObject::Release>("Release"),
     });
 
     constructor = Napi::Persistent(func);
@@ -43,7 +45,11 @@ cvMatObject::cvMatObject(const Napi::CallbackInfo& info) : Napi::ObjectWrap<cvMa
 }
 
 cvMatObject::~cvMatObject() {
-  std::cout << "mat released" << std::endl;
+  releaseCnt++;
+  if (releaseCnt == 1)
+    std::cout << "first mat released called" << std::endl;
+  if (releaseCnt == 2)
+    std::cout << "Second mat released called following once will not be displayed" << std::endl;
   mat.release();
 }
 
@@ -68,11 +74,11 @@ Napi::Value cvMatObject::Type(const Napi::CallbackInfo& info) {
     return Napi::Number::New(env, mat.type());
 }
 
-Napi::Value cvMatObject::Release(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env();
-    Napi::HandleScope scope(env);
-
-    mat.release();
-    // std::cout << "mat released" << std::endl;
-    return env.Undefined();
-}
+// Napi::Value cvMatObject::Release(const Napi::CallbackInfo& info) {
+//     Napi::Env env = info.Env();
+//     Napi::HandleScope scope(env);
+// 
+//     mat.release();
+//     // std::cout << "mat released" << std::endl;
+//     return env.Undefined();
+// }

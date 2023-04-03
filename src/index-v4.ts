@@ -11,7 +11,7 @@ const theModule = theModuleTmp as typeof import('../types/cv-v4');
  * rebuild with node-gyp rebuild
  */
 
-async function allocationTest() {
+async function allocationTest(pass: number) {
     // const cv2 = cv2tmp as typeof import('../types/cv-v1');
     // main.ts
     // import cvMatObject = require('./cvMatObjectWrapper');
@@ -23,7 +23,7 @@ async function allocationTest() {
 
     console.log(`\nAllocation Test:`)
     let errorOnce = false;
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < pass; i++) {
         if (theModule.cvMatObject) {
             const tmp = new theModule.cvMatObject(50000, 2000 + (i % 100));
             cnt.alloc++;
@@ -42,12 +42,12 @@ async function allocationTest() {
 
             if (global.gc) {
                 // This requires the --expose-gc flag.
-                const v8 = require('v8');
-                const beforeGC = v8.serializeHeap();
+                //const v8 = require('v8');
+                //const beforeGC = v8.serializeHeap();
                 global.gc();
-                const afterGC = v8.serializeHeap();
-                const allocatedObjects = afterGC.node_count - beforeGC.node_count;
-                console.log(`Number of allocated objects: ${allocatedObjects}`);
+                //const afterGC = v8.serializeHeap();
+                //const allocatedObjects = afterGC.node_count - beforeGC.node_count;
+                // console.log(`Number of allocated objects: ${allocatedObjects}`);
             } else {
                 if (!errorOnce) {
                     console.warn('Number of allocated objects is not available. Run Node.js with --expose-gc flag to enable this feature.');
@@ -61,7 +61,22 @@ async function allocationTest() {
     // if (global)
     //     (global as any).gc();
 }
-allocationTest();
+
+
+async function main() {
+    console.log('main called 1');
+    allocationTest(100);
+    await new Promise((r) => setTimeout(r, 500));
+    console.log('main called 2');
+    allocationTest(100);
+    await new Promise((r) => setTimeout(r, 500));
+    console.log('main called 3');
+    allocationTest(100);
+    await new Promise((r) => setTimeout(r, 500));
+
+}
+
+main();
 
 // setTimeout(() => console.log('\ntimeout all buffer should had been released'), 5000);
 
