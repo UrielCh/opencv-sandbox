@@ -1,18 +1,18 @@
 #include "cv_main.h"
 #include "cv_mat_object.h"
-#include <iostream>
+// #include <iostream>
 
 bool jsopencv_to(const Napi::Value* obj, cv::String &value) {
     if (obj->IsNull() || obj->IsUndefined()) {
         return true;
     }
-    std::cout << "obj is defined" << std::endl;
+    // std::cout << "obj is defined" << std::endl;
 
     if (obj->IsString()) {
         value = obj->ToString().Utf8Value();
         return true;
     }
-    std::cout << "obj is not a string" << std::endl;
+    //  std::cout << "obj is not a string" << std::endl;
 
     // failmsg(obj->Env(), "Argument is not convertable to string");
     return false;
@@ -31,7 +31,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
     using namespace cv;
 
-    std::cout << "jsopencv_cv_imread get called" << std::endl;
+    // std::cout << "jsopencv_cv_imread get called" << std::endl;
 
     const Napi::Value* pyobj_filename = NULL;
     String filename;
@@ -39,14 +39,14 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     int flags=IMREAD_COLOR;
     Mat retval;
 
-    std::cout << "jsopencv_to" << std::endl;
+    // std::cout << "jsopencv_to" << std::endl;
     const char* keywords[] = { "filename", "flags", NULL };
     pyobj_filename = &info[0];
     if (jsopencv_to(pyobj_filename, filename))
     {
-        std::cout << "cv::imread get called" << std::endl;
+        // std::cout << "cv::imread get called" << std::endl;
         info, retval = cv::imread(filename, flags);
-        std::cout << "jsopencv_from get called" << std::endl;
+        // std::cout << "jsopencv_from get called" << std::endl;
         return jsopencv_from(info, retval);
     }
 
@@ -54,7 +54,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 }
 
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports) {
-    std::cout << "imread is attached to export" << std::endl;
+    // std::cout << "imread is attached to export" << std::endl;
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
     return exports;
 }

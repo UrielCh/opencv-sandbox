@@ -3,8 +3,6 @@
 
 int releaseCnt = 0;
 
-// namespace cvMatObject
-
 Napi::FunctionReference cvMatObject::constructor;
 
 /**
@@ -14,15 +12,27 @@ Napi::FunctionReference cvMatObject::constructor;
 Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports)
 {
     Napi::HandleScope scope(env);
-
+    napi_property_attributes napi_default_method = static_cast<napi_property_attributes>(napi_writable | napi_configurable | napi_enumerable);
+    napi_property_attributes napi_default_Field = static_cast<napi_property_attributes>(napi_enumerable | napi_configurable);
+    
     Napi::Function func = DefineClass(env, "cvMatObject", {
-        InstanceAccessor("rows", &cvMatObject::Rows, nullptr),
-        InstanceAccessor("cols", &cvMatObject::Cols, nullptr),
-        InstanceAccessor("type", &cvMatObject::Type, nullptr),
+        // InstanceAccessor("rows", &cvMatObject::Rows, &cvMatObject::ReadOnlySetter, napi_default_Field),
+        cvMatObject::InstanceAccessor<&cvMatObject::Rows, &cvMatObject::ReadOnlySetter>("rows", napi_default_Field),
+
+        InstanceAccessor("cols", &cvMatObject::Cols, &cvMatObject::ReadOnlySetter, napi_default_Field),
+        InstanceAccessor("type", &cvMatObject::Type, &cvMatObject::ReadOnlySetter, napi_default_Field),
+        InstanceAccessor("depth", &cvMatObject::Depth, &cvMatObject::ReadOnlySetter, napi_default_Field),
+        InstanceAccessor("channels", &cvMatObject::Channels, &cvMatObject::ReadOnlySetter, napi_default_Field),
+
+        InstanceAccessor("isContinuous", &cvMatObject::IsContinuous, &cvMatObject::ReadOnlySetter),
+        InstanceAccessor("isSubmatrix", &cvMatObject::IsSubmatrix, &cvMatObject::ReadOnlySetter),
+        InstanceAccessor("elemSize", &cvMatObject::ElemSize, &cvMatObject::ReadOnlySetter),
+        InstanceAccessor("elemSize1", &cvMatObject::ElemSize1, &cvMatObject::ReadOnlySetter),
+
         // InstanceMethod<&cvMatObject::Release>("Release"),
         InstanceMethod("toString", &cvMatObject::ToString),
         // InstanceMethod("ownKeys", &cvMatObject::OwnKeys),
-        InstanceMethod("GetPropertyNames", &cvMatObject::OwnKeys),
+        // InstanceMethod("GetPropertyNames", &cvMatObject::OwnKeys),
         // InstanceMethod("GetPropertyNames", Napi::Function::New(env, &cvMatObject::OwnKeys)),
         // InstanceMethod<&cvMatObject::ToString>("toString"), // alternative syntax
         });
@@ -106,16 +116,59 @@ Napi::Value cvMatObject::Type(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
-
     return Napi::Number::New(env, mat.type());
+}
+
+Napi::Value cvMatObject::Depth(const Napi::CallbackInfo &info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    return Napi::Number::New(env, mat.depth());
+}
+
+Napi::Value cvMatObject::Channels(const Napi::CallbackInfo &info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    return Napi::Number::New(env, mat.channels());
+}
+
+Napi::Value cvMatObject::IsContinuous(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    return Napi::Boolean::New(env, mat.isContinuous());
+}
+
+Napi::Value cvMatObject::IsSubmatrix(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    return Napi::Boolean::New(env, mat.isSubmatrix());
+}
+Napi::Value cvMatObject::ElemSize(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    return Napi::Number::New(env, mat.elemSize());
+
+}
+Napi::Value cvMatObject::ElemSize1(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    return Napi::Number::New(env, mat.elemSize1());
 }
 
 Napi::Value cvMatObject::ToString(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
-    std::string objectRepresentation = "Matrix: " + std::to_string(mat.rows) + "x" + std::to_string(mat.cols) + " type: " + std::to_string(mat.type()) + "";
+    std::string objectRepresentation = "Matrix: " + std::to_string(mat.rows) + "x" + std::to_string(mat.cols) + " type:" + std::to_string(mat.type()) + " Channels:" + std::to_string(mat.channels()) + " ElemSize:" + std::to_string(mat.elemSize()) + " ElemSize1:" + std::to_string(mat.elemSize1());
     return Napi::String::New(env, objectRepresentation);
 }
+
+
+void cvMatObject::ReadOnlySetter(const Napi::CallbackInfo& info, const Napi::Value& value) {
+    Napi::Env env = info.Env();
+    Napi::Error::New(env, "Readonly Props").ThrowAsJavaScriptException();
+}
+
 
 Napi::Value cvMatObject::OwnKeys(const Napi::CallbackInfo &info)
 {

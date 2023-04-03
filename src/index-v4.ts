@@ -78,17 +78,22 @@ async function main() {
 
 
 async function main2() {
-    console.log("main2", theModule.imread)
+    // console.log("main2", theModule.imread)
     // const tmp = new theModule.cvMatObject(50000, 2000);
     const logo = theModule.imread('./data/logo.png')
-    console.log("imread called")
-    console.log("logo cols:", logo.cols)
-    console.log("logo rows:", logo.rows)
-    console.log("logo type:", logo.type)
+    console.log("logo cols:", logo.cols, " rows:", logo.rows, " type:", logo.type)
     console.log("-----------")
     console.log("logo:", logo)
-    console.log("keys:", Object.keys(logo))
+    console.log("Object.keys(logo) return:", Object.keys(logo))
     console.log("logo:", logo.toString())
+
+    try {
+        // @ts-expect-error write a readonly property
+        logo.rows = 1;
+    } catch (e) {
+        console.log("logo.rows is readonly Throw Ok");
+    }
+
 }
 main2();
 

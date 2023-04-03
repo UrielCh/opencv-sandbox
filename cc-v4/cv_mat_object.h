@@ -22,10 +22,18 @@ private:
     Napi::Value Rows(const Napi::CallbackInfo& info);
     Napi::Value Cols(const Napi::CallbackInfo& info);
     Napi::Value Type(const Napi::CallbackInfo& info);
+    Napi::Value Depth(const Napi::CallbackInfo &info);
+    Napi::Value Channels(const Napi::CallbackInfo &info);
+    Napi::Value IsContinuous(const Napi::CallbackInfo &info);
+    Napi::Value IsSubmatrix(const Napi::CallbackInfo &info);
+    Napi::Value ElemSize(const Napi::CallbackInfo &info);
+    Napi::Value ElemSize1(const Napi::CallbackInfo &info);
+
     // Napi::Value Release(const Napi::CallbackInfo& info);
     Napi::Value ToString(const Napi::CallbackInfo& info);
     Napi::Value OwnKeys(const Napi::CallbackInfo& info);
     // GetPropertyNames
+    void cvMatObject::ReadOnlySetter(const Napi::CallbackInfo& info, const Napi::Value& value);
 };
 
 #endif
