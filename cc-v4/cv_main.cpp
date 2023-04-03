@@ -1,5 +1,6 @@
 #include "cv_main.h"
 #include "cv_mat_object.h"
+#include "../cc-common/comm.h"
 // #include <iostream>
 
 bool jsopencv_to(const Napi::Value* obj, cv::String &value) {
@@ -27,7 +28,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 /**
  * @brief generated binding to read an image
  */
-static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
+static Napi::Value jsopencv_cv_imread0(const Napi::CallbackInfo &info)
 {
     using namespace cv;
     const Napi::Value* pyobj_filename = NULL;
@@ -48,6 +49,30 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 
     return info.Env().Null();
 }
+
+static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
+{
+    using namespace cv;
+
+    Napi::Value* pyobj_filename = NULL;
+    String filename;
+    Napi::Value* pyobj_flags = NULL;
+    int flags=IMREAD_COLOR;
+    Mat retval;
+
+    const char* keywords[] = { "filename", "flags", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags) &&
+        jsopencv_to_safe(pyobj_filename, filename, ArgInfo("filename", 0)) &&
+        jsopencv_to_safe(pyobj_flags, flags, ArgInfo("flags", 0)))
+    {
+        ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
+        return jsopencv_from(info, retval);
+    }
+
+    return info.Env().Null();
+}
+
+
 
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports) {
     // std::cout << "imread is attached to export" << std::endl;
