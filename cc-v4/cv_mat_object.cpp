@@ -4,10 +4,11 @@
 int releaseCnt = 0;
 
 Napi::FunctionReference cvMatObject::constructor;
+// Napi::FunctionReference* constructor = new Napi::FunctionReference();
 
 /**
  * @brief register the object with the node runtime
- * @return the incomming exports
+ * @return the incoming exports
  */
 Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports)
 {
@@ -36,6 +37,11 @@ Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports)
         // InstanceMethod("GetPropertyNames", Napi::Function::New(env, &cvMatObject::OwnKeys)),
         // InstanceMethod<&cvMatObject::ToString>("toString"), // alternative syntax
         });
+
+
+    // Napi::FunctionReference* constructor = new Napi::FunctionReference();
+    // *constructor = Napi::Persistent(func);
+    // env.SetInstanceData(constructor);
 
     constructor = Napi::Persistent(func);
     constructor.SuppressDestruct();

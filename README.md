@@ -88,4 +88,5 @@ The code whould be visible in `cc-generated`
 - [opencv](https://github.com/opencv/opencv) opencv source code
 - [opencv build helper](https://github.com/UrielCh/npm-opencv-build)
 - [cpp insights](https://cppinsights.io/) for better templates undetanding
-
+- [issue node-addon-api](https://github.com/nodejs/node-addon-api/issues/1120)
+- [node-sqlite3 use node-addon-api](https://github.com/TryGhost/node-sqlite3)
