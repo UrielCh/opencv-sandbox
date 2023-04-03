@@ -19,6 +19,23 @@
         "cStandard": "c17",
         "cppStandard": "c++17",
         "intelliSenseMode": "windows-msvc-x64"
+    }, {
+        "name": "ubuntu",
+        "includePath": [
+            "${workspaceFolder}/**",
+            "${workspaceFolder}/node_modules/node-addon-api",
+            "${OPENCV_BUILD_ROOT}/latest/build/include",
+            "${OPENCV_BUILD_ROOT}/latest/opencv/modules/python/src2"
+        ],
+        "defines": [
+            "_DEBUG",
+            "UNICODE",
+            "_UNICODE"
+        ],
+        "compilerPath": "/usr/bin/gcc",
+        "cStandard": "c17",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "clang-x64"
     }],
     "version": 4
 }

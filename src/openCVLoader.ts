@@ -26,15 +26,25 @@ function getOpenCVRoot(): string {
 export function getModulePath(): string {
     let opencvBinDir = '';
     if (process.env.OPENCV_BUILD_ROOT) {
+        // for windows
         opencvBinDir = path.join(getOpenCVRoot(), 'bin', 'Release')
-        if (!fs.existsSync(opencvBinDir))
-            throw Error(`OPENCV_BUILD_ROOT is set but the path does not exist: ${opencvBinDir}`)
+        let error = `OPENCV_BUILD_ROOT is set but the path does not exist: ${opencvBinDir}`;
+        if (!fs.existsSync(opencvBinDir)) {
+          opencvBinDir = path.join(getOpenCVRoot(), 'lib')
+          if (!fs.existsSync(opencvBinDir)) {
+            throw Error(error + ` or ${opencvBinDir}`);
+          }
+        }
+        // /home/uriel/opencv/latest/build/lib/libopencv_core.so
     }
-    if (opencvBinDir && process.env.path && !process.env.path.includes(opencvBinDir)) {
+    if (opencvBinDir && process.env.PATH && !process.env.PATH.includes(opencvBinDir)) {
         console.log(`Adding opencvBinDir: ${opencvBinDir} to path`)
-        process.env.path = `${process.env.path};${opencvBinDir};`;
-    } else {
-        console.error('no opencvBinDir added to path');
+        process.env.PATH = `${process.env.PATH}${path.delimiter}${opencvBinDir}`;
+        // process.env.LD_LIBRARY_PATH = `${process.env.LD_LIBRARY_PATH}${path.delimiter}${opencvBinDir}`;
+        // console.log(`process.env.PATH: ${process.env.PATH}`)
+        // console.log(`process.env.LD_LIBRARY_PATH: ${process.env.LD_LIBRARY_PATH}`)
+      } else {
+        console.error(`no opencvBinDir(${opencvBinDir}) added to PATH`, process.env.PATH);
     }
     // console.log(process.env.path);
 

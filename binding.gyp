@@ -4,7 +4,10 @@
         "sources": [
 #            "cc-v3/js_as_py.cpp",
 #            "cc-v3/module.cpp",
-            "<!@(node ./tools/listFiles.mjs cc-v4 cpp)"
+             # must be relative path on linux !
+             # "<!@(node ./tools/listFiles.mjs cc-v4 cpp)"
+             "cc-v4/cv_mat_object.cpp",
+             "cc-v4/module.cpp",
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",
@@ -23,6 +26,7 @@
         'cflags_cc!': ['-fno-exceptions', '-fno-rtti'],
         'xcode_settings': {
             'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
+            "GCC_ENABLE_CPP_RTTI": "YES",
             'CLANG_CXX_LIBRARY': 'libc++',
             'MACOSX_DEPLOYMENT_TARGET': '10.7'
         },

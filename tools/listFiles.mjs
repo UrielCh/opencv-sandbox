@@ -84,7 +84,11 @@ if ("include_dirs" === process.argv[len - 1]) {
 
 if ("libraries" === process.argv[len - 1]) {
   const opencvRoot = getOpenCVRoot();
-  dumpFile(`${opencvRoot}/lib/Release/`, "lib,so");
+  let candidates = [`${opencvRoot}/lib/Release/`, `${opencvRoot}/lib/`]
+  if (fs.existsSync(candidates[0]))
+    dumpFile(candidates[0], "lib,so");
+  else
+    dumpFile(candidates[1], "lib,so");
   process.exit(0);
 }
 
