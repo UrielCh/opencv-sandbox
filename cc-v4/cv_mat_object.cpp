@@ -7,6 +7,7 @@ int releaseCnt = 0;
 
 /**
  * @brief register the object with the node runtime
+ * @return the incomming exports
  */
 Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports) {
     Napi::HandleScope scope(env);
@@ -23,6 +24,15 @@ Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports) {
 
     exports.Set("cvMatObject", func);
     return exports;
+}
+
+
+Napi::Value cvMatObject::NewInstance(const Napi::CallbackInfo &info, const cv::Mat& m) {
+    Napi::Env env = info.Env();
+    Napi::Value cvMatObj = constructor.New({});
+    cvMatObject* cvMatInstance = Napi::ObjectWrap<cvMatObject>::Unwrap(cvMatObj.As<Napi::Object>());
+    cvMatInstance->mat = m;
+    return cvMatObj;
 }
 
 cvMatObject::cvMatObject(const Napi::CallbackInfo& info) : Napi::ObjectWrap<cvMatObject>(info) {
@@ -42,6 +52,10 @@ cvMatObject::cvMatObject(const Napi::CallbackInfo& info) : Napi::ObjectWrap<cvMa
     } else {
         Napi::TypeError::New(env, "Invalid arguments, expected 0 or 2 arguments").ThrowAsJavaScriptException();
     }
+}
+
+cvMatObject::cvMatObject(const Napi::CallbackInfo& info, cv::Mat& matIn): Napi::ObjectWrap<cvMatObject>(info) {
+     mat = matIn;
 }
 
 cvMatObject::~cvMatObject() {

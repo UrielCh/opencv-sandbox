@@ -76,7 +76,17 @@ async function main() {
 
 }
 
-main();
+
+async function main2() {
+    console.log("main2", theModule.imread)
+    // const tmp = new theModule.cvMatObject(50000, 2000);
+    const logo = theModule.imread('./data/logo.png')
+    console.log("imread called")
+    console.log("logo cols:", logo.cols)
+    console.log("logo rows:", logo.rows)
+    console.log("logo type:", logo.type)
+}
+main2();
 
 // setTimeout(() => console.log('\ntimeout all buffer should had been released'), 5000);
 

@@ -10,3 +10,4 @@ export class cvMatObject {
   // release(): void;
 }
 
+export function imread(filename: string): cvMatObject;

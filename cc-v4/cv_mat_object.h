@@ -10,7 +10,10 @@ class cvMatObject : public Napi::ObjectWrap<cvMatObject> {
 public:
     static Napi::Object Init(Napi::Env env, Napi::Object exports);
     cvMatObject(const Napi::CallbackInfo& info);
+    cvMatObject(const Napi::CallbackInfo& info, cv::Mat& mat);
     ~cvMatObject();
+
+    static Napi::Value NewInstance(const Napi::CallbackInfo &info, const cv::Mat& m);
 
 private:
     static Napi::FunctionReference constructor;
