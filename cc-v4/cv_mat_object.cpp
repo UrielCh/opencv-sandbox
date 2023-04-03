@@ -13,6 +13,7 @@ Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports) {
         InstanceAccessor("rows", &cvMatObject::Rows, nullptr),
         InstanceAccessor("cols", &cvMatObject::Cols, nullptr),
         InstanceAccessor("type", &cvMatObject::Type, nullptr),
+        InstanceMethod<&cvMatObject::Release>("Release"),
     });
 
     constructor = Napi::Persistent(func);
@@ -30,15 +31,20 @@ cvMatObject::cvMatObject(const Napi::CallbackInfo& info) : Napi::ObjectWrap<cvMa
 
     if (length == 0) {
         mat = cv::Mat();
-        std::cout << "allocating mat with default constructor" << std::endl;
+        // std::cout << "allocating mat with default constructor" << std::endl;
     } else if (length == 2) {
         int rows = info[0].As<Napi::Number>().Int32Value();
         int cols = info[1].As<Napi::Number>().Int32Value();
-        std::cout << "allocating mat (" << rows << ", "<< cols << ")" << std::endl;
+        // std::cout << "allocating mat (" << rows << ", "<< cols << ")" << std::endl;
         mat = cv::Mat(rows, cols, CV_8UC1);
     } else {
         Napi::TypeError::New(env, "Invalid arguments, expected 0 or 2 arguments").ThrowAsJavaScriptException();
     }
+}
+
+cvMatObject::~cvMatObject() {
+  std::cout << "mat released" << std::endl;
+  mat.release();
 }
 
 Napi::Value cvMatObject::Rows(const Napi::CallbackInfo& info) {
@@ -67,6 +73,6 @@ Napi::Value cvMatObject::Release(const Napi::CallbackInfo& info) {
     Napi::HandleScope scope(env);
 
     mat.release();
-    std::cout << "mat released" << std::endl;
+    // std::cout << "mat released" << std::endl;
     return env.Undefined();
 }
