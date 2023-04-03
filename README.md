@@ -90,3 +90,10 @@ The code whould be visible in `cc-generated`
 - [cpp insights](https://cppinsights.io/) for better templates undetanding
 - [issue node-addon-api](https://github.com/nodejs/node-addon-api/issues/1120)
 - [node-sqlite3 use node-addon-api](https://github.com/TryGhost/node-sqlite3)
+- [leveldown use N-API via napi-macros](https://github.com/Level/leveldown)
+
+
+### N-API libbs:
+
+- [node-addon-api](https://www.npmjs.com/package/node-addon-api)
+- [napi-macros](https://www.npmjs.com/package/napi-macros)

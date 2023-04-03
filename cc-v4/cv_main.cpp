@@ -30,16 +30,12 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
     using namespace cv;
-
-    // std::cout << "jsopencv_cv_imread get called" << std::endl;
-
     const Napi::Value* pyobj_filename = NULL;
     String filename;
     const Napi::Value* pyobj_flags = NULL;
     int flags=IMREAD_COLOR;
     Mat retval;
 
-    // std::cout << "jsopencv_to" << std::endl;
     const char* keywords[] = { "filename", "flags", NULL };
     pyobj_filename = &info[0];
     if (jsopencv_to(pyobj_filename, filename))
