@@ -5,6 +5,7 @@
   "description": "to make works this sandbox:",
   "main": "dist/cjs/src/index.js",
   "scripts": {
+    "full": "node-gyp rebuild && npm run test",
     "test": "node --expose-gc -r ts-node/register ./src/index-v4.ts",
     "build-ts": "tsc --pretty --project .",
     "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache  --flags \"-DWITH_PYTHON=ON -DBUILD_opencv_python3=ON -DBUILD_opencv_python_bindings_generator=ON\"",

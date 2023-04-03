@@ -4,10 +4,10 @@
         "sources": [
 #            "cc-v3/js_as_py.cpp",
 #            "cc-v3/module.cpp",
-             # must be relative path on linux !
-             # "<!@(node ./tools/listFiles.mjs cc-v4 cpp)"
-             "cc-v4/cv_mat_object.cpp",
-             "cc-v4/module.cpp",
+             # must be relative path on linux ! add -r for relatif path
+             "<!@(node ./tools/listFiles.mjs -r cc-v4 cpp)"
+             # "cc-v4/cv_mat_object.cpp",
+             # "cc-v4/module.cpp",
         ],
         'include_dirs': [
                 "<!@(node -p \"require('node-addon-api').include\")",

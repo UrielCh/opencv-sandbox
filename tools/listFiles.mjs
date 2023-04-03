@@ -2,6 +2,13 @@ import fs from "fs";
 import path from "path";
 import pc from "picocolors";
 
+/**
+ * @returns {boolean}
+ */
+function isRelative() {
+  return process.argv.includes('-r') || process.argv.includes('--relative')
+}
+
 function replaceEnvVars(input) {
   const envVarPattern = /\${(\w+)}/g;
   return input.replace(envVarPattern, (match, varName) => {
@@ -28,7 +35,7 @@ function listFiles(dir, extStr) {
     console.error(e);
     return [];
   }
-  const files = list.filter((file) => {
+  let files = list.filter((file) => {
     for (const ext of exts) {
       if (file.endsWith(ext)) {
         return true;
@@ -36,9 +43,11 @@ function listFiles(dir, extStr) {
     }
     return false;
   });
-  return files
-    .map((file) => path.join(dir, file))
-    .map((file) => path.resolve(file));
+  files = files
+    .map((file) => path.join(dir, file));
+  if (!isRelative())
+    files = files.map((file) => path.resolve(file));
+  return files;
 }
 
 /**
