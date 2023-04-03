@@ -85,6 +85,10 @@ async function main2() {
     console.log("logo cols:", logo.cols)
     console.log("logo rows:", logo.rows)
     console.log("logo type:", logo.type)
+    console.log("-----------")
+    console.log("logo:", logo)
+    console.log("keys:", Object.keys(logo))
+    console.log("logo:", logo.toString())
 }
 main2();
 

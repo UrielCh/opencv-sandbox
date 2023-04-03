@@ -23,6 +23,9 @@ private:
     Napi::Value Cols(const Napi::CallbackInfo& info);
     Napi::Value Type(const Napi::CallbackInfo& info);
     // Napi::Value Release(const Napi::CallbackInfo& info);
+    Napi::Value ToString(const Napi::CallbackInfo& info);
+    Napi::Value OwnKeys(const Napi::CallbackInfo& info);
+    // GetPropertyNames
 };
 
 #endif
