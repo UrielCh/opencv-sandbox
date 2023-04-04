@@ -88,7 +88,16 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
     va_end(args);
     return true;
 }
-
+/**
+ * @brief act as PyArg_ParseTupleAndKeywords
+ * 
+ * @param info NApi CallbackInfo info object
+ * @param format string like "OO|OOO:Name" or "O|OOO:Name" each O means a object
+ * @param keywords named of all arguments, used onkly for optional ones
+ * @param ... placeholder to store the arguments of types Napi::Value *
+ * @return true 
+ * @return false 
+ */
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
     // Prepare to handle variable arguments
     va_list args;
@@ -98,54 +107,36 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
     const char* fmt_iter = format;
     char** kw_iter = keywords;
 
-    // Find the format string's first ':' or '|' character
-    const char* optional_start = std::strpbrk(format, ":|");
-
     // Check if we reached the end of the format string
     bool is_optional = false;
-    bool finished = false;
-    if (optional_start == nullptr || *optional_start == ':') {
-        finished = true;
-    } //else if (*optional_start == '|') {
-        //is_optional = true;
-    // }
-
     std::cout << "JsArg_ParseTupleAndKeywords &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
 
     int arg_position = 0;
     bool first_optional = true;
     Napi::Object optional_obj;
 
-    // std::cout << "JsArg_ParseTupleAndKeywords start is_optional:"<< is_optional << std::endl;
     while (*fmt_iter && *fmt_iter != ':') {
+        std::cout << "JsArg_ParseTupleAndKeywords pos = " << (fmt_iter - format) << std::endl;
         // Switch to Optional arguments
-        // std::cout << "JsArg_ParseTupleAndKeywords while loop " << std::endl;
-        if (fmt_iter == optional_start) {
-            // std::cout << "1. JsArg_ParseTupleAndKeywords fmt_iter == optional_start is_optional:" << is_optional << std::endl;
+        if (*fmt_iter == '|') {
             fmt_iter++;
-            is_optional = !is_optional;
-            // std::cout << "2. JsArg_ParseTupleAndKeywords fmt_iter == optional_start is_optional:" << is_optional << std::endl;
-            finished = !finished;
+            is_optional = true;
             if (!*fmt_iter) {
                 // should throw error
-                failmsg(info.Env(), "invalid format: '%s' in JsArg_ParseTupleAndKeywords", format);
+                failmsg(info.Env(), "invalid format: '%s' in JsArg_ParseTupleAndKeywords unexpected end of format", format);
                 continue;
             }
         }
 
         if (arg_position >= info.Length()) {
-            // std::cout << "JsArg_ParseTupleAndKeywords(arg_position >= info.Length()) is_optional:" << is_optional << std::endl;
             if (is_optional) {
-                std::cout << "JsArg_ParseTupleAndKeywords is_optional BREAK" << std::endl;
                 // We've reached the end of the required arguments
                 break;
             } else {
-                // std::cout << "JsArg_ParseTupleAndKeywords is_optional NO__________BREAK" << std::endl;
                 // Not enough arguments provided
-                // should throw error
                 va_end(args);
                 failmsg(info.Env(),
-                    "Not enough arguments provided for '%s' arg_position:%d is_optional:%s",
+                    "Not enough arguments provided for '%s' arg_position: %d is_optional: %s",
                     format,
                     arg_position,
                     is_optional ? "true" : "false"
@@ -153,43 +144,48 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
                 return false;
             }
         }
-
         // Set the corresponding varg value
-        const Napi::Value* arg = va_arg(args, Napi::Value*);
+        // Napi::Value* arg = va_arg(args, Napi::Value*);
+        // arg is now a const Napi::Value**
+        const Napi::Value** arg = va_arg(args, const Napi::Value**);
         std::cout << "JsArg_ParseTupleAndKeywords pick arg from VA_Arg " << RED << arg << RESET << std::endl;
-
-        if (is_optional && first_optional) {
-            // Handle the first optional argument as a Record<string, any> object
-            optional_obj = info[arg_position].As<Napi::Object>();
-            first_optional = false;
-        } else if (is_optional) {
-            // Get the following optional argument by name from the optional_obj
-            std::string keyword = *kw_iter;
-            if (optional_obj.Has(keyword)) {
-                // ???
-                // *arg = optional_obj.Get(keyword);
+        if (is_optional) {
+            // if first optional eand last param and is object, then it is the optional object
+            if (first_optional && info.Length() == (arg_position-1)) {
+                if (info[arg_position].IsObject())
+                    optional_obj = info[arg_position].As<Napi::Object>();
+                first_optional = false;
+            }
+            if (!optional_obj) {
+                // we do not have optional object source
+                // *arg = info[arg_position];
+                // prev obj must not be read as an optional povider.
+            } else if (optional_obj.Has(*kw_iter)) {
+                // *arg = optional_obj.Get(*kw_iter);
             } else {
-                // *arg = Napi::Value();
-                // ???
+                // leave it as null the optional value had not be provided
             }
         } else {
-            std::cout << "JsArg_ParseTupleAndKeywords In buggy ! " << RED <<  &info[arg_position] << RESET << std::endl;
-            arg = &info[arg_position];
+            std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
+            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
+            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
+            std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
+            // auto argX = &info[arg_position];
+            *arg = &info[arg_position];
         }
-
         arg_position++;
         fmt_iter++;
         kw_iter++; // Increment kw_iter for each argument
     }
-
-    std::cout << "JsArg_ParseTupleAndKeywords Done" << std::endl;
-
-    // Find the function name
-    const char* function_name = nullptr;
+    // look for the : to find the function name
+    const char* function_name = "??";//nullptr;
+    while  ( *fmt_iter && *fmt_iter != ':') {
+        fmt_iter++;
+    }
     if (*fmt_iter == ':') {
         function_name = fmt_iter + 1;
     }
-
     va_end(args);
+    std::cout << "JsArg_ParseTupleAndKeywords called by " << RED << function_name << RESET << " Done and return true" << std::endl;
     return true;
 }

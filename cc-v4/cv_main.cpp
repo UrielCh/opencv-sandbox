@@ -12,7 +12,7 @@ const std::string RESET("\033[0m");
 
 bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& Arginfo) {
     std::cout << "jsopencv_to String start " << std::endl;
-    if (obj->IsNull() || obj->IsUndefined()) {
+    if (!obj || obj->IsNull() || obj->IsUndefined()) {
         return true;
     }
     std::cout << "jsopencv_to String obj 2 " << std::endl;
@@ -32,7 +32,7 @@ bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& Argin
 // template<>
 bool jsopencv_to(const Napi::Value* obj, int& value, const ArgInfo& Arginfo) {
     std::cout << "jsopencv_to value start " << std::endl;
-    if (obj->IsNull() || obj->IsUndefined())
+    if (!obj || obj->IsNull() || obj->IsUndefined())
         return true;
 
     if (obj->IsNumber()) {
@@ -92,18 +92,16 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 
     std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << " start value " << std::endl;
     bool firstTest = JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags);
-    // std::cout << "cv::imread JsArg_ParseTupleAndKeywords ret " << firstTest << std::endl;
-
-    // std::cout << "JsArg_ParseTupleAndKeywords va arg 1 value is  = " << MAGANTA <<  &pyobj_filename << RESET << std::endl;
 
     std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
     std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << std::endl;
     std::cout << "cv::imread pyobj_filename is stored at " << CYAN << &pyobj_filename << RESET << std::endl;
     // pyobj_filename should be = &info[0]
+    // pyobj_filename = &info[0];
     //
     // fix value by hand.
     if (pyobj_filename != &info[0]) {
-        failmsg(info.Env(), "Error in code internal pyobj_filename(%p) soulbd be eq &info[0](%p)", pyobj_filename, &info[0]);
+        failmsg(info.Env(), "Error in code internal pyobj_filename(%p) soulbd be eq &info[0](%s%p%s)", pyobj_filename, GREEN, &info[0], RESET);
         return info.Env().Null();
     }
     //
