@@ -9,9 +9,9 @@
     "test": "node --expose-gc -r ts-node/register ./src/index-v4.ts",
     "build-ts": "tsc --pretty --project .",
     "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache  --flags \"-DWITH_PYTHON=ON -DBUILD_opencv_python3=ON -DBUILD_opencv_python_bindings_generator=ON\"",
-    "build:dev": "node-gyp build --debug && npm run build-ts",
+    "build:dev": "node-gyp build --debug",
     "build": "node-gyp build && npm run build-ts",
-    "rebuild:dev": "node-gyp rebuild --debug && npm run build-ts",
+    "rebuild:dev": "node-gyp rebuild --debug",
     "rebuild": "node-gyp rebuild && npm run build-ts",
     "clean": "node-gyp clean"
   },

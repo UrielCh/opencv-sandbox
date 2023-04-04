@@ -8,10 +8,11 @@
             "type": "lldb",
             "request": "launch",
             "name": "Launch Program",
-            "preLaunchTask": "npm: build:dev",
+            "+preLaunchTask": "npm: build:dev",
             "program": "node",
             "args": [
-               "${workspaceFolder}/dist/cjs/src/index.js"
+                "--expose-gc", "-r", "ts-node/register",
+               "${workspaceFolder}/src/index-v4.ts"
             ]
         }
     ]
