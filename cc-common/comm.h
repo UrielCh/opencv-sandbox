@@ -39,6 +39,7 @@ bool jsopencv_to_safe(const Napi::Value* obj, const _Tp& value, const ArgInfo& a
 
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
 int failmsg(const Napi::Env& env, const char* format, ...);
+
 Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
 
 #define ERRWRAP2_NAPI(info, expr)  \

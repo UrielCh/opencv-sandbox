@@ -75,22 +75,38 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 //     return info.Env().Null();
 // }
 
+// , ...
+void test1(const Napi::CallbackInfo& info, const char* format, char** keywords) {
+    std::cout << "Test1 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+}
+
+void test2(const Napi::CallbackInfo& info, ...) {
+    std::cout << "Test2 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+}
+
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
-    using namespace cv;
+    const char* keywords[] = { "filename", "flags", NULL };
+    std::cout << "Test0 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
 
+    test1(info, "format",  (char**) keywords);
+
+    test2(info, "format",  (char**) keywords);
+    test2(info, "format",  (char**) keywords);
+
+    using namespace cv;
     const Napi::Value* pyobj_filename = NULL;
     String filename;
     const Napi::Value* pyobj_flags = NULL;
     int flags=IMREAD_COLOR;
     Mat retval;
     std::cout << "cv::imread get called" << std::endl;
-    const char* keywords[] = { "filename", "flags", NULL };
 
     // to DEBUG.
     std::cout << "jsopencv_cv_imread         &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
 
     std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << " start value " << std::endl;
+    std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
     bool firstTest = JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags);
 
     std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
@@ -101,7 +117,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     //
     // fix value by hand.
     if (pyobj_filename != &info[0]) {
-        failmsg(info.Env(), "Error in code internal pyobj_filename(%p) soulbd be eq &info[0](%s%p%s)", pyobj_filename, GREEN, &info[0], RESET);
+        failmsg(info.Env(), "Error in code internal pyobj_filename(%s%p%s) should be eq &info[0](%s%p%s)", GREEN, pyobj_filename, RESET, GREEN, &info[0], RESET);
         return info.Env().Null();
     }
     //

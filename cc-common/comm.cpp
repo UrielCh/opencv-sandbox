@@ -88,6 +88,7 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
     va_end(args);
     return true;
 }
+
 /**
  * @brief act as PyArg_ParseTupleAndKeywords
  * 
@@ -99,6 +100,7 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
  * @return false 
  */
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
+    std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
     // Prepare to handle variable arguments
     va_list args;
     va_start(args, keywords);

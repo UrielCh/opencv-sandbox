@@ -80,6 +80,7 @@ async function main() {
 async function main2() {
     // console.log("main2", theModule.imread)
     // const tmp = new theModule.cvMatObject(50000, 2000);
+    try {
     const logo = theModule.imread('./data/logo.png')
     console.log("logo cols:", logo.cols, " rows:", logo.rows, " type:", logo.type)
     console.log("-----------")
@@ -93,7 +94,9 @@ async function main2() {
     } catch (e) {
         console.log("logo.rows is readonly Throw Ok");
     }
-
+    } catch (e) {
+        console.log((e as Error).message);
+    }
 }
 main2();
 
