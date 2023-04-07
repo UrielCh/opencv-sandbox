@@ -95,10 +95,10 @@ cvMatObject::cvMatObject(const Napi::CallbackInfo &info, cv::Mat &matIn) : Napi:
 cvMatObject::~cvMatObject()
 {
     releaseCnt++;
-    if (releaseCnt == 1)
-        std::cout << "first mat released called" << std::endl;
-    if (releaseCnt == 2)
-        std::cout << "Second mat released called following once will not be displayed" << std::endl;
+    // if (releaseCnt == 1)
+    //     std::cout << "first mat released called" << std::endl;
+    // if (releaseCnt == 2)
+    //     std::cout << "Second mat released called following once will not be displayed" << std::endl;
     mat.release();
 }
 

@@ -100,11 +100,32 @@ async function main2() {
 }
 
 
+const IMREAD_UNCHANGED = -1; //!< If set, return the loaded image as is (with alpha channel, otherwise it gets cropped). Ignore EXIF orientation.
+const IMREAD_GRAYSCALE = 0;  //!< If set, always convert image to the single channel grayscale image (codec internal conversion).
+const IMREAD_COLOR = 1;  //!< If set, always convert image to the 3 channel BGR color image.
+const IMREAD_ANYDEPTH = 2;  //!< If set, return 16-bit/32-bit image when the input has the corresponding depth, otherwise convert it to 8-bit.
+const IMREAD_ANYCOLOR = 4;  //!< If set, the image is read in any possible color format.
+const IMREAD_LOAD_GDAL = 8;  //!< If set, use the gdal driver for loading the image.
+const IMREAD_REDUCED_GRAYSCALE_2 = 16; //!< If set, always convert image to the single channel grayscale image and the image size reduced 1/2.
+const IMREAD_REDUCED_COLOR_2 = 17; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/2.
+const IMREAD_REDUCED_GRAYSCALE_4 = 32; //!< If set, always convert image to the single channel grayscale image and the image size reduced 1/4.
+const IMREAD_REDUCED_COLOR_4 = 33; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/4.
+const IMREAD_REDUCED_GRAYSCALE_8 = 64; //!< If set, always convert image to the single channel grayscale image and the image size reduced 1/8.
+const IMREAD_REDUCED_COLOR_8 = 65; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/8.
+const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image according to EXIF's orientation flag.
+
+
 async function main3() {
     try {
-        theModule.test();
-        const logo = theModule.imread('./data/logo.png')
-        console.log("logo:", logo.toString())
+        // load with default params
+        let logo = theModule.imread('./data/logo.png')
+        console.log("logo load default:\n", logo.toString())
+        logo = theModule.imread('./data/logo.png', IMREAD_REDUCED_GRAYSCALE_2)
+        console.log("logo load IMREAD_REDUCED_GRAYSCALE_2 as arg 2:\n", logo.toString())
+        logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
+        console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.toString())
+        logo = theModule.imread('./data/logo.png', {})
+        console.log("logo load {} as opts:\n", logo.toString())
     } catch (e) {
         console.log((e as Error).message);
     }

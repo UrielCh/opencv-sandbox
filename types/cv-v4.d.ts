@@ -16,5 +16,7 @@ export class cvMatObject {
 }
 
 export function imread(filename: string): cvMatObject;
+export function imread(filename: string, flags?: number): cvMatObject;
+export function imread(filename: string, options?: {flags?: number}): cvMatObject;
 
 export function test(...params: unknown[]): Null;

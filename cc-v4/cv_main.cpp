@@ -12,11 +12,11 @@ const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
 bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& Arginfo) {
-    std::cout << "jsopencv_to String start " << std::endl;
+    // std::cout << "jsopencv_to String start " << std::endl;
     if (!obj || obj->IsNull() || obj->IsUndefined()) {
         return true;
     }
-    std::cout << "jsopencv_to String obj 2 " << std::endl;
+    // std::cout << "jsopencv_to String obj 2 " << std::endl;
     // std::cout << "obj is defined" << std::endl;
 
     if (obj->IsString()) {
@@ -32,7 +32,7 @@ bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& Argin
 
 // template<>
 bool jsopencv_to(const Napi::Value* obj, int& value, const ArgInfo& Arginfo) {
-    std::cout << "jsopencv_to value start " << std::endl;
+    // std::cout << "jsopencv_to value start int " << std::endl;
     if (!obj || obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -90,7 +90,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     const Napi::Value* pyobj_filename = NULL;
     String filename;
     const Napi::Value* pyobj_flags = NULL;
-    int flags=IMREAD_COLOR;
+    int flags = IMREAD_COLOR;
     Mat retval;
     auto ptr = &info;
     auto ptr2 = &((*ptr)[0]);
@@ -102,9 +102,9 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
         jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to(pyobj_flags, flags, ArgInfo("flags", 0)))
     {
-        std::cout << "cv::imread ERRWRAP2_NAPI called " << firstTest << std::endl;
+        // std::cout << "cv::imread ERRWRAP2_NAPI called " << firstTest << std::endl;
         ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
-        std::cout << "cv::imread jsopencv_from called " << firstTest << std::endl;
+        // std::cout << "cv::imread jsopencv_from called " << firstTest << std::endl;
         return jsopencv_from(info, retval);
     }
 
