@@ -1,3 +1,4 @@
+import { cvMatObject } from "../types/cv-v4";
 import { getModulePath } from "./openCVLoader";
 
 const impPath = getModulePath();
@@ -117,8 +118,9 @@ const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image acco
 
 async function main3() {
     try {
+        let logo: cvMatObject;
         // load with default params
-        let logo = theModule.imread('./data/logo.png')
+        logo = theModule.imread('./data/logo.png')
         console.log("logo load default:\n", logo.toString())
         logo = theModule.imread('./data/logo.png', IMREAD_REDUCED_GRAYSCALE_2)
         console.log("logo load IMREAD_REDUCED_GRAYSCALE_2 as arg 2:\n", logo.toString())

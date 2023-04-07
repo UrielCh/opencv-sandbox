@@ -24,48 +24,6 @@ void JsErr_SetString(const Napi::Env &env, const std::string &message)
     Napi::Error::New(env, message).ThrowAsJavaScriptException();
 }
 
-bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo &info, const char *format, char **keywords, ...)
-{
-    int numKeywords = 0;
-    while (keywords[numKeywords] != NULL)
-    {
-        numKeywords++;
-    }
-
-    if (info.Length() < numKeywords)
-    {
-        Napi::TypeError::New(info.Env(), "Not enough arguments provided").ThrowAsJavaScriptException();
-        return false;
-    }
-
-    va_list args;
-    va_start(args, keywords);
-
-    for (int i = 0; i < numKeywords; i++)
-    {
-        Napi::Value *arg = va_arg(args, Napi::Value *);
-        if (!arg || !info[i].IsObject())
-        {
-            va_end(args);
-            Napi::TypeError::New(info.Env(), "Expected object for argument").ThrowAsJavaScriptException();
-            return false;
-        }
-
-        Napi::Object obj = info[i].As<Napi::Object>();
-        Napi::String key = Napi::String::New(info.Env(), keywords[i]);
-        if (!obj.HasOwnProperty(key))
-        {
-            va_end(args);
-            Napi::TypeError::New(info.Env(), "Missing required keyword argument").ThrowAsJavaScriptException();
-            return false;
-        }
-
-        *arg = obj.Get(key);
-    }
-
-    va_end(args);
-    return true;
-}
 
 static Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module) {
     const Napi::Env env = module->Env();

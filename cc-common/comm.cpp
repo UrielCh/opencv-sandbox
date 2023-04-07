@@ -117,7 +117,6 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
     Napi::Object optional_obj;
 
     while (*fmt_iter && *fmt_iter != ':') {
-        // std::cout << "JsArg_ParseTupleAndKeywords pos = " << (fmt_iter - format) << std::endl;
         // Switch to Optional arguments
         if (*fmt_iter == '|') {
             fmt_iter++;
@@ -128,7 +127,6 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
                 continue;
             }
         }
-
         if (arg_position >= info.Length()) {
             if (is_optional) {
                 // We've reached the end of the required arguments
@@ -149,18 +147,17 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         // Napi::Value* arg = va_arg(args, Napi::Value*);
         // arg is now a const Napi::Value**
         const Napi::Value** arg = va_arg(args, const Napi::Value**);
-        // std::cout << "JsArg_ParseTupleAndKeywords pick arg from VA_Arg " << RED << arg << RESET << std::endl;
         if (is_optional) {
             // if first optional eand last param and is object, then it is the optional object
-            if (first_optional && info.Length() == (arg_position-1)) {
-                if ((info)[arg_position].IsObject())
+            if (first_optional && info.Length() == (arg_position+1)) {
+                if ((info)[arg_position].IsObject()) {
                     optional_obj = info[arg_position].As<Napi::Object>();
+                }
                 first_optional = false;
             }
             if (!optional_obj) {
                 // we do not have optional object source
-                // *arg = info[arg_position];
-                // prev obj must not be read as an optional povider.
+                *arg = new Napi::Value(info.Env(), info[arg_position]);
             } else if (optional_obj.Has(*kw_iter)) {
                 *arg = new Napi::Value(info.Env(), optional_obj.Get(*kw_iter));
             } else {
@@ -182,6 +179,5 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         function_name = fmt_iter + 1;
     }
     va_end(args);
-    // std::cout << "JsArg_ParseTupleAndKeywords called by " << RED << function_name << RESET << " Done and return true" << std::endl;
     return true;
 }

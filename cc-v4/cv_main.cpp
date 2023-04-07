@@ -92,19 +92,13 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     const Napi::Value* pyobj_flags = NULL;
     int flags = IMREAD_COLOR;
     Mat retval;
-    auto ptr = &info;
-    auto ptr2 = &((*ptr)[0]);
     bool firstTest = JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags);
-    // jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0));
-    // std::cout << "cv::imread pyobj_filename = " << filename << std::endl;
-    // std::cout << "cv::imread pyobj_flags = " << flags << std::endl;
+
     if (firstTest &&
         jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to(pyobj_flags, flags, ArgInfo("flags", 0)))
     {
-        // std::cout << "cv::imread ERRWRAP2_NAPI called " << firstTest << std::endl;
         ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
-        // std::cout << "cv::imread jsopencv_from called " << firstTest << std::endl;
         return jsopencv_from(info, retval);
     }
 
@@ -114,7 +108,6 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 
 // , ...
 void test1b(const Napi::CallbackInfo* info, const char* format, char** keywords) {
-    // std::cout << "Test1 &info is: " << MAGANTA << info << RESET << " &info[0] is: " << MAGANTA << &((*info)[0]) << RESET << std::endl;
     std::cout << "Test1 byPtr     &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA <<&((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(info[0]) << RESET<< std::endl;
 }
 
