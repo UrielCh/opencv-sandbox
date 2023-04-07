@@ -112,7 +112,7 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
     bool is_optional = false;
     // std::cout << "JsArg_ParseTupleAndKeywords &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
 
-    int arg_position = 0;
+    size_t arg_position = 0;
     bool first_optional = true;
     Napi::Object optional_obj;
 
