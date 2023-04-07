@@ -140,8 +140,10 @@ async function testimEncode() {
         logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
         console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.toString())
 
-        const out = theModule.imencode(".png", logo);
-        console.log(out);
+        if (theModule.imencode) {
+            const out = theModule.imencode(".png", logo);
+            console.log(out);
+        }
     } catch (e) {
         console.log((e as Error).message);
     }
