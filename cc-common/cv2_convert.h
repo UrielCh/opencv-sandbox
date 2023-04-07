@@ -2,6 +2,7 @@
 #define CV2_CONVERT_HPP2
 
 #include "common_cv2.h"
+#include "js_as_py.h"
 // #include "cv2_util.hpp"
 // #include <vector>
 // #include <string>
@@ -96,7 +97,7 @@ struct JsOpenCV_Converter< cv::Ptr<T> >
     static Napi::Value from(const Napi::CallbackInfo &info, const cv::Ptr<T>& p)
     {
         if (!p)
-            return info.Env().Null()// Py_RETURN_NONE;
+            return info.Env().Null(); // Py_RETURN_NONE;
         return pyopencv_from(*p);
     }
     static bool to(const Napi::Value *o, cv::Ptr<T>& p, const ArgInfo& argInfo)
@@ -266,7 +267,7 @@ Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const std::vector<Tp>&
 template <typename Tp>
 static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& info)
 {
-    if (!obj || dst->IsNull() || dst->IsUndefined())
+    if (!obj || obj->IsNull() || obj->IsUndefined())
     {
         return true;
     }
@@ -288,34 +289,34 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
     }
     return true;
 }
-
+// need numpy ?
 // template<> inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& value, const ArgInfo& info)
 // {
-//     if (!obj || obj == Py_None)
+//     if (!obj || obj->IsNull() || obj->IsUndefined())
 //     {
 //         return true;
 //     }
-//     if (!PySequence_Check(obj))
+//     if (!JsSequence_Check(obj))
 //     {
 //         failmsg("Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
 //         return false;
 //     }
-//     const size_t n = static_cast<size_t>(PySequence_Size(obj));
+//     const size_t n = static_cast<size_t>(JsSequence_Size(obj));
 //     value.resize(n);
 //     for (size_t i = 0; i < n; i++)
 //     {
 //         SafeSeqItem item_wrap(obj, i);
 //         bool elem{};
-//         if (!pyopencv_to(item_wrap.item, elem, info))
+//         if (!jsopencv_to(item_wrap.item, elem, info))
 //         {
-//             failmsg("Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
+//             failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
 //             return false;
 //         }
 //         value[i] = elem;
 //     }
 //     return true;
 // }
-// 
+
 
 
 #endif
