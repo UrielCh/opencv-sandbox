@@ -100,6 +100,9 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
  * @return false 
  */
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
+
+    std::cout << "cv::imreXX info[0]        = " << GREEN << &info[0] << RESET << std::endl;
+
     std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
     // Prepare to handle variable arguments
     va_list args;
@@ -111,14 +114,14 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
 
     // Check if we reached the end of the format string
     bool is_optional = false;
-    std::cout << "JsArg_ParseTupleAndKeywords &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
+    // std::cout << "JsArg_ParseTupleAndKeywords &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
 
     int arg_position = 0;
     bool first_optional = true;
     Napi::Object optional_obj;
 
     while (*fmt_iter && *fmt_iter != ':') {
-        std::cout << "JsArg_ParseTupleAndKeywords pos = " << (fmt_iter - format) << std::endl;
+        // std::cout << "JsArg_ParseTupleAndKeywords pos = " << (fmt_iter - format) << std::endl;
         // Switch to Optional arguments
         if (*fmt_iter == '|') {
             fmt_iter++;
@@ -150,7 +153,7 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         // Napi::Value* arg = va_arg(args, Napi::Value*);
         // arg is now a const Napi::Value**
         const Napi::Value** arg = va_arg(args, const Napi::Value**);
-        std::cout << "JsArg_ParseTupleAndKeywords pick arg from VA_Arg " << RED << arg << RESET << std::endl;
+        // std::cout << "JsArg_ParseTupleAndKeywords pick arg from VA_Arg " << RED << arg << RESET << std::endl;
         if (is_optional) {
             // if first optional eand last param and is object, then it is the optional object
             if (first_optional && info.Length() == (arg_position-1)) {
@@ -168,10 +171,10 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
                 // leave it as null the optional value had not be provided
             }
         } else {
-            std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
+            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
             // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
             // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
-            std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
+            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
             // auto argX = &info[arg_position];
             *arg = &info[arg_position];
         }
@@ -188,6 +191,6 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         function_name = fmt_iter + 1;
     }
     va_end(args);
-    std::cout << "JsArg_ParseTupleAndKeywords called by " << RED << function_name << RESET << " Done and return true" << std::endl;
+    // std::cout << "JsArg_ParseTupleAndKeywords called by " << RED << function_name << RESET << " Done and return true" << std::endl;
     return true;
 }

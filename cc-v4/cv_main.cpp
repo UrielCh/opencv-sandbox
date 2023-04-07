@@ -77,22 +77,23 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 
 // , ...
 void test1(const Napi::CallbackInfo& info, const char* format, char** keywords) {
-    std::cout << "Test1 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+    std::cout << "Test Ref noDot: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
 }
 
 void test2(const Napi::CallbackInfo& info, ...) {
-    std::cout << "Test2 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+//    std::cout << "Test2 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+    std::cout << "Test Ref  ... : " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
 }
 
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
     const char* keywords[] = { "filename", "flags", NULL };
     std::cout << "Test0 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
-
     test1(info, "format",  (char**) keywords);
+    test2(info, "format",  (char**) keywords);
 
-    test2(info, "format",  (char**) keywords);
-    test2(info, "format",  (char**) keywords);
+
+    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
 
     using namespace cv;
     const Napi::Value* pyobj_filename = NULL;
@@ -105,10 +106,15 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     // to DEBUG.
     std::cout << "jsopencv_cv_imread         &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
 
-    std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << " start value " << std::endl;
-    std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+
+    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
+    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
+
+    // std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << " start value " << std::endl;
+    // std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
     bool firstTest = JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags);
 
+    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
     std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
     std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << std::endl;
     std::cout << "cv::imread pyobj_filename is stored at " << CYAN << &pyobj_filename << RESET << std::endl;

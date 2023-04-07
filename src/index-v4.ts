@@ -15,7 +15,7 @@ async function allocationTest(pass: number) {
     // const cv2 = cv2tmp as typeof import('../types/cv-v1');
     // main.ts
     // import cvMatObject = require('./cvMatObjectWrapper');
-    let cnt = { alloc: 0, release: 0};
+    let cnt = { alloc: 0, release: 0 };
     console.log(`the current module contains ${Object.keys(theModule).length} exports:`)
     for (const key of Object.keys(theModule)) {
         console.log(`the ${key} of type: ${typeof ((theModule as any)[key])}`)
@@ -28,7 +28,7 @@ async function allocationTest(pass: number) {
             const tmp = new theModule.cvMatObject(50000, 2000 + (i % 100));
             cnt.alloc++;
             // console.log(`a new Mat is available with size: ${tmp.rows} x ${tmp.cols} Type: ${tmp.type}`,);
-            if ('Release' in tmp && typeof(tmp.Release) === 'function') {
+            if ('Release' in tmp && typeof (tmp.Release) === 'function') {
                 // tmp.Release();
                 cnt.release++;
             }
@@ -81,19 +81,19 @@ async function main2() {
     // console.log("main2", theModule.imread)
     // const tmp = new theModule.cvMatObject(50000, 2000);
     try {
-    const logo = theModule.imread('./data/logo.png')
-    console.log("logo cols:", logo.cols, " rows:", logo.rows, " type:", logo.type)
-    console.log("-----------")
-    console.log("logo:", logo)
-    console.log("Object.keys(logo) return:", Object.keys(logo))
-    console.log("logo:", logo.toString())
+        const logo = theModule.imread('./data/logo.png')
+        console.log("logo cols:", logo.cols, " rows:", logo.rows, " type:", logo.type)
+        console.log("-----------")
+        console.log("logo:", logo)
+        console.log("Object.keys(logo) return:", Object.keys(logo))
+        console.log("logo:", logo.toString())
 
-    try {
-        // @ts-expect-error write a readonly property
-        logo.rows = 1;
-    } catch (e) {
-        console.log("logo.rows is readonly Throw Ok");
-    }
+        try {
+            // @ts-expect-error write a readonly property
+            logo.rows = 1;
+        } catch (e) {
+            console.log("logo.rows is readonly Throw Ok");
+        }
     } catch (e) {
         console.log((e as Error).message);
     }
@@ -101,7 +101,13 @@ async function main2() {
 
 
 async function main3() {
-    theModule.test();
+    try {
+        theModule.test();
+        const logo = theModule.imread('./data/logo.png')
+        console.log("logo:", logo.toString())
+    } catch (e) {
+        console.log((e as Error).message);
+    }
 }
 
 main3();
