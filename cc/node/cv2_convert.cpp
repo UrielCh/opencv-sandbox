@@ -19,7 +19,7 @@ using namespace cv;
 
 // special case, when the converter needs full ArgInfo structure
 template<> // L:32
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Mat& m, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, Mat& m, const ArgInfo& argInfo) {
 
 
     return true;
@@ -46,7 +46,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 }
 // --- bool // L:255
 template<> // L:257
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value, const ArgInfo& argInfo)
+bool jsopencv_to(const Napi::Value* obj, bool& value, const ArgInfo& argInfo)
 {
     // if (!obj || obj == NULL)
     if (obj->IsNull() || obj->IsUndefined())
@@ -62,7 +62,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, bool& value, 
     }
     // Napi::TypeError::New(env, "Failed to parse boolean value").ThrowAsJavaScriptException();
     // return false;
-    failmsg(info, "Argument '%s' is not convertable to bool", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to bool", argInfo.name);
     return false;
 }
 
@@ -75,7 +75,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const bool& value)
 // --- ptr
 
 // template<>
-// bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
+// bool jsopencv_to(const Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
 // {
 //     CV_UNUSED(info);
 //     if (obj->IsNull() || obj->IsUndefined())
@@ -95,27 +95,27 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const bool& value)
 // -- Scalar
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value *obj, Scalar& s, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value *obj, Scalar& s, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
     if (obj->IsArray()) {
         Napi::Array arr = obj->As<Napi::Array>();
         if (arr.Length() != 4) {
-            failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+            failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
             return false;
         }
         for (int i = 0; i < 4; i++) {
             Napi::Value v = arr.Get(i);
             if (!v.IsNumber()) {
-                failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+                failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
                 return false;
             }
             s[i] = v.As<Napi::Number>().DoubleValue();
         }
         return true;
     }
-    failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
     return false;
 }
 
@@ -141,7 +141,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Scalar& src) {
 // --- size_t
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, size_t& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -149,7 +149,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, size_t& value
         value = obj->ToNumber().Uint32Value();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to size_t", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to size_t", argInfo.name);
     return false;
 }
 
@@ -162,7 +162,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const size_t& value)
 // --- int
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value, const ArgInfo& Arginfo) {
+bool jsopencv_to(const Napi::Value* obj, int& value, const ArgInfo& Arginfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -170,32 +170,30 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int& value, c
         value = obj->ToNumber().Int32Value();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to int", Arginfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to int", Arginfo.name);
     return false;
 }
 
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int& value)
+{
+    return Napi::Number::New(info.Env(), value);
+}
 
+// --- int64
 
-// template<>
-// Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int& value)
-// {
-//     return Napi::Number::New(info.Env(), value);
-// }
-// 
-// // --- int64
-// 
-// template<>
-// bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
-//     if (obj->IsNull() || obj->IsUndefined())
-//         return true;
-// 
-//     if (obj->IsNumber()) {
-//         value = obj->ToNumber().Int64Value();
-//         return true;
-//     }
-//     failmsg(info, "Argument '%s' is not convertable to int64", argInfo.name);
-//     return false;
-// }
+template<>
+bool jsopencv_to(const Napi::Value* obj, int64& value, const ArgInfo& argInfo) {
+    if (obj->IsNull() || obj->IsUndefined())
+        return true;
+
+    if (obj->IsNumber()) {
+        value = obj->ToNumber().Int64Value();
+        return true;
+    }
+    failmsg(obj->Env(), "Argument '%s' is not convertable to int64", argInfo.name);
+    return false;
+}
 
 
 template<>
@@ -208,7 +206,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int64& value)
 // --- uchar
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, uchar& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, uchar& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -216,7 +214,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, uchar& value,
         value = obj->ToNumber().Uint32Value();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to uchar", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to uchar", argInfo.name);
     return false;
 }
 template<>
@@ -226,7 +224,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const uchar& value)
 }
 // --- char
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, char& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, char& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -234,7 +232,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, char& value, 
         value = obj->ToNumber().Int32Value();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to char", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to char", argInfo.name);
     return false;
 }
 
@@ -242,7 +240,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, char& value, 
 // --- double
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, double& value, const ArgInfo& argInfo)
+bool jsopencv_to(const Napi::Value* obj, double& value, const ArgInfo& argInfo)
 {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
@@ -251,7 +249,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, double& value
         value = obj->ToNumber().DoubleValue();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to double", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to double", argInfo.name);
     return false;
 }
 
@@ -264,7 +262,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const double& value)
 // --- float
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, float& value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, float& value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -272,7 +270,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, float& value,
         value = obj->ToNumber().FloatValue();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to float", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to float", argInfo.name);
     return false;
 }
 
@@ -285,7 +283,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const float& value)
 // --- string
 
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, String &value, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, String &value, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -293,7 +291,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, String &value
         value = obj->ToString().Utf8Value();
         return true;
     }
-    failmsg(info, "Argument '%s' is not convertable to string", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not convertable to string", argInfo.name);
     return false;
 }
 
@@ -311,7 +309,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const String& value) {
  * the size can be format as [Number, Number] or a {width: Number, height: Number}
  */
 template<>
-bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, const ArgInfo& argInfo) {
+bool jsopencv_to(const Napi::Value* obj, Size& sz, const ArgInfo& argInfo) {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
 
@@ -319,14 +317,14 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, con
         Napi::Object arr = obj->As<Napi::Array>();
         Napi::Value v = arr.Get("width");
         if (!v.IsNumber()) {
-            failmsg(info, "Argument '%s' is not a valid size, width is missing", argInfo.name);
+            failmsg(obj->Env(), "Argument '%s' is not a valid size, width is missing", argInfo.name);
             return false;
         }
         sz.width = v.As<Napi::Number>().Int32Value();
 
         Napi::Value v2 = arr.Get("height");
         if (!v2.IsNumber()) {
-            failmsg(info, "Argument '%s' is not a valid size, height is missing", argInfo.name);
+            failmsg(obj->Env(), "Argument '%s' is not a valid size, height is missing", argInfo.name);
             return false;
         }
         sz.height = v2.As<Napi::Number>().Int32Value();
@@ -334,13 +332,13 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, con
     } else if (obj->IsArray()) {
         Napi::Array arr = obj->As<Napi::Array>();
         if (arr.Length() != 2) {
-            failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+            failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
             return false;
         }
         for (int i = 0; i < 2; i++) {
             Napi::Value v = arr.Get(i);
             if (!v.IsNumber()) {
-                failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+                failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
                 return false;
             }
             if (i == 0)
@@ -350,7 +348,7 @@ bool jsopencv_to(const Napi::CallbackInfo &info, Napi::Value* obj, Size& sz, con
         }
         return true;
     }
-    failmsg(info, "Argument '%s' is not a valid size", argInfo.name);
+    failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
     return false;
 }
 

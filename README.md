@@ -24,15 +24,20 @@ in vscode choose the correct C/C++ configuration at the bootom rigth of your scr
 
 ### Install the python environment
 
+doc: https://docs.conda.io/projects/conda/en/4.6.0/user-guide/tasks/manage-environments.html
 ```bash
-conda create --file environment.yml python=3.7
+# list availible env:
+conda info --envs
+# list package in the dedicate env:
+conda create --name opencv-sandbox python=3.7
+conda list -n opencv-sandbox
 conda activate opencv-sandbox
 ```
 
 ### Install the python package locally
 
 ```bash
-pip install .
+pip install -e .
 ```
 
 ### Prepare the headers
@@ -51,7 +56,18 @@ To generate only part of the bindings, you can remove line from `data/headers.tx
 
 The minimum `data/headers.txt` file is 
 ```txt
-/<opencv source location>/modules/core/include/opencv2/core.hpp
+${OPENCV_BUILD_ROOT}/latest/build/modules/core/include/opencv2/core.hpp
+${Env:OPENCV_BUILD_ROOT}/latest/build/modules/core/include/opencv2/core.hpp
+%OPENCV_BUILD_ROOT%/latest/build/modules/core/include/opencv2/core.hpp
+```
+
+### run original generator:
+
+```powershell
+cd ${Env:OPENCV_BUILD_ROOT}/latest/opencv/modules/python/src2
+conda activate opencv-sandbox
+mkdir dst
+python gen2.py dst
 ```
 
 ### Run the generator
@@ -64,3 +80,20 @@ python nodejs_opencv_generator/gen2.py cc-generated data/headers.txt
 ```
 
 The code whould be visible in `cc-generated`
+
+
+### References
+
+- [cpython](https://github.com/python/cpython) fo check the unbderlying implementation of python functions.
+- [opencv](https://github.com/opencv/opencv) opencv source code
+- [opencv build helper](https://github.com/UrielCh/npm-opencv-build)
+- [cpp insights](https://cppinsights.io/) for better templates undetanding
+- [issue node-addon-api](https://github.com/nodejs/node-addon-api/issues/1120)
+- [node-sqlite3 use node-addon-api](https://github.com/TryGhost/node-sqlite3)
+- [leveldown use N-API via napi-macros](https://github.com/Level/leveldown)
+
+
+### N-API libbs:
+
+- [node-addon-api](https://www.npmjs.com/package/node-addon-api)
+- [napi-macros](https://www.npmjs.com/package/napi-macros)

@@ -25,15 +25,65 @@ class PythonWrapperGenerator(object):
         self.namespaces = {}
         self.consts = {}
         self.enums = {}
-        self.code_include = StringIO()
-        self.code_enums = StringIO()
-        self.code_types = StringIO()
-        self.code_funcs = StringIO()
-        self.code_ns_reg = StringIO()
-        self.code_ns_init = StringIO()
-        self.code_type_publish = StringIO()
-        self.py_signatures = dict()
+        self.code_include = StringIO()      # jsopencv_generated_include.h
+
+        self.code_enums = StringIO()        # jsopencv_generated_enums.h
+        self.code_enums.write("#ifndef __JSOPENCV_GENERATED_ENUMS_H__\n")
+        self.code_enums.write("#define __JSOPENCV_GENERATED_ENUMS_H__\n")
+        self.code_enums.write("#include <napi.h>\n")
+        self.code_enums.write("#include <../node/js_as_py.hpp>\n")
+        self.code_enums.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_enums.write("#include <../node/jscompat.hpp>\n")
+        self.code_enums.write("\n")
+
+        self.code_types = StringIO()        # jsopencv_generated_types_content.h
+        self.code_types.write("#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
+        self.code_types.write("#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
+        self.code_types.write("#include <napi.h>\n")
+        self.code_types.write("#include <../node/js_as_py.hpp>\n")
+        self.code_types.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_types.write("#include <node/cv2.hpp>\n")
+        self.code_types.write("#include <node/cv2_util.hpp>\n")
+        self.code_types.write("\n")
+
+        self.code_funcs = StringIO()        # jsopencv_generated_funcs.h
+        self.code_funcs.write("#ifndef __JSOPENCV_GENERATED_FUNCS_H__\n")
+        self.code_funcs.write("#define __JSOPENCV_GENERATED_FUNCS_H__\n")
+        self.code_funcs.write("#include <napi.h>\n")
+        self.code_funcs.write("#include <../node/js_as_py.hpp>\n")
+        self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
+        self.code_funcs.write("#include <opencv2/opencv.hpp>\n")
+        self.code_funcs.write("#include <jsopencv_generated_enums.h>\n")
+        self.code_funcs.write("#include <cv2_macro.hpp>\n")
+        self.code_funcs.write("\n")
+        self.code_funcs.write("using namespace cv;\n")
+        self.code_funcs.write("\n")
+
+        self.code_ns_reg = StringIO()       # jsopencv_generated_modules_content.h
+        self.code_ns_reg.write("#ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
+        self.code_ns_reg.write("#define __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
+        self.code_ns_reg.write("#include <napi.h>\n")
+        self.code_ns_reg.write("#include <../node/jscompat.hpp>\n")
+        self.code_ns_reg.write("#include <jsopencv_generated_funcs.h>\n")
+        self.code_ns_reg.write("\n")
+
+        self.code_ns_init = StringIO()      # jsopencv_generated_modules.h
+        self.code_ns_init.write("// This code will be import within the function:\n")
+        self.code_ns_init.write("// init_body(Napi::Env env, Napi::Object exports) function in cv2.cpp\n")
+        self.code_ns_init.write("// an Napi::Env env, and a Napi::Object exports will be provided\n")
+        self.code_ns_init.write("// CVJS_MODULE macro will invoque init_submodule\n")
+        self.code_ns_init.write("\n")
+
+        self.code_type_publish = StringIO() # jsopencv_generated_types.h
+        self.code_type_publish.write("#ifndef __JSOPENCV_GENERATED_TYPES_H__\n")
+        self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
+        self.code_type_publish.write("#include \"../node/cv2_macro.hpp\"\n")
+        self.code_type_publish.write("#include \"../node/js_as_py.hpp\"\n")
+        self.code_type_publish.write("\n")
+
+        self.py_signatures = dict()         # jsopencv_signatures.json
         self.class_idx = 0
+
 
     def add_class(self, stype, name, decl):
         classinfo = ClassInfo(name, decl, self)
@@ -184,12 +234,12 @@ class PythonWrapperGenerator(object):
         ns = self.namespaces[ns_name]
         wname = normalize_class_name(ns_name)
 
-        self.code_ns_reg.write('static PyMethodDef methods_%s[] = {\n'%wname)
+        self.code_ns_reg.write('static JsMethodDef methods_%s[] = {\n'%wname)
         for name, func in sorted(ns.funcs.items()):
             if func.isconstructor:
                 continue
             self.code_ns_reg.write(func.get_tab_entry())
-        custom_entries_macro = 'PYOPENCV_EXTRA_METHODS_{}'.format(wname.upper())
+        custom_entries_macro = 'JSOPENCV_EXTRA_METHODS_{}'.format(wname.upper())
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, NULL}\n};\n\n')
 
@@ -199,7 +249,7 @@ class PythonWrapperGenerator(object):
             compat_name = re.sub(r"([a-z])([A-Z])", r"\1_\2", name).upper()
             if name != compat_name:
                 self.code_ns_reg.write('    {"%s", static_cast<long>(%s)},\n'%(compat_name, cname))
-        custom_entries_macro = 'PYOPENCV_EXTRA_CONSTANTS_{}'.format(wname.upper())
+        custom_entries_macro = 'JSOPENCV_EXTRA_CONSTANTS_{}'.format(wname.upper())
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, 0}\n};\n\n')
 
@@ -216,7 +266,7 @@ class PythonWrapperGenerator(object):
         code = ""
         if re.sub(r"^cv\.", "", enum_name) != wname:
             code += "typedef {0} {1};\n".format(cname, wname)
-        code += "CV_PY_FROM_ENUM({0});\nCV_PY_TO_ENUM({0});\n\n".format(wname)
+        code += "CV_JS_FROM_ENUM({0});\nCV_JS_TO_ENUM({0});\n\n".format(wname)
         self.code_enums.write(code)
 
     def save(self, path, name, buf):
@@ -354,7 +404,7 @@ class PythonWrapperGenerator(object):
                 code = func.gen_code(self)
                 self.code_funcs.write(code)
             self.gen_namespace(ns_name)
-            self.code_ns_init.write('CVPY_MODULE("{}", {});\n'.format(ns_name[2:], normalize_class_name(ns_name)))
+            self.code_ns_init.write('CVJS_MODULE("{}", {});\n'.format(ns_name[2:], normalize_class_name(ns_name)))
 
         # step 4: generate the code for enum types
         enumlist = list(self.enums.values())
@@ -368,12 +418,19 @@ class PythonWrapperGenerator(object):
         for name, constinfo in constlist:
             self.gen_const_reg(constinfo)
 
+        self.code_funcs.write("#endif\n")
+        self.code_enums.write("#endif\n")
+        # self.code_ns_init.write("#endif\n")
+        self.code_types.write("#endif\n")
+        self.code_ns_reg.write("#endif\n")
+        self.code_type_publish.write("#endif\n")
+
         # That's it. Now save all the files
-        self.save(output_path, "pyopencv_generated_include.h", self.code_include)
-        self.save(output_path, "pyopencv_generated_funcs.h", self.code_funcs)
-        self.save(output_path, "pyopencv_generated_enums.h", self.code_enums)
-        self.save(output_path, "pyopencv_generated_types.h", self.code_type_publish)
-        self.save(output_path, "pyopencv_generated_types_content.h", self.code_types)
-        self.save(output_path, "pyopencv_generated_modules.h", self.code_ns_init)
-        self.save(output_path, "pyopencv_generated_modules_content.h", self.code_ns_reg)
-        self.save_json(output_path, "pyopencv_signatures.json", self.py_signatures)
+        self.save(output_path, "jsopencv_generated_include.h", self.code_include)
+        self.save(output_path, "jsopencv_generated_funcs.h", self.code_funcs)
+        self.save(output_path, "jsopencv_generated_enums.h", self.code_enums)
+        self.save(output_path, "jsopencv_generated_types.h", self.code_type_publish)
+        self.save(output_path, "jsopencv_generated_types_content.h", self.code_types)
+        self.save(output_path, "jsopencv_generated_modules.h", self.code_ns_init)
+        self.save(output_path, "jsopencv_generated_modules_content.h", self.code_ns_reg)
+        self.save_json(output_path, "jsopencv_signatures.json", self.py_signatures)

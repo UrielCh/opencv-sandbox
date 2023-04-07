@@ -70,19 +70,20 @@ class FuncInfo(object):
         if self.is_static:
             name += "_static"
 
-        return "pyopencv_" + self.namespace.replace('.','_') + '_' + classname + name
+        return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
 
     def get_wrapper_prototype(self, codegen):
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
-            return "static int {fn_name}(pyopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
+            return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
                     fn_name=full_fname, type_name=codegen.classes[self.classname].name)
 
         if self.classname:
             self_arg = "self"
         else:
             self_arg = ""
-        return "static PyObject* %s(PyObject* %s, PyObject* py_args, PyObject* kw)" % (full_fname, self_arg)
+        # PyObject* %s, PyObject* py_args, PyObject* kw % (full_fname, self_arg)
+        return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
 
     def get_tab_entry(self):
         prototype_list = []
@@ -125,7 +126,7 @@ class FuncInfo(object):
         # Convert unicode chars to xml representation, but keep as string instead of bytes
         full_docstring = full_docstring.encode('ascii', errors='xmlcharrefreplace').decode()
 
-        return Template('    {"$py_funcname", CV_PY_FN_WITH_KW_($wrap_funcname, $flags), "$py_docstring"},\n'
+        return Template('    {"$py_funcname", CV_JS_FN_WITH_KW_($wrap_funcname, $flags), "$py_docstring"},\n'
                         ).substitute(py_funcname = self.variants[0].wname, wrap_funcname=self.get_wrapper_name(),
                                      flags = 'METH_STATIC' if self.is_static else '0', py_docstring = full_docstring)
 
@@ -211,12 +212,12 @@ class FuncInfo(object):
 
                 parse_name = a.name
                 if a.py_inputarg and arg_type_info.strict_conversion:
-                    parse_name = "pyobj_" + a.full_name.replace('.', '_')
-                    code_decl += "    PyObject* %s = NULL;\n" % (parse_name,)
+                    parse_name = "jsobj_" + a.full_name.replace('.', '_')
+                    code_decl += "    Napi::Value* %s = NULL;\n" % (parse_name,)
                     if a.tp == 'char':
-                        code_cvt_list.append("convert_to_char(%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
+                        code_cvt_list.append("jsconvert_to_char(*%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
                     else:
-                        code_cvt_list.append("pyopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
+                        code_cvt_list.append("jsopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
 
                 all_cargs.append([arg_type_info, parse_name])
 
@@ -321,21 +322,23 @@ class FuncInfo(object):
                     parse_arglist=", ".join(["&" + all_cargs[argno][1] for _, argno in v.py_arglist]),
                     code_cvt=" &&\n        ".join(code_cvt_list))
             else:
-                code_parse = "if(PyObject_Size(py_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
+                # code_parse = "if (PyObject_Size(js_args) == 0 && (!kw || PyObject_Size(kw) == 0))"
+                code_parse = "if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))"
 
             if len(v.py_outlist) == 0:
-                code_ret = "Py_RETURN_NONE"
+                code_ret = "return info.Env().Null();"
+                # "Py_RETURN_NONE"
             elif len(v.py_outlist) == 1:
                 if self.isconstructor:
                     code_ret = "return 0"
                 else:
                     aname, argno = v.py_outlist[0]
-                    code_ret = "return pyopencv_from(%s)" % (aname,)
+                    code_ret = "return jsopencv_from(info, %s)" % (aname,)
             else:
                 # there is more than 1 return parameter; form the tuple out of them
                 fmtspec = "N"*len(v.py_outlist)
-                code_ret = "return Py_BuildValue(\"(%s)\", %s)" % \
-                    (fmtspec, ", ".join(["pyopencv_from(" + aname + ")" for aname, argno in v.py_outlist]))
+                code_ret = "return Js_BuildValue(info, \"(%s)\", %s)" % \
+                    (fmtspec, ", ".join(["jsopencv_from(info, " + aname + ")" for aname, argno in v.py_outlist]))
 
             all_code_variants.append(gen_template_func_body.substitute(code_decl=code_decl,
                 code_parse=code_parse, code_prelude=code_prelude, code_fcall=code_fcall, code_ret=code_ret))
@@ -346,12 +349,12 @@ class FuncInfo(object):
         else:
             # try to execute each signature, add an interlude between function
             # calls to collect error from all conversions
-            code += '    pyPrepareArgumentConversionErrorsStorage({});\n'.format(len(all_code_variants))
+            code += '    jsPrepareArgumentConversionErrorsStorage({});\n'.format(len(all_code_variants))
             code += '    \n'.join(gen_template_overloaded_function_call.substitute(variant=v)
                                   for v in all_code_variants)
-            code += '    pyRaiseCVOverloadException("{}");\n'.format(self.name)
+            code += '    jsRaiseCVOverloadException(info, "{}");\n'.format(self.name)
 
-        def_ret = "NULL"
+        def_ret = "info.Env().Null()"
         if self.isconstructor:
             def_ret = "-1"
         code += "\n    return %s;\n}\n\n" % def_ret

@@ -73,6 +73,10 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "xfacet": "cpp",
-        "opencv.hpp": "c"
+        "opencv.hpp": "c",
+        "cstdarg": "cpp",
+        "deque": "cpp",
+        "unordered_set": "cpp",
+        "numeric": "cpp"
     }
 }

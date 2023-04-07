@@ -1,8 +1,7 @@
 build/
 dist/
 node_modules/
-*.txt
+note.txt
 *.egg-info
-cc-generated
 data/headers.txt
 *.pyc
