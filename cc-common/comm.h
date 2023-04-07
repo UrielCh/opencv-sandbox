@@ -20,7 +20,7 @@ private:
 int failmsg(const Napi::Env& env, const char* format, ...);
 
 template<typename _Tp> static
-bool jsopencv_to_safe(const Napi::Value* obj, const _Tp& value, const ArgInfo& argInfo)
+bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo)
 {
     try
     {

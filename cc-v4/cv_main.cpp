@@ -84,19 +84,18 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
  */
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
-    const char* keywords[] = { "filename", "flags", NULL };
-
     using namespace cv;
+    
     const Napi::Value* pyobj_filename = NULL;
     String filename;
     const Napi::Value* pyobj_flags = NULL;
     int flags = IMREAD_COLOR;
     Mat retval;
-    bool firstTest = JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags);
 
-    if (firstTest &&
-        jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0)) &&
-        jsopencv_to(pyobj_flags, flags, ArgInfo("flags", 0)))
+    const char* keywords[] = { "filename", "flags", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags) &&
+        jsopencv_to_safe(pyobj_filename, filename, ArgInfo("filename", 0)) &&
+        jsopencv_to_safe(pyobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
         return jsopencv_from(info, retval);
