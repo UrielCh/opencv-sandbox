@@ -47,7 +47,7 @@ Napi::Value failmsgp(const Napi::Env& env, const char *format, ...)
  */
 bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *format, char **keywords, ...)
 {
-    int numKeywords = 0;
+    size_t numKeywords = 0;
     // count arguments count from keywords
     while (keywords[numKeywords] != NULL)
     {
