@@ -54,7 +54,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
     // auto sp1 = std::make_shared<cvMatObject>(info, m);
     return cvMatObject::NewInstance(info, m);
 }
-
+//  #define NEXRT_BUILD 1
 #ifdef NEXRT_BUILD
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {

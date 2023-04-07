@@ -7,6 +7,19 @@
 // #include <string>
 // #include <type_traits>  // std::enable_if
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import from bool pyopencv_to_safe(PyObject* obj, _Tp& value, const ArgInfo& info) in cv2_convert.hpp
 template<typename _Tp> static
 bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo)
@@ -32,30 +45,17 @@ bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo
 template<typename T, class TEnable = void>  // TEnable is used for SFINAE checks
 struct JsOpenCV_Converter
 {
-    //static inline bool to( Napi::Value* obj, T& p, const ArgInfo& info);
-    //static inline  Napi::Value* from(const T& src);
+    static inline bool to(Napi::Value* obj, T& p, const ArgInfo& info);
+    static inline Napi::Value from(const Napi::CallbackInfo &info, const T& src);
 };
-
 
 // --- Generic
 
 template <typename T>
-bool jsopencv_to(const Napi::Value* obj, T& value, const ArgInfo& argInfo) {
-    return JsOpenCV_Converter<T>::to(obj, value, argInfo);
-} 
+bool jsopencv_to(const Napi::Value* obj, T& value, const ArgInfo& argInfo) { return JsOpenCV_Converter<T>::to(obj, value, argInfo); } 
 
 template<typename T>
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const T& src) { 
-    return JsOpenCV_Converter<T>::from(src);
-    // failmsg(info.Env(), "jsopencv_from template resolved as unknownn type");
-    // return info.Env().Null();
-} // JsOpenCV_Converter<T>::from(src);
-
-
-
-
-
-
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const T& src) { return JsOpenCV_Converter<T>::from(info, src); }
 
 // --- Matx
 // ported from pyopencv_to L:62
@@ -208,14 +208,12 @@ template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::P
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Point3d& p, const ArgInfo& info);
 template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point3d& p);
 
-
 // --- Vec
 template<typename _Tp, int cn>
 bool jsopencv_to(const Napi::Value* o, cv::Vec<_Tp, cn>& vec, const ArgInfo& info)
 {
     return jsopencv_to(o, (cv::Matx<_Tp, cn, 1>&)vec, info);
 }
-
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4d& v, ArgInfo& info);
 Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec4d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4f& v, ArgInfo& info);
@@ -247,12 +245,12 @@ template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::
 
 // --- vector
 template <typename Tp>
-struct pyopencvVecConverter;
+struct jsopencvVecConverter;
 
 template <typename Tp>
 bool jsopencv_to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& info)
 {
-    if (!obj || dst->IsNull() || dst->IsUndefined())
+    if (!obj || obj->IsNull() || obj->IsUndefined())
     {
         return true;
     }
