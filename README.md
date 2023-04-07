@@ -97,3 +97,13 @@ The code whould be visible in `cc-generated`
 
 - [node-addon-api](https://www.npmjs.com/package/node-addon-api)
 - [napi-macros](https://www.npmjs.com/package/napi-macros)
+
+## Known errors
+
+on linux you may face `Error: libopencv_imgcodecs.so.407: cannot open shared object file: No such file or directory`
+
+You can fix it like 
+
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${OPENCV_BUILD_ROOT}/latest/build/lib/
+```
