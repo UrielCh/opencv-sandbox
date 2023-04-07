@@ -98,7 +98,13 @@ async function main2() {
         console.log((e as Error).message);
     }
 }
-main2();
+
+
+async function main3() {
+    theModule.test();
+}
+
+main3();
 
 // setTimeout(() => console.log('\ntimeout all buffer should had been released'), 5000);
 

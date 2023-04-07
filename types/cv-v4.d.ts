@@ -16,3 +16,5 @@ export class cvMatObject {
 }
 
 export function imread(filename: string): cvMatObject;
+
+export function test(...params: unknown[]): Null;

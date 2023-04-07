@@ -140,9 +140,47 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 }
 
 
+// , ...
+void test1b(const Napi::CallbackInfo* info, const char* format, char** keywords) {
+    // std::cout << "Test1 &info is: " << MAGANTA << info << RESET << " &info[0] is: " << MAGANTA << &((*info)[0]) << RESET << std::endl;
+    std::cout << "Test1 byPtr     &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA <<&((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(info[0]) << RESET<< std::endl;
+}
+
+void test2b(const Napi::CallbackInfo* info, ...) {
+    std::cout << "2args byPtr ... &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA << &((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(info[0]) << RESET<< std::endl;
+}
+
+void test3b(const Napi::CallbackInfo* info, const char* format, char** keywords, ...) {
+    std::cout << "3Args Byptr ... &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA << &((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(info[0]) << RESET<< std::endl;
+}
+
+void test4b(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
+    std::cout << "Test4 byRef ... &info is: " << MAGANTA << &info << RESET << " &((*info)[0]) is: " << MAGANTA << &((info)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &((&info)[0]) << RESET<< std::endl;
+}
+
+void test5b(const Napi::CallbackInfo& info, const char* format, char** keywords) {
+    std::cout << "Test5 byRef     &info is: " << MAGANTA << &info << RESET << " &((*info)[0]) is: " << MAGANTA << &((info)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &((&info)[0]) << RESET<< std::endl;
+}
+
+static Napi::Value test(const Napi::CallbackInfo &info)
+{
+    const char* keywords[] = { "filename", "flags", NULL };
+    std::cout << "===========" << std::endl;
+    auto nfo2 = &info;
+    std::cout << "Test0 From     source is: " << MAGANTA << nfo2 << RESET << " &((*info)[0]) is: " << MAGANTA <<&((*nfo2)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(nfo2[0]) << RESET<< std::endl;
+    test1b(&info, "format",  (char**) keywords);
+    test2b(&info, "format",  (char**) keywords);
+    test3b(&info, "format",  (char**) keywords);
+    test4b(info, "format",  (char**) keywords);
+    test5b(info, "format",  (char**) keywords);
+    std::cout << "===========" << std::endl;
+
+    return info.Env().Null();
+}
 
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports) {
     // std::cout << "imread is attached to export" << std::endl;
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
+    exports.Set("test", Napi::Function::New(env, test));
     return exports;
 }
