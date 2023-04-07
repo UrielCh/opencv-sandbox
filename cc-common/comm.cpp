@@ -63,7 +63,7 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
     va_list args;
     va_start(args, keywords);
 
-    for (int i = 0; i < numKeywords; i++)
+    for (size_t i = 0; i < numKeywords; i++)
     {
         Napi::Value *arg = va_arg(args, Napi::Value *);
         if (!arg || !info[i].IsObject())
