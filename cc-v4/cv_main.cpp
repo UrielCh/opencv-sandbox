@@ -9,6 +9,7 @@ const std::string YELLOW("\033[1;33m");
 const std::string CYAN("\033[0;36m");
 const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
+const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
 bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& Arginfo) {
     std::cout << "jsopencv_to String start " << std::endl;
@@ -75,25 +76,15 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m) {
 //     return info.Env().Null();
 // }
 
-// , ...
-void test1(const Napi::CallbackInfo& info, const char* format, char** keywords) {
-    std::cout << "Test Ref noDot: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
-}
-
-void test2(const Napi::CallbackInfo& info, ...) {
-//    std::cout << "Test2 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
-    std::cout << "Test Ref  ... : " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
-}
-
+/**
+ * @brief 
+ * 
+ * @param info sizeof: 112
+ * @return Napi::Value 
+ */
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
     const char* keywords[] = { "filename", "flags", NULL };
-    std::cout << "Test0 &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
-    test1(info, "format",  (char**) keywords);
-    test2(info, "format",  (char**) keywords);
-
-
-    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
 
     using namespace cv;
     const Napi::Value* pyobj_filename = NULL;
@@ -101,37 +92,12 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     const Napi::Value* pyobj_flags = NULL;
     int flags=IMREAD_COLOR;
     Mat retval;
-    std::cout << "cv::imread get called" << std::endl;
-
-    // to DEBUG.
-    std::cout << "jsopencv_cv_imread         &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
-
-
-    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
-    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
-
-    // std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << " start value " << std::endl;
-    // std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
+    auto ptr = &info;
+    auto ptr2 = &((*ptr)[0]);
     bool firstTest = JsArg_ParseTupleAndKeywords(info, "O|O:imread", (char**)keywords, &pyobj_filename, &pyobj_flags);
-
-    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
-    std::cout << "cv::imread info[0]        = " << GREEN << &info[0] << RESET << std::endl;
-    std::cout << "cv::imread pyobj_filename = " << GREEN << pyobj_filename << RESET << std::endl;
-    std::cout << "cv::imread pyobj_filename is stored at " << CYAN << &pyobj_filename << RESET << std::endl;
-    // pyobj_filename should be = &info[0]
-    // pyobj_filename = &info[0];
-    //
-    // fix value by hand.
-    if (pyobj_filename != &info[0]) {
-        failmsg(info.Env(), "Error in code internal pyobj_filename(%s%p%s) should be eq &info[0](%s%p%s)", GREEN, pyobj_filename, RESET, GREEN, &info[0], RESET);
-        return info.Env().Null();
-    }
-    //
-
-    jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0));
-    std::cout << "cv::imread pyobj_filename = " << filename << std::endl;
-    std::cout << "cv::imread pyobj_flags = " << flags << std::endl;
-    
+    // jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0));
+    // std::cout << "cv::imread pyobj_filename = " << filename << std::endl;
+    // std::cout << "cv::imread pyobj_flags = " << flags << std::endl;
     if (firstTest &&
         jsopencv_to(pyobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to(pyobj_flags, flags, ArgInfo("flags", 0)))
@@ -170,17 +136,16 @@ void test5b(const Napi::CallbackInfo& info, const char* format, char** keywords)
 
 static Napi::Value test(const Napi::CallbackInfo &info)
 {
-    const char* keywords[] = { "filename", "flags", NULL };
-    std::cout << "===========" << std::endl;
-    auto nfo2 = &info;
-    std::cout << "Test0 From     source is: " << MAGANTA << nfo2 << RESET << " &((*info)[0]) is: " << MAGANTA <<&((*nfo2)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(nfo2[0]) << RESET<< std::endl;
-    test1b(&info, "format",  (char**) keywords);
-    test2b(&info, "format",  (char**) keywords);
-    test3b(&info, "format",  (char**) keywords);
-    test4b(info, "format",  (char**) keywords);
-    test5b(info, "format",  (char**) keywords);
-    std::cout << "===========" << std::endl;
-
+    // const char* keywords[] = { "filename", "flags", NULL };
+    // std::cout << "===========" << std::endl;
+    // auto nfo2 = &info;
+    // std::cout << "Test0 From     source is: " << MAGANTA << nfo2 << RESET << " &((*info)[0]) is: " << MAGANTA <<&((*nfo2)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(nfo2[0]) << RESET<< std::endl;
+    // test1b(&info, "format",  (char**) keywords);
+    // test2b(&info, "format",  (char**) keywords);
+    // test3b(&info, "format",  (char**) keywords);
+    // test4b(info, "format",  (char**) keywords);
+    // test5b(info, "format",  (char**) keywords);
+    // std::cout << "===========" << std::endl;
     return info.Env().Null();
 }
 

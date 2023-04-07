@@ -9,7 +9,7 @@ const std::string YELLOW("\033[1;33m");
 const std::string CYAN("\033[0;36m");
 const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
-
+const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 /**
  * @brief Throws an exception exception-object
  */
@@ -100,10 +100,6 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
  * @return false 
  */
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
-
-    std::cout << "cv::imreXX info[0]        = " << GREEN << &info[0] << RESET << std::endl;
-
-    std::cout << "info ADDR &info is: " << MAGANTA << &info << RESET << " &info[0] is: " << MAGANTA << &info[0] << RESET << std::endl;
     // Prepare to handle variable arguments
     va_list args;
     va_start(args, keywords);
@@ -157,7 +153,7 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         if (is_optional) {
             // if first optional eand last param and is object, then it is the optional object
             if (first_optional && info.Length() == (arg_position-1)) {
-                if (info[arg_position].IsObject())
+                if ((info)[arg_position].IsObject())
                     optional_obj = info[arg_position].As<Napi::Object>();
                 first_optional = false;
             }
@@ -166,17 +162,12 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
                 // *arg = info[arg_position];
                 // prev obj must not be read as an optional povider.
             } else if (optional_obj.Has(*kw_iter)) {
-                // *arg = optional_obj.Get(*kw_iter);
+                *arg = new Napi::Value(info.Env(), optional_obj.Get(*kw_iter));
             } else {
                 // leave it as null the optional value had not be provided
             }
         } else {
-            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
-            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  &info[arg_position] << RESET << std::endl;
-            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
-            // std::cout << "JsArg_ParseTupleAndKeywords Mandatory Object: &info[" << arg_position << "] = " << RED <<  info[arg_position] << RESET << std::endl;
-            // auto argX = &info[arg_position];
-            *arg = &info[arg_position];
+            *arg = new Napi::Value(info.Env(), info[arg_position]);
         }
         arg_position++;
         fmt_iter++;
