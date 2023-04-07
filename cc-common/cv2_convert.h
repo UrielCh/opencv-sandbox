@@ -66,7 +66,7 @@ bool jsopencv_to(const Napi::Value* obj, cv::Matx<_Tp, m, n>& mx, const ArgInfo&
     }
 
     cv::Mat tmp;
-    if (!jsopencv_to(obj, tmp, info)) {
+    if (!jsopencv_to(obj, tmp, argInfo)) {
         return false;
     }
 
@@ -289,8 +289,33 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
     return true;
 }
 
-//======================================================================================================================
-
+// template<> inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& value, const ArgInfo& info)
+// {
+//     if (!obj || obj == Py_None)
+//     {
+//         return true;
+//     }
+//     if (!PySequence_Check(obj))
+//     {
+//         failmsg("Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
+//         return false;
+//     }
+//     const size_t n = static_cast<size_t>(PySequence_Size(obj));
+//     value.resize(n);
+//     for (size_t i = 0; i < n; i++)
+//     {
+//         SafeSeqItem item_wrap(obj, i);
+//         bool elem{};
+//         if (!pyopencv_to(item_wrap.item, elem, info))
+//         {
+//             failmsg("Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
+//             return false;
+//         }
+//         value[i] = elem;
+//     }
+//     return true;
+// }
+// 
 
 
 #endif
