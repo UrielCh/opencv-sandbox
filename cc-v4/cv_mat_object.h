@@ -33,7 +33,7 @@ private:
     Napi::Value ToString(const Napi::CallbackInfo& info);
     Napi::Value OwnKeys(const Napi::CallbackInfo& info);
     // GetPropertyNames
-    void cvMatObject::ReadOnlySetter(const Napi::CallbackInfo& info, const Napi::Value& value);
+    void ReadOnlySetter(const Napi::CallbackInfo& info, const Napi::Value& value);
 };
 
 #endif

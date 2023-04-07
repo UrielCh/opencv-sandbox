@@ -19,28 +19,13 @@ private:
 
 int failmsg(const Napi::Env& env, const char* format, ...);
 
-template<typename _Tp> static
-bool jsopencv_to_safe(const Napi::Value* obj, const _Tp& value, const ArgInfo& argInfo)
-{
-    try
-    {
-        return jsopencv_to(obj, value, argInfo);
-    }
-    catch (const std::exception &e)
-    {
-        failmsg(obj->Env(), "Conversion error: %s, what: %s", argInfo.name, e.what());
-        return false;
-    }
-    catch (...)
-    {
-        failmsg(obj->Env(), "Conversion error: %s", argInfo.name);
-        return false;
-    }
-}
-
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
 
 Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
+
+
+Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
+
 
 #define ERRWRAP2_NAPI(info, expr)  \
     try { expr; } \

@@ -116,7 +116,7 @@ const IMREAD_REDUCED_COLOR_8 = 65; //!< If set, always convert image to the 3 ch
 const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image according to EXIF's orientation flag.
 
 
-async function main3() {
+async function testLoad() {
     try {
         let logo: cvMatObject;
         // load with default params
@@ -133,7 +133,24 @@ async function main3() {
     }
 }
 
-main3();
+async function testimEncode() {
+    try {
+        let logo: cvMatObject;
+        // load with default params
+        logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
+        console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.toString())
+
+        if (theModule.imencode) {
+            const out = theModule.imencode(".png", logo);
+            console.log(out);
+        }
+    } catch (e) {
+        console.log((e as Error).message);
+    }
+}
+
+
+testimEncode();
 
 // setTimeout(() => console.log('\ntimeout all buffer should had been released'), 5000);
 
