@@ -17,6 +17,7 @@ private:
     ArgInfo& operator=(const ArgInfo&) = delete;
 };
 
+int failmsg(const Napi::Env& env, const char* format, ...);
 
 template<typename _Tp> static
 bool jsopencv_to_safe(const Napi::Value* obj, const _Tp& value, const ArgInfo& argInfo)
@@ -38,7 +39,6 @@ bool jsopencv_to_safe(const Napi::Value* obj, const _Tp& value, const ArgInfo& a
 }
 
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
-int failmsg(const Napi::Env& env, const char* format, ...);
 
 Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
 
