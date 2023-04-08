@@ -151,11 +151,9 @@ static Napi::Value test(const Napi::CallbackInfo &info)
 {
     try
     {
-        std::cout << "Calling Test: " << MAGANTA << "Js_BuildValue_test" << RESET << std::endl;
         Js_BuildValue_test(info);
-        std::cout << "Calling Test: " << MAGANTA << "JsArg_ParseTupleAndKeywords_test" << RESET << std::endl;
         JsArg_ParseTupleAndKeywords_test(info);
-        std::cout << "ALL done" << std::endl;
+        std::cout << "ALL tests done" << std::endl;
     }
     catch (const std::exception &ex)
     {
