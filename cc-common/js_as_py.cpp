@@ -1,10 +1,11 @@
 #include <napi.h>
-#include "./js_as_py.h";
+#include "js_as_py.h"
 #include <vector>
 #include <unordered_map>
 #include <cstring>
 #include <stdarg.h>
 #include <napi.h>
+#include "comm.h"
 
 // see doc: https://github.com/nodejs/node-addon-api/blob/main/doc/value.md
 
@@ -115,4 +116,24 @@ size_t JsSequence_Size(const Napi::Value* obj)
     uint32_t length = lengthProp.As<Napi::Number>().Uint32Value();
 
     return length;
+}
+
+Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
+  Napi::Env env = obj->Env();
+
+  if (!obj->IsArray()) {
+    // Throw an error if obj is not an array
+    failmsg(env, "Expected an array");
+    return nullptr;
+  }
+
+  Napi::Array arr = obj->As<Napi::Array>();
+
+  if (index >= arr.Length()) {
+    // Throw an error if index is out of bounds
+    failmsg(env, "Index out of bounds");
+    return nullptr;
+  }
+
+  return new Napi::Value(arr[index]);
 }

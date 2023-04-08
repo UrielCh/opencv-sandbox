@@ -210,11 +210,12 @@ Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ..
         case 'b':
             result = Napi::Boolean::New(env, va_arg(args, int) != 0);
             break;
+        case '(':
         case '[':
             {
                 Napi::Array array = Napi::Array::New(env);
                 size_t index = 0;
-                while (*++format != ']')
+                while (*++format != ']' || *++format != ')')
                 {
                     Napi::Value element = Js_BuildValue(info, format, args);
                     array.Set(index++, element);

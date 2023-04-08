@@ -446,21 +446,69 @@ bool jsopencv_to(const Napi::Value *obj, Size &sz, const ArgInfo &argInfo)
     return false;
 }
 
-template <>
+/**
+ * @brief convert a cv::Size to a Napi::Array
+ * 
+ * Python style size return a tuple (width, height)
+ * We may prefer to return a {width: Number, height: Number} object
+ */
+template<>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Size &sz)
-{ // should I return an [Number, Number] or a {width: Number, height: Number}
-    // return  {width: Number, height: Number}
-    Napi::Env env = info.Env();
-    Napi::Object obj = Napi::Object::New(env);
-    obj.Set(Napi::String::New(env, "width"), Napi::Number::New(env, sz.width));
-    obj.Set(Napi::String::New(env, "height"), Napi::Number::New(env, sz.height));
-    return obj;
-    // return Js_BuildValue("(ii)", sz.width, sz.height);
+{
+    // Napi::Env env = info.Env();
+    // Napi::Object obj = Napi::Object::New(env);
+    // obj.Set(Napi::String::New(env, "width"), Napi::Number::New(env, sz.width));
+    // obj.Set(Napi::String::New(env, "height"), Napi::Number::New(env, sz.height));
+    // return obj;
+    return Js_BuildValue(info, "(ii)", sz.width, sz.height);
+}
+// --- float
+template<>
+bool jsopencv_to(const Napi::Value* obj, Size_<float>& sz, const ArgInfo& info)
+{
+    RefWrapper<float> values[] = {RefWrapper<float>(sz.width),
+                                  RefWrapper<float>(sz.height)};
+    return JsParseSequence(obj, values, info);
 }
 
-// --- float
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Size_<float>& sz)
+{
+    return Js_BuildValue(info, "(ff)", sz.width, sz.height);
+}
+
 // --- Rect
-// --- Rect2d
+
+template<>
+bool jsopencv_to(const Napi::Value* obj, Rect& r, const ArgInfo& info)
+{
+    RefWrapper<int> values[] = {RefWrapper<int>(r.x), RefWrapper<int>(r.y),
+                                RefWrapper<int>(r.width),
+                                RefWrapper<int>(r.height)};
+    return JsParseSequence(obj, values, info);
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Rect& r)
+{
+    return Js_BuildValue(info, "(iiii)", r.x, r.y, r.width, r.height);
+}
+
+template<>
+bool jsopencv_to(const Napi::Value* obj, Rect2d& r, const ArgInfo& info)
+{
+    RefWrapper<double> values[] = {
+        RefWrapper<double>(r.x), RefWrapper<double>(r.y),
+        RefWrapper<double>(r.width), RefWrapper<double>(r.height)};
+    return JsParseSequence(obj, values, info);
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Rect2d& r)
+{
+    return Js_BuildValue(info, "(dddd)", r.x, r.y, r.width, r.height);
+}
+
 // --- RotatedRect
 // --- Range
 // --- Point

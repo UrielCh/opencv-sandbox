@@ -23,9 +23,16 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
 
 Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
 
-
+/**
+ * Build a Napi::Value object from a format string and a variable number of arguments.
+ *
+ * @param info A Napi::CallbackInfo object that contains information about the current JavaScript function call.
+ * @param format A format string that specifies the types of the arguments.
+ * @param ... A variable number of arguments that correspond to the format string.
+ *
+ * @return A Napi::Value object that contains the values specified by the format string and the variable arguments.
+ */
 Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
-
 
 #define ERRWRAP2_NAPI(info, expr)  \
     try { expr; } \

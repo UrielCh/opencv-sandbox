@@ -3,6 +3,8 @@
 #include "../cc-common/cv2_convert.h"
 #include <iostream>
 
+// #define NEXRT_BUILD 1
+
 const std::string RED("\033[0;31m");
 const std::string GREEN("\033[1;32m");
 const std::string YELLOW("\033[1;33m");
@@ -54,7 +56,6 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
     // auto sp1 = std::make_shared<cvMatObject>(info, m);
     return cvMatObject::NewInstance(info, m);
 }
-//  #define NEXRT_BUILD 1
 #ifdef NEXRT_BUILD
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {
@@ -189,6 +190,9 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
     // std::cout << "imread is attached to export" << std::endl;
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
-    exports.Set("test", Napi::Function::New(env, test));
+#ifdef NEXRT_BUILD
+    exports.Set("imencode", Napi::Function::New(env, jsopencv_cv_imencode));
+ #endif
+   exports.Set("test", Napi::Function::New(env, test));
     return exports;
 }

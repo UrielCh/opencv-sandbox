@@ -352,17 +352,6 @@ bool jsopencv_to(const Napi::Value* obj, Size& sz, const ArgInfo& argInfo) {
     return false;
 }
 
-template<>
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Size& sz) { // should I return an [Number, Number] or a {width: Number, height: Number}
-    // return  {width: Number, height: Number}
-    Napi::Env env = info.Env();
-    Napi::Object obj = Napi::Object::New(env);
-    obj.Set(Napi::String::New(env, "width"), Napi::Number::New(env, sz.width));
-    obj.Set(Napi::String::New(env, "height"), Napi::Number::New(env, sz.height));
-    return obj;
-    // return Js_BuildValue("(ii)", sz.width, sz.height);
-}
-
 // --- float
 // --- Rect
 // --- Rect2d
