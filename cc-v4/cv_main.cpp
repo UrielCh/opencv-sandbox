@@ -1,6 +1,7 @@
 #include "cv_main.h"
 #include "cv_mat_object.h"
 #include "../cc-common/cv2_convert.h"
+#include "../cc-common/js_as_py.h"
 #include "../cc-common/js_as_py_test.h"
 #include <iostream>
 
@@ -148,10 +149,17 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 
 static Napi::Value test(const Napi::CallbackInfo &info)
 {
-    try {
-       Js_BuildValue_test(info);
-    } catch (const std::exception& ex) { 
-        failmsg(info.Env(), "Error in section  of test : %s", ex.what());
+    try
+    {
+        std::cout << "Calling Test: " << MAGANTA << "Js_BuildValue_test" << RESET << std::endl;
+        Js_BuildValue_test(info);
+        std::cout << "Calling Test: " << MAGANTA << "JsArg_ParseTupleAndKeywords_test" << RESET << std::endl;
+        JsArg_ParseTupleAndKeywords_test(info);
+        std::cout << "ALL done" << std::endl;
+    }
+    catch (const std::exception &ex)
+    {
+        failmsg(info.Env(), "A Test Throws un non catched Exception: %s", ex.what());
     }
     return info.Env().Null();
 }
@@ -162,7 +170,7 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
 #ifdef NEXRT_BUILD
     exports.Set("imencode", Napi::Function::New(env, jsopencv_cv_imencode));
- #endif
-   exports.Set("test", Napi::Function::New(env, test));
+#endif
+    exports.Set("test", Napi::Function::New(env, test));
     return exports;
 }

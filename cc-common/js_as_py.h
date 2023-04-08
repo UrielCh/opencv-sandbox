@@ -20,7 +20,8 @@ private:
 
 int failmsg(const Napi::Env& env, const char* format, ...);
 
-bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
+template<class T=Napi::CallbackInfo>
+bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywords, ...);
 
 Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
 
@@ -73,8 +74,6 @@ struct JsMethodDef {
                                describe the args expected by the C func */
     const char  *ml_doc;    /* The __doc__ attribute, or NULL */
 };
-
-bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo &info, const char *format, char **keywords, ...);
 
 // typedef struct _object PyObject;
 
@@ -155,5 +154,19 @@ bool JsSequence_Check(const Napi::Value* obj);
 size_t JsSequence_Size(const Napi::Value* obj);
 
 Napi::Value *JsSequence_GetItem(const Napi::Value* obj, size_t index);
+
+class FakeCallbackInfo {
+public:
+    FakeCallbackInfo(const Napi::CallbackInfo& original_info, const std::vector<Napi::Value>& new_args);
+
+    size_t Length() const;
+    Napi::Value operator[](size_t index) const;
+    Napi::Env Env() const;
+
+private:
+    Napi::Env env;
+    std::vector<Napi::Value> new_args;
+};
+
 
 #endif

@@ -49,57 +49,6 @@ Napi::Value failmsgp(const Napi::Env& env, const char *format, ...)
 }
 
 /**
- * format is a c string like "OO|OOO:Name" or "O|OOO:Name" each O means a object
- * process this string as 3 parts:
- * 
- * 
- * , | means optional, :Name means function name
- */
-bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *format, char **keywords, ...)
-{
-    size_t numKeywords = 0;
-    // count arguments count from keywords
-    while (keywords[numKeywords] != NULL)
-    {
-        numKeywords++;
-    }
-
-    if (info.Length() < numKeywords)
-    {
-        Napi::TypeError::New(info.Env(), "Not enough arguments provided").ThrowAsJavaScriptException();
-        return false;
-    }
-
-    va_list args;
-    va_start(args, keywords);
-
-    for (size_t i = 0; i < numKeywords; i++)
-    {
-        Napi::Value *arg = va_arg(args, Napi::Value *);
-        if (!arg || !info[i].IsObject())
-        {
-            va_end(args);
-            Napi::TypeError::New(info.Env(), "Expected object for argument").ThrowAsJavaScriptException();
-            return false;
-        }
-
-        Napi::Object obj = info[i].As<Napi::Object>();
-        Napi::String key = Napi::String::New(info.Env(), keywords[i]);
-        if (!obj.HasOwnProperty(key))
-        {
-            va_end(args);
-            Napi::TypeError::New(info.Env(), "Missing required keyword argument").ThrowAsJavaScriptException();
-            return false;
-        }
-
-        *arg = obj.Get(key);
-    }
-
-    va_end(args);
-    return true;
-}
-
-/**
  * @brief act as PyArg_ParseTupleAndKeywords
  * 
  * @param info NApi CallbackInfo info object
@@ -109,7 +58,9 @@ bool JsArg_ParseTupleAndKeywordsOld(const Napi::CallbackInfo &info, const char *
  * @return true 
  * @return false 
  */
-bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
+// template<class T=Napi::CallbackInfo>
+template<class T>
+bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywords, ...) {
     // Prepare to handle variable arguments
     va_list args;
     va_start(args, keywords);
@@ -120,13 +71,18 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
 
     // Check if we reached the end of the format string
     bool is_optional = false;
-    // std::cout << "JsArg_ParseTupleAndKeywords &info[0] = " << YELLOW << &info[0] << RESET << std::endl;
+    // std::cout << "JsArg_ParseTupleAndKeywords format = " << YELLOW << format << RESET << std::endl;
 
     size_t arg_position = 0;
     bool first_optional = true;
     Napi::Object optional_obj;
 
     while (*fmt_iter && *fmt_iter != ':') {
+        if (!*kw_iter) {
+            failmsg(info.Env(), "missing some keywords passed to JsArg_ParseTupleAndKeyword format:%s", format);
+            return false;
+        }
+        // std::cout << "JsArg_ParseTupleAndKeywords Iterration = " << YELLOW << *fmt_iter << RESET << NEW << std::endl;
         // Switch to Optional arguments
         if (*fmt_iter == '|') {
             fmt_iter++;
@@ -158,6 +114,7 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         if (is_optional) {
             // if first optional eand last param and is object, then it is the optional object
             if (first_optional && info.Length() == (arg_position+1)) {
+                // std::cout << "First Optinal Iterration = " << YELLOW << *fmt_iter << RESET << NEW << std::endl;
                 if ((info)[arg_position].IsObject()) {
                     optional_obj = info[arg_position].As<Napi::Object>();
                 }
@@ -189,6 +146,29 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
     va_end(args);
     return true;
 }
+
+template bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
+
+FakeCallbackInfo::FakeCallbackInfo(const Napi::CallbackInfo& original_info, const std::vector<Napi::Value>& new_args)
+    : env(original_info.Env()), new_args(new_args) {}
+
+size_t FakeCallbackInfo::Length() const {
+    return new_args.size();
+}
+
+Napi::Value FakeCallbackInfo::operator[](size_t index) const {
+    if (index < new_args.size()) {
+        return new_args[index];
+    }
+    return Napi::Value();
+}
+
+Napi::Env FakeCallbackInfo::Env() const {
+    return env;
+}
+
+template bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
+
 
 Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *format, va_list &args)
 {
