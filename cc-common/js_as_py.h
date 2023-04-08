@@ -168,5 +168,12 @@ private:
     std::vector<Napi::Value> new_args;
 };
 
+// bool JsArray_Check(const Napi::Value& value) {
+//     return value.IsArray();
+// }
+
+// bool JsArray_Check(const Napi::Value* value) {
+//     return value->IsArray();
+// }
 
 #endif

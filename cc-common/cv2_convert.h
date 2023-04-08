@@ -396,7 +396,7 @@ struct jsopencvVecConverter
         }
         // If user passed an array it is possible to make faster conversions in several cases
         //PyArrayObject* array_obj = reinterpret_cast<PyArrayObject*>(obj);
-        Napi::Array* array_obj =obj->As<Napi::Array>();
+        Napi::Array* array_obj = obj->As<Napi::Array>();
         const NPY_TYPES target_type = asNumpyType<Tp>();
         const NPY_TYPES source_type = static_cast<NPY_TYPES>(PyArray_TYPE(array_obj));
         if (target_type == NPY_OBJECT)

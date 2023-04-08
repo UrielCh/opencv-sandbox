@@ -10,7 +10,6 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
-
 #define TEST_START(name) \
         std::cout << "NEXT TEST:" << MAGANTA << name << RESET << std::endl;
 
@@ -145,7 +144,7 @@ void JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info_)
     SECTION_START("Test with optional arguments and optional object")
     {
         FakeCallbackInfo info(info_, {arg1_i42, arg2_sTest, arg3_bool, arg4});
-        const Napi::Value *a1, *a2, *opt1, *opt2;
+        const Napi::Value *a1;// , *a2;// , *opt1, *opt2;
         const char *keywords[] = {"a1", "opt1", "opt2", nullptr};
         bool result = JsArg_ParseTupleAndKeywords(info, "O|OO", (char **)keywords, &a1, &optional_obj);
 
