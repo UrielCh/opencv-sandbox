@@ -2,7 +2,6 @@
 #define CV2_NUMPY_H2
 
 #include "opencv2/core.hpp"
-#include "comm.h"
 #include "js_as_py.h"
 
 struct JsSafeSeqItem

@@ -6,6 +6,7 @@
 #            "cc-v3/module.cpp",
              # must be relative path on linux ! add -r for relatif path
              "<!@(node ./tools/listFiles.mjs -r cc-common cpp)",
+             "<!@(node ./tools/listFiles.mjs -r cc-common cc)",
              "<!@(node ./tools/listFiles.mjs -r cc-v4 cpp)",
              # "cc-v4/cv_mat_object.cpp",
              # "cc-v4/module.cpp",

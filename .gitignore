@@ -5,3 +5,5 @@ note.txt
 *.egg-info
 data/headers.txt
 *.pyc
+*.vcxproj
+*.vcxproj.filters

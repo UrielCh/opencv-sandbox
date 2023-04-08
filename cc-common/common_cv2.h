@@ -1,6 +1,6 @@
 #ifndef __COMMON_CV2__H__
 #define __COMMON_CV2__H__
-#include "comm.h"
+#include "js_as_py.h"
 // #include "cv2.hpp"
 #include "opencv2/core.hpp"
 #include "opencv2/core/utils/tls.hpp"

@@ -1,6 +1,7 @@
 #include "cv_main.h"
 #include "cv_mat_object.h"
 #include "../cc-common/cv2_convert.h"
+#include "../cc-common/js_as_py_test.h"
 #include <iostream>
 
 // #define NEXRT_BUILD 1
@@ -145,44 +146,13 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
     return info.Env().Null();
 }
 
-// , ...
-void test1b(const Napi::CallbackInfo *info, const char *format, char **keywords)
-{
-    std::cout << "Test1 byPtr     &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA << &((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA << &(info[0]) << RESET << std::endl;
-}
-
-void test2b(const Napi::CallbackInfo *info, ...)
-{
-    std::cout << "2args byPtr ... &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA << &((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA << &(info[0]) << RESET << std::endl;
-}
-
-void test3b(const Napi::CallbackInfo *info, const char *format, char **keywords, ...)
-{
-    std::cout << "3Args Byptr ... &info is: " << MAGANTA << info << RESET << " &((*info)[0]) is: " << MAGANTA << &((*info)[0]) << RESET << " &(info[0]) = " << MAGANTA << &(info[0]) << RESET << std::endl;
-}
-
-void test4b(const Napi::CallbackInfo &info, const char *format, char **keywords, ...)
-{
-    std::cout << "Test4 byRef ... &info is: " << MAGANTA << &info << RESET << " &((*info)[0]) is: " << MAGANTA << &((info)[0]) << RESET << " &(info[0]) = " << MAGANTA << &((&info)[0]) << RESET << std::endl;
-}
-
-void test5b(const Napi::CallbackInfo &info, const char *format, char **keywords)
-{
-    std::cout << "Test5 byRef     &info is: " << MAGANTA << &info << RESET << " &((*info)[0]) is: " << MAGANTA << &((info)[0]) << RESET << " &(info[0]) = " << MAGANTA << &((&info)[0]) << RESET << std::endl;
-}
-
 static Napi::Value test(const Napi::CallbackInfo &info)
 {
-    // const char* keywords[] = { "filename", "flags", NULL };
-    // std::cout << "===========" << std::endl;
-    // auto nfo2 = &info;
-    // std::cout << "Test0 From     source is: " << MAGANTA << nfo2 << RESET << " &((*info)[0]) is: " << MAGANTA <<&((*nfo2)[0]) << RESET << " &(info[0]) = " << MAGANTA<< &(nfo2[0]) << RESET<< std::endl;
-    // test1b(&info, "format",  (char**) keywords);
-    // test2b(&info, "format",  (char**) keywords);
-    // test3b(&info, "format",  (char**) keywords);
-    // test4b(info, "format",  (char**) keywords);
-    // test5b(info, "format",  (char**) keywords);
-    // std::cout << "===========" << std::endl;
+    try {
+       Js_BuildValue_test(info);
+    } catch (const std::exception& ex) { 
+        failmsg(info.Env(), "Error in section  of test : %s", ex.what());
+    }
     return info.Env().Null();
 }
 
