@@ -7,3 +7,4 @@ data/headers.txt
 *.pyc
 *.vcxproj
 *.vcxproj.filters
+CMakeLists.txt

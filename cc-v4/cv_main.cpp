@@ -15,49 +15,13 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
-bool jsopencv_to(const Napi::Value *obj, cv::String &value, const ArgInfo &Arginfo)
-{
-    // std::cout << "jsopencv_to String start " << std::endl;
-    if (!obj || obj->IsNull() || obj->IsUndefined())
-    {
-        return true;
-    }
-    // std::cout << "jsopencv_to String obj 2 " << std::endl;
-    // std::cout << "obj is defined" << std::endl;
-
-    if (obj->IsString())
-    {
-        value = obj->ToString().Utf8Value();
-        return true;
-    }
-    //  std::cout << "obj is not a string" << std::endl;
-    failmsg(obj->Env(), "Argument is not convertable to string");
-    return false;
-}
-
-// --- int
-
-// template<>
-bool jsopencv_to(const Napi::Value *obj, int &value, const ArgInfo &Arginfo)
-{
-    // std::cout << "jsopencv_to value start int " << std::endl;
-    if (!obj || obj->IsNull() || obj->IsUndefined())
-        return true;
-
-    if (obj->IsNumber())
-    {
-        value = obj->ToNumber().Int32Value();
-        return true;
-    }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to int", Arginfo.name);
-    return false;
-}
 
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
 {
     // auto sp1 = std::make_shared<cvMatObject>(info, m);
     return cvMatObject::NewInstance(info, m);
 }
+
 #ifdef NEXRT_BUILD
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {

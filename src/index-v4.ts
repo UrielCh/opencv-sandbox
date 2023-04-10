@@ -1,3 +1,4 @@
+import { assert } from "console";
 import { cvMatObject } from "../types/cv-v4";
 import { getModulePath } from "./openCVLoader";
 
@@ -133,12 +134,16 @@ async function testLoad() {
     }
 }
 
+
+
 async function testimEncode() {
     try {
         let logo: cvMatObject;
         // load with default params
         logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
-        console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.toString())
+        assert(logo.cols === 33, "logo.cols === 33");
+        assert(logo.rows === 25, "logo.rows === 25");
+        console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.cols)
 
         if (theModule.imencode) {
             const out = theModule.imencode(".png", logo);
