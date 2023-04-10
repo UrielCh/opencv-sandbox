@@ -78,6 +78,9 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
     Napi::Object optional_obj;
 
     while (*fmt_iter && *fmt_iter != ':') {
+        // std::cout << "LOOP JsArg_ParseTupleAndKeywords arg_position = " << YELLOW << arg_position << RESET << " current kw_iter:"
+        // << *kw_iter << " KW position: " << YELLOW << (kw_iter - keywords) << RESET << NEW << std::endl;
+
         if (!*kw_iter) {
             failmsg(info.Env(), "missing some keywords passed to JsArg_ParseTupleAndKeyword format:%s", format);
             return false;
@@ -95,8 +98,10 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
         }
         if (arg_position >= info.Length()) {
             if (is_optional) {
-                // We've reached the end of the required arguments
-                break;
+                if (!optional_obj) {
+                    // We've reached the end of the required arguments
+                    break;
+                }
             } else {
                 // Not enough arguments provided
                 va_end(args);
@@ -131,6 +136,7 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
         } else {
             *arg = new Napi::Value(info.Env(), info[arg_position]);
         }
+        // std::cout << "JsArg_ParseTupleAndKeywords arg_position = " << YELLOW << arg_position << RESET << " kw_iter:" << kw_iter << NEW << std::endl;
         arg_position++;
         fmt_iter++;
         kw_iter++; // Increment kw_iter for each argument

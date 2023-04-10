@@ -195,7 +195,6 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
         };
         RunTest(info, PREFIX + "Basic test with required arguments", lambda);
     }
-
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
@@ -214,7 +213,6 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
         };
         RunTest(info, PREFIX + "Basic test with one optional arguments non provided", lambda);
     }
-
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
@@ -233,7 +231,6 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
         };
         RunTest(info, PREFIX + "Basic test with one optional arguments provided", lambda);
     }
-
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
@@ -252,7 +249,7 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
         };
         RunTest(info, PREFIX + "Basic test with one optional arguments provided in an object", lambda);
     }
-
+ 
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
