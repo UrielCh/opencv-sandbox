@@ -53,4 +53,5 @@ enum ImwriteFlags {
 export function imencode(ext: `.${string}`, img: cvMatObject, params?: number): [boolean, Buffer];
 export function imencode(ext: `.${string}`, img: cvMatObject, options?: {params: number}): [boolean, Buffer];
 
-export function test(...params: unknown[]): {pass:number, fail:number};
+export function test(ava: any): {pass:number, fail:number};
+// export function runTests(ava: any): undefined;

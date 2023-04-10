@@ -6,6 +6,7 @@
   "main": "dist/cjs/src/index.js",
   "scripts": {
     "full": "node-gyp rebuild && npm run test",
+    "full2": "node-gyp build && npm run test",
     "test": "ava",
     "test-old": "node --expose-gc -r ts-node/register ./src/index-v4.ts",
     "build-ts": "tsc --pretty --project .",

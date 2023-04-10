@@ -6,13 +6,12 @@ type TopenCV = typeof import('../types/cv-v4');
 
 
 let theModule: TopenCV = undefined as unknown as TopenCV;
-test.before(() => {
-    console.log('before test');
-    const impPath = getModulePath();
-    const theModuleTmp = require(impPath);
-    theModule = theModuleTmp as TopenCV;
-
-})
+//test.before(() => {
+console.log('before test');
+const impPath = getModulePath();
+const theModuleTmp = require(impPath);
+theModule = theModuleTmp as TopenCV;
+// })
 
 
 async function getOPpenCVModule(): Promise<TopenCV> {
@@ -59,17 +58,21 @@ test.serial('imencode', async t => {
     }
 });
 
-test.serial('C++ Test', async t => {
-    const theModule = await getOPpenCVModule();
-    t.truthy(theModule.test, `C++ test not availible`);
-    if (theModule.test) {
-        const result = theModule.test();
-        t.is(result.fail, 0, `${result.fail} native test failed`);
-        t.true(result.pass > 0, "no native test passed");
-    }
-});
+/**
+ * register tests
+ */
+if (theModule.test)
+    theModule.test(test);
 
-
+// test.serial('C++ Test', async t => {
+//     const theModule = await getOPpenCVModule();
+//     t.truthy(theModule.test, `C++ test not availible`);
+//     if (theModule.test) {
+//         const result = theModule.test(test);
+//         t.is(result.fail, 0, `${result.fail} native test failed`);
+//         t.true(result.pass > 0, "no native test passed");
+//     }    
+// });
 
 // testimEncode();
 

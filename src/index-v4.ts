@@ -156,7 +156,6 @@ async function testLoad() {
 }
 
 
-
 async function testimEncode() {
     try {
         const theModule = await getOPpenCVModule();

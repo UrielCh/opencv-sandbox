@@ -117,8 +117,8 @@ static Napi::Value test(const Napi::CallbackInfo &info)
     int fail = 0;
     try
     {
-        Js_BuildValue_test(info, pass, fail);
-        JsArg_ParseTupleAndKeywords_test(info, pass, fail);
+        Js_BuildValue_test(info);
+        JsArg_ParseTupleAndKeywords_test(info);
         std::cout << "ALL tests done" << std::endl;
     }
     catch (const std::exception &ex)
