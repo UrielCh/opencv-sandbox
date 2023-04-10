@@ -538,20 +538,675 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Rect2d& r)
 }
 
 // --- RotatedRect
+template<>
+bool jsopencv_to(const Napi::Value *obj, cv::RotatedRect &dst, const ArgInfo &argInfo)
+{
+    if (obj->IsNull() || obj->IsUndefined())
+    {
+        return true;
+    }
+    if (!obj->IsObject())
+    {
+        failmsg(obj->Env(), "Can't parse '%s' as RotatedRect. Input argument is not an object", argInfo.name);
+        return false;
+    }
+
+    Napi::Object rotatedRectObj = obj->As<Napi::Object>();
+    Napi::Value centerValue = rotatedRectObj.Get("center");
+    Napi::Value sizeValue = rotatedRectObj.Get("size");
+    Napi::Value angleValue = rotatedRectObj.Get("angle");
+
+    if (!centerValue.IsObject() || !sizeValue.IsObject() || !angleValue.IsNumber())
+    {
+        failmsg(obj->Env(), "Can't parse '%s' as RotatedRect. Invalid object structure", argInfo.name);
+        return false;
+    }
+
+    cv::Point2f center;
+    cv::Size2f size;
+    float angle;
+
+    {
+        const ArgInfo centerArgInfo("center", false);
+        if (!jsopencv_to(&centerValue, center, centerArgInfo))
+        {
+            return false;
+        }
+    }
+    {
+        const ArgInfo sizeArgInfo("size", false);
+        if (!jsopencv_to(&sizeValue, size, sizeArgInfo))
+        {
+            return false;
+        }
+    }
+
+    angle = angleValue.ToNumber().FloatValue();
+    dst = cv::RotatedRect(center, size, angle);
+    return true;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::RotatedRect &src)
+{
+    Napi::Env env = info.Env();
+    Napi::Object rotatedRectObj = Napi::Object::New(env);
+
+    Napi::Object centerObj = Napi::Object::New(env);
+    centerObj.Set("x", Napi::Number::New(env, src.center.x));
+    centerObj.Set("y", Napi::Number::New(env, src.center.y));
+
+    Napi::Object sizeObj = Napi::Object::New(env);
+    sizeObj.Set("width", Napi::Number::New(env, src.size.width));
+    sizeObj.Set("height", Napi::Number::New(env, src.size.height));
+
+    rotatedRectObj.Set("center", centerObj);
+    rotatedRectObj.Set("size", sizeObj);
+    rotatedRectObj.Set("angle", Napi::Number::New(env, src.angle));
+
+    return rotatedRectObj;
+}
+
 // --- Range
+template<>
+bool jsopencv_to(const Napi::Value *obj, cv::Range &r, const ArgInfo &argInfo)
+{
+    if (obj->IsNull() || obj->IsUndefined())
+    {
+        return true;
+    }
+    
+    Napi::Env env = obj->Env();
+    if (!obj->IsArray())
+    {
+        failmsg(env, "Can't parse '%s' as Range. Input argument is not an array", argInfo.name);
+        return false;
+    }
+
+    Napi::Array rangeArray = obj->As<Napi::Array>();
+    if (rangeArray.Length() == 0)
+    {
+        r = cv::Range::all();
+        return true;
+    }
+    else if (rangeArray.Length() == 2)
+    {
+        r.start = rangeArray.Get((uint32_t)0).ToNumber().Int32Value();
+        r.end = rangeArray.Get((uint32_t)1).ToNumber().Int32Value();
+        return true;
+    }
+    else
+    {
+        failmsg(env, "Can't parse '%s' as Range. Expected array of length 0 or 2", argInfo.name);
+        return false;
+    }
+}
+
 // --- Point
+template<>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Point &p, const ArgInfo &argInfo)
+{
+    Napi::Object obj = obj_value->As<Napi::Object>();
+    if (obj.Has("x") && obj.Has("y"))
+    {
+        p.x = obj.Get("x").As<Napi::Number>().Int32Value();
+        p.y = obj.Get("y").As<Napi::Number>().Int32Value();
+        return true;
+    }
+    return false;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point &p)
+{
+    Napi::Object obj = Napi::Object::New(info.Env());
+    obj.Set("x", p.x);
+    obj.Set("y", p.y);
+    return obj;
+}
+
 // --- Point2f
+template<>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Point2f &p, const ArgInfo &argInfo)
+{
+    Napi::Object obj = obj_value->As<Napi::Object>();
+    if (obj.Has("x") && obj.Has("y"))
+    {
+        p.x = obj.Get("x").As<Napi::Number>().FloatValue();
+        p.y = obj.Get("y").As<Napi::Number>().FloatValue();
+        return true;
+    }
+    return false;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point2f &p)
+{
+    Napi::Object obj = Napi::Object::New(info.Env());
+    obj.Set("x", p.x);
+    obj.Set("y", p.y);
+    return obj;
+}
+
 // --- Point2d
+template<>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Point2d &p, const ArgInfo &argInfo)
+{
+    Napi::Object obj = obj_value->As<Napi::Object>();
+    if (obj.Has("x") && obj.Has("y"))
+    {
+        p.x = obj.Get("x").As<Napi::Number>().DoubleValue();
+        p.y = obj.Get("y").As<Napi::Number>().DoubleValue();
+        return true;
+    }
+    return false;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point2d &p)
+{
+    Napi::Object obj = Napi::Object::New(info.Env());
+    obj.Set("x", p.x);
+    obj.Set("y", p.y);
+    return obj;
+}
+
 // --- Point3f
+template<>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Point3f &p, const ArgInfo &argInfo)
+{
+    Napi::Object obj = obj_value->As<Napi::Object>();
+    if (obj.Has("x") && obj.Has("y") && obj.Has("z"))
+    {
+        p.x = obj.Get("x").As<Napi::Number>().FloatValue();
+        p.y = obj.Get("y").As<Napi::Number>().FloatValue();
+        p.z = obj.Get("z").As<Napi::Number>().FloatValue();
+        return true;
+    }
+    return false;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point3f &p)
+{
+    Napi::Object obj = Napi::Object::New(info.Env());
+    obj.Set("x", p.x);
+    obj.Set("y", p.y);
+    obj.Set("z", p.z);
+    return obj;
+}
+
 // --- Point3d
+template<>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Point3d &p, const ArgInfo &argInfo)
+{
+    Napi::Object obj = obj_value->As<Napi::Object>();
+    if (obj.Has("x") && obj.Has("y") && obj.Has("z"))
+    {
+        p.x = obj.Get("x").As<Napi::Number>().DoubleValue();
+        p.y = obj.Get("y").As<Napi::Number>().DoubleValue();
+        p.z = obj.Get("z").As<Napi::Number>().DoubleValue();
+        return true;
+    }
+    return false;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point3d &p)
+{
+    Napi::Object obj = Napi::Object::New(info.Env());
+    obj.Set("x", p.x);
+    obj.Set("y", p.y);
+    obj.Set("z", p.z);
+    return obj;
+}
 // --- Vec4d
+template<>
+bool jsopencv_to(const Napi::Value *obj, cv::Vec4d &v, const ArgInfo &argInfo)
+{
+    if (!obj->IsArray())
+    {
+        failmsg(obj->Env(), "Expected an array for argument '%s'", argInfo.name);
+        return false;
+    }
+
+    Napi::Array arr = obj->As<Napi::Array>();
+    if (arr.Length() < 4)
+    {
+        failmsg(obj->Env(), "Expected an array of length 4 for argument '%s'", argInfo.name);
+        return false;
+    }
+
+    for (size_t i = 0; i < 4; ++i)
+    {
+        Napi::Value val = arr.Get(i);
+        if (!val.IsNumber())
+        {
+            failmsg(obj->Env(), "Array element at index %zu is not a number for argument '%s'", i, argInfo.name);
+            return false;
+        }
+        v[i] = val.As<Napi::Number>().DoubleValue();
+    }
+
+    return true;
+}
+
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4d &v)
+{
+    Napi::Array arr = Napi::Array::New(info.Env(), 4);
+    for (size_t i = 0; i < 4; ++i)
+    {
+        arr.Set(i, Napi::Number::New(info.Env(), v[i]));
+    }
+    return arr;
+}
 // --- Vec4f
+template <>
+bool jsopencv_to(const Napi::Value *obj, cv::Vec4f &v, const ArgInfo &argInfo)
+{
+    if (!obj->IsArray())
+    {
+        failmsg(obj->Env(), "Expected an array for argument '%s'", argInfo.name);
+        return false;
+    }
+
+    Napi::Array arr = obj->As<Napi::Array>();
+    if (arr.Length() < 4)
+    {
+        failmsg(obj->Env(), "Expected an array of length 4 for argument '%s'", argInfo.name);
+        return false;
+    }
+
+    for (size_t i = 0; i < 4; ++i)
+    {
+        Napi::Value val = arr.Get(i);
+        if (!val.IsNumber())
+        {
+            failmsg(obj->Env(), "Array element at index %zu is not a number for argument '%s'", i, argInfo.name);
+            return false;
+        }
+        v[i] = val.As<Napi::Number>().FloatValue();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4f &v)
+{
+    Napi::Array arr = Napi::Array::New(info.Env(), 4);
+    for (size_t i = 0; i < 4; ++i)
+    {
+        arr.Set(i, Napi::Number::New(info.Env(), v[i]));
+    }
+    return arr;
+}
 // --- Vec4i
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Vec4i &v, const ArgInfo &argInfo)
+{
+    if (obj_value->IsNull() || obj_value->IsUndefined()) {
+        return true;
+    }
+
+    if (!obj_value->IsArray()) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() < 4) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    for (uint32_t i = 0; i < 4; ++i) {
+        Napi::Value item = arr.Get(i);
+        if (!item.IsNumber()) {
+            // Add error handling with argInfo
+            return false;
+        }
+        v[i] = item.As<Napi::Number>().Int32Value();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4i &v)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 4);
+
+    for (uint32_t i = 0; i < 4; ++i) {
+        arr.Set(i, Napi::Number::New(env, v[i]));
+    }
+
+    return arr;
+}
+
 // --- Vec3d
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Vec3d &v, const ArgInfo &argInfo)
+{
+    if (obj_value->IsNull() || obj_value->IsUndefined()) {
+        return true;
+    }
+
+    if (!obj_value->IsArray()) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() < 3) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    for (uint32_t i = 0; i < 3; ++i) {
+        Napi::Value item = arr.Get(i);
+        if (!item.IsNumber()) {
+            // Add error handling with argInfo
+            return false;
+        }
+        v[i] = item.As<Napi::Number>().DoubleValue();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3d &v)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 3);
+
+    for (uint32_t i = 0; i < 3; ++i) {
+        arr.Set(i, Napi::Number::New(env, v[i]));
+    }
+
+    return arr;
+}
+
 // --- Vec3f
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Vec3f &v, const ArgInfo &argInfo)
+{
+    if (obj_value->IsNull() || obj_value->IsUndefined()) {
+        return true;
+    }
+
+    if (!obj_value->IsArray()) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() < 3) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    for (uint32_t i = 0; i < 3; ++i) {
+        Napi::Value item = arr.Get(i);
+        if (!item.IsNumber()) {
+            // Add error handling with argInfo
+            return false;
+        }
+        v[i] = item.As<Napi::Number>().Int32Value();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3f &v)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 3);
+
+    for (uint32_t i = 0; i < 3; ++i) {
+        arr.Set(i, Napi::Number::New(env, v[i]));
+    }
+
+    return arr;
+}
 // --- Vec3i
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Vec3i &v, const ArgInfo &argInfo)
+{
+    if (obj_value->IsNull() || obj_value->IsUndefined()) {
+        return true;
+    }
+
+    if (!obj_value->IsArray()) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() < 3) {
+        // Add error handling with argInfo
+        return false;
+    }
+
+    for (uint32_t i = 0; i < 3; ++i) {
+        Napi::Value item = arr.Get(i);
+        if (!item.IsNumber()) {
+            // Add error handling with argInfo
+            return false;
+        }
+        v[i] = item.As<Napi::Number>().Int32Value();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3i &v)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 3);
+
+    for (uint32_t i = 0; i < 3; ++i) {
+        arr.Set(i, Napi::Number::New(env, v[i]));
+    }
+
+    return arr;
+}
+
 // --- Vec2d
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Vec2d &v, const ArgInfo &argInfo)
+{
+    if (!obj_value || obj_value->IsNull() || !obj_value->IsArray())
+    {
+        return false;
+    }
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() < 2)
+    {
+        return false;
+    }
+
+    for (uint32_t i = 0; i < 2; ++i)
+    {
+        Napi::Value item = arr.Get(i);
+        if (!item.IsNumber())
+        {
+            return false;
+        }
+        v[i] = item.As<Napi::Number>().DoubleValue();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2d &v)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 2);
+
+    for (uint32_t i = 0; i < 2; ++i)
+    {
+        arr.Set(i, Napi::Number::New(env, v[i]));
+    }
+
+    return arr;
+}
+
 // --- Vec2i
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Vec2i &v, const ArgInfo &argInfo)
+{
+    if (!obj_value || obj_value->IsNull() || !obj_value->IsArray())
+    {
+        return false;
+    }
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() < 2)
+    {
+        return false;
+    }
+
+    for (uint32_t i = 0; i < 2; ++i)
+    {
+        Napi::Value item = arr.Get(i);
+        if (!item.IsNumber())
+        {
+            return false;
+        }
+        v[i] = item.As<Napi::Number>().Int32Value();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2i &v)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 2);
+
+    for (uint32_t i = 0; i < 2; ++i)
+    {
+        arr.Set(i, Napi::Number::New(env, v[i]));
+    }
+
+    return arr;
+}
+
 // --- TermCriteria
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::TermCriteria &dst, const ArgInfo &info)
+{
+    if (!obj_value || obj_value->IsNull() || !obj_value->IsArray())
+    {
+        return true;
+    }
+
+    Napi::Array arr = obj_value->As<Napi::Array>();
+
+    if (arr.Length() != 3)
+    {
+        return false;
+    }
+
+    {
+        Napi::Value type_item = arr.Get(uint32_t(0));
+        if (!type_item.IsNumber())
+        {
+            return false;
+        }
+        dst.type = type_item.As<Napi::Number>().Int32Value();
+    }
+
+    {
+        Napi::Value max_count_item = arr.Get(uint32_t(1));
+        if (!max_count_item.IsNumber())
+        {
+            return false;
+        }
+        dst.maxCount = max_count_item.As<Napi::Number>().Int32Value();
+    }
+
+    {
+        Napi::Value epsilon_item = arr.Get(uint32_t(2));
+        if (!epsilon_item.IsNumber())
+        {
+            return false;
+        }
+        dst.epsilon = epsilon_item.As<Napi::Number>().DoubleValue();
+    }
+
+    return true;
+}
+
+template <>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::TermCriteria &src)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 3);
+
+    arr.Set(uint32_t(0), Napi::Number::New(env, src.type));
+    arr.Set(uint32_t(1), Napi::Number::New(env, src.maxCount));
+    arr.Set(uint32_t(2), Napi::Number::New(env, src.epsilon));
+
+    return arr;
+}
+
 // --- Moments
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Moments &m)
+{
+    Napi::Env env = info.Env();
+    Napi::Object obj = Napi::Object::New(env);
+
+    obj.Set("m00", Napi::Number::New(env, m.m00));
+    obj.Set("m10", Napi::Number::New(env, m.m10));
+    obj.Set("m01", Napi::Number::New(env, m.m01));
+    obj.Set("m20", Napi::Number::New(env, m.m20));
+    obj.Set("m11", Napi::Number::New(env, m.m11));
+    obj.Set("m02", Napi::Number::New(env, m.m02));
+    obj.Set("m30", Napi::Number::New(env, m.m30));
+    obj.Set("m21", Napi::Number::New(env, m.m21));
+    obj.Set("m12", Napi::Number::New(env, m.m12));
+    obj.Set("m03", Napi::Number::New(env, m.m03));
+    obj.Set("mu20", Napi::Number::New(env, m.mu20));
+    obj.Set("mu11", Napi::Number::New(env, m.mu11));
+    obj.Set("mu02", Napi::Number::New(env, m.mu02));
+    obj.Set("mu30", Napi::Number::New(env, m.mu30));
+    obj.Set("mu21", Napi::Number::New(env, m.mu21));
+    obj.Set("mu12", Napi::Number::New(env, m.mu12));
+    obj.Set("mu03", Napi::Number::New(env, m.mu03));
+    obj.Set("nu20", Napi::Number::New(env, m.nu20));
+    obj.Set("nu11", Napi::Number::New(env, m.nu11));
+    obj.Set("nu02", Napi::Number::New(env, m.nu02));
+    obj.Set("nu30", Napi::Number::New(env, m.nu30));
+    obj.Set("nu21", Napi::Number::New(env, m.nu21));
+    obj.Set("nu12", Napi::Number::New(env, m.nu12));
+    obj.Set("nu03", Napi::Number::New(env, m.nu03));
+
+    return obj;
+}
 // --- pair
+template<>
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::pair<int, double> &src)
+{
+    Napi::Env env = info.Env();
+    Napi::Array arr = Napi::Array::New(env, 2);
+
+    arr.Set(uint32_t(0), Napi::Number::New(env, src.first));
+    arr.Set(uint32_t(1), Napi::Number::New(env, src.second));
+
+    return arr;
+}

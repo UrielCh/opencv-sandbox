@@ -18,6 +18,68 @@ export class cvMatObject {
   // release(): void;
 }
 
+export interface Point2f {
+  x: number;
+  y: number;
+}
+
+export interface Size2f {
+  width: number;
+  height: number;
+}
+
+export interface RotatedRect {
+  center: Point2f;
+  size: Size2f;
+  angle: number;
+}
+
+export interface Range {
+  start: number;
+  end: number;
+}
+
+type Vec4d = [number, number, number, number];
+type Vec4f = [number, number, number, number];
+type Vec3d = [number, number, number];
+type Vec3i = [number, number, number];
+type Vec3f = [number, number, number];
+type Vec2d = [number, number];
+type Vec2i = [number, number];
+
+type TermCriteria = [number, number, number];
+
+
+type Moments = {
+  m00: number;
+  m10: number;
+  m01: number;
+  m20: number;
+  m11: number;
+  m02: number;
+  m30: number;
+  m21: number;
+  m12: number;
+  m03: number;
+  mu20: number;
+  mu11: number;
+  mu02: number;
+  mu30: number;
+  mu21: number;
+  mu12: number;
+  mu03: number;
+  nu20: number;
+  nu11: number;
+  nu02: number;
+  nu30: number;
+  nu21: number;
+  nu12: number;
+  nu03: number;
+};
+
+type Pair = [number, number];
+
+
 export function imread(filename: string, flags?: number): cvMatObject;
 export function imread(filename: string, options?: {flags?: number}): cvMatObject;
 
