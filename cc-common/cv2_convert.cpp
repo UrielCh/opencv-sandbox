@@ -102,46 +102,72 @@ bool jsopencv_to(const Napi::Value *obj, Mat &m, const ArgInfo &argInfo) {
 #endif
 
 template <>
-bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInfo) {
-    if (!obj_value->IsObject()) {
-        return false;
+bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInfo)
+{
+    if (obj_value->IsNull() || obj_value->IsUndefined())
+    {
+        return true;
     }
-    Napi::Object obj = obj_value->As<Napi::Object>();
-    if (!obj.Has("data") || !obj.Has("rows") || !obj.Has("cols") || !obj.Has("flags")) {
-        return false;
+    if (obj_value->IsObject())
+    {
+        Napi::Object jsMat = obj_value->ToObject();
+        Napi::Value dimsValue = jsMat.Get("dims");
+        Napi::Value sizesValue = jsMat.Get("sizes");
+        Napi::Value typeValue = jsMat.Get("type");
+        Napi::Value dataValue = jsMat.Get("data");
+
+        if (!dimsValue.IsNumber() || !sizesValue.IsArray() || !typeValue.IsNumber() || !dataValue.IsBuffer())
+        {
+            failmsg(obj_value->Env(), "Argument '%s' is not a valid Mat object", argInfo.name);
+            return false;
+        }
+
+        int dims = dimsValue.ToNumber().Int32Value();
+        Napi::Array sizesArray = sizesValue.As<Napi::Array>();
+        std::vector<int> sizes;
+        for (uint32_t i = 0; i < sizesArray.Length(); ++i)
+        {
+            sizes.push_back(sizesArray.Get(i).ToNumber().Int32Value());
+        }
+
+        int type = typeValue.ToNumber().Int32Value();
+        Napi::Buffer<uint8_t> data = dataValue.As<Napi::Buffer<uint8_t>>();
+
+        m = cv::Mat(dims, sizes.data(), type, data.Data());
+        return true;
     }
 
-    Napi::Buffer<uint8_t> data = obj.Get("data").As<Napi::Buffer<uint8_t>>();
-    int rows = obj.Get("rows").As<Napi::Number>().Int32Value();
-    int cols = obj.Get("cols").As<Napi::Number>().Int32Value();
-    int flags = obj.Get("flags").As<Napi::Number>().Int32Value();
-
-    m = cv::Mat(rows, cols, flags, data.Data());
-    return true;
+    failmsg(obj_value->Env(), "Argument '%s' is not convertable to cv::Mat", argInfo.name);
+    return false;
 }
 
-
-template <> // L:239
+template <>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
 {
     Napi::Env env = info.Env();
-    Napi::Object obj = Napi::Object::New(env);
-    size_t size = m.total() * m.elemSize();
-    Napi::Buffer<uint8_t> buffer = Napi::Buffer<uint8_t>::New(env, m.data, size);
-    obj.Set(Napi::String::New(env, "data"), buffer);
-    obj.Set(Napi::String::New(env, "dims"), Napi::Number::New(env, m.dims));
-    obj.Set(Napi::String::New(env, "rows"), Napi::Number::New(env, m.rows));
-    obj.Set(Napi::String::New(env, "cols"), Napi::Number::New(env, m.cols));
-    // contains type, depth, channels
-    obj.Set(Napi::String::New(env, "flags"), Napi::Number::New(env, m.flags));
-    // flags as exploded data view
-    obj.Set(Napi::String::New(env, "channels"), Napi::Number::New(env, m.channels()));
-    obj.Set(Napi::String::New(env, "depth"), Napi::Number::New(env, m.depth()));
-    obj.Set(Napi::String::New(env, "type"), Napi::Number::New(env, m.type()));
-    return obj;
+    Napi::Object jsMat = Napi::Object::New(env);
+
+    jsMat.Set("dims", Napi::Number::New(env, m.dims));
+
+    Napi::Array sizesArray = Napi::Array::New(env, m.dims);
+    for (int i = 0; i < m.dims; ++i)
+    {
+        sizesArray.Set(i, Napi::Number::New(env, m.size[i]));
+    }
+    jsMat.Set("sizes", sizesArray);
+
+    jsMat.Set("type", Napi::Number::New(env, m.type()));
+    jsMat.Set("data", Napi::Buffer<uint8_t>::Copy(env, m.data, m.total() * m.elemSize()));
+    // Debug only TODO REmove later
+    jsMat.Set("rows", Napi::Number::New(env, m.rows));
+    jsMat.Set("cols", Napi::Number::New(env, m.cols));
+    jsMat.Set("channels", Napi::Number::New(env, m.channels()));
+
+    return jsMat;
+
 }
 // --- bool // L:255
-template <> // L:257
+template<>
 bool jsopencv_to(const Napi::Value *obj, bool &value, const ArgInfo &argInfo)
 {
     // if (!obj || obj == NULL)
@@ -235,7 +261,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Scalar &src)
     arr.Set(2, Napi::Number::New(env, src[3]));
     arr.Set(3, Napi::Number::New(env, src[4]));
     return arr;
-    // return Js_BuildValue("(ii)", sz.width, sz.height);
+    // return Js_BuildValue("(iiii)", sz.width, sz.height);
 }
 
 // --- size_t
@@ -933,7 +959,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3d &v)
 }
 
 // --- Vec3f
-template <>
+template<>
 bool jsopencv_to(const Napi::Value *obj_value, cv::Vec3f &v, const ArgInfo &argInfo)
 {
     if (obj_value->IsNull() || obj_value->IsUndefined()) {
@@ -964,7 +990,7 @@ bool jsopencv_to(const Napi::Value *obj_value, cv::Vec3f &v, const ArgInfo &argI
     return true;
 }
 
-template <>
+template<>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3f &v)
 {
     Napi::Env env = info.Env();
