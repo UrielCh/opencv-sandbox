@@ -41,7 +41,7 @@ const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
 #define REQUIRE(cond) \
     if (!(cond))      \
-        return false;
+        return std::string("Failed: " #cond " at " __FILE__  ":" + std::to_string(__LINE__));
 
 // Napi::Value RunTest(const Napi::CallbackInfo& info, const std::string& testName, bool(*testFunc)(const Napi::CallbackInfo &info)) {
 //     Napi::Env env = info.Env();
@@ -59,19 +59,33 @@ const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 //     return testFunction.Call({testNameJS, testImpl});
 // }
 
-Napi::Value RunTest(const Napi::CallbackInfo &info, const std::string &testName, const std::function<int(const Napi::CallbackInfo &)> &testFunc)
+using NapiStringCallback = const std::function<std::string(const Napi::CallbackInfo &)>;
+
+
+Napi::Value RunTest(const Napi::CallbackInfo &info, const std::string &testName, NapiStringCallback &testFunc)
 {
     Napi::Env env = info.Env();
     Napi::Function testFunction = info[0].As<Napi::Function>();
 
     Napi::String testNameJS = Napi::String::New(env, testName);
     Napi::Function testImpl = Napi::Function::New(env, [testFunc](const Napi::CallbackInfo &info)
-                                                  {
+    {
         Napi::Env env = info.Env();
         Napi::Object t = info[0].As<Napi::Object>();
-        bool result = testFunc(info);
-        Napi::Function trueMethod = t.Get("true").As<Napi::Function>();
-        trueMethod.Call(t, {Napi::Boolean::New(env, result)}); });
+        std::string error = testFunc(info);
+        if (error.length() == 0)
+        {
+            Napi::Function trueMethod = t.Get("true").As<Napi::Function>();
+            trueMethod.Call(t, {Napi::Boolean::New(env, true)});
+        }
+        else
+        {
+            Napi::Function falseMethod = t.Get("true").As<Napi::Function>();
+            falseMethod.Call(t, {Napi::Boolean::New(env, false), Napi::String::New(env, error), });
+        }
+        // Napi::Function trueMethod = t.Get("true").As<Napi::Function>();
+        // trueMethod.Call(t, {Napi::Boolean::New(env, result)});
+    });
 
     return testFunction.Call({testNameJS, testImpl});
 }
@@ -82,50 +96,50 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     std::string PREFIX = std::string("Js_BuildValue > ");
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
             Napi::Value value = Js_BuildValue(info, "i", 42);
             REQUIRE(value.IsNumber());
             REQUIRE(value.As<Napi::Number>().Int32Value() == 42);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Integer", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
             Napi::Value value = Js_BuildValue(info, "f", 3.14);
             REQUIRE(value.IsNumber());
             REQUIRE(value.As<Napi::Number>().DoubleValue() == 3.14);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Floating-point", lambda);
     }
     {
-        auto lambda = [](const Napi::CallbackInfo &info)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
             Napi::Value value = Js_BuildValue(info, "s", "hello");
             REQUIRE(value.IsString());
             REQUIRE(value.As<Napi::String>().Utf8Value() == "hello");
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "String", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
             Napi::Value value = Js_BuildValue(info, "b", true);
             REQUIRE(value.IsBoolean());
             REQUIRE(value.As<Napi::Boolean>().Value() == true);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Boolean", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
             Napi::Value value = Js_BuildValue(info, "(ifsb)", 1, 2.0, "three", false);
             REQUIRE(value.IsArray());
@@ -135,13 +149,13 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
             REQUIRE(array.Get(1).As<Napi::Number>().DoubleValue() == 2.0);
             REQUIRE(array.Get(2).As<Napi::String>().Utf8Value() == "three");
             REQUIRE(array.Get(3).As<Napi::Boolean>().Value() == false);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Array", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
             Napi::Value value = Js_BuildValue(info, "{s:s,s:i,s:b}", "name", "Alice", "age", 42, "female", true);
             REQUIRE(value.IsObject());
@@ -152,7 +166,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
             REQUIRE(object.Get("age").As<Napi::Number>().Int32Value() == 42);
             REQUIRE(object.Has("female"));
             REQUIRE(object.Get("female").As<Napi::Boolean>().Value() == true);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Object", lambda);
     }
@@ -164,7 +178,7 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
 {
     std::string PREFIX = std::string("JsArg_ParseTupleAndKeywords > ");
     {
-        auto lambda = [](const Napi::CallbackInfo &info_)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
             Napi::Env env = info_.Env();
             FakeCallbackInfo info(info_, {Napi::Number::New(env, 42), Napi::String::New(env, "test")});
@@ -174,13 +188,13 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
             REQUIRE(result == true);
             REQUIRE(a1->As<Napi::Number>().Int32Value() == 42);
             REQUIRE(a2->As<Napi::String>().Utf8Value() == "test");
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Basic test with required arguments", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info_)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
             Napi::Env env = info_.Env();
             FakeCallbackInfo info(info_, {Napi::Number::New(env, 42), Napi::String::New(env, "test")});
@@ -193,13 +207,13 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
             REQUIRE(a1->As<Napi::Number>().Int32Value() == 42);
             REQUIRE(a2->As<Napi::String>().Utf8Value() == "test");
             REQUIRE(a3 == NULL);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Basic test with one optional arguments non provided", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info_)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
             Napi::Env env = info_.Env();
             FakeCallbackInfo info(info_, {Napi::Number::New(env, 42), Napi::String::New(env, "test"), Napi::Number::New(env, 13)});
@@ -212,13 +226,13 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
             REQUIRE(a1 && a1->As<Napi::Number>().Int32Value() == 42);
             REQUIRE(a2 && a2->As<Napi::String>().Utf8Value() == "test");
             REQUIRE(a3 && a3->As<Napi::Number>().Int32Value() == 13);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Basic test with one optional arguments provided", lambda);
     }
 
     {
-        auto lambda = [](const Napi::CallbackInfo &info_)
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
         {
             Napi::Env env = info_.Env();
             Napi::Object optional_obj = Napi::Object::New(env);
@@ -233,35 +247,36 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
             REQUIRE(result == true);
             REQUIRE(a1 && a1->As<Napi::Number>().Int32Value() == 42);
             REQUIRE(a2 && a2->As<Napi::Number>().Int32Value() == 13);
-            return true;
+            return std::string("");
         };
         RunTest(info, PREFIX + "Basic test with one optional arguments provided in an object", lambda);
     }
 
-    // {
-    //     auto lambda = [](const Napi::CallbackInfo &info_)
-    //     {
-    //         Napi::Env env = info_.Env();
-    //         Napi::Object optional_obj = Napi::Object::New(env);
-    //         optional_obj.Set("opt1", Napi::Boolean::New(env, true));
-    //         optional_obj.Set("opt3", Napi::String::New(env, "value3"));
-    //         FakeCallbackInfo info(info_, {optional_obj});
-// 
-    //         const Napi::Value *a1 = NULL;
-    //         const Napi::Value *a2 = NULL;
-    //         const Napi::Value *a3 = NULL;
-// 
-    //         const char *keywords[] = {"opt1", "opt2", "opt3", NULL};
-    //         bool result = JsArg_ParseTupleAndKeywords(info, "|OOO", (char **)keywords, &a1, &a2, &a3);
-    //         REQUIRE(result == true);
-    //         REQUIRE(a1 && a1->As<Napi::Boolean>().ToBoolean() == true);
-    //         REQUIRE(a2 == NULL);
-    //         REQUIRE(a3 && a3->As<Napi::String>().Utf8Value() == "value3");
-    //         return true;
-    //     };
-    //     RunTest(info, PREFIX + "test with 3 optional arguments partialy provided", lambda);
-    // }
-
+     {
+         NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
+         {
+             Napi::Env env = info_.Env();
+             Napi::Object optional_obj = Napi::Object::New(env);
+             optional_obj.Set("opt1", Napi::Boolean::New(env, true));
+             optional_obj.Set("opt3", Napi::String::New(env, "value3"));
+             FakeCallbackInfo info(info_, {optional_obj});
+ 
+             const Napi::Value *a1 = NULL;
+             const Napi::Value *a2 = NULL;
+             const Napi::Value *a3 = NULL;
+ 
+             const char *keywords[] = {"opt1", "opt2", "opt3", NULL};
+             bool result = JsArg_ParseTupleAndKeywords(info, "|OOO", (char **)keywords, &a1, &a2, &a3);
+             REQUIRE(result == true);
+             REQUIRE(a1 != NULL);
+             REQUIRE(a1->As<Napi::Boolean>().ToBoolean() == true);
+             REQUIRE(a2 == NULL);
+             REQUIRE(a3 != NULL);
+             REQUIRE(a3->As<Napi::String>().Utf8Value() == "value3");
+             return std::string("");
+         };
+         RunTest(info, PREFIX + "test with 3 optional arguments partialy provided", lambda);
+     }
 
     // {
     //     auto lambda = [](const Napi::CallbackInfo &info_)
