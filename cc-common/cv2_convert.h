@@ -25,6 +25,9 @@
 template<typename _Tp> static
 bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo)
 {
+    if (!obj) {
+        return true; // no shure yet, bypass all null source
+    }
     try
     {
         return jsopencv_to(obj, value, argInfo);

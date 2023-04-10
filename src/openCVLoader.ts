@@ -41,7 +41,7 @@ export function getModulePath(): string {
     if (!process.env.PATH) {
       console.error(`PATH env value is not visible, I can not append opencvBinDir(${opencvBinDir}) to your PATH`);
     } else if (opencvBinDir && !process.env.PATH.includes(opencvBinDir)) {
-        console.log(`Adding opencvBinDir: ${opencvBinDir} to path`)
+        console.log(`Adding ${opencvBinDir} to PATH`)
         process.env.PATH = `${process.env.PATH}${path.delimiter}${opencvBinDir}`;
         // process.env.LD_LIBRARY_PATH = `${process.env.LD_LIBRARY_PATH}${path.delimiter}${opencvBinDir}`;
         // console.log(`process.env.PATH: ${process.env.PATH}`)

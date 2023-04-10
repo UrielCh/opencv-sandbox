@@ -172,7 +172,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
             REQUIRE(array.Get((uint32_t)1).As<Napi::Number>().Int32Value() == 13);
             return std::string("");
         };
-        RunTest(info, PREFIX + "Array with N", lambda);
+        RunTest(info, PREFIX + "Array with (NN)", lambda);
     }
 
     {

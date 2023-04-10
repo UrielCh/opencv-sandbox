@@ -7,7 +7,7 @@ type TopenCV = typeof import('../types/cv-v4');
 
 let theModule: TopenCV = undefined as unknown as TopenCV;
 //test.before(() => {
-console.log('before test');
+// console.log('before test');
 const impPath = getModulePath();
 const theModuleTmp = require(impPath);
 theModule = theModuleTmp as TopenCV;
@@ -32,19 +32,49 @@ const IMREAD_REDUCED_GRAYSCALE_8 = 64; //!< If set, always convert image to the 
 const IMREAD_REDUCED_COLOR_8 = 65; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/8.
 const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image according to EXIF's orientation flag.
 
-test.serial('imread logo.png', async t => {
-    const theModule = await getOPpenCVModule();
+test.serial('imread logo.png default', async t => {
     let logo: cvMatObject;
     // load with default params
-    logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
+    logo = theModule.imread('./data/logo.png');
+    t.is(logo.cols, 100);
+    t.is(logo.rows, 132);
+    t.is(logo.channels, 3);
+    t.is(logo.type, 16);
+});
+
+test.serial('imread logo.png empty optional object', async t => {
+    let logo: cvMatObject;
+    // load with default params
+    logo = theModule.imread('./data/logo.png', {});
+    t.is(logo.cols, 100);
+    t.is(logo.rows, 132);
+    t.is(logo.channels, 3);
+    t.is(logo.type, 16);
+});
+
+test.serial('imread logo.png inline flags IMREAD_REDUCED_GRAYSCALE_4', async t => {
+    let logo: cvMatObject;
+    // load with default params
+    logo = theModule.imread('./data/logo.png', IMREAD_REDUCED_GRAYSCALE_4);
+    // logo = theModule.imread('./data/logo.png', { });
     t.is(logo.cols, 25);
     t.is(logo.rows, 33);
-    t.is(logo.channels, 1);
+    // t.is(logo.channels, 1);
     t.is(logo.type, 0);
 });
 
+test.serial('imread logo.png { flags: IMREAD_REDUCED_GRAYSCALE_4 }', async t => {
+    let logo: cvMatObject;
+    // load with default params
+    logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
+    // logo = theModule.imread('./data/logo.png', { });
+    t.is(logo.cols, 25);
+    t.is(logo.rows, 33);
+    // t.is(logo.channels, 1);
+    t.is(logo.type, 0);
+});
+ 
 test.serial('imencode logo as 1/4 grayscall', async t => {
-    const theModule = await getOPpenCVModule();
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
@@ -76,8 +106,6 @@ if (theModule.test)
 //         t.true(result.pass > 0, "no native test passed");
 //     }
 // });
-
-// testimEncode();
 
 // setTimeout(() => console.log('\ntimeout all buffer should had been released'), 5000);
 

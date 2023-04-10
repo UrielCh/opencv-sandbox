@@ -1,5 +1,3 @@
-
-
 #include "cv2_convert.h"
 
 //======================================================================================================================
@@ -245,7 +243,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Scalar &src)
 template <>
 bool jsopencv_to(const Napi::Value *obj, size_t &value, const ArgInfo &argInfo)
 {
-    if (!obj || obj->IsNull() || obj->IsUndefined())
+    if (obj->IsNull() || obj->IsUndefined())
         return true;
 
     if (obj->IsNumber())
@@ -271,7 +269,6 @@ bool jsopencv_to(const Napi::Value *obj, int &value, const ArgInfo &Arginfo)
 {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
-
     if (obj->IsNumber())
     {
         value = obj->ToNumber().Int32Value();

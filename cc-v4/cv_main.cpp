@@ -78,7 +78,6 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
-        // std::cout << "jsopencv_cv_imread " << " flags: " <<  retval.flags << std::endl;
         return jsopencv_from(info, retval);
     }
 
@@ -93,7 +92,7 @@ static Napi::Value test(const Napi::CallbackInfo &info)
     {
         Js_BuildValue_test(info);
         JsArg_ParseTupleAndKeywords_test(info);
-        std::cout << "ALL tests done" << std::endl;
+        // std::cout << "ALL tests done" << std::endl;
     }
     catch (const std::exception &ex)
     {
