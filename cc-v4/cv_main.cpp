@@ -56,6 +56,57 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     return info.Env().Null();
 }
 
+
+static Napi::Value jsopencv_cv_getVersionMajor(const Napi::CallbackInfo &info)
+{
+    using namespace cv;
+
+    int retval;
+
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
+    {
+        ERRWRAP2_NAPI(info, retval = cv::getVersionMajor());
+        return jsopencv_from(info, retval);
+    }
+
+    return info.Env().Null();
+}
+
+static Napi::Value jsopencv_cv_getVersionMinor(const Napi::CallbackInfo &info)
+{
+    using namespace cv;
+
+    int retval;
+
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
+    {
+        ERRWRAP2_NAPI(info, retval = cv::getVersionMinor());
+        return jsopencv_from(info, retval);
+    }
+
+    return info.Env().Null();
+}
+
+static Napi::Value jsopencv_cv_getVersionRevision(const Napi::CallbackInfo &info)
+{
+    using namespace cv;
+
+    int retval;
+
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
+    {
+        ERRWRAP2_NAPI(info, retval = cv::getVersionRevision());
+        return jsopencv_from(info, retval);
+    }
+
+    return info.Env().Null();
+}
+
+
+
+
+
+
 /**
  * @brief
  *
@@ -110,5 +161,10 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
     exports.Set("imencode", Napi::Function::New(env, jsopencv_cv_imencode));
     exports.Set("test", Napi::Function::New(env, test));
+
+    exports.Set("getVersionMajor", Napi::Function::New(env, jsopencv_cv_getVersionMajor));
+    exports.Set("getVersionMinor", Napi::Function::New(env, jsopencv_cv_getVersionMinor));
+    exports.Set("getVersionRevision", Napi::Function::New(env, jsopencv_cv_getVersionRevision));
+
     return exports;
 }

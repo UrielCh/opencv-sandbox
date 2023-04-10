@@ -32,6 +32,14 @@ const IMREAD_REDUCED_GRAYSCALE_8 = 64; //!< If set, always convert image to the 
 const IMREAD_REDUCED_COLOR_8 = 65; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/8.
 const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image according to EXIF's orientation flag.
 
+
+test.serial('get openCV Version', async t => {
+    const major = theModule.getVersionMajor();
+    t.true(major >= 4);
+    const minor = theModule.getVersionMinor();
+    t.true(Number.isInteger(minor));
+});
+
 test.serial('imread logo.png default', async t => {
     let logo: cvMatObject;
     // load with default params

@@ -56,5 +56,9 @@ enum ImwriteFlags {
 export function imencode(ext: `.${string}`, img: cvMatObject, params?: number): [boolean, Buffer];
 export function imencode(ext: `.${string}`, img: cvMatObject, options?: {params: number}): [boolean, Buffer];
 
+export function getVersionMajor(): number;
+export function getVersionMinor(): number;
+export function getVersionRevision(): number;
+
 export function test(ava: any): {pass:number, fail:number};
 // export function runTests(ava: any): undefined;
