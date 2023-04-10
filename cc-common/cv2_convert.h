@@ -254,7 +254,7 @@ struct jsopencvVecConverter;
 template <typename Tp>
 bool jsopencv_to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& info)
 {
-    if (!obj || obj->IsNull() || obj->IsUndefined())
+    if (obj->IsNull() || obj->IsUndefined())
     {
         return true;
     }

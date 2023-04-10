@@ -42,9 +42,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     vector_int params = std::vector<int>();
     bool retval;
     const char *keywords[] = {"ext", "img", "params", NULL};
-    auto p = JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params);
-    auto ex = jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0));
-    if (p
+    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
         && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
         && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0))
         //  && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
