@@ -15,14 +15,12 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
-
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
 {
     // auto sp1 = std::make_shared<cvMatObject>(info, m);
     return cvMatObject::NewInstance(info, m);
 }
 
-#ifdef NEXRT_BUILD
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
@@ -30,58 +28,60 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 
     jsPrepareArgumentConversionErrorsStorage(2);
     std::cout << "jsPrepareArgumentConversionErrorsStorage Called" << std::endl;
-
-    {
-        Napi::Value *jsobj_ext = NULL;
-        String ext;
-        Napi::Value *jsobj_img = NULL;
-        Mat img;
-        vector_uchar buf;
-        Napi::Value *jsobj_params = NULL;
-        vector_int params = std::vector<int>();
-        bool retval;
-
-        const char *keywords[] = {"ext", "img", "params", NULL};
-        std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode Once" << std::endl;
-        if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params) &&
-            jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0)) &&
-            jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
-            jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
-        {
-            ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-            Napi::Value p1 = jsopencv_from(info, retval);
-            Napi::Value p2 = jsopencv_from(info, buf);
-            return Js_BuildValue(info, "(NN)", p1, p2);
-        }
-        jsPopulateArgumentConversionErrors(info);
+    Napi::Value *jsobj_ext = NULL;
+    String ext;
+    Napi::Value *jsobj_img = NULL;
+    Mat img;
+    vector_uchar buf;
+    Napi::Value *jsobj_params = NULL;
+    vector_int params = std::vector<int>();
+    bool retval;
+    const char *keywords[] = {"ext", "img", "params", NULL};
+    std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode Once" << std::endl;
+        if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
+        && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
+        && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0))
+        //  && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
+    ) {
+        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
     }
-
+#ifdef NEXRT_BUILD
     {
-        Napi::Value *jsobj_ext = NULL;
-        String ext;
-        Napi::Value *jsobj_img = NULL;
-        UMat img;
-        vector_uchar buf;
-        Napi::Value *jsobj_params = NULL;
-        vector_int params = std::vector<int>();
-        bool retval;
-
-        const char *keywords[] = {"ext", "img", "params", NULL};
-        std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode twice" << std::endl;
-        if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params) &&
-            jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0)) &&
-            jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
-            jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
-        {
-            ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-            return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
-        }
-        jsPopulateArgumentConversionErrors(info);
+        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
+        Napi::Value p1 = jsopencv_from(info, retval);
+        Napi::Value p2 = jsopencv_from(info, buf);
+        return Js_BuildValue(info, "(NN)", p1, p2);
     }
-    jsRaiseCVOverloadException(info, "imencode");
-    return info.Env().Null();
+    jsPopulateArgumentConversionErrors(info);
 }
+
+{
+    Napi::Value *jsobj_ext = NULL;
+    String ext;
+    Napi::Value *jsobj_img = NULL;
+    UMat img;
+    vector_uchar buf;
+    Napi::Value *jsobj_params = NULL;
+    vector_int params = std::vector<int>();
+    bool retval;
+
+    const char *keywords[] = {"ext", "img", "params", NULL};
+    std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode twice" << std::endl;
+    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params) &&
+        jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0)) &&
+        jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
+        jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
+    {
+        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+    }
+    jsPopulateArgumentConversionErrors(info);
+}
+jsRaiseCVOverloadException(info, "imencode");
 #endif
+return info.Env().Null();
+}
 
 /**
  * @brief
@@ -135,9 +135,7 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
     // std::cout << "imread is attached to export" << std::endl;
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
-#ifdef NEXRT_BUILD
     exports.Set("imencode", Napi::Function::New(env, jsopencv_cv_imencode));
-#endif
     exports.Set("test", Napi::Function::New(env, test));
     return exports;
 }

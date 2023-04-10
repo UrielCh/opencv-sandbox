@@ -11,6 +11,7 @@ using namespace cv;
 // --- Mat
 
 // special case, when the converter needs full ArgInfo structure
+#ifdef __DISABLED___
 template <>
 bool jsopencv_to(const Napi::Value *obj, Mat &m, const ArgInfo &argInfo) {
     if (obj == nullptr || obj->IsNull() || obj->IsUndefined()) {
@@ -49,7 +50,22 @@ bool jsopencv_to(const Napi::Value *obj, Mat &m, const ArgInfo &argInfo) {
 
     if (!obj->IsTypedArray())
     {
-        failmsg(obj->Env(), "%s is not a typed array or scalar", argInfo.name);
+        auto type = "";
+        switch (obj->Type())
+        {
+            case napi_undefined: type = "undefined"; break;
+            case napi_null: type = "null"; break;
+            case napi_boolean: type = "boolean"; break;
+            case napi_number: type = "number"; break;
+            case napi_string: type = "string"; break;
+            case napi_symbol: type = "symbol"; break;
+            case napi_object: type = "object"; break;
+            case napi_function: type = "function"; break;
+            case napi_external: type = "external"; break;
+            case napi_bigint: type = "napi_bigint"; break;
+            default: type = "unknown"; break;
+        }
+        failmsg(obj->Env(), "%s is not a typed array or scalar type is %s", argInfo.name, type);
         return false;
     }
     // Napi::TypedArray arr = obj->As<Napi::TypedArray>();
@@ -85,11 +101,28 @@ bool jsopencv_to(const Napi::Value *obj, Mat &m, const ArgInfo &argInfo) {
     // m.allocator = &g_numpyAllocator;
     return false;
 }
+#endif
 
+template <>
+bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInfo) {
+    if (!obj_value->IsObject()) {
+        return false;
+    }
 
+    Napi::Object obj = obj_value->As<Napi::Object>();
 
+    if (!obj.Has("data") || !obj.Has("rows") || !obj.Has("cols") || !obj.Has("flags")) {
+        return false;
+    }
 
+    Napi::Buffer<uint8_t> data = obj.Get("data").As<Napi::Buffer<uint8_t>>();
+    int rows = obj.Get("rows").As<Napi::Number>().Int32Value();
+    int cols = obj.Get("cols").As<Napi::Number>().Int32Value();
+    int flags = obj.Get("flags").As<Napi::Number>().Int32Value();
 
+    m = cv::Mat(rows, cols, flags, data.Data());
+    return true;
+}
 
 
 template <> // L:239
