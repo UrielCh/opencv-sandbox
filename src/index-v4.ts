@@ -2,11 +2,29 @@ import { assert } from "console";
 import { cvMatObject } from "../types/cv-v4";
 import { getModulePath } from "./openCVLoader";
 
+type TopenCV = typeof import('../types/cv-v4');
+
 const impPath = getModulePath();
 const theModuleTmp = require(impPath);
-console.log('require cv2.node called');
+const theModule = theModuleTmp as TopenCV;
 
-const theModule = theModuleTmp as typeof import('../types/cv-v4');
+async function getOPpenCVModule(): Promise<TopenCV>{
+    return theModule;
+}
+
+// let __cached_TopenCV: TopenCV | undefined = undefined;
+// async function getOPpenCVModule(): Promise<TopenCV>{
+//     if (__cached_TopenCV)
+//         return __cached_TopenCV;
+//     const impPath = getModulePath();
+//     let urlPath = pathToFileURL(resolve(impPath)).href;
+//     // urlPath = urlPath.replace('node', 'bin')
+//     urlPath = 'file:///C:/project/opencv/opencv-sandbox/build/Release/cv2.bin';
+//     const module = await import(urlPath);
+//     __cached_TopenCV = module;
+//     console.log('require cv2.node called');
+//     return module;
+// }
 
 
 /**
@@ -14,6 +32,7 @@ const theModule = theModuleTmp as typeof import('../types/cv-v4');
  */
 
 async function allocationTest(pass: number) {
+    const theModule = await getOPpenCVModule();
     // const cv2 = cv2tmp as typeof import('../types/cv-v1');
     // main.ts
     // import cvMatObject = require('./cvMatObjectWrapper');
@@ -80,6 +99,7 @@ async function main() {
 
 
 async function main2() {
+    const theModule = await getOPpenCVModule();
     // console.log("main2", theModule.imread)
     // const tmp = new theModule.cvMatObject(50000, 2000);
     try {
@@ -119,6 +139,7 @@ const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image acco
 
 async function testLoad() {
     try {
+        const theModule = await getOPpenCVModule();
         let logo: cvMatObject;
         // load with default params
         logo = theModule.imread('./data/logo.png')
@@ -138,12 +159,14 @@ async function testLoad() {
 
 async function testimEncode() {
     try {
+        const theModule = await getOPpenCVModule();
+
         let logo: cvMatObject;
         // load with default params
         logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
-        assert(logo.cols === 33, "logo.cols === 33");
-        assert(logo.rows === 25, "logo.rows === 25");
-        console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.cols)
+        assert(logo.rows === 33, "logo.rows === 33");
+        assert(logo.cols === 25, "logo.cols === 25");
+        console.log("logo load {flag: IMREAD_REDUCED_GRAYSCALE_4} as opts:\n", logo.toString())
 
         if (theModule.imencode) {
             const out = theModule.imencode(".png", logo);

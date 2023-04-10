@@ -6,7 +6,8 @@
   "main": "dist/cjs/src/index.js",
   "scripts": {
     "full": "node-gyp rebuild && npm run test",
-    "test": "node --expose-gc -r ts-node/register ./src/index-v4.ts",
+    "test": "ava",
+    "test-old": "node --expose-gc -r ts-node/register ./src/index-v4.ts",
     "build-ts": "tsc --pretty --project .",
     "build-opencv": "opencv-build-npm --keepsources --version=4.7.0 --git-cache  --flags \"-DWITH_PYTHON=ON -DBUILD_opencv_python3=ON -DBUILD_opencv_python_bindings_generator=ON\"",
     "build:dev": "node-gyp build --debug",
@@ -32,6 +33,7 @@
     "@types/node": "^18.15.11",
     "@types/npmlog": "^4.1.4",
     "@u4/opencv-build": "^0.7.8",
+    "ava": "^5.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.3"
   },
@@ -41,5 +43,18 @@
     "node-gyp": "^9.3.1",
     "npmlog": "^7.0.1",
     "picocolors": "^1.0.0"
-  }
+  },
+  "ava": {
+    "extensions": [
+			"ts"
+		],
+    "workerThreads": false,
+		"require": [
+			"ts-node/register"
+		],
+    "nodeArguments": [
+			"--trace-deprecation",
+			"--napi-modules"
+		]
+	}
 }

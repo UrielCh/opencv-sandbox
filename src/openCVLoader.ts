@@ -37,7 +37,10 @@ export function getModulePath(): string {
         }
         // /home/uriel/opencv/latest/build/lib/libopencv_core.so
     }
-    if (opencvBinDir && process.env.PATH && !process.env.PATH.includes(opencvBinDir)) {
+
+    if (!process.env.PATH) {
+      console.error(`PATH env value is not visible, I can not append opencvBinDir(${opencvBinDir}) to your PATH`);
+    } else if (opencvBinDir && !process.env.PATH.includes(opencvBinDir)) {
         console.log(`Adding opencvBinDir: ${opencvBinDir} to path`)
         process.env.PATH = `${process.env.PATH}${path.delimiter}${opencvBinDir}`;
         // process.env.LD_LIBRARY_PATH = `${process.env.LD_LIBRARY_PATH}${path.delimiter}${opencvBinDir}`;
@@ -46,7 +49,6 @@ export function getModulePath(): string {
       } else {
         console.error(`no opencvBinDir(${opencvBinDir}) added to PATH`, process.env.PATH);
     }
-    // console.log(process.env.path);
 
 
     let impPath = '';
@@ -64,5 +66,6 @@ export function getModulePath(): string {
         console.error('module not found')
         process.exit(1);
     }
+    // impPath = pathToFileURL(path.resolve(impPath)).href;
     return impPath;
 }
