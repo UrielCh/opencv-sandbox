@@ -171,14 +171,10 @@ async function testimEncode() {
             const out = theModule.imencode(".png", logo);
             console.log(out);
         }
-        if (theModule.test) {
-            theModule.test();
-        }
     } catch (e) {
         console.log((e as Error).message);
     }
 }
-
 
 testimEncode();
 
