@@ -113,17 +113,22 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 
 static Napi::Value test(const Napi::CallbackInfo &info)
 {
+    int pass = 0;
+    int fail = 0;
     try
     {
-        Js_BuildValue_test(info);
-        JsArg_ParseTupleAndKeywords_test(info);
+        Js_BuildValue_test(info, pass, fail);
+        JsArg_ParseTupleAndKeywords_test(info, pass, fail);
         std::cout << "ALL tests done" << std::endl;
     }
     catch (const std::exception &ex)
     {
         failmsg(info.Env(), "A Test Throws un non catched Exception: %s", ex.what());
     }
-    return info.Env().Null();
+    Napi::Object obj = Napi::Object::New(info.Env());
+    obj.Set("pass", Napi::Number::New(info.Env(), pass));
+    obj.Set("fail", Napi::Number::New(info.Env(), fail));
+    return obj;
 }
 
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)

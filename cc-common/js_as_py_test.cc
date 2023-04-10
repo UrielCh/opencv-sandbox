@@ -30,10 +30,12 @@ const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 #define REQUIRE(cond)                                            \
     if (!(cond))                                                 \
     {                                                            \
-        throw std::runtime_error("Requirement not met: " #cond); \
-    }
+        fail++;                                                  \
+        std::cerr << "test failed: " << RED << #cond << RESET << std::endl; \
+    } else { pass++;}
+//  throw std::runtime_error("Requirement not met: " #cond); \
 
-void Js_BuildValue_test(const Napi::CallbackInfo &info)
+void Js_BuildValue_test(const Napi::CallbackInfo &info, int& pass, int& fail)
 {
     TEST_START("Js_BuildValue")
     auto currentTest = "Js_BuildValue_test";
@@ -98,7 +100,7 @@ void Js_BuildValue_test(const Napi::CallbackInfo &info)
     SECTION_END("Object")
 }
 
-void JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info_)
+void JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info_, int& pass, int& fail)
 {
     TEST_START("JsArg_ParseTupleAndKeywords")
     auto currentTest = "Js_BuildValue_test";
