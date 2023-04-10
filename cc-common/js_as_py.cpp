@@ -200,6 +200,9 @@ Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *for
         case 'b':
             result = Napi::Boolean::New(env, va_arg(args, int) != 0);
             break;
+        case 'N':
+            result = va_arg(args, Napi::Value);
+            break;
         case '(':
         case '[':
             {
@@ -271,7 +274,6 @@ Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ..
     va_end(args);
     return result;
 }
-
 
 
 template<typename T>

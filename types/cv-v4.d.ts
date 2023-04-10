@@ -4,6 +4,8 @@ export class cvMatObject {
 
   readonly rows: number;
   readonly cols: number;
+  readonly channels: number;
+  readonly flags: number;
   readonly type: number;
   readonly depth: number;
   readonly isContinuous: boolean;
@@ -11,6 +13,7 @@ export class cvMatObject {
   readonly elemSize: number;
   readonly elemSize1: number;
 
+  readonly data: Buffer;
   // not exported
   // release(): void;
 }

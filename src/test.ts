@@ -32,30 +32,33 @@ const IMREAD_REDUCED_GRAYSCALE_8 = 64; //!< If set, always convert image to the 
 const IMREAD_REDUCED_COLOR_8 = 65; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/8.
 const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image according to EXIF's orientation flag.
 
-test.serial('imread', async t => {
+test.serial('imread logo.png', async t => {
     const theModule = await getOPpenCVModule();
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
     t.is(logo.cols, 25);
     t.is(logo.rows, 33);
-    t.is(logo.toString(), "Matrix: 33x25 type:0 Channels:1 ElemSize:1 ElemSize1:1");
+    t.is(logo.channels, 1);
+    t.is(logo.type, 0);
 });
 
-
-test.serial('imencode', async t => {
+test.serial('imencode logo as 1/4 grayscall', async t => {
     const theModule = await getOPpenCVModule();
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
     t.is(logo.cols, 25);
     t.is(logo.rows, 33);
-    t.is(logo.toString(), "Matrix: 33x25 type:0 Channels:1 ElemSize:1 ElemSize1:1");
-
-    if (theModule.imencode) {
-        const out = theModule.imencode(".png", logo);
-        console.log(out);
-    }
+    t.is(logo.channels, 1);
+    // t.is(logo.toString(), "Matrix: 33x25 type:0 Channels:1 ElemSize:1 ElemSize1:1");
+    // console.log('flags:',  logo.flags);
+    // console.log('data:',  logo.data);
+    t.truthy(theModule.imencode)
+    const out = theModule.imencode(".png", logo);
+    t.true(Array.isArray(out));
+    t.true(out[0])
+    t.is(out[1].length, 551);
 });
 
 /**
@@ -71,7 +74,7 @@ if (theModule.test)
 //         const result = theModule.test(test);
 //         t.is(result.fail, 0, `${result.fail} native test failed`);
 //         t.true(result.pass > 0, "no native test passed");
-//     }    
+//     }
 // });
 
 // testimEncode();

@@ -108,9 +108,7 @@ bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInf
     if (!obj_value->IsObject()) {
         return false;
     }
-
     Napi::Object obj = obj_value->As<Napi::Object>();
-
     if (!obj.Has("data") || !obj.Has("rows") || !obj.Has("cols") || !obj.Has("flags")) {
         return false;
     }

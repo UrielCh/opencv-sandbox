@@ -159,6 +159,25 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
+            Napi::Value value1 = Napi::Value::From(info.Env(), 42);
+            Napi::Value value2 = Napi::Value::From(info.Env(), 13);
+
+            Napi::Value value = Js_BuildValue(info, "(NN)", value1, value2);
+            REQUIRE(value.IsArray());
+            Napi::Array array = value.As<Napi::Array>();
+            REQUIRE(array.Length() == 2);
+            REQUIRE(array.Get((uint32_t)0).IsNumber());
+            REQUIRE(array.Get((uint32_t)0).As<Napi::Number>().Int32Value() == 42);
+            REQUIRE(array.Get((uint32_t)1).IsNumber());
+            REQUIRE(array.Get((uint32_t)1).As<Napi::Number>().Int32Value() == 13);
+            return std::string("");
+        };
+        RunTest(info, PREFIX + "Array with N", lambda);
+    }
+
+    {
+        NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
+        {
             Napi::Value value = Js_BuildValue(info, "{s:s,s:i,s:b}", "name", "Alice", "age", 42, "female", true);
             REQUIRE(value.IsObject());
             Napi::Object object = value.As<Napi::Object>();

@@ -15,19 +15,24 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
-{
-    // auto sp1 = std::make_shared<cvMatObject>(info, m);
-    return cvMatObject::NewInstance(info, m);
+Napi::Value jsopencv_fromVec(const Napi::CallbackInfo &info, const std::vector<uchar>& src) {
+    Napi::Env env = info.Env();
+    size_t size = src.size();
+    Napi::Buffer<uchar> buffer = Napi::Buffer<uchar>::New(env, size);
+
+    std::copy(src.begin(), src.end(), buffer.Data());
+
+    return buffer;
 }
+
 
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
-    std::cout << "jsopencv_cv_imencode Called with " << MAGANTA << info.Length() << RESET << " params" << std::endl;
+    // std::cout << "jsopencv_cv_imencode Called with " << MAGANTA << info.Length() << RESET << " params" << std::endl;
 
     jsPrepareArgumentConversionErrorsStorage(2);
-    std::cout << "jsPrepareArgumentConversionErrorsStorage Called" << std::endl;
+    // std::cout << "jsPrepareArgumentConversionErrorsStorage Called" << std::endl;
     Napi::Value *jsobj_ext = NULL;
     String ext;
     Napi::Value *jsobj_img = NULL;
@@ -37,50 +42,18 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     vector_int params = std::vector<int>();
     bool retval;
     const char *keywords[] = {"ext", "img", "params", NULL};
-    std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode Once" << std::endl;
-        if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
+    auto p = JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params);
+    auto ex = jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0));
+    if (p
         && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
         && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0))
         //  && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
     ) {
+        // std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode Twice" << std::endl;
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_fromVec(info, buf));
     }
-#ifdef NEXRT_BUILD
-    {
-        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        Napi::Value p1 = jsopencv_from(info, retval);
-        Napi::Value p2 = jsopencv_from(info, buf);
-        return Js_BuildValue(info, "(NN)", p1, p2);
-    }
-    jsPopulateArgumentConversionErrors(info);
-}
-
-{
-    Napi::Value *jsobj_ext = NULL;
-    String ext;
-    Napi::Value *jsobj_img = NULL;
-    UMat img;
-    vector_uchar buf;
-    Napi::Value *jsobj_params = NULL;
-    vector_int params = std::vector<int>();
-    bool retval;
-
-    const char *keywords[] = {"ext", "img", "params", NULL};
-    std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode twice" << std::endl;
-    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params) &&
-        jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0)) &&
-        jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
-        jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
-    {
-        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
-    }
-    jsPopulateArgumentConversionErrors(info);
-}
-jsRaiseCVOverloadException(info, "imencode");
-#endif
-return info.Env().Null();
+    return info.Env().Null();
 }
 
 /**
@@ -105,6 +78,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
+        // std::cout << "jsopencv_cv_imread " << " flags: " <<  retval.flags << std::endl;
         return jsopencv_from(info, retval);
     }
 
