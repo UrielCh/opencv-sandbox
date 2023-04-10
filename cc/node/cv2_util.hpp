@@ -5,9 +5,6 @@
 #include "opencv2/core.hpp"
 #include "opencv2/core/utils/tls.hpp"
 
-int failmsg(const Napi::Env& env, const char* format, ...);
-Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
-
 void pyRaiseCVOverloadException(const std::string& functionName);
 // global Error object
 extern Napi::Value* opencv_error;

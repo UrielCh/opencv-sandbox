@@ -5,34 +5,6 @@
 // global Error object
 Napi::Value* opencv_error = NULL;
 
-/**
- * @brief Throws an exception exception-object
- */
-int failmsg(const Napi::Env& env, const char* format, ...)
-{
-    va_list args;
-    va_start(args, format);
-    char message[1024];
-    vsnprintf(message, sizeof(message), format, args);
-    va_end(args);
-    Napi::Error::New(env, message).ThrowAsJavaScriptException();
-    return 0;
-}
-
-Napi::Value failmsgp(const Napi::Env& env, const char *format, ...)
-{
-    va_list args;
-    va_start(args, format);
-    char message[1024];
-    vsnprintf(message, sizeof(message), format, args);
-    va_end(args);
-    Napi::Error::New(env, message).ThrowAsJavaScriptException();
-    // Allocate memory for the Napi::Value
-    // Napi::Value* result = new Napi::Value(env.Null());
-    // return result;
-    return env.Null();
-}
-
 void jsRaiseCVOverloadException(const Napi::CallbackInfo &info, const std::string& functionName)
 {
     const std::vector<std::string>& conversionErrors = conversionErrorsTLS.getRef();
