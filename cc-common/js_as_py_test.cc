@@ -10,54 +10,9 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
-#define TEST_START(name) \
-    std::cout << "NEXT TEST:" << MAGANTA << name << RESET << std::endl;
-
-#define SECTION_START(name) \
-    try                     \
-    {
-
-#define SECTION_END(name)                                                                                                         \
-    std::cout << "SECTION:" << YELLOW << std::left << std::setw(60) << name << RESET << GREEN << " PASS" << RESET << std::endl;   \
-    }                                                                                                                             \
-    catch (const std::exception &ex)                                                                                              \
-    {                                                                                                                             \
-        std::cout << "SECTION:" << YELLOW << std::left << std::setw(60) << name << RESET << RED << " FAIL" << RESET << std::endl; \
-        std::cout << RED << "Error: " << RESET << currentTest << std::endl;                                                       \
-        std::cout << ex.what() << std::endl;                                                                                      \
-        failmsg(env, "Error in section \"%s\" of test \"%s\": %s", name, currentTest, ex.what());                                 \
-    }
-//
-// #define REQUIRE(cond)                                                       \
-//     if (!(cond))                                                            \
-//     {                                                                       \
-//         std::cerr << "test failed: " << RED << #cond << RESET << std::endl; \
-//     }                                                                       \
-//     else                                                                    \
-//     {                                                                       \
-//     }
-// //  throw std::runtime_error("Requirement not met: " #cond); \
-
-
 #define REQUIRE(cond) \
     if (!(cond))      \
         return std::string("Failed: " #cond " at " __FILE__ ":" + std::to_string(__LINE__));
-
-// Napi::Value RunTest(const Napi::CallbackInfo& info, const std::string& testName, bool(*testFunc)(const Napi::CallbackInfo &info)) {
-//     Napi::Env env = info.Env();
-//     Napi::Function testFunction = info[0].As<Napi::Function>();
-//
-//     Napi::String testNameJS = Napi::String::New(env, testName);
-//     Napi::Function testImpl = Napi::Function::New(env, [testFunc](const Napi::CallbackInfo& info) {
-//         Napi::Env env = info.Env();
-//         Napi::Object t = info[0].As<Napi::Object>();
-//         bool result = testFunc(info);
-//         Napi::Function trueMethod = t.Get("true").As<Napi::Function>();
-//         trueMethod.Call(t, {Napi::Boolean::New(env, result)});
-//     });
-//
-//     return testFunction.Call({testNameJS, testImpl});
-// }
 
 using NapiStringCallback = const std::function<std::string(const Napi::CallbackInfo &)>;
 
@@ -92,7 +47,6 @@ Napi::Value RunTest(const Napi::CallbackInfo &info, const std::string &testName,
     return testFunction.Call({testNameJS, testImpl});
 }
 
-// , int& pass, int& fail
 bool Js_BuildValue_test(const Napi::CallbackInfo &info)
 {
     std::string PREFIX = std::string("Js_BuildValue > ");
@@ -293,63 +247,27 @@ bool JsArg_ParseTupleAndKeywords_test(const Napi::CallbackInfo &info)
         RunTest(info, PREFIX + "test with 3 optional arguments partialy provided", lambda);
     }
 
+    // this test will throws an NodeJS exception, but it is not catched by the test framework
     // {
-    //     auto lambda = [](const Napi::CallbackInfo &info_)
+    //     NapiStringCallback lambda = [](const Napi::CallbackInfo &info_)
     //     {
     //         Napi::Env env = info_.Env();
-    //         Napi::Value arg1_i42 = Napi::Number::New(env, 42);
-    //         Napi::Value arg5_i13 = Napi::Number::New(env, 13);
-    //         Napi::Value arg2_sTest = Napi::String::New(env, "test");
-    //         Napi::Value arg3_bool = Napi::Boolean::New(env, true);
-    //         Napi::Object optional_obj = Napi::Object::New(env);
-    //         optional_obj.Set("opt1", arg5_i13);
-    //         optional_obj.Set("opt2", Napi::String::New(env, "optional"));
-    //         Napi::Value arg4 = optional_obj;
-    //
-    //
-    //
-    //         FakeCallbackInfo info(info_, {arg1_i42, arg2_sTest, arg3_bool, arg4});
-    //         const Napi::Value *a1, *a2;
-    //         const char *keywords[] = {"ext", "img", NULL};
-    //         bool result = JsArg_ParseTupleAndKeywords(info, "OO", (char **)keywords, &a1, &a2);
-    //         REQUIRE(result == true);
-    //         REQUIRE(a1->As<Napi::Number>().Int32Value() == 42);
-    //         REQUIRE(a2->As<Napi::String>().Utf8Value() == "test");
-    //         return true;
+    //         FakeCallbackInfo info(info_, {Napi::Number::New(env, 42), Napi::String::New(env, "test")});
+    //         const Napi::Value *a1 = NULL;
+    //         const Napi::Value *a2 = NULL;
+    //         const Napi::Value *a3 = NULL;
+    //         const char *keywords[] = {"opt1", "opt2", "opt3", NULL};
+    //         
+    //         try {
+    //             JsArg_ParseTupleAndKeywords(info, "OOO|)", (char **)keywords, &a1, &a2, &a3);
+    //             return std::string("Expected Exception");
+    //         }  catch (...) {
+    //         }
+    //         return std::string("");
     //     };
-    //     RunTest(info, PREFIX + "Basic test with optional arguments", lambda);
+    //     RunTest(info, PREFIX + "missing mandatory parameter should throw Error", lambda);
     // }
 
-    //     SECTION_START("Basic test with optional argumentss")
-    //     {
-    //         FakeCallbackInfo info(info_, {arg1_i42, arg2_sTest, arg5_i13, arg4});
-    //         const Napi::Value *a1, *a2, *opt1, *opt2;
-    //         const char *keywords[] = {"a1", "a2", "opt1", "opt2", nullptr};
-    //         bool result = JsArg_ParseTupleAndKeywords(info, "OO|OO", (char **)keywords, &a1, &a2, &opt1, &opt2);
-    //         REQUIRE(result == true);
-    //         REQUIRE(a1->As<Napi::Number>().Int32Value() == 42);
-    //         REQUIRE(a2->As<Napi::String>().Utf8Value() == "test");
-    //         REQUIRE(opt1->As<Napi::Number>().Int32Value() == 13);
-    //         REQUIRE(opt2->As<Napi::String>().Utf8Value() == "optional");
-    //     }
-    //     SECTION_END("Basic test with optional arguments")
-    //
-    //     SECTION_START("Test with optional arguments and optional object")
-    //     {
-    //         FakeCallbackInfo info(info_, {arg1_i42, arg2_sTest, arg3_bool, arg4});
-    //         const Napi::Value *a1; // , *a2;// , *opt1, *opt2;
-    //         const char *keywords[] = {"a1", "opt1", "opt2", nullptr};
-    //         bool result = JsArg_ParseTupleAndKeywords(info, "O|OO", (char **)keywords, &a1, &optional_obj);
-    //
-    //         REQUIRE(result == true);
-    //         REQUIRE(a1->As<Napi::Number>().Int32Value() == 42);
-    //         // std::cout << NEW << opt1->IsNumber() << std::endl;
-    //         // std::cout << NEW << "Value: " << opt1->As<Napi::Number>().Int32Value() << std::endl;
-    //         // REQUIRE(opt1->As<Napi::Number>().Int32Value() == 42); // FIXME
-    //         // REQUIRE(opt2->As<Napi::String>().Utf8Value() == "optional"); // FIX ME
-    //     }
-    //     SECTION_END("Test with optional arguments and optional object")
-    //
     // SECTION_START("Test with invalid format string")
     //{
     //    FakeCallbackInfo info(info_, {arg1_i42, arg2_sTest, arg3_bool, arg4});

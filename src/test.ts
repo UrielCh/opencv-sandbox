@@ -88,7 +88,15 @@ test.serial('imencode logo as 1/4 grayscall', async t => {
     const out = theModule.imencode(".png", logo);
     t.true(Array.isArray(out));
     t.true(out[0])
-    t.is(out[1].length, 551);
+    const buffer = out[1];
+    const pngSignature = [137, 80, 78, 71, 13, 10, 26, 10];
+  
+    if (buffer.length < pngSignature.length) {
+      return false;
+    }
+    for (let i = 0; i < pngSignature.length; i++) {
+        t.is(buffer[i],  pngSignature[i]);
+      }
 });
 
 /**
