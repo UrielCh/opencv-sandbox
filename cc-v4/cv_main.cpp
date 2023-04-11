@@ -15,6 +15,7 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
+// should use jsopencv_from directly
 Napi::Value jsopencv_fromVec(const Napi::CallbackInfo &info, const std::vector<uchar>& src) {
     Napi::Env env = info.Env();
     size_t size = src.size();
@@ -29,27 +30,31 @@ Napi::Value jsopencv_fromVec(const Napi::CallbackInfo &info, const std::vector<u
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
-    // std::cout << "jsopencv_cv_imencode Called with " << MAGANTA << info.Length() << RESET << " params" << std::endl;
 
     jsPrepareArgumentConversionErrorsStorage(2);
-    // std::cout << "jsPrepareArgumentConversionErrorsStorage Called" << std::endl;
-    Napi::Value *jsobj_ext = NULL;
+
+    {
+    Napi::Value* jsobj_ext = NULL;
     String ext;
-    Napi::Value *jsobj_img = NULL;
+    Napi::Value* jsobj_img = NULL;
     Mat img;
     vector_uchar buf;
-    Napi::Value *jsobj_params = NULL;
-    vector_int params = std::vector<int>();
+    Napi::Value* jsobj_params = NULL;
+    vector_int params=std::vector<int>();
     bool retval;
-    const char *keywords[] = {"ext", "img", "params", NULL};
-    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
-        && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
-        && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0))
-        && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
-    ) {
+
+    const char* keywords[] = { "ext", "img", "params", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char**)keywords, &jsobj_ext, &jsobj_img, &jsobj_params) &&
+        jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0)) &&
+        jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
+        jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
+    {
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_fromVec(info, buf));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_fromVec(info, buf)); // jsopencv_from
     }
+        jsPopulateArgumentConversionErrors(info);
+    }
+    
     jsRaiseCVOverloadException(info, "imencode");
 
     return info.Env().Null();
