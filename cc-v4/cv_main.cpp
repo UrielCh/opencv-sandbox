@@ -45,12 +45,13 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char **)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
         && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
         && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0))
-        // && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
+        && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
     ) {
-        // std::cout << "JsArg_ParseTupleAndKeywords OO|O:imencode Twice" << std::endl;
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
         return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_fromVec(info, buf));
     }
+    jsRaiseCVOverloadException(info, "imencode");
+
     return info.Env().Null();
 }
 
@@ -99,10 +100,6 @@ static Napi::Value jsopencv_cv_getVersionRevision(const Napi::CallbackInfo &info
 
     return info.Env().Null();
 }
-
-
-
-
 
 
 /**

@@ -4,7 +4,7 @@
 // #include "cv2.hpp"
 #include "opencv2/core.hpp"
 #include "opencv2/core/utils/tls.hpp"
-
+#include "cv2_util.h"
 /**
  * @brief common deps having deps to openCV
  * 
@@ -53,8 +53,5 @@ inline void jsPrepareArgumentConversionErrorsStorage(std::size_t size)
     conversionErrors.clear();
     conversionErrors.reserve(size);
 }
-
-void jsRaiseCVOverloadException(const Napi::CallbackInfo &info, const std::string& functionName);
-void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info);
 
 #endif

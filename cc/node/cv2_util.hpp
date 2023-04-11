@@ -5,7 +5,7 @@
 #include "opencv2/core.hpp"
 #include "opencv2/core/utils/tls.hpp"
 
-void pyRaiseCVOverloadException(const std::string& functionName);
+void jsRaiseCVOverloadException(const std::string& functionName);
 // global Error object
 extern Napi::Value* opencv_error;
 
