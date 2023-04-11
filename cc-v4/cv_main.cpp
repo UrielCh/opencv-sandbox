@@ -40,9 +40,37 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
         return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
     }
+
+
         jsPopulateArgumentConversionErrors(info);
     }
     
+
+    {
+    Napi::Value* jsobj_ext = NULL;
+    String ext;
+    Napi::Value* jsobj_img = NULL;
+    UMat img;
+    vector_uchar buf;
+    Napi::Value* jsobj_params = NULL;
+    vector_int params=std::vector<int>();
+    bool retval;
+
+    const char* keywords[] = { "ext", "img", "params", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char**)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
+      && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
+      // && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) // TODO Find implementation of bool jsopencv_to(const Napi::Value* obj, UMat& value, const ArgInfo& argInfo)
+      // && jsopencv_to(jsobj_img, img, ArgInfo("img", 0)) // TODO or JsOpenCV_Converter<UMat>
+      && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
+      )
+    {
+        ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+    }
+
+
+        jsPopulateArgumentConversionErrors(info);
+    }
     jsRaiseCVOverloadException(info, "imencode");
 
     return info.Env().Null();
