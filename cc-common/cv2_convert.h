@@ -8,26 +8,22 @@
 // #include <vector>
 // #include <string>
 // #include <type_traits>  // std::enable_if
+// extern PyTypeObject* pyopencv_Mat_TypePtr;
 
 
 
-
-
-
-
-
+// inline bool isBool(const Napi::Value* obj) CV_NOEXCEPT
 
 
 
 
 
 // import from bool pyopencv_to_safe(PyObject* obj, _Tp& value, const ArgInfo& info) in cv2_convert.hpp
+// exception-safe pyopencv_to
 template<typename _Tp> static
 bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo)
 {
-    if (!obj) {
-        return true; // no shure yet, bypass all null source
-    }
+    if (!obj) return true; // no shure yet, bypass all null source
     try
     {
         return jsopencv_to(obj, value, argInfo);
@@ -43,29 +39,6 @@ bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo
         return false;
     }
 }
-
-// DEBUG only - to be removed
-// template<> static
-// bool jsopencv_to_safe(const Napi::Value* obj, std::vector<int>& value, const ArgInfo& argInfo)
-// {
-//     if (!obj) {
-//         return true; // no shure yet, bypass all null source
-//     }
-//     try
-//     {
-//         return jsopencv_to(obj, value, argInfo);
-//     }
-//     catch (const std::exception &e)
-//     {
-//         failmsg(obj->Env(), "Conversion error: %s, what: %s", argInfo.name, e.what());
-//         return false;
-//     }
-//     catch (...)
-//     {
-//         failmsg(obj->Env(), "Conversion error: %s", argInfo.name);
-//         return false;
-//     }
-// }
 
 //======================================================================================================================
 
@@ -200,7 +173,7 @@ template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const float
 template<> bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& info);
 template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::String& value);
 
-
+template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::string& value);
 
 
 // --- Size
@@ -315,36 +288,36 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
     }
     return true;
 }
-// need numpy ?
-// template<> inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& value, const ArgInfo& info)
-// {
-//     if (!obj || obj->IsNull() || obj->IsUndefined())
-//     {
-//         return true;
-//     }
-//     if (!JsSequence_Check(obj))
-//     {
-//         failmsg("Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
-//         return false;
-//     }
-//     const size_t n = static_cast<size_t>(JsSequence_Size(obj));
-//     value.resize(n);
-//     for (size_t i = 0; i < n; i++)
-//     {
-//         SafeSeqItem item_wrap(obj, i);
-//         bool elem{};
-//         if (!jsopencv_to(item_wrap.item, elem, info))
-//         {
-//             failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
-//             return false;
-//         }
-//         value[i] = elem;
-//     }
-//     return true;
-// }
-
+template<>
+inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& value, const ArgInfo& info)
+{
+    if (!obj || obj->IsNull() || obj->IsUndefined())
+    {
+        return true;
+    }
+    if (!obj->IsArray())
+    {
+        failmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
+        return false;
+    }
+    Napi::Array array = obj->As<Napi::Array>();
+    const size_t n = array.Length();
+    value.resize(n);
+    for (size_t i = 0; i < n; i++)
+    {
+        Napi::Value item = array.Get(i);
+        bool elem{};
+        if (!jsopencv_to(&item, elem, info))
+        {
+            failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
+            return false;
+        }
+        value[i] = elem;
+    }
+    return true;
+}
 template <typename Tp>
-static Napi::Value* jsopencv_from_generic_vec(const std::vector<Tp>& value)
+static Napi::Value* jsopencv_from_generic_vec(const Napi::Env& env, const std::vector<Tp>& value)
 {
     Py_ssize_t n = static_cast<Py_ssize_t>(value.size());
     PySafeObject seq(PyTuple_New(n));
@@ -360,21 +333,21 @@ static Napi::Value* jsopencv_from_generic_vec(const std::vector<Tp>& value)
     return seq.release();
 }
 
-// template<> inline Napi::Value* jsopencv_from_generic_vec(const std::vector<bool>& value)
+// template<>
+// inline Napi::Value jsopencv_from_generic_vec(const Napi::Env& env, const std::vector<bool>& value)
 // {
-//     Py_ssize_t n = static_cast<Py_ssize_t>(value.size());
-//     PySafeObject seq(PyTuple_New(n));
-//     for (Py_ssize_t i = 0; i < n; i++)
+//     Napi::Array array = Napi::Array::New(env, value.size());
+//     for (size_t i = 0; i < value.size(); i++)
 //     {
 //         bool elem = value[i];
-//         PyObject* item = jsopencv_from(elem);
-//         // If item can't be assigned - PyTuple_SetItem raises exception and returns -1.
-//         if (!item || PyTuple_SetItem(seq, i, item) == -1)
+//         Napi::Value item = jsopencv_from(env, elem);
+//         if (item.IsEmpty())
 //         {
-//             return NULL;
+//             return env.Null();
 //         }
+//         array.Set(i, item);
 //     }
-//     return seq.release();
+//     return array;
 // }
 
 namespace traits {
