@@ -172,8 +172,8 @@ template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const float
 // --- string
 template<> bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& info);
 template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::String& value);
-
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::string& value);
+//  cv::String === std::string
+// template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::string& value);
 
 
 // --- Size

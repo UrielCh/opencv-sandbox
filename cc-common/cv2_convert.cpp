@@ -1,5 +1,14 @@
 #include "cv2_convert.h"
 
+
+
+
+
+
+
+
+
+
 //======================================================================================================================
 
 using namespace cv;
@@ -9,98 +18,6 @@ using namespace cv;
 // --- Mat
 
 // special case, when the converter needs full ArgInfo structure
-#ifdef __DISABLED___
-template <>
-bool jsopencv_to(const Napi::Value *obj, Mat &m, const ArgInfo &argInfo) {
-    if (obj == nullptr || obj->IsNull() || obj->IsUndefined()) {
-        // if (!m.data) m.allocator = &g_numpyAllocator;
-        return true;
-    }
-
-    if (obj->IsNumber())
-    {
-        double v[] = {static_cast<double>(obj->ToNumber().DoubleValue()), 0., 0., 0.};
-        m = Mat(4, 1, CV_64F, v).clone();
-        return true;
-    }
-
-    if (obj->IsArray())
-    { // PyTuple_Check
-        Napi::Array arr = obj->As<Napi::Array>();
-        int sz = arr.Length();
-        m = Mat(sz, 1, CV_64F);
-        for (int i = 0; i < sz; i++)
-        {
-            Napi::Value item = arr.Get(i);
-            if (item.IsNumber())
-            {
-                m.at<double>(i) = item.ToNumber().DoubleValue();
-            }
-            else
-            {
-                failmsg(obj->Env(), "%s is not a numerical array", argInfo.name);
-                m.release();
-                return false;
-            }
-        }
-        return true;
-    }
-
-    if (!obj->IsTypedArray())
-    {
-        auto type = "";
-        switch (obj->Type())
-        {
-            case napi_undefined: type = "undefined"; break;
-            case napi_null: type = "null"; break;
-            case napi_boolean: type = "boolean"; break;
-            case napi_number: type = "number"; break;
-            case napi_string: type = "string"; break;
-            case napi_symbol: type = "symbol"; break;
-            case napi_object: type = "object"; break;
-            case napi_function: type = "function"; break;
-            case napi_external: type = "external"; break;
-            case napi_bigint: type = "napi_bigint"; break;
-            default: type = "unknown"; break;
-        }
-        failmsg(obj->Env(), "%s is not a typed array or scalar type is %s", argInfo.name, type);
-        return false;
-    }
-    // Napi::TypedArray arr = obj->As<Napi::TypedArray>();
-    // bool needcopy = false, needcast = false;
-    // int typenum = -1, new_typenum = typenum;
-    // int type = -1;
-    // switch (arr.TypedArrayType())
-    // {
-    // case napi_uint8_array: typenum = NPY_UBYTE; type = CV_8U; break;
-    // case napi_int8_array:  typenum = NPY_BYTE;  type = CV_8S; break;
-    // case napi_uint16_array:typenum = NPY_USHORT;type = CV_16U;break;
-    // case napi_int16_array: typenum = NPY_SHORT; type = CV_16S;break;
-    // case napi_int32_array: typenum = NPY_INT;   type = CV_32S;break;
-    // case napi_float32_array:typenum = NPY_FLOAT;type = CV_32F;break;
-    // case napi_float64_array:typenum = NPY_DOUBLE;type = CV_64F;break;
-    // default:
-    //     failmsg(obj->Env(), "%s data type is not supported", argInfo.name);
-    //     return false;
-    // }
-    // TypedArrayContents<double> arr = obj->As<TypedArray>().As<DoubleArray>();
-    // size_t sz = arr.ByteLength() / sizeof(double);
-    //
-    // m = Mat(sz, 1, CV_64F);
-    // double* data = m.ptr<double>(0);
-    // for (size_t i = 0; i < sz; i++) {
-    //     data[i] = arr[i];
-    // }
-    //
-    // if (!obj->IsExternal()) {
-    //     m.u = g_numpyAllocator.allocate(obj, 1, &sz, CV_64F, NULL);
-    // }
-    // m.addref();
-    // m.allocator = &g_numpyAllocator;
-    return false;
-}
-#endif
-
 template <>
 bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInfo)
 {
@@ -141,6 +58,173 @@ bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInf
     return false;
 }
 
+
+
+
+
+
+const char * getTypeString(const Napi::Value *obj) {
+    auto type = "";
+    switch (obj->Type())
+    {
+        case napi_undefined: type = "undefined"; break;
+        case napi_null: type = "null"; break;
+        case napi_boolean: type = "boolean"; break;
+        case napi_number: type = "number"; break;
+        case napi_string: type = "string"; break;
+        case napi_symbol: type = "symbol"; break;
+        case napi_object: type = "object"; break;
+        case napi_function: type = "function"; break;
+        case napi_external: type = "external"; break;
+        case napi_bigint: type = "napi_bigint"; break;
+        default: type = "unknown"; break;
+    }
+    return type;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 template <>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
 {
@@ -164,9 +248,12 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat &m)
     jsMat.Set("channels", Napi::Number::New(env, m.channels()));
 
     return jsMat;
-
 }
-// --- bool // L:255
+
+
+
+// --- bool
+
 template<>
 bool jsopencv_to(const Napi::Value *obj, bool &value, const ArgInfo &argInfo)
 {
@@ -186,6 +273,8 @@ bool jsopencv_to(const Napi::Value *obj, bool &value, const ArgInfo &argInfo)
     return false;
 }
 
+
+
 template <>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const bool &value)
 {
@@ -194,23 +283,23 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const bool &value)
 
 // --- ptr
 
-// template<>
-// bool jsopencv_to(const Napi::Value* obj, void*& ptr, const ArgInfo& argInfo)
-// {
-//     CV_UNUSED(info);
-//     if (obj->IsNull() || obj->IsUndefined())
-//         return true;
-//
-//     if (!JsLong_Check(obj))
-//         return false;
-//     ptr = JsLong_AsVoidPtr(obj);
-//     return ptr != NULL && !JsErr_Occurred();
-// }
-//
-// Napi::Value jsopencv_from(const Napi::CallbackInfo &info, void*& ptr)
-// {
-//     return JsLong_FromVoidPtr(ptr);
-// }
+template<>
+bool jsopencv_to(const Napi::Value* obj, void*& ptr, const ArgInfo& info)
+{
+    CV_UNUSED(info);
+    if (!obj || obj->IsNull() || obj->IsUndefined())
+        return true;
+    if (!obj->IsNumber())
+        return false;
+    int64_t num = obj->As<Napi::Number>().Int64Value();
+    ptr = reinterpret_cast<void*>(num);
+    return ptr != nullptr;
+}
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, void*& ptr)
+{
+    int64_t num = reinterpret_cast<int64_t>(ptr);
+    return Napi::Number::New(info.Env(), num);
+}
 
 // -- Scalar
 
@@ -219,7 +308,6 @@ bool jsopencv_to(const Napi::Value *obj, Scalar &s, const ArgInfo &argInfo)
 {
     if (obj->IsNull() || obj->IsUndefined())
         return true;
-
     if (obj->IsArray())
     {
         Napi::Array arr = obj->As<Napi::Array>();
@@ -246,26 +334,15 @@ bool jsopencv_to(const Napi::Value *obj, Scalar &s, const ArgInfo &argInfo)
 
 template <>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const Scalar &src)
-{
-    // return  {x: Number, y: Number, z: Number, w: Number}
-    Napi::Env env = info.Env();
-    // Napi::Object obj = Napi::Object::New(env);
-    // obj.Set("x", Napi::Number::New(env, src[0]));
-    // obj.Set("y", Napi::Number::New(env, src[1]));
-    // obj.Set("z", Napi::Number::New(env, src[2]));
-    // obj.Set("w", Napi::Number::New(env, src[3]));
-    // as array of numbers
-    Napi::Array arr = Napi::Array::New(env, 4);
+{   // return  {x: Number, y: Number, z: Number, w: Number}
+    Napi::Env env = info.Env(); Napi::Array arr = Napi::Array::New(env, 4);
     arr.Set((uint32_t)0, Napi::Number::New(env, src[0]));
     arr.Set(1, Napi::Number::New(env, src[2]));
     arr.Set(2, Napi::Number::New(env, src[3]));
     arr.Set(3, Napi::Number::New(env, src[4]));
-    return arr;
-    // return Js_BuildValue("(iiii)", sz.width, sz.height);
+    return arr; // return Js_BuildValue("(iiii)", sz.width, sz.height);
 }
-
 // --- size_t
-
 template <>
 bool jsopencv_to(const Napi::Value *obj, size_t &value, const ArgInfo &argInfo)
 {
@@ -287,6 +364,52 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const size_t &value)
 {
     return Napi::Number::New(info.Env(), value);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // --- int
 
@@ -310,6 +433,15 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int &value)
     return Napi::Number::New(info.Env(), value);
 }
 
+
+
+
+
+
+
+
+
+
 // --- int64
 
 template <>
@@ -327,22 +459,29 @@ bool jsopencv_to(const Napi::Value *obj, int64 &value, const ArgInfo &argInfo)
     return false;
 }
 
+
+
+
+
+
+
+
+
+
 template <>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int64 &value)
 {
     return Napi::BigInt::New(info.Env(), value); // Number or bigint ??
 }
 
-// --- uchar
 
+// --- uchar
 template <>
 bool jsopencv_to(const Napi::Value *obj, uchar &value, const ArgInfo &argInfo)
 {
-    if (obj->IsNull() || obj->IsUndefined())
-        return true;
+    if (obj->IsNull() || obj->IsUndefined()) return true;
 
-    if (obj->IsNumber())
-    {
+    if (obj->IsNumber()) {
         value = obj->ToNumber().Uint32Value();
         return true;
     }
@@ -354,7 +493,9 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const uchar &value)
 {
     return Napi::Number::New(info.Env(), value);
 }
+
 // --- char
+
 template <>
 bool jsopencv_to(const Napi::Value *obj, char &value, const ArgInfo &argInfo)
 {
@@ -368,6 +509,15 @@ bool jsopencv_to(const Napi::Value *obj, char &value, const ArgInfo &argInfo)
     }
     failmsg(obj->Env(), "Argument '%s' is not convertable to char", argInfo.name);
     return false;
+
+
+
+
+
+
+
+
+
 }
 
 // --- double
@@ -385,6 +535,30 @@ bool jsopencv_to(const Napi::Value *obj, double &value, const ArgInfo &argInfo)
     }
     failmsg(obj->Env(), "Argument '%s' is not convertable to double", argInfo.name);
     return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 template <>
@@ -408,6 +582,32 @@ bool jsopencv_to(const Napi::Value *obj, float &value, const ArgInfo &argInfo)
     }
     failmsg(obj->Env(), "Argument '%s' is not convertable to float", argInfo.name);
     return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 template <>
@@ -431,16 +631,37 @@ bool jsopencv_to(const Napi::Value *obj, String &value, const ArgInfo &argInfo)
     }
     failmsg(obj->Env(), "Argument '%s' is not convertable to string", argInfo.name);
     return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 template <>
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const String &value)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::String &value)
 {
     if (value.empty())
         return Napi::String::New(info.Env(), "");
-    return Napi::String::New(info.Env(), value);
-    // return Napi::String::New(value.empty() ? emptyString : value);
+    return Napi::String::New(info.Env(), value);// return Napi::String::New(value.empty() ? emptyString : value);
 }
+//  cv::String === std::string
+
+
+
+
+
 
 // --- Size
 /**
