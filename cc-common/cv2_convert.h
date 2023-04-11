@@ -72,8 +72,8 @@ bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo
 template<typename T, class TEnable = void>  // TEnable is used for SFINAE checks
 struct JsOpenCV_Converter
 {
-    static inline bool to(const Napi::Value* obj, T& p, const ArgInfo& info);
-    static inline Napi::Value from(const Napi::CallbackInfo &info, const T& src);
+    // static inline bool to(const Napi::Value* obj, T& p, const ArgInfo& info);
+    // static inline Napi::Value from(const Napi::CallbackInfo &info, const T& src);
 };
 
 // --- Generic
