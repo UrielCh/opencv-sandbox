@@ -284,21 +284,10 @@ bool jsopencv_to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& 
     return jsopencvVecConverter<Tp>::to(obj, value, info);
 }
 
-// debug only TO REMOVE
-// template <>
-// bool jsopencv_to(const Napi::Value* obj, std::vector<int>& value, const ArgInfo& info)
-// {
-//     if (obj->IsNull() || obj->IsUndefined())
-//     {
-//         return true;
-//     }
-//     return jsopencvVecConverter<int>::to(obj, value, info);
-// }
-
-template <typename Tp> //////////////////////////////
+template <typename Tp>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::vector<Tp>& value)
 {
-    return jsopencvVecConverter<Tp>::from(info, value);
+    return jsopencvVecConverter<Tp>::from(info.Env(), value);
 }
 
 template <typename Tp>

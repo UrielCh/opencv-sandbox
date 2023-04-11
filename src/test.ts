@@ -82,7 +82,7 @@ test.serial('imread logo.png { flags: IMREAD_REDUCED_GRAYSCALE_4 }', async t => 
     t.is(logo.type, 0);
 });
  
-test.serial('imencode logo as 1/4 grayscall', async t => {
+test.serial('imencode logo as PNG has correct Magic number', async t => {
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
