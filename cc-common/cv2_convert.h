@@ -17,7 +17,7 @@
 
 
 
-
+//======================================================================================================================
 
 // import from bool pyopencv_to_safe(PyObject* obj, _Tp& value, const ArgInfo& info) in cv2_convert.hpp
 // exception-safe pyopencv_to
@@ -40,7 +40,6 @@ bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo
         return false;
     }
 }
-
 //======================================================================================================================
 
 template<typename T, class TEnable = void>  // TEnable is used for SFINAE checks

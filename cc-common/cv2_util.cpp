@@ -6,7 +6,6 @@
 #include "opencv2/core/utils/logger.hpp"
 Napi::Value* opencv_error = NULL; // global Error object
 cv::TLSData<std::vector<std::string> > conversionErrorsTLS;
-
 using namespace cv;
 
 //======================================================================================================================
@@ -145,7 +144,6 @@ static int OnError(int status, const char *func_name, const char *err_msg, const
     } catch (const Napi::Error& e) {
         e.ThrowAsJavaScriptException();
     }
-
     return 0; // The return value isn't used
 }
 
@@ -153,6 +151,9 @@ Napi::Value jscvRedirectError(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::Function on_error = info[0].As<Napi::Function>();
+
+
+
 
     if (!on_error.IsFunction()) {
         Napi::TypeError::New(env, "on_error must be callable").ThrowAsJavaScriptException();
@@ -168,6 +169,10 @@ Napi::Value jscvRedirectError(const Napi::CallbackInfo& info)
         last_on_error.Reset();
         ERRWRAP2_NAPI(info, redirectError(NULL));
     }
-    
+
+
+
+
+
     return env.Undefined();
 }
