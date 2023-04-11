@@ -44,6 +44,29 @@ bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo
     }
 }
 
+// DEBUG only - to be removed
+// template<> static
+// bool jsopencv_to_safe(const Napi::Value* obj, std::vector<int>& value, const ArgInfo& argInfo)
+// {
+//     if (!obj) {
+//         return true; // no shure yet, bypass all null source
+//     }
+//     try
+//     {
+//         return jsopencv_to(obj, value, argInfo);
+//     }
+//     catch (const std::exception &e)
+//     {
+//         failmsg(obj->Env(), "Conversion error: %s, what: %s", argInfo.name, e.what());
+//         return false;
+//     }
+//     catch (...)
+//     {
+//         failmsg(obj->Env(), "Conversion error: %s", argInfo.name);
+//         return false;
+//     }
+// }
+
 //======================================================================================================================
 
 template<typename T, class TEnable = void>  // TEnable is used for SFINAE checks
@@ -103,12 +126,12 @@ struct JsOpenCV_Converter< cv::Ptr<T> >
             return info.Env().Null(); // Py_RETURN_NONE;
         return pyopencv_from(*p);
     }
-    static bool to(const Napi::Value *o, cv::Ptr<T>& p, const ArgInfo& argInfo)
+    static bool to(const Napi::Value *value, cv::Ptr<T>& p, const ArgInfo& argInfo)
     {
-        if (!o || o->IsUndefined() || o->IsNull())
+        if (!value || value->IsUndefined() || value->IsNull())
             return true;
         p = cv::makePtr<T>();
-        return jsopencv_to(o, *p, argInfo);
+        return jsopencv_to(value, *p, argInfo);
     }
 };
 
@@ -214,9 +237,9 @@ template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::P
 
 // --- Vec
 template<typename _Tp, int cn>
-bool jsopencv_to(const Napi::Value* o, cv::Vec<_Tp, cn>& vec, const ArgInfo& info)
+bool jsopencv_to(const Napi::Value* obj, cv::Vec<_Tp, cn>& vec, const ArgInfo& info)
 {
-    return jsopencv_to(o, (cv::Matx<_Tp, cn, 1>&)vec, info);
+    return jsopencv_to(obj, (cv::Matx<_Tp, cn, 1>&)vec, info);
 }
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4d& v, ArgInfo& info);
 Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec4d& v);
@@ -260,6 +283,17 @@ bool jsopencv_to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& 
     }
     return jsopencvVecConverter<Tp>::to(obj, value, info);
 }
+
+// debug only TO REMOVE
+// template <>
+// bool jsopencv_to(const Napi::Value* obj, std::vector<int>& value, const ArgInfo& info)
+// {
+//     if (obj->IsNull() || obj->IsUndefined())
+//     {
+//         return true;
+//     }
+//     return jsopencvVecConverter<int>::to(obj, value, info);
+// }
 
 template <typename Tp>
 Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const std::vector<Tp>& value)
@@ -391,120 +425,56 @@ struct jsopencvVecConverter
 {
     typedef typename std::vector<Tp>::iterator VecIt;
 
-    static bool to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& info)
+    static bool to(const Napi::Value* value, std::vector<Tp>& vec, const ArgInfo& info)
     {
-        if (!JsArray_Check(obj))
+        if (!value->IsBuffer())
         {
-            return jsopencv_to_generic_vec(obj, value, info);
-        }
-        // If user passed an array it is possible to make faster conversions in several cases
-        //PyArrayObject* array_obj = reinterpret_cast<PyArrayObject*>(obj);
-        Napi::Array* array_obj = obj->As<Napi::Array>();
-        const NPY_TYPES target_type = asNumpyType<Tp>();
-        const NPY_TYPES source_type = static_cast<NPY_TYPES>(PyArray_TYPE(array_obj));
-        if (target_type == NPY_OBJECT)
-        {
-            // Non-planar arrays representing objects (e.g. array of N Rect is an array of shape Nx4) have NPY_OBJECT
-            // as their target type.
-            return pyopencv_to_generic_vec(obj, value, info);
-        }
-        if (PyArray_NDIM(array_obj) > 1)
-        {
-            failmsg("Can't parse %dD array as '%s' vector argument", PyArray_NDIM(array_obj), info.name);
             return false;
         }
-        if (target_type != source_type)
-        {
-            // Source type requires conversion
-            // Allowed conversions for target type is handled in the corresponding pyopencv_to function
-            return pyopencv_to_generic_vec(obj, value, info);
-        }
-        // For all other cases, all array data can be directly copied to std::vector data
-        // Simple `memcpy` is not possible because NumPy array can reference a slice of the bigger array:
-        // ```
-        // arr = np.ones((8, 4, 5), dtype=np.int32)
-        // convertible_to_vector_of_int = arr[:, 0, 1]
-        // ```
-        value.resize(static_cast<size_t>(PyArray_SIZE(array_obj)));
-        const npy_intp item_step = PyArray_STRIDE(array_obj, 0) / PyArray_ITEMSIZE(array_obj);
-        const Tp* data_ptr = static_cast<Tp*>(PyArray_DATA(array_obj));
-        for (VecIt it = value.begin(); it != value.end(); ++it, data_ptr += item_step) {
-            *it = *data_ptr;
-        }
+
+        Napi::Buffer<Tp> buffer = value->As<Napi::Buffer<Tp>>();
+        size_t length = buffer.Length();
+
+        vec.resize(length);
+        std::memcpy(vec.data(), buffer.Data(), length * sizeof(Tp));
+
         return true;
     }
 
-    static Napi::Value* from(const std::vector<Tp>& value)
+    static Napi::Value from(const Napi::Env& env, const std::vector<Tp>& vec)
     {
-        if (value.empty())
-        {
-            return PyTuple_New(0);
-        }
-        return from(value, ::traits::IsRepresentableAsMatDataType<Tp>());
-    }
+        size_t length = vec.size();
+        Napi::Buffer<Tp> buffer = Napi::Buffer<Tp>::New(env, length);
 
-private:
-    static Napi::Value* from(const std::vector<Tp>& value, ::traits::FalseType)
-    {
-        // Underlying type is not representable as Mat Data Type
-        return pyopencv_from_generic_vec(value);
-    }
+        std::memcpy(buffer.Data(), vec.data(), length * sizeof(Tp));
 
-    static Napi::Value* from(const std::vector<Tp>& value, ::traits::TrueType)
-    {
-        // Underlying type is representable as Mat Data Type, so faster return type is available
-        typedef cv::DataType<Tp> DType;
-        typedef typename DType::channel_type UnderlyingArrayType;
-
-        // If Mat is always exposed as NumPy array this code path can be reduced to the following snipped:
-        //        Mat src(value);
-        //        PyObject* array = pyopencv_from(src);
-        //        return PyArray_Squeeze(reinterpret_cast<PyArrayObject*>(array));
-        // This puts unnecessary restrictions on Mat object those might be avoided without losing the performance.
-        // Moreover, this version is a bit faster, because it doesn't create temporary objects with reference counting.
-
-        const NPY_TYPES target_type = asNumpyType<UnderlyingArrayType>();
-        const int cols = DType::channels;
-        Napi::Value* array = NULL;
-        if (cols == 1)
-        {
-            npy_intp dims = static_cast<npy_intp>(value.size());
-            array = PyArray_SimpleNew(1, &dims, target_type);
-        }
-        else
-        {
-            npy_intp dims[2] = {static_cast<npy_intp>(value.size()), cols};
-            array = PyArray_SimpleNew(2, dims, target_type);
-        }
-        if(!array)
-        {
-            // NumPy arrays with shape (N, 1) and (N) are not equal, so correct error message should distinguish
-            // them too.
-            cv::String shape;
-            if (cols > 1)
-            {
-                shape = cv::format("(%d x %d)", static_cast<int>(value.size()), cols);
-            }
-            else
-            {
-                shape = cv::format("(%d)", static_cast<int>(value.size()));
-            }
-            const cv::String error_message = cv::format("Can't allocate NumPy array for vector with dtype=%d and shape=%s",
-                                                static_cast<int>(target_type), shape.c_str());
-            emit_failmsg(PyExc_MemoryError, error_message.c_str());
-            return array;
-        }
-        // Fill the array
-        // PyArrayObject* array_obj = reinterpret_cast<PyArrayObject*>(array);
-        Napi::Array* array_obj = reinterpret_cast<Napi::Array*>(array);
-        UnderlyingArrayType* array_data = static_cast<UnderlyingArrayType*>(PyArray_DATA(array_obj));
-        // if Tp is representable as Mat DataType, so the following cast is pretty safe...
-        const UnderlyingArrayType* value_data = reinterpret_cast<const UnderlyingArrayType*>(value.data());
-        memcpy(array_data, value_data, sizeof(UnderlyingArrayType) * value.size() * static_cast<size_t>(cols));
-        return array;
+        return buffer;
     }
 };
 
 // --- tuple
+
+template<std::size_t I = 0, typename... Tp>
+inline typename std::enable_if<I == sizeof...(Tp), void>::type
+convert_to_js_array_tuple(const std::tuple<Tp...>&, Napi::Array&) {  }
+
+template<std::size_t I = 0, typename... Tp>
+inline typename std::enable_if<I < sizeof...(Tp), void>::type
+convert_to_js_array_tuple(const std::tuple<Tp...>& cpp_tuple, Napi::Array& js_array)
+{
+    Napi::Env env = js_array.Env();
+    Napi::Value item = jsopencv_from(env, std::get<I>(cpp_tuple));
+    js_array.Set(I, item);
+    convert_to_js_array_tuple<I + 1, Tp...>(cpp_tuple, js_array);
+}
+
+template<typename... Ts>
+Napi::Value jsopencv_from(const Napi::Env& env, const std::tuple<Ts...>& cpp_tuple)
+{
+    size_t size = sizeof...(Ts);
+    Napi::Array js_array = Napi::Array::New(env, size);
+    convert_to_js_array_tuple(cpp_tuple, js_array);
+    return js_array;
+}
 
 #endif
