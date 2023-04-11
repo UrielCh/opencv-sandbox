@@ -45,13 +45,4 @@ typedef std::vector<std::vector<cv::DMatch> > vector_vector_DMatch;
 typedef std::vector<std::vector<cv::KeyPoint> > vector_vector_KeyPoint;
 
 
-extern cv::TLSData<std::vector<std::string> > conversionErrorsTLS;
-
-inline void jsPrepareArgumentConversionErrorsStorage(std::size_t size)
-{
-    std::vector<std::string>& conversionErrors = conversionErrorsTLS.getRef();
-    conversionErrors.clear();
-    conversionErrors.reserve(size);
-}
-
 #endif

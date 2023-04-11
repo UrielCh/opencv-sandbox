@@ -18,12 +18,10 @@ private:
     ArgInfo& operator=(const ArgInfo&) = delete;
 };
 
-int failmsg(const Napi::Env& env, const char* format, ...);
 
 template<class T=Napi::CallbackInfo>
 bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywords, ...);
 
-Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
 
 /**
  * Build a Napi::Value object from a format string and a variable number of arguments.
@@ -36,19 +34,6 @@ Napi::Value failmsgp(const Napi::Env& env, const char *format, ...);
  */
 Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
 
-#define ERRWRAP2_NAPI(info, expr)  \
-    try { expr; } \
-    catch (const cv::Exception &e) \
-    { \
-        Napi::Error::New((info).Env(), e.what()).ThrowAsJavaScriptException(); \
-        return (info).Env().Undefined(); \
-    } catch (const std::exception &e) { \
-        Napi::Error::New((info).Env(), e.what()).ThrowAsJavaScriptException(); \
-        return (info).Env().Undefined(); \
-    } catch (...) { \
-        Napi::Error::New((info).Env(), "Unknown exception occurred").ThrowAsJavaScriptException(); \
-        return (info).Env().Undefined();                                       \
-    }
 
 
 // 

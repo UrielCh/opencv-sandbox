@@ -20,33 +20,6 @@ const std::string MAGANTA("\033[0;35m");
 const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
-/**
- * @brief Throws an exception exception-object
- */
-int failmsg(const Napi::Env& env, const char* format, ...)
-{
-    va_list args;
-    va_start(args, format);
-    char message[1024];
-    vsnprintf(message, sizeof(message), format, args);
-    va_end(args);
-    Napi::Error::New(env, message).ThrowAsJavaScriptException();
-    return 0;
-}
-
-Napi::Value failmsgp(const Napi::Env& env, const char *format, ...)
-{
-    va_list args;
-    va_start(args, format);
-    char message[1024];
-    vsnprintf(message, sizeof(message), format, args);
-    va_end(args);
-    Napi::Error::New(env, message).ThrowAsJavaScriptException();
-    // Allocate memory for the Napi::Value
-    // Napi::Value* result = new Napi::Value(env.Null());
-    // return result;
-    return env.Null();
-}
 
 /**
  * @brief act as PyArg_ParseTupleAndKeywords
@@ -177,6 +150,7 @@ Napi::Env FakeCallbackInfo::Env() const {
 
 template bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
 
+int failmsg(const Napi::Env& env, const char *fmt, ...); // defined in cv2_utils.cpp
 
 Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *format, va_list &args)
 {

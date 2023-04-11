@@ -2,6 +2,7 @@
 #define CV2_CONVERT_HPP2
 
 #include "common_cv2.h"
+#include "cv2_util.h"
 #include "js_as_py.h"
 #include "cv2_numpy.h"
 // #include "cv2_util.hpp"
