@@ -124,7 +124,7 @@ struct JsOpenCV_Converter< cv::Ptr<T> >
     {
         if (!p)
             return info.Env().Null(); // Py_RETURN_NONE;
-        return pyopencv_from(*p);
+        return jsopencv_from(*p);
     }
     static bool to(const Napi::Value *value, cv::Ptr<T>& p, const ArgInfo& argInfo)
     {
@@ -242,23 +242,23 @@ bool jsopencv_to(const Napi::Value* obj, cv::Vec<_Tp, cn>& vec, const ArgInfo& i
     return jsopencv_to(obj, (cv::Matx<_Tp, cn, 1>&)vec, info);
 }
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4d& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec4d& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4f& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec4f& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4f& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4i& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec4i& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4i& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec3d& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec3d& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec3f& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec3f& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3f& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec3i& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec3i& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3i& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec2d& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec2d& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec2f& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec2f& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2f& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec2i& v, ArgInfo& info);
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const cv::Vec2i& v);
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2i& v);
 
 // --- TermCriteria
 template<> bool jsopencv_to(const Napi::Value* obj, cv::TermCriteria& dst, const ArgInfo& info);
@@ -295,8 +295,8 @@ bool jsopencv_to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& 
 //     return jsopencvVecConverter<int>::to(obj, value, info);
 // }
 
-template <typename Tp>
-Napi::Value pyopencv_from(const Napi::CallbackInfo &info, const std::vector<Tp>& value)
+template <typename Tp> //////////////////////////////
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::vector<Tp>& value)
 {
     return jsopencvVecConverter<Tp>::from(info, value);
 }
@@ -318,7 +318,7 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
     for (size_t i = 0; i < n; i++)
     {
         SafeSeqItem item_wrap(obj, i);
-        if (!pyopencv_to(item_wrap.item, value[i], info))
+        if (!jsopencv_to(item_wrap.item, value[i], info))
         {
             failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
             return false;
@@ -355,13 +355,13 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
 // }
 
 template <typename Tp>
-static Napi::Value* pyopencv_from_generic_vec(const std::vector<Tp>& value)
+static Napi::Value* jsopencv_from_generic_vec(const std::vector<Tp>& value)
 {
     Py_ssize_t n = static_cast<Py_ssize_t>(value.size());
     PySafeObject seq(PyTuple_New(n));
     for (Py_ssize_t i = 0; i < n; i++)
     {
-        PyObject* item = pyopencv_from(value[i]);
+        PyObject* item = jsopencv_from(value[i]);
         // If item can't be assigned - PyTuple_SetItem raises exception and returns -1.
         if (!item || PyTuple_SetItem(seq, i, item) == -1)
         {
@@ -371,14 +371,14 @@ static Napi::Value* pyopencv_from_generic_vec(const std::vector<Tp>& value)
     return seq.release();
 }
 
-// template<> inline Napi::Value* pyopencv_from_generic_vec(const std::vector<bool>& value)
+// template<> inline Napi::Value* jsopencv_from_generic_vec(const std::vector<bool>& value)
 // {
 //     Py_ssize_t n = static_cast<Py_ssize_t>(value.size());
 //     PySafeObject seq(PyTuple_New(n));
 //     for (Py_ssize_t i = 0; i < n; i++)
 //     {
 //         bool elem = value[i];
-//         PyObject* item = pyopencv_from(elem);
+//         PyObject* item = jsopencv_from(elem);
 //         // If item can't be assigned - PyTuple_SetItem raises exception and returns -1.
 //         if (!item || PyTuple_SetItem(seq, i, item) == -1)
 //         {
