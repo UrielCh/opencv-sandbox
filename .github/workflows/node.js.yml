@@ -24,22 +24,18 @@ jobs:
     - name: test env
       run: ls ${GITHUB_WORKSPACE}/..
 
-    # - name: test /opencv
-    #   run: ls ${GITHUB_WORKSPACE}/../opencv
-
     - name: list build
-      run: ls -R ${GITHUB_WORKSPACE}/../build
+      run: cd ${GITHUB_WORKSPACE}/.. && find build
 
-    # - name: test /build/include
-    #   run: ls ${GITHUB_WORKSPACE}/../build/include
-
-    # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v3
-    #   with:
-    #    node-version: ${{ matrix.node-version }}
-    #    cache: 'npm'
-    #   env:
-    #     OPENCV_BUILD_ROOT: ${{ vars.GITHUB_WORKSPACE }}/..
-    # - run: npm ci
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+       node-version: ${{ matrix.node-version }}
+       cache: 'npm'
+      env:
+        OPENCV_BUILD_ROOT: ${{ vars.GITHUB_WORKSPACE }}/..
+    - run: node ./tools/listFiles.mjs include_dirs
+    - run: node ./tools/listFiles.mjs libraries
+    - run: npm ci
     #- run: npm run build --if-present
     #- run: npm test
