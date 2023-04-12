@@ -21,6 +21,7 @@ jobs:
       uses: UrielCh/opencv-cache-action@main
       with:
         branch: "4.x"
+        BUILD_LIST: "core,imgproc,imgcodecs,python_bindings_generator"
     - name: test env
       run: ls ${GITHUB_WORKSPACE}/..
 
