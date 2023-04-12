@@ -342,8 +342,6 @@ Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *for
 
 Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...)
 {
-    Napi::Env env = info.Env();
-
     va_list args;
     va_start(args, format);
 
@@ -378,8 +376,6 @@ const std::string JsModule_GetName(Napi::Object *module) {
     if (module == nullptr) {
         throw std::invalid_argument("Input module is null");
     }
-
-    Napi::Env env = module->Env();
 
     // Check if the module object has a "name" property
     if (!module->Has("name")) {
@@ -477,8 +473,7 @@ size_t JsSequence_Size(const Napi::Value* obj)
 }
 
 Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
-  Napi::Env env = obj->Env();
-
+  // Napi::Env env = obj->Env();
   if (!obj->IsArray()) {
     // Throw an error if obj is not an array
     throwErrorWithFormat("Expected an array");
