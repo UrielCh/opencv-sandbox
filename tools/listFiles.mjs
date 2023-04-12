@@ -100,8 +100,39 @@ if ("include_dirs" === process.argv[len - 1]) {
   console.log(`${opencvRoot}`.replace(/\\/g, "/"));
   console.log(`${opencvRoot}/include`.replace(/\\/g, "/"));
   console.log(`${opencvRoot}/include/opencv4`.replace(/\\/g, "/"));
-  const extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'core', 'include');
+
+  // extra import should be include via openCVMakeFile
+  // TODO Remove that after for the final version
+  let extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'core', 'include');
   console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'imgcodecs', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'imgproc', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'video', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'ml', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'flann', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'dnn', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'calib3d', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+ 
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'videoio', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+ 
+  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'gapi', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
+
   process.exit(0);
 }
 
