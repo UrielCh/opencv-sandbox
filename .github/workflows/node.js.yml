@@ -24,8 +24,8 @@ jobs:
     - name: test env
       run: ls ${GITHUB_WORKSPACE}/..
 
-    - name: list build
-      run: cd ${GITHUB_WORKSPACE}/.. && find build
+    # - name: list build
+    #   run: cd ${GITHUB_WORKSPACE}/.. && find build
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3

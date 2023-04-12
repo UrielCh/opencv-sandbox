@@ -128,9 +128,9 @@ static Napi::Value* JsString_FromString(const Napi::Env& env, const char* str) {
 static Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module);
 
 // const char * PyModule_GetName(PyObject *m)
-static const std::string JsModule_GetName(Napi::Object *module);
+const std::string JsModule_GetName(Napi::Object *module);
 
-static int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item);
+int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item);
 
 static Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value);
 static Napi::Number JsLong_FromUnsignedLong(const Napi::Env& env, long long value);

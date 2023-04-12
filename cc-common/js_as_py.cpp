@@ -271,7 +271,7 @@ static Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi:
 }
 
 
-static const std::string JsModule_GetName(Napi::Object *module) {
+const std::string JsModule_GetName(Napi::Object *module) {
     if (module == nullptr) {
         throw std::invalid_argument("Input module is null");
     }
@@ -300,7 +300,7 @@ static const std::string JsModule_GetName(Napi::Object *module) {
     return nameValue.As<Napi::String>().Utf8Value();
 }
 
-static int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item) {
+int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item) {
     if (v == nullptr || key == nullptr || item == nullptr) {
         return -1;  // Return an error code if any input is null
     }
