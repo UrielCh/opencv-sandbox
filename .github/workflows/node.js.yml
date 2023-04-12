@@ -28,7 +28,7 @@ jobs:
     #   run: ls ${GITHUB_WORKSPACE}/../opencv
 
     - name: list build
-      run: ls -r ${GITHUB_WORKSPACE}/../build
+      run: ls -R ${GITHUB_WORKSPACE}/../build
 
     # - name: test /build/include
     #   run: ls ${GITHUB_WORKSPACE}/../build/include
