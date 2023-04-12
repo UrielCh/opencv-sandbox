@@ -134,6 +134,7 @@ static const std::string JsModule_GetName(Napi::Object *module);
 static int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item);
 
 static Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value);
+static Napi::Number JsLong_FromUnsignedLong(const Napi::Env& env, long long value);
 
 bool JsSequence_Check(const Napi::Value* obj);
 size_t JsSequence_Size(const Napi::Value* obj);

@@ -134,9 +134,9 @@ template<typename T>
 struct JsOpenCV_Converter
     < T, typename std::enable_if< std::is_same<unsigned int, T>::value && !std::is_same<unsigned int, size_t>::value >::type >
 {
-    static inline Napi::Value from(const unsigned int& value)
+    static inline Napi::Value from(const Napi::CallbackInfo &info, const unsigned int& value)
     {
-        return PyLong_FromUnsignedLong(value);
+        return JsLong_FromUnsignedLong(info.Env(), value);
     }
 
     static inline bool to(const Napi::Value* obj, unsigned int& value, const ArgInfo& info)
@@ -316,23 +316,23 @@ inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& v
     }
     return true;
 }
-template <typename Tp>
-static Napi::Value* jsopencv_from_generic_vec(const Napi::Env& env, const std::vector<Tp>& value)
-{
-    Py_ssize_t n = static_cast<Py_ssize_t>(value.size());
-    PySafeObject seq(PyTuple_New(n));
-    for (Py_ssize_t i = 0; i < n; i++)
-    {
-        PyObject* item = jsopencv_from(value[i]);
-        // If item can't be assigned - PyTuple_SetItem raises exception and returns -1.
-        if (!item || PyTuple_SetItem(seq, i, item) == -1)
-        {
-            return NULL;
-        }
-    }
-    return seq.release();
-}
-
+// template <typename Tp>
+// static Napi::Value* jsopencv_from_generic_vec(const Napi::Env& env, const std::vector<Tp>& value)
+// {
+//     Py_ssize_t n = static_cast<Py_ssize_t>(value.size());
+//     PySafeObject seq(PyTuple_New(n));
+//     for (Py_ssize_t i = 0; i < n; i++)
+//     {
+//         PyObject* item = jsopencv_from(value[i]);
+//         // If item can't be assigned - PyTuple_SetItem raises exception and returns -1.
+//         if (!item || PyTuple_SetItem(seq, i, item) == -1)
+//         {
+//             return NULL;
+//         }
+//     }
+//     return seq.release();
+// }
+// 
 // template<>
 // inline Napi::Value jsopencv_from_generic_vec(const Napi::Env& env, const std::vector<bool>& value)
 // {

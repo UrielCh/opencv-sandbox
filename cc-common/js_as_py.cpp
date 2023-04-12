@@ -315,6 +315,10 @@ static int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* i
 Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value) {
     return Napi::Number::New(env, static_cast<double>(value));
 }
+// not shure
+Napi::Number JsLong_FromUnsignedLong(const Napi::Env& env, long long value) {
+    return Napi::Number::New(env, static_cast<double>(value));
+}
 
 bool JsSequence_Check(const Napi::Value* obj)
 {
