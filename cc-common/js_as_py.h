@@ -19,8 +19,22 @@ private:
 };
 
 
-template<class T=Napi::CallbackInfo>
-bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywords, ...);
+class FakeCallbackInfo {
+public:
+    FakeCallbackInfo(const Napi::CallbackInfo& original_info, const std::vector<Napi::Value>& new_args);
+
+    size_t Length() const;
+    Napi::Value operator[](size_t index) const;
+    Napi::Env Env() const;
+
+private:
+    Napi::Env env;
+    std::vector<Napi::Value> new_args;
+};
+
+// template<class T=Napi::CallbackInfo>
+bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
+bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
 
 
 /**
@@ -131,19 +145,6 @@ bool JsSequence_Check(const Napi::Value* obj);
 size_t JsSequence_Size(const Napi::Value* obj);
 
 Napi::Value *JsSequence_GetItem(const Napi::Value* obj, size_t index);
-
-class FakeCallbackInfo {
-public:
-    FakeCallbackInfo(const Napi::CallbackInfo& original_info, const std::vector<Napi::Value>& new_args);
-
-    size_t Length() const;
-    Napi::Value operator[](size_t index) const;
-    Napi::Env Env() const;
-
-private:
-    Napi::Env env;
-    std::vector<Napi::Value> new_args;
-};
 
 // bool JsArray_Check(const Napi::Value& value) {
 //     return value.IsArray();

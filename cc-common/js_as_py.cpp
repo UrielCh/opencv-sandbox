@@ -46,9 +46,9 @@ void throwErrorWithFormat(const char* format, ...)
  * @return true 
  * @return false 
  */
-// template<class T=Napi::CallbackInfo>
-template<class T>
-bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywords, ...) {
+// template<class T>
+// bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywords, ...) {
+bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...) {
     // Prepare to handle variable arguments
     va_list args;
     va_start(args, keywords);
@@ -59,7 +59,6 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
 
     // Check if we reached the end of the format string
     bool is_optional = false;
-    // std::cout << "JsArg_ParseTupleAndKeywords format = " << YELLOW << format << RESET << std::endl;
 
     size_t arg_position = 0;
     bool first_optional = true;
@@ -73,7 +72,6 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
             throwErrorWithFormat("missing some keywords passed to JsArg_ParseTupleAndKeyword format:%s", format);
             return false;
         }
-        // std::cout << "JsArg_ParseTupleAndKeywords Iterration = " << YELLOW << *fmt_iter << RESET << NEW << std::endl;
         // Switch to Optional arguments
         if (*fmt_iter == '|') {
             fmt_iter++;
@@ -83,7 +81,6 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
                 throwErrorWithFormat("invalid format: '%s' in JsArg_ParseTupleAndKeywords unexpected end of format", format);
                 continue;
             }
-            // std::cout << "---- optional args ---" << std::endl;
         }
         if (arg_position >= info.Length()) {
             if (is_optional) {
@@ -109,7 +106,6 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
         if (is_optional) {
             // if first optional eand last param and is object, then it is the optional object
             if (first_optional && info.Length() == (arg_position+1)) {
-                // std::cout << "First Optinal Iterration = " << YELLOW << *fmt_iter << RESET << NEW << std::endl;
                 if ((info)[arg_position].IsObject()) {
                     optional_obj = info[arg_position].As<Napi::Object>();
                 }
@@ -126,7 +122,6 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
         } else {
             *arg = new Napi::Value(info.Env(), info[arg_position]);
         }
-        // std::cout << "JsArg_ParseTupleAndKeywords arg_position = " << YELLOW << arg_position << RESET << " kw_iter:" << kw_iter << NEW << std::endl;
         arg_position++;
         fmt_iter++;
         kw_iter++; // Increment kw_iter for each argument
@@ -143,7 +138,103 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
     return true;
 }
 
-template bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
+
+
+
+
+bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...) {
+    // Prepare to handle variable arguments
+    va_list args;
+    va_start(args, keywords);
+
+    // Initialize iterators for format string and keywords
+    const char* fmt_iter = format;
+    char** kw_iter = keywords;
+
+    // Check if we reached the end of the format string
+    bool is_optional = false;
+
+    size_t arg_position = 0;
+    bool first_optional = true;
+    Napi::Object optional_obj;
+
+    while (*fmt_iter && *fmt_iter != ':') {
+         // std::cout << "LOOP JsArg_ParseTupleAndKeywords arg_position = " << YELLOW << arg_position << RESET << " current kw_iter:"
+         // << *kw_iter << " KW position: " << YELLOW << (kw_iter - keywords) << RESET << NEW << std::endl;
+
+        if (!*kw_iter) {
+            throwErrorWithFormat("missing some keywords passed to JsArg_ParseTupleAndKeyword format:%s", format);
+            return false;
+        }
+        // Switch to Optional arguments
+        if (*fmt_iter == '|') {
+            fmt_iter++;
+            is_optional = true;
+            if (!*fmt_iter) {
+                // should throw error
+                throwErrorWithFormat("invalid format: '%s' in JsArg_ParseTupleAndKeywords unexpected end of format", format);
+                continue;
+            }
+        }
+        if (arg_position >= info.Length()) {
+            if (is_optional) {
+                if (!optional_obj) {
+                    // std::cout << "We've reached the end of the required arguments:"<< is_optional << std::endl;
+                    // We've reached the end of the required arguments
+                    break;
+                }
+            } else {
+                // Not enough arguments provided
+                va_end(args);
+                throwErrorWithFormat(
+                    "Not enough arguments provided for '%s' arg_position: %d is_optional: %s",
+                    format,
+                    arg_position,
+                    is_optional ? "true" : "false"
+                );
+                return false;
+            }
+        }
+        // Set the corresponding varg value
+        const Napi::Value** arg = va_arg(args, const Napi::Value**);
+        if (is_optional) {
+            // if first optional eand last param and is object, then it is the optional object
+            if (first_optional && info.Length() == (arg_position+1)) {
+                if ((info)[arg_position].IsObject()) {
+                    optional_obj = info[arg_position].As<Napi::Object>();
+                }
+                first_optional = false;
+            }
+            if (!optional_obj) {
+                // we do not have optional object source
+                *arg = new Napi::Value(info.Env(), info[arg_position]);
+            } else if (optional_obj.Has(*kw_iter)) {
+                *arg = new Napi::Value(info.Env(), optional_obj.Get(*kw_iter));
+            } else {
+                // leave it as null the optional value had not be provided
+            }
+        } else {
+            *arg = new Napi::Value(info.Env(), info[arg_position]);
+        }
+        arg_position++;
+        fmt_iter++;
+        kw_iter++; // Increment kw_iter for each argument
+    }
+    // look for the : to find the function name
+    const char* function_name = "??";//nullptr;
+    while  ( *fmt_iter && *fmt_iter != ':') {
+        fmt_iter++;
+    }
+    if (*fmt_iter == ':') {
+        function_name = fmt_iter + 1;
+    }
+    va_end(args);
+    return true;
+}
+
+// template bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
+// template bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
+
 
 FakeCallbackInfo::FakeCallbackInfo(const Napi::CallbackInfo& original_info, const std::vector<Napi::Value>& new_args)
     : env(original_info.Env()), new_args(new_args) {}
@@ -162,8 +253,6 @@ Napi::Value FakeCallbackInfo::operator[](size_t index) const {
 Napi::Env FakeCallbackInfo::Env() const {
     return env;
 }
-
-template bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
 
 Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *format, va_list &args)
 {
