@@ -73,30 +73,29 @@ struct JsMethodDef {
 
 #define JsObject     Napi::Value
 
-static inline JsTypeObject* Js_TYPE(Napi::Value *value) {
+static inline JsTypeObject Js_TYPE(Napi::Value *value) {
   if (!value->IsObject()) {
-    return nullptr;
+    return value->Env().Null();
   }
-
   Napi::Object object = value->As<Napi::Object>();
   Napi::Value prototype_val = object.Get(Napi::String::New(object.Env(), "__proto__"));
-
   if (!prototype_val.IsObject()) {
-    return nullptr;
+    return value->Env().Null();
   }
-
   Napi::Object prototype = prototype_val.As<Napi::Object>();
-  return &prototype;
+  return prototype;
 }
 
 static inline int Js_IS_TYPE(Napi::Value *ob, JsTypeObject *type) {
-    return Js_TYPE(ob) == type;
+    return false; // don't check type for now
+    // return Js_TYPE(ob) == type;
 }
 // static inline int PyObject_TypeCheck(PyObject *ob, PyTypeObject *type) {
 //     return Py_IS_TYPE(ob, type) || PyType_IsSubtype(Py_TYPE(ob), type);
 // }
 static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
-    return Js_IS_TYPE(ob, type);//  || PyType_IsSubtype(Py_TYPE(ob), type);
+    return false; // don't check type for now
+    // return Js_IS_TYPE(ob, type);//  || PyType_IsSubtype(Py_TYPE(ob), type);
 }
 
 // naive version:
