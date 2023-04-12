@@ -24,6 +24,9 @@ jobs:
     - name: test GITHUB_WORKSPACE
       run: echo ${GITHUB_WORKSPACE}
 
+    - name: Show workspace path
+      run: echo Workspace path: ${{ env.GITHUB_WORKSPACE }}
+
     - name: test OPENCV_BUILD_ROOT
       run: env | grep OPENCV_BUILD_ROOT
       env:
