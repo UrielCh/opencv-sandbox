@@ -30,7 +30,7 @@ jobs:
     - name: test OPENCV_BUILD_ROOT
       run: env | grep OPENCV_BUILD_ROOT
       env:
-        OPENCV_BUILD_ROOT: ${{repository.GITHUB_WORKSPACE}}/..
+        OPENCV_BUILD_ROOT: ${{github.GITHUB_WORKSPACE}}/..
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -38,7 +38,7 @@ jobs:
        node-version: ${{ matrix.node-version }}
        cache: 'npm'
       env:
-        OPENCV_BUILD_ROOT: ${{ repository.GITHUB_WORKSPACE }}/..
+        OPENCV_BUILD_ROOT: ${{ github.GITHUB_WORKSPACE }}/..
     - run: npm ci
     #- run: npm run build --if-present
     #- run: npm test
