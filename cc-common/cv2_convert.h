@@ -144,13 +144,14 @@ struct JsOpenCV_Converter
         CV_UNUSED(info);
          if (!obj || obj->IsUndefined() || obj->IsNull())
             return true;
-        if(JsInt_Check(obj))
-            value = (unsigned int)JsInt_AsLong(obj);
-        else if(JSLong_Check(obj))
-            value = (unsigned int)JsLong_AsLong(obj);
+        if (obj->IsNumber()) // not implemented yet
+            value = obj->As<Napi::Number>().Uint32Value();
+            // (unsigned int)JsInt_AsLong(obj);
+        // else if(JSLong_Check(obj))
+        //     value = (unsigned int)JsLong_AsLong(obj);
         else
             return false;
-        return value != (unsigned int)-1 || !PyErr_Occurred();
+        return value != (unsigned int)-1; // || !JsErr_Occurred(); 
     }
 };
 
