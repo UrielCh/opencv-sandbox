@@ -265,7 +265,7 @@ void JsErr_SetString(const Napi::Env &env, const std::string &message)
     Napi::Error::New(env, message).ThrowAsJavaScriptException();
 }
 
-static Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module) {
+Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module) {
     const Napi::Env env = module->Env();
     module->Set(Napi::String::New(env, ml->ml_name), Napi::Function::New(env, ml->ml_meth));
 }
@@ -310,6 +310,16 @@ int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item) {
         return -1;  // Return an error code if an exception occurs
     }
     return 0;  // Return success code
+}
+
+Napi::Value* JsString_FromString(const Napi::Env& env, const char* str) {
+    if (str == nullptr) {
+        throw std::invalid_argument("Input string is null");
+    }
+
+    // Create a new Napi::String and allocate it on the heap
+    Napi::Value* result = new Napi::String(Napi::String::New(env, str));
+    return result;
 }
 
 Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value) {

@@ -99,12 +99,12 @@ static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
 }
 
 // naive version:
-// static inline Napi::String JsString_FromString(const Napi::Env& env, const char* str) {
+// inline Napi::String JsString_FromString(const Napi::Env& env, const char* str) {
 //     return Napi::String::New(env, str);
 // }
 
 // use std::shared_ptr
-// static inline std::shared_ptr<Napi::String> JsString_FromString(const Napi::Env& env, const char* str) {
+// inline std::shared_ptr<Napi::String> JsString_FromString(const Napi::Env& env, const char* str) {
 //     if (str == nullptr) {
 //         throw std::invalid_argument("Input string is null");
 //     }
@@ -114,26 +114,18 @@ static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
 //     return result;
 // }
 
-static Napi::Value* JsString_FromString(const Napi::Env& env, const char* str) {
-    if (str == nullptr) {
-        throw std::invalid_argument("Input string is null");
-    }
-
-    // Create a new Napi::String and allocate it on the heap
-    Napi::Value* result = new Napi::String(Napi::String::New(env, str));
-    return result;
-}
+Napi::Value* JsString_FromString(const Napi::Env& env, const char* str);
 
 // PyObject *PyCFunction_NewEx(PyMethodDef *ml, PyObject *self, PyObject *module)
-static Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module);
+Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module);
 
 // const char * PyModule_GetName(PyObject *m)
 const std::string JsModule_GetName(Napi::Object *module);
 
 int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item);
 
-static Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value);
-static Napi::Number JsLong_FromUnsignedLong(const Napi::Env& env, long long value);
+Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value);
+Napi::Number JsLong_FromUnsignedLong(const Napi::Env& env, long long value);
 
 bool JsSequence_Check(const Napi::Value* obj);
 size_t JsSequence_Size(const Napi::Value* obj);
