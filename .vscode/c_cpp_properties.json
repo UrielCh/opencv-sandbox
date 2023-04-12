@@ -7,7 +7,8 @@
             "${LOCALAPPDATA}/node-gyp/Cache/18.12.0/include/node",
             "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/include",
             "${OPENCV_BUILD_ROOT}/opencv-4.7.0-8b1ea/build/include",
-            "${OPENCV_BUILD_ROOT}/opencv-4.7.0-8b1ea/opencv/modules/python/src2"
+            "${OPENCV_BUILD_ROOT}/opencv-4.7.0-8b1ea/opencv/modules/python/src2",
+            "${OPENCV_BUILD_ROOT}/opencv-4.7.0-8b1ea/opencv/modules/core/include"
         ],
         "defines": [
             "_DEBUG",

@@ -88,6 +88,8 @@ if ("include_dirs" === process.argv[len - 1]) {
   const opencvRoot = getOpenCVRoot();
   console.log(`${opencvRoot}/include`.replace(/\\/g, "/"));
   console.log(`${opencvRoot}/include/opencv4`.replace(/\\/g, "/"));
+  const extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'core', 'include');
+  console.log(extraInc.replace(/\\/g, "/"));
   process.exit(0);
 }
 
