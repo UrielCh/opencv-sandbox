@@ -23,10 +23,12 @@ jobs:
         branch: "4.x"
     - name: test GITHUB_WORKSPACE
       run: echo ${GITHUB_WORKSPACE}
+
     - name: test OPENCV_BUILD_ROOT
-      run: env
+      run: env | grep OPENCV_BUILD_ROOT
       env:
-        OPENCV_BUILD_ROOT: ${{ env.GITHUB_WORKSPACE }}/..
+        OPENCV_BUILD_ROOT: ${env.GITHUB_WORKSPACE}/..
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
