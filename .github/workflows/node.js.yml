@@ -24,8 +24,11 @@ jobs:
     - name: test env
       run: ls ${GITHUB_WORKSPACE}/..
 
-    - name: list build
+    - name: List files of build
       run: cd ${GITHUB_WORKSPACE}/.. && find build
+
+    - name: List files of opencv
+      run: cd ${GITHUB_WORKSPACE}/.. && find opencv
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -37,5 +40,5 @@ jobs:
     - run: node ./tools/listFiles.mjs include_dirs
     - run: node ./tools/listFiles.mjs libraries
     - run: npm ci
-    #- run: npm run build --if-present
-    #- run: npm test
+    - run: npm run build --if-present
+    - run: npm test
