@@ -25,7 +25,7 @@ jobs:
     - name: Get openCV sources
       uses: UrielCh/opencv-cache-action@main
       with:
-        branch: "4.X"
+        branch: "4.x"
 
     #- name: Use Node.js ${{ matrix.node-version }}
     #  uses: actions/setup-node@v3
