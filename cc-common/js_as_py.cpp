@@ -21,7 +21,22 @@ const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
 
+// like int failmsg(const Napi::Env& env, const char *fmt, ...); // defined in cv2_utils.cpp
+// but used in Python emulation code.
+void throwErrorWithFormat(const char* format, ...)
+{
+    char errorMessage[1024];
+
+    va_list args;
+    va_start(args, format);
+    std::vsnprintf(errorMessage, sizeof(errorMessage), format, args);
+    va_end(args);
+
+    throw std::runtime_error(errorMessage);
+}
+
 /**
+ * 
  * @brief act as PyArg_ParseTupleAndKeywords
  * 
  * @param info NApi CallbackInfo info object
@@ -55,7 +70,7 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
          // << *kw_iter << " KW position: " << YELLOW << (kw_iter - keywords) << RESET << NEW << std::endl;
 
         if (!*kw_iter) {
-            failmsg(info.Env(), "missing some keywords passed to JsArg_ParseTupleAndKeyword format:%s", format);
+            throwErrorWithFormat("missing some keywords passed to JsArg_ParseTupleAndKeyword format:%s", format);
             return false;
         }
         // std::cout << "JsArg_ParseTupleAndKeywords Iterration = " << YELLOW << *fmt_iter << RESET << NEW << std::endl;
@@ -65,7 +80,7 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
             is_optional = true;
             if (!*fmt_iter) {
                 // should throw error
-                failmsg(info.Env(), "invalid format: '%s' in JsArg_ParseTupleAndKeywords unexpected end of format", format);
+                throwErrorWithFormat("invalid format: '%s' in JsArg_ParseTupleAndKeywords unexpected end of format", format);
                 continue;
             }
             // std::cout << "---- optional args ---" << std::endl;
@@ -80,7 +95,7 @@ bool JsArg_ParseTupleAndKeywords(const T& info, const char* format, char** keywo
             } else {
                 // Not enough arguments provided
                 va_end(args);
-                failmsg(info.Env(),
+                throwErrorWithFormat(
                     "Not enough arguments provided for '%s' arg_position: %d is_optional: %s",
                     format,
                     arg_position,
@@ -150,8 +165,6 @@ Napi::Env FakeCallbackInfo::Env() const {
 
 template bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
 
-int failmsg(const Napi::Env& env, const char *fmt, ...); // defined in cv2_utils.cpp
-
 Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *format, va_list &args)
 {
     Napi::Env env = info.Env();
@@ -208,18 +221,18 @@ Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *for
                         uint32_t i32 = va_arg(args, uint32_t);
                         key = Napi::Number::New(env, i32);
                     } else {
-                        failmsg(env, "invalid format: '%s' in Js_BuildValue_Helper object keys must be type s or i", format);
+                        throwErrorWithFormat("invalid format: '%s' in Js_BuildValue_Helper object keys must be type s or i", format);
                         return env.Null();
                     }
                     ++format;
                     if (*format != ':') {
-                        failmsg(env, "invalid format: '%s' in Js_BuildValue_Helper Each object key must be followd by a comma", format);
+                        throwErrorWithFormat( "invalid format: '%s' in Js_BuildValue_Helper Each object key must be followd by a comma", format);
                         return env.Null();
                     }
                     // skip the colon
                     format++;
                     if (*format == '}' || *format == '\0') {
-                        failmsg(env, "invalid format: '%s' in Js_BuildValue_Helper expected value type for the last key", format);
+                        throwErrorWithFormat("invalid format: '%s' in Js_BuildValue_Helper expected value type for the last key", format);
                         return env.Null();
                     }
                     Napi::Value value = Js_BuildValue_Helper(info, format, args);
@@ -268,6 +281,7 @@ void JsErr_SetString(const Napi::Env &env, const std::string &message)
 Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module) {
     const Napi::Env env = module->Env();
     module->Set(Napi::String::New(env, ml->ml_name), Napi::Function::New(env, ml->ml_meth));
+    return module;
 }
 
 
@@ -378,7 +392,7 @@ Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
 
   if (!obj->IsArray()) {
     // Throw an error if obj is not an array
-    failmsg(env, "Expected an array");
+    throwErrorWithFormat("Expected an array");
     return nullptr;
   }
 
@@ -386,7 +400,7 @@ Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
 
   if (index >= arr.Length()) {
     // Throw an error if index is out of bounds
-    failmsg(env, "Index out of bounds");
+    throwErrorWithFormat("Index out of bounds");
     return nullptr;
   }
 
