@@ -64,6 +64,14 @@ function dumpFile(directory, extention) {
 }
 
 function getOpenCVRoot() {
+  if (process.env["GITHUB_WORKSPACE"]) {
+    const opencvRoot = path.resolve(process.env["GITHUB_WORKSPACE"], '..');
+    const candidate = fs.readdirSync(opencvRoot);
+    if (candidate.includes("build")) {
+      return `${opencvRoot}/build`;
+    }
+    // throw Error("update listFiles to support your environment");
+  }
   if (
     process.env["OPENCV_BUILD_ROOT"] &&
     fs.existsSync(process.env["OPENCV_BUILD_ROOT"])
