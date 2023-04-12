@@ -103,7 +103,7 @@ if ("include_dirs" === process.argv[len - 1]) {
 
   // extra import should be include via openCVMakeFile
   // TODO Remove that after for the final version
-  for (const mod of ['core', 'imgcodecs', 'imgproc', 'video', 'ml', 'flann', 'dnn', 'calib3d', 'videoio', 'videoio', 'gapi']) {
+  for (const mod of ['core', 'imgcodecs', 'imgproc', 'highgui', 'video', 'ml', 'flann', 'dnn', 'calib3d', 'videoio', 'videoio', 'gapi']) {
     let extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', mod, 'include');
     console.log(extraInc.replace(/\\/g, "/"));
   }

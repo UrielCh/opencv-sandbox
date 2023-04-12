@@ -22,8 +22,6 @@ jobs:
       with:
         branch: "4.x"
         BUILD_LIST: "core,imgproc,imgcodecs,python_bindings_generator"
-    - name: test env
-      run: ls ${GITHUB_WORKSPACE}/..
 
     - name: List files of build
       run: cd ${GITHUB_WORKSPACE}/.. && find build
