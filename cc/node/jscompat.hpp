@@ -133,7 +133,7 @@ Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
 {                                                                          \
     return Napi::Number::New(info.Env(), static_cast<int>(src));           \
 }
-// may be writen as return jsopencv_from(static_cast<int>(src));
+// may be writen as return jsopencv_from(const Napi::CallbackInfo &info, static_cast<int>(src));
 
 
 // CVPY_TYPE_HEAD

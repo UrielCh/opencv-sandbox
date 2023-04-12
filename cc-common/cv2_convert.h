@@ -76,9 +76,9 @@ bool jsopencv_to(const Napi::Value* obj, cv::Matx<_Tp, m, n>& mx, const ArgInfo&
 
 
 template<typename _Tp, int m, int n>
-Napi::Value jsopencv_from(const cv::Matx<_Tp, m, n>& matx)
+Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Matx<_Tp, m, n>& matx)
 {
-    return jsopencv_from(cv::Mat(matx));
+    return jsopencv_from(info, cv::Mat(matx));
 }
 
 // --- bool
