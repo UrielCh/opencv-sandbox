@@ -95,12 +95,11 @@ void jsRaiseCVOverloadException(const Napi::CallbackInfo &info, const std::strin
                                 functionName, "", -1);
         Napi::Error::New(info.Env(), exception.what()).ThrowAsJavaScriptException();
     }
-
-
-
 }
+#ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable : 4101) // disable warning C4101
+#endif
 void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
@@ -123,9 +122,10 @@ void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info)
         }
     }
 }
+#ifdef _MSC_VER
 #pragma warning(pop) // restore the previous warning state
+#endif
 //======================================================================================================================
-
 static int OnError(int status, const char *func_name, const char *err_msg, const char *file_name, int line, void *userdata)
 {
     Napi::Env* env = static_cast<Napi::Env*>(userdata);
