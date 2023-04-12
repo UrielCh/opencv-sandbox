@@ -49,9 +49,9 @@ async function allocationTest(pass: number) {
             const tmp = new theModule.cvMatObject(50000, 2000 + (i % 100));
             cnt.alloc++;
             // console.log(`a new Mat is available with size: ${tmp.rows} x ${tmp.cols} Type: ${tmp.type}`,);
-            if ('Release' in tmp && typeof (tmp.Release) === 'function') {
+            if ('Release' in tmp && typeof ((tmp as any).Release) === 'function') {
                 // tmp.Release();
-                cnt.release++;
+                (tmp as any).release++;
             }
         }
         if (i % 200 === 0) {

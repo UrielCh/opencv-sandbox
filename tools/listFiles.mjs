@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import pc from "picocolors";
+// import pc from "picocolors";
 
 /**
  * @returns {boolean}
@@ -31,7 +31,7 @@ function listFiles(dir, extStr) {
   try {
     list = fs.readdirSync(dir);
   } catch (e) {
-    console.error(`Can not read directory ${pc.green(dir)}:`);
+    console.error(`Can not read directory ${dir}:`);
     console.error(e);
     return [];
   }
