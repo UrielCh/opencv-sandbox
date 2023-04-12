@@ -280,7 +280,7 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
     value.resize(n);
     for (size_t i = 0; i < n; i++)
     {
-        SafeSeqItem item_wrap(obj, i);
+        JsSafeSeqItem item_wrap(obj, i);
         if (!jsopencv_to(item_wrap.item, value[i], info))
         {
             failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
