@@ -11,17 +11,17 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
     
+    - name: Hellow
+      uses: actions/hello-world-javascript-action@main
+      with:
+        who-to-greet: 'Mona the Octocat'  
     - name: Get openCV sources
       uses: UrielCh/opencv-cache-action@main
       with:
