@@ -127,13 +127,13 @@ bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* for
         kw_iter++; // Increment kw_iter for each argument
     }
     // look for the : to find the function name
-    const char* function_name = "??";//nullptr;
-    while  ( *fmt_iter && *fmt_iter != ':') {
-        fmt_iter++;
-    }
-    if (*fmt_iter == ':') {
-        function_name = fmt_iter + 1;
-    }
+    // const char* function_name = "??";//nullptr;
+    // while  ( *fmt_iter && *fmt_iter != ':') {
+    //     fmt_iter++;
+    // }
+    // if (*fmt_iter == ':') {
+    //     function_name = fmt_iter + 1;
+    // }
     va_end(args);
     return true;
 }
@@ -221,13 +221,13 @@ bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* forma
         kw_iter++; // Increment kw_iter for each argument
     }
     // look for the : to find the function name
-    const char* function_name = "??";//nullptr;
-    while  ( *fmt_iter && *fmt_iter != ':') {
-        fmt_iter++;
-    }
-    if (*fmt_iter == ':') {
-        function_name = fmt_iter + 1;
-    }
+    // const char* function_name = "??";//nullptr;
+    // while  ( *fmt_iter && *fmt_iter != ':') {
+    //     fmt_iter++;
+    // }
+    // if (*fmt_iter == ':') {
+    //     function_name = fmt_iter + 1;
+    // }
     va_end(args);
     return true;
 }
