@@ -24,14 +24,14 @@ jobs:
     - name: test env
       run: ls ${GITHUB_WORKSPACE}/..
 
-    - name: test /opencv
-      run: ls ${GITHUB_WORKSPACE}/../opencv
+    # - name: test /opencv
+    #   run: ls ${GITHUB_WORKSPACE}/../opencv
 
-    - name: test /build
-      run: ls ${GITHUB_WORKSPACE}/../build
+    - name: list build
+      run: ls -r ${GITHUB_WORKSPACE}/../build
 
-    - name: test /build/include
-      run: ls ${GITHUB_WORKSPACE}/../build/include
+    # - name: test /build/include
+    #   run: ls ${GITHUB_WORKSPACE}/../build/include
 
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v3
