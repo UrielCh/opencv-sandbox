@@ -21,16 +21,17 @@ jobs:
       uses: UrielCh/opencv-cache-action@main
       with:
         branch: "4.x"
+    # valid
     - name: test GITHUB_WORKSPACE
       run: echo ${GITHUB_WORKSPACE}
 
-    - name: Show workspace path
-      run: "echo Workspace path: ${{ vars.GITHUB_WORKSPACE }}"
+    #- name: Show workspace path
+    #  run: "echo Workspace path: ${{ vars.GITHUB_WORKSPACE }}"
 
     - name: test OPENCV_BUILD_ROOT
       run: env | grep OPENCV_BUILD_ROOT
       env:
-        OPENCV_BUILD_ROOT: ${{vars.GITHUB_WORKSPACE}}/..
+        OPENCV_BUILD_ROOT: "${{ vars.GITHUB_WORKSPACE }}/.."
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
