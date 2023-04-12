@@ -103,47 +103,18 @@ if ("include_dirs" === process.argv[len - 1]) {
 
   // extra import should be include via openCVMakeFile
   // TODO Remove that after for the final version
-  let extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'core', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
+  for (const mod of ['core', 'imgcodecs', 'imgproc', 'video', 'ml', 'flann', 'dnn', 'calib3d', 'videoio', 'videoio', 'gapi']) {
+    let extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', mod, 'include');
+    console.log(extraInc.replace(/\\/g, "/"));
+  }
 
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'imgcodecs', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'imgproc', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'video', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'ml', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'flann', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'dnn', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'calib3d', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
- 
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'videoio', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
- 
-  extraInc = path.resolve(opencvRoot, '..', 'opencv', 'modules', 'gapi', 'include');
-  console.log(extraInc.replace(/\\/g, "/"));
-
-  process.exit(0);
-}
-
-if ("libraries" === process.argv[len - 1]) {
+} else if ("libraries" === process.argv[len - 1]) {
   const opencvRoot = getOpenCVRoot();
   let candidates = [`${opencvRoot}/lib/Release/`, `${opencvRoot}/lib/`]
   if (fs.existsSync(candidates[0]))
     dumpFile(candidates[0], "lib,so");
   else
     dumpFile(candidates[1], "lib,so");
-  process.exit(0);
+} else {
+  dumpFile(src, process.argv[len - 1]);
 }
-
-dumpFile(src, process.argv[len - 1]);
