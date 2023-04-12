@@ -76,6 +76,9 @@ function getOpenCVRoot() {
     if (candidate.includes("latest")) {
       return `${opencvRoot}/latest/build`;
     }
+    if (candidate.includes("build")) {
+      return `${opencvRoot}/build`;
+    }
     throw Error("update listFiles to support your environment");
   }
   throw Error("OPENCV_BUILD_ROOT is not defined");
