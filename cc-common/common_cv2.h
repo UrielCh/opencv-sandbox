@@ -2,8 +2,8 @@
 #define __COMMON_CV2__H__
 #include "js_as_py.h"
 // #include "cv2.hpp"
-#include "opencv2/core.hpp"
-#include "opencv2/core/utils/tls.hpp"
+#include <opencv2/core.hpp>
+#include <opencv2/core/utils/tls.hpp>
 #include "cv2_util.h"
 /**
  * @brief common deps having deps to openCV
