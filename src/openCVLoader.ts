@@ -36,6 +36,14 @@ function getOpenCVRoot(): string {
 
 export function getModulePath(): string {
     let opencvBinDir = '';
+
+    if (process.env["GITHUB_WORKSPACE"]) {
+      opencvBinDir = path.resolve(process.env["GITHUB_WORKSPACE"], '..', 'build', 'lib');
+      if (!fs.existsSync(opencvBinDir)) {
+        throw Error(`${opencvBinDir} should exists, but it does not`);
+      }
+    }
+
     if (process.env.OPENCV_BUILD_ROOT) {
         // for windows
         opencvBinDir = path.join(getOpenCVRoot(), 'bin', 'Release')
@@ -51,6 +59,8 @@ export function getModulePath(): string {
 
     if (!process.env.PATH) {
       console.error(`PATH env value is not visible, I can not append opencvBinDir(${opencvBinDir}) to your PATH`);
+    } else if (!opencvBinDir) {
+      console.error("Failed to guess opencvBinDir (opencv lib dir)");
     } else if (opencvBinDir && !process.env.PATH.includes(opencvBinDir)) {
         console.log(`Adding ${opencvBinDir} to PATH`)
         process.env.PATH = `${process.env.PATH}${path.delimiter}${opencvBinDir}`;
