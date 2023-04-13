@@ -41,8 +41,11 @@ jobs:
     #- name: Show included Lib for the linker
     #  run: node ./tools/listFiles.mjs libraries
 
-    - name: show LD_LIBRARY_PATH Path
-      run: echo ${LD_LIBRARY_PATH}
+    # - name: show LD_LIBRARY_PATH Path
+    #   run: echo ${LD_LIBRARY_PATH}
+
+    - name: install opencv
+      run: cd ../build/; make install
 
     - name: npm install CI
       run: npm ci
