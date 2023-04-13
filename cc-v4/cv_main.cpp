@@ -4,6 +4,7 @@
 #include "../cc-common/js_as_py.h"
 #include "../cc-common/js_as_py_test.h"
 #include <iostream>
+#include <opencv2/opencv.hpp>
 
 // #define NEXRT_BUILD 1
 
@@ -60,7 +61,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char**)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
       && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
       // && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) // TODO Find implementation of bool jsopencv_to(const Napi::Value* obj, UMat& value, const ArgInfo& argInfo)
-      // && jsopencv_to(jsobj_img, img, ArgInfo("img", 0)) // TODO or JsOpenCV_Converter<UMat>
+      // && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) // TODO or JsOpenCV_Converter<UMat>
       && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
       )
     {
@@ -176,6 +177,10 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
     // std::cout << "imread is attached to export" << std::endl;
     exports.Set("imread", Napi::Function::New(env, jsopencv_cv_imread));
     exports.Set("imencode", Napi::Function::New(env, jsopencv_cv_imencode));
+    // exports.Set("imcount", Napi::Function::New(env, jsopencv_cv_imcount));
+    // exports.Set("imdecodemulti", Napi::Function::New(env, jsopencv_cv_imdecodemulti));
+    
+    // exports.Set("resize", Napi::Function::New(env, jsopencv_cv_resize));
     exports.Set("test", Napi::Function::New(env, test));
 
     exports.Set("getVersionMajor", Napi::Function::New(env, jsopencv_cv_getVersionMajor));
