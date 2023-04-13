@@ -1,22 +1,22 @@
+from typing import List, Dict
 from .arg_info import ArgInfo 
 from nodejs_opencv_generator.utils import find_argument_class_info 
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
 
-
-
 class FuncVariant(object):
-    def __init__(self, namespace, classname, name, decl, isconstructor, known_classes, isphantom=False):
-        self.name = self.wname = name
-        self.isconstructor = isconstructor
-        self.isphantom = isphantom
+    def __init__(self, namespace: str, classname: str, name: str, decl: List[str], isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
+        self.name: str = name
+        self.wname: str = name
+        self.isconstructor: bool = isconstructor
+        self.isphantom: bool = isphantom
 
-        self.docstring = decl[5]
+        self.docstring: str = decl[5]
 
-        self.rettype = decl[4] or handle_ptr(decl[1])
+        self.rettype: str = decl[4] or handle_ptr(decl[1])
         if self.rettype == "void":
             self.rettype = ""
-        self.args = []
-        self.array_counters = {}
+        self.args: List[ArgInfo] = []
+        self.array_counters: Dict[str, List[str]] = {}
         for arg_decl in decl[3]:
             assert len(arg_decl) == 4, \
                 'ArgInfo contract is violated. Arg declaration should contain:' \
@@ -35,7 +35,7 @@ class FuncVariant(object):
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
 
-    def init_pyproto(self, namespace, classname, known_classes):
+    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, str]) -> None:
         # string representation of argument list, with '[', ']' symbols denoting optional arguments, e.g.
         # "src1, src2[, dst[, mask]]" for cv.add
         argstr = ""

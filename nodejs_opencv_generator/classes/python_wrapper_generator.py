@@ -1,6 +1,6 @@
 import sys
 import re
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List, Tuple, Union
 from nodejs_opencv_generator import hdr_parser
 from nodejs_opencv_generator.utils import normalize_class_name
 from nodejs_opencv_generator.classes.namespace import Namespace
@@ -254,7 +254,7 @@ class PythonWrapperGenerator(object):
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, 0}\n};\n\n')
 
-    def gen_enum_reg(self, enum_name):
+    def gen_enum_reg(self, enum_name: str) -> None:
         name_seg = enum_name.split(".")
         is_enum_class = False
         if len(name_seg) >= 2 and name_seg[-1] == name_seg[-2]:
@@ -270,16 +270,16 @@ class PythonWrapperGenerator(object):
         code += "CV_JS_FROM_ENUM({0});\nCV_JS_TO_ENUM({0});\n\n".format(wname)
         self.code_enums.write(code)
 
-    def save(self, path, name, buf):
+    def save(self, path: str, name: str, buf: StringIO) -> None:
         with open(path + "/" + name, "wt") as f:
             f.write(buf.getvalue())
 
-    def save_json(self, path, name, value):
+    def save_json(self, path: str, name: str, value: Union[Dict, List]) -> None:
         import json
         with open(path + "/" + name, "wt") as f:
             json.dump(value, f)
 
-    def gen(self, srcfiles, output_path):
+    def gen(self, srcfiles: List[str], output_path: str) -> None:
         self.clear()
         self.parser = hdr_parser.CppHeaderParser(generate_umat_decls=True, generate_gpumat_decls=True)
 

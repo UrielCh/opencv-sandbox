@@ -112,7 +112,7 @@ class ClassInfo(object):
             code += "\n    return true;\n}\n"
         return code
 
-    def gen_code(self, codegen):
+    def gen_code(self, codegen) -> str:
         all_classes = codegen.classes
         if self.ismap:
             return self.gen_map_code(codegen)
@@ -162,7 +162,7 @@ class ClassInfo(object):
 
         return code
 
-    def gen_def(self, codegen):
+    def gen_def(self, codegen) -> str:
         all_classes = codegen.classes
         baseptr = "NoBase"
         if self.base and self.base in all_classes:

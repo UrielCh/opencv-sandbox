@@ -31,39 +31,39 @@ class ArgInfo(object):
             self.outputarg
         )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self)
 
     @property
-    def export_name(self):
+    def export_name(self) -> str:
         if self.name in python_reserved_keywords:
             return self.name + '_'
         return self.name
 
     @property
-    def inputarg(self):
+    def inputarg(self) -> bool:
         return '/O' not in self._modifiers
 
     @property
-    def outputarg(self):
+    def outputarg(self) -> bool:
         return '/O' in self._modifiers or '/IO' in self._modifiers
 
     @property
-    def returnarg(self):
+    def returnarg(self) -> bool:
         return self.outputarg
 
     @property
-    def isrvalueref(self):
+    def isrvalueref(self) -> bool:
         return '/RRef' in self._modifiers
 
     @property
-    def full_name(self):
+    def full_name(self) -> str:
         if self.enclosing_arg is None:
             return self.name
         return self.enclosing_arg.name + '.' + self.name
 
-    def isbig(self):
+    def isbig(self) -> bool:
         return self.tp in ["Mat", "vector_Mat", "cuda::GpuMat", "GpuMat", "vector_GpuMat", "UMat", "vector_UMat"] # or self.tp.startswith("vector")
 
-    def crepr(self):
+    def crepr(self) -> str:
         return "ArgInfo(\"%s\", %d)" % (self.name, self.outputarg)

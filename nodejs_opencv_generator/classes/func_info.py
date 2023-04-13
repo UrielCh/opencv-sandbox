@@ -1,3 +1,4 @@
+from typing import Dict, List, Tuple, Union, Any
 from .func_variant import FuncVariant 
 from collections import namedtuple
 from nodejs_opencv_generator.utils import (
@@ -30,7 +31,7 @@ from nodejs_opencv_generator.templates import (
 	gen_template_overloaded_function_call
 )
 
-simple_argtype_mapping = {
+simple_argtype_mapping: Dict[str, ArgTypeInfo] = {
     "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True),
     "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True),
     "int": ArgTypeInfo("int", FormatStrings.int, "0", True),
@@ -43,7 +44,7 @@ simple_argtype_mapping = {
 }
 
 class FuncInfo(object):
-    def __init__(self, classname, name, cname, isconstructor, namespace, is_static):
+    def __init__(self, classname: str, name: str, cname: str, isconstructor: bool, namespace: str, is_static: bool):
         self.classname = classname
         self.name = name
         self.cname = cname
@@ -52,13 +53,13 @@ class FuncInfo(object):
         self.is_static = is_static
         self.variants = []
 
-    def add_variant(self, decl, known_classes, isphantom=False):
+    def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
         self.variants.append(
             FuncVariant(self.namespace, self.classname, self.name, decl,
                         self.isconstructor, known_classes, isphantom)
         )
 
-    def get_wrapper_name(self):
+    def get_wrapper_name(self) -> str:
         name = self.name
         if self.classname:
             classname = self.classname + "_"
@@ -72,7 +73,7 @@ class FuncInfo(object):
 
         return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
 
-    def get_wrapper_prototype(self, codegen):
+    def get_wrapper_prototype(self, codegen: Any) -> str: # 'CodeGenerator'
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
             return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
@@ -85,7 +86,7 @@ class FuncInfo(object):
         # PyObject* %s, PyObject* py_args, PyObject* kw % (full_fname, self_arg)
         return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
 
-    def get_tab_entry(self):
+    def get_tab_entry(self) -> str:
         prototype_list = []
         docstring_list = []
 
