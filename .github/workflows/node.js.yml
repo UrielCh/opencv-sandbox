@@ -35,11 +35,11 @@ jobs:
        node-version: ${{ matrix.node-version }}
        cache: 'npm'
 
-    #- name: Show included Path for C++
-    #  run: node ./tools/listFiles.mjs include_dirs
+    - name: Show included Path for C++
+      run: node ./tools/listFiles.mjs include_dirs
 
-    #- name: Show included Lib for the linker
-    #  run: node ./tools/listFiles.mjs libraries
+    - name: Show included Lib for the linker
+      run: node ./tools/listFiles.mjs libraries
 
     # - name: show LD_LIBRARY_PATH Path
     #   run: echo ${LD_LIBRARY_PATH}
