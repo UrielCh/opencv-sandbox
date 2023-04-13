@@ -100,7 +100,8 @@ if ("include_dirs" === process.argv[len - 1]) {
   console.log(`${opencvRoot}`.replace(/\\/g, "/"));
   console.log(`${opencvRoot}/include`.replace(/\\/g, "/"));
   console.log(`${opencvRoot}/include/opencv4`.replace(/\\/g, "/"));
-
+  // add opencv src Root include
+  console.log(path.resolve(opencvRoot, '..', 'opencv', 'include').replace(/\\/g, "/"));
   // extra import should be include via openCVMakeFile
   // TODO Remove that after for the final version
   for (const mod of ['core', 'imgcodecs', 'imgproc', 'highgui', 'video', 'ml', 'flann', 'dnn', 'calib3d', 'videoio', 'videoio', 'gapi']) {
