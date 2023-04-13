@@ -13,7 +13,7 @@ Napi::FunctionReference cvMatObject::constructor;
 Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports)
 {
     Napi::HandleScope scope(env);
-    napi_property_attributes napi_default_method = static_cast<napi_property_attributes>(napi_writable | napi_configurable | napi_enumerable);
+    // napi_property_attributes napi_default_method = static_cast<napi_property_attributes>(napi_writable | napi_configurable | napi_enumerable);
     napi_property_attributes napi_default_Field = static_cast<napi_property_attributes>(napi_enumerable | napi_configurable);
     
     Napi::Function func = DefineClass(env, "cvMatObject", {
@@ -55,7 +55,7 @@ Napi::Object cvMatObject::Init(Napi::Env env, Napi::Object exports)
 
 Napi::Value cvMatObject::NewInstance(const Napi::CallbackInfo &info, const cv::Mat &m)
 {
-    Napi::Env env = info.Env();
+    // Napi::Env env = info.Env();
     Napi::Value cvMatObj = constructor.New({});
     cvMatObject *cvMatInstance = Napi::ObjectWrap<cvMatObject>::Unwrap(cvMatObj.As<Napi::Object>());
     cvMatInstance->mat = m;
