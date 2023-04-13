@@ -1,5 +1,6 @@
 import sys
 import re
+from typing import Dict, Any, List, Tuple
 from nodejs_opencv_generator import hdr_parser
 from nodejs_opencv_generator.utils import normalize_class_name
 from nodejs_opencv_generator.classes.namespace import Namespace
@@ -20,14 +21,14 @@ class PythonWrapperGenerator(object):
     def __init__(self):
         self.clear()
 
-    def clear(self):
-        self.classes = {}
-        self.namespaces = {}
-        self.consts = {}
-        self.enums = {}
-        self.code_include = StringIO()      # jsopencv_generated_include.h
+    def clear(self) -> None:
+        self.classes: Dict[str, ClassInfo] = {}
+        self.namespaces: Dict[str, Namespace] = {}
+        self.consts: Dict[str, Any] = {}
+        self.enums: Dict[str, Any] = {}
+        self.code_include: StringIO = StringIO()      # jsopencv_generated_include.h
 
-        self.code_enums = StringIO()        # jsopencv_generated_enums.h
+        self.code_enums: StringIO = StringIO()        # jsopencv_generated_enums.h
         self.code_enums.write("#ifndef __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#define __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#include <napi.h>\n")
@@ -36,7 +37,7 @@ class PythonWrapperGenerator(object):
         self.code_enums.write("#include <../node/jscompat.hpp>\n")
         self.code_enums.write("\n")
 
-        self.code_types = StringIO()        # jsopencv_generated_types_content.h
+        self.code_types: StringIO = StringIO()        # jsopencv_generated_types_content.h
         self.code_types.write("#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
         self.code_types.write("#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
         self.code_types.write("#include <napi.h>\n")
@@ -46,7 +47,7 @@ class PythonWrapperGenerator(object):
         self.code_types.write("#include <node/cv2_util.hpp>\n")
         self.code_types.write("\n")
 
-        self.code_funcs = StringIO()        # jsopencv_generated_funcs.h
+        self.code_funcs: StringIO = StringIO()        # jsopencv_generated_funcs.h
         self.code_funcs.write("#ifndef __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#define __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#include <napi.h>\n")
@@ -59,7 +60,7 @@ class PythonWrapperGenerator(object):
         self.code_funcs.write("using namespace cv;\n")
         self.code_funcs.write("\n")
 
-        self.code_ns_reg = StringIO()       # jsopencv_generated_modules_content.h
+        self.code_ns_reg: StringIO = StringIO()       # jsopencv_generated_modules_content.h
         self.code_ns_reg.write("#ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
         self.code_ns_reg.write("#define __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
         self.code_ns_reg.write("#include <napi.h>\n")
@@ -67,25 +68,25 @@ class PythonWrapperGenerator(object):
         self.code_ns_reg.write("#include <jsopencv_generated_funcs.h>\n")
         self.code_ns_reg.write("\n")
 
-        self.code_ns_init = StringIO()      # jsopencv_generated_modules.h
+        self.code_ns_init: StringIO = StringIO()      # jsopencv_generated_modules.h
         self.code_ns_init.write("// This code will be import within the function:\n")
         self.code_ns_init.write("// init_body(Napi::Env env, Napi::Object exports) function in cv2.cpp\n")
         self.code_ns_init.write("// an Napi::Env env, and a Napi::Object exports will be provided\n")
         self.code_ns_init.write("// CVJS_MODULE macro will invoque init_submodule\n")
         self.code_ns_init.write("\n")
 
-        self.code_type_publish = StringIO() # jsopencv_generated_types.h
+        self.code_type_publish: StringIO = StringIO() # jsopencv_generated_types.h
         self.code_type_publish.write("#ifndef __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#include \"../node/cv2_macro.hpp\"\n")
         self.code_type_publish.write("#include \"../node/js_as_py.hpp\"\n")
         self.code_type_publish.write("\n")
 
-        self.py_signatures = dict()         # jsopencv_signatures.json
-        self.class_idx = 0
+        self.py_signatures: Dict[str, List[Dict[str, Any]]] = dict()         # jsopencv_signatures.json
+        self.class_idx: int = 0
 
 
-    def add_class(self, stype, name, decl):
+    def add_class(self, stype: str, name: str, decl: List[str]) -> None:
         classinfo = ClassInfo(name, decl, self)
         classinfo.decl_idx = self.class_idx
         self.class_idx += 1
@@ -108,7 +109,7 @@ class PythonWrapperGenerator(object):
         py_signatures.append(dict(name=py_name))
         #print('class: ' + classinfo.cname + " => " + py_name)
 
-    def get_export_scope_name(self, original_scope_name):
+    def get_export_scope_name(self, original_scope_name: str) -> str:
         # Outer classes should be registered before their content - inner classes in this case
         class_scope = self.classes.get(normalize_class_name(original_scope_name), None)
 
@@ -120,7 +121,7 @@ class PythonWrapperGenerator(object):
         # library import
         return original_scope_name
 
-    def split_decl_name(self, name):
+    def split_decl_name(self, name: str) -> Tuple[List[str], List[str], str]:
         chunks = name.split('.')
         namespace = chunks[:-1]
         classes = []
@@ -129,7 +130,7 @@ class PythonWrapperGenerator(object):
         return namespace, classes, chunks[-1]
 
 
-    def add_const(self, name, decl):
+    def add_const(self, name: str, decl: List[Any]) -> None:
         cname = name.replace('.','::')
         namespace, classes, name = self.split_decl_name(name)
         namespace = '.'.join(namespace)
@@ -147,7 +148,7 @@ class PythonWrapperGenerator(object):
         py_signatures.append(dict(name=py_name, value=value))
         #print(cname + ' => ' + str(py_name) + ' (value=' + value + ')')
 
-    def add_enum(self, name, decl):
+    def add_enum(self, name: str, decl: List[Any]) -> None:
         wname = normalize_class_name(name)
         if wname.endswith("<unnamed>"):
             wname = None
@@ -159,7 +160,7 @@ class PythonWrapperGenerator(object):
             name = decl[0]
             self.add_const(name.replace("const ", "").strip(), decl)
 
-    def add_func(self, decl):
+    def add_func(self, decl: List[Any]) -> None:
         namespace, classes, barename = self.split_decl_name(decl[0])
         cname = "::".join(namespace+classes+[barename])
         name = barename
@@ -230,7 +231,7 @@ class PythonWrapperGenerator(object):
             self.classes[classname].constructor = func
 
 
-    def gen_namespace(self, ns_name):
+    def gen_namespace(self, ns_name: str) -> None:
         ns = self.namespaces[ns_name]
         wname = normalize_class_name(ns_name)
 
