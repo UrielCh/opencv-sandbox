@@ -88,6 +88,7 @@ static Napi::Value jsopencv_cv_idft(const Napi::CallbackInfo &info)
     return info.Env().Null();
 }
 
+#ifdef HAVE_OPENCV_PHOTO
 static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
@@ -154,6 +155,7 @@ static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info
 
     return info.Env().Null();
 }
+#endif
 
 static Napi::Value jsopencv_cv_imcount(const Napi::CallbackInfo &info)
 {
@@ -673,6 +675,7 @@ static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
     return info.Env().Null();
 }
 
+#ifdef HAVE_OPENCV_CALIB3D
 static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
@@ -735,6 +738,7 @@ static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
 
     return info.Env().Null();
 }
+#endif
 
 // L 14760
 static Napi::Value jsopencv_cv_getVersionMajor(const Napi::CallbackInfo &info)
@@ -807,7 +811,9 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
 
     exports.Set("idft", Napi::Function::New(env, jsopencv_cv_idft));
+    #ifdef HAVE_OPENCV_PHOTO
     exports.Set("illuminationChange", Napi::Function::New(env, jsopencv_cv_illuminationChange));
+    #endif
     exports.Set("imcount", Napi::Function::New(env, jsopencv_cv_imcount));
     exports.Set("imdecode", Napi::Function::New(env, jsopencv_cv_imdecode));
     exports.Set("imdecodemulti", Napi::Function::New(env, jsopencv_cv_imdecodemulti));
@@ -818,7 +824,9 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
     exports.Set("imwrite", Napi::Function::New(env, jsopencv_cv_imwrite));
     exports.Set("imwritemulti", Napi::Function::New(env, jsopencv_cv_imwritemulti));
     exports.Set("inRange", Napi::Function::New(env, jsopencv_cv_inRange));
+    #ifdef HAVE_OPENCV_CALIB3D
     exports.Set("initCameraMatrix2D", Napi::Function::New(env, jsopencv_cv_initCameraMatrix2D));
+    #endif
 
     // exports.Set("resize", Napi::Function::New(env, jsopencv_cv_resize));
     exports.Set("test", Napi::Function::New(env, test));
