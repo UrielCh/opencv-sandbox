@@ -23,11 +23,11 @@ jobs:
         branch: "4.x"
         BUILD_LIST: "core,imgproc,imgcodecs,python_bindings_generator"
 
-    #- name: List files of build
-    #  run: cd ${GITHUB_WORKSPACE}/.. && find build
+    - name: List files of build
+      run: cd ${GITHUB_WORKSPACE}/.. && find build
 
-    #- name: List files of opencv
-    #  run: cd ${GITHUB_WORKSPACE}/.. && find opencv
+    - name: List files of opencv
+      run: cd ${GITHUB_WORKSPACE}/.. && find opencv
 
     - name: npm install with cache
       uses: actions/setup-node@v3
