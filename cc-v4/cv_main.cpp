@@ -8,6 +8,12 @@
 
 // #define NEXRT_BUILD 1
 
+bool jsopencv_to_safe(const Napi::Value* obj, cv::UMat img, const ArgInfo& argInfo)
+{
+    failmsg(obj->Env(), "Conversion UMat Not implemented");
+    return false;
+}
+
 const std::string RED("\033[0;31m");
 const std::string GREEN("\033[1;32m");
 const std::string YELLOW("\033[1;33m");
@@ -58,12 +64,10 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     bool retval;
 
     const char* keywords[] = { "ext", "img", "params", NULL };
-    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char**)keywords, &jsobj_ext, &jsobj_img, &jsobj_params)
-      && jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0))
-      // && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) // TODO Find implementation of bool jsopencv_to(const Napi::Value* obj, UMat& value, const ArgInfo& argInfo)
-      // && jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) // TODO or JsOpenCV_Converter<UMat>
-      && jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0))
-      )
+    if (JsArg_ParseTupleAndKeywords(info, "OO|O:imencode", (char**)keywords, &jsobj_ext, &jsobj_img, &jsobj_params) &&
+        jsopencv_to_safe(jsobj_ext, ext, ArgInfo("ext", 0)) &&
+        jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 0)) &&
+        jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
         return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
@@ -76,6 +80,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 
     return info.Env().Null();
 }
+
 
 
 static Napi::Value jsopencv_cv_getVersionMajor(const Napi::CallbackInfo &info)
