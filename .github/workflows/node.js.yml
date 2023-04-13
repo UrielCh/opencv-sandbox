@@ -45,7 +45,7 @@ jobs:
     #   run: echo ${LD_LIBRARY_PATH}
 
     - name: install opencv
-      run: cd ../build/; make install
+      run: cd ../build/; sudo make install
 
     - name: npm install CI
       run: npm ci
