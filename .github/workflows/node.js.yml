@@ -23,11 +23,10 @@ jobs:
         branch: "4.x"
         BUILD_LIST: "core,imgproc,imgcodecs,python_bindings_generator"
 
-    - name: List files of build
-      run: cd ${GITHUB_WORKSPACE}/.. && find build
-
-    - name: List files of opencv
-      run: cd ${GITHUB_WORKSPACE}/.. && find opencv
+    # - name: List files of build
+    #   run: cd ${GITHUB_WORKSPACE}/.. && find build
+    # - name: List files of opencv
+    #   run: cd ${GITHUB_WORKSPACE}/.. && find opencv
 
     - name: npm install with cache
       uses: actions/setup-node@v3
@@ -35,11 +34,10 @@ jobs:
        node-version: ${{ matrix.node-version }}
        cache: 'npm'
 
-    - name: Show included Path for C++
-      run: node ./tools/listFiles.mjs include_dirs
-
-    - name: Show included Lib for the linker
-      run: node ./tools/listFiles.mjs libraries
+    # - name: Show included Path for C++
+    #   run: node ./tools/listFiles.mjs include_dirs
+    # - name: Show included Lib for the linker
+    #   run: node ./tools/listFiles.mjs libraries
 
     # - name: show LD_LIBRARY_PATH Path
     #   run: echo ${LD_LIBRARY_PATH}
