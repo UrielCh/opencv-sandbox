@@ -9,7 +9,7 @@
  * @brief common deps having deps to openCV
  * 
  */
-
+// originaly contains in cv2.hpp
 typedef std::vector<uchar> vector_uchar;
 typedef std::vector<char> vector_char;
 typedef std::vector<int> vector_int;
