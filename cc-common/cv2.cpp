@@ -171,7 +171,8 @@ static bool init_submodule(Napi::Env env, Napi::Object current, const char *name
 #endif
 
 // PyObject * m
-static bool init_body(Napi::Env env, Napi::Object exports) {
+// static not used yet
+bool init_body(Napi::Env env, Napi::Object exports) {
 // from cv2.cpp L:471
 // check jsopencv_generated_modules_content.h content
 #define CVJS_MODULE(NAMESTR, NAME) \
