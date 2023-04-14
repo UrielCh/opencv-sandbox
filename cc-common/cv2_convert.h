@@ -55,7 +55,7 @@ template <typename T>
 bool jsopencv_to(const Napi::Value* obj, T& value, const ArgInfo& argInfo) { return JsOpenCV_Converter<T>::to(obj, value, argInfo); } 
 
 template<typename T>
-Napi::Value jsopencv_from(const Napi::Env &env, const T& src) { return JsOpenCV_Converter<T>::from(info, src); }
+Napi::Value jsopencv_from(const Napi::Env &env, const T& src) { return JsOpenCV_Converter<T>::from(env, src); }
 
 // --- Matx
 // ported from pyopencv_to L:62
@@ -96,8 +96,8 @@ struct JsOpenCV_Converter< cv::Ptr<T> >
     static Napi::Value from(const Napi::Env &env, const cv::Ptr<T>& p)
     {
         if (!p)
-            return info.Env().Null(); // Py_RETURN_NONE;
-        return jsopencv_from(*p);
+            return env.Null(); // Py_RETURN_NONE;
+        return jsopencv_from(env, *p);
     }
     static bool to(const Napi::Value *value, cv::Ptr<T>& p, const ArgInfo& argInfo)
     {
