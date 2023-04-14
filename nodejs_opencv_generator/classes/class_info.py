@@ -171,11 +171,11 @@ class ClassInfo(object):
         constructor_name = "0"
         if self.constructor is not None:
             constructor_name = self.constructor.get_wrapper_name()
-
+        # define CVJS_TYPE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, _1, _2, SCOPE)
         return 'CVJS_TYPE({}, {}, {}, {}, {}, {}, "{}");\n'.format(
             self.export_name,
             self.class_id,
-            self.cname if self.issimple else "Ptr<{}>".format(self.cname),
+            self.cname if self.issimple else "cv::Ptr<{}>".format(self.cname),
             self.original_name if self.issimple else "Ptr",
             baseptr,
             constructor_name,
