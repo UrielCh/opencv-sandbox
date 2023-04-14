@@ -32,30 +32,30 @@ class PythonWrapperGenerator(object):
         self.code_enums.write("#ifndef __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#define __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#include <napi.h>\n")
-        self.code_enums.write("#include <../node/js_as_py.hpp>\n")
-        self.code_enums.write("#include <../node/cv2_convert.hpp>\n")
-        self.code_enums.write("#include <../node/jscompat.hpp>\n")
+        self.code_enums.write('#include "../cc-common/js_as_py.hpp"\n')
+        self.code_enums.write('#include "../cc-common/cv2_convert.hpp"\n')
+        self.code_enums.write('#include "../cc-common/jscompat.hpp"\n')
         self.code_enums.write("\n")
 
         self.code_types: StringIO = StringIO()        # jsopencv_generated_types_content.h
         self.code_types.write("#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
         self.code_types.write("#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
         self.code_types.write("#include <napi.h>\n")
-        self.code_types.write("#include <../node/js_as_py.hpp>\n")
-        self.code_types.write("#include <../node/cv2_convert.hpp>\n")
-        self.code_types.write("#include <node/cv2.hpp>\n")
-        self.code_types.write("#include <node/cv2_util.hpp>\n")
+        self.code_types.write('#include "../cc-common/js_as_py.hpp>\n')
+        self.code_types.write('#include "../cc-common/cv2_convert.hpp>\n')
+        self.code_types.write('#include "../cc-common/cv2.hpp>\n')
+        self.code_types.write('#include "../cc-common/cv2_util.hpp>\n')
         self.code_types.write("\n")
 
         self.code_funcs: StringIO = StringIO()        # jsopencv_generated_funcs.h
         self.code_funcs.write("#ifndef __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#define __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#include <napi.h>\n")
-        self.code_funcs.write("#include <../node/js_as_py.hpp>\n")
-        self.code_funcs.write("#include <../node/cv2_convert.hpp>\n")
         self.code_funcs.write("#include <opencv2/opencv.hpp>\n")
-        self.code_funcs.write("#include <jsopencv_generated_enums.h>\n")
-        self.code_funcs.write("#include <cv2_macro.hpp>\n")
+        self.code_funcs.write('#include "../cc-common/js_as_py.hpp"\n')
+        self.code_funcs.write('#include "../cc-common/cv2_convert.hpp"\n')
+        self.code_funcs.write('#include "./jsopencv_generated_enums.h"\n')
+        self.code_funcs.write('#include "../cc-common/cv2_macro.hpp"\n')
         self.code_funcs.write("\n")
         self.code_funcs.write("using namespace cv;\n")
         self.code_funcs.write("\n")
@@ -64,8 +64,8 @@ class PythonWrapperGenerator(object):
         self.code_ns_reg.write("#ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
         self.code_ns_reg.write("#define __JSOPENCV_GENERATED_MODULES_CONTENT_H__\n")
         self.code_ns_reg.write("#include <napi.h>\n")
-        self.code_ns_reg.write("#include <../node/jscompat.hpp>\n")
-        self.code_ns_reg.write("#include <jsopencv_generated_funcs.h>\n")
+        self.code_ns_reg.write('#include "../cc-common/jscompat.hpp"\n')
+        self.code_ns_reg.write('#include "./jsopencv_generated_funcs.h"\n')
         self.code_ns_reg.write("\n")
 
         self.code_ns_init: StringIO = StringIO()      # jsopencv_generated_modules.h
@@ -78,8 +78,8 @@ class PythonWrapperGenerator(object):
         self.code_type_publish: StringIO = StringIO() # jsopencv_generated_types.h
         self.code_type_publish.write("#ifndef __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
-        self.code_type_publish.write("#include \"../node/cv2_macro.hpp\"\n")
-        self.code_type_publish.write("#include \"../node/js_as_py.hpp\"\n")
+        self.code_type_publish.write('#include "../cc-common/cv2_macro.hpp"\n')
+        self.code_type_publish.write('#include "../cc-common/js_as_py.hpp"\n')
         self.code_type_publish.write("\n")
 
         self.py_signatures: Dict[str, List[Dict[str, Any]]] = dict()         # jsopencv_signatures.json

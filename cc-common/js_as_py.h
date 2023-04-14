@@ -12,7 +12,7 @@
 // #define _JsObject_HEAD_INIT(type, size) 0, type, size,
 // #define JsTypeObject JsTypeObject
 // #define JsVarObject JsVarObject
-
+// original implemented in cv2.cpp
 class ArgInfo
 {
 public:

@@ -1,11 +1,11 @@
 #ifndef __JSOPENCV_GENERATED_FUNCS_H__
 #define __JSOPENCV_GENERATED_FUNCS_H__
 #include <napi.h>
-#include <../node/js_as_py.hpp>
-#include <../node/cv2_convert.hpp>
 #include <opencv2/opencv.hpp>
-#include <jsopencv_generated_enums.h>
-#include <cv2_macro.hpp>
+#include "../cc-common/js_as_py.h"
+#include "../cc-common/cv2_convert.h"
+#include "./jsopencv_generated_enums.h"
+#include "../cc-common/cv2_macro.hpp"
 
 using namespace cv;
 

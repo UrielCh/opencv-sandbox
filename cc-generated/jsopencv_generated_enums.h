@@ -1,9 +1,9 @@
 #ifndef __JSOPENCV_GENERATED_ENUMS_H__
 #define __JSOPENCV_GENERATED_ENUMS_H__
 #include <napi.h>
-#include <../node/js_as_py.hpp>
-#include <../node/cv2_convert.hpp>
-#include <../node/jscompat.hpp>
+#include "../cc-common/js_as_py.h"
+#include "../cc-common/cv2_convert.h"
+#include "../cc-common/jscompat.hpp"
 
 typedef cv::AKAZE::DescriptorType AKAZE_DescriptorType;
 CV_JS_FROM_ENUM(AKAZE_DescriptorType);

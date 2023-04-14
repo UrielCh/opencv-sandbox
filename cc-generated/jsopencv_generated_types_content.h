@@ -1,10 +1,10 @@
 #ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__
 #define __JSOPENCV_GENERATED_TYPES_CONTENT_H__
 #include <napi.h>
-#include <../node/js_as_py.hpp>
-#include <../node/cv2_convert.hpp>
-#include <node/cv2.hpp>
-#include <node/cv2_util.hpp>
+#include "../cc-common/js_as_py.h"
+#include "../cc-common/cv2_convert.h"
+// #include "../cc-common/cv2.hpp"
+#include "../cc-common/cv2_util.h"
 
 //================================================================================
 // AKAZE (Generic)

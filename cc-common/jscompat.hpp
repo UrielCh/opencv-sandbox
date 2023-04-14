@@ -6,8 +6,8 @@
 #define __JSCOMPAT_HPP__
 #include <string>
 #include <napi.h>
-#include "./js_as_py.h";
-#include "./cv2_util.h";
+#include "./js_as_py.h"
+#include "./cv2_util.h"
 
 static inline bool getJsUnicodeString(Napi::Value &obj, std::string &str) {
     bool res = false;

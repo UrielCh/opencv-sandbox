@@ -1,47 +1,20 @@
-#include "cv2.hpp"
+// this file is the main binding for the cv2 module in python
+// in the N-API binding we split this file, into smaller files to improve developer experience.
 
-#include "opencv2/opencv_modules.hpp"
-#include "opencv2/core.hpp"
-#include "opencv2/core/utils/logger.hpp"
 
-#include "jsopencv_generated_include.h"
-#include "opencv2/core/types_c.h"
+// #define _FINAL_PROD_ 1
 
-#include "./cv2_util.hpp"
-// #include "cv2_numpy.hpp"
-#include "./cv2_convert.hpp"
-// #include "cv2_highgui.hpp"
+#include "cv2_macro.hpp"
+// jscompat.hpp in included in cv2_macro.hpp
 
-// typedef moved to cv2_macro.hpp
-
-///////////////////////////////////////////////////////////////////////////////////////
-
-// static int jsconvert_to_char(PyObject *o, char *dst, const ArgInfo& info)
-// {
-//     std::string str;
-//     if (getJsUnicodeString(o, str))
-//     {
-//         *dst = str[0];
-//         return 1;
-//     }
-//     (*dst) = 0;
-//     return failmsg("Expected single character string for argument '%s'", info.name);
-// }
-// 
-// #ifdef __GNUC__
-// #  pragma GCC diagnostic ignored "-Wunused-parameter"
-// #  pragma GCC diagnostic ignored "-Wmissing-field-initializers"
-// #endif
-// ./cv2_macro.hpp define CVJS_TYPE
-#include "./cv2_macro.hpp"
-// cv2_macro.hpp also define struct ConstDef
-
-// #include "pyopencv_generated_types.h"
+#ifdef _FINAL_PROD_
+#include "../cc-generated/jsopencv_generated_enums.h"
+#include "../cc-generated/jsopencv_generated_types.h"
 // #undef CVPY_TYPE
-// #include "pyopencv_custom_headers.h"
-#include "jsopencv_generated_types_content.h"
-#include "jsopencv_generated_funcs.h"
-
+#include "jsopencv_custom_headers.h" // need to be generated
+#include "../cc-generated/jsopencv_generated_types_content.h"
+#include "../cc-generated/jsopencv_generated_funcs.h"
+#endif /*  _FINAL_PROD_ */
 
 static inline bool strStartsWith(const std::string &str, const std::string &prefix)
 {
@@ -53,6 +26,7 @@ static inline bool strEndsWith(const std::string &str, char symbol)
 {
     return !str.empty() && str[str.size() - 1] == symbol;
 }
+
 /**
  * \brief Creates a submodule of the `root`. Missing parents submodules
  * are created as needed. If name equals to parent module name than
@@ -138,7 +112,7 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
             /// Populates parent module dictionary. Submodule lifetime should be managed
             /// by the global modules dictionary and parent module dictionary, so Py_DECREF after
             /// successfull call to the `PyDict_SetItemString` is redundant.
-            if (!parent_module_dict.Set(submodule_name.c_str(), submodule))
+            if (!parent_module_dict.Set(submodule_name.c_str(), *submodule))
             {
                 return failmsgp(env, "Can't register a submodule '%s' (full name: '%s')", submodule_name.c_str(), full_submodule_name.c_str());
             }
@@ -191,6 +165,11 @@ static bool init_submodule(Napi::Env env, Napi::Object current, const char *name
     return true;
 }
 
+
+#ifdef _FINAL_PROD_
+#include "../cc-generated/jsopencv_generated_modules_content.h"
+#endif
+
 // PyObject * m
 static bool init_body(Napi::Env env, Napi::Object exports) {
 // from cv2.cpp L:471
@@ -198,8 +177,13 @@ static bool init_body(Napi::Env env, Napi::Object exports) {
 #define CVJS_MODULE(NAMESTR, NAME) \
     if (!init_submodule(env, exports, MODULESTR NAMESTR, methods_##NAME, consts_##NAME)) \
     { return false; }
-    #include "jsopencv_generated_modules.h"
+#ifdef _FINAL_PROD_
+    #include "../cc-generated/jsopencv_generated_modules.h"
+#endif
     #undef CVPY_MODULE
+
+    // #include "../cc-generated/jsopencv_generated_types.h"
+
 //
 // #define CVPY_TYPE(EXPORT_NAME, CLASS_ID, _1, _2, BASE, CONSTRUCTOR, SCOPE) CVPY_TYPE_INIT_STATIC(EXPORT_NAME, CLASS_ID, return false, BASE, CONSTRUCTOR, SCOPE)
 //     PyTypeObject * pyopencv_NoBase_TypePtr = NULL;
@@ -207,7 +191,6 @@ static bool init_body(Napi::Env env, Napi::Object exports) {
 //     #include "pyopencv_generated_types.h"
 // #undef CVPY_TYPE
 
-    // PyObject* d = PyModule_GetDict(m);
     Napi::Object d = Napi::Object::New(env);
     auto version_obj = Napi::String::New(env, CV_VERSION);
     if (!d.Set("__version__", version_obj)) {
@@ -217,16 +200,18 @@ static bool init_body(Napi::Env env, Napi::Object exports) {
     }
     // Py_DECREF(version_obj);
 
-    Napi::Object opencv_error_dict = Napi::Object::New(env);
-    opencv_error_dict.Set("file", env.Undefined());
-    opencv_error_dict.Set("func", env.Undefined());
-    opencv_error_dict.Set("line", env.Undefined());
-    opencv_error_dict.Set("code", env.Undefined());
-    opencv_error_dict.Set("msg", env.Undefined());
-    opencv_error_dict.Set("err", env.Undefined());
+    // Last error object ?
+    // will deal with that later
+    // Napi::Object opencv_error_dict = Napi::Object::New(env);
+    // opencv_error_dict.Set("file", env.Undefined());
+    // opencv_error_dict.Set("func", env.Undefined());
+    // opencv_error_dict.Set("line", env.Undefined());
+    // opencv_error_dict.Set("code", env.Undefined());
+    // opencv_error_dict.Set("msg", env.Undefined());
+    // opencv_error_dict.Set("err", env.Undefined());
     // opencv_error = PyErr_NewException((char*)MODULESTR".error", NULL, opencv_error_dict);
-    // Py_DECREF(opencv_error_dict);
-    d.Set("error", opencv_error);
+    // // Py_DECREF(opencv_error_dict);
+    // d.Set("error", *opencv_error);
 
 
 #define PUBLISH_(I, var_name, type_obj) \

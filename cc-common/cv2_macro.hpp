@@ -4,7 +4,7 @@
 #include "opencv2/core/types_c.h"
 
 #define MODULESTR "cv2"
-
+// copy from pyython cv2.cpp
 typedef std::vector<uchar> vector_uchar;
 typedef std::vector<char> vector_char;
 typedef std::vector<int> vector_int;
