@@ -122,5 +122,8 @@ export function getVersionMajor(): number;
 export function getVersionMinor(): number;
 export function getVersionRevision(): number;
 
-export function test(ava: any): {pass:number, fail:number};
-// export function runTests(ava: any): undefined;
+/**
+ * start ava test
+ * @param ava ava object
+ */
+export function runAvaTest(ava: any): null;

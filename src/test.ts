@@ -110,8 +110,8 @@ test.serial('imencode logo as PNG has correct Magic number', async t => {
 /**
  * register tests
  */
-if (theModule.test)
-    theModule.test(test);
+if (theModule.runAvaTest)
+    theModule.runAvaTest(test);
 
 // test.serial('C++ Test', async t => {
 //     const theModule = await getOPpenCVModule();

@@ -1,9 +1,30 @@
 #include <napi.h>
 #include "cv_mat_object.h"
 #include "cv_main.h"
+#include "../cc-common/js_as_py_test.h"
+#include "../cc-common/cv2_util.h"
+
+
+static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
+{
+    try
+    {
+        Js_BuildValue_test(info);
+        JsArg_ParseTupleAndKeywords_test(info);
+        // std::cout << "ALL tests done" << std::endl;
+    }
+    catch (const std::exception &ex)
+    {
+        failmsg(info.Env(), "A Test Throws un non catched Exception: %s", ex.what());
+    }
+    return info.Env().Null();
+}
 
 Napi::Object InitAll(Napi::Env env, Napi::Object exports)
 {
+    exports.Set("runAvaTest", Napi::Function::New(env, runAvaTest));
+
+
     cvmainInit(env, exports);
     cvMatObject::Init(env, exports);
     return exports;

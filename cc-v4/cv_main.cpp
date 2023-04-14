@@ -2,7 +2,6 @@
 #include "cv_mat_object.h"
 #include "../cc-common/cv2_convert.h"
 #include "../cc-common/js_as_py.h"
-#include "../cc-common/js_as_py_test.h"
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -787,25 +786,6 @@ static Napi::Value jsopencv_cv_getVersionRevision(const Napi::CallbackInfo &info
 }
 
 
-static Napi::Value test(const Napi::CallbackInfo &info)
-{
-    int pass = 0;
-    int fail = 0;
-    try
-    {
-        Js_BuildValue_test(info);
-        JsArg_ParseTupleAndKeywords_test(info);
-        // std::cout << "ALL tests done" << std::endl;
-    }
-    catch (const std::exception &ex)
-    {
-        failmsg(info.Env(), "A Test Throws un non catched Exception: %s", ex.what());
-    }
-    Napi::Object obj = Napi::Object::New(info.Env());
-    obj.Set("pass", Napi::Number::New(info.Env(), pass));
-    obj.Set("fail", Napi::Number::New(info.Env(), fail));
-    return obj;
-}
 
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
@@ -829,8 +809,6 @@ Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
     #endif
 
     // exports.Set("resize", Napi::Function::New(env, jsopencv_cv_resize));
-    exports.Set("test", Napi::Function::New(env, test));
-
     exports.Set("getVersionMajor", Napi::Function::New(env, jsopencv_cv_getVersionMajor));
     exports.Set("getVersionMinor", Napi::Function::New(env, jsopencv_cv_getVersionMinor));
     exports.Set("getVersionRevision", Napi::Function::New(env, jsopencv_cv_getVersionRevision));
