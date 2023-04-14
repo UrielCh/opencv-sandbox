@@ -88,7 +88,7 @@ bool jsopencv_to(const Napi::Value *dst, TYPE& src, const ArgInfo& argInfo) \
 // from CV_PY_FROM_CLASS
 #define CV_JS_FROM_CLASS(TYPE)                                             \
 template<>                                                                 \
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE &src) \
+Napi::Value jsopencv_from(const Napi::Env &env, const TYPE &src) \
 {                                                                          \
     cv::Ptr<TYPE> ptr(new TYPE());                                         \
                                                                            \
@@ -110,7 +110,7 @@ bool jsopencv_to(const Napi::Value *dst, TYPE*& src, const ArgInfo& argInfo) \
 }
 //      CV_PY_FROM_CLASS_PTR
 #define CV_JS_FROM_CLASS_PTR(TYPE)                                         \
-static Napi::Value jsopencv_from(const Napi::CallbackInfo &info, TYPE*& src) \
+static Napi::Value jsopencv_from(const Napi::Env &env, TYPE*& src) \
 {                                                                          \
     return jsopencv_from(info, cv::Ptr<TYPE>(src));                        \
 }
@@ -130,11 +130,11 @@ bool jsopencv_to(const Napi::Value* dst, TYPE& src, const ArgInfo& argInfo) \
 //      CV_PY_FROM_ENUM Enum are just int value
 #define CV_JS_FROM_ENUM(TYPE) \
 template<> \
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const TYPE& src) \
+Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
 {                                                                          \
-    return Napi::Number::New(info.Env(), static_cast<int>(src));           \
+    return Napi::Number::New(env, static_cast<int>(src));           \
 }
-// may be writen as return jsopencv_from(const Napi::CallbackInfo &info, static_cast<int>(src));
+// may be writen as return jsopencv_from(const Napi::Env &env, static_cast<int>(src));
 
 
 // CVPY_TYPE_HEAD

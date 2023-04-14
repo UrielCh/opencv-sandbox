@@ -55,7 +55,7 @@ template <typename T>
 bool jsopencv_to(const Napi::Value* obj, T& value, const ArgInfo& argInfo) { return JsOpenCV_Converter<T>::to(obj, value, argInfo); } 
 
 template<typename T>
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const T& src) { return JsOpenCV_Converter<T>::from(info, src); }
+Napi::Value jsopencv_from(const Napi::Env &env, const T& src) { return JsOpenCV_Converter<T>::from(info, src); }
 
 // --- Matx
 // ported from pyopencv_to L:62
@@ -76,18 +76,18 @@ bool jsopencv_to(const Napi::Value* obj, cv::Matx<_Tp, m, n>& mx, const ArgInfo&
 
 
 template<typename _Tp, int m, int n>
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Matx<_Tp, m, n>& matx)
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Matx<_Tp, m, n>& matx)
 {
-    return jsopencv_from(info, cv::Mat(matx));
+    return jsopencv_from(env, cv::Mat(matx));
 }
 
 // --- bool
 template<> bool jsopencv_to(const Napi::Value* obj, bool& value, const ArgInfo& argInfo);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const bool& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const bool& value);
 
 // --- Mat
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Mat& m, const ArgInfo& argInfo);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Mat& m);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Mat& m);
 
 // --- Ptr
 template<typename T>
@@ -110,23 +110,23 @@ struct JsOpenCV_Converter< cv::Ptr<T> >
 
 // --- ptr
 template<> bool jsopencv_to(const Napi::Value* obj, void*& ptr, const ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, void*& ptr);
+Napi::Value jsopencv_from(const Napi::Env &env, void*& ptr);
 
 // --- Scalar
 template<> bool jsopencv_to(const Napi::Value* o, cv::Scalar& s, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Scalar& src);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Scalar& src);
 
 // --- size_t
 template<> bool jsopencv_to(const Napi::Value* obj, size_t& value, const ArgInfo& argInfo);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const size_t& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const size_t& value);
 
 // --- int
 template<> bool jsopencv_to(const Napi::Value* obj, int& value, const ArgInfo& Arginfo);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const int& value);
 
 // --- int64
 template<> bool jsopencv_to(const Napi::Value* obj, int64& value, const ArgInfo& Arginfo);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const int64& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const int64& value);
 
 // There is conflict between "size_t" and "unsigned int".
 // They are the same type on some 32-bit platforms.
@@ -157,57 +157,57 @@ struct JsOpenCV_Converter
 
 // --- uchar
 template<> bool jsopencv_to(const Napi::Value* obj, uchar& value, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const uchar& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const uchar& value);
 
 // --- char
 template<> bool jsopencv_to(const Napi::Value* obj, char& value, const ArgInfo& info);
 
 // --- double
 template<> bool jsopencv_to(const Napi::Value* obj, double& value, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const double& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const double& value);
 
 // --- float
 template<> bool jsopencv_to(const Napi::Value* obj, float& value, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const float& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const float& value);
 
 // --- string
 template<> bool jsopencv_to(const Napi::Value* obj, cv::String &value, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::String& value);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::String& value);
 //  cv::String === std::string
-// template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::string& value);
+// template<> Napi::Value jsopencv_from(const Napi::Env &env, const std::string& value);
 
 
 // --- Size
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Size& sz, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Size& sz);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Size& sz);
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Size_<float>& sz, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Size_<float>& sz);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Size_<float>& sz);
 
 // --- Rect
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Rect& r, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Rect& r);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Rect& r);
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Rect2d& r, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Rect2d& r);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Rect2d& r);
 
 // --- RotatedRect
 template<> bool jsopencv_to(const Napi::Value* obj, cv::RotatedRect& dst, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::RotatedRect& src);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::RotatedRect& src);
 
 // --- Range
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Range& r, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Range& r);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Range& r);
 
 // --- Point
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Point& p, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point& p);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Point& p);
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Point2f& p, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point2f& p);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Point2f& p);
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Point2d& p, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point2d& p);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Point2d& p);
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Point3f& p, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point3f& p);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Point3f& p);
 template<> bool jsopencv_to(const Napi::Value* obj, cv::Point3d& p, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Point3d& p);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Point3d& p);
 
 // --- Vec
 template<typename _Tp, int cn>
@@ -216,33 +216,33 @@ bool jsopencv_to(const Napi::Value* obj, cv::Vec<_Tp, cn>& vec, const ArgInfo& i
     return jsopencv_to(obj, (cv::Matx<_Tp, cn, 1>&)vec, info);
 }
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4d& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4d& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec4d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4f& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4f& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec4f& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec4i& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec4i& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec4i& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec3d& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3d& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec3d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec3f& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3f& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec3f& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec3i& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec3i& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec3i& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec2d& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2d& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec2d& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec2f& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2f& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec2f& v);
 bool jsopencv_to(const Napi::Value* obj, cv::Vec2i& v, ArgInfo& info);
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Vec2i& v);
+Napi::Value jsopencv_from(const Napi::Env &env, const cv::Vec2i& v);
 
 // --- TermCriteria
 template<> bool jsopencv_to(const Napi::Value* obj, cv::TermCriteria& dst, const ArgInfo& info);
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::TermCriteria& src);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::TermCriteria& src);
 
 // --- Moments
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::Moments& m);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Moments& m);
 
 // --- pair
-template<> Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::pair<int, double>& src);
+template<> Napi::Value jsopencv_from(const Napi::Env &env, const std::pair<int, double>& src);
 
 // --- vector
 template <typename Tp>
@@ -259,9 +259,9 @@ bool jsopencv_to(const Napi::Value* obj, std::vector<Tp>& value, const ArgInfo& 
 }
 
 template <typename Tp>
-Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const std::vector<Tp>& value)
+Napi::Value jsopencv_from(const Napi::Env &env, const std::vector<Tp>& value)
 {
-    return jsopencvVecConverter<Tp>::from(info.Env(), value);
+    return jsopencvVecConverter<Tp>::from(env, value);
 }
 
 template <typename Tp>

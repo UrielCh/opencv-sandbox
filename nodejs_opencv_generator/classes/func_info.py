@@ -135,7 +135,7 @@ class FuncInfo(object):
         all_classes = codegen.classes
         proto = self.get_wrapper_prototype(codegen)
         code = "%s\n{\n" % (proto,)
-        code += "    using namespace %s;\n\n" % self.namespace.replace('.', '::')
+        code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
 
         selfinfo = None
         ismethod = self.classname != "" and not self.isconstructor
@@ -327,19 +327,19 @@ class FuncInfo(object):
                 code_parse = "if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))"
 
             if len(v.py_outlist) == 0:
-                code_ret = "return info.Env().Null();"
+                code_ret = "return env.Null();"
                 # "Py_RETURN_NONE"
             elif len(v.py_outlist) == 1:
                 if self.isconstructor:
                     code_ret = "return 0"
                 else:
                     aname, argno = v.py_outlist[0]
-                    code_ret = "return jsopencv_from(info, %s)" % (aname,)
+                    code_ret = "return jsopencv_from(env, %s)" % (aname,)
             else:
                 # there is more than 1 return parameter; form the tuple out of them
                 fmtspec = "N"*len(v.py_outlist)
-                code_ret = "return Js_BuildValue(info, \"(%s)\", %s)" % \
-                    (fmtspec, ", ".join(["jsopencv_from(info, " + aname + ")" for aname, argno in v.py_outlist]))
+                code_ret = "return Js_BuildValue(env, \"(%s)\", %s)" % \
+                    (fmtspec, ", ".join(["jsopencv_from(env, " + aname + ")" for aname, argno in v.py_outlist]))
 
             all_code_variants.append(gen_template_func_body.substitute(code_decl=code_decl,
                 code_parse=code_parse, code_prelude=code_prelude, code_fcall=code_fcall, code_ret=code_ret))
@@ -355,7 +355,7 @@ class FuncInfo(object):
                                   for v in all_code_variants)
             code += '    jsRaiseCVOverloadException(info, "{}");\n'.format(self.name)
 
-        def_ret = "info.Env().Null()"
+        def_ret = "env.Null()"
         if self.isconstructor:
             def_ret = "-1"
         code += "\n    return %s;\n}\n\n" % def_ret

@@ -83,7 +83,7 @@ void JsErr_SetString(const Napi::Env &env, const std::string &message);
  *
  * @return A Napi::Value object that contains the values specified by the format string and the variable arguments.
  */
-Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
+Napi::Value Js_BuildValue(const Napi::Env &env, const char *format, ...);
 
 /**
  * @brief structs are typically organized into arrays that are passed to the JsModule_Create function to create a new Nodejs module. When a Nodejs module is loaded, the module's methods and functions are made available to Nodejs code, and can be called like any other Nodejs function.

@@ -12,6 +12,7 @@ using namespace cv;
 static Napi::Value jsopencv_cv_AKAZE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_descriptor_type = NULL;
     AKAZE_DescriptorType descriptor_type=AKAZE::DESCRIPTOR_MLDB;
@@ -40,15 +41,16 @@ static Napi::Value jsopencv_cv_AKAZE_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_diffusivity, diffusivity, ArgInfo("diffusivity", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::AKAZE::create(descriptor_type, descriptor_size, descriptor_channels, threshold, nOctaves, nOctaveLayers, diffusivity));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_AffineFeature_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_backend = NULL;
     Ptr<Feature2D> backend;
@@ -71,15 +73,16 @@ static Napi::Value jsopencv_cv_AffineFeature_create(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_rotateStepBase, rotateStepBase, ArgInfo("rotateStepBase", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::AffineFeature::create(backend, maxTilt, minTilt, tiltStep, rotateStepBase));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_AgastFeatureDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_threshold = NULL;
     int threshold=10;
@@ -96,15 +99,16 @@ static Napi::Value jsopencv_cv_AgastFeatureDetector_create(const Napi::CallbackI
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::AgastFeatureDetector::create(threshold, nonmaxSuppression, type));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_BFMatcher_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_normType = NULL;
     int normType=NORM_L2;
@@ -118,15 +122,16 @@ static Napi::Value jsopencv_cv_BFMatcher_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_crossCheck, crossCheck, ArgInfo("crossCheck", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::BFMatcher::create(normType, crossCheck));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -146,7 +151,7 @@ static Napi::Value jsopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_patternScale, patternScale, ArgInfo("patternScale", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::BRISK::create(thresh, octaves, patternScale));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -176,7 +181,7 @@ static Napi::Value jsopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_indexChange, indexChange, ArgInfo("indexChange", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::BRISK::create(radiusList, numberList, dMax, dMin, indexChange));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -212,7 +217,7 @@ static Napi::Value jsopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_indexChange, indexChange, ArgInfo("indexChange", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::BRISK::create(thresh, octaves, radiusList, numberList, dMax, dMin, indexChange));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -220,12 +225,13 @@ static Napi::Value jsopencv_cv_BRISK_create(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "BRISK_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_CamShift(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -245,7 +251,7 @@ static Napi::Value jsopencv_cv_CamShift(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::CamShift(probImage, window, criteria));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, window));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, window));
     }
 
 
@@ -269,7 +275,7 @@ static Napi::Value jsopencv_cv_CamShift(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::CamShift(probImage, window, criteria));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, window));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, window));
     }
 
 
@@ -277,12 +283,13 @@ static Napi::Value jsopencv_cv_CamShift(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "CamShift");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_Canny(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -310,7 +317,7 @@ static Napi::Value jsopencv_cv_Canny(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_L2gradient, L2gradient, ArgInfo("L2gradient", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Canny(image, edges, threshold1, threshold2, apertureSize, L2gradient));
-        return jsopencv_from(info, edges);
+        return jsopencv_from(env, edges);
     }
 
 
@@ -342,7 +349,7 @@ static Napi::Value jsopencv_cv_Canny(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_L2gradient, L2gradient, ArgInfo("L2gradient", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Canny(image, edges, threshold1, threshold2, apertureSize, L2gradient));
-        return jsopencv_from(info, edges);
+        return jsopencv_from(env, edges);
     }
 
 
@@ -374,7 +381,7 @@ static Napi::Value jsopencv_cv_Canny(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_L2gradient, L2gradient, ArgInfo("L2gradient", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Canny(dx, dy, edges, threshold1, threshold2, L2gradient));
-        return jsopencv_from(info, edges);
+        return jsopencv_from(env, edges);
     }
 
 
@@ -406,7 +413,7 @@ static Napi::Value jsopencv_cv_Canny(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_L2gradient, L2gradient, ArgInfo("L2gradient", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Canny(dx, dy, edges, threshold1, threshold2, L2gradient));
-        return jsopencv_from(info, edges);
+        return jsopencv_from(env, edges);
     }
 
 
@@ -414,12 +421,13 @@ static Napi::Value jsopencv_cv_Canny(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "Canny");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_CascadeClassifier_convert(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_oldcascade = NULL;
     String oldcascade;
@@ -433,15 +441,16 @@ static Napi::Value jsopencv_cv_CascadeClassifier_convert(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_newcascade, newcascade, ArgInfo("newcascade", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::CascadeClassifier::convert(oldcascade, newcascade));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_DISOpticalFlow_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_preset = NULL;
     int preset=DISOpticalFlow::PRESET_FAST;
@@ -452,15 +461,16 @@ static Napi::Value jsopencv_cv_DISOpticalFlow_create(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_preset, preset, ArgInfo("preset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::DISOpticalFlow::create(preset));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -474,7 +484,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_descriptorMatcherType, descriptorMatcherType, ArgInfo("descriptorMatcherType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::DescriptorMatcher::create(descriptorMatcherType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -492,7 +502,7 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_matcherType, matcherType, ArgInfo("matcherType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::DescriptorMatcher::create(matcherType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -500,12 +510,13 @@ static Napi::Value jsopencv_cv_DescriptorMatcher_create(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "DescriptorMatcher_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_EMD(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -534,7 +545,7 @@ static Napi::Value jsopencv_cv_EMD(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flow, flow, ArgInfo("flow", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::wrapperEMD(signature1, signature2, distType, cost, lowerBound, flow));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, lowerBound), jsopencv_from(info, flow));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, lowerBound), jsopencv_from(env, flow));
     }
 
 
@@ -567,7 +578,7 @@ static Napi::Value jsopencv_cv_EMD(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flow, flow, ArgInfo("flow", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::wrapperEMD(signature1, signature2, distType, cost, lowerBound, flow));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, lowerBound), jsopencv_from(info, flow));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, lowerBound), jsopencv_from(env, flow));
     }
 
 
@@ -575,12 +586,13 @@ static Napi::Value jsopencv_cv_EMD(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "EMD");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_FaceDetectorYN_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_model = NULL;
     String model;
@@ -612,15 +624,16 @@ static Napi::Value jsopencv_cv_FaceDetectorYN_create(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_target_id, target_id, ArgInfo("target_id", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::FaceDetectorYN::create(model, config, input_size, score_threshold, nms_threshold, top_k, backend_id, target_id));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_FaceRecognizerSF_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_model = NULL;
     String model;
@@ -640,15 +653,16 @@ static Napi::Value jsopencv_cv_FaceRecognizerSF_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_target_id, target_id, ArgInfo("target_id", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::FaceRecognizerSF::create(model, config, backend_id, target_id));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_FarnebackOpticalFlow_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_numLevels = NULL;
     int numLevels=5;
@@ -680,15 +694,16 @@ static Napi::Value jsopencv_cv_FarnebackOpticalFlow_create(const Napi::CallbackI
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::FarnebackOpticalFlow::create(numLevels, pyrScale, fastPyramids, winSize, numIters, polyN, polySigma, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_FastFeatureDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_threshold = NULL;
     int threshold=10;
@@ -705,30 +720,32 @@ static Napi::Value jsopencv_cv_FastFeatureDetector_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::FastFeatureDetector::create(threshold, nonmaxSuppression, type));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_FlannBasedMatcher_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Ptr<FlannBasedMatcher> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::FlannBasedMatcher::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -757,7 +774,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::GFTTDetector::create(maxCorners, qualityLevel, minDistance, blockSize, useHarrisDetector, k));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -793,7 +810,7 @@ static Napi::Value jsopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::GFTTDetector::create(maxCorners, qualityLevel, minDistance, blockSize, gradiantSize, useHarrisDetector, k));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -801,12 +818,13 @@ static Napi::Value jsopencv_cv_GFTTDetector_create(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "GFTTDetector_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -834,7 +852,7 @@ static Napi::Value jsopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::GaussianBlur(src, dst, ksize, sigmaX, sigmaY, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -866,7 +884,7 @@ static Napi::Value jsopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::GaussianBlur(src, dst, ksize, sigmaX, sigmaY, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -874,42 +892,45 @@ static Napi::Value jsopencv_cv_GaussianBlur(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "GaussianBlur");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HOGDescriptor_getDaimlerPeopleDetector(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     std::vector<float> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::HOGDescriptor::getDaimlerPeopleDetector());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HOGDescriptor_getDefaultPeopleDetector(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     std::vector<float> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::HOGDescriptor::getDefaultPeopleDetector());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -946,7 +967,7 @@ static Napi::Value jsopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxRadius, maxRadius, ArgInfo("maxRadius", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughCircles(image, circles, method, dp, minDist, param1, param2, minRadius, maxRadius));
-        return jsopencv_from(info, circles);
+        return jsopencv_from(env, circles);
     }
 
 
@@ -987,7 +1008,7 @@ static Napi::Value jsopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxRadius, maxRadius, ArgInfo("maxRadius", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughCircles(image, circles, method, dp, minDist, param1, param2, minRadius, maxRadius));
-        return jsopencv_from(info, circles);
+        return jsopencv_from(env, circles);
     }
 
 
@@ -995,12 +1016,13 @@ static Napi::Value jsopencv_cv_HoughCircles(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "HoughCircles");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HoughLines(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1037,7 +1059,7 @@ static Napi::Value jsopencv_cv_HoughLines(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_max_theta, max_theta, ArgInfo("max_theta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLines(image, lines, rho, theta, threshold, srn, stn, min_theta, max_theta));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1078,7 +1100,7 @@ static Napi::Value jsopencv_cv_HoughLines(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_max_theta, max_theta, ArgInfo("max_theta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLines(image, lines, rho, theta, threshold, srn, stn, min_theta, max_theta));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1086,12 +1108,13 @@ static Napi::Value jsopencv_cv_HoughLines(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "HoughLines");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1122,7 +1145,7 @@ static Napi::Value jsopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxLineGap, maxLineGap, ArgInfo("maxLineGap", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLinesP(image, lines, rho, theta, threshold, minLineLength, maxLineGap));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1157,7 +1180,7 @@ static Napi::Value jsopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxLineGap, maxLineGap, ArgInfo("maxLineGap", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLinesP(image, lines, rho, theta, threshold, minLineLength, maxLineGap));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1165,12 +1188,13 @@ static Napi::Value jsopencv_cv_HoughLinesP(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "HoughLinesP");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1210,7 +1234,7 @@ static Napi::Value jsopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_theta_step, theta_step, ArgInfo("theta_step", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLinesPointSet(point, lines, lines_max, threshold, min_rho, max_rho, rho_step, min_theta, max_theta, theta_step));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1254,7 +1278,7 @@ static Napi::Value jsopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_theta_step, theta_step, ArgInfo("theta_step", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLinesPointSet(point, lines, lines_max, threshold, min_rho, max_rho, rho_step, min_theta, max_theta, theta_step));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1262,12 +1286,13 @@ static Napi::Value jsopencv_cv_HoughLinesPointSet(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "HoughLinesPointSet");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1304,7 +1329,7 @@ static Napi::Value jsopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_max_theta, max_theta, ArgInfo("max_theta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLinesWithAccumulator(image, lines, rho, theta, threshold, srn, stn, min_theta, max_theta));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1345,7 +1370,7 @@ static Napi::Value jsopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_max_theta, max_theta, ArgInfo("max_theta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::HoughLinesWithAccumulator(image, lines, rho, theta, threshold, srn, stn, min_theta, max_theta));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -1353,12 +1378,13 @@ static Napi::Value jsopencv_cv_HoughLinesWithAccumulator(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "HoughLinesWithAccumulator");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_HuMoments(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1374,7 +1400,7 @@ static Napi::Value jsopencv_cv_HuMoments(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_hu, hu, ArgInfo("hu", 1)))
     {
         ERRWRAP2_NAPI(info, cv::HuMoments(*m, hu));
-        return jsopencv_from(info, hu);
+        return jsopencv_from(env, hu);
     }
 
 
@@ -1394,7 +1420,7 @@ static Napi::Value jsopencv_cv_HuMoments(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_hu, hu, ArgInfo("hu", 1)))
     {
         ERRWRAP2_NAPI(info, cv::HuMoments(*m, hu));
-        return jsopencv_from(info, hu);
+        return jsopencv_from(env, hu);
     }
 
 
@@ -1402,12 +1428,13 @@ static Napi::Value jsopencv_cv_HuMoments(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "HuMoments");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_KAZE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_extended = NULL;
     bool extended=false;
@@ -1433,15 +1460,16 @@ static Napi::Value jsopencv_cv_KAZE_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_diffusivity, diffusivity, ArgInfo("diffusivity", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::KAZE::create(extended, upright, threshold, nOctaves, nOctaveLayers, diffusivity));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1458,7 +1486,7 @@ static Napi::Value jsopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_keypointIndexes, keypointIndexes, ArgInfo("keypointIndexes", 0)))
     {
         ERRWRAP2_NAPI(info, cv::KeyPoint::convert(keypoints, points2f, keypointIndexes));
-        return jsopencv_from(info, points2f);
+        return jsopencv_from(env, points2f);
     }
 
 
@@ -1488,7 +1516,7 @@ static Napi::Value jsopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_class_id, class_id, ArgInfo("class_id", 0)))
     {
         ERRWRAP2_NAPI(info, cv::KeyPoint::convert(points2f, keypoints, size, response, octave, class_id));
-        return jsopencv_from(info, keypoints);
+        return jsopencv_from(env, keypoints);
     }
 
 
@@ -1496,12 +1524,13 @@ static Napi::Value jsopencv_cv_KeyPoint_convert(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "KeyPoint_convert");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_KeyPoint_overlap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_kp1 = NULL;
     cv::KeyPoint kp1;
@@ -1515,15 +1544,16 @@ static Napi::Value jsopencv_cv_KeyPoint_overlap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_kp2, kp2, ArgInfo("kp2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::KeyPoint::overlap(kp1, kp2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_LUT(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1542,7 +1572,7 @@ static Napi::Value jsopencv_cv_LUT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::LUT(src, lut, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -1565,7 +1595,7 @@ static Napi::Value jsopencv_cv_LUT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::LUT(src, lut, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -1573,12 +1603,13 @@ static Napi::Value jsopencv_cv_LUT(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "LUT");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_Laplacian(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1609,7 +1640,7 @@ static Napi::Value jsopencv_cv_Laplacian(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Laplacian(src, dst, ddepth, ksize, scale, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -1644,7 +1675,7 @@ static Napi::Value jsopencv_cv_Laplacian(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Laplacian(src, dst, ddepth, ksize, scale, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -1652,12 +1683,13 @@ static Napi::Value jsopencv_cv_Laplacian(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "Laplacian");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_MSER_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_delta = NULL;
     int delta=5;
@@ -1692,15 +1724,16 @@ static Napi::Value jsopencv_cv_MSER_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_edge_blur_size, edge_blur_size, ArgInfo("edge_blur_size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::MSER::create(delta, min_area, max_area, max_variation, min_diversity, max_evolution, area_threshold, min_margin, edge_blur_size));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1720,7 +1753,7 @@ static Napi::Value jsopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_icovar, icovar, ArgInfo("icovar", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::Mahalanobis(v1, v2, icovar));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -1744,7 +1777,7 @@ static Napi::Value jsopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_icovar, icovar, ArgInfo("icovar", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::Mahalanobis(v1, v2, icovar));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -1752,12 +1785,13 @@ static Napi::Value jsopencv_cv_Mahalanobis(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "Mahalanobis");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ORB_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_nfeatures = NULL;
     int nfeatures=500;
@@ -1792,15 +1826,16 @@ static Napi::Value jsopencv_cv_ORB_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fastThreshold, fastThreshold, ArgInfo("fastThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ORB::create(nfeatures, scaleFactor, nlevels, edgeThreshold, firstLevel, WTA_K, scoreType, patchSize, fastThreshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -1822,7 +1857,7 @@ static Napi::Value jsopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_result, result, ArgInfo("result", 1)))
     {
         ERRWRAP2_NAPI(info, cv::PCABackProject(data, mean, eigenvectors, result));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -1848,7 +1883,7 @@ static Napi::Value jsopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_result, result, ArgInfo("result", 1)))
     {
         ERRWRAP2_NAPI(info, cv::PCABackProject(data, mean, eigenvectors, result));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -1856,12 +1891,13 @@ static Napi::Value jsopencv_cv_PCABackProject(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "PCABackProject");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_PCACompute(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -1883,7 +1919,7 @@ static Napi::Value jsopencv_cv_PCACompute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxComponents, maxComponents, ArgInfo("maxComponents", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, maxComponents));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -1909,7 +1945,7 @@ static Napi::Value jsopencv_cv_PCACompute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxComponents, maxComponents, ArgInfo("maxComponents", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, maxComponents));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -1935,7 +1971,7 @@ static Napi::Value jsopencv_cv_PCACompute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_retainedVariance, retainedVariance, ArgInfo("retainedVariance", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, retainedVariance));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -1961,7 +1997,7 @@ static Napi::Value jsopencv_cv_PCACompute(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_retainedVariance, retainedVariance, ArgInfo("retainedVariance", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, retainedVariance));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -1969,12 +2005,13 @@ static Napi::Value jsopencv_cv_PCACompute(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "PCACompute");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -1999,7 +2036,7 @@ static Napi::Value jsopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxComponents, maxComponents, ArgInfo("maxComponents", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, eigenvalues, maxComponents));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors), jsopencv_from(info, eigenvalues));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors), jsopencv_from(env, eigenvalues));
     }
 
 
@@ -2028,7 +2065,7 @@ static Napi::Value jsopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxComponents, maxComponents, ArgInfo("maxComponents", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, eigenvalues, maxComponents));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors), jsopencv_from(info, eigenvalues));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors), jsopencv_from(env, eigenvalues));
     }
 
 
@@ -2057,7 +2094,7 @@ static Napi::Value jsopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_retainedVariance, retainedVariance, ArgInfo("retainedVariance", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, eigenvalues, retainedVariance));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors), jsopencv_from(info, eigenvalues));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors), jsopencv_from(env, eigenvalues));
     }
 
 
@@ -2086,7 +2123,7 @@ static Napi::Value jsopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_retainedVariance, retainedVariance, ArgInfo("retainedVariance", 0)))
     {
         ERRWRAP2_NAPI(info, cv::PCACompute(data, mean, eigenvectors, eigenvalues, retainedVariance));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, mean), jsopencv_from(info, eigenvectors), jsopencv_from(info, eigenvalues));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, mean), jsopencv_from(env, eigenvectors), jsopencv_from(env, eigenvalues));
     }
 
 
@@ -2094,12 +2131,13 @@ static Napi::Value jsopencv_cv_PCACompute2(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "PCACompute2");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_PCAProject(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2121,7 +2159,7 @@ static Napi::Value jsopencv_cv_PCAProject(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_result, result, ArgInfo("result", 1)))
     {
         ERRWRAP2_NAPI(info, cv::PCAProject(data, mean, eigenvectors, result));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -2147,7 +2185,7 @@ static Napi::Value jsopencv_cv_PCAProject(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_result, result, ArgInfo("result", 1)))
     {
         ERRWRAP2_NAPI(info, cv::PCAProject(data, mean, eigenvectors, result));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -2155,12 +2193,13 @@ static Napi::Value jsopencv_cv_PCAProject(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "PCAProject");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_PSNR(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2180,7 +2219,7 @@ static Napi::Value jsopencv_cv_PSNR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_R, R, ArgInfo("R", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::PSNR(src1, src2, R));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -2204,7 +2243,7 @@ static Napi::Value jsopencv_cv_PSNR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_R, R, ArgInfo("R", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::PSNR(src1, src2, R));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -2212,12 +2251,13 @@ static Napi::Value jsopencv_cv_PSNR(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "PSNR");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_QRCodeEncoder_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::QRCodeEncoder::Params parameters=QRCodeEncoder::Params();
@@ -2228,15 +2268,16 @@ static Napi::Value jsopencv_cv_QRCodeEncoder_create(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::QRCodeEncoder::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2265,7 +2306,7 @@ static Napi::Value jsopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_Qz, Qz, ArgInfo("Qz", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::RQDecomp3x3(src, mtxR, mtxQ, Qx, Qy, Qz));
-        return Js_BuildValue(info, "(NNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, mtxR), jsopencv_from(info, mtxQ), jsopencv_from(info, Qx), jsopencv_from(info, Qy), jsopencv_from(info, Qz));
+        return Js_BuildValue(env, "(NNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, mtxR), jsopencv_from(env, mtxQ), jsopencv_from(env, Qx), jsopencv_from(env, Qy), jsopencv_from(env, Qz));
     }
 
 
@@ -2298,7 +2339,7 @@ static Napi::Value jsopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_Qz, Qz, ArgInfo("Qz", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::RQDecomp3x3(src, mtxR, mtxQ, Qx, Qy, Qz));
-        return Js_BuildValue(info, "(NNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, mtxR), jsopencv_from(info, mtxQ), jsopencv_from(info, Qx), jsopencv_from(info, Qy), jsopencv_from(info, Qz));
+        return Js_BuildValue(env, "(NNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, mtxR), jsopencv_from(env, mtxQ), jsopencv_from(env, Qx), jsopencv_from(env, Qy), jsopencv_from(env, Qz));
     }
 
 
@@ -2306,12 +2347,13 @@ static Napi::Value jsopencv_cv_RQDecomp3x3(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "RQDecomp3x3");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2330,7 +2372,7 @@ static Napi::Value jsopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_jacobian, jacobian, ArgInfo("jacobian", 1)))
     {
         ERRWRAP2_NAPI(info, cv::Rodrigues(src, dst, jacobian));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dst), jsopencv_from(info, jacobian));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dst), jsopencv_from(env, jacobian));
     }
 
 
@@ -2353,7 +2395,7 @@ static Napi::Value jsopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_jacobian, jacobian, ArgInfo("jacobian", 1)))
     {
         ERRWRAP2_NAPI(info, cv::Rodrigues(src, dst, jacobian));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dst), jsopencv_from(info, jacobian));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dst), jsopencv_from(env, jacobian));
     }
 
 
@@ -2361,12 +2403,13 @@ static Napi::Value jsopencv_cv_Rodrigues(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "Rodrigues");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2392,7 +2435,7 @@ static Napi::Value jsopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sigma, sigma, ArgInfo("sigma", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -2425,7 +2468,7 @@ static Napi::Value jsopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_descriptorType, descriptorType, ArgInfo("descriptorType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma, descriptorType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -2433,12 +2476,13 @@ static Napi::Value jsopencv_cv_SIFT_create(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "SIFT_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2463,7 +2507,7 @@ static Napi::Value jsopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::SVBackSubst(w, u, vt, rhs, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -2492,7 +2536,7 @@ static Napi::Value jsopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::SVBackSubst(w, u, vt, rhs, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -2500,12 +2544,13 @@ static Napi::Value jsopencv_cv_SVBackSubst(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "SVBackSubst");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2530,7 +2575,7 @@ static Napi::Value jsopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::SVDecomp(src, w, u, vt, flags));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, w), jsopencv_from(info, u), jsopencv_from(info, vt));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, w), jsopencv_from(env, u), jsopencv_from(env, vt));
     }
 
 
@@ -2559,7 +2604,7 @@ static Napi::Value jsopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::SVDecomp(src, w, u, vt, flags));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, w), jsopencv_from(info, u), jsopencv_from(info, vt));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, w), jsopencv_from(env, u), jsopencv_from(env, vt));
     }
 
 
@@ -2567,12 +2612,13 @@ static Napi::Value jsopencv_cv_SVDecomp(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "SVDecomp");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_Scharr(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2606,7 +2652,7 @@ static Napi::Value jsopencv_cv_Scharr(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Scharr(src, dst, ddepth, dx, dy, scale, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -2644,7 +2690,7 @@ static Napi::Value jsopencv_cv_Scharr(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Scharr(src, dst, ddepth, dx, dy, scale, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -2652,12 +2698,13 @@ static Napi::Value jsopencv_cv_Scharr(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "Scharr");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_SimpleBlobDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::SimpleBlobDetector::Params parameters=SimpleBlobDetector::Params();
@@ -2668,15 +2715,16 @@ static Napi::Value jsopencv_cv_SimpleBlobDetector_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::SimpleBlobDetector::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_Sobel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -2713,7 +2761,7 @@ static Napi::Value jsopencv_cv_Sobel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Sobel(src, dst, ddepth, dx, dy, ksize, scale, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -2754,7 +2802,7 @@ static Napi::Value jsopencv_cv_Sobel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::Sobel(src, dst, ddepth, dx, dy, ksize, scale, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -2762,12 +2810,13 @@ static Napi::Value jsopencv_cv_Sobel(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "Sobel");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winSize = NULL;
     Size winSize=Size(21, 21);
@@ -2790,15 +2839,16 @@ static Napi::Value jsopencv_cv_SparsePyrLKOpticalFlow_create(const Napi::Callbac
         jsopencv_to_safe(jsobj_minEigThreshold, minEigThreshold, ArgInfo("minEigThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::SparsePyrLKOpticalFlow::create(winSize, maxLevel, crit, flags, minEigThreshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_StereoBM_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_numDisparities = NULL;
     int numDisparities=0;
@@ -2812,15 +2862,16 @@ static Napi::Value jsopencv_cv_StereoBM_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_blockSize, blockSize, ArgInfo("blockSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::StereoBM::create(numDisparities, blockSize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_StereoSGBM_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_minDisparity = NULL;
     int minDisparity=0;
@@ -2861,15 +2912,16 @@ static Napi::Value jsopencv_cv_StereoSGBM_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::StereoSGBM::create(minDisparity, numDisparities, blockSize, P1, P2, disp12MaxDiff, preFilterCap, uniquenessRatio, speckleWindowSize, speckleRange, mode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_TrackerCSRT_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::TrackerCSRT::Params parameters=TrackerCSRT::Params();
@@ -2880,15 +2932,16 @@ static Napi::Value jsopencv_cv_TrackerCSRT_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::TrackerCSRT::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_TrackerDaSiamRPN_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::TrackerDaSiamRPN::Params parameters=TrackerDaSiamRPN::Params();
@@ -2899,15 +2952,16 @@ static Napi::Value jsopencv_cv_TrackerDaSiamRPN_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::TrackerDaSiamRPN::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_TrackerGOTURN_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::TrackerGOTURN::Params parameters=TrackerGOTURN::Params();
@@ -2918,15 +2972,16 @@ static Napi::Value jsopencv_cv_TrackerGOTURN_create(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::TrackerGOTURN::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_TrackerKCF_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::TrackerKCF::Params parameters=TrackerKCF::Params();
@@ -2937,15 +2992,16 @@ static Napi::Value jsopencv_cv_TrackerKCF_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::TrackerKCF::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_TrackerMIL_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::TrackerMIL::Params parameters=TrackerMIL::Params();
@@ -2956,15 +3012,16 @@ static Napi::Value jsopencv_cv_TrackerMIL_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::TrackerMIL::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_TrackerNano_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_parameters = NULL;
     cv::TrackerNano::Params parameters=TrackerNano::Params();
@@ -2975,60 +3032,64 @@ static Napi::Value jsopencv_cv_TrackerNano_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::TrackerNano::create(parameters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_UMat_context(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     void* retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv_UMat_context());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_UMat_queue(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     void* retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv_UMat_queue());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_VariationalRefinement_create(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Ptr<VariationalRefinement> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::VariationalRefinement::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_VideoCapture_waitAny(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_streams = NULL;
     vector_VideoCapture streams;
@@ -3043,15 +3104,16 @@ static Napi::Value jsopencv_cv_VideoCapture_waitAny(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_timeoutNs, timeoutNs, ArgInfo("timeoutNs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::VideoCapture::waitAny(streams, readyIndex, timeoutNs));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, readyIndex));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, readyIndex));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_VideoWriter_fourcc(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_c1 = NULL;
     char c1;
@@ -3071,15 +3133,16 @@ static Napi::Value jsopencv_cv_VideoWriter_fourcc(const Napi::CallbackInfo &info
         jsconvert_to_char(*jsobj_c4, &c4, ArgInfo("c4", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::VideoWriter::fourcc(c1, c2, c3, c4));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_absdiff(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3098,7 +3161,7 @@ static Napi::Value jsopencv_cv_absdiff(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::absdiff(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3121,7 +3184,7 @@ static Napi::Value jsopencv_cv_absdiff(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::absdiff(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3129,12 +3192,13 @@ static Napi::Value jsopencv_cv_absdiff(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "absdiff");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_accumulate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3153,7 +3217,7 @@ static Napi::Value jsopencv_cv_accumulate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulate(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3176,7 +3240,7 @@ static Napi::Value jsopencv_cv_accumulate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulate(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3184,12 +3248,13 @@ static Napi::Value jsopencv_cv_accumulate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "accumulate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3211,7 +3276,7 @@ static Napi::Value jsopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulateProduct(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3237,7 +3302,7 @@ static Napi::Value jsopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulateProduct(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3245,12 +3310,13 @@ static Napi::Value jsopencv_cv_accumulateProduct(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "accumulateProduct");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3269,7 +3335,7 @@ static Napi::Value jsopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulateSquare(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3292,7 +3358,7 @@ static Napi::Value jsopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulateSquare(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3300,12 +3366,13 @@ static Napi::Value jsopencv_cv_accumulateSquare(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "accumulateSquare");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3327,7 +3394,7 @@ static Napi::Value jsopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulateWeighted(src, dst, alpha, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3353,7 +3420,7 @@ static Napi::Value jsopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::accumulateWeighted(src, dst, alpha, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3361,12 +3428,13 @@ static Napi::Value jsopencv_cv_accumulateWeighted(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "accumulateWeighted");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3397,7 +3465,7 @@ static Napi::Value jsopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_C, C, ArgInfo("C", 0)))
     {
         ERRWRAP2_NAPI(info, cv::adaptiveThreshold(src, dst, maxValue, adaptiveMethod, thresholdType, blockSize, C));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3432,7 +3500,7 @@ static Napi::Value jsopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_C, C, ArgInfo("C", 0)))
     {
         ERRWRAP2_NAPI(info, cv::adaptiveThreshold(src, dst, maxValue, adaptiveMethod, thresholdType, blockSize, C));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3440,12 +3508,13 @@ static Napi::Value jsopencv_cv_adaptiveThreshold(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "adaptiveThreshold");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_add(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3470,7 +3539,7 @@ static Napi::Value jsopencv_cv_add(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::add(src1, src2, dst, mask, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3499,7 +3568,7 @@ static Napi::Value jsopencv_cv_add(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::add(src1, src2, dst, mask, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3507,12 +3576,13 @@ static Napi::Value jsopencv_cv_add(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "add");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_addText(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_img = NULL;
     Mat img;
@@ -3546,15 +3616,16 @@ static Napi::Value jsopencv_cv_addText(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_spacing, spacing, ArgInfo("spacing", 0)))
     {
         ERRWRAP2_NAPI(info, cv::addText(img, text, org, nameFont, pointSize, color, weight, style, spacing));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_addWeighted(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3585,7 +3656,7 @@ static Napi::Value jsopencv_cv_addWeighted(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::addWeighted(src1, alpha, src2, beta, gamma, dst, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3620,7 +3691,7 @@ static Napi::Value jsopencv_cv_addWeighted(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::addWeighted(src1, alpha, src2, beta, gamma, dst, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3628,12 +3699,13 @@ static Napi::Value jsopencv_cv_addWeighted(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "addWeighted");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -3652,7 +3724,7 @@ static Napi::Value jsopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_colormap, colormap, ArgInfo("colormap", 0)))
     {
         ERRWRAP2_NAPI(info, cv::applyColorMap(src, dst, colormap));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3675,7 +3747,7 @@ static Napi::Value jsopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_colormap, colormap, ArgInfo("colormap", 0)))
     {
         ERRWRAP2_NAPI(info, cv::applyColorMap(src, dst, colormap));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3698,7 +3770,7 @@ static Napi::Value jsopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_userColor, userColor, ArgInfo("userColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::applyColorMap(src, dst, userColor));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3721,7 +3793,7 @@ static Napi::Value jsopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_userColor, userColor, ArgInfo("userColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::applyColorMap(src, dst, userColor));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -3729,12 +3801,13 @@ static Napi::Value jsopencv_cv_applyColorMap(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "applyColorMap");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3756,7 +3829,7 @@ static Napi::Value jsopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_closed, closed, ArgInfo("closed", 0)))
     {
         ERRWRAP2_NAPI(info, cv::approxPolyDP(curve, approxCurve, epsilon, closed));
-        return jsopencv_from(info, approxCurve);
+        return jsopencv_from(env, approxCurve);
     }
 
 
@@ -3782,7 +3855,7 @@ static Napi::Value jsopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_closed, closed, ArgInfo("closed", 0)))
     {
         ERRWRAP2_NAPI(info, cv::approxPolyDP(curve, approxCurve, epsilon, closed));
-        return jsopencv_from(info, approxCurve);
+        return jsopencv_from(env, approxCurve);
     }
 
 
@@ -3790,12 +3863,13 @@ static Napi::Value jsopencv_cv_approxPolyDP(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "approxPolyDP");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_arcLength(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3812,7 +3886,7 @@ static Napi::Value jsopencv_cv_arcLength(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_closed, closed, ArgInfo("closed", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::arcLength(curve, closed));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -3833,7 +3907,7 @@ static Napi::Value jsopencv_cv_arcLength(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_closed, closed, ArgInfo("closed", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::arcLength(curve, closed));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -3841,12 +3915,13 @@ static Napi::Value jsopencv_cv_arcLength(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "arcLength");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3880,7 +3955,7 @@ static Napi::Value jsopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_tipLength, tipLength, ArgInfo("tipLength", 0)))
     {
         ERRWRAP2_NAPI(info, cv::arrowedLine(img, pt1, pt2, color, thickness, line_type, shift, tipLength));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -3918,7 +3993,7 @@ static Napi::Value jsopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_tipLength, tipLength, ArgInfo("tipLength", 0)))
     {
         ERRWRAP2_NAPI(info, cv::arrowedLine(img, pt1, pt2, color, thickness, line_type, shift, tipLength));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -3926,12 +4001,13 @@ static Napi::Value jsopencv_cv_arrowedLine(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "arrowedLine");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_batchDistance(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -3971,7 +4047,7 @@ static Napi::Value jsopencv_cv_batchDistance(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_crosscheck, crosscheck, ArgInfo("crosscheck", 0)))
     {
         ERRWRAP2_NAPI(info, cv::batchDistance(src1, src2, dist, dtype, nidx, normType, K, mask, update, crosscheck));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dist), jsopencv_from(info, nidx));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dist), jsopencv_from(env, nidx));
     }
 
 
@@ -4015,7 +4091,7 @@ static Napi::Value jsopencv_cv_batchDistance(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_crosscheck, crosscheck, ArgInfo("crosscheck", 0)))
     {
         ERRWRAP2_NAPI(info, cv::batchDistance(src1, src2, dist, dtype, nidx, normType, K, mask, update, crosscheck));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dist), jsopencv_from(info, nidx));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dist), jsopencv_from(env, nidx));
     }
 
 
@@ -4023,12 +4099,13 @@ static Napi::Value jsopencv_cv_batchDistance(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "batchDistance");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4056,7 +4133,7 @@ static Napi::Value jsopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bilateralFilter(src, dst, d, sigmaColor, sigmaSpace, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4088,7 +4165,7 @@ static Napi::Value jsopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bilateralFilter(src, dst, d, sigmaColor, sigmaSpace, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4096,12 +4173,13 @@ static Napi::Value jsopencv_cv_bilateralFilter(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bilateralFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4123,7 +4201,7 @@ static Napi::Value jsopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_and(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4149,7 +4227,7 @@ static Napi::Value jsopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_and(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4157,12 +4235,13 @@ static Napi::Value jsopencv_cv_bitwise_and(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_and");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4181,7 +4260,7 @@ static Napi::Value jsopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_not(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4204,7 +4283,7 @@ static Napi::Value jsopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_not(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4212,12 +4291,13 @@ static Napi::Value jsopencv_cv_bitwise_not(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_not");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4239,7 +4319,7 @@ static Napi::Value jsopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_or(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4265,7 +4345,7 @@ static Napi::Value jsopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_or(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4273,12 +4353,13 @@ static Napi::Value jsopencv_cv_bitwise_or(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_or");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4300,7 +4381,7 @@ static Napi::Value jsopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_xor(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4326,7 +4407,7 @@ static Napi::Value jsopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::bitwise_xor(src1, src2, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4334,12 +4415,13 @@ static Napi::Value jsopencv_cv_bitwise_xor(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_xor");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_blendLinear(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4364,7 +4446,7 @@ static Napi::Value jsopencv_cv_blendLinear(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::blendLinear(src1, src2, weights1, weights2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4393,7 +4475,7 @@ static Napi::Value jsopencv_cv_blendLinear(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::blendLinear(src1, src2, weights1, weights2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4401,12 +4483,13 @@ static Napi::Value jsopencv_cv_blendLinear(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "blendLinear");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_blur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4431,7 +4514,7 @@ static Napi::Value jsopencv_cv_blur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::blur(src, dst, ksize, anchor, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4460,7 +4543,7 @@ static Napi::Value jsopencv_cv_blur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::blur(src, dst, ksize, anchor, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4468,12 +4551,13 @@ static Napi::Value jsopencv_cv_blur(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "blur");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_borderInterpolate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_p = NULL;
     int p=0;
@@ -4490,15 +4574,16 @@ static Napi::Value jsopencv_cv_borderInterpolate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::borderInterpolate(p, len, borderType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_boundingRect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4512,7 +4597,7 @@ static Napi::Value jsopencv_cv_boundingRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_array, array, ArgInfo("array", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::boundingRect(array));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -4530,7 +4615,7 @@ static Napi::Value jsopencv_cv_boundingRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_array, array, ArgInfo("array", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::boundingRect(array));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -4538,12 +4623,13 @@ static Napi::Value jsopencv_cv_boundingRect(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "boundingRect");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_boxFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4574,7 +4660,7 @@ static Napi::Value jsopencv_cv_boxFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::boxFilter(src, dst, ddepth, ksize, anchor, normalize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4609,7 +4695,7 @@ static Napi::Value jsopencv_cv_boxFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::boxFilter(src, dst, ddepth, ksize, anchor, normalize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4617,12 +4703,13 @@ static Napi::Value jsopencv_cv_boxFilter(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "boxFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_boxPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4638,7 +4725,7 @@ static Napi::Value jsopencv_cv_boxPoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, cv::boxPoints(box, points));
-        return jsopencv_from(info, points);
+        return jsopencv_from(env, points);
     }
 
 
@@ -4658,7 +4745,7 @@ static Napi::Value jsopencv_cv_boxPoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 1)))
     {
         ERRWRAP2_NAPI(info, cv::boxPoints(box, points));
-        return jsopencv_from(info, points);
+        return jsopencv_from(env, points);
     }
 
 
@@ -4666,12 +4753,13 @@ static Napi::Value jsopencv_cv_boxPoints(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "boxPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4706,7 +4794,7 @@ static Napi::Value jsopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_tryReuseInputImage, tryReuseInputImage, ArgInfo("tryReuseInputImage", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::buildOpticalFlowPyramid(img, pyramid, winSize, maxLevel, withDerivatives, pyrBorder, derivBorder, tryReuseInputImage));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, pyramid));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, pyramid));
     }
 
 
@@ -4745,7 +4833,7 @@ static Napi::Value jsopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_tryReuseInputImage, tryReuseInputImage, ArgInfo("tryReuseInputImage", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::buildOpticalFlowPyramid(img, pyramid, winSize, maxLevel, withDerivatives, pyrBorder, derivBorder, tryReuseInputImage));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, pyramid));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, pyramid));
     }
 
 
@@ -4753,12 +4841,13 @@ static Napi::Value jsopencv_cv_buildOpticalFlowPyramid(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "buildOpticalFlowPyramid");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4786,7 +4875,7 @@ static Napi::Value jsopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcBackProject(images, channels, hist, dst, ranges, scale));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4818,7 +4907,7 @@ static Napi::Value jsopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcBackProject(images, channels, hist, dst, ranges, scale));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -4826,12 +4915,13 @@ static Napi::Value jsopencv_cv_calcBackProject(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calcBackProject");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4856,7 +4946,7 @@ static Napi::Value jsopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ctype, ctype, ArgInfo("ctype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcCovarMatrix(samples, covar, mean, flags, ctype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, covar), jsopencv_from(info, mean));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, covar), jsopencv_from(env, mean));
     }
 
 
@@ -4885,7 +4975,7 @@ static Napi::Value jsopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ctype, ctype, ArgInfo("ctype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcCovarMatrix(samples, covar, mean, flags, ctype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, covar), jsopencv_from(info, mean));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, covar), jsopencv_from(env, mean));
     }
 
 
@@ -4893,12 +4983,13 @@ static Napi::Value jsopencv_cv_calcCovarMatrix(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calcCovarMatrix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calcHist(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -4929,7 +5020,7 @@ static Napi::Value jsopencv_cv_calcHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_accumulate, accumulate, ArgInfo("accumulate", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcHist(images, channels, mask, hist, histSize, ranges, accumulate));
-        return jsopencv_from(info, hist);
+        return jsopencv_from(env, hist);
     }
 
 
@@ -4964,7 +5055,7 @@ static Napi::Value jsopencv_cv_calcHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_accumulate, accumulate, ArgInfo("accumulate", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcHist(images, channels, mask, hist, histSize, ranges, accumulate));
-        return jsopencv_from(info, hist);
+        return jsopencv_from(env, hist);
     }
 
 
@@ -4972,12 +5063,13 @@ static Napi::Value jsopencv_cv_calcHist(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calcHist");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5017,7 +5109,7 @@ static Napi::Value jsopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcOpticalFlowFarneback(prev, next, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags));
-        return jsopencv_from(info, flow);
+        return jsopencv_from(env, flow);
     }
 
 
@@ -5061,7 +5153,7 @@ static Napi::Value jsopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcOpticalFlowFarneback(prev, next, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags));
-        return jsopencv_from(info, flow);
+        return jsopencv_from(env, flow);
     }
 
 
@@ -5069,12 +5161,13 @@ static Napi::Value jsopencv_cv_calcOpticalFlowFarneback(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "calcOpticalFlowFarneback");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5117,7 +5210,7 @@ static Napi::Value jsopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_minEigThreshold, minEigThreshold, ArgInfo("minEigThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcOpticalFlowPyrLK(prevImg, nextImg, prevPts, nextPts, status, err, winSize, maxLevel, criteria, flags, minEigThreshold));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, nextPts), jsopencv_from(info, status), jsopencv_from(info, err));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, nextPts), jsopencv_from(env, status), jsopencv_from(env, err));
     }
 
 
@@ -5164,7 +5257,7 @@ static Napi::Value jsopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_minEigThreshold, minEigThreshold, ArgInfo("minEigThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calcOpticalFlowPyrLK(prevImg, nextImg, prevPts, nextPts, status, err, winSize, maxLevel, criteria, flags, minEigThreshold));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, nextPts), jsopencv_from(info, status), jsopencv_from(info, err));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, nextPts), jsopencv_from(env, status), jsopencv_from(env, err));
     }
 
 
@@ -5172,12 +5265,13 @@ static Napi::Value jsopencv_cv_calcOpticalFlowPyrLK(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "calcOpticalFlowPyrLK");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5215,7 +5309,7 @@ static Napi::Value jsopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix, distCoeffs, rvecs, tvecs, flags, criteria));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -5257,7 +5351,7 @@ static Napi::Value jsopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix, distCoeffs, rvecs, tvecs, flags, criteria));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -5265,12 +5359,13 @@ static Napi::Value jsopencv_cv_calibrateCamera(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calibrateCamera");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5317,7 +5412,7 @@ static Napi::Value jsopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix, distCoeffs, rvecs, tvecs, stdDeviationsIntrinsics, stdDeviationsExtrinsics, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, stdDeviationsIntrinsics), jsopencv_from(info, stdDeviationsExtrinsics), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, stdDeviationsIntrinsics), jsopencv_from(env, stdDeviationsExtrinsics), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -5368,7 +5463,7 @@ static Napi::Value jsopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix, distCoeffs, rvecs, tvecs, stdDeviationsIntrinsics, stdDeviationsExtrinsics, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, stdDeviationsIntrinsics), jsopencv_from(info, stdDeviationsExtrinsics), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, stdDeviationsIntrinsics), jsopencv_from(env, stdDeviationsExtrinsics), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -5376,12 +5471,13 @@ static Napi::Value jsopencv_cv_calibrateCameraExtended(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "calibrateCameraExtended");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5425,7 +5521,7 @@ static Napi::Value jsopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCameraRO(objectPoints, imagePoints, imageSize, iFixedPoint, cameraMatrix, distCoeffs, rvecs, tvecs, newObjPoints, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, newObjPoints));
+        return Js_BuildValue(env, "(NNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, newObjPoints));
     }
 
 
@@ -5473,7 +5569,7 @@ static Napi::Value jsopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCameraRO(objectPoints, imagePoints, imageSize, iFixedPoint, cameraMatrix, distCoeffs, rvecs, tvecs, newObjPoints, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, newObjPoints));
+        return Js_BuildValue(env, "(NNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, newObjPoints));
     }
 
 
@@ -5481,12 +5577,13 @@ static Napi::Value jsopencv_cv_calibrateCameraRO(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calibrateCameraRO");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrateCameraROExtended(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5542,7 +5639,7 @@ static Napi::Value jsopencv_cv_calibrateCameraROExtended(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCameraRO(objectPoints, imagePoints, imageSize, iFixedPoint, cameraMatrix, distCoeffs, rvecs, tvecs, newObjPoints, stdDeviationsIntrinsics, stdDeviationsExtrinsics, stdDeviationsObjPoints, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, newObjPoints), jsopencv_from(info, stdDeviationsIntrinsics), jsopencv_from(info, stdDeviationsExtrinsics), jsopencv_from(info, stdDeviationsObjPoints), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, newObjPoints), jsopencv_from(env, stdDeviationsIntrinsics), jsopencv_from(env, stdDeviationsExtrinsics), jsopencv_from(env, stdDeviationsObjPoints), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -5602,7 +5699,7 @@ static Napi::Value jsopencv_cv_calibrateCameraROExtended(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::calibrateCameraRO(objectPoints, imagePoints, imageSize, iFixedPoint, cameraMatrix, distCoeffs, rvecs, tvecs, newObjPoints, stdDeviationsIntrinsics, stdDeviationsExtrinsics, stdDeviationsObjPoints, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, distCoeffs), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, newObjPoints), jsopencv_from(info, stdDeviationsIntrinsics), jsopencv_from(info, stdDeviationsExtrinsics), jsopencv_from(info, stdDeviationsObjPoints), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, distCoeffs), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, newObjPoints), jsopencv_from(env, stdDeviationsIntrinsics), jsopencv_from(env, stdDeviationsExtrinsics), jsopencv_from(env, stdDeviationsObjPoints), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -5610,12 +5707,13 @@ static Napi::Value jsopencv_cv_calibrateCameraROExtended(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "calibrateCameraROExtended");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5646,7 +5744,7 @@ static Napi::Value jsopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calibrateHandEye(R_gripper2base, t_gripper2base, R_target2cam, t_target2cam, R_cam2gripper, t_cam2gripper, method));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, R_cam2gripper), jsopencv_from(info, t_cam2gripper));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, R_cam2gripper), jsopencv_from(env, t_cam2gripper));
     }
 
 
@@ -5681,7 +5779,7 @@ static Napi::Value jsopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calibrateHandEye(R_gripper2base, t_gripper2base, R_target2cam, t_target2cam, R_cam2gripper, t_cam2gripper, method));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, R_cam2gripper), jsopencv_from(info, t_cam2gripper));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, R_cam2gripper), jsopencv_from(env, t_cam2gripper));
     }
 
 
@@ -5689,12 +5787,13 @@ static Napi::Value jsopencv_cv_calibrateHandEye(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calibrateHandEye");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5731,7 +5830,7 @@ static Napi::Value jsopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calibrateRobotWorldHandEye(R_world2cam, t_world2cam, R_base2gripper, t_base2gripper, R_base2world, t_base2world, R_gripper2cam, t_gripper2cam, method));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, R_base2world), jsopencv_from(info, t_base2world), jsopencv_from(info, R_gripper2cam), jsopencv_from(info, t_gripper2cam));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, R_base2world), jsopencv_from(env, t_base2world), jsopencv_from(env, R_gripper2cam), jsopencv_from(env, t_gripper2cam));
     }
 
 
@@ -5772,7 +5871,7 @@ static Napi::Value jsopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calibrateRobotWorldHandEye(R_world2cam, t_world2cam, R_base2gripper, t_base2gripper, R_base2world, t_base2world, R_gripper2cam, t_gripper2cam, method));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, R_base2world), jsopencv_from(info, t_base2world), jsopencv_from(info, R_gripper2cam), jsopencv_from(info, t_gripper2cam));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, R_base2world), jsopencv_from(env, t_base2world), jsopencv_from(env, R_gripper2cam), jsopencv_from(env, t_gripper2cam));
     }
 
 
@@ -5780,12 +5879,13 @@ static Napi::Value jsopencv_cv_calibrateRobotWorldHandEye(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "calibrateRobotWorldHandEye");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5812,7 +5912,7 @@ static Napi::Value jsopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_apertureHeight, apertureHeight, ArgInfo("apertureHeight", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calibrationMatrixValues(cameraMatrix, imageSize, apertureWidth, apertureHeight, fovx, fovy, focalLength, principalPoint, aspectRatio));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, fovx), jsopencv_from(info, fovy), jsopencv_from(info, focalLength), jsopencv_from(info, principalPoint), jsopencv_from(info, aspectRatio));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, fovx), jsopencv_from(env, fovy), jsopencv_from(env, focalLength), jsopencv_from(env, principalPoint), jsopencv_from(env, aspectRatio));
     }
 
 
@@ -5843,7 +5943,7 @@ static Napi::Value jsopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_apertureHeight, apertureHeight, ArgInfo("apertureHeight", 0)))
     {
         ERRWRAP2_NAPI(info, cv::calibrationMatrixValues(cameraMatrix, imageSize, apertureWidth, apertureHeight, fovx, fovy, focalLength, principalPoint, aspectRatio));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, fovx), jsopencv_from(info, fovy), jsopencv_from(info, focalLength), jsopencv_from(info, principalPoint), jsopencv_from(info, aspectRatio));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, fovx), jsopencv_from(env, fovy), jsopencv_from(env, focalLength), jsopencv_from(env, principalPoint), jsopencv_from(env, aspectRatio));
     }
 
 
@@ -5851,12 +5951,13 @@ static Napi::Value jsopencv_cv_calibrationMatrixValues(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "calibrationMatrixValues");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5881,7 +5982,7 @@ static Napi::Value jsopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cartToPolar(x, y, magnitude, angle, angleInDegrees));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, magnitude), jsopencv_from(info, angle));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, magnitude), jsopencv_from(env, angle));
     }
 
 
@@ -5910,7 +6011,7 @@ static Napi::Value jsopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cartToPolar(x, y, magnitude, angle, angleInDegrees));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, magnitude), jsopencv_from(info, angle));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, magnitude), jsopencv_from(env, angle));
     }
 
 
@@ -5918,12 +6019,13 @@ static Napi::Value jsopencv_cv_cartToPolar(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cartToPolar");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -5940,7 +6042,7 @@ static Napi::Value jsopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_size, size, ArgInfo("size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::checkChessboard(img, size));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -5961,7 +6063,7 @@ static Napi::Value jsopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_size, size, ArgInfo("size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::checkChessboard(img, size));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -5969,12 +6071,13 @@ static Napi::Value jsopencv_cv_checkChessboard(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "checkChessboard");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_checkHardwareSupport(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_feature = NULL;
     int feature=0;
@@ -5985,15 +6088,16 @@ static Napi::Value jsopencv_cv_checkHardwareSupport(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_feature, feature, ArgInfo("feature", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::checkHardwareSupport(feature));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_checkRange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6017,7 +6121,7 @@ static Napi::Value jsopencv_cv_checkRange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxVal, maxVal, ArgInfo("maxVal", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::checkRange(a, quiet, &pos, minVal, maxVal));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, pos));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, pos));
     }
 
 
@@ -6045,7 +6149,7 @@ static Napi::Value jsopencv_cv_checkRange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxVal, maxVal, ArgInfo("maxVal", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::checkRange(a, quiet, &pos, minVal, maxVal));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, pos));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, pos));
     }
 
 
@@ -6053,12 +6157,13 @@ static Napi::Value jsopencv_cv_checkRange(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "checkRange");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_circle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6089,7 +6194,7 @@ static Napi::Value jsopencv_cv_circle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::circle(img, center, radius, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -6124,7 +6229,7 @@ static Napi::Value jsopencv_cv_circle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::circle(img, center, radius, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -6132,12 +6237,13 @@ static Napi::Value jsopencv_cv_circle(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "circle");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_clipLine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_imgRect = NULL;
     Rect imgRect;
@@ -6154,15 +6260,16 @@ static Napi::Value jsopencv_cv_clipLine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_pt2, pt2, ArgInfo("pt2", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::clipLine(imgRect, pt1, pt2));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, pt1), jsopencv_from(info, pt2));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, pt1), jsopencv_from(env, pt2));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_colorChange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6190,7 +6297,7 @@ static Napi::Value jsopencv_cv_colorChange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_blue_mul, blue_mul, ArgInfo("blue_mul", 0)))
     {
         ERRWRAP2_NAPI(info, cv::colorChange(src, mask, dst, red_mul, green_mul, blue_mul));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -6222,7 +6329,7 @@ static Napi::Value jsopencv_cv_colorChange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_blue_mul, blue_mul, ArgInfo("blue_mul", 0)))
     {
         ERRWRAP2_NAPI(info, cv::colorChange(src, mask, dst, red_mul, green_mul, blue_mul));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -6230,12 +6337,13 @@ static Napi::Value jsopencv_cv_colorChange(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "colorChange");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_compare(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6257,7 +6365,7 @@ static Napi::Value jsopencv_cv_compare(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_cmpop, cmpop, ArgInfo("cmpop", 0)))
     {
         ERRWRAP2_NAPI(info, cv::compare(src1, src2, dst, cmpop));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -6283,7 +6391,7 @@ static Napi::Value jsopencv_cv_compare(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_cmpop, cmpop, ArgInfo("cmpop", 0)))
     {
         ERRWRAP2_NAPI(info, cv::compare(src1, src2, dst, cmpop));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -6291,12 +6399,13 @@ static Napi::Value jsopencv_cv_compare(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "compare");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_compareHist(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6316,7 +6425,7 @@ static Napi::Value jsopencv_cv_compareHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::compareHist(H1, H2, method));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -6340,7 +6449,7 @@ static Napi::Value jsopencv_cv_compareHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::compareHist(H1, H2, method));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -6348,12 +6457,13 @@ static Napi::Value jsopencv_cv_compareHist(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "compareHist");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_completeSymm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6369,7 +6479,7 @@ static Napi::Value jsopencv_cv_completeSymm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lowerToUpper, lowerToUpper, ArgInfo("lowerToUpper", 0)))
     {
         ERRWRAP2_NAPI(info, cv::completeSymm(m, lowerToUpper));
-        return jsopencv_from(info, m);
+        return jsopencv_from(env, m);
     }
 
 
@@ -6389,7 +6499,7 @@ static Napi::Value jsopencv_cv_completeSymm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lowerToUpper, lowerToUpper, ArgInfo("lowerToUpper", 0)))
     {
         ERRWRAP2_NAPI(info, cv::completeSymm(m, lowerToUpper));
-        return jsopencv_from(info, m);
+        return jsopencv_from(env, m);
     }
 
 
@@ -6397,12 +6507,13 @@ static Napi::Value jsopencv_cv_completeSymm(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "completeSymm");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_composeRT(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6454,7 +6565,7 @@ static Napi::Value jsopencv_cv_composeRT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dt3dt2, dt3dt2, ArgInfo("dt3dt2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::composeRT(rvec1, tvec1, rvec2, tvec2, rvec3, tvec3, dr3dr1, dr3dt1, dr3dr2, dr3dt2, dt3dr1, dt3dt1, dt3dr2, dt3dt2));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, rvec3), jsopencv_from(info, tvec3), jsopencv_from(info, dr3dr1), jsopencv_from(info, dr3dt1), jsopencv_from(info, dr3dr2), jsopencv_from(info, dr3dt2), jsopencv_from(info, dt3dr1), jsopencv_from(info, dt3dt1), jsopencv_from(info, dt3dr2), jsopencv_from(info, dt3dt2));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, rvec3), jsopencv_from(env, tvec3), jsopencv_from(env, dr3dr1), jsopencv_from(env, dr3dt1), jsopencv_from(env, dr3dr2), jsopencv_from(env, dr3dt2), jsopencv_from(env, dt3dr1), jsopencv_from(env, dt3dt1), jsopencv_from(env, dt3dr2), jsopencv_from(env, dt3dt2));
     }
 
 
@@ -6510,7 +6621,7 @@ static Napi::Value jsopencv_cv_composeRT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dt3dt2, dt3dt2, ArgInfo("dt3dt2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::composeRT(rvec1, tvec1, rvec2, tvec2, rvec3, tvec3, dr3dr1, dr3dt1, dr3dr2, dr3dt2, dt3dr1, dt3dt1, dt3dr2, dt3dt2));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, rvec3), jsopencv_from(info, tvec3), jsopencv_from(info, dr3dr1), jsopencv_from(info, dr3dt1), jsopencv_from(info, dr3dr2), jsopencv_from(info, dr3dt2), jsopencv_from(info, dt3dr1), jsopencv_from(info, dt3dt1), jsopencv_from(info, dt3dr2), jsopencv_from(info, dt3dt2));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, rvec3), jsopencv_from(env, tvec3), jsopencv_from(env, dr3dr1), jsopencv_from(env, dr3dt1), jsopencv_from(env, dr3dr2), jsopencv_from(env, dr3dt2), jsopencv_from(env, dt3dr1), jsopencv_from(env, dt3dt1), jsopencv_from(env, dt3dr2), jsopencv_from(env, dt3dt2));
     }
 
 
@@ -6518,12 +6629,13 @@ static Napi::Value jsopencv_cv_composeRT(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "composeRT");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_computeCorrespondEpilines(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6545,7 +6657,7 @@ static Napi::Value jsopencv_cv_computeCorrespondEpilines(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_lines, lines, ArgInfo("lines", 1)))
     {
         ERRWRAP2_NAPI(info, cv::computeCorrespondEpilines(points, whichImage, F, lines));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -6571,7 +6683,7 @@ static Napi::Value jsopencv_cv_computeCorrespondEpilines(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_lines, lines, ArgInfo("lines", 1)))
     {
         ERRWRAP2_NAPI(info, cv::computeCorrespondEpilines(points, whichImage, F, lines));
-        return jsopencv_from(info, lines);
+        return jsopencv_from(env, lines);
     }
 
 
@@ -6579,12 +6691,13 @@ static Napi::Value jsopencv_cv_computeCorrespondEpilines(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "computeCorrespondEpilines");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_computeECC(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6604,7 +6717,7 @@ static Napi::Value jsopencv_cv_computeECC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputMask, inputMask, ArgInfo("inputMask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::computeECC(templateImage, inputImage, inputMask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -6628,7 +6741,7 @@ static Napi::Value jsopencv_cv_computeECC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputMask, inputMask, ArgInfo("inputMask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::computeECC(templateImage, inputImage, inputMask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -6636,12 +6749,13 @@ static Napi::Value jsopencv_cv_computeECC(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "computeECC");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_connectedComponents(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6664,7 +6778,7 @@ static Napi::Value jsopencv_cv_connectedComponents(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_ltype, ltype, ArgInfo("ltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponents(image, labels, connectivity, ltype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, labels));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, labels));
     }
 
 
@@ -6691,7 +6805,7 @@ static Napi::Value jsopencv_cv_connectedComponents(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_ltype, ltype, ArgInfo("ltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponents(image, labels, connectivity, ltype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, labels));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, labels));
     }
 
 
@@ -6699,12 +6813,13 @@ static Napi::Value jsopencv_cv_connectedComponents(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "connectedComponents");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_connectedComponentsWithAlgorithm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6730,7 +6845,7 @@ static Napi::Value jsopencv_cv_connectedComponentsWithAlgorithm(const Napi::Call
         jsopencv_to_safe(jsobj_ccltype, ccltype, ArgInfo("ccltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponents(image, labels, connectivity, ltype, ccltype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, labels));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, labels));
     }
 
 
@@ -6760,7 +6875,7 @@ static Napi::Value jsopencv_cv_connectedComponentsWithAlgorithm(const Napi::Call
         jsopencv_to_safe(jsobj_ccltype, ccltype, ArgInfo("ccltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponents(image, labels, connectivity, ltype, ccltype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, labels));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, labels));
     }
 
 
@@ -6768,12 +6883,13 @@ static Napi::Value jsopencv_cv_connectedComponentsWithAlgorithm(const Napi::Call
     }
     jsRaiseCVOverloadException(info, "connectedComponentsWithAlgorithm");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_connectedComponentsWithStats(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6802,7 +6918,7 @@ static Napi::Value jsopencv_cv_connectedComponentsWithStats(const Napi::Callback
         jsopencv_to_safe(jsobj_ltype, ltype, ArgInfo("ltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponentsWithStats(image, labels, stats, centroids, connectivity, ltype));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, labels), jsopencv_from(info, stats), jsopencv_from(info, centroids));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, labels), jsopencv_from(env, stats), jsopencv_from(env, centroids));
     }
 
 
@@ -6835,7 +6951,7 @@ static Napi::Value jsopencv_cv_connectedComponentsWithStats(const Napi::Callback
         jsopencv_to_safe(jsobj_ltype, ltype, ArgInfo("ltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponentsWithStats(image, labels, stats, centroids, connectivity, ltype));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, labels), jsopencv_from(info, stats), jsopencv_from(info, centroids));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, labels), jsopencv_from(env, stats), jsopencv_from(env, centroids));
     }
 
 
@@ -6843,12 +6959,13 @@ static Napi::Value jsopencv_cv_connectedComponentsWithStats(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "connectedComponentsWithStats");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_connectedComponentsWithStatsWithAlgorithm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6880,7 +6997,7 @@ static Napi::Value jsopencv_cv_connectedComponentsWithStatsWithAlgorithm(const N
         jsopencv_to_safe(jsobj_ccltype, ccltype, ArgInfo("ccltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponentsWithStats(image, labels, stats, centroids, connectivity, ltype, ccltype));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, labels), jsopencv_from(info, stats), jsopencv_from(info, centroids));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, labels), jsopencv_from(env, stats), jsopencv_from(env, centroids));
     }
 
 
@@ -6916,7 +7033,7 @@ static Napi::Value jsopencv_cv_connectedComponentsWithStatsWithAlgorithm(const N
         jsopencv_to_safe(jsobj_ccltype, ccltype, ArgInfo("ccltype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::connectedComponentsWithStats(image, labels, stats, centroids, connectivity, ltype, ccltype));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, labels), jsopencv_from(info, stats), jsopencv_from(info, centroids));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, labels), jsopencv_from(env, stats), jsopencv_from(env, centroids));
     }
 
 
@@ -6924,12 +7041,13 @@ static Napi::Value jsopencv_cv_connectedComponentsWithStatsWithAlgorithm(const N
     }
     jsRaiseCVOverloadException(info, "connectedComponentsWithStatsWithAlgorithm");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_contourArea(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6946,7 +7064,7 @@ static Napi::Value jsopencv_cv_contourArea(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_oriented, oriented, ArgInfo("oriented", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::contourArea(contour, oriented));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -6967,7 +7085,7 @@ static Napi::Value jsopencv_cv_contourArea(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_oriented, oriented, ArgInfo("oriented", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::contourArea(contour, oriented));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -6975,12 +7093,13 @@ static Napi::Value jsopencv_cv_contourArea(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "contourArea");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convertFp16(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -6996,7 +7115,7 @@ static Napi::Value jsopencv_cv_convertFp16(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convertFp16(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7016,7 +7135,7 @@ static Napi::Value jsopencv_cv_convertFp16(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convertFp16(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7024,12 +7143,13 @@ static Napi::Value jsopencv_cv_convertFp16(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "convertFp16");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convertMaps(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7057,7 +7177,7 @@ static Napi::Value jsopencv_cv_convertMaps(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nninterpolation, nninterpolation, ArgInfo("nninterpolation", 0)))
     {
         ERRWRAP2_NAPI(info, cv::convertMaps(map1, map2, dstmap1, dstmap2, dstmap1type, nninterpolation));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dstmap1), jsopencv_from(info, dstmap2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dstmap1), jsopencv_from(env, dstmap2));
     }
 
 
@@ -7089,7 +7209,7 @@ static Napi::Value jsopencv_cv_convertMaps(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nninterpolation, nninterpolation, ArgInfo("nninterpolation", 0)))
     {
         ERRWRAP2_NAPI(info, cv::convertMaps(map1, map2, dstmap1, dstmap2, dstmap1type, nninterpolation));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dstmap1), jsopencv_from(info, dstmap2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dstmap1), jsopencv_from(env, dstmap2));
     }
 
 
@@ -7097,12 +7217,13 @@ static Napi::Value jsopencv_cv_convertMaps(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "convertMaps");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convertPointsFromHomogeneous(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7118,7 +7239,7 @@ static Napi::Value jsopencv_cv_convertPointsFromHomogeneous(const Napi::Callback
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convertPointsFromHomogeneous(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7138,7 +7259,7 @@ static Napi::Value jsopencv_cv_convertPointsFromHomogeneous(const Napi::Callback
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convertPointsFromHomogeneous(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7146,12 +7267,13 @@ static Napi::Value jsopencv_cv_convertPointsFromHomogeneous(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "convertPointsFromHomogeneous");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convertPointsToHomogeneous(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7167,7 +7289,7 @@ static Napi::Value jsopencv_cv_convertPointsToHomogeneous(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convertPointsToHomogeneous(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7187,7 +7309,7 @@ static Napi::Value jsopencv_cv_convertPointsToHomogeneous(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convertPointsToHomogeneous(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7195,12 +7317,13 @@ static Napi::Value jsopencv_cv_convertPointsToHomogeneous(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "convertPointsToHomogeneous");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7222,7 +7345,7 @@ static Napi::Value jsopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_beta, beta, ArgInfo("beta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::convertScaleAbs(src, dst, alpha, beta));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7248,7 +7371,7 @@ static Napi::Value jsopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_beta, beta, ArgInfo("beta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::convertScaleAbs(src, dst, alpha, beta));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7256,12 +7379,13 @@ static Napi::Value jsopencv_cv_convertScaleAbs(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "convertScaleAbs");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convexHull(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7283,7 +7407,7 @@ static Napi::Value jsopencv_cv_convexHull(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_returnPoints, returnPoints, ArgInfo("returnPoints", 0)))
     {
         ERRWRAP2_NAPI(info, cv::convexHull(points, hull, clockwise, returnPoints));
-        return jsopencv_from(info, hull);
+        return jsopencv_from(env, hull);
     }
 
 
@@ -7309,7 +7433,7 @@ static Napi::Value jsopencv_cv_convexHull(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_returnPoints, returnPoints, ArgInfo("returnPoints", 0)))
     {
         ERRWRAP2_NAPI(info, cv::convexHull(points, hull, clockwise, returnPoints));
-        return jsopencv_from(info, hull);
+        return jsopencv_from(env, hull);
     }
 
 
@@ -7317,12 +7441,13 @@ static Napi::Value jsopencv_cv_convexHull(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "convexHull");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7341,7 +7466,7 @@ static Napi::Value jsopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_convexityDefects, convexityDefects, ArgInfo("convexityDefects", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convexityDefects(contour, convexhull, convexityDefects));
-        return jsopencv_from(info, convexityDefects);
+        return jsopencv_from(env, convexityDefects);
     }
 
 
@@ -7364,7 +7489,7 @@ static Napi::Value jsopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_convexityDefects, convexityDefects, ArgInfo("convexityDefects", 1)))
     {
         ERRWRAP2_NAPI(info, cv::convexityDefects(contour, convexhull, convexityDefects));
-        return jsopencv_from(info, convexityDefects);
+        return jsopencv_from(env, convexityDefects);
     }
 
 
@@ -7372,12 +7497,13 @@ static Napi::Value jsopencv_cv_convexityDefects(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "convexityDefects");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7411,7 +7537,7 @@ static Napi::Value jsopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_value, value, ArgInfo("value", 0)))
     {
         ERRWRAP2_NAPI(info, cv::copyMakeBorder(src, dst, top, bottom, left, right, borderType, value));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7449,7 +7575,7 @@ static Napi::Value jsopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_value, value, ArgInfo("value", 0)))
     {
         ERRWRAP2_NAPI(info, cv::copyMakeBorder(src, dst, top, bottom, left, right, borderType, value));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7457,12 +7583,13 @@ static Napi::Value jsopencv_cv_copyMakeBorder(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "copyMakeBorder");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_copyTo(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7481,7 +7608,7 @@ static Napi::Value jsopencv_cv_copyTo(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::copyTo(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7504,7 +7631,7 @@ static Napi::Value jsopencv_cv_copyTo(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::copyTo(src, dst, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7512,12 +7639,13 @@ static Napi::Value jsopencv_cv_copyTo(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "copyTo");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7542,7 +7670,7 @@ static Napi::Value jsopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerEigenValsAndVecs(src, dst, blockSize, ksize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7571,7 +7699,7 @@ static Napi::Value jsopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerEigenValsAndVecs(src, dst, blockSize, ksize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7579,12 +7707,13 @@ static Napi::Value jsopencv_cv_cornerEigenValsAndVecs(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "cornerEigenValsAndVecs");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7612,7 +7741,7 @@ static Napi::Value jsopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerHarris(src, dst, blockSize, ksize, k, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7644,7 +7773,7 @@ static Napi::Value jsopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerHarris(src, dst, blockSize, ksize, k, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7652,12 +7781,13 @@ static Napi::Value jsopencv_cv_cornerHarris(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cornerHarris");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7682,7 +7812,7 @@ static Napi::Value jsopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerMinEigenVal(src, dst, blockSize, ksize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7711,7 +7841,7 @@ static Napi::Value jsopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerMinEigenVal(src, dst, blockSize, ksize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -7719,12 +7849,13 @@ static Napi::Value jsopencv_cv_cornerMinEigenVal(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cornerMinEigenVal");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7749,7 +7880,7 @@ static Napi::Value jsopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerSubPix(image, corners, winSize, zeroZone, criteria));
-        return jsopencv_from(info, corners);
+        return jsopencv_from(env, corners);
     }
 
 
@@ -7778,7 +7909,7 @@ static Napi::Value jsopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cornerSubPix(image, corners, winSize, zeroZone, criteria));
-        return jsopencv_from(info, corners);
+        return jsopencv_from(env, corners);
     }
 
 
@@ -7786,12 +7917,13 @@ static Napi::Value jsopencv_cv_cornerSubPix(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cornerSubPix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_correctMatches(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7816,7 +7948,7 @@ static Napi::Value jsopencv_cv_correctMatches(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_newPoints2, newPoints2, ArgInfo("newPoints2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::correctMatches(F, points1, points2, newPoints1, newPoints2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, newPoints1), jsopencv_from(info, newPoints2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, newPoints1), jsopencv_from(env, newPoints2));
     }
 
 
@@ -7845,7 +7977,7 @@ static Napi::Value jsopencv_cv_correctMatches(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_newPoints2, newPoints2, ArgInfo("newPoints2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::correctMatches(F, points1, points2, newPoints1, newPoints2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, newPoints1), jsopencv_from(info, newPoints2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, newPoints1), jsopencv_from(env, newPoints2));
     }
 
 
@@ -7853,12 +7985,13 @@ static Napi::Value jsopencv_cv_correctMatches(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "correctMatches");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_countNonZero(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -7872,7 +8005,7 @@ static Napi::Value jsopencv_cv_countNonZero(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::countNonZero(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -7890,7 +8023,7 @@ static Napi::Value jsopencv_cv_countNonZero(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::countNonZero(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -7898,12 +8031,13 @@ static Napi::Value jsopencv_cv_countNonZero(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "countNonZero");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createAlignMTB(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_max_bits = NULL;
     int max_bits=6;
@@ -7920,15 +8054,16 @@ static Napi::Value jsopencv_cv_createAlignMTB(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_cut, cut, ArgInfo("cut", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createAlignMTB(max_bits, exclude_range, cut));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createBackgroundSubtractorKNN(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_history = NULL;
     int history=500;
@@ -7945,15 +8080,16 @@ static Napi::Value jsopencv_cv_createBackgroundSubtractorKNN(const Napi::Callbac
         jsopencv_to_safe(jsobj_detectShadows, detectShadows, ArgInfo("detectShadows", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createBackgroundSubtractorKNN(history, dist2Threshold, detectShadows));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createBackgroundSubtractorMOG2(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_history = NULL;
     int history=500;
@@ -7970,15 +8106,16 @@ static Napi::Value jsopencv_cv_createBackgroundSubtractorMOG2(const Napi::Callba
         jsopencv_to_safe(jsobj_detectShadows, detectShadows, ArgInfo("detectShadows", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createBackgroundSubtractorMOG2(history, varThreshold, detectShadows));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createCLAHE(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_clipLimit = NULL;
     double clipLimit=40.0;
@@ -7992,15 +8129,16 @@ static Napi::Value jsopencv_cv_createCLAHE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_tileGridSize, tileGridSize, ArgInfo("tileGridSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createCLAHE(clipLimit, tileGridSize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createCalibrateDebevec(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_samples = NULL;
     int samples=70;
@@ -8017,15 +8155,16 @@ static Napi::Value jsopencv_cv_createCalibrateDebevec(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_random, random, ArgInfo("random", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createCalibrateDebevec(samples, lambda, random));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createCalibrateRobertson(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_max_iter = NULL;
     int max_iter=30;
@@ -8039,45 +8178,48 @@ static Napi::Value jsopencv_cv_createCalibrateRobertson(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createCalibrateRobertson(max_iter, threshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createGeneralizedHoughBallard(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Ptr<GeneralizedHoughBallard> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createGeneralizedHoughBallard());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createGeneralizedHoughGuil(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Ptr<GeneralizedHoughGuil> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createGeneralizedHoughGuil());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createHanningWindow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8096,7 +8238,7 @@ static Napi::Value jsopencv_cv_createHanningWindow(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, cv::createHanningWindow(dst, winSize, type));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8119,7 +8261,7 @@ static Napi::Value jsopencv_cv_createHanningWindow(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, cv::createHanningWindow(dst, winSize, type));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8127,12 +8269,13 @@ static Napi::Value jsopencv_cv_createHanningWindow(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "createHanningWindow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createLineSegmentDetector(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_refine = NULL;
     int refine=LSD_REFINE_STD;
@@ -8164,30 +8307,32 @@ static Napi::Value jsopencv_cv_createLineSegmentDetector(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_n_bins, n_bins, ArgInfo("n_bins", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createLineSegmentDetector(refine, scale, sigma_scale, quant, ang_th, log_eps, density_th, n_bins));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createMergeDebevec(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Ptr<MergeDebevec> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createMergeDebevec());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createMergeMertens(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_contrast_weight = NULL;
     float contrast_weight=1.0f;
@@ -8204,30 +8349,32 @@ static Napi::Value jsopencv_cv_createMergeMertens(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_exposure_weight, exposure_weight, ArgInfo("exposure_weight", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createMergeMertens(contrast_weight, saturation_weight, exposure_weight));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createMergeRobertson(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Ptr<MergeRobertson> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::createMergeRobertson());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createTonemap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_gamma = NULL;
     float gamma=1.0f;
@@ -8238,15 +8385,16 @@ static Napi::Value jsopencv_cv_createTonemap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_gamma, gamma, ArgInfo("gamma", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createTonemap(gamma));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createTonemapDrago(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_gamma = NULL;
     float gamma=1.0f;
@@ -8263,15 +8411,16 @@ static Napi::Value jsopencv_cv_createTonemapDrago(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_bias, bias, ArgInfo("bias", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createTonemapDrago(gamma, saturation, bias));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createTonemapMantiuk(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_gamma = NULL;
     float gamma=1.0f;
@@ -8288,15 +8437,16 @@ static Napi::Value jsopencv_cv_createTonemapMantiuk(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_saturation, saturation, ArgInfo("saturation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createTonemapMantiuk(gamma, scale, saturation));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_createTonemapReinhard(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_gamma = NULL;
     float gamma=1.0f;
@@ -8316,15 +8466,16 @@ static Napi::Value jsopencv_cv_createTonemapReinhard(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_color_adapt, color_adapt, ArgInfo("color_adapt", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::createTonemapReinhard(gamma, intensity, light_adapt, color_adapt));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cubeRoot(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_val = NULL;
     float val=0.f;
@@ -8335,15 +8486,16 @@ static Napi::Value jsopencv_cv_cubeRoot(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_val, val, ArgInfo("val", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cubeRoot(val));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cvtColor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8365,7 +8517,7 @@ static Napi::Value jsopencv_cv_cvtColor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dstCn, dstCn, ArgInfo("dstCn", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cvtColor(src, dst, code, dstCn));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8391,7 +8543,7 @@ static Napi::Value jsopencv_cv_cvtColor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dstCn, dstCn, ArgInfo("dstCn", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cvtColor(src, dst, code, dstCn));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8399,12 +8551,13 @@ static Napi::Value jsopencv_cv_cvtColor(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cvtColor");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8426,7 +8579,7 @@ static Napi::Value jsopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_code, code, ArgInfo("code", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cvtColorTwoPlane(src1, src2, dst, code));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8452,7 +8605,7 @@ static Napi::Value jsopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_code, code, ArgInfo("code", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cvtColorTwoPlane(src1, src2, dst, code));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8460,12 +8613,13 @@ static Napi::Value jsopencv_cv_cvtColorTwoPlane(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cvtColorTwoPlane");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dct(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8484,7 +8638,7 @@ static Napi::Value jsopencv_cv_dct(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dct(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8507,7 +8661,7 @@ static Napi::Value jsopencv_cv_dct(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dct(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8515,12 +8669,13 @@ static Napi::Value jsopencv_cv_dct(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "dct");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_decolor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8539,7 +8694,7 @@ static Napi::Value jsopencv_cv_decolor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_color_boost, color_boost, ArgInfo("color_boost", 1)))
     {
         ERRWRAP2_NAPI(info, cv::decolor(src, grayscale, color_boost));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, grayscale), jsopencv_from(info, color_boost));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, grayscale), jsopencv_from(env, color_boost));
     }
 
 
@@ -8562,7 +8717,7 @@ static Napi::Value jsopencv_cv_decolor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_color_boost, color_boost, ArgInfo("color_boost", 1)))
     {
         ERRWRAP2_NAPI(info, cv::decolor(src, grayscale, color_boost));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, grayscale), jsopencv_from(info, color_boost));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, grayscale), jsopencv_from(env, color_boost));
     }
 
 
@@ -8570,12 +8725,13 @@ static Napi::Value jsopencv_cv_decolor(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "decolor");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8597,7 +8753,7 @@ static Napi::Value jsopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_t, t, ArgInfo("t", 1)))
     {
         ERRWRAP2_NAPI(info, cv::decomposeEssentialMat(E, R1, R2, t));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, t));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, t));
     }
 
 
@@ -8623,7 +8779,7 @@ static Napi::Value jsopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_t, t, ArgInfo("t", 1)))
     {
         ERRWRAP2_NAPI(info, cv::decomposeEssentialMat(E, R1, R2, t));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, t));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, t));
     }
 
 
@@ -8631,12 +8787,13 @@ static Napi::Value jsopencv_cv_decomposeEssentialMat(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "decomposeEssentialMat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8662,7 +8819,7 @@ static Napi::Value jsopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_normals, normals, ArgInfo("normals", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::decomposeHomographyMat(H, K, rotations, translations, normals));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rotations), jsopencv_from(info, translations), jsopencv_from(info, normals));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rotations), jsopencv_from(env, translations), jsopencv_from(env, normals));
     }
 
 
@@ -8692,7 +8849,7 @@ static Napi::Value jsopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_normals, normals, ArgInfo("normals", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::decomposeHomographyMat(H, K, rotations, translations, normals));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rotations), jsopencv_from(info, translations), jsopencv_from(info, normals));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rotations), jsopencv_from(env, translations), jsopencv_from(env, normals));
     }
 
 
@@ -8700,12 +8857,13 @@ static Napi::Value jsopencv_cv_decomposeHomographyMat(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "decomposeHomographyMat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8739,7 +8897,7 @@ static Napi::Value jsopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_eulerAngles, eulerAngles, ArgInfo("eulerAngles", 1)))
     {
         ERRWRAP2_NAPI(info, cv::decomposeProjectionMatrix(projMatrix, cameraMatrix, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ, eulerAngles));
-        return Js_BuildValue(info, "(NNNNNNN)", jsopencv_from(info, cameraMatrix), jsopencv_from(info, rotMatrix), jsopencv_from(info, transVect), jsopencv_from(info, rotMatrixX), jsopencv_from(info, rotMatrixY), jsopencv_from(info, rotMatrixZ), jsopencv_from(info, eulerAngles));
+        return Js_BuildValue(env, "(NNNNNNN)", jsopencv_from(env, cameraMatrix), jsopencv_from(env, rotMatrix), jsopencv_from(env, transVect), jsopencv_from(env, rotMatrixX), jsopencv_from(env, rotMatrixY), jsopencv_from(env, rotMatrixZ), jsopencv_from(env, eulerAngles));
     }
 
 
@@ -8777,7 +8935,7 @@ static Napi::Value jsopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_eulerAngles, eulerAngles, ArgInfo("eulerAngles", 1)))
     {
         ERRWRAP2_NAPI(info, cv::decomposeProjectionMatrix(projMatrix, cameraMatrix, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ, eulerAngles));
-        return Js_BuildValue(info, "(NNNNNNN)", jsopencv_from(info, cameraMatrix), jsopencv_from(info, rotMatrix), jsopencv_from(info, transVect), jsopencv_from(info, rotMatrixX), jsopencv_from(info, rotMatrixY), jsopencv_from(info, rotMatrixZ), jsopencv_from(info, eulerAngles));
+        return Js_BuildValue(env, "(NNNNNNN)", jsopencv_from(env, cameraMatrix), jsopencv_from(env, rotMatrix), jsopencv_from(env, transVect), jsopencv_from(env, rotMatrixX), jsopencv_from(env, rotMatrixY), jsopencv_from(env, rotMatrixZ), jsopencv_from(env, eulerAngles));
     }
 
 
@@ -8785,12 +8943,13 @@ static Napi::Value jsopencv_cv_decomposeProjectionMatrix(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "decomposeProjectionMatrix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_demosaicing(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8812,7 +8971,7 @@ static Napi::Value jsopencv_cv_demosaicing(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dstCn, dstCn, ArgInfo("dstCn", 0)))
     {
         ERRWRAP2_NAPI(info, cv::demosaicing(src, dst, code, dstCn));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8838,7 +8997,7 @@ static Napi::Value jsopencv_cv_demosaicing(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dstCn, dstCn, ArgInfo("dstCn", 0)))
     {
         ERRWRAP2_NAPI(info, cv::demosaicing(src, dst, code, dstCn));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8846,12 +9005,13 @@ static Napi::Value jsopencv_cv_demosaicing(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "demosaicing");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_denoise_TVL1(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_observations = NULL;
     vector_Mat observations;
@@ -8870,29 +9030,31 @@ static Napi::Value jsopencv_cv_denoise_TVL1(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_niters, niters, ArgInfo("niters", 0)))
     {
         ERRWRAP2_NAPI(info, cv::denoise_TVL1(observations, result, lambda, niters));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_destroyAllWindows(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::destroyAllWindows());
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_destroyWindow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -8902,15 +9064,16 @@ static Napi::Value jsopencv_cv_destroyWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_winname, winname, ArgInfo("winname", 0)))
     {
         ERRWRAP2_NAPI(info, cv::destroyWindow(winname));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8932,7 +9095,7 @@ static Napi::Value jsopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sigma_r, sigma_r, ArgInfo("sigma_r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::detailEnhance(src, dst, sigma_s, sigma_r));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8958,7 +9121,7 @@ static Napi::Value jsopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sigma_r, sigma_r, ArgInfo("sigma_r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::detailEnhance(src, dst, sigma_s, sigma_r));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -8966,12 +9129,13 @@ static Napi::Value jsopencv_cv_detailEnhance(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "detailEnhance");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_determinant(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -8985,7 +9149,7 @@ static Napi::Value jsopencv_cv_determinant(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mtx, mtx, ArgInfo("mtx", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::determinant(mtx));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -9003,7 +9167,7 @@ static Napi::Value jsopencv_cv_determinant(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mtx, mtx, ArgInfo("mtx", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::determinant(mtx));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -9011,12 +9175,13 @@ static Napi::Value jsopencv_cv_determinant(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "determinant");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dft(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9038,7 +9203,7 @@ static Napi::Value jsopencv_cv_dft(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nonzeroRows, nonzeroRows, ArgInfo("nonzeroRows", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dft(src, dst, flags, nonzeroRows));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9064,7 +9229,7 @@ static Napi::Value jsopencv_cv_dft(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nonzeroRows, nonzeroRows, ArgInfo("nonzeroRows", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dft(src, dst, flags, nonzeroRows));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9072,12 +9237,13 @@ static Napi::Value jsopencv_cv_dft(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "dft");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dilate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9108,7 +9274,7 @@ static Napi::Value jsopencv_cv_dilate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dilate(src, dst, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9143,7 +9309,7 @@ static Napi::Value jsopencv_cv_dilate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dilate(src, dst, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9151,12 +9317,13 @@ static Napi::Value jsopencv_cv_dilate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "dilate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_displayOverlay(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -9172,15 +9339,16 @@ static Napi::Value jsopencv_cv_displayOverlay(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_delayms, delayms, ArgInfo("delayms", 0)))
     {
         ERRWRAP2_NAPI(info, cv::displayOverlay(winname, text, delayms));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_displayStatusBar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -9196,15 +9364,16 @@ static Napi::Value jsopencv_cv_displayStatusBar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_delayms, delayms, ArgInfo("delayms", 0)))
     {
         ERRWRAP2_NAPI(info, cv::displayStatusBar(winname, text, delayms));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9229,7 +9398,7 @@ static Napi::Value jsopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dstType, dstType, ArgInfo("dstType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::distanceTransform(src, dst, distanceType, maskSize, dstType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9258,7 +9427,7 @@ static Napi::Value jsopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dstType, dstType, ArgInfo("dstType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::distanceTransform(src, dst, distanceType, maskSize, dstType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9266,12 +9435,13 @@ static Napi::Value jsopencv_cv_distanceTransform(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "distanceTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_distanceTransformWithLabels(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9299,7 +9469,7 @@ static Napi::Value jsopencv_cv_distanceTransformWithLabels(const Napi::CallbackI
         jsopencv_to_safe(jsobj_labelType, labelType, ArgInfo("labelType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::distanceTransform(src, dst, labels, distanceType, maskSize, labelType));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dst), jsopencv_from(info, labels));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dst), jsopencv_from(env, labels));
     }
 
 
@@ -9331,7 +9501,7 @@ static Napi::Value jsopencv_cv_distanceTransformWithLabels(const Napi::CallbackI
         jsopencv_to_safe(jsobj_labelType, labelType, ArgInfo("labelType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::distanceTransform(src, dst, labels, distanceType, maskSize, labelType));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dst), jsopencv_from(info, labels));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dst), jsopencv_from(env, labels));
     }
 
 
@@ -9339,12 +9509,13 @@ static Napi::Value jsopencv_cv_distanceTransformWithLabels(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "distanceTransformWithLabels");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9369,7 +9540,7 @@ static Napi::Value jsopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_conjB, conjB, ArgInfo("conjB", 0)))
     {
         ERRWRAP2_NAPI(info, cv::divSpectrums(a, b, c, flags, conjB));
-        return jsopencv_from(info, c);
+        return jsopencv_from(env, c);
     }
 
 
@@ -9398,7 +9569,7 @@ static Napi::Value jsopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_conjB, conjB, ArgInfo("conjB", 0)))
     {
         ERRWRAP2_NAPI(info, cv::divSpectrums(a, b, c, flags, conjB));
-        return jsopencv_from(info, c);
+        return jsopencv_from(env, c);
     }
 
 
@@ -9406,12 +9577,13 @@ static Napi::Value jsopencv_cv_divSpectrums(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "divSpectrums");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_divide(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -9436,7 +9608,7 @@ static Napi::Value jsopencv_cv_divide(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::divide(src1, src2, dst, scale, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9465,7 +9637,7 @@ static Napi::Value jsopencv_cv_divide(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::divide(src1, src2, dst, scale, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9491,7 +9663,7 @@ static Napi::Value jsopencv_cv_divide(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::divide(scale, src2, dst, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9517,7 +9689,7 @@ static Napi::Value jsopencv_cv_divide(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::divide(scale, src2, dst, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -9525,12 +9697,13 @@ static Napi::Value jsopencv_cv_divide(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "divide");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9552,7 +9725,7 @@ static Napi::Value jsopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_patternWasFound, patternWasFound, ArgInfo("patternWasFound", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawChessboardCorners(image, patternSize, corners, patternWasFound));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -9578,7 +9751,7 @@ static Napi::Value jsopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_patternWasFound, patternWasFound, ArgInfo("patternWasFound", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawChessboardCorners(image, patternSize, corners, patternWasFound));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -9586,12 +9759,13 @@ static Napi::Value jsopencv_cv_drawChessboardCorners(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "drawChessboardCorners");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawContours(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9628,7 +9802,7 @@ static Napi::Value jsopencv_cv_drawContours(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawContours(image, contours, contourIdx, color, thickness, lineType, hierarchy, maxLevel, offset));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -9669,7 +9843,7 @@ static Napi::Value jsopencv_cv_drawContours(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawContours(image, contours, contourIdx, color, thickness, lineType, hierarchy, maxLevel, offset));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -9677,12 +9851,13 @@ static Napi::Value jsopencv_cv_drawContours(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "drawContours");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9713,7 +9888,7 @@ static Napi::Value jsopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawFrameAxes(image, cameraMatrix, distCoeffs, rvec, tvec, length, thickness));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -9748,7 +9923,7 @@ static Napi::Value jsopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawFrameAxes(image, cameraMatrix, distCoeffs, rvec, tvec, length, thickness));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -9756,12 +9931,13 @@ static Napi::Value jsopencv_cv_drawFrameAxes(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "drawFrameAxes");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9786,7 +9962,7 @@ static Napi::Value jsopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawKeypoints(image, keypoints, outImage, color, flags));
-        return jsopencv_from(info, outImage);
+        return jsopencv_from(env, outImage);
     }
 
 
@@ -9815,7 +9991,7 @@ static Napi::Value jsopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawKeypoints(image, keypoints, outImage, color, flags));
-        return jsopencv_from(info, outImage);
+        return jsopencv_from(env, outImage);
     }
 
 
@@ -9823,12 +9999,13 @@ static Napi::Value jsopencv_cv_drawKeypoints(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "drawKeypoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawMarker(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -9859,7 +10036,7 @@ static Napi::Value jsopencv_cv_drawMarker(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_line_type, line_type, ArgInfo("line_type", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMarker(img, position, color, markerType, markerSize, thickness, line_type));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -9894,7 +10071,7 @@ static Napi::Value jsopencv_cv_drawMarker(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_line_type, line_type, ArgInfo("line_type", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMarker(img, position, color, markerType, markerSize, thickness, line_type));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -9902,12 +10079,13 @@ static Napi::Value jsopencv_cv_drawMarker(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "drawMarker");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawMatches(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -9947,7 +10125,7 @@ static Napi::Value jsopencv_cv_drawMatches(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMatches(img1, keypoints1, img2, keypoints2, matches1to2, outImg, matchColor, singlePointColor, matchesMask, flags));
-        return jsopencv_from(info, outImg);
+        return jsopencv_from(env, outImg);
     }
 
 
@@ -9991,7 +10169,7 @@ static Napi::Value jsopencv_cv_drawMatches(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMatches(img1, keypoints1, img2, keypoints2, matches1to2, outImg, matchColor, singlePointColor, matchesMask, flags));
-        return jsopencv_from(info, outImg);
+        return jsopencv_from(env, outImg);
     }
 
 
@@ -10038,7 +10216,7 @@ static Napi::Value jsopencv_cv_drawMatches(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMatches(img1, keypoints1, img2, keypoints2, matches1to2, outImg, matchesThickness, matchColor, singlePointColor, matchesMask, flags));
-        return jsopencv_from(info, outImg);
+        return jsopencv_from(env, outImg);
     }
 
 
@@ -10085,7 +10263,7 @@ static Napi::Value jsopencv_cv_drawMatches(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMatches(img1, keypoints1, img2, keypoints2, matches1to2, outImg, matchesThickness, matchColor, singlePointColor, matchesMask, flags));
-        return jsopencv_from(info, outImg);
+        return jsopencv_from(env, outImg);
     }
 
 
@@ -10093,12 +10271,13 @@ static Napi::Value jsopencv_cv_drawMatches(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "drawMatches");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -10138,7 +10317,7 @@ static Napi::Value jsopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMatches(img1, keypoints1, img2, keypoints2, matches1to2, outImg, matchColor, singlePointColor, matchesMask, flags));
-        return jsopencv_from(info, outImg);
+        return jsopencv_from(env, outImg);
     }
 
 
@@ -10182,7 +10361,7 @@ static Napi::Value jsopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::drawMatches(img1, keypoints1, img2, keypoints2, matches1to2, outImg, matchColor, singlePointColor, matchesMask, flags));
-        return jsopencv_from(info, outImg);
+        return jsopencv_from(env, outImg);
     }
 
 
@@ -10190,12 +10369,13 @@ static Napi::Value jsopencv_cv_drawMatchesKnn(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "drawMatchesKnn");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -10220,7 +10400,7 @@ static Napi::Value jsopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_sigma_r, sigma_r, ArgInfo("sigma_r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::edgePreservingFilter(src, dst, flags, sigma_s, sigma_r));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -10249,7 +10429,7 @@ static Napi::Value jsopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_sigma_r, sigma_r, ArgInfo("sigma_r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::edgePreservingFilter(src, dst, flags, sigma_s, sigma_r));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -10257,12 +10437,13 @@ static Napi::Value jsopencv_cv_edgePreservingFilter(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "edgePreservingFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_eigen(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -10282,7 +10463,7 @@ static Napi::Value jsopencv_cv_eigen(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_eigenvectors, eigenvectors, ArgInfo("eigenvectors", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::eigen(src, eigenvalues, eigenvectors));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, eigenvalues), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, eigenvalues), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -10306,7 +10487,7 @@ static Napi::Value jsopencv_cv_eigen(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_eigenvectors, eigenvectors, ArgInfo("eigenvectors", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::eigen(src, eigenvalues, eigenvectors));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, eigenvalues), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, eigenvalues), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -10314,12 +10495,13 @@ static Napi::Value jsopencv_cv_eigen(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "eigen");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -10338,7 +10520,7 @@ static Napi::Value jsopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_eigenvectors, eigenvectors, ArgInfo("eigenvectors", 1)))
     {
         ERRWRAP2_NAPI(info, cv::eigenNonSymmetric(src, eigenvalues, eigenvectors));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, eigenvalues), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, eigenvalues), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -10361,7 +10543,7 @@ static Napi::Value jsopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_eigenvectors, eigenvectors, ArgInfo("eigenvectors", 1)))
     {
         ERRWRAP2_NAPI(info, cv::eigenNonSymmetric(src, eigenvalues, eigenvectors));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, eigenvalues), jsopencv_from(info, eigenvectors));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, eigenvalues), jsopencv_from(env, eigenvectors));
     }
 
 
@@ -10369,12 +10551,13 @@ static Napi::Value jsopencv_cv_eigenNonSymmetric(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "eigenNonSymmetric");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ellipse(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -10414,7 +10597,7 @@ static Napi::Value jsopencv_cv_ellipse(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ellipse(img, center, axes, angle, startAngle, endAngle, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -10458,7 +10641,7 @@ static Napi::Value jsopencv_cv_ellipse(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ellipse(img, center, axes, angle, startAngle, endAngle, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -10487,7 +10670,7 @@ static Napi::Value jsopencv_cv_ellipse(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lineType, lineType, ArgInfo("lineType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ellipse(img, box, color, thickness, lineType));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -10516,7 +10699,7 @@ static Napi::Value jsopencv_cv_ellipse(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lineType, lineType, ArgInfo("lineType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ellipse(img, box, color, thickness, lineType));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -10524,12 +10707,13 @@ static Napi::Value jsopencv_cv_ellipse(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "ellipse");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ellipse2Poly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_center = NULL;
     Point center;
@@ -10555,60 +10739,64 @@ static Napi::Value jsopencv_cv_ellipse2Poly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_delta, delta, ArgInfo("delta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ellipse2Poly(center, axes, angle, arcStart, arcEnd, delta, pts));
-        return jsopencv_from(info, pts);
+        return jsopencv_from(env, pts);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_empty_array_desc(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     GArrayDesc retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::empty_array_desc());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_empty_gopaque_desc(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     GOpaqueDesc retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::empty_gopaque_desc());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_empty_scalar_desc(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     GScalarDesc retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::empty_scalar_desc());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -10624,7 +10812,7 @@ static Napi::Value jsopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::equalizeHist(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -10644,7 +10832,7 @@ static Napi::Value jsopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::equalizeHist(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -10652,12 +10840,13 @@ static Napi::Value jsopencv_cv_equalizeHist(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "equalizeHist");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_erode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -10688,7 +10877,7 @@ static Napi::Value jsopencv_cv_erode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::erode(src, dst, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -10723,7 +10912,7 @@ static Napi::Value jsopencv_cv_erode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::erode(src, dst, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -10731,12 +10920,13 @@ static Napi::Value jsopencv_cv_erode(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "erode");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -10771,7 +10961,7 @@ static Napi::Value jsopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_refineIters, refineIters, ArgInfo("refineIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence, refineIters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, inliers));
     }
 
 
@@ -10810,7 +11000,7 @@ static Napi::Value jsopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_refineIters, refineIters, ArgInfo("refineIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence, refineIters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, inliers));
     }
 
 
@@ -10837,7 +11027,7 @@ static Napi::Value jsopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine2D(pts1, pts2, inliers, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, inliers));
     }
 
 
@@ -10864,7 +11054,7 @@ static Napi::Value jsopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine2D(pts1, pts2, inliers, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, inliers));
     }
 
 
@@ -10872,12 +11062,13 @@ static Napi::Value jsopencv_cv_estimateAffine2D(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "estimateAffine2D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -10906,7 +11097,7 @@ static Napi::Value jsopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_confidence, confidence, ArgInfo("confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine3D(src, dst, out, inliers, ransacThreshold, confidence));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, out), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, out), jsopencv_from(env, inliers));
     }
 
 
@@ -10939,7 +11130,7 @@ static Napi::Value jsopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_confidence, confidence, ArgInfo("confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine3D(src, dst, out, inliers, ransacThreshold, confidence));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, out), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, out), jsopencv_from(env, inliers));
     }
 
 
@@ -10964,7 +11155,7 @@ static Napi::Value jsopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_force_rotation, force_rotation, ArgInfo("force_rotation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine3D(src, dst, &scale, force_rotation));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, scale));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, scale));
     }
 
 
@@ -10989,7 +11180,7 @@ static Napi::Value jsopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_force_rotation, force_rotation, ArgInfo("force_rotation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffine3D(src, dst, &scale, force_rotation));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, scale));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, scale));
     }
 
 
@@ -10997,12 +11188,13 @@ static Napi::Value jsopencv_cv_estimateAffine3D(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "estimateAffine3D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11037,7 +11229,7 @@ static Napi::Value jsopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_refineIters, refineIters, ArgInfo("refineIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffinePartial2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence, refineIters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, inliers));
     }
 
 
@@ -11076,7 +11268,7 @@ static Napi::Value jsopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_refineIters, refineIters, ArgInfo("refineIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateAffinePartial2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence, refineIters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, inliers));
     }
 
 
@@ -11084,12 +11276,13 @@ static Napi::Value jsopencv_cv_estimateAffinePartial2D(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "estimateAffinePartial2D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_estimateChessboardSharpness(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11118,7 +11311,7 @@ static Napi::Value jsopencv_cv_estimateChessboardSharpness(const Napi::CallbackI
         jsopencv_to_safe(jsobj_sharpness, sharpness, ArgInfo("sharpness", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateChessboardSharpness(image, patternSize, corners, rise_distance, vertical, sharpness));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, sharpness));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, sharpness));
     }
 
 
@@ -11151,7 +11344,7 @@ static Napi::Value jsopencv_cv_estimateChessboardSharpness(const Napi::CallbackI
         jsopencv_to_safe(jsobj_sharpness, sharpness, ArgInfo("sharpness", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateChessboardSharpness(image, patternSize, corners, rise_distance, vertical, sharpness));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, sharpness));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, sharpness));
     }
 
 
@@ -11159,12 +11352,13 @@ static Napi::Value jsopencv_cv_estimateChessboardSharpness(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "estimateChessboardSharpness");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11193,7 +11387,7 @@ static Napi::Value jsopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_confidence, confidence, ArgInfo("confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateTranslation3D(src, dst, out, inliers, ransacThreshold, confidence));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, out), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, out), jsopencv_from(env, inliers));
     }
 
 
@@ -11226,7 +11420,7 @@ static Napi::Value jsopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_confidence, confidence, ArgInfo("confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::estimateTranslation3D(src, dst, out, inliers, ransacThreshold, confidence));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, out), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, out), jsopencv_from(env, inliers));
     }
 
 
@@ -11234,12 +11428,13 @@ static Napi::Value jsopencv_cv_estimateTranslation3D(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "estimateTranslation3D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_exp(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11255,7 +11450,7 @@ static Napi::Value jsopencv_cv_exp(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::exp(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11275,7 +11470,7 @@ static Napi::Value jsopencv_cv_exp(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::exp(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11283,12 +11478,13 @@ static Napi::Value jsopencv_cv_exp(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "exp");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_extractChannel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11307,7 +11503,7 @@ static Napi::Value jsopencv_cv_extractChannel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_coi, coi, ArgInfo("coi", 0)))
     {
         ERRWRAP2_NAPI(info, cv::extractChannel(src, dst, coi));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11330,7 +11526,7 @@ static Napi::Value jsopencv_cv_extractChannel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_coi, coi, ArgInfo("coi", 0)))
     {
         ERRWRAP2_NAPI(info, cv::extractChannel(src, dst, coi));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11338,12 +11534,13 @@ static Napi::Value jsopencv_cv_extractChannel(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "extractChannel");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fastAtan2(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_y = NULL;
     float y=0.f;
@@ -11357,15 +11554,16 @@ static Napi::Value jsopencv_cv_fastAtan2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_x, x, ArgInfo("x", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fastAtan2(y, x));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -11390,7 +11588,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoising(src, dst, h, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11419,7 +11617,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoising(src, dst, h, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11451,7 +11649,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_normType, normType, ArgInfo("normType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoising(src, dst, h, templateWindowSize, searchWindowSize, normType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11483,7 +11681,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_normType, normType, ArgInfo("normType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoising(src, dst, h, templateWindowSize, searchWindowSize, normType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11491,12 +11689,13 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoising(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "fastNlMeansDenoising");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11524,7 +11723,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackI
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingColored(src, dst, h, hColor, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11556,7 +11755,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackI
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingColored(src, dst, h, hColor, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11564,12 +11763,13 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingColored(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "fastNlMeansDenoisingColored");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11603,7 +11803,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::Call
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingColoredMulti(srcImgs, dst, imgToDenoiseIndex, temporalWindowSize, h, hColor, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11641,7 +11841,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::Call
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingColoredMulti(srcImgs, dst, imgToDenoiseIndex, temporalWindowSize, h, hColor, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11649,12 +11849,13 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingColoredMulti(const Napi::Call
     }
     jsRaiseCVOverloadException(info, "fastNlMeansDenoisingColoredMulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -11685,7 +11886,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingMulti(srcImgs, dst, imgToDenoiseIndex, temporalWindowSize, h, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11720,7 +11921,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_searchWindowSize, searchWindowSize, ArgInfo("searchWindowSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingMulti(srcImgs, dst, imgToDenoiseIndex, temporalWindowSize, h, templateWindowSize, searchWindowSize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11758,7 +11959,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_normType, normType, ArgInfo("normType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingMulti(srcImgs, dst, imgToDenoiseIndex, temporalWindowSize, h, templateWindowSize, searchWindowSize, normType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11796,7 +11997,7 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_normType, normType, ArgInfo("normType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fastNlMeansDenoisingMulti(srcImgs, dst, imgToDenoiseIndex, temporalWindowSize, h, templateWindowSize, searchWindowSize, normType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -11804,12 +12005,13 @@ static Napi::Value jsopencv_cv_fastNlMeansDenoisingMulti(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "fastNlMeansDenoisingMulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11834,7 +12036,7 @@ static Napi::Value jsopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fillConvexPoly(img, points, color, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -11863,7 +12065,7 @@ static Napi::Value jsopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fillConvexPoly(img, points, color, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -11871,12 +12073,13 @@ static Napi::Value jsopencv_cv_fillConvexPoly(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "fillConvexPoly");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fillPoly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11904,7 +12107,7 @@ static Napi::Value jsopencv_cv_fillPoly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fillPoly(img, pts, color, lineType, shift, offset));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -11936,7 +12139,7 @@ static Napi::Value jsopencv_cv_fillPoly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fillPoly(img, pts, color, lineType, shift, offset));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -11944,12 +12147,13 @@ static Napi::Value jsopencv_cv_fillPoly(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "fillPoly");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_filter2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -11980,7 +12184,7 @@ static Napi::Value jsopencv_cv_filter2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::filter2D(src, dst, ddepth, kernel, anchor, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -12015,7 +12219,7 @@ static Napi::Value jsopencv_cv_filter2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::filter2D(src, dst, ddepth, kernel, anchor, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -12023,12 +12227,13 @@ static Napi::Value jsopencv_cv_filter2D(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "filter2D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_filterHomographyDecompByVisibleRefpoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12056,7 +12261,7 @@ static Napi::Value jsopencv_cv_filterHomographyDecompByVisibleRefpoints(const Na
         jsopencv_to_safe(jsobj_pointsMask, pointsMask, ArgInfo("pointsMask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::filterHomographyDecompByVisibleRefpoints(rotations, normals, beforePoints, afterPoints, possibleSolutions, pointsMask));
-        return jsopencv_from(info, possibleSolutions);
+        return jsopencv_from(env, possibleSolutions);
     }
 
 
@@ -12088,7 +12293,7 @@ static Napi::Value jsopencv_cv_filterHomographyDecompByVisibleRefpoints(const Na
         jsopencv_to_safe(jsobj_pointsMask, pointsMask, ArgInfo("pointsMask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::filterHomographyDecompByVisibleRefpoints(rotations, normals, beforePoints, afterPoints, possibleSolutions, pointsMask));
-        return jsopencv_from(info, possibleSolutions);
+        return jsopencv_from(env, possibleSolutions);
     }
 
 
@@ -12096,12 +12301,13 @@ static Napi::Value jsopencv_cv_filterHomographyDecompByVisibleRefpoints(const Na
     }
     jsRaiseCVOverloadException(info, "filterHomographyDecompByVisibleRefpoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12126,7 +12332,7 @@ static Napi::Value jsopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_buf, buf, ArgInfo("buf", 1)))
     {
         ERRWRAP2_NAPI(info, cv::filterSpeckles(img, newVal, maxSpeckleSize, maxDiff, buf));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, img), jsopencv_from(info, buf));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, img), jsopencv_from(env, buf));
     }
 
 
@@ -12155,7 +12361,7 @@ static Napi::Value jsopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_buf, buf, ArgInfo("buf", 1)))
     {
         ERRWRAP2_NAPI(info, cv::filterSpeckles(img, newVal, maxSpeckleSize, maxDiff, buf));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, img), jsopencv_from(info, buf));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, img), jsopencv_from(env, buf));
     }
 
 
@@ -12163,12 +12369,13 @@ static Napi::Value jsopencv_cv_filterSpeckles(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "filterSpeckles");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12188,7 +12395,7 @@ static Napi::Value jsopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_region_size, region_size, ArgInfo("region_size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::find4QuadCornerSubpix(img, corners, region_size));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, corners));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, corners));
     }
 
 
@@ -12212,7 +12419,7 @@ static Napi::Value jsopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_region_size, region_size, ArgInfo("region_size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::find4QuadCornerSubpix(img, corners, region_size));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, corners));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, corners));
     }
 
 
@@ -12220,12 +12427,13 @@ static Napi::Value jsopencv_cv_find4QuadCornerSubpix(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "find4QuadCornerSubpix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findChessboardCorners(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12248,7 +12456,7 @@ static Napi::Value jsopencv_cv_findChessboardCorners(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findChessboardCorners(image, patternSize, corners, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, corners));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, corners));
     }
 
 
@@ -12275,7 +12483,7 @@ static Napi::Value jsopencv_cv_findChessboardCorners(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findChessboardCorners(image, patternSize, corners, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, corners));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, corners));
     }
 
 
@@ -12283,12 +12491,13 @@ static Napi::Value jsopencv_cv_findChessboardCorners(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "findChessboardCorners");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12311,7 +12520,7 @@ static Napi::Value jsopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findChessboardCornersSB(image, patternSize, corners, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, corners));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, corners));
     }
 
 
@@ -12338,7 +12547,7 @@ static Napi::Value jsopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findChessboardCornersSB(image, patternSize, corners, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, corners));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, corners));
     }
 
 
@@ -12346,12 +12555,13 @@ static Napi::Value jsopencv_cv_findChessboardCornersSB(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "findChessboardCornersSB");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findChessboardCornersSBWithMeta(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12377,7 +12587,7 @@ static Napi::Value jsopencv_cv_findChessboardCornersSBWithMeta(const Napi::Callb
         jsopencv_to_safe(jsobj_meta, meta, ArgInfo("meta", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findChessboardCornersSB(image, patternSize, corners, flags, meta));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, corners), jsopencv_from(info, meta));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, corners), jsopencv_from(env, meta));
     }
 
 
@@ -12407,7 +12617,7 @@ static Napi::Value jsopencv_cv_findChessboardCornersSBWithMeta(const Napi::Callb
         jsopencv_to_safe(jsobj_meta, meta, ArgInfo("meta", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findChessboardCornersSB(image, patternSize, corners, flags, meta));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, corners), jsopencv_from(info, meta));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, corners), jsopencv_from(env, meta));
     }
 
 
@@ -12415,12 +12625,13 @@ static Napi::Value jsopencv_cv_findChessboardCornersSBWithMeta(const Napi::Callb
     }
     jsRaiseCVOverloadException(info, "findChessboardCornersSBWithMeta");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -12449,7 +12660,7 @@ static Napi::Value jsopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findCirclesGrid(image, patternSize, centers, flags, blobDetector, parameters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, centers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, centers));
     }
 
 
@@ -12482,7 +12693,7 @@ static Napi::Value jsopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_parameters, parameters, ArgInfo("parameters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findCirclesGrid(image, patternSize, centers, flags, blobDetector, parameters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, centers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, centers));
     }
 
 
@@ -12512,7 +12723,7 @@ static Napi::Value jsopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_blobDetector, blobDetector, ArgInfo("blobDetector", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findCirclesGrid(image, patternSize, centers, flags, blobDetector));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, centers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, centers));
     }
 
 
@@ -12542,7 +12753,7 @@ static Napi::Value jsopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_blobDetector, blobDetector, ArgInfo("blobDetector", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findCirclesGrid(image, patternSize, centers, flags, blobDetector));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, centers));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, centers));
     }
 
 
@@ -12550,12 +12761,13 @@ static Napi::Value jsopencv_cv_findCirclesGrid(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "findCirclesGrid");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findContours(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -12583,7 +12795,7 @@ static Napi::Value jsopencv_cv_findContours(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, cv::findContours(image, contours, hierarchy, mode, method, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, contours), jsopencv_from(info, hierarchy));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, contours), jsopencv_from(env, hierarchy));
     }
 
 
@@ -12615,7 +12827,7 @@ static Napi::Value jsopencv_cv_findContours(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, cv::findContours(image, contours, hierarchy, mode, method, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, contours), jsopencv_from(info, hierarchy));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, contours), jsopencv_from(env, hierarchy));
     }
 
 
@@ -12623,12 +12835,13 @@ static Napi::Value jsopencv_cv_findContours(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "findContours");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(8);
 
@@ -12663,7 +12876,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, cameraMatrix, method, prob, threshold, maxIters, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12702,7 +12915,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, cameraMatrix, method, prob, threshold, maxIters, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12744,7 +12957,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, focal, pp, method, prob, threshold, maxIters, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12786,7 +12999,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, focal, pp, method, prob, threshold, maxIters, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12831,7 +13044,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, method, prob, threshold, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12876,7 +13089,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, method, prob, threshold, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12915,7 +13128,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, cameraMatrix1, cameraMatrix2, dist_coeff1, dist_coeff2, mask, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12954,7 +13167,7 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findEssentialMat(points1, points2, cameraMatrix1, cameraMatrix2, dist_coeff1, dist_coeff2, mask, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -12962,12 +13175,13 @@ static Napi::Value jsopencv_cv_findEssentialMat(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "findEssentialMat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(6);
 
@@ -12999,7 +13213,7 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findFundamentalMat(points1, points2, method, ransacReprojThreshold, confidence, maxIters, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13035,7 +13249,7 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findFundamentalMat(points1, points2, method, ransacReprojThreshold, confidence, maxIters, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13068,7 +13282,7 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findFundamentalMat(points1, points2, method, ransacReprojThreshold, confidence, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13101,7 +13315,7 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findFundamentalMat(points1, points2, method, ransacReprojThreshold, confidence, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13128,7 +13342,7 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findFundamentalMat(points1, points2, mask, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13155,7 +13369,7 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findFundamentalMat(points1, points2, mask, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13163,12 +13377,13 @@ static Napi::Value jsopencv_cv_findFundamentalMat(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "findFundamentalMat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findHomography(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -13200,7 +13415,7 @@ static Napi::Value jsopencv_cv_findHomography(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_confidence, confidence, ArgInfo("confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findHomography(srcPoints, dstPoints, method, ransacReprojThreshold, mask, maxIters, confidence));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13236,7 +13451,7 @@ static Napi::Value jsopencv_cv_findHomography(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_confidence, confidence, ArgInfo("confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findHomography(srcPoints, dstPoints, method, ransacReprojThreshold, mask, maxIters, confidence));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13263,7 +13478,7 @@ static Napi::Value jsopencv_cv_findHomography(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findHomography(srcPoints, dstPoints, mask, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13290,7 +13505,7 @@ static Napi::Value jsopencv_cv_findHomography(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findHomography(srcPoints, dstPoints, mask, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mask));
     }
 
 
@@ -13298,12 +13513,13 @@ static Napi::Value jsopencv_cv_findHomography(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "findHomography");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findNonZero(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13319,7 +13535,7 @@ static Napi::Value jsopencv_cv_findNonZero(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_idx, idx, ArgInfo("idx", 1)))
     {
         ERRWRAP2_NAPI(info, cv::findNonZero(src, idx));
-        return jsopencv_from(info, idx);
+        return jsopencv_from(env, idx);
     }
 
 
@@ -13339,7 +13555,7 @@ static Napi::Value jsopencv_cv_findNonZero(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_idx, idx, ArgInfo("idx", 1)))
     {
         ERRWRAP2_NAPI(info, cv::findNonZero(src, idx));
-        return jsopencv_from(info, idx);
+        return jsopencv_from(env, idx);
     }
 
 
@@ -13347,12 +13563,13 @@ static Napi::Value jsopencv_cv_findNonZero(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "findNonZero");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -13384,7 +13601,7 @@ static Napi::Value jsopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_gaussFiltSize, gaussFiltSize, ArgInfo("gaussFiltSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findTransformECC(templateImage, inputImage, warpMatrix, motionType, criteria, inputMask, gaussFiltSize));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, warpMatrix));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, warpMatrix));
     }
 
 
@@ -13420,7 +13637,7 @@ static Napi::Value jsopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_gaussFiltSize, gaussFiltSize, ArgInfo("gaussFiltSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findTransformECC(templateImage, inputImage, warpMatrix, motionType, criteria, inputMask, gaussFiltSize));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, warpMatrix));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, warpMatrix));
     }
 
 
@@ -13453,7 +13670,7 @@ static Napi::Value jsopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputMask, inputMask, ArgInfo("inputMask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findTransformECC(templateImage, inputImage, warpMatrix, motionType, criteria, inputMask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, warpMatrix));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, warpMatrix));
     }
 
 
@@ -13486,7 +13703,7 @@ static Napi::Value jsopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputMask, inputMask, ArgInfo("inputMask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::findTransformECC(templateImage, inputImage, warpMatrix, motionType, criteria, inputMask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, warpMatrix));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, warpMatrix));
     }
 
 
@@ -13494,12 +13711,13 @@ static Napi::Value jsopencv_cv_findTransformECC(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "findTransformECC");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13513,7 +13731,7 @@ static Napi::Value jsopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fitEllipse(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -13531,7 +13749,7 @@ static Napi::Value jsopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fitEllipse(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -13539,12 +13757,13 @@ static Napi::Value jsopencv_cv_fitEllipse(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "fitEllipse");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13558,7 +13777,7 @@ static Napi::Value jsopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fitEllipseAMS(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -13576,7 +13795,7 @@ static Napi::Value jsopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fitEllipseAMS(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -13584,12 +13803,13 @@ static Napi::Value jsopencv_cv_fitEllipseAMS(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "fitEllipseAMS");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13603,7 +13823,7 @@ static Napi::Value jsopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fitEllipseDirect(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -13621,7 +13841,7 @@ static Napi::Value jsopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fitEllipseDirect(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -13629,12 +13849,13 @@ static Napi::Value jsopencv_cv_fitEllipseDirect(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "fitEllipseDirect");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fitLine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13662,7 +13883,7 @@ static Napi::Value jsopencv_cv_fitLine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_aeps, aeps, ArgInfo("aeps", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fitLine(points, line, distType, param, reps, aeps));
-        return jsopencv_from(info, line);
+        return jsopencv_from(env, line);
     }
 
 
@@ -13694,7 +13915,7 @@ static Napi::Value jsopencv_cv_fitLine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_aeps, aeps, ArgInfo("aeps", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fitLine(points, line, distType, param, reps, aeps));
-        return jsopencv_from(info, line);
+        return jsopencv_from(env, line);
     }
 
 
@@ -13702,12 +13923,13 @@ static Napi::Value jsopencv_cv_fitLine(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "fitLine");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_flip(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13726,7 +13948,7 @@ static Napi::Value jsopencv_cv_flip(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flipCode, flipCode, ArgInfo("flipCode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::flip(src, dst, flipCode));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -13749,7 +13971,7 @@ static Napi::Value jsopencv_cv_flip(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flipCode, flipCode, ArgInfo("flipCode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::flip(src, dst, flipCode));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -13757,12 +13979,13 @@ static Napi::Value jsopencv_cv_flip(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "flip");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_flipND(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13781,7 +14004,7 @@ static Napi::Value jsopencv_cv_flipND(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_axis, axis, ArgInfo("axis", 0)))
     {
         ERRWRAP2_NAPI(info, cv::flipND(src, dst, axis));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -13804,7 +14027,7 @@ static Napi::Value jsopencv_cv_flipND(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_axis, axis, ArgInfo("axis", 0)))
     {
         ERRWRAP2_NAPI(info, cv::flipND(src, dst, axis));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -13812,12 +14035,13 @@ static Napi::Value jsopencv_cv_flipND(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "flipND");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_floodFill(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13850,7 +14074,7 @@ static Napi::Value jsopencv_cv_floodFill(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::floodFill(image, mask, seedPoint, newVal, &rect, loDiff, upDiff, flags));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, image), jsopencv_from(info, mask), jsopencv_from(info, rect));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, image), jsopencv_from(env, mask), jsopencv_from(env, rect));
     }
 
 
@@ -13887,7 +14111,7 @@ static Napi::Value jsopencv_cv_floodFill(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::floodFill(image, mask, seedPoint, newVal, &rect, loDiff, upDiff, flags));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, image), jsopencv_from(info, mask), jsopencv_from(info, rect));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, image), jsopencv_from(env, mask), jsopencv_from(env, rect));
     }
 
 
@@ -13895,12 +14119,13 @@ static Napi::Value jsopencv_cv_floodFill(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "floodFill");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gemm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13931,7 +14156,7 @@ static Napi::Value jsopencv_cv_gemm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::gemm(src1, src2, alpha, src3, beta, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -13966,7 +14191,7 @@ static Napi::Value jsopencv_cv_gemm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::gemm(src1, src2, alpha, src3, beta, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -13974,12 +14199,13 @@ static Napi::Value jsopencv_cv_gemm(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "gemm");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getAffineTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -13996,7 +14222,7 @@ static Napi::Value jsopencv_cv_getAffineTransform(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getAffineTransform(src, dst));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -14017,7 +14243,7 @@ static Napi::Value jsopencv_cv_getAffineTransform(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getAffineTransform(src, dst));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -14025,57 +14251,61 @@ static Napi::Value jsopencv_cv_getAffineTransform(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "getAffineTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getBuildInformation(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     String retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getBuildInformation());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getCPUFeaturesLine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     std::string retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getCPUFeaturesLine());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getCPUTickCount(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int64 retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getCPUTickCount());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -14095,7 +14325,7 @@ static Napi::Value jsopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_centerPrincipalPoint, centerPrincipalPoint, ArgInfo("centerPrincipalPoint", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getDefaultNewCameraMatrix(cameraMatrix, imgsize, centerPrincipalPoint));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -14119,7 +14349,7 @@ static Napi::Value jsopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_centerPrincipalPoint, centerPrincipalPoint, ArgInfo("centerPrincipalPoint", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getDefaultNewCameraMatrix(cameraMatrix, imgsize, centerPrincipalPoint));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -14127,12 +14357,13 @@ static Napi::Value jsopencv_cv_getDefaultNewCameraMatrix(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "getDefaultNewCameraMatrix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -14163,7 +14394,7 @@ static Napi::Value jsopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ktype, ktype, ArgInfo("ktype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::getDerivKernels(kx, ky, dx, dy, ksize, normalize, ktype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, kx), jsopencv_from(info, ky));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, kx), jsopencv_from(env, ky));
     }
 
 
@@ -14198,7 +14429,7 @@ static Napi::Value jsopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ktype, ktype, ArgInfo("ktype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::getDerivKernels(kx, ky, dx, dy, ksize, normalize, ktype));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, kx), jsopencv_from(info, ky));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, kx), jsopencv_from(env, ky));
     }
 
 
@@ -14206,12 +14437,13 @@ static Napi::Value jsopencv_cv_getDerivKernels(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "getDerivKernels");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getFontScaleFromHeight(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_fontFace = NULL;
     int fontFace=0;
@@ -14228,15 +14460,16 @@ static Napi::Value jsopencv_cv_getFontScaleFromHeight(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getFontScaleFromHeight(fontFace, pixelHeight, thickness));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getGaborKernel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_ksize = NULL;
     Size ksize;
@@ -14265,15 +14498,16 @@ static Napi::Value jsopencv_cv_getGaborKernel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ktype, ktype, ArgInfo("ktype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getGaborKernel(ksize, sigma, theta, lambd, gamma, psi, ktype));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getGaussianKernel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_ksize = NULL;
     int ksize=0;
@@ -14290,15 +14524,16 @@ static Napi::Value jsopencv_cv_getGaussianKernel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ktype, ktype, ArgInfo("ktype", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getGaussianKernel(ksize, sigma, ktype));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getHardwareFeatureName(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_feature = NULL;
     int feature=0;
@@ -14309,60 +14544,64 @@ static Napi::Value jsopencv_cv_getHardwareFeatureName(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_feature, feature, ArgInfo("feature", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getHardwareFeatureName(feature));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getLogLevel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getLogLevel());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getNumThreads(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getNumThreads());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getNumberOfCPUs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getNumberOfCPUs());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getOptimalDFTSize(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_vecsize = NULL;
     int vecsize=0;
@@ -14373,15 +14612,16 @@ static Napi::Value jsopencv_cv_getOptimalDFTSize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_vecsize, vecsize, ArgInfo("vecsize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getOptimalDFTSize(vecsize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -14411,7 +14651,7 @@ static Napi::Value jsopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_centerPrincipalPoint, centerPrincipalPoint, ArgInfo("centerPrincipalPoint", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, alpha, newImgSize, &validPixROI, centerPrincipalPoint));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, validPixROI));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, validPixROI));
     }
 
 
@@ -14445,7 +14685,7 @@ static Napi::Value jsopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_centerPrincipalPoint, centerPrincipalPoint, ArgInfo("centerPrincipalPoint", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, alpha, newImgSize, &validPixROI, centerPrincipalPoint));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, validPixROI));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, validPixROI));
     }
 
 
@@ -14453,12 +14693,13 @@ static Napi::Value jsopencv_cv_getOptimalNewCameraMatrix(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "getOptimalNewCameraMatrix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -14478,7 +14719,7 @@ static Napi::Value jsopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_solveMethod, solveMethod, ArgInfo("solveMethod", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getPerspectiveTransform(src, dst, solveMethod));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -14502,7 +14743,7 @@ static Napi::Value jsopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_solveMethod, solveMethod, ArgInfo("solveMethod", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getPerspectiveTransform(src, dst, solveMethod));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -14510,12 +14751,13 @@ static Napi::Value jsopencv_cv_getPerspectiveTransform(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "getPerspectiveTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -14540,7 +14782,7 @@ static Napi::Value jsopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_patchType, patchType, ArgInfo("patchType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::getRectSubPix(image, patchSize, center, patch, patchType));
-        return jsopencv_from(info, patch);
+        return jsopencv_from(env, patch);
     }
 
 
@@ -14569,7 +14811,7 @@ static Napi::Value jsopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_patchType, patchType, ArgInfo("patchType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::getRectSubPix(image, patchSize, center, patch, patchType));
-        return jsopencv_from(info, patch);
+        return jsopencv_from(env, patch);
     }
 
 
@@ -14577,12 +14819,13 @@ static Napi::Value jsopencv_cv_getRectSubPix(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "getRectSubPix");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getRotationMatrix2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_center = NULL;
     Point2f center;
@@ -14599,15 +14842,16 @@ static Napi::Value jsopencv_cv_getRotationMatrix2D(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getRotationMatrix2D(center, angle, scale));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getStructuringElement(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_shape = NULL;
     int shape=0;
@@ -14624,15 +14868,16 @@ static Napi::Value jsopencv_cv_getStructuringElement(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_anchor, anchor, ArgInfo("anchor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getStructuringElement(shape, ksize, anchor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getTextSize(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_text = NULL;
     String text;
@@ -14653,60 +14898,64 @@ static Napi::Value jsopencv_cv_getTextSize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getTextSize(text, fontFace, fontScale, thickness, &baseLine));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, baseLine));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, baseLine));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getThreadNum(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getThreadNum());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getTickCount(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int64 retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getTickCount());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getTickFrequency(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     double retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getTickFrequency());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getTrackbarPos(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_trackbarname = NULL;
     String trackbarname;
@@ -14720,15 +14969,16 @@ static Napi::Value jsopencv_cv_getTrackbarPos(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_winname, winname, ArgInfo("winname", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getTrackbarPos(trackbarname, winname));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getValidDisparityROI(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_roi1 = NULL;
     Rect roi1;
@@ -14751,75 +15001,80 @@ static Napi::Value jsopencv_cv_getValidDisparityROI(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_blockSize, blockSize, ArgInfo("blockSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getValidDisparityROI(roi1, roi2, minDisparity, numberOfDisparities, blockSize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getVersionMajor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionMajor());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getVersionMinor(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionMinor());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getVersionRevision(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionRevision());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getVersionString(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     String retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::getVersionString());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getWindowImageRect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -14830,15 +15085,16 @@ static Napi::Value jsopencv_cv_getWindowImageRect(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_winname, winname, ArgInfo("winname", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getWindowImageRect(winname));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getWindowProperty(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -14852,15 +15108,16 @@ static Napi::Value jsopencv_cv_getWindowProperty(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_prop_id, prop_id, ArgInfo("prop_id", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::getWindowProperty(winname, prop_id));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -14897,7 +15154,7 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::goodFeaturesToTrack(image, corners, maxCorners, qualityLevel, minDistance, mask, blockSize, useHarrisDetector, k));
-        return jsopencv_from(info, corners);
+        return jsopencv_from(env, corners);
     }
 
 
@@ -14938,7 +15195,7 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::goodFeaturesToTrack(image, corners, maxCorners, qualityLevel, minDistance, mask, blockSize, useHarrisDetector, k));
-        return jsopencv_from(info, corners);
+        return jsopencv_from(env, corners);
     }
 
 
@@ -14982,7 +15239,7 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::goodFeaturesToTrack(image, corners, maxCorners, qualityLevel, minDistance, mask, blockSize, gradientSize, useHarrisDetector, k));
-        return jsopencv_from(info, corners);
+        return jsopencv_from(env, corners);
     }
 
 
@@ -15026,7 +15283,7 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::goodFeaturesToTrack(image, corners, maxCorners, qualityLevel, minDistance, mask, blockSize, gradientSize, useHarrisDetector, k));
-        return jsopencv_from(info, corners);
+        return jsopencv_from(env, corners);
     }
 
 
@@ -15034,12 +15291,13 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrack(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "goodFeaturesToTrack");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_goodFeaturesToTrackWithQuality(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15082,7 +15340,7 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrackWithQuality(const Napi::Callba
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::goodFeaturesToTrack(image, corners, maxCorners, qualityLevel, minDistance, mask, cornersQuality, blockSize, gradientSize, useHarrisDetector, k));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, corners), jsopencv_from(info, cornersQuality));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, corners), jsopencv_from(env, cornersQuality));
     }
 
 
@@ -15129,7 +15387,7 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrackWithQuality(const Napi::Callba
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::goodFeaturesToTrack(image, corners, maxCorners, qualityLevel, minDistance, mask, cornersQuality, blockSize, gradientSize, useHarrisDetector, k));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, corners), jsopencv_from(info, cornersQuality));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, corners), jsopencv_from(env, cornersQuality));
     }
 
 
@@ -15137,12 +15395,13 @@ static Napi::Value jsopencv_cv_goodFeaturesToTrackWithQuality(const Napi::Callba
     }
     jsRaiseCVOverloadException(info, "goodFeaturesToTrackWithQuality");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_grabCut(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15173,7 +15432,7 @@ static Napi::Value jsopencv_cv_grabCut(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::grabCut(img, mask, rect, bgdModel, fgdModel, iterCount, mode));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, mask), jsopencv_from(info, bgdModel), jsopencv_from(info, fgdModel));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, mask), jsopencv_from(env, bgdModel), jsopencv_from(env, fgdModel));
     }
 
 
@@ -15208,7 +15467,7 @@ static Napi::Value jsopencv_cv_grabCut(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::grabCut(img, mask, rect, bgdModel, fgdModel, iterCount, mode));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, mask), jsopencv_from(info, bgdModel), jsopencv_from(info, fgdModel));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, mask), jsopencv_from(env, bgdModel), jsopencv_from(env, fgdModel));
     }
 
 
@@ -15216,12 +15475,13 @@ static Napi::Value jsopencv_cv_grabCut(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "grabCut");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_groupRectangles(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_rectList = NULL;
     vector_Rect rectList;
@@ -15238,15 +15498,16 @@ static Napi::Value jsopencv_cv_groupRectangles(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_eps, eps, ArgInfo("eps", 0)))
     {
         ERRWRAP2_NAPI(info, cv::groupRectangles(rectList, weights, groupThreshold, eps));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, rectList), jsopencv_from(info, weights));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, rectList), jsopencv_from(env, weights));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_haveImageReader(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -15257,15 +15518,16 @@ static Napi::Value jsopencv_cv_haveImageReader(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::haveImageReader(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_haveImageWriter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -15276,30 +15538,32 @@ static Napi::Value jsopencv_cv_haveImageWriter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::haveImageWriter(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_haveOpenVX(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::haveOpenVX());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_hconcat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15315,7 +15579,7 @@ static Napi::Value jsopencv_cv_hconcat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::hconcat(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15335,7 +15599,7 @@ static Napi::Value jsopencv_cv_hconcat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::hconcat(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15343,12 +15607,13 @@ static Napi::Value jsopencv_cv_hconcat(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "hconcat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_idct(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15367,7 +15632,7 @@ static Napi::Value jsopencv_cv_idct(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::idct(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15390,7 +15655,7 @@ static Napi::Value jsopencv_cv_idct(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::idct(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15398,12 +15663,13 @@ static Napi::Value jsopencv_cv_idct(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "idct");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_idft(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15425,7 +15691,7 @@ static Napi::Value jsopencv_cv_idft(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nonzeroRows, nonzeroRows, ArgInfo("nonzeroRows", 0)))
     {
         ERRWRAP2_NAPI(info, cv::idft(src, dst, flags, nonzeroRows));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15451,7 +15717,7 @@ static Napi::Value jsopencv_cv_idft(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nonzeroRows, nonzeroRows, ArgInfo("nonzeroRows", 0)))
     {
         ERRWRAP2_NAPI(info, cv::idft(src, dst, flags, nonzeroRows));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15459,12 +15725,13 @@ static Napi::Value jsopencv_cv_idft(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "idft");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15489,7 +15756,7 @@ static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_beta, beta, ArgInfo("beta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::illuminationChange(src, mask, dst, alpha, beta));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15518,7 +15785,7 @@ static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_beta, beta, ArgInfo("beta", 0)))
     {
         ERRWRAP2_NAPI(info, cv::illuminationChange(src, mask, dst, alpha, beta));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -15526,12 +15793,13 @@ static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "illuminationChange");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imcount(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -15545,15 +15813,16 @@ static Napi::Value jsopencv_cv_imcount(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imcount(filename, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15570,7 +15839,7 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imdecode(buf, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -15591,7 +15860,7 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imdecode(buf, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -15599,12 +15868,13 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imdecode");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15624,7 +15894,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mats, mats, ArgInfo("mats", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imdecodemulti(buf, flags, mats));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mats));
     }
 
 
@@ -15648,7 +15918,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mats, mats, ArgInfo("mats", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imdecodemulti(buf, flags, mats));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mats));
     }
 
 
@@ -15656,12 +15926,13 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imdecodemulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15682,7 +15953,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, buf));
     }
 
 
@@ -15707,7 +15978,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imencode(ext, img, buf, params));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, buf));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, buf));
     }
 
 
@@ -15715,12 +15986,13 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imencode");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -15734,15 +16006,16 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imread(filename, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15762,7 +16035,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imreadmulti(filename, mats, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mats));
     }
 
 
@@ -15792,7 +16065,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imreadmulti(filename, mats, start, count, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, mats));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, mats));
     }
 
 
@@ -15800,12 +16073,13 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imreadmulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -15821,7 +16095,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -15841,7 +16115,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -15861,7 +16135,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(info, cv::imshow(winname, mat));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -15869,12 +16143,13 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imshow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15894,7 +16169,7 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imwrite(filename, img, params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -15918,7 +16193,7 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imwrite(filename, img, params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -15926,12 +16201,13 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imwrite");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -15951,7 +16227,7 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imwritemulti(filename, img, params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -15975,7 +16251,7 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::imwritemulti(filename, img, params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -15983,12 +16259,13 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imwritemulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16010,7 +16287,7 @@ static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::inRange(src, lowerb, upperb, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -16036,7 +16313,7 @@ static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::inRange(src, lowerb, upperb, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -16044,12 +16321,13 @@ static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "inRange");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16072,7 +16350,7 @@ static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_aspectRatio, aspectRatio, ArgInfo("aspectRatio", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::initCameraMatrix2D(objectPoints, imagePoints, imageSize, aspectRatio));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -16099,7 +16377,7 @@ static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_aspectRatio, aspectRatio, ArgInfo("aspectRatio", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::initCameraMatrix2D(objectPoints, imagePoints, imageSize, aspectRatio));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -16107,12 +16385,13 @@ static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "initCameraMatrix2D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_initInverseRectificationMap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16146,7 +16425,7 @@ static Napi::Value jsopencv_cv_initInverseRectificationMap(const Napi::CallbackI
         jsopencv_to_safe(jsobj_map2, map2, ArgInfo("map2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::initInverseRectificationMap(cameraMatrix, distCoeffs, R, newCameraMatrix, size, m1type, map1, map2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, map1), jsopencv_from(info, map2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, map1), jsopencv_from(env, map2));
     }
 
 
@@ -16184,7 +16463,7 @@ static Napi::Value jsopencv_cv_initInverseRectificationMap(const Napi::CallbackI
         jsopencv_to_safe(jsobj_map2, map2, ArgInfo("map2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::initInverseRectificationMap(cameraMatrix, distCoeffs, R, newCameraMatrix, size, m1type, map1, map2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, map1), jsopencv_from(info, map2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, map1), jsopencv_from(env, map2));
     }
 
 
@@ -16192,12 +16471,13 @@ static Napi::Value jsopencv_cv_initInverseRectificationMap(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "initInverseRectificationMap");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16231,7 +16511,7 @@ static Napi::Value jsopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_map2, map2, ArgInfo("map2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::initUndistortRectifyMap(cameraMatrix, distCoeffs, R, newCameraMatrix, size, m1type, map1, map2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, map1), jsopencv_from(info, map2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, map1), jsopencv_from(env, map2));
     }
 
 
@@ -16269,7 +16549,7 @@ static Napi::Value jsopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_map2, map2, ArgInfo("map2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::initUndistortRectifyMap(cameraMatrix, distCoeffs, R, newCameraMatrix, size, m1type, map1, map2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, map1), jsopencv_from(info, map2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, map1), jsopencv_from(env, map2));
     }
 
 
@@ -16277,12 +16557,13 @@ static Napi::Value jsopencv_cv_initUndistortRectifyMap(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "initUndistortRectifyMap");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_inpaint(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16307,7 +16588,7 @@ static Napi::Value jsopencv_cv_inpaint(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::inpaint(src, inpaintMask, dst, inpaintRadius, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -16336,7 +16617,7 @@ static Napi::Value jsopencv_cv_inpaint(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::inpaint(src, inpaintMask, dst, inpaintRadius, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -16344,12 +16625,13 @@ static Napi::Value jsopencv_cv_inpaint(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "inpaint");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_insertChannel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16368,7 +16650,7 @@ static Napi::Value jsopencv_cv_insertChannel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_coi, coi, ArgInfo("coi", 0)))
     {
         ERRWRAP2_NAPI(info, cv::insertChannel(src, dst, coi));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -16391,7 +16673,7 @@ static Napi::Value jsopencv_cv_insertChannel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_coi, coi, ArgInfo("coi", 0)))
     {
         ERRWRAP2_NAPI(info, cv::insertChannel(src, dst, coi));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -16399,12 +16681,13 @@ static Napi::Value jsopencv_cv_insertChannel(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "insertChannel");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_integral(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16423,7 +16706,7 @@ static Napi::Value jsopencv_cv_integral(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sdepth, sdepth, ArgInfo("sdepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::integral(src, sum, sdepth));
-        return jsopencv_from(info, sum);
+        return jsopencv_from(env, sum);
     }
 
 
@@ -16446,7 +16729,7 @@ static Napi::Value jsopencv_cv_integral(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sdepth, sdepth, ArgInfo("sdepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::integral(src, sum, sdepth));
-        return jsopencv_from(info, sum);
+        return jsopencv_from(env, sum);
     }
 
 
@@ -16454,12 +16737,13 @@ static Napi::Value jsopencv_cv_integral(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "integral");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_integral2(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16484,7 +16768,7 @@ static Napi::Value jsopencv_cv_integral2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sqdepth, sqdepth, ArgInfo("sqdepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::integral(src, sum, sqsum, sdepth, sqdepth));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, sum), jsopencv_from(info, sqsum));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, sum), jsopencv_from(env, sqsum));
     }
 
 
@@ -16513,7 +16797,7 @@ static Napi::Value jsopencv_cv_integral2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sqdepth, sqdepth, ArgInfo("sqdepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::integral(src, sum, sqsum, sdepth, sqdepth));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, sum), jsopencv_from(info, sqsum));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, sum), jsopencv_from(env, sqsum));
     }
 
 
@@ -16521,12 +16805,13 @@ static Napi::Value jsopencv_cv_integral2(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "integral2");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_integral3(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16554,7 +16839,7 @@ static Napi::Value jsopencv_cv_integral3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sqdepth, sqdepth, ArgInfo("sqdepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::integral(src, sum, sqsum, tilted, sdepth, sqdepth));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, sum), jsopencv_from(info, sqsum), jsopencv_from(info, tilted));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, sum), jsopencv_from(env, sqsum), jsopencv_from(env, tilted));
     }
 
 
@@ -16586,7 +16871,7 @@ static Napi::Value jsopencv_cv_integral3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sqdepth, sqdepth, ArgInfo("sqdepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::integral(src, sum, sqsum, tilted, sdepth, sqdepth));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, sum), jsopencv_from(info, sqsum), jsopencv_from(info, tilted));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, sum), jsopencv_from(env, sqsum), jsopencv_from(env, tilted));
     }
 
 
@@ -16594,12 +16879,13 @@ static Napi::Value jsopencv_cv_integral3(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "integral3");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16622,7 +16908,7 @@ static Napi::Value jsopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_handleNested, handleNested, ArgInfo("handleNested", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::intersectConvexConvex(p1, p2, p12, handleNested));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, p12));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, p12));
     }
 
 
@@ -16649,7 +16935,7 @@ static Napi::Value jsopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_handleNested, handleNested, ArgInfo("handleNested", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::intersectConvexConvex(p1, p2, p12, handleNested));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, p12));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, p12));
     }
 
 
@@ -16657,12 +16943,13 @@ static Napi::Value jsopencv_cv_intersectConvexConvex(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "intersectConvexConvex");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_invert(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16682,7 +16969,7 @@ static Napi::Value jsopencv_cv_invert(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::invert(src, dst, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -16706,7 +16993,7 @@ static Napi::Value jsopencv_cv_invert(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::invert(src, dst, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -16714,12 +17001,13 @@ static Napi::Value jsopencv_cv_invert(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "invert");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_invertAffineTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16735,7 +17023,7 @@ static Napi::Value jsopencv_cv_invertAffineTransform(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_iM, iM, ArgInfo("iM", 1)))
     {
         ERRWRAP2_NAPI(info, cv::invertAffineTransform(M, iM));
-        return jsopencv_from(info, iM);
+        return jsopencv_from(env, iM);
     }
 
 
@@ -16755,7 +17043,7 @@ static Napi::Value jsopencv_cv_invertAffineTransform(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_iM, iM, ArgInfo("iM", 1)))
     {
         ERRWRAP2_NAPI(info, cv::invertAffineTransform(M, iM));
-        return jsopencv_from(info, iM);
+        return jsopencv_from(env, iM);
     }
 
 
@@ -16763,12 +17051,13 @@ static Napi::Value jsopencv_cv_invertAffineTransform(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "invertAffineTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16782,7 +17071,7 @@ static Napi::Value jsopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_contour, contour, ArgInfo("contour", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::isContourConvex(contour));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -16800,7 +17089,7 @@ static Napi::Value jsopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_contour, contour, ArgInfo("contour", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::isContourConvex(contour));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -16808,12 +17097,13 @@ static Napi::Value jsopencv_cv_isContourConvex(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "isContourConvex");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_kmeans(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16845,7 +17135,7 @@ static Napi::Value jsopencv_cv_kmeans(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_centers, centers, ArgInfo("centers", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::kmeans(data, K, bestLabels, criteria, attempts, flags, centers));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, bestLabels), jsopencv_from(info, centers));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, bestLabels), jsopencv_from(env, centers));
     }
 
 
@@ -16881,7 +17171,7 @@ static Napi::Value jsopencv_cv_kmeans(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_centers, centers, ArgInfo("centers", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::kmeans(data, K, bestLabels, criteria, attempts, flags, centers));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, bestLabels), jsopencv_from(info, centers));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, bestLabels), jsopencv_from(env, centers));
     }
 
 
@@ -16889,12 +17179,13 @@ static Napi::Value jsopencv_cv_kmeans(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "kmeans");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_line(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16925,7 +17216,7 @@ static Napi::Value jsopencv_cv_line(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::line(img, pt1, pt2, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -16960,7 +17251,7 @@ static Napi::Value jsopencv_cv_line(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::line(img, pt1, pt2, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -16968,12 +17259,13 @@ static Napi::Value jsopencv_cv_line(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "line");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_linearPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -16998,7 +17290,7 @@ static Napi::Value jsopencv_cv_linearPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::linearPolar(src, dst, center, maxRadius, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17027,7 +17319,7 @@ static Napi::Value jsopencv_cv_linearPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::linearPolar(src, dst, center, maxRadius, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17035,12 +17327,13 @@ static Napi::Value jsopencv_cv_linearPolar(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "linearPolar");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_log(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17056,7 +17349,7 @@ static Napi::Value jsopencv_cv_log(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::log(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17076,7 +17369,7 @@ static Napi::Value jsopencv_cv_log(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::log(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17084,12 +17377,13 @@ static Napi::Value jsopencv_cv_log(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "log");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_logPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17114,7 +17408,7 @@ static Napi::Value jsopencv_cv_logPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::logPolar(src, dst, center, M, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17143,7 +17437,7 @@ static Napi::Value jsopencv_cv_logPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::logPolar(src, dst, center, M, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17151,12 +17445,13 @@ static Napi::Value jsopencv_cv_logPolar(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "logPolar");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_magnitude(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17175,7 +17470,7 @@ static Napi::Value jsopencv_cv_magnitude(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_magnitude, magnitude, ArgInfo("magnitude", 1)))
     {
         ERRWRAP2_NAPI(info, cv::magnitude(x, y, magnitude));
-        return jsopencv_from(info, magnitude);
+        return jsopencv_from(env, magnitude);
     }
 
 
@@ -17198,7 +17493,7 @@ static Napi::Value jsopencv_cv_magnitude(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_magnitude, magnitude, ArgInfo("magnitude", 1)))
     {
         ERRWRAP2_NAPI(info, cv::magnitude(x, y, magnitude));
-        return jsopencv_from(info, magnitude);
+        return jsopencv_from(env, magnitude);
     }
 
 
@@ -17206,12 +17501,13 @@ static Napi::Value jsopencv_cv_magnitude(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "magnitude");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17233,7 +17529,7 @@ static Napi::Value jsopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dABdB, dABdB, ArgInfo("dABdB", 1)))
     {
         ERRWRAP2_NAPI(info, cv::matMulDeriv(A, B, dABdA, dABdB));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dABdA), jsopencv_from(info, dABdB));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dABdA), jsopencv_from(env, dABdB));
     }
 
 
@@ -17259,7 +17555,7 @@ static Napi::Value jsopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dABdB, dABdB, ArgInfo("dABdB", 1)))
     {
         ERRWRAP2_NAPI(info, cv::matMulDeriv(A, B, dABdA, dABdB));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dABdA), jsopencv_from(info, dABdB));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dABdA), jsopencv_from(env, dABdB));
     }
 
 
@@ -17267,12 +17563,13 @@ static Napi::Value jsopencv_cv_matMulDeriv(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "matMulDeriv");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_matchShapes(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17295,7 +17592,7 @@ static Napi::Value jsopencv_cv_matchShapes(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_parameter, parameter, ArgInfo("parameter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::matchShapes(contour1, contour2, method, parameter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -17322,7 +17619,7 @@ static Napi::Value jsopencv_cv_matchShapes(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_parameter, parameter, ArgInfo("parameter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::matchShapes(contour1, contour2, method, parameter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -17330,12 +17627,13 @@ static Napi::Value jsopencv_cv_matchShapes(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "matchShapes");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17360,7 +17658,7 @@ static Napi::Value jsopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::matchTemplate(image, templ, result, method, mask));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -17389,7 +17687,7 @@ static Napi::Value jsopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::matchTemplate(image, templ, result, method, mask));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -17397,12 +17695,13 @@ static Napi::Value jsopencv_cv_matchTemplate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "matchTemplate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_max(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17421,7 +17720,7 @@ static Napi::Value jsopencv_cv_max(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::max(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17444,7 +17743,7 @@ static Napi::Value jsopencv_cv_max(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::max(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17452,12 +17751,13 @@ static Napi::Value jsopencv_cv_max(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "max");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mean(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17474,7 +17774,7 @@ static Napi::Value jsopencv_cv_mean(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::mean(src, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -17495,7 +17795,7 @@ static Napi::Value jsopencv_cv_mean(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::mean(src, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -17503,12 +17803,13 @@ static Napi::Value jsopencv_cv_mean(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "mean");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_meanShift(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17528,7 +17829,7 @@ static Napi::Value jsopencv_cv_meanShift(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::meanShift(probImage, window, criteria));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, window));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, window));
     }
 
 
@@ -17552,7 +17853,7 @@ static Napi::Value jsopencv_cv_meanShift(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::meanShift(probImage, window, criteria));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, window));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, window));
     }
 
 
@@ -17560,12 +17861,13 @@ static Napi::Value jsopencv_cv_meanShift(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "meanShift");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17587,7 +17889,7 @@ static Napi::Value jsopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::meanStdDev(src, mean, stddev, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, mean), jsopencv_from(info, stddev));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, mean), jsopencv_from(env, stddev));
     }
 
 
@@ -17613,7 +17915,7 @@ static Napi::Value jsopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::meanStdDev(src, mean, stddev, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, mean), jsopencv_from(info, stddev));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, mean), jsopencv_from(env, stddev));
     }
 
 
@@ -17621,12 +17923,13 @@ static Napi::Value jsopencv_cv_meanStdDev(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "meanStdDev");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_medianBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17645,7 +17948,7 @@ static Napi::Value jsopencv_cv_medianBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ksize, ksize, ArgInfo("ksize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::medianBlur(src, dst, ksize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17668,7 +17971,7 @@ static Napi::Value jsopencv_cv_medianBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ksize, ksize, ArgInfo("ksize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::medianBlur(src, dst, ksize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17676,12 +17979,13 @@ static Napi::Value jsopencv_cv_medianBlur(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "medianBlur");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_merge(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17697,7 +18001,7 @@ static Napi::Value jsopencv_cv_merge(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::merge(mv, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17717,7 +18021,7 @@ static Napi::Value jsopencv_cv_merge(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::merge(mv, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17725,12 +18029,13 @@ static Napi::Value jsopencv_cv_merge(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "merge");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_min(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17749,7 +18054,7 @@ static Napi::Value jsopencv_cv_min(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::min(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17772,7 +18077,7 @@ static Napi::Value jsopencv_cv_min(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::min(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -17780,12 +18085,13 @@ static Napi::Value jsopencv_cv_min(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "min");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17799,7 +18105,7 @@ static Napi::Value jsopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::minAreaRect(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -17817,7 +18123,7 @@ static Napi::Value jsopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::minAreaRect(points));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -17825,12 +18131,13 @@ static Napi::Value jsopencv_cv_minAreaRect(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "minAreaRect");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17845,7 +18152,7 @@ static Napi::Value jsopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, cv::minEnclosingCircle(points, center, radius));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, center), jsopencv_from(info, radius));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, center), jsopencv_from(env, radius));
     }
 
 
@@ -17864,7 +18171,7 @@ static Napi::Value jsopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_points, points, ArgInfo("points", 0)))
     {
         ERRWRAP2_NAPI(info, cv::minEnclosingCircle(points, center, radius));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, center), jsopencv_from(info, radius));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, center), jsopencv_from(env, radius));
     }
 
 
@@ -17872,12 +18179,13 @@ static Napi::Value jsopencv_cv_minEnclosingCircle(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "minEnclosingCircle");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17894,7 +18202,7 @@ static Napi::Value jsopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_triangle, triangle, ArgInfo("triangle", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::minEnclosingTriangle(points, triangle));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, triangle));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, triangle));
     }
 
 
@@ -17915,7 +18223,7 @@ static Napi::Value jsopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_triangle, triangle, ArgInfo("triangle", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::minEnclosingTriangle(points, triangle));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, triangle));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, triangle));
     }
 
 
@@ -17923,12 +18231,13 @@ static Napi::Value jsopencv_cv_minEnclosingTriangle(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "minEnclosingTriangle");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -17948,7 +18257,7 @@ static Napi::Value jsopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::minMaxLoc(src, &minVal, &maxVal, &minLoc, &maxLoc, mask));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, minVal), jsopencv_from(info, maxVal), jsopencv_from(info, minLoc), jsopencv_from(info, maxLoc));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, minVal), jsopencv_from(env, maxVal), jsopencv_from(env, minLoc), jsopencv_from(env, maxLoc));
     }
 
 
@@ -17972,7 +18281,7 @@ static Napi::Value jsopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::minMaxLoc(src, &minVal, &maxVal, &minLoc, &maxLoc, mask));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, minVal), jsopencv_from(info, maxVal), jsopencv_from(info, minLoc), jsopencv_from(info, maxLoc));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, minVal), jsopencv_from(env, maxVal), jsopencv_from(env, minLoc), jsopencv_from(env, maxLoc));
     }
 
 
@@ -17980,12 +18289,13 @@ static Napi::Value jsopencv_cv_minMaxLoc(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "minMaxLoc");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mixChannels(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18004,7 +18314,7 @@ static Napi::Value jsopencv_cv_mixChannels(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromTo, fromTo, ArgInfo("fromTo", 0)))
     {
         ERRWRAP2_NAPI(info, cv::mixChannels(src, dst, fromTo));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18027,7 +18337,7 @@ static Napi::Value jsopencv_cv_mixChannels(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromTo, fromTo, ArgInfo("fromTo", 0)))
     {
         ERRWRAP2_NAPI(info, cv::mixChannels(src, dst, fromTo));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18035,12 +18345,13 @@ static Napi::Value jsopencv_cv_mixChannels(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "mixChannels");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_moments(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18057,7 +18368,7 @@ static Napi::Value jsopencv_cv_moments(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_binaryImage, binaryImage, ArgInfo("binaryImage", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::moments(array, binaryImage));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18078,7 +18389,7 @@ static Napi::Value jsopencv_cv_moments(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_binaryImage, binaryImage, ArgInfo("binaryImage", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::moments(array, binaryImage));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18086,12 +18397,13 @@ static Napi::Value jsopencv_cv_moments(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "moments");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18125,7 +18437,7 @@ static Napi::Value jsopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::morphologyEx(src, dst, op, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18163,7 +18475,7 @@ static Napi::Value jsopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::morphologyEx(src, dst, op, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18171,12 +18483,13 @@ static Napi::Value jsopencv_cv_morphologyEx(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "morphologyEx");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_moveWindow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -18192,15 +18505,16 @@ static Napi::Value jsopencv_cv_moveWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_y, y, ArgInfo("y", 0)))
     {
         ERRWRAP2_NAPI(info, cv::moveWindow(winname, x, y));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18225,7 +18539,7 @@ static Napi::Value jsopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_conjB, conjB, ArgInfo("conjB", 0)))
     {
         ERRWRAP2_NAPI(info, cv::mulSpectrums(a, b, c, flags, conjB));
-        return jsopencv_from(info, c);
+        return jsopencv_from(env, c);
     }
 
 
@@ -18254,7 +18568,7 @@ static Napi::Value jsopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_conjB, conjB, ArgInfo("conjB", 0)))
     {
         ERRWRAP2_NAPI(info, cv::mulSpectrums(a, b, c, flags, conjB));
-        return jsopencv_from(info, c);
+        return jsopencv_from(env, c);
     }
 
 
@@ -18262,12 +18576,13 @@ static Napi::Value jsopencv_cv_mulSpectrums(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "mulSpectrums");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18295,7 +18610,7 @@ static Napi::Value jsopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::mulTransposed(src, dst, aTa, delta, scale, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18327,7 +18642,7 @@ static Napi::Value jsopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::mulTransposed(src, dst, aTa, delta, scale, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18335,12 +18650,13 @@ static Napi::Value jsopencv_cv_mulTransposed(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "mulTransposed");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_multiply(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18365,7 +18681,7 @@ static Napi::Value jsopencv_cv_multiply(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::multiply(src1, src2, dst, scale, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18394,7 +18710,7 @@ static Napi::Value jsopencv_cv_multiply(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::multiply(src1, src2, dst, scale, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18402,12 +18718,13 @@ static Napi::Value jsopencv_cv_multiply(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "multiply");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_namedWindow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -18420,15 +18737,16 @@ static Napi::Value jsopencv_cv_namedWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::namedWindow(winname, flags));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_norm(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -18448,7 +18766,7 @@ static Napi::Value jsopencv_cv_norm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::norm(src1, normType, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18472,7 +18790,7 @@ static Napi::Value jsopencv_cv_norm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::norm(src1, normType, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18499,7 +18817,7 @@ static Napi::Value jsopencv_cv_norm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::norm(src1, src2, normType, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18526,7 +18844,7 @@ static Napi::Value jsopencv_cv_norm(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::norm(src1, src2, normType, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18534,12 +18852,13 @@ static Napi::Value jsopencv_cv_norm(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "norm");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_normalize(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18570,7 +18889,7 @@ static Napi::Value jsopencv_cv_normalize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::normalize(src, dst, alpha, beta, norm_type, dtype, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18605,7 +18924,7 @@ static Napi::Value jsopencv_cv_normalize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::normalize(src, dst, alpha, beta, norm_type, dtype, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18613,12 +18932,13 @@ static Napi::Value jsopencv_cv_normalize(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "normalize");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18634,7 +18954,7 @@ static Napi::Value jsopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_val, val, ArgInfo("val", 0)))
     {
         ERRWRAP2_NAPI(info, cv::patchNaNs(a, val));
-        return jsopencv_from(info, a);
+        return jsopencv_from(env, a);
     }
 
 
@@ -18654,7 +18974,7 @@ static Napi::Value jsopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_val, val, ArgInfo("val", 0)))
     {
         ERRWRAP2_NAPI(info, cv::patchNaNs(a, val));
-        return jsopencv_from(info, a);
+        return jsopencv_from(env, a);
     }
 
 
@@ -18662,12 +18982,13 @@ static Napi::Value jsopencv_cv_patchNaNs(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "patchNaNs");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18695,7 +19016,7 @@ static Napi::Value jsopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shade_factor, shade_factor, ArgInfo("shade_factor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pencilSketch(src, dst1, dst2, sigma_s, sigma_r, shade_factor));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dst1), jsopencv_from(info, dst2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dst1), jsopencv_from(env, dst2));
     }
 
 
@@ -18727,7 +19048,7 @@ static Napi::Value jsopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shade_factor, shade_factor, ArgInfo("shade_factor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pencilSketch(src, dst1, dst2, sigma_s, sigma_r, shade_factor));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dst1), jsopencv_from(info, dst2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dst1), jsopencv_from(env, dst2));
     }
 
 
@@ -18735,12 +19056,13 @@ static Napi::Value jsopencv_cv_pencilSketch(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "pencilSketch");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_perspectiveTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18759,7 +19081,7 @@ static Napi::Value jsopencv_cv_perspectiveTransform(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::perspectiveTransform(src, dst, m));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18782,7 +19104,7 @@ static Napi::Value jsopencv_cv_perspectiveTransform(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::perspectiveTransform(src, dst, m));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -18790,12 +19112,13 @@ static Napi::Value jsopencv_cv_perspectiveTransform(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "perspectiveTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_phase(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18817,7 +19140,7 @@ static Napi::Value jsopencv_cv_phase(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, cv::phase(x, y, angle, angleInDegrees));
-        return jsopencv_from(info, angle);
+        return jsopencv_from(env, angle);
     }
 
 
@@ -18843,7 +19166,7 @@ static Napi::Value jsopencv_cv_phase(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, cv::phase(x, y, angle, angleInDegrees));
-        return jsopencv_from(info, angle);
+        return jsopencv_from(env, angle);
     }
 
 
@@ -18851,12 +19174,13 @@ static Napi::Value jsopencv_cv_phase(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "phase");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18877,7 +19201,7 @@ static Napi::Value jsopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_window, window, ArgInfo("window", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::phaseCorrelate(src1, src2, window, &response));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, response));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, response));
     }
 
 
@@ -18902,7 +19226,7 @@ static Napi::Value jsopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_window, window, ArgInfo("window", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::phaseCorrelate(src1, src2, window, &response));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, response));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, response));
     }
 
 
@@ -18910,12 +19234,13 @@ static Napi::Value jsopencv_cv_phaseCorrelate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "phaseCorrelate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18935,7 +19260,7 @@ static Napi::Value jsopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_measureDist, measureDist, ArgInfo("measureDist", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::pointPolygonTest(contour, pt, measureDist));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18959,7 +19284,7 @@ static Napi::Value jsopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_measureDist, measureDist, ArgInfo("measureDist", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::pointPolygonTest(contour, pt, measureDist));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -18967,12 +19292,13 @@ static Napi::Value jsopencv_cv_pointPolygonTest(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "pointPolygonTest");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_polarToCart(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -18997,7 +19323,7 @@ static Napi::Value jsopencv_cv_polarToCart(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, cv::polarToCart(magnitude, angle, x, y, angleInDegrees));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, x), jsopencv_from(info, y));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, x), jsopencv_from(env, y));
     }
 
 
@@ -19026,7 +19352,7 @@ static Napi::Value jsopencv_cv_polarToCart(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, cv::polarToCart(magnitude, angle, x, y, angleInDegrees));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, x), jsopencv_from(info, y));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, x), jsopencv_from(env, y));
     }
 
 
@@ -19034,27 +19360,29 @@ static Napi::Value jsopencv_cv_polarToCart(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "polarToCart");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pollKey(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::pollKey());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_polylines(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19085,7 +19413,7 @@ static Napi::Value jsopencv_cv_polylines(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::polylines(img, pts, isClosed, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -19120,7 +19448,7 @@ static Napi::Value jsopencv_cv_polylines(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::polylines(img, pts, isClosed, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -19128,12 +19456,13 @@ static Napi::Value jsopencv_cv_polylines(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "polylines");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19152,7 +19481,7 @@ static Napi::Value jsopencv_cv_pow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::pow(src, power, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19175,7 +19504,7 @@ static Napi::Value jsopencv_cv_pow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::pow(src, power, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19183,12 +19512,13 @@ static Napi::Value jsopencv_cv_pow(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "pow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19210,7 +19540,7 @@ static Napi::Value jsopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::preCornerDetect(src, dst, ksize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19236,7 +19566,7 @@ static Napi::Value jsopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::preCornerDetect(src, dst, ksize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19244,12 +19574,13 @@ static Napi::Value jsopencv_cv_preCornerDetect(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "preCornerDetect");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_projectPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19283,7 +19614,7 @@ static Napi::Value jsopencv_cv_projectPoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_aspectRatio, aspectRatio, ArgInfo("aspectRatio", 0)))
     {
         ERRWRAP2_NAPI(info, cv::projectPoints(objectPoints, rvec, tvec, cameraMatrix, distCoeffs, imagePoints, jacobian, aspectRatio));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, imagePoints), jsopencv_from(info, jacobian));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, imagePoints), jsopencv_from(env, jacobian));
     }
 
 
@@ -19321,7 +19652,7 @@ static Napi::Value jsopencv_cv_projectPoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_aspectRatio, aspectRatio, ArgInfo("aspectRatio", 0)))
     {
         ERRWRAP2_NAPI(info, cv::projectPoints(objectPoints, rvec, tvec, cameraMatrix, distCoeffs, imagePoints, jacobian, aspectRatio));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, imagePoints), jsopencv_from(info, jacobian));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, imagePoints), jsopencv_from(env, jacobian));
     }
 
 
@@ -19329,12 +19660,13 @@ static Napi::Value jsopencv_cv_projectPoints(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "projectPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_putText(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19371,7 +19703,7 @@ static Napi::Value jsopencv_cv_putText(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_bottomLeftOrigin, bottomLeftOrigin, ArgInfo("bottomLeftOrigin", 0)))
     {
         ERRWRAP2_NAPI(info, cv::putText(img, text, org, fontFace, fontScale, color, thickness, lineType, bottomLeftOrigin));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -19412,7 +19744,7 @@ static Napi::Value jsopencv_cv_putText(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_bottomLeftOrigin, bottomLeftOrigin, ArgInfo("bottomLeftOrigin", 0)))
     {
         ERRWRAP2_NAPI(info, cv::putText(img, text, org, fontFace, fontScale, color, thickness, lineType, bottomLeftOrigin));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -19420,12 +19752,13 @@ static Napi::Value jsopencv_cv_putText(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "putText");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pyrDown(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19447,7 +19780,7 @@ static Napi::Value jsopencv_cv_pyrDown(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pyrDown(src, dst, dstsize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19473,7 +19806,7 @@ static Napi::Value jsopencv_cv_pyrDown(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pyrDown(src, dst, dstsize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19481,12 +19814,13 @@ static Napi::Value jsopencv_cv_pyrDown(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "pyrDown");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19514,7 +19848,7 @@ static Napi::Value jsopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_termcrit, termcrit, ArgInfo("termcrit", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pyrMeanShiftFiltering(src, dst, sp, sr, maxLevel, termcrit));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19546,7 +19880,7 @@ static Napi::Value jsopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_termcrit, termcrit, ArgInfo("termcrit", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pyrMeanShiftFiltering(src, dst, sp, sr, maxLevel, termcrit));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19554,12 +19888,13 @@ static Napi::Value jsopencv_cv_pyrMeanShiftFiltering(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "pyrMeanShiftFiltering");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_pyrUp(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19581,7 +19916,7 @@ static Napi::Value jsopencv_cv_pyrUp(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pyrUp(src, dst, dstsize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19607,7 +19942,7 @@ static Napi::Value jsopencv_cv_pyrUp(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::pyrUp(src, dst, dstsize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19615,12 +19950,13 @@ static Napi::Value jsopencv_cv_pyrUp(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "pyrUp");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_randShuffle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19636,7 +19972,7 @@ static Napi::Value jsopencv_cv_randShuffle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_iterFactor, iterFactor, ArgInfo("iterFactor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::randShuffle(dst, iterFactor, 0));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19656,7 +19992,7 @@ static Napi::Value jsopencv_cv_randShuffle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_iterFactor, iterFactor, ArgInfo("iterFactor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::randShuffle(dst, iterFactor, 0));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19664,12 +20000,13 @@ static Napi::Value jsopencv_cv_randShuffle(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "randShuffle");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_randn(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19688,7 +20025,7 @@ static Napi::Value jsopencv_cv_randn(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_stddev, stddev, ArgInfo("stddev", 0)))
     {
         ERRWRAP2_NAPI(info, cv::randn(dst, mean, stddev));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19711,7 +20048,7 @@ static Napi::Value jsopencv_cv_randn(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_stddev, stddev, ArgInfo("stddev", 0)))
     {
         ERRWRAP2_NAPI(info, cv::randn(dst, mean, stddev));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19719,12 +20056,13 @@ static Napi::Value jsopencv_cv_randn(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "randn");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_randu(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -19743,7 +20081,7 @@ static Napi::Value jsopencv_cv_randu(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_high, high, ArgInfo("high", 0)))
     {
         ERRWRAP2_NAPI(info, cv::randu(dst, low, high));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19766,7 +20104,7 @@ static Napi::Value jsopencv_cv_randu(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_high, high, ArgInfo("high", 0)))
     {
         ERRWRAP2_NAPI(info, cv::randu(dst, low, high));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -19774,12 +20112,13 @@ static Napi::Value jsopencv_cv_randu(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "randu");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_readOpticalFlow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_path = NULL;
     String path;
@@ -19790,15 +20129,16 @@ static Napi::Value jsopencv_cv_readOpticalFlow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_path, path, ArgInfo("path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::readOpticalFlow(path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(8);
 
@@ -19848,7 +20188,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(points1, points2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, E, R, t, method, prob, threshold, mask));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, E), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, E), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask));
     }
 
 
@@ -19902,7 +20242,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(points1, points2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, E, R, t, method, prob, threshold, mask));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, E), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, E), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask));
     }
 
 
@@ -19938,7 +20278,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(E, points1, points2, cameraMatrix, R, t, mask));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask));
     }
 
 
@@ -19974,7 +20314,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(E, points1, points2, cameraMatrix, R, t, mask));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask));
     }
 
 
@@ -20013,7 +20353,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(E, points1, points2, R, t, focal, pp, mask));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask));
     }
 
 
@@ -20052,7 +20392,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(E, points1, points2, R, t, focal, pp, mask));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask));
     }
 
 
@@ -20094,7 +20434,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_triangulatedPoints, triangulatedPoints, ArgInfo("triangulatedPoints", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(E, points1, points2, cameraMatrix, R, t, distanceThresh, mask, triangulatedPoints));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask), jsopencv_from(info, triangulatedPoints));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask), jsopencv_from(env, triangulatedPoints));
     }
 
 
@@ -20136,7 +20476,7 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_triangulatedPoints, triangulatedPoints, ArgInfo("triangulatedPoints", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::recoverPose(E, points1, points2, cameraMatrix, R, t, distanceThresh, mask, triangulatedPoints));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, R), jsopencv_from(info, t), jsopencv_from(info, mask), jsopencv_from(info, triangulatedPoints));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, R), jsopencv_from(env, t), jsopencv_from(env, mask), jsopencv_from(env, triangulatedPoints));
     }
 
 
@@ -20144,12 +20484,13 @@ static Napi::Value jsopencv_cv_recoverPose(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "recoverPose");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rectangle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -20180,7 +20521,7 @@ static Napi::Value jsopencv_cv_rectangle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rectangle(img, pt1, pt2, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -20215,7 +20556,7 @@ static Napi::Value jsopencv_cv_rectangle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rectangle(img, pt1, pt2, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -20247,7 +20588,7 @@ static Napi::Value jsopencv_cv_rectangle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rectangle(img, rec, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -20279,7 +20620,7 @@ static Napi::Value jsopencv_cv_rectangle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_shift, shift, ArgInfo("shift", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rectangle(img, rec, color, thickness, lineType, shift));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -20287,12 +20628,13 @@ static Napi::Value jsopencv_cv_rectangle(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "rectangle");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rectangleIntersectionArea(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_a = NULL;
     Rect2d a;
@@ -20306,15 +20648,16 @@ static Napi::Value jsopencv_cv_rectangleIntersectionArea(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_b, b, ArgInfo("b", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rectangleIntersectionArea(a, b));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20396,7 +20739,7 @@ static Napi::Value jsopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rectify3Collinear(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, cameraMatrix3, distCoeffs3, imgpt1, imgpt3, imageSize, R12, T12, R13, T13, R1, R2, R3, P1, P2, P3, Q, alpha, newImgSize, &roi1, &roi2, flags));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, R3), jsopencv_from(info, P1), jsopencv_from(info, P2), jsopencv_from(info, P3), jsopencv_from(info, Q), jsopencv_from(info, roi1), jsopencv_from(info, roi2));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, R3), jsopencv_from(env, P1), jsopencv_from(env, P2), jsopencv_from(env, P3), jsopencv_from(env, Q), jsopencv_from(env, roi1), jsopencv_from(env, roi2));
     }
 
 
@@ -20482,7 +20825,7 @@ static Napi::Value jsopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rectify3Collinear(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, cameraMatrix3, distCoeffs3, imgpt1, imgpt3, imageSize, R12, T12, R13, T13, R1, R2, R3, P1, P2, P3, Q, alpha, newImgSize, &roi1, &roi2, flags));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, R3), jsopencv_from(info, P1), jsopencv_from(info, P2), jsopencv_from(info, P3), jsopencv_from(info, Q), jsopencv_from(info, roi1), jsopencv_from(info, roi2));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, R3), jsopencv_from(env, P1), jsopencv_from(env, P2), jsopencv_from(env, P3), jsopencv_from(env, Q), jsopencv_from(env, roi1), jsopencv_from(env, roi2));
     }
 
 
@@ -20490,12 +20833,13 @@ static Napi::Value jsopencv_cv_rectify3Collinear(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "rectify3Collinear");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_reduce(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20520,7 +20864,7 @@ static Napi::Value jsopencv_cv_reduce(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reduce(src, dst, dim, rtype, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20549,7 +20893,7 @@ static Napi::Value jsopencv_cv_reduce(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reduce(src, dst, dim, rtype, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20557,12 +20901,13 @@ static Napi::Value jsopencv_cv_reduce(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "reduce");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20584,7 +20929,7 @@ static Napi::Value jsopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lastIndex, lastIndex, ArgInfo("lastIndex", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reduceArgMax(src, dst, axis, lastIndex));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20610,7 +20955,7 @@ static Napi::Value jsopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lastIndex, lastIndex, ArgInfo("lastIndex", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reduceArgMax(src, dst, axis, lastIndex));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20618,12 +20963,13 @@ static Napi::Value jsopencv_cv_reduceArgMax(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "reduceArgMax");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20645,7 +20991,7 @@ static Napi::Value jsopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lastIndex, lastIndex, ArgInfo("lastIndex", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reduceArgMin(src, dst, axis, lastIndex));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20671,7 +21017,7 @@ static Napi::Value jsopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lastIndex, lastIndex, ArgInfo("lastIndex", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reduceArgMin(src, dst, axis, lastIndex));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20679,12 +21025,13 @@ static Napi::Value jsopencv_cv_reduceArgMin(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "reduceArgMin");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_remap(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20715,7 +21062,7 @@ static Napi::Value jsopencv_cv_remap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::remap(src, dst, map1, map2, interpolation, borderMode, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20750,7 +21097,7 @@ static Napi::Value jsopencv_cv_remap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::remap(src, dst, map1, map2, interpolation, borderMode, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20758,12 +21105,13 @@ static Napi::Value jsopencv_cv_remap(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "remap");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_repeat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20785,7 +21133,7 @@ static Napi::Value jsopencv_cv_repeat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::repeat(src, ny, nx, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20811,7 +21159,7 @@ static Napi::Value jsopencv_cv_repeat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::repeat(src, ny, nx, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20819,12 +21167,13 @@ static Napi::Value jsopencv_cv_repeat(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "repeat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20849,7 +21198,7 @@ static Napi::Value jsopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reprojectImageTo3D(disparity, _3dImage, Q, handleMissingValues, ddepth));
-        return jsopencv_from(info, _3dImage);
+        return jsopencv_from(env, _3dImage);
     }
 
 
@@ -20878,7 +21227,7 @@ static Napi::Value jsopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::reprojectImageTo3D(disparity, _3dImage, Q, handleMissingValues, ddepth));
-        return jsopencv_from(info, _3dImage);
+        return jsopencv_from(env, _3dImage);
     }
 
 
@@ -20886,12 +21235,13 @@ static Napi::Value jsopencv_cv_reprojectImageTo3D(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "reprojectImageTo3D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_resize(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20919,7 +21269,7 @@ static Napi::Value jsopencv_cv_resize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_interpolation, interpolation, ArgInfo("interpolation", 0)))
     {
         ERRWRAP2_NAPI(info, cv::resize(src, dst, dsize, fx, fy, interpolation));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20951,7 +21301,7 @@ static Napi::Value jsopencv_cv_resize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_interpolation, interpolation, ArgInfo("interpolation", 0)))
     {
         ERRWRAP2_NAPI(info, cv::resize(src, dst, dsize, fx, fy, interpolation));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -20959,12 +21309,13 @@ static Napi::Value jsopencv_cv_resize(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "resize");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -20983,7 +21334,7 @@ static Napi::Value jsopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_height, height, ArgInfo("height", 0)))
     {
         ERRWRAP2_NAPI(info, cv::resizeWindow(winname, width, height));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -21003,7 +21354,7 @@ static Napi::Value jsopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_size, size, ArgInfo("size", 0)))
     {
         ERRWRAP2_NAPI(info, cv::resizeWindow(winname, size));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -21011,12 +21362,13 @@ static Napi::Value jsopencv_cv_resizeWindow(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "resizeWindow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rotate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21035,7 +21387,7 @@ static Napi::Value jsopencv_cv_rotate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_rotateCode, rotateCode, ArgInfo("rotateCode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rotate(src, dst, rotateCode));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -21058,7 +21410,7 @@ static Napi::Value jsopencv_cv_rotate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_rotateCode, rotateCode, ArgInfo("rotateCode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rotate(src, dst, rotateCode));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -21066,12 +21418,13 @@ static Napi::Value jsopencv_cv_rotate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "rotate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rotatedRectangleIntersection(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21091,7 +21444,7 @@ static Napi::Value jsopencv_cv_rotatedRectangleIntersection(const Napi::Callback
         jsopencv_to_safe(jsobj_intersectingRegion, intersectingRegion, ArgInfo("intersectingRegion", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rotatedRectangleIntersection(rect1, rect2, intersectingRegion));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, intersectingRegion));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, intersectingRegion));
     }
 
 
@@ -21115,7 +21468,7 @@ static Napi::Value jsopencv_cv_rotatedRectangleIntersection(const Napi::Callback
         jsopencv_to_safe(jsobj_intersectingRegion, intersectingRegion, ArgInfo("intersectingRegion", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rotatedRectangleIntersection(rect1, rect2, intersectingRegion));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, intersectingRegion));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, intersectingRegion));
     }
 
 
@@ -21123,12 +21476,13 @@ static Napi::Value jsopencv_cv_rotatedRectangleIntersection(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "rotatedRectangleIntersection");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21148,7 +21502,7 @@ static Napi::Value jsopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_F, F, ArgInfo("F", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::sampsonDistance(pt1, pt2, F));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -21172,7 +21526,7 @@ static Napi::Value jsopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_F, F, ArgInfo("F", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::sampsonDistance(pt1, pt2, F));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -21180,12 +21534,13 @@ static Napi::Value jsopencv_cv_sampsonDistance(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sampsonDistance");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21207,7 +21562,7 @@ static Napi::Value jsopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::scaleAdd(src1, alpha, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -21233,7 +21588,7 @@ static Napi::Value jsopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::scaleAdd(src1, alpha, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -21241,12 +21596,13 @@ static Napi::Value jsopencv_cv_scaleAdd(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "scaleAdd");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21274,7 +21630,7 @@ static Napi::Value jsopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::seamlessClone(src, dst, mask, p, blend, flags));
-        return jsopencv_from(info, blend);
+        return jsopencv_from(env, blend);
     }
 
 
@@ -21306,7 +21662,7 @@ static Napi::Value jsopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::seamlessClone(src, dst, mask, p, blend, flags));
-        return jsopencv_from(info, blend);
+        return jsopencv_from(env, blend);
     }
 
 
@@ -21314,12 +21670,13 @@ static Napi::Value jsopencv_cv_seamlessClone(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "seamlessClone");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_selectROI(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -21342,7 +21699,7 @@ static Napi::Value jsopencv_cv_selectROI(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromCenter, fromCenter, ArgInfo("fromCenter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::selectROI(windowName, img, showCrosshair, fromCenter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -21369,7 +21726,7 @@ static Napi::Value jsopencv_cv_selectROI(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromCenter, fromCenter, ArgInfo("fromCenter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::selectROI(windowName, img, showCrosshair, fromCenter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -21393,7 +21750,7 @@ static Napi::Value jsopencv_cv_selectROI(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromCenter, fromCenter, ArgInfo("fromCenter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::selectROI(img, showCrosshair, fromCenter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -21417,7 +21774,7 @@ static Napi::Value jsopencv_cv_selectROI(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromCenter, fromCenter, ArgInfo("fromCenter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::selectROI(img, showCrosshair, fromCenter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -21425,12 +21782,13 @@ static Napi::Value jsopencv_cv_selectROI(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "selectROI");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_selectROIs(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21453,7 +21811,7 @@ static Napi::Value jsopencv_cv_selectROIs(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromCenter, fromCenter, ArgInfo("fromCenter", 0)))
     {
         ERRWRAP2_NAPI(info, cv::selectROIs(windowName, img, boundingBoxes, showCrosshair, fromCenter));
-        return jsopencv_from(info, boundingBoxes);
+        return jsopencv_from(env, boundingBoxes);
     }
 
 
@@ -21480,7 +21838,7 @@ static Napi::Value jsopencv_cv_selectROIs(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_fromCenter, fromCenter, ArgInfo("fromCenter", 0)))
     {
         ERRWRAP2_NAPI(info, cv::selectROIs(windowName, img, boundingBoxes, showCrosshair, fromCenter));
-        return jsopencv_from(info, boundingBoxes);
+        return jsopencv_from(env, boundingBoxes);
     }
 
 
@@ -21488,12 +21846,13 @@ static Napi::Value jsopencv_cv_selectROIs(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "selectROIs");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21527,7 +21886,7 @@ static Napi::Value jsopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sepFilter2D(src, dst, ddepth, kernelX, kernelY, anchor, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -21565,7 +21924,7 @@ static Napi::Value jsopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sepFilter2D(src, dst, ddepth, kernelX, kernelY, anchor, delta, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -21573,12 +21932,13 @@ static Napi::Value jsopencv_cv_sepFilter2D(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sepFilter2D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setIdentity(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21594,7 +21954,7 @@ static Napi::Value jsopencv_cv_setIdentity(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_s, s, ArgInfo("s", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setIdentity(mtx, s));
-        return jsopencv_from(info, mtx);
+        return jsopencv_from(env, mtx);
     }
 
 
@@ -21614,7 +21974,7 @@ static Napi::Value jsopencv_cv_setIdentity(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_s, s, ArgInfo("s", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setIdentity(mtx, s));
-        return jsopencv_from(info, mtx);
+        return jsopencv_from(env, mtx);
     }
 
 
@@ -21622,12 +21982,13 @@ static Napi::Value jsopencv_cv_setIdentity(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "setIdentity");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setLogLevel(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_level = NULL;
     int level=0;
@@ -21638,15 +21999,16 @@ static Napi::Value jsopencv_cv_setLogLevel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_level, level, ArgInfo("level", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::setLogLevel(level));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setNumThreads(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_nthreads = NULL;
     int nthreads=0;
@@ -21656,15 +22018,16 @@ static Napi::Value jsopencv_cv_setNumThreads(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nthreads, nthreads, ArgInfo("nthreads", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setNumThreads(nthreads));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setRNGSeed(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_seed = NULL;
     int seed=0;
@@ -21674,15 +22037,16 @@ static Napi::Value jsopencv_cv_setRNGSeed(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_seed, seed, ArgInfo("seed", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setRNGSeed(seed));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setTrackbarMax(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_trackbarname = NULL;
     String trackbarname;
@@ -21698,15 +22062,16 @@ static Napi::Value jsopencv_cv_setTrackbarMax(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxval, maxval, ArgInfo("maxval", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setTrackbarMax(trackbarname, winname, maxval));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setTrackbarMin(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_trackbarname = NULL;
     String trackbarname;
@@ -21722,15 +22087,16 @@ static Napi::Value jsopencv_cv_setTrackbarMin(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_minval, minval, ArgInfo("minval", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setTrackbarMin(trackbarname, winname, minval));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setTrackbarPos(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_trackbarname = NULL;
     String trackbarname;
@@ -21746,15 +22112,16 @@ static Napi::Value jsopencv_cv_setTrackbarPos(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_pos, pos, ArgInfo("pos", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setTrackbarPos(trackbarname, winname, pos));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setUseOpenVX(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_flag = NULL;
     bool flag=0;
@@ -21764,15 +22131,16 @@ static Napi::Value jsopencv_cv_setUseOpenVX(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setUseOpenVX(flag));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setUseOptimized(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_onoff = NULL;
     bool onoff=0;
@@ -21782,15 +22150,16 @@ static Napi::Value jsopencv_cv_setUseOptimized(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_onoff, onoff, ArgInfo("onoff", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setUseOptimized(onoff));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setWindowProperty(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -21806,15 +22175,16 @@ static Napi::Value jsopencv_cv_setWindowProperty(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_prop_value, prop_value, ArgInfo("prop_value", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setWindowProperty(winname, prop_id, prop_value));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_setWindowTitle(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_winname = NULL;
     String winname;
@@ -21827,15 +22197,16 @@ static Napi::Value jsopencv_cv_setWindowTitle(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_title, title, ArgInfo("title", 0)))
     {
         ERRWRAP2_NAPI(info, cv::setWindowTitle(winname, title));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solve(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21858,7 +22229,7 @@ static Napi::Value jsopencv_cv_solve(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solve(src1, src2, dst, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -21885,7 +22256,7 @@ static Napi::Value jsopencv_cv_solve(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solve(src1, src2, dst, flags));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -21893,12 +22264,13 @@ static Napi::Value jsopencv_cv_solve(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solve");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solveCubic(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21915,7 +22287,7 @@ static Napi::Value jsopencv_cv_solveCubic(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_roots, roots, ArgInfo("roots", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solveCubic(coeffs, roots));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, roots));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, roots));
     }
 
 
@@ -21936,7 +22308,7 @@ static Napi::Value jsopencv_cv_solveCubic(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_roots, roots, ArgInfo("roots", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solveCubic(coeffs, roots));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, roots));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, roots));
     }
 
 
@@ -21944,12 +22316,13 @@ static Napi::Value jsopencv_cv_solveCubic(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solveCubic");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solveLP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -21969,7 +22342,7 @@ static Napi::Value jsopencv_cv_solveLP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_z, z, ArgInfo("z", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solveLP(Func, Constr, z));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, z));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, z));
     }
 
 
@@ -21993,7 +22366,7 @@ static Napi::Value jsopencv_cv_solveLP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_z, z, ArgInfo("z", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solveLP(Func, Constr, z));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, z));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, z));
     }
 
 
@@ -22001,12 +22374,13 @@ static Napi::Value jsopencv_cv_solveLP(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solveLP");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solveP3P(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22038,7 +22412,7 @@ static Napi::Value jsopencv_cv_solveP3P(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solveP3P(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvecs, tvecs, flags));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -22074,7 +22448,7 @@ static Napi::Value jsopencv_cv_solveP3P(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solveP3P(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvecs, tvecs, flags));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -22082,12 +22456,13 @@ static Napi::Value jsopencv_cv_solveP3P(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solveP3P");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solvePnP(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22122,7 +22497,7 @@ static Napi::Value jsopencv_cv_solvePnP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnP(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, useExtrinsicGuess, flags));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, rvec), jsopencv_from(info, tvec));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, rvec), jsopencv_from(env, tvec));
     }
 
 
@@ -22161,7 +22536,7 @@ static Napi::Value jsopencv_cv_solvePnP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnP(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, useExtrinsicGuess, flags));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, rvec), jsopencv_from(info, tvec));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, rvec), jsopencv_from(env, tvec));
     }
 
 
@@ -22169,12 +22544,13 @@ static Napi::Value jsopencv_cv_solvePnP(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solvePnP");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22218,7 +22594,7 @@ static Napi::Value jsopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_reprojectionError, reprojectionError, ArgInfo("reprojectionError", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnPGeneric(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvecs, tvecs, useExtrinsicGuess, flags, rvec, tvec, reprojectionError));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, reprojectionError));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, reprojectionError));
     }
 
 
@@ -22266,7 +22642,7 @@ static Napi::Value jsopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_reprojectionError, reprojectionError, ArgInfo("reprojectionError", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnPGeneric(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvecs, tvecs, useExtrinsicGuess, flags, rvec, tvec, reprojectionError));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, reprojectionError));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, reprojectionError));
     }
 
 
@@ -22274,12 +22650,13 @@ static Napi::Value jsopencv_cv_solvePnPGeneric(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solvePnPGeneric");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -22326,7 +22703,7 @@ static Napi::Value jsopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, useExtrinsicGuess, iterationsCount, reprojectionError, confidence, inliers, flags));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rvec), jsopencv_from(info, tvec), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rvec), jsopencv_from(env, tvec), jsopencv_from(env, inliers));
     }
 
 
@@ -22377,7 +22754,7 @@ static Napi::Value jsopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, useExtrinsicGuess, iterationsCount, reprojectionError, confidence, inliers, flags));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rvec), jsopencv_from(info, tvec), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rvec), jsopencv_from(env, tvec), jsopencv_from(env, inliers));
     }
 
 
@@ -22416,7 +22793,7 @@ static Napi::Value jsopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, inliers, params));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, rvec), jsopencv_from(info, tvec), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, rvec), jsopencv_from(env, tvec), jsopencv_from(env, inliers));
     }
 
 
@@ -22455,7 +22832,7 @@ static Napi::Value jsopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, inliers, params));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix), jsopencv_from(info, rvec), jsopencv_from(info, tvec), jsopencv_from(info, inliers));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix), jsopencv_from(env, rvec), jsopencv_from(env, tvec), jsopencv_from(env, inliers));
     }
 
 
@@ -22463,12 +22840,13 @@ static Napi::Value jsopencv_cv_solvePnPRansac(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solvePnPRansac");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22499,7 +22877,7 @@ static Napi::Value jsopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::solvePnPRefineLM(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, criteria));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, rvec), jsopencv_from(info, tvec));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, rvec), jsopencv_from(env, tvec));
     }
 
 
@@ -22534,7 +22912,7 @@ static Napi::Value jsopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::solvePnPRefineLM(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, criteria));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, rvec), jsopencv_from(info, tvec));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, rvec), jsopencv_from(env, tvec));
     }
 
 
@@ -22542,12 +22920,13 @@ static Napi::Value jsopencv_cv_solvePnPRefineLM(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solvePnPRefineLM");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22581,7 +22960,7 @@ static Napi::Value jsopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_VVSlambda, VVSlambda, ArgInfo("VVSlambda", 0)))
     {
         ERRWRAP2_NAPI(info, cv::solvePnPRefineVVS(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, criteria, VVSlambda));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, rvec), jsopencv_from(info, tvec));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, rvec), jsopencv_from(env, tvec));
     }
 
 
@@ -22619,7 +22998,7 @@ static Napi::Value jsopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_VVSlambda, VVSlambda, ArgInfo("VVSlambda", 0)))
     {
         ERRWRAP2_NAPI(info, cv::solvePnPRefineVVS(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvec, tvec, criteria, VVSlambda));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, rvec), jsopencv_from(info, tvec));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, rvec), jsopencv_from(env, tvec));
     }
 
 
@@ -22627,12 +23006,13 @@ static Napi::Value jsopencv_cv_solvePnPRefineVVS(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solvePnPRefineVVS");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_solvePoly(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22652,7 +23032,7 @@ static Napi::Value jsopencv_cv_solvePoly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxIters, maxIters, ArgInfo("maxIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePoly(coeffs, roots, maxIters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, roots));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, roots));
     }
 
 
@@ -22676,7 +23056,7 @@ static Napi::Value jsopencv_cv_solvePoly(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_maxIters, maxIters, ArgInfo("maxIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::solvePoly(coeffs, roots, maxIters));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, roots));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, roots));
     }
 
 
@@ -22684,12 +23064,13 @@ static Napi::Value jsopencv_cv_solvePoly(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "solvePoly");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sort(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22708,7 +23089,7 @@ static Napi::Value jsopencv_cv_sort(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sort(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -22731,7 +23112,7 @@ static Napi::Value jsopencv_cv_sort(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sort(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -22739,12 +23120,13 @@ static Napi::Value jsopencv_cv_sort(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sort");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sortIdx(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22763,7 +23145,7 @@ static Napi::Value jsopencv_cv_sortIdx(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sortIdx(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -22786,7 +23168,7 @@ static Napi::Value jsopencv_cv_sortIdx(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sortIdx(src, dst, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -22794,12 +23176,13 @@ static Napi::Value jsopencv_cv_sortIdx(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sortIdx");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22824,7 +23207,7 @@ static Napi::Value jsopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::spatialGradient(src, dx, dy, ksize, borderType));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dx), jsopencv_from(info, dy));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dx), jsopencv_from(env, dy));
     }
 
 
@@ -22853,7 +23236,7 @@ static Napi::Value jsopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::spatialGradient(src, dx, dy, ksize, borderType));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, dx), jsopencv_from(info, dy));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, dx), jsopencv_from(env, dy));
     }
 
 
@@ -22861,12 +23244,13 @@ static Napi::Value jsopencv_cv_spatialGradient(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "spatialGradient");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_split(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22882,7 +23266,7 @@ static Napi::Value jsopencv_cv_split(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mv, mv, ArgInfo("mv", 1)))
     {
         ERRWRAP2_NAPI(info, cv::split(m, mv));
-        return jsopencv_from(info, mv);
+        return jsopencv_from(env, mv);
     }
 
 
@@ -22902,7 +23286,7 @@ static Napi::Value jsopencv_cv_split(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mv, mv, ArgInfo("mv", 1)))
     {
         ERRWRAP2_NAPI(info, cv::split(m, mv));
-        return jsopencv_from(info, mv);
+        return jsopencv_from(env, mv);
     }
 
 
@@ -22910,12 +23294,13 @@ static Napi::Value jsopencv_cv_split(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "split");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -22946,7 +23331,7 @@ static Napi::Value jsopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sqrBoxFilter(src, dst, ddepth, ksize, anchor, normalize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -22981,7 +23366,7 @@ static Napi::Value jsopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::sqrBoxFilter(src, dst, ddepth, ksize, anchor, normalize, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -22989,12 +23374,13 @@ static Napi::Value jsopencv_cv_sqrBoxFilter(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sqrBoxFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sqrt(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23010,7 +23396,7 @@ static Napi::Value jsopencv_cv_sqrt(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::sqrt(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23030,7 +23416,7 @@ static Napi::Value jsopencv_cv_sqrt(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::sqrt(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23038,12 +23424,13 @@ static Napi::Value jsopencv_cv_sqrt(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sqrt");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_stackBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23062,7 +23449,7 @@ static Napi::Value jsopencv_cv_stackBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ksize, ksize, ArgInfo("ksize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::stackBlur(src, dst, ksize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23085,7 +23472,7 @@ static Napi::Value jsopencv_cv_stackBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ksize, ksize, ArgInfo("ksize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::stackBlur(src, dst, ksize));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23093,27 +23480,29 @@ static Napi::Value jsopencv_cv_stackBlur(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "stackBlur");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_startWindowThread(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::startWindowThread());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -23166,7 +23555,7 @@ static Napi::Value jsopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix1), jsopencv_from(info, distCoeffs1), jsopencv_from(info, cameraMatrix2), jsopencv_from(info, distCoeffs2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, E), jsopencv_from(info, F));
+        return Js_BuildValue(env, "(NNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix1), jsopencv_from(env, distCoeffs1), jsopencv_from(env, cameraMatrix2), jsopencv_from(env, distCoeffs2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, E), jsopencv_from(env, F));
     }
 
 
@@ -23223,7 +23612,7 @@ static Napi::Value jsopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix1), jsopencv_from(info, distCoeffs1), jsopencv_from(info, cameraMatrix2), jsopencv_from(info, distCoeffs2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, E), jsopencv_from(info, F));
+        return Js_BuildValue(env, "(NNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix1), jsopencv_from(env, distCoeffs1), jsopencv_from(env, cameraMatrix2), jsopencv_from(env, distCoeffs2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, E), jsopencv_from(env, F));
     }
 
 
@@ -23283,7 +23672,7 @@ static Napi::Value jsopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix1), jsopencv_from(info, distCoeffs1), jsopencv_from(info, cameraMatrix2), jsopencv_from(info, distCoeffs2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, E), jsopencv_from(info, F), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix1), jsopencv_from(env, distCoeffs1), jsopencv_from(env, cameraMatrix2), jsopencv_from(env, distCoeffs2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, E), jsopencv_from(env, F), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -23343,7 +23732,7 @@ static Napi::Value jsopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix1), jsopencv_from(info, distCoeffs1), jsopencv_from(info, cameraMatrix2), jsopencv_from(info, distCoeffs2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, E), jsopencv_from(info, F), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix1), jsopencv_from(env, distCoeffs1), jsopencv_from(env, cameraMatrix2), jsopencv_from(env, distCoeffs2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, E), jsopencv_from(env, F), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -23351,12 +23740,13 @@ static Napi::Value jsopencv_cv_stereoCalibrate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "stereoCalibrate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23418,7 +23808,7 @@ static Napi::Value jsopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, rvecs, tvecs, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix1), jsopencv_from(info, distCoeffs1), jsopencv_from(info, cameraMatrix2), jsopencv_from(info, distCoeffs2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, E), jsopencv_from(info, F), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix1), jsopencv_from(env, distCoeffs1), jsopencv_from(env, cameraMatrix2), jsopencv_from(env, distCoeffs2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, E), jsopencv_from(env, F), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -23484,7 +23874,7 @@ static Napi::Value jsopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, E, F, rvecs, tvecs, perViewErrors, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, cameraMatrix1), jsopencv_from(info, distCoeffs1), jsopencv_from(info, cameraMatrix2), jsopencv_from(info, distCoeffs2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, E), jsopencv_from(info, F), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs), jsopencv_from(info, perViewErrors));
+        return Js_BuildValue(env, "(NNNNNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, cameraMatrix1), jsopencv_from(env, distCoeffs1), jsopencv_from(env, cameraMatrix2), jsopencv_from(env, distCoeffs2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, E), jsopencv_from(env, F), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs), jsopencv_from(env, perViewErrors));
     }
 
 
@@ -23492,12 +23882,13 @@ static Napi::Value jsopencv_cv_stereoCalibrateExtended(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "stereoCalibrateExtended");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23554,7 +23945,7 @@ static Napi::Value jsopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_newImageSize, newImageSize, ArgInfo("newImageSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::stereoRectify(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, R1, R2, P1, P2, Q, flags, alpha, newImageSize, &validPixROI1, &validPixROI2));
-        return Js_BuildValue(info, "(NNNNNNN)", jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, P1), jsopencv_from(info, P2), jsopencv_from(info, Q), jsopencv_from(info, validPixROI1), jsopencv_from(info, validPixROI2));
+        return Js_BuildValue(env, "(NNNNNNN)", jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, P1), jsopencv_from(env, P2), jsopencv_from(env, Q), jsopencv_from(env, validPixROI1), jsopencv_from(env, validPixROI2));
     }
 
 
@@ -23615,7 +24006,7 @@ static Napi::Value jsopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_newImageSize, newImageSize, ArgInfo("newImageSize", 0)))
     {
         ERRWRAP2_NAPI(info, cv::stereoRectify(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, R1, R2, P1, P2, Q, flags, alpha, newImageSize, &validPixROI1, &validPixROI2));
-        return Js_BuildValue(info, "(NNNNNNN)", jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, P1), jsopencv_from(info, P2), jsopencv_from(info, Q), jsopencv_from(info, validPixROI1), jsopencv_from(info, validPixROI2));
+        return Js_BuildValue(env, "(NNNNNNN)", jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, P1), jsopencv_from(env, P2), jsopencv_from(env, Q), jsopencv_from(env, validPixROI1), jsopencv_from(env, validPixROI2));
     }
 
 
@@ -23623,12 +24014,13 @@ static Napi::Value jsopencv_cv_stereoRectify(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "stereoRectify");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23660,7 +24052,7 @@ static Napi::Value jsopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoRectifyUncalibrated(points1, points2, F, imgSize, H1, H2, threshold));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, H1), jsopencv_from(info, H2));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, H1), jsopencv_from(env, H2));
     }
 
 
@@ -23696,7 +24088,7 @@ static Napi::Value jsopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::stereoRectifyUncalibrated(points1, points2, F, imgSize, H1, H2, threshold));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, H1), jsopencv_from(info, H2));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, H1), jsopencv_from(env, H2));
     }
 
 
@@ -23704,12 +24096,13 @@ static Napi::Value jsopencv_cv_stereoRectifyUncalibrated(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "stereoRectifyUncalibrated");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_stylization(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23731,7 +24124,7 @@ static Napi::Value jsopencv_cv_stylization(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sigma_r, sigma_r, ArgInfo("sigma_r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::stylization(src, dst, sigma_s, sigma_r));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23757,7 +24150,7 @@ static Napi::Value jsopencv_cv_stylization(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sigma_r, sigma_r, ArgInfo("sigma_r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::stylization(src, dst, sigma_s, sigma_r));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23765,12 +24158,13 @@ static Napi::Value jsopencv_cv_stylization(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "stylization");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_subtract(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23795,7 +24189,7 @@ static Napi::Value jsopencv_cv_subtract(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::subtract(src1, src2, dst, mask, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23824,7 +24218,7 @@ static Napi::Value jsopencv_cv_subtract(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dtype, dtype, ArgInfo("dtype", 0)))
     {
         ERRWRAP2_NAPI(info, cv::subtract(src1, src2, dst, mask, dtype));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23832,12 +24226,13 @@ static Napi::Value jsopencv_cv_subtract(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "subtract");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_sumElems(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23851,7 +24246,7 @@ static Napi::Value jsopencv_cv_sumElems(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::sum(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -23869,7 +24264,7 @@ static Napi::Value jsopencv_cv_sumElems(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::sum(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -23877,12 +24272,13 @@ static Napi::Value jsopencv_cv_sumElems(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "sumElems");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23910,7 +24306,7 @@ static Napi::Value jsopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_kernel_size, kernel_size, ArgInfo("kernel_size", 0)))
     {
         ERRWRAP2_NAPI(info, cv::textureFlattening(src, mask, dst, low_threshold, high_threshold, kernel_size));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23942,7 +24338,7 @@ static Napi::Value jsopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_kernel_size, kernel_size, ArgInfo("kernel_size", 0)))
     {
         ERRWRAP2_NAPI(info, cv::textureFlattening(src, mask, dst, low_threshold, high_threshold, kernel_size));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -23950,12 +24346,13 @@ static Napi::Value jsopencv_cv_textureFlattening(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "textureFlattening");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_threshold(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -23981,7 +24378,7 @@ static Napi::Value jsopencv_cv_threshold(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::threshold(src, dst, thresh, maxval, type));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -24011,7 +24408,7 @@ static Napi::Value jsopencv_cv_threshold(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::threshold(src, dst, thresh, maxval, type));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -24019,12 +24416,13 @@ static Napi::Value jsopencv_cv_threshold(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "threshold");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_trace(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24038,7 +24436,7 @@ static Napi::Value jsopencv_cv_trace(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mtx, mtx, ArgInfo("mtx", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::trace(mtx));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -24056,7 +24454,7 @@ static Napi::Value jsopencv_cv_trace(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mtx, mtx, ArgInfo("mtx", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::trace(mtx));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -24064,12 +24462,13 @@ static Napi::Value jsopencv_cv_trace(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "trace");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_transform(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24088,7 +24487,7 @@ static Napi::Value jsopencv_cv_transform(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::transform(src, dst, m));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24111,7 +24510,7 @@ static Napi::Value jsopencv_cv_transform(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::transform(src, dst, m));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24119,12 +24518,13 @@ static Napi::Value jsopencv_cv_transform(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "transform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_transpose(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24140,7 +24540,7 @@ static Napi::Value jsopencv_cv_transpose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::transpose(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24160,7 +24560,7 @@ static Napi::Value jsopencv_cv_transpose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::transpose(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24168,12 +24568,13 @@ static Napi::Value jsopencv_cv_transpose(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "transpose");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_transposeND(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24192,7 +24593,7 @@ static Napi::Value jsopencv_cv_transposeND(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::transposeND(src, order, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24215,7 +24616,7 @@ static Napi::Value jsopencv_cv_transposeND(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::transposeND(src, order, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24223,12 +24624,13 @@ static Napi::Value jsopencv_cv_transposeND(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "transposeND");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24253,7 +24655,7 @@ static Napi::Value jsopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points4D, points4D, ArgInfo("points4D", 1)))
     {
         ERRWRAP2_NAPI(info, cv::triangulatePoints(projMatr1, projMatr2, projPoints1, projPoints2, points4D));
-        return jsopencv_from(info, points4D);
+        return jsopencv_from(env, points4D);
     }
 
 
@@ -24282,7 +24684,7 @@ static Napi::Value jsopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_points4D, points4D, ArgInfo("points4D", 1)))
     {
         ERRWRAP2_NAPI(info, cv::triangulatePoints(projMatr1, projMatr2, projPoints1, projPoints2, points4D));
-        return jsopencv_from(info, points4D);
+        return jsopencv_from(env, points4D);
     }
 
 
@@ -24290,12 +24692,13 @@ static Napi::Value jsopencv_cv_triangulatePoints(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "triangulatePoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_undistort(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24320,7 +24723,7 @@ static Napi::Value jsopencv_cv_undistort(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_newCameraMatrix, newCameraMatrix, ArgInfo("newCameraMatrix", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistort(src, dst, cameraMatrix, distCoeffs, newCameraMatrix));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24349,7 +24752,7 @@ static Napi::Value jsopencv_cv_undistort(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_newCameraMatrix, newCameraMatrix, ArgInfo("newCameraMatrix", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistort(src, dst, cameraMatrix, distCoeffs, newCameraMatrix));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24357,12 +24760,13 @@ static Napi::Value jsopencv_cv_undistort(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "undistort");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_undistortImagePoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24387,7 +24791,7 @@ static Napi::Value jsopencv_cv_undistortImagePoints(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_arg1, arg1, ArgInfo("arg1", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistortImagePoints(src, dst, cameraMatrix, distCoeffs, arg1));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24416,7 +24820,7 @@ static Napi::Value jsopencv_cv_undistortImagePoints(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_arg1, arg1, ArgInfo("arg1", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistortImagePoints(src, dst, cameraMatrix, distCoeffs, arg1));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24424,12 +24828,13 @@ static Napi::Value jsopencv_cv_undistortImagePoints(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "undistortImagePoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24457,7 +24862,7 @@ static Napi::Value jsopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_P, P, ArgInfo("P", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistortPoints(src, dst, cameraMatrix, distCoeffs, R, P));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24489,7 +24894,7 @@ static Napi::Value jsopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_P, P, ArgInfo("P", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistortPoints(src, dst, cameraMatrix, distCoeffs, R, P));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24497,12 +24902,13 @@ static Napi::Value jsopencv_cv_undistortPoints(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "undistortPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_undistortPointsIter(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24533,7 +24939,7 @@ static Napi::Value jsopencv_cv_undistortPointsIter(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistortPoints(src, dst, cameraMatrix, distCoeffs, R, P, criteria));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24568,7 +24974,7 @@ static Napi::Value jsopencv_cv_undistortPointsIter(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::undistortPoints(src, dst, cameraMatrix, distCoeffs, R, P, criteria));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24576,42 +24982,45 @@ static Napi::Value jsopencv_cv_undistortPointsIter(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "undistortPointsIter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_useOpenVX(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::useOpenVX());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_useOptimized(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::useOptimized());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24636,7 +25045,7 @@ static Napi::Value jsopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_disp12MaxDisp, disp12MaxDisp, ArgInfo("disp12MaxDisp", 0)))
     {
         ERRWRAP2_NAPI(info, cv::validateDisparity(disparity, cost, minDisparity, numberOfDisparities, disp12MaxDisp));
-        return jsopencv_from(info, disparity);
+        return jsopencv_from(env, disparity);
     }
 
 
@@ -24665,7 +25074,7 @@ static Napi::Value jsopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_disp12MaxDisp, disp12MaxDisp, ArgInfo("disp12MaxDisp", 0)))
     {
         ERRWRAP2_NAPI(info, cv::validateDisparity(disparity, cost, minDisparity, numberOfDisparities, disp12MaxDisp));
-        return jsopencv_from(info, disparity);
+        return jsopencv_from(env, disparity);
     }
 
 
@@ -24673,12 +25082,13 @@ static Napi::Value jsopencv_cv_validateDisparity(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "validateDisparity");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_vconcat(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24694,7 +25104,7 @@ static Napi::Value jsopencv_cv_vconcat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::vconcat(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24714,7 +25124,7 @@ static Napi::Value jsopencv_cv_vconcat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::vconcat(src, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24722,12 +25132,13 @@ static Napi::Value jsopencv_cv_vconcat(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "vconcat");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_waitKey(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_delay = NULL;
     int delay=0;
@@ -24738,15 +25149,16 @@ static Napi::Value jsopencv_cv_waitKey(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_delay, delay, ArgInfo("delay", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::waitKey(delay));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_waitKeyEx(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_delay = NULL;
     int delay=0;
@@ -24757,15 +25169,16 @@ static Napi::Value jsopencv_cv_waitKeyEx(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_delay, delay, ArgInfo("delay", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::waitKeyEx(delay));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_warpAffine(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24796,7 +25209,7 @@ static Napi::Value jsopencv_cv_warpAffine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::warpAffine(src, dst, M, dsize, flags, borderMode, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24831,7 +25244,7 @@ static Napi::Value jsopencv_cv_warpAffine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::warpAffine(src, dst, M, dsize, flags, borderMode, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24839,12 +25252,13 @@ static Napi::Value jsopencv_cv_warpAffine(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "warpAffine");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24875,7 +25289,7 @@ static Napi::Value jsopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::warpPerspective(src, dst, M, dsize, flags, borderMode, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24910,7 +25324,7 @@ static Napi::Value jsopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, cv::warpPerspective(src, dst, M, dsize, flags, borderMode, borderValue));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24918,12 +25332,13 @@ static Napi::Value jsopencv_cv_warpPerspective(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "warpPerspective");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_warpPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -24951,7 +25366,7 @@ static Napi::Value jsopencv_cv_warpPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::warpPolar(src, dst, dsize, center, maxRadius, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24983,7 +25398,7 @@ static Napi::Value jsopencv_cv_warpPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, cv::warpPolar(src, dst, dsize, center, maxRadius, flags));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -24991,12 +25406,13 @@ static Napi::Value jsopencv_cv_warpPolar(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "warpPolar");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_watershed(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25012,7 +25428,7 @@ static Napi::Value jsopencv_cv_watershed(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_markers, markers, ArgInfo("markers", 1)))
     {
         ERRWRAP2_NAPI(info, cv::watershed(image, markers));
-        return jsopencv_from(info, markers);
+        return jsopencv_from(env, markers);
     }
 
 
@@ -25032,7 +25448,7 @@ static Napi::Value jsopencv_cv_watershed(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_markers, markers, ArgInfo("markers", 1)))
     {
         ERRWRAP2_NAPI(info, cv::watershed(image, markers));
-        return jsopencv_from(info, markers);
+        return jsopencv_from(env, markers);
     }
 
 
@@ -25040,12 +25456,13 @@ static Napi::Value jsopencv_cv_watershed(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "watershed");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
 {
     using namespace cv;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25062,7 +25479,7 @@ static Napi::Value jsopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flow, flow, ArgInfo("flow", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::writeOpticalFlow(path, flow));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -25083,7 +25500,7 @@ static Napi::Value jsopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flow, flow, ArgInfo("flow", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::writeOpticalFlow(path, flow));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -25091,12 +25508,13 @@ static Napi::Value jsopencv_cv_writeOpticalFlow(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "writeOpticalFlow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_Dictionary_getBitsFromByteList(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_byteList = NULL;
     Mat byteList;
@@ -25110,15 +25528,16 @@ static Napi::Value jsopencv_cv_aruco_Dictionary_getBitsFromByteList(const Napi::
         jsopencv_to_safe(jsobj_markerSize, markerSize, ArgInfo("markerSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::aruco::Dictionary::getBitsFromByteList(byteList, markerSize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_Dictionary_getByteListFromBits(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bits = NULL;
     Mat bits;
@@ -25129,15 +25548,16 @@ static Napi::Value jsopencv_cv_aruco_Dictionary_getByteListFromBits(const Napi::
         jsopencv_to_safe(jsobj_bits, bits, ArgInfo("bits", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::aruco::Dictionary::getByteListFromBits(bits));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25159,7 +25579,7 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::Call
         jsopencv_to_safe(jsobj_cornerColor, cornerColor, ArgInfo("cornerColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::drawDetectedCornersCharuco(image, charucoCorners, charucoIds, cornerColor));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -25185,7 +25605,7 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::Call
         jsopencv_to_safe(jsobj_cornerColor, cornerColor, ArgInfo("cornerColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::drawDetectedCornersCharuco(image, charucoCorners, charucoIds, cornerColor));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -25193,12 +25613,13 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedCornersCharuco(const Napi::Call
     }
     jsRaiseCVOverloadException(info, "drawDetectedCornersCharuco");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25220,7 +25641,7 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_borderColor, borderColor, ArgInfo("borderColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::drawDetectedDiamonds(image, diamondCorners, diamondIds, borderColor));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -25246,7 +25667,7 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_borderColor, borderColor, ArgInfo("borderColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::drawDetectedDiamonds(image, diamondCorners, diamondIds, borderColor));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -25254,12 +25675,13 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedDiamonds(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "drawDetectedDiamonds");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25281,7 +25703,7 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_borderColor, borderColor, ArgInfo("borderColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::drawDetectedMarkers(image, corners, ids, borderColor));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -25307,7 +25729,7 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_borderColor, borderColor, ArgInfo("borderColor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::drawDetectedMarkers(image, corners, ids, borderColor));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -25315,12 +25737,13 @@ static Napi::Value jsopencv_cv_aruco_drawDetectedMarkers(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "drawDetectedMarkers");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_extendDictionary(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_nMarkers = NULL;
     int nMarkers=0;
@@ -25340,15 +25763,16 @@ static Napi::Value jsopencv_cv_aruco_extendDictionary(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_randomSeed, randomSeed, ArgInfo("randomSeed", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::aruco::extendDictionary(nMarkers, markerSize, baseDictionary, randomSeed));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_generateImageMarker(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -25373,7 +25797,7 @@ static Napi::Value jsopencv_cv_aruco_generateImageMarker(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_borderBits, borderBits, ArgInfo("borderBits", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::generateImageMarker(dictionary, id, sidePixels, img, borderBits));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -25402,7 +25826,7 @@ static Napi::Value jsopencv_cv_aruco_generateImageMarker(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_borderBits, borderBits, ArgInfo("borderBits", 0)))
     {
         ERRWRAP2_NAPI(info, cv::aruco::generateImageMarker(dictionary, id, sidePixels, img, borderBits));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -25410,12 +25834,13 @@ static Napi::Value jsopencv_cv_aruco_generateImageMarker(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "generateImageMarker");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_aruco_getPredefinedDictionary(const Napi::CallbackInfo &info)
 {
     using namespace cv::aruco;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_dict = NULL;
     int dict=0;
@@ -25426,15 +25851,16 @@ static Napi::Value jsopencv_cv_aruco_getPredefinedDictionary(const Napi::Callbac
         jsopencv_to_safe(jsobj_dict, dict, ArgInfo("dict", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::aruco::getPredefinedDictionary(dict));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_Event_elapsedTime(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_start = NULL;
     Event start;
@@ -25448,30 +25874,32 @@ static Napi::Value jsopencv_cv_cuda_Event_elapsedTime(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_end, end, ArgInfo("end", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::Event::elapsedTime(start, end));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_GpuMat_defaultAllocator(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     GpuMat::Allocator* retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::GpuMat::defaultAllocator());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_GpuMat_setDefaultAllocator(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_allocator = NULL;
     GpuMat_Allocator* allocator;
@@ -25481,15 +25909,16 @@ static Napi::Value jsopencv_cv_cuda_GpuMat_setDefaultAllocator(const Napi::Callb
         jsopencv_to_safe(jsobj_allocator, allocator, ArgInfo("allocator", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::GpuMat::setDefaultAllocator(allocator));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_SURF_CUDA_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj__hessianThreshold = NULL;
     double _hessianThreshold=0;
@@ -25515,30 +25944,32 @@ static Napi::Value jsopencv_cv_cuda_SURF_CUDA_create(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj__upright, _upright, ArgInfo("_upright", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::SURF_CUDA::create(_hessianThreshold, _nOctaves, _nOctaveLayers, _extended, _keypointsRatio, _upright));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_Stream_Null(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Stream retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::Stream::Null());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_has(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25552,15 +25983,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_has(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::has(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_hasBin(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25574,15 +26006,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_hasBin(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::hasBin(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrGreater(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25596,15 +26029,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrGreater(const Napi::Ca
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::hasEqualOrGreater(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrGreaterBin(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25618,15 +26052,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrGreaterBin(const Napi:
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::hasEqualOrGreaterBin(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrGreaterPtx(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25640,15 +26075,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrGreaterPtx(const Napi:
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::hasEqualOrGreaterPtx(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrLessPtx(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25662,15 +26098,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_hasEqualOrLessPtx(const Napi::Ca
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::hasEqualOrLessPtx(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_TargetArchs_hasPtx(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_major = NULL;
     int major=0;
@@ -25684,15 +26121,16 @@ static Napi::Value jsopencv_cv_cuda_TargetArchs_hasPtx(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_minor, minor, ArgInfo("minor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::TargetArchs::hasPtx(major, minor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -25714,7 +26152,7 @@ static Napi::Value jsopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_arr, arr, ArgInfo("arr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::createContinuous(rows, cols, type, arr));
-        return jsopencv_from(info, arr);
+        return jsopencv_from(env, arr);
     }
 
 
@@ -25740,7 +26178,7 @@ static Napi::Value jsopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_arr, arr, ArgInfo("arr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::createContinuous(rows, cols, type, arr));
-        return jsopencv_from(info, arr);
+        return jsopencv_from(env, arr);
     }
 
 
@@ -25766,7 +26204,7 @@ static Napi::Value jsopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_arr, arr, ArgInfo("arr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::createContinuous(rows, cols, type, arr));
-        return jsopencv_from(info, arr);
+        return jsopencv_from(env, arr);
     }
 
 
@@ -25774,12 +26212,13 @@ static Napi::Value jsopencv_cv_cuda_createContinuous(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "createContinuous");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -25801,7 +26240,7 @@ static Napi::Value jsopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_arr, arr, ArgInfo("arr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::ensureSizeIsEnough(rows, cols, type, arr));
-        return jsopencv_from(info, arr);
+        return jsopencv_from(env, arr);
     }
 
 
@@ -25827,7 +26266,7 @@ static Napi::Value jsopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_arr, arr, ArgInfo("arr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::ensureSizeIsEnough(rows, cols, type, arr));
-        return jsopencv_from(info, arr);
+        return jsopencv_from(env, arr);
     }
 
 
@@ -25853,7 +26292,7 @@ static Napi::Value jsopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_arr, arr, ArgInfo("arr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::ensureSizeIsEnough(rows, cols, type, arr));
-        return jsopencv_from(info, arr);
+        return jsopencv_from(env, arr);
     }
 
 
@@ -25861,12 +26300,13 @@ static Napi::Value jsopencv_cv_cuda_ensureSizeIsEnough(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "ensureSizeIsEnough");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_fastNlMeansDenoising(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     GpuMat src;
@@ -25891,15 +26331,16 @@ static Napi::Value jsopencv_cv_cuda_fastNlMeansDenoising(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_stream, stream, ArgInfo("stream", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::fastNlMeansDenoising(src, dst, h, search_window, block_size, stream));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_fastNlMeansDenoisingColored(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     GpuMat src;
@@ -25927,45 +26368,48 @@ static Napi::Value jsopencv_cv_cuda_fastNlMeansDenoisingColored(const Napi::Call
         jsopencv_to_safe(jsobj_stream, stream, ArgInfo("stream", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::fastNlMeansDenoisingColored(src, dst, h_luminance, photo_render, search_window, block_size, stream));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_getCudaEnabledDeviceCount(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::getCudaEnabledDeviceCount());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_getDevice(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     int retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::cuda::getDevice());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_nonLocalMeans(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     GpuMat src;
@@ -25993,15 +26437,16 @@ static Napi::Value jsopencv_cv_cuda_nonLocalMeans(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_stream, stream, ArgInfo("stream", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::nonLocalMeans(src, dst, h, search_window, block_size, borderMode, stream));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_printCudaDeviceInfo(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_device = NULL;
     int device=0;
@@ -26011,15 +26456,16 @@ static Napi::Value jsopencv_cv_cuda_printCudaDeviceInfo(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::printCudaDeviceInfo(device));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_printShortCudaDeviceInfo(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_device = NULL;
     int device=0;
@@ -26029,15 +26475,16 @@ static Napi::Value jsopencv_cv_cuda_printShortCudaDeviceInfo(const Napi::Callbac
         jsopencv_to_safe(jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::printShortCudaDeviceInfo(device));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_registerPageLocked(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_m = NULL;
     Mat m;
@@ -26047,29 +26494,31 @@ static Napi::Value jsopencv_cv_cuda_registerPageLocked(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::registerPageLocked(m));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_resetDevice(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::cuda::resetDevice());
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_setBufferPoolConfig(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_deviceId = NULL;
     int deviceId=0;
@@ -26085,15 +26534,16 @@ static Napi::Value jsopencv_cv_cuda_setBufferPoolConfig(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_stackCount, stackCount, ArgInfo("stackCount", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::setBufferPoolConfig(deviceId, stackSize, stackCount));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_setBufferPoolUsage(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_on = NULL;
     bool on=0;
@@ -26103,15 +26553,16 @@ static Napi::Value jsopencv_cv_cuda_setBufferPoolUsage(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_on, on, ArgInfo("on", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::setBufferPoolUsage(on));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_setDevice(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_device = NULL;
     int device=0;
@@ -26121,15 +26572,16 @@ static Napi::Value jsopencv_cv_cuda_setDevice(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::setDevice(device));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_cuda_unregisterPageLocked(const Napi::CallbackInfo &info)
 {
     using namespace cv::cuda;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_m = NULL;
     Mat m;
@@ -26139,15 +26591,16 @@ static Napi::Value jsopencv_cv_cuda_unregisterPageLocked(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_m, m, ArgInfo("m", 0)))
     {
         ERRWRAP2_NAPI(info, cv::cuda::unregisterPageLocked(m));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_detail_strip(const Napi::CallbackInfo &info)
 {
     using namespace cv::detail;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26161,7 +26614,7 @@ static Napi::Value jsopencv_cv_detail_strip(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::detail::strip(params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26179,7 +26632,7 @@ static Napi::Value jsopencv_cv_detail_strip(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::detail::strip(params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26187,12 +26640,13 @@ static Napi::Value jsopencv_cv_detail_strip(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "strip");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_NMSBoxes(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bboxes = NULL;
     vector_Rect2d bboxes;
@@ -26218,15 +26672,16 @@ static Napi::Value jsopencv_cv_dnn_NMSBoxes(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_top_k, top_k, ArgInfo("top_k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::NMSBoxes(bboxes, scores, score_threshold, nms_threshold, indices, eta, top_k));
-        return jsopencv_from(info, indices);
+        return jsopencv_from(env, indices);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_NMSBoxesBatched(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bboxes = NULL;
     vector_Rect2d bboxes;
@@ -26255,15 +26710,16 @@ static Napi::Value jsopencv_cv_dnn_NMSBoxesBatched(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_top_k, top_k, ArgInfo("top_k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::NMSBoxesBatched(bboxes, scores, class_ids, score_threshold, nms_threshold, indices, eta, top_k));
-        return jsopencv_from(info, indices);
+        return jsopencv_from(env, indices);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_NMSBoxesRotated(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bboxes = NULL;
     vector_RotatedRect bboxes;
@@ -26289,15 +26745,16 @@ static Napi::Value jsopencv_cv_dnn_NMSBoxesRotated(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_top_k, top_k, ArgInfo("top_k", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::NMSBoxes(bboxes, scores, score_threshold, nms_threshold, indices, eta, top_k));
-        return jsopencv_from(info, indices);
+        return jsopencv_from(env, indices);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26314,7 +26771,7 @@ static Napi::Value jsopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::Callba
         jsopencv_to_safe(jsobj_bin, bin, ArgInfo("bin", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::Net::readFromModelOptimizer(xml, bin));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26335,7 +26792,7 @@ static Napi::Value jsopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::Callba
         jsopencv_to_safe(jsobj_bufferWeights, bufferWeights, ArgInfo("bufferWeights", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::Net::readFromModelOptimizer(bufferModelConfig, bufferWeights));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26343,12 +26800,13 @@ static Napi::Value jsopencv_cv_dnn_Net_readFromModelOptimizer(const Napi::Callba
     }
     jsRaiseCVOverloadException(info, "Net_readFromModelOptimizer");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26380,7 +26838,7 @@ static Napi::Value jsopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::blobFromImage(image, scalefactor, size, mean, swapRB, crop, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26416,7 +26874,7 @@ static Napi::Value jsopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::blobFromImage(image, scalefactor, size, mean, swapRB, crop, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26424,12 +26882,13 @@ static Napi::Value jsopencv_cv_dnn_blobFromImage(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "blobFromImage");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26461,7 +26920,7 @@ static Napi::Value jsopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::blobFromImages(images, scalefactor, size, mean, swapRB, crop, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26497,7 +26956,7 @@ static Napi::Value jsopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::blobFromImages(images, scalefactor, size, mean, swapRB, crop, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26505,12 +26964,13 @@ static Napi::Value jsopencv_cv_dnn_blobFromImages(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "blobFromImages");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_getAvailableTargets(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_be = NULL;
     dnn_Backend be=static_cast<dnn_Backend>(0);
@@ -26521,15 +26981,16 @@ static Napi::Value jsopencv_cv_dnn_getAvailableTargets(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_be, be, ArgInfo("be", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::getAvailableTargets(be));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26545,7 +27006,7 @@ static Napi::Value jsopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_images_, images_, ArgInfo("images_", 1)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::imagesFromBlob(blob_, images_));
-        return jsopencv_from(info, images_);
+        return jsopencv_from(env, images_);
     }
 
 
@@ -26565,7 +27026,7 @@ static Napi::Value jsopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_images_, images_, ArgInfo("images_", 1)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::imagesFromBlob(blob_, images_));
-        return jsopencv_from(info, images_);
+        return jsopencv_from(env, images_);
     }
 
 
@@ -26573,12 +27034,13 @@ static Napi::Value jsopencv_cv_dnn_imagesFromBlob(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "imagesFromBlob");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26598,7 +27060,7 @@ static Napi::Value jsopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_framework, framework, ArgInfo("framework", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNet(model, config, framework));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26622,7 +27084,7 @@ static Napi::Value jsopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_bufferConfig, bufferConfig, ArgInfo("bufferConfig", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNet(framework, bufferModel, bufferConfig));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26630,12 +27092,13 @@ static Napi::Value jsopencv_cv_dnn_readNet(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "readNet");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26652,7 +27115,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_caffeModel, caffeModel, ArgInfo("caffeModel", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromCaffe(prototxt, caffeModel));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26673,7 +27136,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_bufferModel, bufferModel, ArgInfo("bufferModel", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromCaffe(bufferProto, bufferModel));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26681,12 +27144,13 @@ static Napi::Value jsopencv_cv_dnn_readNetFromCaffe(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "readNetFromCaffe");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26703,7 +27167,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_darknetModel, darknetModel, ArgInfo("darknetModel", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromDarknet(cfgFile, darknetModel));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26724,7 +27188,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_bufferModel, bufferModel, ArgInfo("bufferModel", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromDarknet(bufferCfg, bufferModel));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26732,12 +27196,13 @@ static Napi::Value jsopencv_cv_dnn_readNetFromDarknet(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "readNetFromDarknet");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNetFromModelOptimizer(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26754,7 +27219,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromModelOptimizer(const Napi::Callbac
         jsopencv_to_safe(jsobj_bin, bin, ArgInfo("bin", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromModelOptimizer(xml, bin));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26775,7 +27240,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromModelOptimizer(const Napi::Callbac
         jsopencv_to_safe(jsobj_bufferWeights, bufferWeights, ArgInfo("bufferWeights", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromModelOptimizer(bufferModelConfig, bufferWeights));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26783,12 +27248,13 @@ static Napi::Value jsopencv_cv_dnn_readNetFromModelOptimizer(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "readNetFromModelOptimizer");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26802,7 +27268,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_onnxFile, onnxFile, ArgInfo("onnxFile", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromONNX(onnxFile));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26820,7 +27286,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_buffer, buffer, ArgInfo("buffer", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromONNX(buffer));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26828,12 +27294,13 @@ static Napi::Value jsopencv_cv_dnn_readNetFromONNX(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "readNetFromONNX");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -26850,7 +27317,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_config, config, ArgInfo("config", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromTensorflow(model, config));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26871,7 +27338,7 @@ static Napi::Value jsopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_bufferConfig, bufferConfig, ArgInfo("bufferConfig", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromTensorflow(bufferModel, bufferConfig));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -26879,12 +27346,13 @@ static Napi::Value jsopencv_cv_dnn_readNetFromTensorflow(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "readNetFromTensorflow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readNetFromTorch(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_model = NULL;
     String model;
@@ -26901,15 +27369,16 @@ static Napi::Value jsopencv_cv_dnn_readNetFromTorch(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_evaluate, evaluate, ArgInfo("evaluate", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readNetFromTorch(model, isBinary, evaluate));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readTensorFromONNX(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_path = NULL;
     String path;
@@ -26920,15 +27389,16 @@ static Napi::Value jsopencv_cv_dnn_readTensorFromONNX(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_path, path, ArgInfo("path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readTensorFromONNX(path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_readTorchBlob(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -26942,15 +27412,16 @@ static Napi::Value jsopencv_cv_dnn_readTorchBlob(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_isBinary, isBinary, ArgInfo("isBinary", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn::readTorchBlob(filename, isBinary));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_shrinkCaffeModel(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     String src;
@@ -26966,15 +27437,16 @@ static Napi::Value jsopencv_cv_dnn_shrinkCaffeModel(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_layersTypes, layersTypes, ArgInfo("layersTypes", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::shrinkCaffeModel(src, dst, layersTypes));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_softNMSBoxes(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bboxes = NULL;
     vector_Rect bboxes;
@@ -27004,15 +27476,16 @@ static Napi::Value jsopencv_cv_dnn_softNMSBoxes(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_method, method, ArgInfo("method", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::softNMSBoxes(bboxes, scores, updated_scores, score_threshold, nms_threshold, indices, top_k, sigma, method));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, updated_scores), jsopencv_from(info, indices));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, updated_scores), jsopencv_from(env, indices));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_writeTextGraph(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_model = NULL;
     String model;
@@ -27025,30 +27498,32 @@ static Napi::Value jsopencv_cv_dnn_writeTextGraph(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_output, output, ArgInfo("output", 0)))
     {
         ERRWRAP2_NAPI(info, cv::dnn::writeTextGraph(model, output));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_dnn_superres_DnnSuperResImpl_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::dnn_superres;
+    Napi::Env env = info.Env();
 
     Ptr<DnnSuperResImpl> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::dnn_superres::DnnSuperResImpl::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_BIF_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_num_bands = NULL;
     int num_bands=8;
@@ -27062,15 +27537,16 @@ static Napi::Value jsopencv_cv_face_BIF_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_num_rotations, num_rotations, ArgInfo("num_rotations", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::BIF::create(num_bands, num_rotations));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_EigenFaceRecognizer_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_num_components = NULL;
     int num_components=0;
@@ -27084,15 +27560,16 @@ static Napi::Value jsopencv_cv_face_EigenFaceRecognizer_create(const Napi::Callb
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::EigenFaceRecognizer::create(num_components, threshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_FisherFaceRecognizer_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_num_components = NULL;
     int num_components=0;
@@ -27106,15 +27583,16 @@ static Napi::Value jsopencv_cv_face_FisherFaceRecognizer_create(const Napi::Call
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::FisherFaceRecognizer::create(num_components, threshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_LBPHFaceRecognizer_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_radius = NULL;
     int radius=1;
@@ -27137,15 +27615,16 @@ static Napi::Value jsopencv_cv_face_LBPHFaceRecognizer_create(const Napi::Callba
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::LBPHFaceRecognizer::create(radius, neighbors, grid_x, grid_y, threshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_MACE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_IMGSIZE = NULL;
     int IMGSIZE=64;
@@ -27156,15 +27635,16 @@ static Napi::Value jsopencv_cv_face_MACE_create(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_IMGSIZE, IMGSIZE, ArgInfo("IMGSIZE", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::MACE::create(IMGSIZE));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_MACE_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -27178,15 +27658,16 @@ static Napi::Value jsopencv_cv_face_MACE_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_objname, objname, ArgInfo("objname", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::MACE::load(filename, objname));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_StandardCollector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_threshold = NULL;
     double threshold=DBL_MAX;
@@ -27197,60 +27678,64 @@ static Napi::Value jsopencv_cv_face_StandardCollector_create(const Napi::Callbac
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::StandardCollector::create(threshold));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_createFacemarkAAM(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Ptr<Facemark> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::createFacemarkAAM());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_createFacemarkKazemi(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Ptr<Facemark> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::createFacemarkKazemi());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_createFacemarkLBF(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Ptr<Facemark> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::createFacemarkLBF());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27269,7 +27754,7 @@ static Napi::Value jsopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_color, color, ArgInfo("color", 0)))
     {
         ERRWRAP2_NAPI(info, cv::face::drawFacemarks(image, points, color));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -27292,7 +27777,7 @@ static Napi::Value jsopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_color, color, ArgInfo("color", 0)))
     {
         ERRWRAP2_NAPI(info, cv::face::drawFacemarks(image, points, color));
-        return jsopencv_from(info, image);
+        return jsopencv_from(env, image);
     }
 
 
@@ -27300,12 +27785,13 @@ static Napi::Value jsopencv_cv_face_drawFacemarks(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "drawFacemarks");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27325,7 +27811,7 @@ static Napi::Value jsopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_face_cascade_name, face_cascade_name, ArgInfo("face_cascade_name", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::getFacesHAAR(image, faces, face_cascade_name));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, faces));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, faces));
     }
 
 
@@ -27349,7 +27835,7 @@ static Napi::Value jsopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_face_cascade_name, face_cascade_name, ArgInfo("face_cascade_name", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::getFacesHAAR(image, faces, face_cascade_name));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, faces));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, faces));
     }
 
 
@@ -27357,12 +27843,13 @@ static Napi::Value jsopencv_cv_face_getFacesHAAR(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "getFacesHAAR");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_loadDatasetList(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_imageList = NULL;
     String imageList;
@@ -27382,15 +27869,16 @@ static Napi::Value jsopencv_cv_face_loadDatasetList(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_annotations, annotations, ArgInfo("annotations", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadDatasetList(imageList, annotationList, images, annotations));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27410,7 +27898,7 @@ static Napi::Value jsopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadFacePoints(filename, points, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, points));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, points));
     }
 
 
@@ -27434,7 +27922,7 @@ static Napi::Value jsopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadFacePoints(filename, points, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, points));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, points));
     }
 
 
@@ -27442,12 +27930,13 @@ static Napi::Value jsopencv_cv_face_loadFacePoints(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "loadFacePoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &info)
 {
     using namespace cv::face;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(5);
 
@@ -27469,11 +27958,11 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(jsobj_images, images, ArgInfo("images", 0)) &&
         jsopencv_to_safe(jsobj_facePoints, facePoints, ArgInfo("facePoints", 1)) &&
-        jsconvert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
+        jsconvert_to_char(*jsobj_delim, &delim, ArgInfo("delim", 0)) &&
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, images, facePoints, delim, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, facePoints));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, facePoints));
     }
 
 
@@ -27499,11 +27988,11 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(jsobj_images, images, ArgInfo("images", 0)) &&
         jsopencv_to_safe(jsobj_facePoints, facePoints, ArgInfo("facePoints", 1)) &&
-        jsconvert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
+        jsconvert_to_char(*jsobj_delim, &delim, ArgInfo("delim", 0)) &&
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, images, facePoints, delim, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, facePoints));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, facePoints));
     }
 
 
@@ -27533,7 +28022,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(imageList, groundTruth, images, facePoints, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, facePoints));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, facePoints));
     }
 
 
@@ -27563,7 +28052,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(imageList, groundTruth, images, facePoints, offset));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, facePoints));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, facePoints));
     }
 
 
@@ -27587,7 +28076,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_trainimages, trainimages, ArgInfo("trainimages", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, trainlandmarks, trainimages));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -27595,12 +28084,13 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "loadTrainingData");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27638,7 +28128,7 @@ static Napi::Value jsopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fisheye::calibrate(objectPoints, imagePoints, image_size, K, D, rvecs, tvecs, flags, criteria));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, K), jsopencv_from(info, D), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, K), jsopencv_from(env, D), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -27680,7 +28170,7 @@ static Napi::Value jsopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fisheye::calibrate(objectPoints, imagePoints, image_size, K, D, rvecs, tvecs, flags, criteria));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, retval), jsopencv_from(info, K), jsopencv_from(info, D), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, retval), jsopencv_from(env, K), jsopencv_from(env, D), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -27688,12 +28178,13 @@ static Napi::Value jsopencv_cv_fisheye_calibrate(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "calibrate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27718,7 +28209,7 @@ static Napi::Value jsopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_alpha, alpha, ArgInfo("alpha", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::distortPoints(undistorted, distorted, K, D, alpha));
-        return jsopencv_from(info, distorted);
+        return jsopencv_from(env, distorted);
     }
 
 
@@ -27747,7 +28238,7 @@ static Napi::Value jsopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_alpha, alpha, ArgInfo("alpha", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::distortPoints(undistorted, distorted, K, D, alpha));
-        return jsopencv_from(info, distorted);
+        return jsopencv_from(env, distorted);
     }
 
 
@@ -27755,12 +28246,13 @@ static Napi::Value jsopencv_cv_fisheye_distortPoints(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "distortPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectify(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27794,7 +28286,7 @@ static Napi::Value jsopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectif
         jsopencv_to_safe(jsobj_fov_scale, fov_scale, ArgInfo("fov_scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::estimateNewCameraMatrixForUndistortRectify(K, D, image_size, R, P, balance, new_size, fov_scale));
-        return jsopencv_from(info, P);
+        return jsopencv_from(env, P);
     }
 
 
@@ -27832,7 +28324,7 @@ static Napi::Value jsopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectif
         jsopencv_to_safe(jsobj_fov_scale, fov_scale, ArgInfo("fov_scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::estimateNewCameraMatrixForUndistortRectify(K, D, image_size, R, P, balance, new_size, fov_scale));
-        return jsopencv_from(info, P);
+        return jsopencv_from(env, P);
     }
 
 
@@ -27840,12 +28332,13 @@ static Napi::Value jsopencv_cv_fisheye_estimateNewCameraMatrixForUndistortRectif
     }
     jsRaiseCVOverloadException(info, "estimateNewCameraMatrixForUndistortRectify");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_initUndistortRectifyMap(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27879,7 +28372,7 @@ static Napi::Value jsopencv_cv_fisheye_initUndistortRectifyMap(const Napi::Callb
         jsopencv_to_safe(jsobj_map2, map2, ArgInfo("map2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::initUndistortRectifyMap(K, D, R, P, size, m1type, map1, map2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, map1), jsopencv_from(info, map2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, map1), jsopencv_from(env, map2));
     }
 
 
@@ -27917,7 +28410,7 @@ static Napi::Value jsopencv_cv_fisheye_initUndistortRectifyMap(const Napi::Callb
         jsopencv_to_safe(jsobj_map2, map2, ArgInfo("map2", 1)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::initUndistortRectifyMap(K, D, R, P, size, m1type, map1, map2));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, map1), jsopencv_from(info, map2));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, map1), jsopencv_from(env, map2));
     }
 
 
@@ -27925,12 +28418,13 @@ static Napi::Value jsopencv_cv_fisheye_initUndistortRectifyMap(const Napi::Callb
     }
     jsRaiseCVOverloadException(info, "initUndistortRectifyMap");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -27964,7 +28458,7 @@ static Napi::Value jsopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_jacobian, jacobian, ArgInfo("jacobian", 1)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::projectPoints(objectPoints, imagePoints, rvec, tvec, K, D, alpha, jacobian));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, imagePoints), jsopencv_from(info, jacobian));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, imagePoints), jsopencv_from(env, jacobian));
     }
 
 
@@ -28002,7 +28496,7 @@ static Napi::Value jsopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_jacobian, jacobian, ArgInfo("jacobian", 1)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::projectPoints(objectPoints, imagePoints, rvec, tvec, K, D, alpha, jacobian));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, imagePoints), jsopencv_from(info, jacobian));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, imagePoints), jsopencv_from(env, jacobian));
     }
 
 
@@ -28010,12 +28504,13 @@ static Napi::Value jsopencv_cv_fisheye_projectPoints(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "projectPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -28068,7 +28563,7 @@ static Napi::Value jsopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fisheye::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, K1, D1, K2, D2, imageSize, R, T, rvecs, tvecs, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, K1), jsopencv_from(info, D1), jsopencv_from(info, K2), jsopencv_from(info, D2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, K1), jsopencv_from(env, D1), jsopencv_from(env, K2), jsopencv_from(env, D2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -28125,7 +28620,7 @@ static Napi::Value jsopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fisheye::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, K1, D1, K2, D2, imageSize, R, T, rvecs, tvecs, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, K1), jsopencv_from(info, D1), jsopencv_from(info, K2), jsopencv_from(info, D2), jsopencv_from(info, R), jsopencv_from(info, T), jsopencv_from(info, rvecs), jsopencv_from(info, tvecs));
+        return Js_BuildValue(env, "(NNNNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, K1), jsopencv_from(env, D1), jsopencv_from(env, K2), jsopencv_from(env, D2), jsopencv_from(env, R), jsopencv_from(env, T), jsopencv_from(env, rvecs), jsopencv_from(env, tvecs));
     }
 
 
@@ -28176,7 +28671,7 @@ static Napi::Value jsopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fisheye::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, K1, D1, K2, D2, imageSize, R, T, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, K1), jsopencv_from(info, D1), jsopencv_from(info, K2), jsopencv_from(info, D2), jsopencv_from(info, R), jsopencv_from(info, T));
+        return Js_BuildValue(env, "(NNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, K1), jsopencv_from(env, D1), jsopencv_from(env, K2), jsopencv_from(env, D2), jsopencv_from(env, R), jsopencv_from(env, T));
     }
 
 
@@ -28227,7 +28722,7 @@ static Napi::Value jsopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::fisheye::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, K1, D1, K2, D2, imageSize, R, T, flags, criteria));
-        return Js_BuildValue(info, "(NNNNNNN)", jsopencv_from(info, retval), jsopencv_from(info, K1), jsopencv_from(info, D1), jsopencv_from(info, K2), jsopencv_from(info, D2), jsopencv_from(info, R), jsopencv_from(info, T));
+        return Js_BuildValue(env, "(NNNNNNN)", jsopencv_from(env, retval), jsopencv_from(env, K1), jsopencv_from(env, D1), jsopencv_from(env, K2), jsopencv_from(env, D2), jsopencv_from(env, R), jsopencv_from(env, T));
     }
 
 
@@ -28235,12 +28730,13 @@ static Napi::Value jsopencv_cv_fisheye_stereoCalibrate(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "stereoCalibrate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -28298,7 +28794,7 @@ static Napi::Value jsopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_fov_scale, fov_scale, ArgInfo("fov_scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::stereoRectify(K1, D1, K2, D2, imageSize, R, tvec, R1, R2, P1, P2, Q, flags, newImageSize, balance, fov_scale));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, P1), jsopencv_from(info, P2), jsopencv_from(info, Q));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, P1), jsopencv_from(env, P2), jsopencv_from(env, Q));
     }
 
 
@@ -28360,7 +28856,7 @@ static Napi::Value jsopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_fov_scale, fov_scale, ArgInfo("fov_scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::stereoRectify(K1, D1, K2, D2, imageSize, R, tvec, R1, R2, P1, P2, Q, flags, newImageSize, balance, fov_scale));
-        return Js_BuildValue(info, "(NNNNN)", jsopencv_from(info, R1), jsopencv_from(info, R2), jsopencv_from(info, P1), jsopencv_from(info, P2), jsopencv_from(info, Q));
+        return Js_BuildValue(env, "(NNNNN)", jsopencv_from(env, R1), jsopencv_from(env, R2), jsopencv_from(env, P1), jsopencv_from(env, P2), jsopencv_from(env, Q));
     }
 
 
@@ -28368,12 +28864,13 @@ static Napi::Value jsopencv_cv_fisheye_stereoRectify(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "stereoRectify");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -28401,7 +28898,7 @@ static Napi::Value jsopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_new_size, new_size, ArgInfo("new_size", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::undistortImage(distorted, undistorted, K, D, Knew, new_size));
-        return jsopencv_from(info, undistorted);
+        return jsopencv_from(env, undistorted);
     }
 
 
@@ -28433,7 +28930,7 @@ static Napi::Value jsopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_new_size, new_size, ArgInfo("new_size", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::undistortImage(distorted, undistorted, K, D, Knew, new_size));
-        return jsopencv_from(info, undistorted);
+        return jsopencv_from(env, undistorted);
     }
 
 
@@ -28441,12 +28938,13 @@ static Napi::Value jsopencv_cv_fisheye_undistortImage(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "undistortImage");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv::fisheye;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -28477,7 +28975,7 @@ static Napi::Value jsopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::undistortPoints(distorted, undistorted, K, D, R, P, criteria));
-        return jsopencv_from(info, undistorted);
+        return jsopencv_from(env, undistorted);
     }
 
 
@@ -28512,7 +29010,7 @@ static Napi::Value jsopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_criteria, criteria, ArgInfo("criteria", 0)))
     {
         ERRWRAP2_NAPI(info, cv::fisheye::undistortPoints(distorted, undistorted, K, D, R, P, criteria));
-        return jsopencv_from(info, undistorted);
+        return jsopencv_from(env, undistorted);
     }
 
 
@@ -28520,12 +29018,13 @@ static Napi::Value jsopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "undistortPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_BGR2Gray(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28536,15 +29035,16 @@ static Napi::Value jsopencv_cv_gapi_BGR2Gray(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::BGR2Gray(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_BGR2I420(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28555,15 +29055,16 @@ static Napi::Value jsopencv_cv_gapi_BGR2I420(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::BGR2I420(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_BGR2LUV(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28574,15 +29075,16 @@ static Napi::Value jsopencv_cv_gapi_BGR2LUV(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::BGR2LUV(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_BGR2RGB(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28593,15 +29095,16 @@ static Napi::Value jsopencv_cv_gapi_BGR2RGB(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::BGR2RGB(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_BGR2YUV(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28612,15 +29115,16 @@ static Napi::Value jsopencv_cv_gapi_BGR2YUV(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::BGR2YUV(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_BayerGR2RGB(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src_gr = NULL;
     cv::GMat src_gr;
@@ -28631,15 +29135,16 @@ static Napi::Value jsopencv_cv_gapi_BayerGR2RGB(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src_gr, src_gr, ArgInfo("src_gr", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::BayerGR2RGB(src_gr));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_Canny(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_image = NULL;
     cv::GMat image;
@@ -28662,15 +29167,16 @@ static Napi::Value jsopencv_cv_gapi_Canny(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_L2gradient, L2gradient, ArgInfo("L2gradient", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::Canny(image, threshold1, threshold2, apertureSize, L2gradient));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_I4202BGR(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28681,15 +29187,16 @@ static Napi::Value jsopencv_cv_gapi_I4202BGR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::I4202BGR(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_I4202RGB(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28700,15 +29207,16 @@ static Napi::Value jsopencv_cv_gapi_I4202RGB(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::I4202RGB(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_LUT(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28722,15 +29230,16 @@ static Napi::Value jsopencv_cv_gapi_LUT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_lut, lut, ArgInfo("lut", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::LUT(src, lut));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_LUV2BGR(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28741,15 +29250,16 @@ static Napi::Value jsopencv_cv_gapi_LUV2BGR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::LUV2BGR(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_Laplacian(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28775,15 +29285,16 @@ static Napi::Value jsopencv_cv_gapi_Laplacian(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::Laplacian(src, ddepth, ksize, scale, delta, borderType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_NV12toBGR(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src_y = NULL;
     cv::GMat src_y;
@@ -28797,15 +29308,16 @@ static Napi::Value jsopencv_cv_gapi_NV12toBGR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src_uv, src_uv, ArgInfo("src_uv", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::NV12toBGR(src_y, src_uv));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_NV12toGray(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src_y = NULL;
     cv::GMat src_y;
@@ -28819,15 +29331,16 @@ static Napi::Value jsopencv_cv_gapi_NV12toGray(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src_uv, src_uv, ArgInfo("src_uv", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::NV12toGray(src_y, src_uv));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_NV12toRGB(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src_y = NULL;
     cv::GMat src_y;
@@ -28841,15 +29354,16 @@ static Napi::Value jsopencv_cv_gapi_NV12toRGB(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src_uv, src_uv, ArgInfo("src_uv", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::NV12toRGB(src_y, src_uv));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -28863,7 +29377,7 @@ static Napi::Value jsopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2Gray(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -28890,7 +29404,7 @@ static Napi::Value jsopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_bY, bY, ArgInfo("bY", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2Gray(src, rY, gY, bY));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -28898,12 +29412,13 @@ static Napi::Value jsopencv_cv_gapi_RGB2Gray(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "RGB2Gray");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_RGB2HSV(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28914,15 +29429,16 @@ static Napi::Value jsopencv_cv_gapi_RGB2HSV(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2HSV(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_RGB2I420(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28933,15 +29449,16 @@ static Napi::Value jsopencv_cv_gapi_RGB2I420(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2I420(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_RGB2Lab(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28952,15 +29469,16 @@ static Napi::Value jsopencv_cv_gapi_RGB2Lab(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2Lab(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_RGB2YUV(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28971,15 +29489,16 @@ static Napi::Value jsopencv_cv_gapi_RGB2YUV(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2YUV(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_RGB2YUV422(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -28990,15 +29509,16 @@ static Napi::Value jsopencv_cv_gapi_RGB2YUV422(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::RGB2YUV422(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_Sobel(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29033,15 +29553,16 @@ static Napi::Value jsopencv_cv_gapi_Sobel(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::Sobel(src, ddepth, dx, dy, ksize, scale, delta, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_SobelXY(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29073,15 +29594,16 @@ static Napi::Value jsopencv_cv_gapi_SobelXY(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::SobelXY(src, ddepth, order, ksize, scale, delta, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_YUV2BGR(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29092,15 +29614,16 @@ static Napi::Value jsopencv_cv_gapi_YUV2BGR(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::YUV2BGR(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_YUV2RGB(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29111,15 +29634,16 @@ static Napi::Value jsopencv_cv_gapi_YUV2RGB(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::YUV2RGB(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_absDiff(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -29133,15 +29657,16 @@ static Napi::Value jsopencv_cv_gapi_absDiff(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::absDiff(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_absDiffC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29155,15 +29680,16 @@ static Napi::Value jsopencv_cv_gapi_absDiffC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_c, c, ArgInfo("c", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::absDiffC(src, c));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_add(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -29180,15 +29706,16 @@ static Napi::Value jsopencv_cv_gapi_add(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::add(src1, src2, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29208,7 +29735,7 @@ static Napi::Value jsopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::addC(src1, c, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29232,7 +29759,7 @@ static Napi::Value jsopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::addC(c, src1, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29240,12 +29767,13 @@ static Napi::Value jsopencv_cv_gapi_addC(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "addC");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_addWeighted(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -29271,15 +29799,16 @@ static Napi::Value jsopencv_cv_gapi_addWeighted(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::addWeighted(src1, alpha, src2, beta, gamma, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_bilateralFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29302,15 +29831,16 @@ static Napi::Value jsopencv_cv_gapi_bilateralFilter(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bilateralFilter(src, d, sigmaColor, sigmaSpace, borderType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29327,7 +29857,7 @@ static Napi::Value jsopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_and(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29348,7 +29878,7 @@ static Napi::Value jsopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_and(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29356,12 +29886,13 @@ static Napi::Value jsopencv_cv_gapi_bitwise_and(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_and");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_bitwise_not(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29372,15 +29903,16 @@ static Napi::Value jsopencv_cv_gapi_bitwise_not(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_not(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29397,7 +29929,7 @@ static Napi::Value jsopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_or(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29418,7 +29950,7 @@ static Napi::Value jsopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_or(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29426,12 +29958,13 @@ static Napi::Value jsopencv_cv_gapi_bitwise_or(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_or");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29448,7 +29981,7 @@ static Napi::Value jsopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_xor(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29469,7 +30002,7 @@ static Napi::Value jsopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::bitwise_xor(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29477,12 +30010,13 @@ static Napi::Value jsopencv_cv_gapi_bitwise_xor(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "bitwise_xor");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_blur(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29505,15 +30039,16 @@ static Napi::Value jsopencv_cv_gapi_blur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::blur(src, ksize, anchor, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -29527,7 +30062,7 @@ static Napi::Value jsopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::boundingRect(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29545,7 +30080,7 @@ static Napi::Value jsopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::boundingRect(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29563,7 +30098,7 @@ static Napi::Value jsopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::boundingRect(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29571,12 +30106,13 @@ static Napi::Value jsopencv_cv_gapi_boundingRect(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "boundingRect");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_boxFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -29605,15 +30141,16 @@ static Napi::Value jsopencv_cv_gapi_boxFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::boxFilter(src, dtype, ksize, anchor, normalize, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cartToPolar(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_x = NULL;
     cv::GMat x;
@@ -29630,15 +30167,16 @@ static Napi::Value jsopencv_cv_gapi_cartToPolar(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cartToPolar(x, y, angleInDegrees));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29655,7 +30193,7 @@ static Napi::Value jsopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpEQ(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29676,7 +30214,7 @@ static Napi::Value jsopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpEQ(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29684,12 +30222,13 @@ static Napi::Value jsopencv_cv_gapi_cmpEQ(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cmpEQ");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29706,7 +30245,7 @@ static Napi::Value jsopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpGE(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29727,7 +30266,7 @@ static Napi::Value jsopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpGE(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29735,12 +30274,13 @@ static Napi::Value jsopencv_cv_gapi_cmpGE(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cmpGE");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29757,7 +30297,7 @@ static Napi::Value jsopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpGT(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29778,7 +30318,7 @@ static Napi::Value jsopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpGT(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29786,12 +30326,13 @@ static Napi::Value jsopencv_cv_gapi_cmpGT(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cmpGT");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29808,7 +30349,7 @@ static Napi::Value jsopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpLE(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29829,7 +30370,7 @@ static Napi::Value jsopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpLE(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29837,12 +30378,13 @@ static Napi::Value jsopencv_cv_gapi_cmpLE(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cmpLE");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29859,7 +30401,7 @@ static Napi::Value jsopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpLT(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29880,7 +30422,7 @@ static Napi::Value jsopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpLT(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29888,12 +30430,13 @@ static Napi::Value jsopencv_cv_gapi_cmpLT(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cmpLT");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29910,7 +30453,7 @@ static Napi::Value jsopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpNE(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29931,7 +30474,7 @@ static Napi::Value jsopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::cmpNE(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29939,12 +30482,13 @@ static Napi::Value jsopencv_cv_gapi_cmpNE(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "cmpNE");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -29961,7 +30505,7 @@ static Napi::Value jsopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::concatHor(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29979,7 +30523,7 @@ static Napi::Value jsopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_v, v, ArgInfo("v", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::concatHor(v));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -29987,12 +30531,13 @@ static Napi::Value jsopencv_cv_gapi_concatHor(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "concatHor");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -30009,7 +30554,7 @@ static Napi::Value jsopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::concatVert(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30027,7 +30572,7 @@ static Napi::Value jsopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_v, v, ArgInfo("v", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::concatVert(v));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30035,12 +30580,13 @@ static Napi::Value jsopencv_cv_gapi_concatVert(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "concatVert");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_convertTo(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30060,15 +30606,16 @@ static Napi::Value jsopencv_cv_gapi_convertTo(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_beta, beta, ArgInfo("beta", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::convertTo(src, rdepth, alpha, beta));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_copy(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_in = NULL;
     cv::GMat in;
@@ -30079,15 +30626,16 @@ static Napi::Value jsopencv_cv_gapi_copy(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_in, in, ArgInfo("in", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::copy(in));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_countNonZero(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30098,15 +30646,16 @@ static Napi::Value jsopencv_cv_gapi_countNonZero(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::countNonZero(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_crop(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30120,15 +30669,16 @@ static Napi::Value jsopencv_cv_gapi_crop(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_rect, rect, ArgInfo("rect", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::crop(src, rect));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_dilate(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30154,15 +30704,16 @@ static Napi::Value jsopencv_cv_gapi_dilate(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::dilate(src, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_dilate3x3(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30182,15 +30733,16 @@ static Napi::Value jsopencv_cv_gapi_dilate3x3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::dilate3x3(src, iterations, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_div(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -30210,15 +30762,16 @@ static Napi::Value jsopencv_cv_gapi_div(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::div(src1, src2, scale, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_divC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30238,15 +30791,16 @@ static Napi::Value jsopencv_cv_gapi_divC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::divC(src, divisor, scale, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_divRC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_divident = NULL;
     cv::GScalar divident;
@@ -30266,15 +30820,16 @@ static Napi::Value jsopencv_cv_gapi_divRC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::divRC(divident, src, scale, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_equalizeHist(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30285,15 +30840,16 @@ static Napi::Value jsopencv_cv_gapi_equalizeHist(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::equalizeHist(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_erode(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30319,15 +30875,16 @@ static Napi::Value jsopencv_cv_gapi_erode(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::erode(src, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_erode3x3(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30347,15 +30904,16 @@ static Napi::Value jsopencv_cv_gapi_erode3x3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::erode3x3(src, iterations, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_filter2D(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30384,15 +30942,16 @@ static Napi::Value jsopencv_cv_gapi_filter2D(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::filter2D(src, ddepth, kernel, anchor, delta, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_flip(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30406,15 +30965,16 @@ static Napi::Value jsopencv_cv_gapi_flip(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flipCode, flipCode, ArgInfo("flipCode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::flip(src, flipCode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_gaussianBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30440,15 +31000,16 @@ static Napi::Value jsopencv_cv_gapi_gaussianBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::gaussianBlur(src, ksize, sigmaX, sigmaY, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_goodFeaturesToTrack(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_image = NULL;
     cv::GMat image;
@@ -30480,15 +31041,16 @@ static Napi::Value jsopencv_cv_gapi_goodFeaturesToTrack(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_k, k, ArgInfo("k", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::goodFeaturesToTrack(image, maxCorners, qualityLevel, minDistance, mask, blockSize, useHarrisDetector, k));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_inRange(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30505,15 +31067,16 @@ static Napi::Value jsopencv_cv_gapi_inRange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_threshUp, threshUp, ArgInfo("threshUp", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::inRange(src, threshLow, threshUp));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -30530,7 +31093,7 @@ static Napi::Value jsopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputs, inputs, ArgInfo("inputs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::infer(name, inputs));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30554,7 +31117,7 @@ static Napi::Value jsopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputs, inputs, ArgInfo("inputs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::infer(name, roi, inputs));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30578,7 +31141,7 @@ static Napi::Value jsopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputs, inputs, ArgInfo("inputs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::infer(name, rois, inputs));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30586,12 +31149,13 @@ static Napi::Value jsopencv_cv_gapi_infer(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "infer");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_infer2(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_name = NULL;
     std::string name;
@@ -30608,15 +31172,16 @@ static Napi::Value jsopencv_cv_gapi_infer2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_inputs, inputs, ArgInfo("inputs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::infer2(name, in, inputs));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_integral(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30633,15 +31198,16 @@ static Napi::Value jsopencv_cv_gapi_integral(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sqdepth, sqdepth, ArgInfo("sqdepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::integral(src, sdepth, sqdepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -30670,7 +31236,7 @@ static Napi::Value jsopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::kmeans(data, K, bestLabels, criteria, attempts, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30700,7 +31266,7 @@ static Napi::Value jsopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::kmeans(data, K, criteria, attempts, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30733,7 +31299,7 @@ static Napi::Value jsopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::kmeans(data, K, bestLabels, criteria, attempts, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30766,7 +31332,7 @@ static Napi::Value jsopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flags, flags, ArgInfo("flags", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::kmeans(data, K, bestLabels, criteria, attempts, flags));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -30774,12 +31340,13 @@ static Napi::Value jsopencv_cv_gapi_kmeans(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "kmeans");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_mask(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30793,15 +31360,16 @@ static Napi::Value jsopencv_cv_gapi_mask(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::mask(src, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_max(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -30815,15 +31383,16 @@ static Napi::Value jsopencv_cv_gapi_max(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::max(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_mean(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30834,15 +31403,16 @@ static Napi::Value jsopencv_cv_gapi_mean(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::mean(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_medianBlur(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30856,15 +31426,16 @@ static Napi::Value jsopencv_cv_gapi_medianBlur(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ksize, ksize, ArgInfo("ksize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::medianBlur(src, ksize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_merge3(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -30881,15 +31452,16 @@ static Napi::Value jsopencv_cv_gapi_merge3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src3, src3, ArgInfo("src3", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::merge3(src1, src2, src3));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_merge4(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -30909,15 +31481,16 @@ static Napi::Value jsopencv_cv_gapi_merge4(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src4, src4, ArgInfo("src4", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::merge4(src1, src2, src3, src4));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_min(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -30931,15 +31504,16 @@ static Napi::Value jsopencv_cv_gapi_min(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src2, src2, ArgInfo("src2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::min(src1, src2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_morphologyEx(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -30968,15 +31542,16 @@ static Napi::Value jsopencv_cv_gapi_morphologyEx(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::morphologyEx(src, op, kernel, anchor, iterations, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_mul(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -30996,15 +31571,16 @@ static Napi::Value jsopencv_cv_gapi_mul(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::mul(src1, src2, scale, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -31024,7 +31600,7 @@ static Napi::Value jsopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::mulC(src, multiplier, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31048,7 +31624,7 @@ static Napi::Value jsopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::mulC(src, multiplier, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31072,7 +31648,7 @@ static Napi::Value jsopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::mulC(multiplier, src, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31080,12 +31656,13 @@ static Napi::Value jsopencv_cv_gapi_mulC(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "mulC");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_normInf(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31096,15 +31673,16 @@ static Napi::Value jsopencv_cv_gapi_normInf(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::normInf(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_normL1(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31115,15 +31693,16 @@ static Napi::Value jsopencv_cv_gapi_normL1(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::normL1(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_normL2(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31134,15 +31713,16 @@ static Napi::Value jsopencv_cv_gapi_normL2(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::normL2(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_normalize(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31165,15 +31745,16 @@ static Napi::Value jsopencv_cv_gapi_normalize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::normalize(src, alpha, beta, norm_type, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -31196,7 +31777,7 @@ static Napi::Value jsopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filterLabel, filterLabel, ArgInfo("filterLabel", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::parseSSD(in, inSz, confidenceThreshold, filterLabel));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31226,7 +31807,7 @@ static Napi::Value jsopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filterOutOfBounds, filterOutOfBounds, ArgInfo("filterOutOfBounds", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::parseSSD(in, inSz, confidenceThreshold, alignmentToSquare, filterOutOfBounds));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31234,12 +31815,13 @@ static Napi::Value jsopencv_cv_gapi_parseSSD(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "parseSSD");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_parseYolo(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_in = NULL;
     cv::GMat in;
@@ -31262,15 +31844,16 @@ static Napi::Value jsopencv_cv_gapi_parseYolo(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_anchors, anchors, ArgInfo("anchors", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::parseYolo(in, inSz, confidenceThreshold, nmsThreshold, anchors));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_phase(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_x = NULL;
     cv::GMat x;
@@ -31287,15 +31870,16 @@ static Napi::Value jsopencv_cv_gapi_phase(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::phase(x, y, angleInDegrees));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_polarToCart(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_magnitude = NULL;
     cv::GMat magnitude;
@@ -31312,15 +31896,16 @@ static Napi::Value jsopencv_cv_gapi_polarToCart(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_angleInDegrees, angleInDegrees, ArgInfo("angleInDegrees", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::polarToCart(magnitude, angle, angleInDegrees));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_remap(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31346,15 +31931,16 @@ static Napi::Value jsopencv_cv_gapi_remap(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::remap(src, map1, map2, interpolation, borderMode, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_resize(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31377,15 +31963,16 @@ static Napi::Value jsopencv_cv_gapi_resize(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_interpolation, interpolation, ArgInfo("interpolation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::resize(src, dsize, fx, fy, interpolation));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_select(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -31402,15 +31989,16 @@ static Napi::Value jsopencv_cv_gapi_select(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::select(src1, src2, mask));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_sepFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31442,15 +32030,16 @@ static Napi::Value jsopencv_cv_gapi_sepFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::sepFilter(src, ddepth, kernelX, kernelY, anchor, delta, borderType, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_split3(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31461,15 +32050,16 @@ static Napi::Value jsopencv_cv_gapi_split3(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::split3(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_split4(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31480,15 +32070,16 @@ static Napi::Value jsopencv_cv_gapi_split4(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::split4(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_sqrt(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31499,15 +32090,16 @@ static Napi::Value jsopencv_cv_gapi_sqrt(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::sqrt(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_sub(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src1 = NULL;
     cv::GMat src1;
@@ -31524,15 +32116,16 @@ static Napi::Value jsopencv_cv_gapi_sub(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::sub(src1, src2, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_subC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31549,15 +32142,16 @@ static Napi::Value jsopencv_cv_gapi_subC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::subC(src, c, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_subRC(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_c = NULL;
     cv::GScalar c;
@@ -31574,15 +32168,16 @@ static Napi::Value jsopencv_cv_gapi_subRC(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_ddepth, ddepth, ArgInfo("ddepth", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::subRC(c, src, ddepth));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_sum(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31593,15 +32188,16 @@ static Napi::Value jsopencv_cv_gapi_sum(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::sum(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -31624,7 +32220,7 @@ static Napi::Value jsopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::threshold(src, thresh, maxval, type));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31648,7 +32244,7 @@ static Napi::Value jsopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_type, type, ArgInfo("type", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::threshold(src, maxval, type));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31656,12 +32252,13 @@ static Napi::Value jsopencv_cv_gapi_threshold(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "threshold");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_transpose(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31672,15 +32269,16 @@ static Napi::Value jsopencv_cv_gapi_transpose(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::transpose(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_warpAffine(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31706,15 +32304,16 @@ static Napi::Value jsopencv_cv_gapi_warpAffine(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::warpAffine(src, M, dsize, flags, borderMode, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_warpPerspective(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -31740,60 +32339,64 @@ static Napi::Value jsopencv_cv_gapi_warpPerspective(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_borderValue, borderValue, ArgInfo("borderValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::warpPerspective(src, M, dsize, flags, borderMode, borderValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_core_cpu_kernels(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::core::cpu;
+    Napi::Env env = info.Env();
 
     cv::GKernelPackage retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::core::cpu::kernels());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_core_fluid_kernels(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::core::fluid;
+    Napi::Env env = info.Env();
 
     cv::GKernelPackage retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::core::fluid::kernels());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_core_ocl_kernels(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::core::ocl;
+    Napi::Env env = info.Env();
 
     cv::GKernelPackage retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::core::ocl::kernels());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::ie;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -31816,7 +32419,7 @@ static Napi::Value jsopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::ie::params(tag, model, weights, device));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31840,7 +32443,7 @@ static Napi::Value jsopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_device, device, ArgInfo("device", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::ie::params(tag, model, device));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31848,12 +32451,13 @@ static Napi::Value jsopencv_cv_gapi_ie_params(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "params");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_onnx_params(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::onnx;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_tag = NULL;
     std::string tag;
@@ -31867,30 +32471,32 @@ static Napi::Value jsopencv_cv_gapi_onnx_params(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_model_path, model_path, ArgInfo("model_path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::onnx::params(tag, model_path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_render_ocv_kernels(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::render::ocv;
+    Napi::Env env = info.Env();
 
     cv::GKernelPackage retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::render::ocv::kernels());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_streaming_desync(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::streaming;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_g = NULL;
     cv::GMat g;
@@ -31901,15 +32507,16 @@ static Napi::Value jsopencv_cv_gapi_streaming_desync(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_g, g, ArgInfo("g", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::desync(g));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_streaming_seqNo(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::streaming;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_arg1 = NULL;
     cv::GMat arg1;
@@ -31920,15 +32527,16 @@ static Napi::Value jsopencv_cv_gapi_streaming_seqNo(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_arg1, arg1, ArgInfo("arg1", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::seqNo(arg1));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_streaming_seq_id(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::streaming;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_arg1 = NULL;
     cv::GMat arg1;
@@ -31939,15 +32547,16 @@ static Napi::Value jsopencv_cv_gapi_streaming_seq_id(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_arg1, arg1, ArgInfo("arg1", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::seq_id(arg1));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::streaming;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -31961,7 +32570,7 @@ static Napi::Value jsopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::size(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31979,7 +32588,7 @@ static Napi::Value jsopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_r, r, ArgInfo("r", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::size(r));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -31997,7 +32606,7 @@ static Napi::Value jsopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_src, src, ArgInfo("src", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::size(src));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -32005,12 +32614,13 @@ static Napi::Value jsopencv_cv_gapi_streaming_size(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "size");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_streaming_timestamp(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::streaming;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_arg1 = NULL;
     cv::GMat arg1;
@@ -32021,15 +32631,16 @@ static Napi::Value jsopencv_cv_gapi_streaming_timestamp(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_arg1, arg1, ArgInfo("arg1", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::streaming::timestamp(arg1));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_wip_get_streaming_source(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::wip;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_pipeline = NULL;
     Ptr<GStreamerPipeline> pipeline;
@@ -32046,15 +32657,16 @@ static Napi::Value jsopencv_cv_gapi_wip_get_streaming_source(const Napi::Callbac
         jsopencv_to_safe(jsobj_outputType, outputType, ArgInfo("outputType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::wip::get_streaming_source(pipeline, appsinkName, outputType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::wip;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32068,7 +32680,7 @@ static Napi::Value jsopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_path, path, ArgInfo("path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::wip::make_capture_src(path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -32086,7 +32698,7 @@ static Napi::Value jsopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_id, id, ArgInfo("id", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::wip::make_capture_src(id));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -32094,12 +32706,13 @@ static Napi::Value jsopencv_cv_gapi_wip_make_capture_src(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "make_capture_src");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_wip_make_gst_src(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::wip;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_pipeline = NULL;
     std::string pipeline;
@@ -32113,15 +32726,16 @@ static Napi::Value jsopencv_cv_gapi_wip_make_gst_src(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_outputType, outputType, ArgInfo("outputType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::wip::make_gst_src(pipeline, outputType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::wip::draw;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32140,7 +32754,7 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_args, args, ArgInfo("args", 0)))
     {
         ERRWRAP2_NAPI(info, cv::gapi::wip::draw::render(bgr, prims, std::move(args)));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -32166,7 +32780,7 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_args, args, ArgInfo("args", 0)))
     {
         ERRWRAP2_NAPI(info, cv::gapi::wip::draw::render(y_plane, uv_plane, prims, std::move(args)));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
 
@@ -32174,12 +32788,13 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_render(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "render");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_wip_draw_render3ch(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::wip::draw;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_src = NULL;
     cv::GMat src;
@@ -32193,15 +32808,16 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_render3ch(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_prims, prims, ArgInfo("prims", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::wip::draw::render3ch(src, prims));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_gapi_wip_draw_renderNV12(const Napi::CallbackInfo &info)
 {
     using namespace cv::gapi::wip::draw;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_y = NULL;
     cv::GMat y;
@@ -32218,30 +32834,32 @@ static Napi::Value jsopencv_cv_gapi_wip_draw_renderNV12(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_prims, prims, ArgInfo("prims", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::gapi::wip::draw::renderNV12(y, uv, prims));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_AverageHash_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     Ptr<AverageHash> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::AverageHash::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_BlockMeanHash_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_mode = NULL;
     int mode=BLOCK_MEAN_HASH_MODE_0;
@@ -32252,30 +32870,32 @@ static Napi::Value jsopencv_cv_img_hash_BlockMeanHash_create(const Napi::Callbac
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::BlockMeanHash::create(mode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_ColorMomentHash_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     Ptr<ColorMomentHash> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::ColorMomentHash::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_MarrHildrethHash_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_alpha = NULL;
     float alpha=2.0f;
@@ -32289,30 +32909,32 @@ static Napi::Value jsopencv_cv_img_hash_MarrHildrethHash_create(const Napi::Call
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::MarrHildrethHash::create(alpha, scale));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_PHash_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     Ptr<PHash> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::PHash::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_RadialVarianceHash_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_sigma = NULL;
     double sigma=1;
@@ -32326,15 +32948,16 @@ static Napi::Value jsopencv_cv_img_hash_RadialVarianceHash_create(const Napi::Ca
         jsopencv_to_safe(jsobj_numOfAngleLine, numOfAngleLine, ArgInfo("numOfAngleLine", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::img_hash::RadialVarianceHash::create(sigma, numOfAngleLine));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32350,7 +32973,7 @@ static Napi::Value jsopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_outputArr, outputArr, ArgInfo("outputArr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::averageHash(inputArr, outputArr));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32370,7 +32993,7 @@ static Napi::Value jsopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_outputArr, outputArr, ArgInfo("outputArr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::averageHash(inputArr, outputArr));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32378,12 +33001,13 @@ static Napi::Value jsopencv_cv_img_hash_averageHash(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "averageHash");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32402,7 +33026,7 @@ static Napi::Value jsopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::blockMeanHash(inputArr, outputArr, mode));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32425,7 +33049,7 @@ static Napi::Value jsopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::blockMeanHash(inputArr, outputArr, mode));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32433,12 +33057,13 @@ static Napi::Value jsopencv_cv_img_hash_blockMeanHash(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "blockMeanHash");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32454,7 +33079,7 @@ static Napi::Value jsopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_outputArr, outputArr, ArgInfo("outputArr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::colorMomentHash(inputArr, outputArr));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32474,7 +33099,7 @@ static Napi::Value jsopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_outputArr, outputArr, ArgInfo("outputArr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::colorMomentHash(inputArr, outputArr));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32482,12 +33107,13 @@ static Napi::Value jsopencv_cv_img_hash_colorMomentHash(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "colorMomentHash");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32509,7 +33135,7 @@ static Napi::Value jsopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::marrHildrethHash(inputArr, outputArr, alpha, scale));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32535,7 +33161,7 @@ static Napi::Value jsopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::marrHildrethHash(inputArr, outputArr, alpha, scale));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32543,12 +33169,13 @@ static Napi::Value jsopencv_cv_img_hash_marrHildrethHash(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "marrHildrethHash");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32564,7 +33191,7 @@ static Napi::Value jsopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_outputArr, outputArr, ArgInfo("outputArr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::pHash(inputArr, outputArr));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32584,7 +33211,7 @@ static Napi::Value jsopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_outputArr, outputArr, ArgInfo("outputArr", 1)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::pHash(inputArr, outputArr));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32592,12 +33219,13 @@ static Napi::Value jsopencv_cv_img_hash_pHash(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "pHash");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackInfo &info)
 {
     using namespace cv::img_hash;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32619,7 +33247,7 @@ static Napi::Value jsopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackI
         jsopencv_to_safe(jsobj_numOfAngleLine, numOfAngleLine, ArgInfo("numOfAngleLine", 0)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::radialVarianceHash(inputArr, outputArr, sigma, numOfAngleLine));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32645,7 +33273,7 @@ static Napi::Value jsopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackI
         jsopencv_to_safe(jsobj_numOfAngleLine, numOfAngleLine, ArgInfo("numOfAngleLine", 0)))
     {
         ERRWRAP2_NAPI(info, cv::img_hash::radialVarianceHash(inputArr, outputArr, sigma, numOfAngleLine));
-        return jsopencv_from(info, outputArr);
+        return jsopencv_from(env, outputArr);
     }
 
 
@@ -32653,12 +33281,13 @@ static Napi::Value jsopencv_cv_img_hash_radialVarianceHash(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "radialVarianceHash");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInfo &info)
 {
     using namespace cv::intensity_transform;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32683,7 +33312,7 @@ static Napi::Value jsopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_b, b, ArgInfo("b", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::BIMEF(input, output, mu, a, b));
-        return jsopencv_from(info, output);
+        return jsopencv_from(env, output);
     }
 
 
@@ -32712,7 +33341,7 @@ static Napi::Value jsopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_b, b, ArgInfo("b", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::BIMEF(input, output, mu, a, b));
-        return jsopencv_from(info, output);
+        return jsopencv_from(env, output);
     }
 
 
@@ -32720,12 +33349,13 @@ static Napi::Value jsopencv_cv_intensity_transform_BIMEF(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "BIMEF");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackInfo &info)
 {
     using namespace cv::intensity_transform;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -32753,7 +33383,7 @@ static Napi::Value jsopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_b, b, ArgInfo("b", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::BIMEF(input, output, k, mu, a, b));
-        return jsopencv_from(info, output);
+        return jsopencv_from(env, output);
     }
 
 
@@ -32785,7 +33415,7 @@ static Napi::Value jsopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_b, b, ArgInfo("b", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::BIMEF(input, output, k, mu, a, b));
-        return jsopencv_from(info, output);
+        return jsopencv_from(env, output);
     }
 
 
@@ -32793,12 +33423,13 @@ static Napi::Value jsopencv_cv_intensity_transform_BIMEF2(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "BIMEF2");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intensity_transform_autoscaling(const Napi::CallbackInfo &info)
 {
     using namespace cv::intensity_transform;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_input = NULL;
     Mat input;
@@ -32811,15 +33442,16 @@ static Napi::Value jsopencv_cv_intensity_transform_autoscaling(const Napi::Callb
         jsopencv_to_safe(jsobj_output, output, ArgInfo("output", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::autoscaling(input, output));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intensity_transform_contrastStretching(const Napi::CallbackInfo &info)
 {
     using namespace cv::intensity_transform;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_input = NULL;
     Mat input;
@@ -32844,15 +33476,16 @@ static Napi::Value jsopencv_cv_intensity_transform_contrastStretching(const Napi
         jsopencv_to_safe(jsobj_s2, s2, ArgInfo("s2", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::contrastStretching(input, output, r1, s1, r2, s2));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intensity_transform_gammaCorrection(const Napi::CallbackInfo &info)
 {
     using namespace cv::intensity_transform;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_input = NULL;
     Mat input;
@@ -32868,15 +33501,16 @@ static Napi::Value jsopencv_cv_intensity_transform_gammaCorrection(const Napi::C
         jsopencv_to_safe(jsobj_gamma, gamma, ArgInfo("gamma", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::gammaCorrection(input, output, gamma));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_intensity_transform_logTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv::intensity_transform;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_input = NULL;
     Mat input;
@@ -32889,30 +33523,32 @@ static Napi::Value jsopencv_cv_intensity_transform_logTransform(const Napi::Call
         jsopencv_to_safe(jsobj_output, output, ArgInfo("output", 0)))
     {
         ERRWRAP2_NAPI(info, cv::intensity_transform::logTransform(input, output));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ipp_getIppVersion(const Napi::CallbackInfo &info)
 {
     using namespace cv::ipp;
+    Napi::Env env = info.Env();
 
     String retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ipp::getIppVersion());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ipp_setUseIPP(const Napi::CallbackInfo &info)
 {
     using namespace cv::ipp;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_flag = NULL;
     bool flag=0;
@@ -32922,15 +33558,16 @@ static Napi::Value jsopencv_cv_ipp_setUseIPP(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ipp::setUseIPP(flag));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ipp_setUseIPP_NotExact(const Napi::CallbackInfo &info)
 {
     using namespace cv::ipp;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_flag = NULL;
     bool flag=0;
@@ -32940,165 +33577,176 @@ static Napi::Value jsopencv_cv_ipp_setUseIPP_NotExact(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ipp::setUseIPP_NotExact(flag));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ipp_useIPP(const Napi::CallbackInfo &info)
 {
     using namespace cv::ipp;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ipp::useIPP());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ipp_useIPP_NotExact(const Napi::CallbackInfo &info)
 {
     using namespace cv::ipp;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ipp::useIPP_NotExact());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_MultiTracker_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<MultiTracker> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::MultiTracker::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerBoosting_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerBoosting> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerBoosting::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerCSRT_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerCSRT> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerCSRT::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerKCF_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerKCF> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerKCF::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerMIL_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerMIL> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerMIL::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerMOSSE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerMOSSE> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerMOSSE::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerMedianFlow_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerMedianFlow> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerMedianFlow::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_TrackerTLD_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Ptr<legacy::TrackerTLD> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::TrackerTLD::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_legacy_upgradeTrackingAPI(const Napi::CallbackInfo &info)
 {
     using namespace cv::legacy;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_legacy_tracker = NULL;
     Ptr<legacy::Tracker> legacy_tracker;
@@ -33109,30 +33757,32 @@ static Napi::Value jsopencv_cv_legacy_upgradeTrackingAPI(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_legacy_tracker, legacy_tracker, ArgInfo("legacy_tracker", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::legacy::upgradeTrackingAPI(legacy_tracker));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mcc_CCheckerDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::mcc;
+    Napi::Env env = info.Env();
 
     Ptr<CCheckerDetector> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::CCheckerDetector::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mcc_CCheckerDraw_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::mcc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_pChecker = NULL;
     Ptr<CChecker> pChecker;
@@ -33149,60 +33799,64 @@ static Napi::Value jsopencv_cv_mcc_CCheckerDraw_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::CCheckerDraw::create(pChecker, color, thickness));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mcc_CChecker_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::mcc;
+    Napi::Env env = info.Env();
 
     Ptr<CChecker> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::CChecker::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_mcc_DetectorParameters_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::mcc;
+    Napi::Env env = info.Env();
 
     Ptr<DetectorParameters> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::mcc::DetectorParameters::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_ANN_MLP_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<ANN_MLP> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::ANN_MLP::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_ANN_MLP_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33213,30 +33867,32 @@ static Napi::Value jsopencv_cv_ml_ANN_MLP_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filepath, filepath, ArgInfo("filepath", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::ANN_MLP::load(filepath));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_Boost_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<Boost> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::Boost::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_Boost_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33250,30 +33906,32 @@ static Napi::Value jsopencv_cv_ml_Boost_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::Boost::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_DTrees_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<DTrees> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::DTrees::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_DTrees_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33287,30 +33945,32 @@ static Napi::Value jsopencv_cv_ml_DTrees_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::DTrees::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_EM_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<EM> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::EM::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_EM_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33324,30 +33984,32 @@ static Napi::Value jsopencv_cv_ml_EM_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::EM::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_KNearest_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<KNearest> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::KNearest::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_KNearest_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33358,30 +34020,32 @@ static Napi::Value jsopencv_cv_ml_KNearest_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filepath, filepath, ArgInfo("filepath", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::KNearest::load(filepath));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_LogisticRegression_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<LogisticRegression> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::LogisticRegression::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_LogisticRegression_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33395,30 +34059,32 @@ static Napi::Value jsopencv_cv_ml_LogisticRegression_load(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::LogisticRegression::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_NormalBayesClassifier_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<NormalBayesClassifier> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::NormalBayesClassifier::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_NormalBayesClassifier_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33432,15 +34098,16 @@ static Napi::Value jsopencv_cv_ml_NormalBayesClassifier_load(const Napi::Callbac
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::NormalBayesClassifier::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_ParamGrid_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_minVal = NULL;
     double minVal=0.;
@@ -33457,30 +34124,32 @@ static Napi::Value jsopencv_cv_ml_ParamGrid_create(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_logstep, logstep, ArgInfo("logstep", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::ParamGrid::create(minVal, maxVal, logstep));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_RTrees_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<RTrees> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::RTrees::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_RTrees_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33494,30 +34163,32 @@ static Napi::Value jsopencv_cv_ml_RTrees_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::RTrees::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_SVMSGD_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<SVMSGD> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVMSGD::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_SVMSGD_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33531,30 +34202,32 @@ static Napi::Value jsopencv_cv_ml_SVMSGD_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_nodeName, nodeName, ArgInfo("nodeName", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVMSGD::load(filepath, nodeName));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_SVM_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Ptr<SVM> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVM::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_SVM_getDefaultGridPtr(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_param_id = NULL;
     int param_id=0;
@@ -33565,15 +34238,16 @@ static Napi::Value jsopencv_cv_ml_SVM_getDefaultGridPtr(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_param_id, param_id, ArgInfo("param_id", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVM::getDefaultGridPtr(param_id));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_SVM_load(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filepath = NULL;
     String filepath;
@@ -33584,15 +34258,16 @@ static Napi::Value jsopencv_cv_ml_SVM_load(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_filepath, filepath, ArgInfo("filepath", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::SVM::load(filepath));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -33624,7 +34299,7 @@ static Napi::Value jsopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_varType, varType, ArgInfo("varType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::TrainData::create(samples, layout, responses, varIdx, sampleIdx, sampleWeights, varType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33660,7 +34335,7 @@ static Napi::Value jsopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_varType, varType, ArgInfo("varType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::TrainData::create(samples, layout, responses, varIdx, sampleIdx, sampleWeights, varType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33668,12 +34343,13 @@ static Napi::Value jsopencv_cv_ml_TrainData_create(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "TrainData_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_TrainData_getSubMatrix(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_matrix = NULL;
     Mat matrix;
@@ -33690,15 +34366,16 @@ static Napi::Value jsopencv_cv_ml_TrainData_getSubMatrix(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_layout, layout, ArgInfo("layout", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::TrainData::getSubMatrix(matrix, idx, layout));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ml_TrainData_getSubVector(const Napi::CallbackInfo &info)
 {
     using namespace cv::ml;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_vec = NULL;
     Mat vec;
@@ -33712,89 +34389,95 @@ static Napi::Value jsopencv_cv_ml_TrainData_getSubVector(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_idx, idx, ArgInfo("idx", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ml::TrainData::getSubVector(vec, idx));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_Device_getDefault(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
     Device retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::Device::getDefault());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_finish(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::ocl::finish());
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_haveAmdBlas(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::haveAmdBlas());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_haveAmdFft(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::haveAmdFft());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_haveOpenCL(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::haveOpenCL());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_setUseOpenCL(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_flag = NULL;
     bool flag=0;
@@ -33804,30 +34487,32 @@ static Napi::Value jsopencv_cv_ocl_setUseOpenCL(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ocl::setUseOpenCL(flag));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ocl_useOpenCL(const Napi::CallbackInfo &info)
 {
     using namespace cv::ocl;
+    Napi::Env env = info.Env();
 
     bool retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ocl::useOpenCL());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_parallel_setParallelForBackend(const Napi::CallbackInfo &info)
 {
     using namespace cv::parallel;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_backendName = NULL;
     std::string backendName;
@@ -33841,15 +34526,16 @@ static Napi::Value jsopencv_cv_parallel_setParallelForBackend(const Napi::Callba
         jsopencv_to_safe(jsobj_propagateNumThreads, propagateNumThreads, ArgInfo("propagateNumThreads", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::parallel::setParallelForBackend(backendName, propagateNumThreads));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::plot;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -33863,7 +34549,7 @@ static Napi::Value jsopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_data, data, ArgInfo("data", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::plot::Plot2d::create(data));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33881,7 +34567,7 @@ static Napi::Value jsopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_data, data, ArgInfo("data", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::plot::Plot2d::create(data));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33902,7 +34588,7 @@ static Napi::Value jsopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_dataY, dataY, ArgInfo("dataY", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::plot::Plot2d::create(dataX, dataY));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33923,7 +34609,7 @@ static Napi::Value jsopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_dataY, dataY, ArgInfo("dataY", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::plot::Plot2d::create(dataX, dataY));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33931,12 +34617,13 @@ static Napi::Value jsopencv_cv_plot_Plot2d_create(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "Plot2d_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityBRISQUE_compute(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -33956,7 +34643,7 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_compute(const Napi::Callba
         jsopencv_to_safe(jsobj_range_file_path, range_file_path, ArgInfo("range_file_path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityBRISQUE::compute(img, model_file_path, range_file_path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33980,7 +34667,7 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_compute(const Napi::Callba
         jsopencv_to_safe(jsobj_range_file_path, range_file_path, ArgInfo("range_file_path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityBRISQUE::compute(img, model_file_path, range_file_path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -33988,12 +34675,13 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_compute(const Napi::Callba
     }
     jsRaiseCVOverloadException(info, "QualityBRISQUE_compute");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34009,7 +34697,7 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi
         jsopencv_to_safe(jsobj_features, features, ArgInfo("features", 1)))
     {
         ERRWRAP2_NAPI(info, cv::quality::QualityBRISQUE::computeFeatures(img, features));
-        return jsopencv_from(info, features);
+        return jsopencv_from(env, features);
     }
 
 
@@ -34029,7 +34717,7 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi
         jsopencv_to_safe(jsobj_features, features, ArgInfo("features", 1)))
     {
         ERRWRAP2_NAPI(info, cv::quality::QualityBRISQUE::computeFeatures(img, features));
-        return jsopencv_from(info, features);
+        return jsopencv_from(env, features);
     }
 
 
@@ -34037,12 +34725,13 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_computeFeatures(const Napi
     }
     jsRaiseCVOverloadException(info, "QualityBRISQUE_computeFeatures");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityBRISQUE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34059,7 +34748,7 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_create(const Napi::Callbac
         jsopencv_to_safe(jsobj_range_file_path, range_file_path, ArgInfo("range_file_path", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityBRISQUE::create(model_file_path, range_file_path));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34080,7 +34769,7 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_create(const Napi::Callbac
         jsopencv_to_safe(jsobj_range, range, ArgInfo("range", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityBRISQUE::create(model, range));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34088,12 +34777,13 @@ static Napi::Value jsopencv_cv_quality_QualityBRISQUE_create(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "QualityBRISQUE_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34113,7 +34803,7 @@ static Napi::Value jsopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackI
         jsopencv_to_safe(jsobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityGMSD::compute(ref, cmp, qualityMap));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34137,7 +34827,7 @@ static Napi::Value jsopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackI
         jsopencv_to_safe(jsobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityGMSD::compute(ref, cmp, qualityMap));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34145,12 +34835,13 @@ static Napi::Value jsopencv_cv_quality_QualityGMSD_compute(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "QualityGMSD_compute");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityGMSD_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34164,7 +34855,7 @@ static Napi::Value jsopencv_cv_quality_QualityGMSD_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_ref, ref, ArgInfo("ref", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityGMSD::create(ref));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34182,7 +34873,7 @@ static Napi::Value jsopencv_cv_quality_QualityGMSD_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_ref, ref, ArgInfo("ref", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityGMSD::create(ref));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34190,12 +34881,13 @@ static Napi::Value jsopencv_cv_quality_QualityGMSD_create(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "QualityGMSD_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityMSE_compute(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34215,7 +34907,7 @@ static Napi::Value jsopencv_cv_quality_QualityMSE_compute(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityMSE::compute(ref, cmp, qualityMap));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34239,7 +34931,7 @@ static Napi::Value jsopencv_cv_quality_QualityMSE_compute(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityMSE::compute(ref, cmp, qualityMap));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34247,12 +34939,13 @@ static Napi::Value jsopencv_cv_quality_QualityMSE_compute(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "QualityMSE_compute");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityMSE_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34266,7 +34959,7 @@ static Napi::Value jsopencv_cv_quality_QualityMSE_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_ref, ref, ArgInfo("ref", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityMSE::create(ref));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34284,7 +34977,7 @@ static Napi::Value jsopencv_cv_quality_QualityMSE_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_ref, ref, ArgInfo("ref", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityMSE::create(ref));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34292,12 +34985,13 @@ static Napi::Value jsopencv_cv_quality_QualityMSE_create(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "QualityMSE_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34320,7 +35014,7 @@ static Napi::Value jsopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackI
         jsopencv_to_safe(jsobj_maxPixelValue, maxPixelValue, ArgInfo("maxPixelValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityPSNR::compute(ref, cmp, qualityMap, maxPixelValue));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34347,7 +35041,7 @@ static Napi::Value jsopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackI
         jsopencv_to_safe(jsobj_maxPixelValue, maxPixelValue, ArgInfo("maxPixelValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityPSNR::compute(ref, cmp, qualityMap, maxPixelValue));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34355,12 +35049,13 @@ static Napi::Value jsopencv_cv_quality_QualityPSNR_compute(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "QualityPSNR_compute");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualityPSNR_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34377,7 +35072,7 @@ static Napi::Value jsopencv_cv_quality_QualityPSNR_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_maxPixelValue, maxPixelValue, ArgInfo("maxPixelValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityPSNR::create(ref, maxPixelValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34398,7 +35093,7 @@ static Napi::Value jsopencv_cv_quality_QualityPSNR_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_maxPixelValue, maxPixelValue, ArgInfo("maxPixelValue", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualityPSNR::create(ref, maxPixelValue));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34406,12 +35101,13 @@ static Napi::Value jsopencv_cv_quality_QualityPSNR_create(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "QualityPSNR_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34431,7 +35127,7 @@ static Napi::Value jsopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackI
         jsopencv_to_safe(jsobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualitySSIM::compute(ref, cmp, qualityMap));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34455,7 +35151,7 @@ static Napi::Value jsopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackI
         jsopencv_to_safe(jsobj_qualityMap, qualityMap, ArgInfo("qualityMap", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualitySSIM::compute(ref, cmp, qualityMap));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, qualityMap));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, qualityMap));
     }
 
 
@@ -34463,12 +35159,13 @@ static Napi::Value jsopencv_cv_quality_QualitySSIM_compute(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "QualitySSIM_compute");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_quality_QualitySSIM_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::quality;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34482,7 +35179,7 @@ static Napi::Value jsopencv_cv_quality_QualitySSIM_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_ref, ref, ArgInfo("ref", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualitySSIM::create(ref));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34500,7 +35197,7 @@ static Napi::Value jsopencv_cv_quality_QualitySSIM_create(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_ref, ref, ArgInfo("ref", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::quality::QualitySSIM::create(ref));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34508,12 +35205,13 @@ static Napi::Value jsopencv_cv_quality_QualitySSIM_create(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "QualitySSIM_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34536,7 +35234,7 @@ static Napi::Value jsopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_sobelThesh, sobelThesh, ArgInfo("sobelThesh", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::GOSTracker::create(pts3d, tris, histBins, sobelThesh));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34563,7 +35261,7 @@ static Napi::Value jsopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_sobelThesh, sobelThesh, ArgInfo("sobelThesh", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::GOSTracker::create(pts3d, tris, histBins, sobelThesh));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34571,12 +35269,13 @@ static Napi::Value jsopencv_cv_rapid_GOSTracker_create(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "GOSTracker_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34599,7 +35298,7 @@ static Napi::Value jsopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_sobelThesh, sobelThesh, ArgInfo("sobelThesh", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::OLSTracker::create(pts3d, tris, histBins, sobelThesh));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34626,7 +35325,7 @@ static Napi::Value jsopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_sobelThesh, sobelThesh, ArgInfo("sobelThesh", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::OLSTracker::create(pts3d, tris, histBins, sobelThesh));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34634,12 +35333,13 @@ static Napi::Value jsopencv_cv_rapid_OLSTracker_create(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "OLSTracker_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34656,7 +35356,7 @@ static Napi::Value jsopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_tris, tris, ArgInfo("tris", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::Rapid::create(pts3d, tris));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34677,7 +35377,7 @@ static Napi::Value jsopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_tris, tris, ArgInfo("tris", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::Rapid::create(pts3d, tris));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -34685,12 +35385,13 @@ static Napi::Value jsopencv_cv_rapid_Rapid_create(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "Rapid_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_convertCorrespondencies(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34715,7 +35416,7 @@ static Napi::Value jsopencv_cv_rapid_convertCorrespondencies(const Napi::Callbac
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::convertCorrespondencies(cols, srcLocations, pts2d, pts3d, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, pts2d), jsopencv_from(info, pts3d));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, pts2d), jsopencv_from(env, pts3d));
     }
 
 
@@ -34744,7 +35445,7 @@ static Napi::Value jsopencv_cv_rapid_convertCorrespondencies(const Napi::Callbac
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::convertCorrespondencies(cols, srcLocations, pts2d, pts3d, mask));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, pts2d), jsopencv_from(info, pts3d));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, pts2d), jsopencv_from(env, pts3d));
     }
 
 
@@ -34752,12 +35453,13 @@ static Napi::Value jsopencv_cv_rapid_convertCorrespondencies(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "convertCorrespondencies");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34776,7 +35478,7 @@ static Napi::Value jsopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_colors, colors, ArgInfo("colors", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::drawCorrespondencies(bundle, cols, colors));
-        return jsopencv_from(info, bundle);
+        return jsopencv_from(env, bundle);
     }
 
 
@@ -34799,7 +35501,7 @@ static Napi::Value jsopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_colors, colors, ArgInfo("colors", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::drawCorrespondencies(bundle, cols, colors));
-        return jsopencv_from(info, bundle);
+        return jsopencv_from(env, bundle);
     }
 
 
@@ -34807,12 +35509,13 @@ static Napi::Value jsopencv_cv_rapid_drawCorrespondencies(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "drawCorrespondencies");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34831,7 +35534,7 @@ static Napi::Value jsopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_color, color, ArgInfo("color", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::drawSearchLines(img, locations, color));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -34854,7 +35557,7 @@ static Napi::Value jsopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_color, color, ArgInfo("color", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::drawSearchLines(img, locations, color));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -34862,12 +35565,13 @@ static Napi::Value jsopencv_cv_rapid_drawSearchLines(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "drawSearchLines");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34895,7 +35599,7 @@ static Napi::Value jsopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_cullBackface, cullBackface, ArgInfo("cullBackface", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::drawWireframe(img, pts2d, tris, color, type, cullBackface));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -34927,7 +35631,7 @@ static Napi::Value jsopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_cullBackface, cullBackface, ArgInfo("cullBackface", 0)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::drawWireframe(img, pts2d, tris, color, type, cullBackface));
-        return jsopencv_from(info, img);
+        return jsopencv_from(env, img);
     }
 
 
@@ -34935,12 +35639,13 @@ static Napi::Value jsopencv_cv_rapid_drawWireframe(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "drawWireframe");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_extractControlPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -34980,7 +35685,7 @@ static Napi::Value jsopencv_cv_rapid_extractControlPoints(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_ctl3d, ctl3d, ArgInfo("ctl3d", 1)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::extractControlPoints(num, len, pts3d, rvec, tvec, K, imsize, tris, ctl2d, ctl3d));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, ctl2d), jsopencv_from(info, ctl3d));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, ctl2d), jsopencv_from(env, ctl3d));
     }
 
 
@@ -35024,7 +35729,7 @@ static Napi::Value jsopencv_cv_rapid_extractControlPoints(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_ctl3d, ctl3d, ArgInfo("ctl3d", 1)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::extractControlPoints(num, len, pts3d, rvec, tvec, K, imsize, tris, ctl2d, ctl3d));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, ctl2d), jsopencv_from(info, ctl3d));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, ctl2d), jsopencv_from(env, ctl3d));
     }
 
 
@@ -35032,12 +35737,13 @@ static Napi::Value jsopencv_cv_rapid_extractControlPoints(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "extractControlPoints");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35062,7 +35768,7 @@ static Napi::Value jsopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_srcLocations, srcLocations, ArgInfo("srcLocations", 1)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::extractLineBundle(len, ctl2d, img, bundle, srcLocations));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, bundle), jsopencv_from(info, srcLocations));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, bundle), jsopencv_from(env, srcLocations));
     }
 
 
@@ -35091,7 +35797,7 @@ static Napi::Value jsopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_srcLocations, srcLocations, ArgInfo("srcLocations", 1)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::extractLineBundle(len, ctl2d, img, bundle, srcLocations));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, bundle), jsopencv_from(info, srcLocations));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, bundle), jsopencv_from(env, srcLocations));
     }
 
 
@@ -35099,12 +35805,13 @@ static Napi::Value jsopencv_cv_rapid_extractLineBundle(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "extractLineBundle");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_findCorrespondencies(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35123,7 +35830,7 @@ static Napi::Value jsopencv_cv_rapid_findCorrespondencies(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_response, response, ArgInfo("response", 1)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::findCorrespondencies(bundle, cols, response));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, cols), jsopencv_from(info, response));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, cols), jsopencv_from(env, response));
     }
 
 
@@ -35146,7 +35853,7 @@ static Napi::Value jsopencv_cv_rapid_findCorrespondencies(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_response, response, ArgInfo("response", 1)))
     {
         ERRWRAP2_NAPI(info, cv::rapid::findCorrespondencies(bundle, cols, response));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, cols), jsopencv_from(info, response));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, cols), jsopencv_from(env, response));
     }
 
 
@@ -35154,12 +35861,13 @@ static Napi::Value jsopencv_cv_rapid_findCorrespondencies(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "findCorrespondencies");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
 {
     using namespace cv::rapid;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35195,7 +35903,7 @@ static Napi::Value jsopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_tvec, tvec, ArgInfo("tvec", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::rapid(img, num, len, pts3d, tris, K, rvec, tvec, &rmsd));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rvec), jsopencv_from(info, tvec), jsopencv_from(info, rmsd));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rvec), jsopencv_from(env, tvec), jsopencv_from(env, rmsd));
     }
 
 
@@ -35235,7 +35943,7 @@ static Napi::Value jsopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_tvec, tvec, ArgInfo("tvec", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::rapid::rapid(img, num, len, pts3d, tris, K, rvec, tvec, &rmsd));
-        return Js_BuildValue(info, "(NNNN)", jsopencv_from(info, retval), jsopencv_from(info, rvec), jsopencv_from(info, tvec), jsopencv_from(info, rmsd));
+        return Js_BuildValue(env, "(NNNN)", jsopencv_from(env, retval), jsopencv_from(env, rvec), jsopencv_from(env, tvec), jsopencv_from(env, rmsd));
     }
 
 
@@ -35243,12 +35951,13 @@ static Napi::Value jsopencv_cv_rapid_rapid(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "rapid");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_samples_addSamplesDataSearchPath(const Napi::CallbackInfo &info)
 {
     using namespace cv::samples;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_path = NULL;
     String path;
@@ -35258,15 +35967,16 @@ static Napi::Value jsopencv_cv_samples_addSamplesDataSearchPath(const Napi::Call
         jsopencv_to_safe(jsobj_path, path, ArgInfo("path", 0)))
     {
         ERRWRAP2_NAPI(info, cv::samples::addSamplesDataSearchPath(path));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_samples_addSamplesDataSearchSubDirectory(const Napi::CallbackInfo &info)
 {
     using namespace cv::samples;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_subdir = NULL;
     String subdir;
@@ -35276,15 +35986,16 @@ static Napi::Value jsopencv_cv_samples_addSamplesDataSearchSubDirectory(const Na
         jsopencv_to_safe(jsobj_subdir, subdir, ArgInfo("subdir", 0)))
     {
         ERRWRAP2_NAPI(info, cv::samples::addSamplesDataSearchSubDirectory(subdir));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_samples_findFile(const Napi::CallbackInfo &info)
 {
     using namespace cv::samples;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_relative_path = NULL;
     String relative_path;
@@ -35301,15 +36012,16 @@ static Napi::Value jsopencv_cv_samples_findFile(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_silentMode, silentMode, ArgInfo("silentMode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::samples::findFile(relative_path, required, silentMode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_samples_findFileOrKeep(const Napi::CallbackInfo &info)
 {
     using namespace cv::samples;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_relative_path = NULL;
     String relative_path;
@@ -35323,15 +36035,16 @@ static Napi::Value jsopencv_cv_samples_findFileOrKeep(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_silentMode, silentMode, ArgInfo("silentMode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::samples::findFileOrKeep(relative_path, silentMode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35360,7 +36073,7 @@ static Napi::Value jsopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::Call
         jsopencv_to_safe(jsobj_beam_size, beam_size, ArgInfo("beam_size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRBeamSearchDecoder::create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table, mode, beam_size));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35393,7 +36106,7 @@ static Napi::Value jsopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::Call
         jsopencv_to_safe(jsobj_beam_size, beam_size, ArgInfo("beam_size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRBeamSearchDecoder::create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table, mode, beam_size));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35401,12 +36114,13 @@ static Napi::Value jsopencv_cv_text_OCRBeamSearchDecoder_create(const Napi::Call
     }
     jsRaiseCVOverloadException(info, "OCRBeamSearchDecoder_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -35432,7 +36146,7 @@ static Napi::Value jsopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRHMMDecoder::create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table, mode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35462,7 +36176,7 @@ static Napi::Value jsopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_mode, mode, ArgInfo("mode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRHMMDecoder::create(classifier, vocabulary, transition_probabilities_table, emission_probabilities_table, mode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35495,7 +36209,7 @@ static Napi::Value jsopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_classifier, classifier, ArgInfo("classifier", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRHMMDecoder::create(filename, vocabulary, transition_probabilities_table, emission_probabilities_table, mode, classifier));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35528,7 +36242,7 @@ static Napi::Value jsopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_classifier, classifier, ArgInfo("classifier", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRHMMDecoder::create(filename, vocabulary, transition_probabilities_table, emission_probabilities_table, mode, classifier));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35536,12 +36250,13 @@ static Napi::Value jsopencv_cv_text_OCRHMMDecoder_create(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "OCRHMMDecoder_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_OCRTesseract_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     char* datapath=0;
     char* language=0;
@@ -35558,15 +36273,16 @@ static Napi::Value jsopencv_cv_text_OCRTesseract_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_psmode, psmode, ArgInfo("psmode", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::OCRTesseract::create(datapath, language, char_whitelist, oem, psmode));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_TextDetectorCNN_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_modelArchFilename = NULL;
     String modelArchFilename;
@@ -35580,15 +36296,16 @@ static Napi::Value jsopencv_cv_text_TextDetectorCNN_create(const Napi::CallbackI
         jsopencv_to_safe(jsobj_modelWeightsFilename, modelWeightsFilename, ArgInfo("modelWeightsFilename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::TextDetectorCNN::create(modelArchFilename, modelWeightsFilename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35607,7 +36324,7 @@ static Napi::Value jsopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj__mode, _mode, ArgInfo("_mode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::computeNMChannels(_src, _channels, _mode));
-        return jsopencv_from(info, _channels);
+        return jsopencv_from(env, _channels);
     }
 
 
@@ -35630,7 +36347,7 @@ static Napi::Value jsopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj__mode, _mode, ArgInfo("_mode", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::computeNMChannels(_src, _channels, _mode));
-        return jsopencv_from(info, _channels);
+        return jsopencv_from(env, _channels);
     }
 
 
@@ -35638,12 +36355,13 @@ static Napi::Value jsopencv_cv_text_computeNMChannels(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "computeNMChannels");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35675,7 +36393,7 @@ static Napi::Value jsopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_minProbabilityDiff, minProbabilityDiff, ArgInfo("minProbabilityDiff", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::createERFilterNM1(cb, thresholdDelta, minArea, maxArea, minProbability, nonMaxSuppression, minProbabilityDiff));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35711,7 +36429,7 @@ static Napi::Value jsopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_minProbabilityDiff, minProbabilityDiff, ArgInfo("minProbabilityDiff", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::createERFilterNM1(filename, thresholdDelta, minArea, maxArea, minProbability, nonMaxSuppression, minProbabilityDiff));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35719,12 +36437,13 @@ static Napi::Value jsopencv_cv_text_createERFilterNM1(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "createERFilterNM1");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35741,7 +36460,7 @@ static Napi::Value jsopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_minProbability, minProbability, ArgInfo("minProbability", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::createERFilterNM2(cb, minProbability));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35762,7 +36481,7 @@ static Napi::Value jsopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_minProbability, minProbability, ArgInfo("minProbability", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::createERFilterNM2(filename, minProbability));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -35770,12 +36489,13 @@ static Napi::Value jsopencv_cv_text_createERFilterNM2(const Napi::CallbackInfo &
     }
     jsRaiseCVOverloadException(info, "createERFilterNM2");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_createOCRHMMTransitionsTable(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_vocabulary = NULL;
     String vocabulary;
@@ -35789,15 +36509,16 @@ static Napi::Value jsopencv_cv_text_createOCRHMMTransitionsTable(const Napi::Cal
         jsopencv_to_safe(jsobj_lexicon, lexicon, ArgInfo("lexicon", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::createOCRHMMTransitionsTable(vocabulary, lexicon));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_detectRegions(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(4);
 
@@ -35817,7 +36538,7 @@ static Napi::Value jsopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_er_filter2, er_filter2, ArgInfo("er_filter2", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::detectRegions(image, er_filter1, er_filter2, regions));
-        return jsopencv_from(info, regions);
+        return jsopencv_from(env, regions);
     }
 
 
@@ -35841,7 +36562,7 @@ static Napi::Value jsopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_er_filter2, er_filter2, ArgInfo("er_filter2", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::detectRegions(image, er_filter1, er_filter2, regions));
-        return jsopencv_from(info, regions);
+        return jsopencv_from(env, regions);
     }
 
 
@@ -35874,7 +36595,7 @@ static Napi::Value jsopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_minProbability, minProbability, ArgInfo("minProbability", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::detectRegions(image, er_filter1, er_filter2, groups_rects, method, filename, minProbability));
-        return jsopencv_from(info, groups_rects);
+        return jsopencv_from(env, groups_rects);
     }
 
 
@@ -35907,7 +36628,7 @@ static Napi::Value jsopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_minProbability, minProbability, ArgInfo("minProbability", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::detectRegions(image, er_filter1, er_filter2, groups_rects, method, filename, minProbability));
-        return jsopencv_from(info, groups_rects);
+        return jsopencv_from(env, groups_rects);
     }
 
 
@@ -35915,12 +36636,13 @@ static Napi::Value jsopencv_cv_text_detectRegions(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "detectRegions");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -35943,7 +36665,7 @@ static Napi::Value jsopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_chainBBs, chainBBs, ArgInfo("chainBBs", 1)))
     {
         ERRWRAP2_NAPI(info, cv::text::detectTextSWT(input, result, dark_on_light, draw, chainBBs));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, result), jsopencv_from(info, draw), jsopencv_from(info, chainBBs));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, result), jsopencv_from(env, draw), jsopencv_from(env, chainBBs));
     }
 
 
@@ -35970,7 +36692,7 @@ static Napi::Value jsopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_chainBBs, chainBBs, ArgInfo("chainBBs", 1)))
     {
         ERRWRAP2_NAPI(info, cv::text::detectTextSWT(input, result, dark_on_light, draw, chainBBs));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, result), jsopencv_from(info, draw), jsopencv_from(info, chainBBs));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, result), jsopencv_from(env, draw), jsopencv_from(env, chainBBs));
     }
 
 
@@ -35978,12 +36700,13 @@ static Napi::Value jsopencv_cv_text_detectTextSWT(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "detectTextSWT");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36012,7 +36735,7 @@ static Napi::Value jsopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_minProbablity, minProbablity, ArgInfo("minProbablity", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::erGrouping(image, channel, regions, groups_rects, method, filename, minProbablity));
-        return jsopencv_from(info, groups_rects);
+        return jsopencv_from(env, groups_rects);
     }
 
 
@@ -36045,7 +36768,7 @@ static Napi::Value jsopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_minProbablity, minProbablity, ArgInfo("minProbablity", 0)))
     {
         ERRWRAP2_NAPI(info, cv::text::erGrouping(image, channel, regions, groups_rects, method, filename, minProbablity));
-        return jsopencv_from(info, groups_rects);
+        return jsopencv_from(env, groups_rects);
     }
 
 
@@ -36053,12 +36776,13 @@ static Napi::Value jsopencv_cv_text_erGrouping(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "erGrouping");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_loadClassifierNM1(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -36069,15 +36793,16 @@ static Napi::Value jsopencv_cv_text_loadClassifierNM1(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::loadClassifierNM1(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_loadClassifierNM2(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -36088,15 +36813,16 @@ static Napi::Value jsopencv_cv_text_loadClassifierNM2(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::loadClassifierNM2(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_loadOCRBeamSearchClassifierCNN(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -36107,15 +36833,16 @@ static Napi::Value jsopencv_cv_text_loadOCRBeamSearchClassifierCNN(const Napi::C
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::loadOCRBeamSearchClassifierCNN(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_loadOCRHMMClassifier(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -36129,15 +36856,16 @@ static Napi::Value jsopencv_cv_text_loadOCRHMMClassifier(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_classifier, classifier, ArgInfo("classifier", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::loadOCRHMMClassifier(filename, classifier));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_loadOCRHMMClassifierCNN(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -36148,15 +36876,16 @@ static Napi::Value jsopencv_cv_text_loadOCRHMMClassifierCNN(const Napi::Callback
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::loadOCRHMMClassifierCNN(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_text_loadOCRHMMClassifierNM(const Napi::CallbackInfo &info)
 {
     using namespace cv::text;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_filename = NULL;
     String filename;
@@ -36167,15 +36896,16 @@ static Napi::Value jsopencv_cv_text_loadOCRHMMClassifierNM(const Napi::CallbackI
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::text::loadOCRHMMClassifierNM(filename));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpBool(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     bool argument=0;
@@ -36186,15 +36916,16 @@ static Napi::Value jsopencv_cv_utils_dumpBool(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpBool(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpCString(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     char* argument=(char*)"";
     String retval;
@@ -36203,15 +36934,16 @@ static Napi::Value jsopencv_cv_utils_dumpCString(const Napi::CallbackInfo &info)
     if (JsArg_ParseTupleAndKeywords(info, "s:dumpCString", (char**)keywords, &argument))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpCString(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpDouble(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     double argument=0;
@@ -36222,15 +36954,16 @@ static Napi::Value jsopencv_cv_utils_dumpDouble(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpDouble(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpFloat(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     float argument=0.f;
@@ -36241,15 +36974,16 @@ static Napi::Value jsopencv_cv_utils_dumpFloat(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpFloat(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36263,7 +36997,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputArray(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36281,7 +37015,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputArray(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36289,12 +37023,13 @@ static Napi::Value jsopencv_cv_utils_dumpInputArray(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "dumpInputArray");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpInputArrayOfArrays(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36308,7 +37043,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputArrayOfArrays(const Napi::Callback
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputArrayOfArrays(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36326,7 +37061,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputArrayOfArrays(const Napi::Callback
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputArrayOfArrays(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36334,12 +37069,13 @@ static Napi::Value jsopencv_cv_utils_dumpInputArrayOfArrays(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "dumpInputArrayOfArrays");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36353,7 +37089,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputOutputArray(argument));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, argument));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, argument));
     }
 
 
@@ -36371,7 +37107,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputOutputArray(argument));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, argument));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, argument));
     }
 
 
@@ -36379,12 +37115,13 @@ static Napi::Value jsopencv_cv_utils_dumpInputOutputArray(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "dumpInputOutputArray");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36398,7 +37135,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::Ca
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputOutputArrayOfArrays(argument));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, argument));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, argument));
     }
 
 
@@ -36416,7 +37153,7 @@ static Napi::Value jsopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::Ca
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInputOutputArrayOfArrays(argument));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, argument));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, argument));
     }
 
 
@@ -36424,12 +37161,13 @@ static Napi::Value jsopencv_cv_utils_dumpInputOutputArrayOfArrays(const Napi::Ca
     }
     jsRaiseCVOverloadException(info, "dumpInputOutputArrayOfArrays");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpInt(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     int argument=0;
@@ -36440,15 +37178,16 @@ static Napi::Value jsopencv_cv_utils_dumpInt(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInt(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpInt64(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     int64 argument;
@@ -36459,15 +37198,16 @@ static Napi::Value jsopencv_cv_utils_dumpInt64(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpInt64(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpRange(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     Range argument;
@@ -36478,15 +37218,16 @@ static Napi::Value jsopencv_cv_utils_dumpRange(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpRange(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     Rect argument;
@@ -36497,15 +37238,16 @@ static Napi::Value jsopencv_cv_utils_dumpRect(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpRect(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpRotatedRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     RotatedRect argument;
@@ -36516,15 +37258,16 @@ static Napi::Value jsopencv_cv_utils_dumpRotatedRect(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpRotatedRect(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpSizeT(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     size_t argument=0;
@@ -36535,15 +37278,16 @@ static Napi::Value jsopencv_cv_utils_dumpSizeT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpSizeT(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpString(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     String argument;
@@ -36554,15 +37298,16 @@ static Napi::Value jsopencv_cv_utils_dumpString(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpString(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpTermCriteria(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     TermCriteria argument;
@@ -36573,15 +37318,16 @@ static Napi::Value jsopencv_cv_utils_dumpTermCriteria(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpTermCriteria(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpVec2i(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_value = NULL;
     Vec2i value=cv::Vec2i(42, 24);
@@ -36592,15 +37338,16 @@ static Napi::Value jsopencv_cv_utils_dumpVec2i(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_value, value, ArgInfo("value", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpVec2i(value));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpVectorOfDouble(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_vec = NULL;
     vector_double vec;
@@ -36611,15 +37358,16 @@ static Napi::Value jsopencv_cv_utils_dumpVectorOfDouble(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_vec, vec, ArgInfo("vec", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpVectorOfDouble(vec));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpVectorOfInt(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_vec = NULL;
     vector_int vec;
@@ -36630,15 +37378,16 @@ static Napi::Value jsopencv_cv_utils_dumpVectorOfInt(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_vec, vec, ArgInfo("vec", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpVectorOfInt(vec));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_dumpVectorOfRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_vec = NULL;
     vector_Rect vec;
@@ -36649,15 +37398,16 @@ static Napi::Value jsopencv_cv_utils_dumpVectorOfRect(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_vec, vec, ArgInfo("vec", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::dumpVectorOfRect(vec));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_generateVectorOfInt(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_len = NULL;
     size_t len=0;
@@ -36668,15 +37418,16 @@ static Napi::Value jsopencv_cv_utils_generateVectorOfInt(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_len, len, ArgInfo("len", 0)))
     {
         ERRWRAP2_NAPI(info, cv::utils::generateVectorOfInt(len, vec));
-        return jsopencv_from(info, vec);
+        return jsopencv_from(env, vec);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_generateVectorOfMat(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_len = NULL;
     size_t len=0;
@@ -36698,15 +37449,16 @@ static Napi::Value jsopencv_cv_utils_generateVectorOfMat(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_vec, vec, ArgInfo("vec", 1)))
     {
         ERRWRAP2_NAPI(info, cv::utils::generateVectorOfMat(len, rows, cols, dtype, vec));
-        return jsopencv_from(info, vec);
+        return jsopencv_from(env, vec);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_generateVectorOfRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_len = NULL;
     size_t len=0;
@@ -36717,15 +37469,16 @@ static Napi::Value jsopencv_cv_utils_generateVectorOfRect(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_len, len, ArgInfo("len", 0)))
     {
         ERRWRAP2_NAPI(info, cv::utils::generateVectorOfRect(len, vec));
-        return jsopencv_from(info, vec);
+        return jsopencv_from(env, vec);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36739,7 +37492,7 @@ static Napi::Value jsopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testAsyncArray(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36757,7 +37510,7 @@ static Napi::Value jsopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testAsyncArray(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36765,27 +37518,29 @@ static Napi::Value jsopencv_cv_utils_testAsyncArray(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "testAsyncArray");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testAsyncException(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     AsyncArray retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testAsyncException());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testOverloadResolution(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -36802,7 +37557,7 @@ static Napi::Value jsopencv_cv_utils_testOverloadResolution(const Napi::Callback
         jsopencv_to_safe(jsobj_point, point, ArgInfo("point", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testOverloadResolution(value, point));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36820,7 +37575,7 @@ static Napi::Value jsopencv_cv_utils_testOverloadResolution(const Napi::Callback
         jsopencv_to_safe(jsobj_rect, rect, ArgInfo("rect", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testOverloadResolution(rect));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -36828,12 +37583,13 @@ static Napi::Value jsopencv_cv_utils_testOverloadResolution(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "testOverloadResolution");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testOverwriteNativeMethod(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_argument = NULL;
     int argument=0;
@@ -36844,29 +37600,31 @@ static Napi::Value jsopencv_cv_utils_testOverwriteNativeMethod(const Napi::Callb
         jsopencv_to_safe(jsobj_argument, argument, ArgInfo("argument", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testOverwriteNativeMethod(argument));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testRaiseGeneralException(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, cv::utils::testRaiseGeneralException());
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testReservedKeywordConversion(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_positional_argument = NULL;
     int positional_argument=0;
@@ -36883,15 +37641,16 @@ static Napi::Value jsopencv_cv_utils_testReservedKeywordConversion(const Napi::C
         jsopencv_to_safe(jsobj_from, from, ArgInfo("from", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testReservedKeywordConversion(positional_argument, lambda, from));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testRotatedRect(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_x = NULL;
     float x=0.f;
@@ -36914,15 +37673,16 @@ static Napi::Value jsopencv_cv_utils_testRotatedRect(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_angle, angle, ArgInfo("angle", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testRotatedRect(x, y, w, h, angle));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_testRotatedRectVector(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_x = NULL;
     float x=0.f;
@@ -36945,30 +37705,32 @@ static Napi::Value jsopencv_cv_utils_testRotatedRectVector(const Napi::CallbackI
         jsopencv_to_safe(jsobj_angle, angle, ArgInfo("angle", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::testRotatedRectVector(x, y, w, h, angle));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_fs_getCacheDirectoryForDownloads(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils::fs;
+    Napi::Env env = info.Env();
 
     cv::String retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::fs::getCacheDirectoryForDownloads());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_nested_ExportClassName_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils::nested;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_params = NULL;
     OriginalClassName_Params params=OriginalClassName::Params();
@@ -36979,30 +37741,32 @@ static Napi::Value jsopencv_cv_utils_nested_ExportClassName_create(const Napi::C
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::OriginalClassName::create(params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_nested_ExportClassName_originalName(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils::nested;
+    Napi::Env env = info.Env();
 
     std::string retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::OriginalClassName::originalName());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_nested_OriginalClassName_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils::nested;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_params = NULL;
     OriginalClassName_Params params=OriginalClassName::Params();
@@ -37013,30 +37777,32 @@ static Napi::Value jsopencv_cv_utils_nested_OriginalClassName_create(const Napi:
         jsopencv_to_safe(jsobj_params, params, ArgInfo("params", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::OriginalClassName::create(params));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_nested_OriginalClassName_originalName(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils::nested;
+    Napi::Env env = info.Env();
 
     std::string retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::OriginalClassName::originalName());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_utils_nested_testEchoBooleanFunction(const Napi::CallbackInfo &info)
 {
     using namespace cv::utils::nested;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_flag = NULL;
     bool flag=0;
@@ -37047,15 +37813,16 @@ static Napi::Value jsopencv_cv_utils_nested_testEchoBooleanFunction(const Napi::
         jsopencv_to_safe(jsobj_flag, flag, ArgInfo("flag", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::utils::nested::testEchoBooleanFunction(flag));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getBackendName(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_api = NULL;
     VideoCaptureAPIs api=static_cast<VideoCaptureAPIs>(0);
@@ -37066,30 +37833,32 @@ static Napi::Value jsopencv_cv_videoio_registry_getBackendName(const Napi::Callb
         jsopencv_to_safe(jsobj_api, api, ArgInfo("api", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getBackendName(api));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getBackends(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     std::vector<VideoCaptureAPIs> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getBackends());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getCameraBackendPluginVersion(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_api = NULL;
     VideoCaptureAPIs api=static_cast<VideoCaptureAPIs>(0);
@@ -37102,30 +37871,32 @@ static Napi::Value jsopencv_cv_videoio_registry_getCameraBackendPluginVersion(co
         jsopencv_to_safe(jsobj_api, api, ArgInfo("api", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getCameraBackendPluginVersion(api, version_ABI, version_API));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, version_ABI), jsopencv_from(info, version_API));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, version_ABI), jsopencv_from(env, version_API));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getCameraBackends(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     std::vector<VideoCaptureAPIs> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getCameraBackends());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getStreamBackendPluginVersion(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_api = NULL;
     VideoCaptureAPIs api=static_cast<VideoCaptureAPIs>(0);
@@ -37138,30 +37909,32 @@ static Napi::Value jsopencv_cv_videoio_registry_getStreamBackendPluginVersion(co
         jsopencv_to_safe(jsobj_api, api, ArgInfo("api", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getStreamBackendPluginVersion(api, version_ABI, version_API));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, version_ABI), jsopencv_from(info, version_API));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, version_ABI), jsopencv_from(env, version_API));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getStreamBackends(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     std::vector<VideoCaptureAPIs> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getStreamBackends());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getWriterBackendPluginVersion(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_api = NULL;
     VideoCaptureAPIs api=static_cast<VideoCaptureAPIs>(0);
@@ -37174,30 +37947,32 @@ static Napi::Value jsopencv_cv_videoio_registry_getWriterBackendPluginVersion(co
         jsopencv_to_safe(jsobj_api, api, ArgInfo("api", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getWriterBackendPluginVersion(api, version_ABI, version_API));
-        return Js_BuildValue(info, "(NNN)", jsopencv_from(info, retval), jsopencv_from(info, version_ABI), jsopencv_from(info, version_API));
+        return Js_BuildValue(env, "(NNN)", jsopencv_from(env, retval), jsopencv_from(env, version_ABI), jsopencv_from(env, version_API));
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_getWriterBackends(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     std::vector<VideoCaptureAPIs> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::getWriterBackends());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_hasBackend(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_api = NULL;
     VideoCaptureAPIs api=static_cast<VideoCaptureAPIs>(0);
@@ -37208,15 +37983,16 @@ static Napi::Value jsopencv_cv_videoio_registry_hasBackend(const Napi::CallbackI
         jsopencv_to_safe(jsobj_api, api, ArgInfo("api", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::hasBackend(api));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_videoio_registry_isBackendBuiltIn(const Napi::CallbackInfo &info)
 {
     using namespace cv::videoio_registry;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_api = NULL;
     VideoCaptureAPIs api=static_cast<VideoCaptureAPIs>(0);
@@ -37227,15 +38003,16 @@ static Napi::Value jsopencv_cv_videoio_registry_isBackendBuiltIn(const Napi::Cal
         jsopencv_to_safe(jsobj_api, api, ArgInfo("api", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::videoio_registry::isBackendBuiltIn(api));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_BEBLID_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -37249,15 +38026,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_BEBLID_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_n_bits, n_bits, ArgInfo("n_bits", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::BEBLID::create(scale_factor, n_bits));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_BoostDesc_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_desc = NULL;
     int desc=BoostDesc::BINBOOST_256;
@@ -37274,15 +38052,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_BoostDesc_create(const Napi::Callback
         jsopencv_to_safe(jsobj_scale_factor, scale_factor, ArgInfo("scale_factor", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::BoostDesc::create(desc, use_scale_orientation, scale_factor));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_BriefDescriptorExtractor_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bytes = NULL;
     int bytes=32;
@@ -37296,15 +38075,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_BriefDescriptorExtractor_create(const
         jsopencv_to_safe(jsobj_use_orientation, use_orientation, ArgInfo("use_orientation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::BriefDescriptorExtractor::create(bytes, use_orientation));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37339,7 +38119,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_use_orientation, use_orientation, ArgInfo("use_orientation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::DAISY::create(radius, q_radius, q_theta, q_hist, norm, H, interpolation, use_orientation));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -37378,7 +38158,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_use_orientation, use_orientation, ArgInfo("use_orientation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::DAISY::create(radius, q_radius, q_theta, q_hist, norm, H, interpolation, use_orientation));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -37386,12 +38166,13 @@ static Napi::Value jsopencv_cv_xfeatures2d_DAISY_create(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "DAISY_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_FREAK_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_orientationNormalized = NULL;
     bool orientationNormalized=true;
@@ -37414,15 +38195,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_FREAK_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_selectedPairs, selectedPairs, ArgInfo("selectedPairs", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::FREAK::create(orientationNormalized, scaleNormalized, patternScale, nOctaves, selectedPairs));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_HarrisLaplaceFeatureDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_numOctaves = NULL;
     int numOctaves=6;
@@ -37445,15 +38227,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_HarrisLaplaceFeatureDetector_create(c
         jsopencv_to_safe(jsobj_num_layers, num_layers, ArgInfo("num_layers", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::HarrisLaplaceFeatureDetector::create(numOctaves, corn_thresh, DOG_thresh, maxCorners, num_layers));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_LATCH_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_bytes = NULL;
     int bytes=32;
@@ -37473,15 +38256,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_LATCH_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_sigma, sigma, ArgInfo("sigma", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::LATCH::create(bytes, rotationInvariance, half_ssd_size, sigma));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_LUCID_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_lucid_kernel = NULL;
     int lucid_kernel=1;
@@ -37495,15 +38279,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_LUCID_create(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_blur_kernel, blur_kernel, ArgInfo("blur_kernel", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::LUCID::create(lucid_kernel, blur_kernel));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_MSDDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_m_patch_radius = NULL;
     int m_patch_radius=3;
@@ -37538,15 +38323,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_MSDDetector_create(const Napi::Callba
         jsopencv_to_safe(jsobj_m_compute_orientation, m_compute_orientation, ArgInfo("m_compute_orientation", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::MSDDetector::create(m_patch_radius, m_search_area_radius, m_nms_radius, m_nms_scale_radius, m_th_saliency, m_kNN, m_scale_factor, m_n_scales, m_compute_orientation));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_PCTSignaturesSQFD_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_distanceFunction = NULL;
     int distanceFunction=3;
@@ -37563,15 +38349,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignaturesSQFD_create(const Napi::
         jsopencv_to_safe(jsobj_similarityParameter, similarityParameter, ArgInfo("similarityParameter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::PCTSignaturesSQFD::create(distanceFunction, similarityFunction, similarityParameter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(3);
 
@@ -37591,7 +38378,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
         jsopencv_to_safe(jsobj_pointDistribution, pointDistribution, ArgInfo("pointDistribution", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::PCTSignatures::create(initSampleCount, initSeedCount, pointDistribution));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -37612,7 +38399,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
         jsopencv_to_safe(jsobj_initSeedCount, initSeedCount, ArgInfo("initSeedCount", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::PCTSignatures::create(initSamplingPoints, initSeedCount));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -37633,7 +38420,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
         jsopencv_to_safe(jsobj_initClusterSeedIndexes, initClusterSeedIndexes, ArgInfo("initClusterSeedIndexes", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::PCTSignatures::create(initSamplingPoints, initClusterSeedIndexes));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -37641,12 +38428,13 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_create(const Napi::Call
     }
     jsRaiseCVOverloadException(info, "PCTSignatures_create");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -37671,7 +38459,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Nap
         jsopencv_to_safe(jsobj_borderThickness, borderThickness, ArgInfo("borderThickness", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::PCTSignatures::drawSignature(source, signature, result, radiusToShorterSideRatio, borderThickness));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -37700,7 +38488,7 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Nap
         jsopencv_to_safe(jsobj_borderThickness, borderThickness, ArgInfo("borderThickness", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::PCTSignatures::drawSignature(source, signature, result, radiusToShorterSideRatio, borderThickness));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -37708,12 +38496,13 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_drawSignature(const Nap
     }
     jsRaiseCVOverloadException(info, "PCTSignatures_drawSignature");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_generateInitPoints(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_initPoints = NULL;
     vector_Point2f initPoints;
@@ -37729,15 +38518,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_PCTSignatures_generateInitPoints(cons
         jsopencv_to_safe(jsobj_pointDistribution, pointDistribution, ArgInfo("pointDistribution", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::PCTSignatures::generateInitPoints(initPoints, count, pointDistribution));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_SIFT_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_nfeatures = NULL;
     int nfeatures=0;
@@ -37760,15 +38550,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_SIFT_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_sigma, sigma, ArgInfo("sigma", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::SIFT_create(nfeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_SURF_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_hessianThreshold = NULL;
     double hessianThreshold=100;
@@ -37791,15 +38582,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_SURF_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_upright, upright, ArgInfo("upright", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::SURF::create(hessianThreshold, nOctaves, nOctaveLayers, extended, upright));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_StarDetector_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_maxSize = NULL;
     int maxSize=45;
@@ -37822,15 +38614,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_StarDetector_create(const Napi::Callb
         jsopencv_to_safe(jsobj_suppressNonmaxSize, suppressNonmaxSize, ArgInfo("suppressNonmaxSize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::StarDetector::create(maxSize, responseThreshold, lineThresholdProjected, lineThresholdBinarized, suppressNonmaxSize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_TBMR_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_min_area = NULL;
     int min_area=60;
@@ -37850,15 +38643,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_TBMR_create(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_n_scales, n_scales, ArgInfo("n_scales", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::TBMR::create(min_area, max_area_relative, scale_factor, n_scales));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_TEBLID_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_scale_factor = NULL;
     float scale_factor=0.f;
@@ -37872,15 +38666,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_TEBLID_create(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_n_bits, n_bits, ArgInfo("n_bits", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::TEBLID::create(scale_factor, n_bits));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_VGG_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_desc = NULL;
     int desc=VGG::VGG_120;
@@ -37906,15 +38701,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_VGG_create(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_dsc_normalize, dsc_normalize, ArgInfo("dsc_normalize", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::xfeatures2d::VGG::create(desc, isigma, img_normalize, use_scale_orientation, scale_factor, dsc_normalize));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_matchGMS(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_size1 = NULL;
     Size size1;
@@ -37946,15 +38742,16 @@ static Napi::Value jsopencv_cv_xfeatures2d_matchGMS(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_thresholdFactor, thresholdFactor, ArgInfo("thresholdFactor", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::matchGMS(size1, size2, keypoints1, keypoints2, matches1to2, matchesGMS, withRotation, withScale, thresholdFactor));
-        return jsopencv_from(info, matchesGMS);
+        return jsopencv_from(env, matchesGMS);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_xfeatures2d_matchLOGOS(const Napi::CallbackInfo &info)
 {
     using namespace cv::xfeatures2d;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_keypoints1 = NULL;
     vector_KeyPoint keypoints1;
@@ -37976,30 +38773,32 @@ static Napi::Value jsopencv_cv_xfeatures2d_matchLOGOS(const Napi::CallbackInfo &
         jsopencv_to_safe(jsobj_matches1to2, matches1to2, ArgInfo("matches1to2", 0)))
     {
         ERRWRAP2_NAPI(info, cv::xfeatures2d::matchLOGOS(keypoints1, keypoints2, nn1, nn2, matches1to2));
-        return info.Env().Null();;
+        return env.Null();;
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_AdaptiveManifoldFilter_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Ptr<AdaptiveManifoldFilter> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::AdaptiveManifoldFilter::create());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38027,7 +38826,7 @@ static Napi::Value jsopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackI
         jsopencv_to_safe(jsobj_makeSkew, makeSkew, ArgInfo("makeSkew", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::FastHoughTransform(src, dst, dstMatDepth, angleRange, op, makeSkew));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38059,7 +38858,7 @@ static Napi::Value jsopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackI
         jsopencv_to_safe(jsobj_makeSkew, makeSkew, ArgInfo("makeSkew", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::FastHoughTransform(src, dst, dstMatDepth, angleRange, op, makeSkew));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38067,12 +38866,13 @@ static Napi::Value jsopencv_cv_ximgproc_FastHoughTransform(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "FastHoughTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38094,7 +38894,7 @@ static Napi::Value jsopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_omega, omega, ArgInfo("omega", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::GradientDericheX(op, dst, alpha, omega));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38120,7 +38920,7 @@ static Napi::Value jsopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_omega, omega, ArgInfo("omega", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::GradientDericheX(op, dst, alpha, omega));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38128,12 +38928,13 @@ static Napi::Value jsopencv_cv_ximgproc_GradientDericheX(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "GradientDericheX");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38155,7 +38956,7 @@ static Napi::Value jsopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_omega, omega, ArgInfo("omega", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::GradientDericheY(op, dst, alpha, omega));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38181,7 +38982,7 @@ static Napi::Value jsopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_omega, omega, ArgInfo("omega", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::GradientDericheY(op, dst, alpha, omega));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38189,12 +38990,13 @@ static Napi::Value jsopencv_cv_ximgproc_GradientDericheY(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "GradientDericheY");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38220,7 +39022,7 @@ static Napi::Value jsopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_rules, rules, ArgInfo("rules", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::HoughPoint2Line(houghPoint, srcImgInfo, angleRange, makeSkew, rules));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -38250,7 +39052,7 @@ static Napi::Value jsopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_rules, rules, ArgInfo("rules", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::HoughPoint2Line(houghPoint, srcImgInfo, angleRange, makeSkew, rules));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -38258,12 +39060,13 @@ static Napi::Value jsopencv_cv_ximgproc_HoughPoint2Line(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "HoughPoint2Line");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_PeiLinNormalization(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38279,7 +39082,7 @@ static Napi::Value jsopencv_cv_ximgproc_PeiLinNormalization(const Napi::Callback
         jsopencv_to_safe(jsobj_T, T, ArgInfo("T", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::PeiLinNormalization(I, T));
-        return jsopencv_from(info, T);
+        return jsopencv_from(env, T);
     }
 
 
@@ -38299,7 +39102,7 @@ static Napi::Value jsopencv_cv_ximgproc_PeiLinNormalization(const Napi::Callback
         jsopencv_to_safe(jsobj_T, T, ArgInfo("T", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::PeiLinNormalization(I, T));
-        return jsopencv_from(info, T);
+        return jsopencv_from(env, T);
     }
 
 
@@ -38307,12 +39110,13 @@ static Napi::Value jsopencv_cv_ximgproc_PeiLinNormalization(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "PeiLinNormalization");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38343,7 +39147,7 @@ static Napi::Value jsopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_norm, norm, ArgInfo("norm", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::RadonTransform(src, dst, theta, start_angle, end_angle, crop, norm));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38378,7 +39182,7 @@ static Napi::Value jsopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_norm, norm, ArgInfo("norm", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::RadonTransform(src, dst, theta, start_angle, end_angle, crop, norm));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38386,12 +39190,13 @@ static Napi::Value jsopencv_cv_ximgproc_RadonTransform(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "RadonTransform");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_RidgeDetectionFilter_create(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_ddepth = NULL;
     int ddepth=CV_32FC1;
@@ -38423,15 +39228,16 @@ static Napi::Value jsopencv_cv_ximgproc_RidgeDetectionFilter_create(const Napi::
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::RidgeDetectionFilter::create(ddepth, dx, dy, ksize, out_dtype, scale, delta, borderType));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38459,7 +39265,7 @@ static Napi::Value jsopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_adjust_outliers, adjust_outliers, ArgInfo("adjust_outliers", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::amFilter(joint, src, dst, sigma_s, sigma_r, adjust_outliers));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38491,7 +39297,7 @@ static Napi::Value jsopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_adjust_outliers, adjust_outliers, ArgInfo("adjust_outliers", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::amFilter(joint, src, dst, sigma_s, sigma_r, adjust_outliers));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38499,12 +39305,13 @@ static Napi::Value jsopencv_cv_ximgproc_amFilter(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "amFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_anisotropicDiffusion(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38529,7 +39336,7 @@ static Napi::Value jsopencv_cv_ximgproc_anisotropicDiffusion(const Napi::Callbac
         jsopencv_to_safe(jsobj_niters, niters, ArgInfo("niters", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::anisotropicDiffusion(src, dst, alpha, K, niters));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38558,7 +39365,7 @@ static Napi::Value jsopencv_cv_ximgproc_anisotropicDiffusion(const Napi::Callbac
         jsopencv_to_safe(jsobj_niters, niters, ArgInfo("niters", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::anisotropicDiffusion(src, dst, alpha, K, niters));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38566,12 +39373,13 @@ static Napi::Value jsopencv_cv_ximgproc_anisotropicDiffusion(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "anisotropicDiffusion");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_bilateralTextureFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38599,7 +39407,7 @@ static Napi::Value jsopencv_cv_ximgproc_bilateralTextureFilter(const Napi::Callb
         jsopencv_to_safe(jsobj_sigmaAvg, sigmaAvg, ArgInfo("sigmaAvg", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::bilateralTextureFilter(src, dst, fr, numIter, sigmaAlpha, sigmaAvg));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38631,7 +39439,7 @@ static Napi::Value jsopencv_cv_ximgproc_bilateralTextureFilter(const Napi::Callb
         jsopencv_to_safe(jsobj_sigmaAvg, sigmaAvg, ArgInfo("sigmaAvg", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::bilateralTextureFilter(src, dst, fr, numIter, sigmaAlpha, sigmaAvg));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38639,12 +39447,13 @@ static Napi::Value jsopencv_cv_ximgproc_bilateralTextureFilter(const Napi::Callb
     }
     jsRaiseCVOverloadException(info, "bilateralTextureFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38663,7 +39472,7 @@ static Napi::Value jsopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackI
         jsopencv_to_safe(jsobj_result, result, ArgInfo("result", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::colorMatchTemplate(img, templ, result));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -38686,7 +39495,7 @@ static Napi::Value jsopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackI
         jsopencv_to_safe(jsobj_result, result, ArgInfo("result", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::colorMatchTemplate(img, templ, result));
-        return jsopencv_from(info, result);
+        return jsopencv_from(env, result);
     }
 
 
@@ -38694,12 +39503,13 @@ static Napi::Value jsopencv_cv_ximgproc_colorMatchTemplate(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "colorMatchTemplate");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_computeBadPixelPercent(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38722,7 +39532,7 @@ static Napi::Value jsopencv_cv_ximgproc_computeBadPixelPercent(const Napi::Callb
         jsopencv_to_safe(jsobj_thresh, thresh, ArgInfo("thresh", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::computeBadPixelPercent(GT, src, ROI, thresh));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -38749,7 +39559,7 @@ static Napi::Value jsopencv_cv_ximgproc_computeBadPixelPercent(const Napi::Callb
         jsopencv_to_safe(jsobj_thresh, thresh, ArgInfo("thresh", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::computeBadPixelPercent(GT, src, ROI, thresh));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -38757,12 +39567,13 @@ static Napi::Value jsopencv_cv_ximgproc_computeBadPixelPercent(const Napi::Callb
     }
     jsRaiseCVOverloadException(info, "computeBadPixelPercent");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38782,7 +39593,7 @@ static Napi::Value jsopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_ROI, ROI, ArgInfo("ROI", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::computeMSE(GT, src, ROI));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -38806,7 +39617,7 @@ static Napi::Value jsopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &inf
         jsopencv_to_safe(jsobj_ROI, ROI, ArgInfo("ROI", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::computeMSE(GT, src, ROI));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -38814,12 +39625,13 @@ static Napi::Value jsopencv_cv_ximgproc_computeMSE(const Napi::CallbackInfo &inf
     }
     jsRaiseCVOverloadException(info, "computeMSE");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38838,7 +39650,7 @@ static Napi::Value jsopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_nbElt, nbElt, ArgInfo("nbElt", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::contourSampling(src, out, nbElt));
-        return jsopencv_from(info, out);
+        return jsopencv_from(env, out);
     }
 
 
@@ -38861,7 +39673,7 @@ static Napi::Value jsopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_nbElt, nbElt, ArgInfo("nbElt", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::contourSampling(src, out, nbElt));
-        return jsopencv_from(info, out);
+        return jsopencv_from(env, out);
     }
 
 
@@ -38869,12 +39681,13 @@ static Napi::Value jsopencv_cv_ximgproc_contourSampling(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "contourSampling");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_covarianceEstimation(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -38896,7 +39709,7 @@ static Napi::Value jsopencv_cv_ximgproc_covarianceEstimation(const Napi::Callbac
         jsopencv_to_safe(jsobj_windowCols, windowCols, ArgInfo("windowCols", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::covarianceEstimation(src, dst, windowRows, windowCols));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38922,7 +39735,7 @@ static Napi::Value jsopencv_cv_ximgproc_covarianceEstimation(const Napi::Callbac
         jsopencv_to_safe(jsobj_windowCols, windowCols, ArgInfo("windowCols", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::covarianceEstimation(src, dst, windowRows, windowCols));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -38930,12 +39743,13 @@ static Napi::Value jsopencv_cv_ximgproc_covarianceEstimation(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "covarianceEstimation");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createAMFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_sigma_s = NULL;
     double sigma_s=0;
@@ -38952,15 +39766,16 @@ static Napi::Value jsopencv_cv_ximgproc_createAMFilter(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_adjust_outliers, adjust_outliers, ArgInfo("adjust_outliers", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createAMFilter(sigma_s, sigma_r, adjust_outliers));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createContourFitting(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_ctr = NULL;
     int ctr=1024;
@@ -38974,15 +39789,16 @@ static Napi::Value jsopencv_cv_ximgproc_createContourFitting(const Napi::Callbac
         jsopencv_to_safe(jsobj_fd, fd, ArgInfo("fd", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createContourFitting(ctr, fd));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39008,7 +39824,7 @@ static Napi::Value jsopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_numIters, numIters, ArgInfo("numIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createDTFilter(guide, sigmaSpatial, sigmaColor, mode, numIters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39038,7 +39854,7 @@ static Napi::Value jsopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo 
         jsopencv_to_safe(jsobj_numIters, numIters, ArgInfo("numIters", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createDTFilter(guide, sigmaSpatial, sigmaColor, mode, numIters));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39046,12 +39862,13 @@ static Napi::Value jsopencv_cv_ximgproc_createDTFilter(const Napi::CallbackInfo 
     }
     jsRaiseCVOverloadException(info, "createDTFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createDisparityWLSFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_matcher_left = NULL;
     Ptr<StereoMatcher> matcher_left;
@@ -39062,15 +39879,16 @@ static Napi::Value jsopencv_cv_ximgproc_createDisparityWLSFilter(const Napi::Cal
         jsopencv_to_safe(jsobj_matcher_left, matcher_left, ArgInfo("matcher_left", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createDisparityWLSFilter(matcher_left));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createDisparityWLSFilterGeneric(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_use_confidence = NULL;
     bool use_confidence=0;
@@ -39081,30 +39899,32 @@ static Napi::Value jsopencv_cv_ximgproc_createDisparityWLSFilterGeneric(const Na
         jsopencv_to_safe(jsobj_use_confidence, use_confidence, ArgInfo("use_confidence", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createDisparityWLSFilterGeneric(use_confidence));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createEdgeAwareInterpolator(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Ptr<EdgeAwareInterpolator> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createEdgeAwareInterpolator());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createEdgeBoxes(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_alpha = NULL;
     float alpha=0.65f;
@@ -39148,30 +39968,32 @@ static Napi::Value jsopencv_cv_ximgproc_createEdgeBoxes(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_kappa, kappa, ArgInfo("kappa", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createEdgeBoxes(alpha, beta, eta, minScore, maxBoxes, edgeMinMag, edgeMergeThr, clusterMinMag, maxAspectRatio, minBoxArea, gamma, kappa));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createEdgeDrawing(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Ptr<EdgeDrawing> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createEdgeDrawing());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createFastBilateralSolverFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39203,7 +40025,7 @@ static Napi::Value jsopencv_cv_ximgproc_createFastBilateralSolverFilter(const Na
         jsopencv_to_safe(jsobj_max_tol, max_tol, ArgInfo("max_tol", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createFastBilateralSolverFilter(guide, sigma_spatial, sigma_luma, sigma_chroma, lambda, num_iter, max_tol));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39239,7 +40061,7 @@ static Napi::Value jsopencv_cv_ximgproc_createFastBilateralSolverFilter(const Na
         jsopencv_to_safe(jsobj_max_tol, max_tol, ArgInfo("max_tol", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createFastBilateralSolverFilter(guide, sigma_spatial, sigma_luma, sigma_chroma, lambda, num_iter, max_tol));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39247,12 +40069,13 @@ static Napi::Value jsopencv_cv_ximgproc_createFastBilateralSolverFilter(const Na
     }
     jsRaiseCVOverloadException(info, "createFastBilateralSolverFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39278,7 +40101,7 @@ static Napi::Value jsopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Nap
         jsopencv_to_safe(jsobj_num_iter, num_iter, ArgInfo("num_iter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createFastGlobalSmootherFilter(guide, lambda, sigma_color, lambda_attenuation, num_iter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39308,7 +40131,7 @@ static Napi::Value jsopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Nap
         jsopencv_to_safe(jsobj_num_iter, num_iter, ArgInfo("num_iter", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createFastGlobalSmootherFilter(guide, lambda, sigma_color, lambda_attenuation, num_iter));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39316,12 +40139,13 @@ static Napi::Value jsopencv_cv_ximgproc_createFastGlobalSmootherFilter(const Nap
     }
     jsRaiseCVOverloadException(info, "createFastGlobalSmootherFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createFastLineDetector(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_length_threshold = NULL;
     int length_threshold=10;
@@ -39347,15 +40171,16 @@ static Napi::Value jsopencv_cv_ximgproc_createFastLineDetector(const Napi::Callb
         jsopencv_to_safe(jsobj_do_merge, do_merge, ArgInfo("do_merge", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createFastLineDetector(length_threshold, distance_threshold, canny_th1, canny_th2, canny_aperture_size, do_merge));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39375,7 +40200,7 @@ static Napi::Value jsopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackI
         jsopencv_to_safe(jsobj_eps, eps, ArgInfo("eps", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createGuidedFilter(guide, radius, eps));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39399,7 +40224,7 @@ static Napi::Value jsopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackI
         jsopencv_to_safe(jsobj_eps, eps, ArgInfo("eps", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createGuidedFilter(guide, radius, eps));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39407,12 +40232,13 @@ static Napi::Value jsopencv_cv_ximgproc_createGuidedFilter(const Napi::CallbackI
     }
     jsRaiseCVOverloadException(info, "createGuidedFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createQuaternionImage(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39428,7 +40254,7 @@ static Napi::Value jsopencv_cv_ximgproc_createQuaternionImage(const Napi::Callba
         jsopencv_to_safe(jsobj_qimg, qimg, ArgInfo("qimg", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::createQuaternionImage(img, qimg));
-        return jsopencv_from(info, qimg);
+        return jsopencv_from(env, qimg);
     }
 
 
@@ -39448,7 +40274,7 @@ static Napi::Value jsopencv_cv_ximgproc_createQuaternionImage(const Napi::Callba
         jsopencv_to_safe(jsobj_qimg, qimg, ArgInfo("qimg", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::createQuaternionImage(img, qimg));
-        return jsopencv_from(info, qimg);
+        return jsopencv_from(env, qimg);
     }
 
 
@@ -39456,42 +40282,45 @@ static Napi::Value jsopencv_cv_ximgproc_createQuaternionImage(const Napi::Callba
     }
     jsRaiseCVOverloadException(info, "createQuaternionImage");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createRFFeatureGetter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Ptr<RFFeatureGetter> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createRFFeatureGetter());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createRICInterpolator(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Ptr<RICInterpolator> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createRICInterpolator());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createRightMatcher(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_matcher_left = NULL;
     Ptr<StereoMatcher> matcher_left;
@@ -39502,15 +40331,16 @@ static Napi::Value jsopencv_cv_ximgproc_createRightMatcher(const Napi::CallbackI
         jsopencv_to_safe(jsobj_matcher_left, matcher_left, ArgInfo("matcher_left", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createRightMatcher(matcher_left));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createScanSegment(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_image_width = NULL;
     int image_width=0;
@@ -39533,15 +40363,16 @@ static Napi::Value jsopencv_cv_ximgproc_createScanSegment(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_merge_small, merge_small, ArgInfo("merge_small", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createScanSegment(image_width, image_height, num_superpixels, slices, merge_small));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createStructuredEdgeDetection(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_model = NULL;
     String model;
@@ -39555,15 +40386,16 @@ static Napi::Value jsopencv_cv_ximgproc_createStructuredEdgeDetection(const Napi
         jsopencv_to_safe(jsobj_howToGetFeatures, howToGetFeatures, ArgInfo("howToGetFeatures", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createStructuredEdgeDetection(model, howToGetFeatures));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createSuperpixelLSC(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39583,7 +40415,7 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelLSC(const Napi::Callback
         jsopencv_to_safe(jsobj_ratio, ratio, ArgInfo("ratio", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createSuperpixelLSC(image, region_size, ratio));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39607,7 +40439,7 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelLSC(const Napi::Callback
         jsopencv_to_safe(jsobj_ratio, ratio, ArgInfo("ratio", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createSuperpixelLSC(image, region_size, ratio));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39615,12 +40447,13 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelLSC(const Napi::Callback
     }
     jsRaiseCVOverloadException(info, "createSuperpixelLSC");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createSuperpixelSEEDS(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_image_width = NULL;
     int image_width=0;
@@ -39652,15 +40485,16 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelSEEDS(const Napi::Callba
         jsopencv_to_safe(jsobj_double_step, double_step, ArgInfo("double_step", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createSuperpixelSEEDS(image_width, image_height, image_channels, num_superpixels, num_levels, prior, histogram_bins, double_step));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39683,7 +40517,7 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::Callbac
         jsopencv_to_safe(jsobj_ruler, ruler, ArgInfo("ruler", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createSuperpixelSLIC(image, algorithm, region_size, ruler));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39710,7 +40544,7 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::Callbac
         jsopencv_to_safe(jsobj_ruler, ruler, ArgInfo("ruler", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::createSuperpixelSLIC(image, algorithm, region_size, ruler));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -39718,12 +40552,13 @@ static Napi::Value jsopencv_cv_ximgproc_createSuperpixelSLIC(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "createSuperpixelSLIC");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39754,7 +40589,7 @@ static Napi::Value jsopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_numIters, numIters, ArgInfo("numIters", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::dtFilter(guide, src, dst, sigmaSpatial, sigmaColor, mode, numIters));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -39789,7 +40624,7 @@ static Napi::Value jsopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_numIters, numIters, ArgInfo("numIters", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::dtFilter(guide, src, dst, sigmaSpatial, sigmaColor, mode, numIters));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -39797,12 +40632,13 @@ static Napi::Value jsopencv_cv_ximgproc_dtFilter(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "dtFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_edgePreservingFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39824,7 +40660,7 @@ static Napi::Value jsopencv_cv_ximgproc_edgePreservingFilter(const Napi::Callbac
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::edgePreservingFilter(src, dst, d, threshold));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -39850,7 +40686,7 @@ static Napi::Value jsopencv_cv_ximgproc_edgePreservingFilter(const Napi::Callbac
         jsopencv_to_safe(jsobj_threshold, threshold, ArgInfo("threshold", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::edgePreservingFilter(src, dst, d, threshold));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -39858,12 +40694,13 @@ static Napi::Value jsopencv_cv_ximgproc_edgePreservingFilter(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "edgePreservingFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39903,7 +40740,7 @@ static Napi::Value jsopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::Ca
         jsopencv_to_safe(jsobj_max_tol, max_tol, ArgInfo("max_tol", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::fastBilateralSolverFilter(guide, src, confidence, dst, sigma_spatial, sigma_luma, sigma_chroma, lambda, num_iter, max_tol));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -39947,7 +40784,7 @@ static Napi::Value jsopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::Ca
         jsopencv_to_safe(jsobj_max_tol, max_tol, ArgInfo("max_tol", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::fastBilateralSolverFilter(guide, src, confidence, dst, sigma_spatial, sigma_luma, sigma_chroma, lambda, num_iter, max_tol));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -39955,12 +40792,13 @@ static Napi::Value jsopencv_cv_ximgproc_fastBilateralSolverFilter(const Napi::Ca
     }
     jsRaiseCVOverloadException(info, "fastBilateralSolverFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -39991,7 +40829,7 @@ static Napi::Value jsopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::Cal
         jsopencv_to_safe(jsobj_num_iter, num_iter, ArgInfo("num_iter", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::fastGlobalSmootherFilter(guide, src, dst, lambda, sigma_color, lambda_attenuation, num_iter));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40026,7 +40864,7 @@ static Napi::Value jsopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::Cal
         jsopencv_to_safe(jsobj_num_iter, num_iter, ArgInfo("num_iter", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::fastGlobalSmootherFilter(guide, src, dst, lambda, sigma_color, lambda_attenuation, num_iter));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40034,12 +40872,13 @@ static Napi::Value jsopencv_cv_ximgproc_fastGlobalSmootherFilter(const Napi::Cal
     }
     jsRaiseCVOverloadException(info, "fastGlobalSmootherFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40064,7 +40903,7 @@ static Napi::Value jsopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_centerDistanceThreshold, centerDistanceThreshold, ArgInfo("centerDistanceThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::findEllipses(image, ellipses, scoreThreshold, reliabilityThreshold, centerDistanceThreshold));
-        return jsopencv_from(info, ellipses);
+        return jsopencv_from(env, ellipses);
     }
 
 
@@ -40093,7 +40932,7 @@ static Napi::Value jsopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_centerDistanceThreshold, centerDistanceThreshold, ArgInfo("centerDistanceThreshold", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::findEllipses(image, ellipses, scoreThreshold, reliabilityThreshold, centerDistanceThreshold));
-        return jsopencv_from(info, ellipses);
+        return jsopencv_from(env, ellipses);
     }
 
 
@@ -40101,12 +40940,13 @@ static Napi::Value jsopencv_cv_ximgproc_findEllipses(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "findEllipses");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40128,7 +40968,7 @@ static Napi::Value jsopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_nbFD, nbFD, ArgInfo("nbFD", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::fourierDescriptor(src, dst, nbElt, nbFD));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40154,7 +40994,7 @@ static Napi::Value jsopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackIn
         jsopencv_to_safe(jsobj_nbFD, nbFD, ArgInfo("nbFD", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::fourierDescriptor(src, dst, nbElt, nbFD));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40162,12 +41002,13 @@ static Napi::Value jsopencv_cv_ximgproc_fourierDescriptor(const Napi::CallbackIn
     }
     jsRaiseCVOverloadException(info, "fourierDescriptor");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40186,7 +41027,7 @@ static Napi::Value jsopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::getDisparityVis(src, dst, scale));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40209,7 +41050,7 @@ static Napi::Value jsopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo
         jsopencv_to_safe(jsobj_scale, scale, ArgInfo("scale", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::getDisparityVis(src, dst, scale));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40217,12 +41058,13 @@ static Napi::Value jsopencv_cv_ximgproc_getDisparityVis(const Napi::CallbackInfo
     }
     jsRaiseCVOverloadException(info, "getDisparityVis");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40250,7 +41092,7 @@ static Napi::Value jsopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_dDepth, dDepth, ArgInfo("dDepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::guidedFilter(guide, src, dst, radius, eps, dDepth));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40282,7 +41124,7 @@ static Napi::Value jsopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_dDepth, dDepth, ArgInfo("dDepth", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::guidedFilter(guide, src, dst, radius, eps, dDepth));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40290,12 +41132,13 @@ static Napi::Value jsopencv_cv_ximgproc_guidedFilter(const Napi::CallbackInfo &i
     }
     jsRaiseCVOverloadException(info, "guidedFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_jointBilateralFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40326,7 +41169,7 @@ static Napi::Value jsopencv_cv_ximgproc_jointBilateralFilter(const Napi::Callbac
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::jointBilateralFilter(joint, src, dst, d, sigmaColor, sigmaSpace, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40361,7 +41204,7 @@ static Napi::Value jsopencv_cv_ximgproc_jointBilateralFilter(const Napi::Callbac
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::jointBilateralFilter(joint, src, dst, d, sigmaColor, sigmaSpace, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40369,12 +41212,13 @@ static Napi::Value jsopencv_cv_ximgproc_jointBilateralFilter(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "jointBilateralFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40396,7 +41240,7 @@ static Napi::Value jsopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_kappa, kappa, ArgInfo("kappa", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::l0Smooth(src, dst, lambda, kappa));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40422,7 +41266,7 @@ static Napi::Value jsopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_kappa, kappa, ArgInfo("kappa", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::l0Smooth(src, dst, lambda, kappa));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40430,12 +41274,13 @@ static Napi::Value jsopencv_cv_ximgproc_l0Smooth(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "l0Smooth");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40469,7 +41314,7 @@ static Napi::Value jsopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_r, r, ArgInfo("r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::niBlackThreshold(_src, _dst, maxValue, type, blockSize, k, binarizationMethod, r));
-        return jsopencv_from(info, _dst);
+        return jsopencv_from(env, _dst);
     }
 
 
@@ -40507,7 +41352,7 @@ static Napi::Value jsopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInf
         jsopencv_to_safe(jsobj_r, r, ArgInfo("r", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::niBlackThreshold(_src, _dst, maxValue, type, blockSize, k, binarizationMethod, r));
-        return jsopencv_from(info, _dst);
+        return jsopencv_from(env, _dst);
     }
 
 
@@ -40515,12 +41360,13 @@ static Napi::Value jsopencv_cv_ximgproc_niBlackThreshold(const Napi::CallbackInf
     }
     jsRaiseCVOverloadException(info, "niBlackThreshold");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40536,7 +41382,7 @@ static Napi::Value jsopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_qcimg, qcimg, ArgInfo("qcimg", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qconj(qimg, qcimg));
-        return jsopencv_from(info, qcimg);
+        return jsopencv_from(env, qcimg);
     }
 
 
@@ -40556,7 +41402,7 @@ static Napi::Value jsopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_qcimg, qcimg, ArgInfo("qcimg", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qconj(qimg, qcimg));
-        return jsopencv_from(info, qcimg);
+        return jsopencv_from(env, qcimg);
     }
 
 
@@ -40564,12 +41410,13 @@ static Napi::Value jsopencv_cv_ximgproc_qconj(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "qconj");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40591,7 +41438,7 @@ static Napi::Value jsopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sideLeft, sideLeft, ArgInfo("sideLeft", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qdft(img, qimg, flags, sideLeft));
-        return jsopencv_from(info, qimg);
+        return jsopencv_from(env, qimg);
     }
 
 
@@ -40617,7 +41464,7 @@ static Napi::Value jsopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_sideLeft, sideLeft, ArgInfo("sideLeft", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qdft(img, qimg, flags, sideLeft));
-        return jsopencv_from(info, qimg);
+        return jsopencv_from(env, qimg);
     }
 
 
@@ -40625,12 +41472,13 @@ static Napi::Value jsopencv_cv_ximgproc_qdft(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "qdft");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40649,7 +41497,7 @@ static Napi::Value jsopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qmultiply(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40672,7 +41520,7 @@ static Napi::Value jsopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qmultiply(src1, src2, dst));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40680,12 +41528,13 @@ static Napi::Value jsopencv_cv_ximgproc_qmultiply(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "qmultiply");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40701,7 +41550,7 @@ static Napi::Value jsopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_qnimg, qnimg, ArgInfo("qnimg", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qunitary(qimg, qnimg));
-        return jsopencv_from(info, qnimg);
+        return jsopencv_from(env, qnimg);
     }
 
 
@@ -40721,7 +41570,7 @@ static Napi::Value jsopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_qnimg, qnimg, ArgInfo("qnimg", 1)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::qunitary(qimg, qnimg));
-        return jsopencv_from(info, qnimg);
+        return jsopencv_from(env, qnimg);
     }
 
 
@@ -40729,12 +41578,13 @@ static Napi::Value jsopencv_cv_ximgproc_qunitary(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "qunitary");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40751,7 +41601,7 @@ static Napi::Value jsopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::readGT(src_path, dst));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -40772,7 +41622,7 @@ static Napi::Value jsopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_dst, dst, ArgInfo("dst", 1)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::readGT(src_path, dst));
-        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, dst));
+        return Js_BuildValue(env, "(NN)", jsopencv_from(env, retval), jsopencv_from(env, dst));
     }
 
 
@@ -40780,12 +41630,13 @@ static Napi::Value jsopencv_cv_ximgproc_readGT(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "readGT");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40816,7 +41667,7 @@ static Napi::Value jsopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::Callba
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::rollingGuidanceFilter(src, dst, d, sigmaColor, sigmaSpace, numOfIter, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40851,7 +41702,7 @@ static Napi::Value jsopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::Callba
         jsopencv_to_safe(jsobj_borderType, borderType, ArgInfo("borderType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::rollingGuidanceFilter(src, dst, d, sigmaColor, sigmaSpace, numOfIter, borderType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40859,12 +41710,13 @@ static Napi::Value jsopencv_cv_ximgproc_rollingGuidanceFilter(const Napi::Callba
     }
     jsRaiseCVOverloadException(info, "rollingGuidanceFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40883,7 +41735,7 @@ static Napi::Value jsopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_thinningType, thinningType, ArgInfo("thinningType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::thinning(src, dst, thinningType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40906,7 +41758,7 @@ static Napi::Value jsopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_thinningType, thinningType, ArgInfo("thinningType", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::thinning(src, dst, thinningType));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40914,12 +41766,13 @@ static Napi::Value jsopencv_cv_ximgproc_thinning(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "thinning");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -40941,7 +41794,7 @@ static Napi::Value jsopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_fdContour, fdContour, ArgInfo("fdContour", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::transformFD(src, t, dst, fdContour));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40967,7 +41820,7 @@ static Napi::Value jsopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &in
         jsopencv_to_safe(jsobj_fdContour, fdContour, ArgInfo("fdContour", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::transformFD(src, t, dst, fdContour));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -40975,12 +41828,13 @@ static Napi::Value jsopencv_cv_ximgproc_transformFD(const Napi::CallbackInfo &in
     }
     jsRaiseCVOverloadException(info, "transformFD");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_weightedMedianFilter(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(2);
 
@@ -41011,7 +41865,7 @@ static Napi::Value jsopencv_cv_ximgproc_weightedMedianFilter(const Napi::Callbac
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::weightedMedianFilter(joint, src, dst, r, sigma, weightType, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -41046,7 +41900,7 @@ static Napi::Value jsopencv_cv_ximgproc_weightedMedianFilter(const Napi::Callbac
         jsopencv_to_safe(jsobj_mask, mask, ArgInfo("mask", 0)))
     {
         ERRWRAP2_NAPI(info, cv::ximgproc::weightedMedianFilter(joint, src, dst, r, sigma, weightType, mask));
-        return jsopencv_from(info, dst);
+        return jsopencv_from(env, dst);
     }
 
 
@@ -41054,12 +41908,13 @@ static Napi::Value jsopencv_cv_ximgproc_weightedMedianFilter(const Napi::Callbac
     }
     jsRaiseCVOverloadException(info, "weightedMedianFilter");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createGraphSegmentation(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     Napi::Value* jsobj_sigma = NULL;
     double sigma=0.5;
@@ -41076,60 +41931,64 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createGraphSegmentation(con
         jsopencv_to_safe(jsobj_min_size, min_size, ArgInfo("min_size", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createGraphSegmentation(sigma, k, min_size));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentation(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     Ptr<SelectiveSearchSegmentation> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentation());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentationStrategyColor(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     Ptr<SelectiveSearchSegmentationStrategyColor> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyColor());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentationStrategyFill(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     Ptr<SelectiveSearchSegmentationStrategyFill> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyFill());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentationStrategyMultiple(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     jsPrepareArgumentConversionErrorsStorage(5);
 
@@ -41139,7 +41998,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyMultiple());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -41157,7 +42016,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
         jsopencv_to_safe(jsobj_s1, s1, ArgInfo("s1", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyMultiple(s1));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -41178,7 +42037,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
         jsopencv_to_safe(jsobj_s2, s2, ArgInfo("s2", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyMultiple(s1, s2));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -41202,7 +42061,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
         jsopencv_to_safe(jsobj_s3, s3, ArgInfo("s3", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyMultiple(s1, s2, s3));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -41229,7 +42088,7 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
         jsopencv_to_safe(jsobj_s4, s4, ArgInfo("s4", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyMultiple(s1, s2, s3, s4));
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
 
@@ -41237,37 +42096,39 @@ static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmen
     }
     jsRaiseCVOverloadException(info, "createSelectiveSearchSegmentationStrategyMultiple");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentationStrategySize(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     Ptr<SelectiveSearchSegmentationStrategySize> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategySize());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_ximgproc_segmentation_createSelectiveSearchSegmentationStrategyTexture(const Napi::CallbackInfo &info)
 {
     using namespace cv::ximgproc::segmentation;
+    Napi::Env env = info.Env();
 
     Ptr<SelectiveSearchSegmentationStrategyTexture> retval;
 
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
     {
         ERRWRAP2_NAPI(info, retval = cv::ximgproc::segmentation::createSelectiveSearchSegmentationStrategyTexture());
-        return jsopencv_from(info, retval);
+        return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 #endif
