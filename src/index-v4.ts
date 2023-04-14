@@ -26,7 +26,6 @@ async function getOPpenCVModule(): Promise<TopenCV>{
 //     return module;
 // }
 
-
 /**
  * rebuild with node-gyp rebuild
  */
