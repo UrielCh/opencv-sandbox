@@ -46,7 +46,7 @@ jobs:
       run: |
         cd ../build/
         sudo make install
-        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+        echo do not export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
         sudo ldconfig
 
     - name: npm install CI
