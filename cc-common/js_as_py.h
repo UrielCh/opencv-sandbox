@@ -3,6 +3,15 @@
 
 #include <napi.h>
 
+// #define JsAPI_FUNC(RTYPE) RTYPE
+// #define JsAPI_DATA(RTYPE) extern RTYPE
+// #define JsMODINIT_FUNC void
+// #define Js_ssize_t int
+// #define JsVarObject_HEAD_INIT(type, size) JsObject_HEAD_INIT(type) size,
+// #define JsObject_HEAD_INIT(type) _JsObject_HEAD_INIT(type, 0)
+// #define _JsObject_HEAD_INIT(type, size) 0, type, size,
+// #define JsTypeObject JsTypeObject
+// #define JsVarObject JsVarObject
 
 class ArgInfo
 {
@@ -36,19 +45,19 @@ private:
 bool JsArg_ParseTupleAndKeywords(const Napi::CallbackInfo& info, const char* format, char** keywords, ...);
 bool JsArg_ParseTupleAndKeywords(const FakeCallbackInfo& info, const char* format, char** keywords, ...);
 
+typedef void (*JsObject)(void);
 
 /**
- * Build a Napi::Value object from a format string and a variable number of arguments.
- *
- * @param info A Napi::CallbackInfo object that contains information about the current JavaScript function call.
- * @param format A format string that specifies the types of the arguments.
- * @param ... A variable number of arguments that correspond to the format string.
- *
- * @return A Napi::Value object that contains the values specified by the format string and the variable arguments.
+ * @brief 
+ * 
+ * @param The first argument (JsObject*) is a pointer to the Nodejs object that represents the module or instance that the function is being called on. For module-level functions, this argument will be NULL.
+ * @param The second argument (JsObject*) is a pointer to the Nodejs tuple that contains the arguments passed to the function.
+ * 
+ * The JsCFunction type is a function pointer type that is used as the function signature for C functions that are intended to be called from Nodejs. The JsCFunction signature is a standard interface used by the Nodejs interpreter to call C functions. A C function that conforms to this signature can be registered as a Nodejs function using the JsMethodDef structure and made available to Nodejs code as part of a Nodejs extension module.
+ * 
+ * The return value of a JsCFunction is a new reference to a Nodejs object that represents the return value of the function. If the function encounters an error, it should set an appropriate exception and return NULL.
  */
-Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
-
-
+// typedef JsObject *(*JsCFunction)(JsObject *, JsObject *);
 
 // 
 // convert from PythonC code base
@@ -61,10 +70,26 @@ typedef Napi::Value (*JsCFunctionWithKeywords)(const Napi::CallbackInfo &info);
 
 #define Js_RETURN_NONE return info.Env().Null()
 
+#define JsExc_TypeError "error"
+
 void JsErr_SetString(const Napi::Env &env, const std::string &message);
 
+/**
+ * Build a Napi::Value object from a format string and a variable number of arguments.
+ *
+ * @param info A Napi::CallbackInfo object that contains information about the current JavaScript function call.
+ * @param format A format string that specifies the types of the arguments.
+ * @param ... A variable number of arguments that correspond to the format string.
+ *
+ * @return A Napi::Value object that contains the values specified by the format string and the variable arguments.
+ */
 Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
 
+/**
+ * @brief structs are typically organized into arrays that are passed to the JsModule_Create function to create a new Nodejs module. When a Nodejs module is loaded, the module's methods and functions are made available to Nodejs code, and can be called like any other Nodejs function.
+ * In C, JsMethodDef is a struct defined in the Nodejs C API that represents a single method in a Nodejs module or extension module. The struct is used to define the name, arguments, and implementation of a Nodejs function that can be called from Nodejs code.
+ * @see https://docs.python.org/3/c-api/structures.html#c.PyMethodDef
+ */
 struct JsMethodDef {
     const char  *ml_name;   /* The name of the built-in function/method */
     JsCFunction ml_meth;    /* The C function that implements it */
