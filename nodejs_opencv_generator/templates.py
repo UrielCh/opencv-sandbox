@@ -43,13 +43,13 @@ gen_template_type_decl = Template("""
 template<>
 struct JsOpenCV_Converter< ${cname} >
 {
-    static PyObject* from(const ${cname}& r)
+    static Napi::Value* from(const Napi::Env &env, const ${cname}& r)
     {
-        return jsopencv_${name}_Instance(r);
+        return jsopencv_${name}_Instance(env, r);
     }
-    static bool to(PyObject* src, ${cname}& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, ${cname}& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         ${cname} * dst_;
         if (jsopencv_${name}_getp(src, dst_))

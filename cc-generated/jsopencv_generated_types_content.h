@@ -430,13 +430,13 @@ static JsMethodDef jsopencv_AKAZE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::AKAZE> >
 {
-    static PyObject* from(const Ptr<cv::AKAZE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::AKAZE>& r)
     {
-        return jsopencv_AKAZE_Instance(r);
+        return jsopencv_AKAZE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::AKAZE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::AKAZE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::AKAZE> * dst_;
         if (jsopencv_AKAZE_getp(src, dst_))
@@ -591,13 +591,13 @@ static JsMethodDef jsopencv_AffineFeature_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::AffineFeature> >
 {
-    static PyObject* from(const Ptr<cv::AffineFeature>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::AffineFeature>& r)
     {
-        return jsopencv_AffineFeature_Instance(r);
+        return jsopencv_AffineFeature_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::AffineFeature>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::AffineFeature>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::AffineFeature> * dst_;
         if (jsopencv_AffineFeature_getp(src, dst_))
@@ -831,13 +831,13 @@ static JsMethodDef jsopencv_AgastFeatureDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::AgastFeatureDetector> >
 {
-    static PyObject* from(const Ptr<cv::AgastFeatureDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::AgastFeatureDetector>& r)
     {
-        return jsopencv_AgastFeatureDetector_Instance(r);
+        return jsopencv_AgastFeatureDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::AgastFeatureDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::AgastFeatureDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::AgastFeatureDetector> * dst_;
         if (jsopencv_AgastFeatureDetector_getp(src, dst_))
@@ -1049,13 +1049,13 @@ static JsMethodDef jsopencv_Algorithm_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::Algorithm> >
 {
-    static PyObject* from(const Ptr<cv::Algorithm>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::Algorithm>& r)
     {
-        return jsopencv_Algorithm_Instance(r);
+        return jsopencv_Algorithm_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::Algorithm>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::Algorithm>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::Algorithm> * dst_;
         if (jsopencv_Algorithm_getp(src, dst_))
@@ -1167,13 +1167,13 @@ static JsMethodDef jsopencv_AlignExposures_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::AlignExposures> >
 {
-    static PyObject* from(const Ptr<cv::AlignExposures>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::AlignExposures>& r)
     {
-        return jsopencv_AlignExposures_Instance(r);
+        return jsopencv_AlignExposures_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::AlignExposures>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::AlignExposures>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::AlignExposures> * dst_;
         if (jsopencv_AlignExposures_getp(src, dst_))
@@ -1648,13 +1648,13 @@ static JsMethodDef jsopencv_AlignMTB_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::AlignMTB> >
 {
-    static PyObject* from(const Ptr<cv::AlignMTB>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::AlignMTB>& r)
     {
-        return jsopencv_AlignMTB_Instance(r);
+        return jsopencv_AlignMTB_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::AlignMTB>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::AlignMTB>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::AlignMTB> * dst_;
         if (jsopencv_AlignMTB_getp(src, dst_))
@@ -1875,13 +1875,13 @@ static JsMethodDef jsopencv_AsyncArray_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::AsyncArray> >
 {
-    static PyObject* from(const Ptr<cv::AsyncArray>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::AsyncArray>& r)
     {
-        return jsopencv_AsyncArray_Instance(r);
+        return jsopencv_AsyncArray_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::AsyncArray>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::AsyncArray>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::AsyncArray> * dst_;
         if (jsopencv_AsyncArray_getp(src, dst_))
@@ -1972,13 +1972,13 @@ static JsMethodDef jsopencv_BFMatcher_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BFMatcher> >
 {
-    static PyObject* from(const Ptr<cv::BFMatcher>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BFMatcher>& r)
     {
-        return jsopencv_BFMatcher_Instance(r);
+        return jsopencv_BFMatcher_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BFMatcher>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BFMatcher>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BFMatcher> * dst_;
         if (jsopencv_BFMatcher_getp(src, dst_))
@@ -2167,13 +2167,13 @@ static JsMethodDef jsopencv_BOWImgDescriptorExtractor_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BOWImgDescriptorExtractor> >
 {
-    static PyObject* from(const Ptr<cv::BOWImgDescriptorExtractor>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BOWImgDescriptorExtractor>& r)
     {
-        return jsopencv_BOWImgDescriptorExtractor_Instance(r);
+        return jsopencv_BOWImgDescriptorExtractor_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BOWImgDescriptorExtractor>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BOWImgDescriptorExtractor>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BOWImgDescriptorExtractor> * dst_;
         if (jsopencv_BOWImgDescriptorExtractor_getp(src, dst_))
@@ -2294,13 +2294,13 @@ static JsMethodDef jsopencv_BOWKMeansTrainer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BOWKMeansTrainer> >
 {
-    static PyObject* from(const Ptr<cv::BOWKMeansTrainer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BOWKMeansTrainer>& r)
     {
-        return jsopencv_BOWKMeansTrainer_Instance(r);
+        return jsopencv_BOWKMeansTrainer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BOWKMeansTrainer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BOWKMeansTrainer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BOWKMeansTrainer> * dst_;
         if (jsopencv_BOWKMeansTrainer_getp(src, dst_))
@@ -2482,13 +2482,13 @@ static JsMethodDef jsopencv_BOWTrainer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BOWTrainer> >
 {
-    static PyObject* from(const Ptr<cv::BOWTrainer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BOWTrainer>& r)
     {
-        return jsopencv_BOWTrainer_Instance(r);
+        return jsopencv_BOWTrainer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BOWTrainer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BOWTrainer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BOWTrainer> * dst_;
         if (jsopencv_BOWTrainer_getp(src, dst_))
@@ -2796,13 +2796,13 @@ static JsMethodDef jsopencv_BRISK_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BRISK> >
 {
-    static PyObject* from(const Ptr<cv::BRISK>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BRISK>& r)
     {
-        return jsopencv_BRISK_Instance(r);
+        return jsopencv_BRISK_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BRISK>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BRISK>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BRISK> * dst_;
         if (jsopencv_BRISK_getp(src, dst_))
@@ -2958,13 +2958,13 @@ static JsMethodDef jsopencv_BackgroundSubtractor_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BackgroundSubtractor> >
 {
-    static PyObject* from(const Ptr<cv::BackgroundSubtractor>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BackgroundSubtractor>& r)
     {
-        return jsopencv_BackgroundSubtractor_Instance(r);
+        return jsopencv_BackgroundSubtractor_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BackgroundSubtractor>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BackgroundSubtractor>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BackgroundSubtractor> * dst_;
         if (jsopencv_BackgroundSubtractor_getp(src, dst_))
@@ -3337,13 +3337,13 @@ static JsMethodDef jsopencv_BackgroundSubtractorKNN_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BackgroundSubtractorKNN> >
 {
-    static PyObject* from(const Ptr<cv::BackgroundSubtractorKNN>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BackgroundSubtractorKNN>& r)
     {
-        return jsopencv_BackgroundSubtractorKNN_Instance(r);
+        return jsopencv_BackgroundSubtractorKNN_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BackgroundSubtractorKNN>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BackgroundSubtractorKNN>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BackgroundSubtractorKNN> * dst_;
         if (jsopencv_BackgroundSubtractorKNN_getp(src, dst_))
@@ -4013,13 +4013,13 @@ static JsMethodDef jsopencv_BackgroundSubtractorMOG2_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BackgroundSubtractorMOG2> >
 {
-    static PyObject* from(const Ptr<cv::BackgroundSubtractorMOG2>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BackgroundSubtractorMOG2>& r)
     {
-        return jsopencv_BackgroundSubtractorMOG2_Instance(r);
+        return jsopencv_BackgroundSubtractorMOG2_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BackgroundSubtractorMOG2>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BackgroundSubtractorMOG2>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BackgroundSubtractorMOG2> * dst_;
         if (jsopencv_BackgroundSubtractorMOG2_getp(src, dst_))
@@ -4063,13 +4063,13 @@ static JsMethodDef jsopencv_BaseCascadeClassifier_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::BaseCascadeClassifier> >
 {
-    static PyObject* from(const Ptr<cv::BaseCascadeClassifier>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::BaseCascadeClassifier>& r)
     {
-        return jsopencv_BaseCascadeClassifier_Instance(r);
+        return jsopencv_BaseCascadeClassifier_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::BaseCascadeClassifier>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::BaseCascadeClassifier>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::BaseCascadeClassifier> * dst_;
         if (jsopencv_BaseCascadeClassifier_getp(src, dst_))
@@ -4284,13 +4284,13 @@ static JsMethodDef jsopencv_CLAHE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::CLAHE> >
 {
-    static PyObject* from(const Ptr<cv::CLAHE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::CLAHE>& r)
     {
-        return jsopencv_CLAHE_Instance(r);
+        return jsopencv_CLAHE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::CLAHE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::CLAHE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::CLAHE> * dst_;
         if (jsopencv_CLAHE_getp(src, dst_))
@@ -4396,13 +4396,13 @@ static JsMethodDef jsopencv_CalibrateCRF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::CalibrateCRF> >
 {
-    static PyObject* from(const Ptr<cv::CalibrateCRF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::CalibrateCRF>& r)
     {
-        return jsopencv_CalibrateCRF_Instance(r);
+        return jsopencv_CalibrateCRF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::CalibrateCRF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::CalibrateCRF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::CalibrateCRF> * dst_;
         if (jsopencv_CalibrateCRF_getp(src, dst_))
@@ -4587,13 +4587,13 @@ static JsMethodDef jsopencv_CalibrateDebevec_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::CalibrateDebevec> >
 {
-    static PyObject* from(const Ptr<cv::CalibrateDebevec>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::CalibrateDebevec>& r)
     {
-        return jsopencv_CalibrateDebevec_Instance(r);
+        return jsopencv_CalibrateDebevec_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::CalibrateDebevec>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::CalibrateDebevec>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::CalibrateDebevec> * dst_;
         if (jsopencv_CalibrateDebevec_getp(src, dst_))
@@ -4753,13 +4753,13 @@ static JsMethodDef jsopencv_CalibrateRobertson_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::CalibrateRobertson> >
 {
-    static PyObject* from(const Ptr<cv::CalibrateRobertson>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::CalibrateRobertson>& r)
     {
-        return jsopencv_CalibrateRobertson_Instance(r);
+        return jsopencv_CalibrateRobertson_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::CalibrateRobertson>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::CalibrateRobertson>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::CalibrateRobertson> * dst_;
         if (jsopencv_CalibrateRobertson_getp(src, dst_))
@@ -5267,13 +5267,13 @@ static JsMethodDef jsopencv_CascadeClassifier_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::CascadeClassifier> >
 {
-    static PyObject* from(const Ptr<cv::CascadeClassifier>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::CascadeClassifier>& r)
     {
-        return jsopencv_CascadeClassifier_Instance(r);
+        return jsopencv_CascadeClassifier_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::CascadeClassifier>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::CascadeClassifier>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::CascadeClassifier> * dst_;
         if (jsopencv_CascadeClassifier_getp(src, dst_))
@@ -5572,13 +5572,13 @@ static JsMethodDef jsopencv_CirclesGridFinderParameters_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::CirclesGridFinderParameters >
 {
-    static PyObject* from(const cv::CirclesGridFinderParameters& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::CirclesGridFinderParameters& r)
     {
-        return jsopencv_CirclesGridFinderParameters_Instance(r);
+        return jsopencv_CirclesGridFinderParameters_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::CirclesGridFinderParameters& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::CirclesGridFinderParameters& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::CirclesGridFinderParameters * dst_;
         if (jsopencv_CirclesGridFinderParameters_getp(src, dst_))
@@ -6113,13 +6113,13 @@ static JsMethodDef jsopencv_DISOpticalFlow_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::DISOpticalFlow> >
 {
-    static PyObject* from(const Ptr<cv::DISOpticalFlow>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::DISOpticalFlow>& r)
     {
-        return jsopencv_DISOpticalFlow_Instance(r);
+        return jsopencv_DISOpticalFlow_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::DISOpticalFlow>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::DISOpticalFlow>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::DISOpticalFlow> * dst_;
         if (jsopencv_DISOpticalFlow_getp(src, dst_))
@@ -6299,13 +6299,13 @@ static JsMethodDef jsopencv_DMatch_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::DMatch >
 {
-    static PyObject* from(const cv::DMatch& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::DMatch& r)
     {
-        return jsopencv_DMatch_Instance(r);
+        return jsopencv_DMatch_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::DMatch& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::DMatch& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::DMatch * dst_;
         if (jsopencv_DMatch_getp(src, dst_))
@@ -6432,13 +6432,13 @@ static JsMethodDef jsopencv_DenseOpticalFlow_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::DenseOpticalFlow> >
 {
-    static PyObject* from(const Ptr<cv::DenseOpticalFlow>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::DenseOpticalFlow>& r)
     {
-        return jsopencv_DenseOpticalFlow_Instance(r);
+        return jsopencv_DenseOpticalFlow_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::DenseOpticalFlow>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::DenseOpticalFlow>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::DenseOpticalFlow> * dst_;
         if (jsopencv_DenseOpticalFlow_getp(src, dst_))
@@ -7182,13 +7182,13 @@ static JsMethodDef jsopencv_DescriptorMatcher_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::DescriptorMatcher> >
 {
-    static PyObject* from(const Ptr<cv::DescriptorMatcher>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::DescriptorMatcher>& r)
     {
-        return jsopencv_DescriptorMatcher_Instance(r);
+        return jsopencv_DescriptorMatcher_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::DescriptorMatcher>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::DescriptorMatcher>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::DescriptorMatcher> * dst_;
         if (jsopencv_DescriptorMatcher_getp(src, dst_))
@@ -7520,13 +7520,13 @@ static JsMethodDef jsopencv_FaceDetectorYN_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::FaceDetectorYN> >
 {
-    static PyObject* from(const Ptr<cv::FaceDetectorYN>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::FaceDetectorYN>& r)
     {
-        return jsopencv_FaceDetectorYN_Instance(r);
+        return jsopencv_FaceDetectorYN_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::FaceDetectorYN>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::FaceDetectorYN>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::FaceDetectorYN> * dst_;
         if (jsopencv_FaceDetectorYN_getp(src, dst_))
@@ -7782,13 +7782,13 @@ static JsMethodDef jsopencv_FaceRecognizerSF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::FaceRecognizerSF> >
 {
-    static PyObject* from(const Ptr<cv::FaceRecognizerSF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::FaceRecognizerSF>& r)
     {
-        return jsopencv_FaceRecognizerSF_Instance(r);
+        return jsopencv_FaceRecognizerSF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::FaceRecognizerSF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::FaceRecognizerSF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::FaceRecognizerSF> * dst_;
         if (jsopencv_FaceRecognizerSF_getp(src, dst_))
@@ -8250,13 +8250,13 @@ static JsMethodDef jsopencv_FarnebackOpticalFlow_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::FarnebackOpticalFlow> >
 {
-    static PyObject* from(const Ptr<cv::FarnebackOpticalFlow>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::FarnebackOpticalFlow>& r)
     {
-        return jsopencv_FarnebackOpticalFlow_Instance(r);
+        return jsopencv_FarnebackOpticalFlow_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::FarnebackOpticalFlow>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::FarnebackOpticalFlow>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::FarnebackOpticalFlow> * dst_;
         if (jsopencv_FarnebackOpticalFlow_getp(src, dst_))
@@ -8490,13 +8490,13 @@ static JsMethodDef jsopencv_FastFeatureDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::FastFeatureDetector> >
 {
-    static PyObject* from(const Ptr<cv::FastFeatureDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::FastFeatureDetector>& r)
     {
-        return jsopencv_FastFeatureDetector_Instance(r);
+        return jsopencv_FastFeatureDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::FastFeatureDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::FastFeatureDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::FastFeatureDetector> * dst_;
         if (jsopencv_FastFeatureDetector_getp(src, dst_))
@@ -9031,13 +9031,13 @@ static JsMethodDef jsopencv_Feature2D_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::Feature2D> >
 {
-    static PyObject* from(const Ptr<cv::Feature2D>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::Feature2D>& r)
     {
-        return jsopencv_Feature2D_Instance(r);
+        return jsopencv_Feature2D_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::Feature2D>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::Feature2D>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::Feature2D> * dst_;
         if (jsopencv_Feature2D_getp(src, dst_))
@@ -9498,13 +9498,13 @@ static JsMethodDef jsopencv_FileNode_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::FileNode >
 {
-    static PyObject* from(const cv::FileNode& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::FileNode& r)
     {
-        return jsopencv_FileNode_Instance(r);
+        return jsopencv_FileNode_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::FileNode& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::FileNode& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::FileNode * dst_;
         if (jsopencv_FileNode_getp(src, dst_))
@@ -9983,13 +9983,13 @@ static JsMethodDef jsopencv_FileStorage_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::FileStorage> >
 {
-    static PyObject* from(const Ptr<cv::FileStorage>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::FileStorage>& r)
     {
-        return jsopencv_FileStorage_Instance(r);
+        return jsopencv_FileStorage_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::FileStorage>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::FileStorage>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::FileStorage> * dst_;
         if (jsopencv_FileStorage_getp(src, dst_))
@@ -10073,13 +10073,13 @@ static JsMethodDef jsopencv_FlannBasedMatcher_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::FlannBasedMatcher> >
 {
-    static PyObject* from(const Ptr<cv::FlannBasedMatcher>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::FlannBasedMatcher>& r)
     {
-        return jsopencv_FlannBasedMatcher_Instance(r);
+        return jsopencv_FlannBasedMatcher_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::FlannBasedMatcher>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::FlannBasedMatcher>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::FlannBasedMatcher> * dst_;
         if (jsopencv_FlannBasedMatcher_getp(src, dst_))
@@ -10123,13 +10123,13 @@ static JsMethodDef jsopencv_GArrayDesc_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GArrayDesc >
 {
-    static PyObject* from(const cv::GArrayDesc& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GArrayDesc& r)
     {
-        return jsopencv_GArrayDesc_Instance(r);
+        return jsopencv_GArrayDesc_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GArrayDesc& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GArrayDesc& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GArrayDesc * dst_;
         if (jsopencv_GArrayDesc_getp(src, dst_))
@@ -10214,13 +10214,13 @@ static JsMethodDef jsopencv_GArrayT_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GArrayT >
 {
-    static PyObject* from(const cv::GArrayT& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GArrayT& r)
     {
-        return jsopencv_GArrayT_Instance(r);
+        return jsopencv_GArrayT_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GArrayT& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GArrayT& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GArrayT * dst_;
         if (jsopencv_GArrayT_getp(src, dst_))
@@ -10325,13 +10325,13 @@ static JsMethodDef jsopencv_GCompileArg_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GCompileArg >
 {
-    static PyObject* from(const cv::GCompileArg& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GCompileArg& r)
     {
-        return jsopencv_GCompileArg_Instance(r);
+        return jsopencv_GCompileArg_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GCompileArg& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GCompileArg& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GCompileArg * dst_;
         if (jsopencv_GCompileArg_getp(src, dst_))
@@ -10577,13 +10577,13 @@ static JsMethodDef jsopencv_GComputation_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::GComputation> >
 {
-    static PyObject* from(const Ptr<cv::GComputation>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::GComputation>& r)
     {
-        return jsopencv_GComputation_Instance(r);
+        return jsopencv_GComputation_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::GComputation>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::GComputation>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::GComputation> * dst_;
         if (jsopencv_GComputation_getp(src, dst_))
@@ -11058,13 +11058,13 @@ static JsMethodDef jsopencv_GFTTDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::GFTTDetector> >
 {
-    static PyObject* from(const Ptr<cv::GFTTDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::GFTTDetector>& r)
     {
-        return jsopencv_GFTTDetector_Instance(r);
+        return jsopencv_GFTTDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::GFTTDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::GFTTDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::GFTTDetector> * dst_;
         if (jsopencv_GFTTDetector_getp(src, dst_))
@@ -11123,13 +11123,13 @@ static JsMethodDef jsopencv_GFrame_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GFrame >
 {
-    static PyObject* from(const cv::GFrame& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GFrame& r)
     {
-        return jsopencv_GFrame_Instance(r);
+        return jsopencv_GFrame_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GFrame& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GFrame& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GFrame * dst_;
         if (jsopencv_GFrame_getp(src, dst_))
@@ -11246,13 +11246,13 @@ static JsMethodDef jsopencv_GInferInputs_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GInferInputs >
 {
-    static PyObject* from(const cv::GInferInputs& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GInferInputs& r)
     {
-        return jsopencv_GInferInputs_Instance(r);
+        return jsopencv_GInferInputs_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GInferInputs& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GInferInputs& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GInferInputs * dst_;
         if (jsopencv_GInferInputs_getp(src, dst_))
@@ -11369,13 +11369,13 @@ static JsMethodDef jsopencv_GInferListInputs_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GInferListInputs >
 {
-    static PyObject* from(const cv::GInferListInputs& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GInferListInputs& r)
     {
-        return jsopencv_GInferListInputs_Instance(r);
+        return jsopencv_GInferListInputs_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GInferListInputs& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GInferListInputs& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GInferListInputs * dst_;
         if (jsopencv_GInferListInputs_getp(src, dst_))
@@ -11460,13 +11460,13 @@ static JsMethodDef jsopencv_GInferListOutputs_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GInferListOutputs >
 {
-    static PyObject* from(const cv::GInferListOutputs& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GInferListOutputs& r)
     {
-        return jsopencv_GInferListOutputs_Instance(r);
+        return jsopencv_GInferListOutputs_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GInferListOutputs& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GInferListOutputs& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GInferListOutputs * dst_;
         if (jsopencv_GInferListOutputs_getp(src, dst_))
@@ -11551,13 +11551,13 @@ static JsMethodDef jsopencv_GInferOutputs_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GInferOutputs >
 {
-    static PyObject* from(const cv::GInferOutputs& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GInferOutputs& r)
     {
-        return jsopencv_GInferOutputs_Instance(r);
+        return jsopencv_GInferOutputs_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GInferOutputs& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GInferOutputs& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GInferOutputs * dst_;
         if (jsopencv_GInferOutputs_getp(src, dst_))
@@ -11601,13 +11601,13 @@ static JsMethodDef jsopencv_GKernelPackage_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GKernelPackage >
 {
-    static PyObject* from(const cv::GKernelPackage& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GKernelPackage& r)
     {
-        return jsopencv_GKernelPackage_Instance(r);
+        return jsopencv_GKernelPackage_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GKernelPackage& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GKernelPackage& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GKernelPackage * dst_;
         if (jsopencv_GKernelPackage_getp(src, dst_))
@@ -11666,13 +11666,13 @@ static JsMethodDef jsopencv_GMat_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GMat >
 {
-    static PyObject* from(const cv::GMat& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GMat& r)
     {
-        return jsopencv_GMat_Instance(r);
+        return jsopencv_GMat_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GMat& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GMat& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GMat * dst_;
         if (jsopencv_GMat_getp(src, dst_))
@@ -12041,13 +12041,13 @@ static JsMethodDef jsopencv_GMatDesc_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GMatDesc >
 {
-    static PyObject* from(const cv::GMatDesc& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GMatDesc& r)
     {
-        return jsopencv_GMatDesc_Instance(r);
+        return jsopencv_GMatDesc_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GMatDesc& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GMatDesc& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GMatDesc * dst_;
         if (jsopencv_GMatDesc_getp(src, dst_))
@@ -12091,13 +12091,13 @@ static JsMethodDef jsopencv_GOpaqueDesc_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GOpaqueDesc >
 {
-    static PyObject* from(const cv::GOpaqueDesc& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GOpaqueDesc& r)
     {
-        return jsopencv_GOpaqueDesc_Instance(r);
+        return jsopencv_GOpaqueDesc_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GOpaqueDesc& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GOpaqueDesc& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GOpaqueDesc * dst_;
         if (jsopencv_GOpaqueDesc_getp(src, dst_))
@@ -12182,13 +12182,13 @@ static JsMethodDef jsopencv_GOpaqueT_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GOpaqueT >
 {
-    static PyObject* from(const cv::GOpaqueT& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GOpaqueT& r)
     {
-        return jsopencv_GOpaqueT_Instance(r);
+        return jsopencv_GOpaqueT_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GOpaqueT& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GOpaqueT& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GOpaqueT * dst_;
         if (jsopencv_GOpaqueT_getp(src, dst_))
@@ -12272,13 +12272,13 @@ static JsMethodDef jsopencv_GScalar_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GScalar >
 {
-    static PyObject* from(const cv::GScalar& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GScalar& r)
     {
-        return jsopencv_GScalar_Instance(r);
+        return jsopencv_GScalar_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GScalar& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GScalar& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GScalar * dst_;
         if (jsopencv_GScalar_getp(src, dst_))
@@ -12322,13 +12322,13 @@ static JsMethodDef jsopencv_GScalarDesc_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GScalarDesc >
 {
-    static PyObject* from(const cv::GScalarDesc& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GScalarDesc& r)
     {
-        return jsopencv_GScalarDesc_Instance(r);
+        return jsopencv_GScalarDesc_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GScalarDesc& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GScalarDesc& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GScalarDesc * dst_;
         if (jsopencv_GScalarDesc_getp(src, dst_))
@@ -12498,13 +12498,13 @@ static JsMethodDef jsopencv_GStreamingCompiled_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::GStreamingCompiled >
 {
-    static PyObject* from(const cv::GStreamingCompiled& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::GStreamingCompiled& r)
     {
-        return jsopencv_GStreamingCompiled_Instance(r);
+        return jsopencv_GStreamingCompiled_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::GStreamingCompiled& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::GStreamingCompiled& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::GStreamingCompiled * dst_;
         if (jsopencv_GStreamingCompiled_getp(src, dst_))
@@ -13011,13 +13011,13 @@ static JsMethodDef jsopencv_GeneralizedHough_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::GeneralizedHough> >
 {
-    static PyObject* from(const Ptr<cv::GeneralizedHough>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::GeneralizedHough>& r)
     {
-        return jsopencv_GeneralizedHough_Instance(r);
+        return jsopencv_GeneralizedHough_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::GeneralizedHough>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::GeneralizedHough>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::GeneralizedHough> * dst_;
         if (jsopencv_GeneralizedHough_getp(src, dst_))
@@ -13155,13 +13155,13 @@ static JsMethodDef jsopencv_GeneralizedHoughBallard_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::GeneralizedHoughBallard> >
 {
-    static PyObject* from(const Ptr<cv::GeneralizedHoughBallard>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::GeneralizedHoughBallard>& r)
     {
-        return jsopencv_GeneralizedHoughBallard_Instance(r);
+        return jsopencv_GeneralizedHoughBallard_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::GeneralizedHoughBallard>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::GeneralizedHoughBallard>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::GeneralizedHoughBallard> * dst_;
         if (jsopencv_GeneralizedHoughBallard_getp(src, dst_))
@@ -13769,13 +13769,13 @@ static JsMethodDef jsopencv_GeneralizedHoughGuil_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::GeneralizedHoughGuil> >
 {
-    static PyObject* from(const Ptr<cv::GeneralizedHoughGuil>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::GeneralizedHoughGuil>& r)
     {
-        return jsopencv_GeneralizedHoughGuil_Instance(r);
+        return jsopencv_GeneralizedHoughGuil_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::GeneralizedHoughGuil>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::GeneralizedHoughGuil>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::GeneralizedHoughGuil> * dst_;
         if (jsopencv_GeneralizedHoughGuil_getp(src, dst_))
@@ -14509,13 +14509,13 @@ static JsMethodDef jsopencv_HOGDescriptor_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::HOGDescriptor> >
 {
-    static PyObject* from(const Ptr<cv::HOGDescriptor>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::HOGDescriptor>& r)
     {
-        return jsopencv_HOGDescriptor_Instance(r);
+        return jsopencv_HOGDescriptor_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::HOGDescriptor>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::HOGDescriptor>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::HOGDescriptor> * dst_;
         if (jsopencv_HOGDescriptor_getp(src, dst_))
@@ -14899,13 +14899,13 @@ static JsMethodDef jsopencv_KAZE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::KAZE> >
 {
-    static PyObject* from(const Ptr<cv::KAZE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::KAZE>& r)
     {
-        return jsopencv_KAZE_Instance(r);
+        return jsopencv_KAZE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::KAZE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::KAZE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::KAZE> * dst_;
         if (jsopencv_KAZE_getp(src, dst_))
@@ -15212,13 +15212,13 @@ static JsMethodDef jsopencv_KalmanFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::KalmanFilter> >
 {
-    static PyObject* from(const Ptr<cv::KalmanFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::KalmanFilter>& r)
     {
-        return jsopencv_KalmanFilter_Instance(r);
+        return jsopencv_KalmanFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::KalmanFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::KalmanFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::KalmanFilter> * dst_;
         if (jsopencv_KalmanFilter_getp(src, dst_))
@@ -15502,13 +15502,13 @@ static JsMethodDef jsopencv_KeyPoint_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::KeyPoint >
 {
-    static PyObject* from(const cv::KeyPoint& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::KeyPoint& r)
     {
-        return jsopencv_KeyPoint_Instance(r);
+        return jsopencv_KeyPoint_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::KeyPoint& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::KeyPoint& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::KeyPoint * dst_;
         if (jsopencv_KeyPoint_getp(src, dst_))
@@ -15752,13 +15752,13 @@ static JsMethodDef jsopencv_LineSegmentDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::LineSegmentDetector> >
 {
-    static PyObject* from(const Ptr<cv::LineSegmentDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::LineSegmentDetector>& r)
     {
-        return jsopencv_LineSegmentDetector_Instance(r);
+        return jsopencv_LineSegmentDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::LineSegmentDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::LineSegmentDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::LineSegmentDetector> * dst_;
         if (jsopencv_LineSegmentDetector_getp(src, dst_))
@@ -16393,13 +16393,13 @@ static JsMethodDef jsopencv_MSER_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::MSER> >
 {
-    static PyObject* from(const Ptr<cv::MSER>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::MSER>& r)
     {
-        return jsopencv_MSER_Instance(r);
+        return jsopencv_MSER_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::MSER>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::MSER>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::MSER> * dst_;
         if (jsopencv_MSER_getp(src, dst_))
@@ -16557,13 +16557,13 @@ static JsMethodDef jsopencv_MergeDebevec_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::MergeDebevec> >
 {
-    static PyObject* from(const Ptr<cv::MergeDebevec>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::MergeDebevec>& r)
     {
-        return jsopencv_MergeDebevec_Instance(r);
+        return jsopencv_MergeDebevec_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::MergeDebevec>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::MergeDebevec>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::MergeDebevec> * dst_;
         if (jsopencv_MergeDebevec_getp(src, dst_))
@@ -16675,13 +16675,13 @@ static JsMethodDef jsopencv_MergeExposures_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::MergeExposures> >
 {
-    static PyObject* from(const Ptr<cv::MergeExposures>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::MergeExposures>& r)
     {
-        return jsopencv_MergeExposures_Instance(r);
+        return jsopencv_MergeExposures_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::MergeExposures>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::MergeExposures>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::MergeExposures> * dst_;
         if (jsopencv_MergeExposures_getp(src, dst_))
@@ -16974,13 +16974,13 @@ static JsMethodDef jsopencv_MergeMertens_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::MergeMertens> >
 {
-    static PyObject* from(const Ptr<cv::MergeMertens>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::MergeMertens>& r)
     {
-        return jsopencv_MergeMertens_Instance(r);
+        return jsopencv_MergeMertens_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::MergeMertens>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::MergeMertens>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::MergeMertens> * dst_;
         if (jsopencv_MergeMertens_getp(src, dst_))
@@ -17138,13 +17138,13 @@ static JsMethodDef jsopencv_MergeRobertson_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::MergeRobertson> >
 {
-    static PyObject* from(const Ptr<cv::MergeRobertson>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::MergeRobertson>& r)
     {
-        return jsopencv_MergeRobertson_Instance(r);
+        return jsopencv_MergeRobertson_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::MergeRobertson>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::MergeRobertson>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::MergeRobertson> * dst_;
         if (jsopencv_MergeRobertson_getp(src, dst_))
@@ -17859,13 +17859,13 @@ static JsMethodDef jsopencv_ORB_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ORB> >
 {
-    static PyObject* from(const Ptr<cv::ORB>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ORB>& r)
     {
-        return jsopencv_ORB_Instance(r);
+        return jsopencv_ORB_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ORB>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ORB>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ORB> * dst_;
         if (jsopencv_ORB_getp(src, dst_))
@@ -18504,13 +18504,13 @@ static JsMethodDef jsopencv_QRCodeDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::QRCodeDetector> >
 {
-    static PyObject* from(const Ptr<cv::QRCodeDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::QRCodeDetector>& r)
     {
-        return jsopencv_QRCodeDetector_Instance(r);
+        return jsopencv_QRCodeDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::QRCodeDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::QRCodeDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::QRCodeDetector> * dst_;
         if (jsopencv_QRCodeDetector_getp(src, dst_))
@@ -18687,13 +18687,13 @@ static JsMethodDef jsopencv_QRCodeEncoder_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::QRCodeEncoder> >
 {
-    static PyObject* from(const Ptr<cv::QRCodeEncoder>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::QRCodeEncoder>& r)
     {
-        return jsopencv_QRCodeEncoder_Instance(r);
+        return jsopencv_QRCodeEncoder_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::QRCodeEncoder>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::QRCodeEncoder>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::QRCodeEncoder> * dst_;
         if (jsopencv_QRCodeEncoder_getp(src, dst_))
@@ -18816,13 +18816,13 @@ static JsMethodDef jsopencv_QRCodeEncoder_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::QRCodeEncoder::Params >
 {
-    static PyObject* from(const cv::QRCodeEncoder::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::QRCodeEncoder::Params& r)
     {
-        return jsopencv_QRCodeEncoder_Params_Instance(r);
+        return jsopencv_QRCodeEncoder_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::QRCodeEncoder::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::QRCodeEncoder::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::QRCodeEncoder::Params * dst_;
         if (jsopencv_QRCodeEncoder_Params_getp(src, dst_))
@@ -19197,13 +19197,13 @@ static JsMethodDef jsopencv_SIFT_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::SIFT> >
 {
-    static PyObject* from(const Ptr<cv::SIFT>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::SIFT>& r)
     {
-        return jsopencv_SIFT_Instance(r);
+        return jsopencv_SIFT_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::SIFT>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::SIFT>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::SIFT> * dst_;
         if (jsopencv_SIFT_getp(src, dst_))
@@ -19359,13 +19359,13 @@ static JsMethodDef jsopencv_SimpleBlobDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::SimpleBlobDetector> >
 {
-    static PyObject* from(const Ptr<cv::SimpleBlobDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::SimpleBlobDetector>& r)
     {
-        return jsopencv_SimpleBlobDetector_Instance(r);
+        return jsopencv_SimpleBlobDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::SimpleBlobDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::SimpleBlobDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::SimpleBlobDetector> * dst_;
         if (jsopencv_SimpleBlobDetector_getp(src, dst_))
@@ -19744,13 +19744,13 @@ static JsMethodDef jsopencv_SimpleBlobDetector_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::SimpleBlobDetector::Params >
 {
-    static PyObject* from(const cv::SimpleBlobDetector::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::SimpleBlobDetector::Params& r)
     {
-        return jsopencv_SimpleBlobDetector_Params_Instance(r);
+        return jsopencv_SimpleBlobDetector_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::SimpleBlobDetector::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::SimpleBlobDetector::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::SimpleBlobDetector::Params * dst_;
         if (jsopencv_SimpleBlobDetector_Params_getp(src, dst_))
@@ -19874,13 +19874,13 @@ static JsMethodDef jsopencv_SparseOpticalFlow_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::SparseOpticalFlow> >
 {
-    static PyObject* from(const Ptr<cv::SparseOpticalFlow>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::SparseOpticalFlow>& r)
     {
-        return jsopencv_SparseOpticalFlow_Instance(r);
+        return jsopencv_SparseOpticalFlow_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::SparseOpticalFlow>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::SparseOpticalFlow>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::SparseOpticalFlow> * dst_;
         if (jsopencv_SparseOpticalFlow_getp(src, dst_))
@@ -20192,13 +20192,13 @@ static JsMethodDef jsopencv_SparsePyrLKOpticalFlow_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::SparsePyrLKOpticalFlow> >
 {
-    static PyObject* from(const Ptr<cv::SparsePyrLKOpticalFlow>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::SparsePyrLKOpticalFlow>& r)
     {
-        return jsopencv_SparsePyrLKOpticalFlow_Instance(r);
+        return jsopencv_SparsePyrLKOpticalFlow_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::SparsePyrLKOpticalFlow>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::SparsePyrLKOpticalFlow>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::SparsePyrLKOpticalFlow> * dst_;
         if (jsopencv_SparsePyrLKOpticalFlow_getp(src, dst_))
@@ -20642,13 +20642,13 @@ static JsMethodDef jsopencv_StereoBM_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::StereoBM> >
 {
-    static PyObject* from(const Ptr<cv::StereoBM>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::StereoBM>& r)
     {
-        return jsopencv_StereoBM_Instance(r);
+        return jsopencv_StereoBM_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::StereoBM>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::StereoBM>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::StereoBM> * dst_;
         if (jsopencv_StereoBM_getp(src, dst_))
@@ -21036,13 +21036,13 @@ static JsMethodDef jsopencv_StereoMatcher_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::StereoMatcher> >
 {
-    static PyObject* from(const Ptr<cv::StereoMatcher>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::StereoMatcher>& r)
     {
-        return jsopencv_StereoMatcher_Instance(r);
+        return jsopencv_StereoMatcher_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::StereoMatcher>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::StereoMatcher>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::StereoMatcher> * dst_;
         if (jsopencv_StereoMatcher_getp(src, dst_))
@@ -21372,13 +21372,13 @@ static JsMethodDef jsopencv_StereoSGBM_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::StereoSGBM> >
 {
-    static PyObject* from(const Ptr<cv::StereoSGBM>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::StereoSGBM>& r)
     {
-        return jsopencv_StereoSGBM_Instance(r);
+        return jsopencv_StereoSGBM_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::StereoSGBM>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::StereoSGBM>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::StereoSGBM> * dst_;
         if (jsopencv_StereoSGBM_getp(src, dst_))
@@ -21879,13 +21879,13 @@ static JsMethodDef jsopencv_Subdiv2D_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::Subdiv2D> >
 {
-    static PyObject* from(const Ptr<cv::Subdiv2D>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::Subdiv2D>& r)
     {
-        return jsopencv_Subdiv2D_Instance(r);
+        return jsopencv_Subdiv2D_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::Subdiv2D>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::Subdiv2D>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::Subdiv2D> * dst_;
         if (jsopencv_Subdiv2D_getp(src, dst_))
@@ -22184,13 +22184,13 @@ static JsMethodDef jsopencv_TickMeter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TickMeter> >
 {
-    static PyObject* from(const Ptr<cv::TickMeter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TickMeter>& r)
     {
-        return jsopencv_TickMeter_Instance(r);
+        return jsopencv_TickMeter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TickMeter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TickMeter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TickMeter> * dst_;
         if (jsopencv_TickMeter_getp(src, dst_))
@@ -22337,13 +22337,13 @@ static JsMethodDef jsopencv_Tonemap_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::Tonemap> >
 {
-    static PyObject* from(const Ptr<cv::Tonemap>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::Tonemap>& r)
     {
-        return jsopencv_Tonemap_Instance(r);
+        return jsopencv_Tonemap_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::Tonemap>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::Tonemap>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::Tonemap> * dst_;
         if (jsopencv_Tonemap_getp(src, dst_))
@@ -22481,13 +22481,13 @@ static JsMethodDef jsopencv_TonemapDrago_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TonemapDrago> >
 {
-    static PyObject* from(const Ptr<cv::TonemapDrago>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TonemapDrago>& r)
     {
-        return jsopencv_TonemapDrago_Instance(r);
+        return jsopencv_TonemapDrago_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TonemapDrago>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TonemapDrago>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TonemapDrago> * dst_;
         if (jsopencv_TonemapDrago_getp(src, dst_))
@@ -22625,13 +22625,13 @@ static JsMethodDef jsopencv_TonemapMantiuk_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TonemapMantiuk> >
 {
-    static PyObject* from(const Ptr<cv::TonemapMantiuk>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TonemapMantiuk>& r)
     {
-        return jsopencv_TonemapMantiuk_Instance(r);
+        return jsopencv_TonemapMantiuk_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TonemapMantiuk>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TonemapMantiuk>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TonemapMantiuk> * dst_;
         if (jsopencv_TonemapMantiuk_getp(src, dst_))
@@ -22816,13 +22816,13 @@ static JsMethodDef jsopencv_TonemapReinhard_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TonemapReinhard> >
 {
-    static PyObject* from(const Ptr<cv::TonemapReinhard>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TonemapReinhard>& r)
     {
-        return jsopencv_TonemapReinhard_Instance(r);
+        return jsopencv_TonemapReinhard_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TonemapReinhard>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TonemapReinhard>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TonemapReinhard> * dst_;
         if (jsopencv_TonemapReinhard_getp(src, dst_))
@@ -22976,13 +22976,13 @@ static JsMethodDef jsopencv_Tracker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::Tracker> >
 {
-    static PyObject* from(const Ptr<cv::Tracker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::Tracker>& r)
     {
-        return jsopencv_Tracker_Instance(r);
+        return jsopencv_Tracker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::Tracker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::Tracker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::Tracker> * dst_;
         if (jsopencv_Tracker_getp(src, dst_))
@@ -23097,13 +23097,13 @@ static JsMethodDef jsopencv_TrackerCSRT_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TrackerCSRT> >
 {
-    static PyObject* from(const Ptr<cv::TrackerCSRT>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TrackerCSRT>& r)
     {
-        return jsopencv_TrackerCSRT_Instance(r);
+        return jsopencv_TrackerCSRT_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TrackerCSRT>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TrackerCSRT>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TrackerCSRT> * dst_;
         if (jsopencv_TrackerCSRT_getp(src, dst_))
@@ -23594,13 +23594,13 @@ static JsMethodDef jsopencv_TrackerCSRT_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::TrackerCSRT::Params >
 {
-    static PyObject* from(const cv::TrackerCSRT::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::TrackerCSRT::Params& r)
     {
-        return jsopencv_TrackerCSRT_Params_Instance(r);
+        return jsopencv_TrackerCSRT_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::TrackerCSRT::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::TrackerCSRT::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::TrackerCSRT::Params * dst_;
         if (jsopencv_TrackerCSRT_Params_getp(src, dst_))
@@ -23687,13 +23687,13 @@ static JsMethodDef jsopencv_TrackerDaSiamRPN_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TrackerDaSiamRPN> >
 {
-    static PyObject* from(const Ptr<cv::TrackerDaSiamRPN>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TrackerDaSiamRPN>& r)
     {
-        return jsopencv_TrackerDaSiamRPN_Instance(r);
+        return jsopencv_TrackerDaSiamRPN_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TrackerDaSiamRPN>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TrackerDaSiamRPN>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TrackerDaSiamRPN> * dst_;
         if (jsopencv_TrackerDaSiamRPN_getp(src, dst_))
@@ -23832,13 +23832,13 @@ static JsMethodDef jsopencv_TrackerDaSiamRPN_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::TrackerDaSiamRPN::Params >
 {
-    static PyObject* from(const cv::TrackerDaSiamRPN::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::TrackerDaSiamRPN::Params& r)
     {
-        return jsopencv_TrackerDaSiamRPN_Params_Instance(r);
+        return jsopencv_TrackerDaSiamRPN_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::TrackerDaSiamRPN::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::TrackerDaSiamRPN::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::TrackerDaSiamRPN::Params * dst_;
         if (jsopencv_TrackerDaSiamRPN_Params_getp(src, dst_))
@@ -23903,13 +23903,13 @@ static JsMethodDef jsopencv_TrackerGOTURN_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TrackerGOTURN> >
 {
-    static PyObject* from(const Ptr<cv::TrackerGOTURN>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TrackerGOTURN>& r)
     {
-        return jsopencv_TrackerGOTURN_Instance(r);
+        return jsopencv_TrackerGOTURN_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TrackerGOTURN>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TrackerGOTURN>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TrackerGOTURN> * dst_;
         if (jsopencv_TrackerGOTURN_getp(src, dst_))
@@ -24000,13 +24000,13 @@ static JsMethodDef jsopencv_TrackerGOTURN_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::TrackerGOTURN::Params >
 {
-    static PyObject* from(const cv::TrackerGOTURN::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::TrackerGOTURN::Params& r)
     {
-        return jsopencv_TrackerGOTURN_Params_Instance(r);
+        return jsopencv_TrackerGOTURN_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::TrackerGOTURN::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::TrackerGOTURN::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::TrackerGOTURN::Params * dst_;
         if (jsopencv_TrackerGOTURN_Params_getp(src, dst_))
@@ -24071,13 +24071,13 @@ static JsMethodDef jsopencv_TrackerKCF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TrackerKCF> >
 {
-    static PyObject* from(const Ptr<cv::TrackerKCF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TrackerKCF>& r)
     {
-        return jsopencv_TrackerKCF_Instance(r);
+        return jsopencv_TrackerKCF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TrackerKCF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TrackerKCF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TrackerKCF> * dst_;
         if (jsopencv_TrackerKCF_getp(src, dst_))
@@ -24360,13 +24360,13 @@ static JsMethodDef jsopencv_TrackerKCF_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::TrackerKCF::Params >
 {
-    static PyObject* from(const cv::TrackerKCF::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::TrackerKCF::Params& r)
     {
-        return jsopencv_TrackerKCF_Params_Instance(r);
+        return jsopencv_TrackerKCF_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::TrackerKCF::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::TrackerKCF::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::TrackerKCF::Params * dst_;
         if (jsopencv_TrackerKCF_Params_getp(src, dst_))
@@ -24431,13 +24431,13 @@ static JsMethodDef jsopencv_TrackerMIL_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TrackerMIL> >
 {
-    static PyObject* from(const Ptr<cv::TrackerMIL>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TrackerMIL>& r)
     {
-        return jsopencv_TrackerMIL_Instance(r);
+        return jsopencv_TrackerMIL_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TrackerMIL>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TrackerMIL>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TrackerMIL> * dst_;
         if (jsopencv_TrackerMIL_getp(src, dst_))
@@ -24608,13 +24608,13 @@ static JsMethodDef jsopencv_TrackerMIL_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::TrackerMIL::Params >
 {
-    static PyObject* from(const cv::TrackerMIL::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::TrackerMIL::Params& r)
     {
-        return jsopencv_TrackerMIL_Params_Instance(r);
+        return jsopencv_TrackerMIL_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::TrackerMIL::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::TrackerMIL::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::TrackerMIL::Params * dst_;
         if (jsopencv_TrackerMIL_Params_getp(src, dst_))
@@ -24701,13 +24701,13 @@ static JsMethodDef jsopencv_TrackerNano_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::TrackerNano> >
 {
-    static PyObject* from(const Ptr<cv::TrackerNano>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::TrackerNano>& r)
     {
-        return jsopencv_TrackerNano_Instance(r);
+        return jsopencv_TrackerNano_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::TrackerNano>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::TrackerNano>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::TrackerNano> * dst_;
         if (jsopencv_TrackerNano_getp(src, dst_))
@@ -24830,13 +24830,13 @@ static JsMethodDef jsopencv_TrackerNano_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::TrackerNano::Params >
 {
-    static PyObject* from(const cv::TrackerNano::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::TrackerNano::Params& r)
     {
-        return jsopencv_TrackerNano_Params_Instance(r);
+        return jsopencv_TrackerNano_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::TrackerNano::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::TrackerNano::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::TrackerNano::Params * dst_;
         if (jsopencv_TrackerNano_Params_getp(src, dst_))
@@ -25242,13 +25242,13 @@ static JsMethodDef jsopencv_UMat_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::UMat> >
 {
-    static PyObject* from(const Ptr<cv::UMat>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::UMat>& r)
     {
-        return jsopencv_UMat_Instance(r);
+        return jsopencv_UMat_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::UMat>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::UMat>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::UMat> * dst_;
         if (jsopencv_UMat_getp(src, dst_))
@@ -25491,13 +25491,13 @@ static JsMethodDef jsopencv_UsacParams_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::UsacParams >
 {
-    static PyObject* from(const cv::UsacParams& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::UsacParams& r)
     {
-        return jsopencv_UsacParams_Instance(r);
+        return jsopencv_UsacParams_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::UsacParams& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::UsacParams& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::UsacParams * dst_;
         if (jsopencv_UsacParams_getp(src, dst_))
@@ -25908,13 +25908,13 @@ static JsMethodDef jsopencv_VariationalRefinement_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::VariationalRefinement> >
 {
-    static PyObject* from(const Ptr<cv::VariationalRefinement>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::VariationalRefinement>& r)
     {
-        return jsopencv_VariationalRefinement_Instance(r);
+        return jsopencv_VariationalRefinement_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::VariationalRefinement>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::VariationalRefinement>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::VariationalRefinement> * dst_;
         if (jsopencv_VariationalRefinement_getp(src, dst_))
@@ -26502,13 +26502,13 @@ static JsMethodDef jsopencv_VideoCapture_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::VideoCapture> >
 {
-    static PyObject* from(const Ptr<cv::VideoCapture>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::VideoCapture>& r)
     {
-        return jsopencv_VideoCapture_Instance(r);
+        return jsopencv_VideoCapture_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::VideoCapture>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::VideoCapture>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::VideoCapture> * dst_;
         if (jsopencv_VideoCapture_getp(src, dst_))
@@ -27044,13 +27044,13 @@ static JsMethodDef jsopencv_VideoWriter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::VideoWriter> >
 {
-    static PyObject* from(const Ptr<cv::VideoWriter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::VideoWriter>& r)
     {
-        return jsopencv_VideoWriter_Instance(r);
+        return jsopencv_VideoWriter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::VideoWriter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::VideoWriter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::VideoWriter> * dst_;
         if (jsopencv_VideoWriter_getp(src, dst_))
@@ -27474,13 +27474,13 @@ static JsMethodDef jsopencv_aruco_ArucoDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::aruco::ArucoDetector> >
 {
-    static PyObject* from(const Ptr<cv::aruco::ArucoDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::aruco::ArucoDetector>& r)
     {
-        return jsopencv_aruco_ArucoDetector_Instance(r);
+        return jsopencv_aruco_ArucoDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::aruco::ArucoDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::aruco::ArucoDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::aruco::ArucoDetector> * dst_;
         if (jsopencv_aruco_ArucoDetector_getp(src, dst_))
@@ -27804,13 +27804,13 @@ static JsMethodDef jsopencv_aruco_Board_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::Board >
 {
-    static PyObject* from(const cv::aruco::Board& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::Board& r)
     {
-        return jsopencv_aruco_Board_Instance(r);
+        return jsopencv_aruco_Board_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::Board& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::Board& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::Board * dst_;
         if (jsopencv_aruco_Board_getp(src, dst_))
@@ -28062,13 +28062,13 @@ static JsMethodDef jsopencv_aruco_CharucoBoard_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::CharucoBoard >
 {
-    static PyObject* from(const cv::aruco::CharucoBoard& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::CharucoBoard& r)
     {
-        return jsopencv_aruco_CharucoBoard_Instance(r);
+        return jsopencv_aruco_CharucoBoard_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::CharucoBoard& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::CharucoBoard& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::CharucoBoard * dst_;
         if (jsopencv_aruco_CharucoBoard_getp(src, dst_))
@@ -28477,13 +28477,13 @@ static JsMethodDef jsopencv_aruco_CharucoDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::aruco::CharucoDetector> >
 {
-    static PyObject* from(const Ptr<cv::aruco::CharucoDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::aruco::CharucoDetector>& r)
     {
-        return jsopencv_aruco_CharucoDetector_Instance(r);
+        return jsopencv_aruco_CharucoDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::aruco::CharucoDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::aruco::CharucoDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::aruco::CharucoDetector> * dst_;
         if (jsopencv_aruco_CharucoDetector_getp(src, dst_))
@@ -28591,13 +28591,13 @@ static JsMethodDef jsopencv_aruco_CharucoParameters_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::CharucoParameters >
 {
-    static PyObject* from(const cv::aruco::CharucoParameters& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::CharucoParameters& r)
     {
-        return jsopencv_aruco_CharucoParameters_Instance(r);
+        return jsopencv_aruco_CharucoParameters_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::CharucoParameters& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::CharucoParameters& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::CharucoParameters * dst_;
         if (jsopencv_aruco_CharucoParameters_getp(src, dst_))
@@ -29223,13 +29223,13 @@ static JsMethodDef jsopencv_aruco_DetectorParameters_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::DetectorParameters >
 {
-    static PyObject* from(const cv::aruco::DetectorParameters& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::DetectorParameters& r)
     {
-        return jsopencv_aruco_DetectorParameters_Instance(r);
+        return jsopencv_aruco_DetectorParameters_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::DetectorParameters& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::DetectorParameters& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::DetectorParameters * dst_;
         if (jsopencv_aruco_DetectorParameters_getp(src, dst_))
@@ -29629,13 +29629,13 @@ static JsMethodDef jsopencv_aruco_Dictionary_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::Dictionary >
 {
-    static PyObject* from(const cv::aruco::Dictionary& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::Dictionary& r)
     {
-        return jsopencv_aruco_Dictionary_Instance(r);
+        return jsopencv_aruco_Dictionary_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::Dictionary& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::Dictionary& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::Dictionary * dst_;
         if (jsopencv_aruco_Dictionary_getp(src, dst_))
@@ -29813,13 +29813,13 @@ static JsMethodDef jsopencv_aruco_GridBoard_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::GridBoard >
 {
-    static PyObject* from(const cv::aruco::GridBoard& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::GridBoard& r)
     {
-        return jsopencv_aruco_GridBoard_Instance(r);
+        return jsopencv_aruco_GridBoard_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::GridBoard& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::GridBoard& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::GridBoard * dst_;
         if (jsopencv_aruco_GridBoard_getp(src, dst_))
@@ -29991,13 +29991,13 @@ static JsMethodDef jsopencv_aruco_RefineParameters_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::aruco::RefineParameters >
 {
-    static PyObject* from(const cv::aruco::RefineParameters& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::aruco::RefineParameters& r)
     {
-        return jsopencv_aruco_RefineParameters_Instance(r);
+        return jsopencv_aruco_RefineParameters_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::aruco::RefineParameters& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::aruco::RefineParameters& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::aruco::RefineParameters * dst_;
         if (jsopencv_aruco_RefineParameters_getp(src, dst_))
@@ -30246,13 +30246,13 @@ static JsMethodDef jsopencv_barcode_BarcodeDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::barcode::BarcodeDetector> >
 {
-    static PyObject* from(const Ptr<cv::barcode::BarcodeDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::barcode::BarcodeDetector>& r)
     {
-        return jsopencv_barcode_BarcodeDetector_Instance(r);
+        return jsopencv_barcode_BarcodeDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::barcode::BarcodeDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::barcode::BarcodeDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::barcode::BarcodeDetector> * dst_;
         if (jsopencv_barcode_BarcodeDetector_getp(src, dst_))
@@ -30863,13 +30863,13 @@ static JsMethodDef jsopencv_ccm_ColorCorrectionModel_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ccm::ColorCorrectionModel> >
 {
-    static PyObject* from(const Ptr<cv::ccm::ColorCorrectionModel>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ccm::ColorCorrectionModel>& r)
     {
-        return jsopencv_ccm_ColorCorrectionModel_Instance(r);
+        return jsopencv_ccm_ColorCorrectionModel_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ccm::ColorCorrectionModel>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ccm::ColorCorrectionModel>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ccm::ColorCorrectionModel> * dst_;
         if (jsopencv_ccm_ColorCorrectionModel_getp(src, dst_))
@@ -31016,13 +31016,13 @@ static JsMethodDef jsopencv_cuda_BufferPool_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::BufferPool> >
 {
-    static PyObject* from(const Ptr<cv::cuda::BufferPool>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::BufferPool>& r)
     {
-        return jsopencv_cuda_BufferPool_Instance(r);
+        return jsopencv_cuda_BufferPool_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::BufferPool>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::BufferPool>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::BufferPool> * dst_;
         if (jsopencv_cuda_BufferPool_getp(src, dst_))
@@ -32346,13 +32346,13 @@ static JsMethodDef jsopencv_cuda_DeviceInfo_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::DeviceInfo> >
 {
-    static PyObject* from(const Ptr<cv::cuda::DeviceInfo>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::DeviceInfo>& r)
     {
-        return jsopencv_cuda_DeviceInfo_Instance(r);
+        return jsopencv_cuda_DeviceInfo_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::DeviceInfo>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::DeviceInfo>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::DeviceInfo> * dst_;
         if (jsopencv_cuda_DeviceInfo_getp(src, dst_))
@@ -32508,13 +32508,13 @@ static JsMethodDef jsopencv_cuda_Event_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::Event> >
 {
-    static PyObject* from(const Ptr<cv::cuda::Event>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::Event>& r)
     {
-        return jsopencv_cuda_Event_Instance(r);
+        return jsopencv_cuda_Event_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::Event>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::Event>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::Event> * dst_;
         if (jsopencv_cuda_Event_getp(src, dst_))
@@ -32558,13 +32558,13 @@ static JsMethodDef jsopencv_cuda_GpuData_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::GpuData> >
 {
-    static PyObject* from(const Ptr<cv::cuda::GpuData>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::GpuData>& r)
     {
-        return jsopencv_cuda_GpuData_Instance(r);
+        return jsopencv_cuda_GpuData_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::GpuData>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::GpuData>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::GpuData> * dst_;
         if (jsopencv_cuda_GpuData_getp(src, dst_))
@@ -34651,13 +34651,13 @@ static JsMethodDef jsopencv_cuda_GpuMat_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::GpuMat> >
 {
-    static PyObject* from(const Ptr<cv::cuda::GpuMat>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::GpuMat>& r)
     {
-        return jsopencv_cuda_GpuMat_Instance(r);
+        return jsopencv_cuda_GpuMat_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::GpuMat>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::GpuMat>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::GpuMat> * dst_;
         if (jsopencv_cuda_GpuMat_getp(src, dst_))
@@ -34701,13 +34701,13 @@ static JsMethodDef jsopencv_cuda_GpuMatND_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::GpuMatND> >
 {
-    static PyObject* from(const Ptr<cv::cuda::GpuMatND>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::GpuMatND>& r)
     {
-        return jsopencv_cuda_GpuMatND_Instance(r);
+        return jsopencv_cuda_GpuMatND_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::GpuMatND>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::GpuMatND>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::GpuMatND> * dst_;
         if (jsopencv_cuda_GpuMatND_getp(src, dst_))
@@ -34751,13 +34751,13 @@ static JsMethodDef jsopencv_cuda_GpuMat_Allocator_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::GpuMat::Allocator> >
 {
-    static PyObject* from(const Ptr<cv::cuda::GpuMat::Allocator>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::GpuMat::Allocator>& r)
     {
-        return jsopencv_cuda_GpuMat_Allocator_Instance(r);
+        return jsopencv_cuda_GpuMat_Allocator_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::GpuMat::Allocator>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::GpuMat::Allocator>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::GpuMat::Allocator> * dst_;
         if (jsopencv_cuda_GpuMat_Allocator_getp(src, dst_))
@@ -35276,13 +35276,13 @@ static JsMethodDef jsopencv_cuda_HostMem_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::HostMem> >
 {
-    static PyObject* from(const Ptr<cv::cuda::HostMem>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::HostMem>& r)
     {
-        return jsopencv_cuda_HostMem_Instance(r);
+        return jsopencv_cuda_HostMem_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::HostMem>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::HostMem>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::HostMem> * dst_;
         if (jsopencv_cuda_HostMem_getp(src, dst_))
@@ -35536,13 +35536,13 @@ static JsMethodDef jsopencv_cuda_SURF_CUDA_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::SURF_CUDA> >
 {
-    static PyObject* from(const Ptr<cv::cuda::SURF_CUDA>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::SURF_CUDA>& r)
     {
-        return jsopencv_cuda_SURF_CUDA_Instance(r);
+        return jsopencv_cuda_SURF_CUDA_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::SURF_CUDA>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::SURF_CUDA>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::SURF_CUDA> * dst_;
         if (jsopencv_cuda_SURF_CUDA_getp(src, dst_))
@@ -35753,13 +35753,13 @@ static JsMethodDef jsopencv_cuda_Stream_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::Stream> >
 {
-    static PyObject* from(const Ptr<cv::cuda::Stream>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::Stream>& r)
     {
-        return jsopencv_cuda_Stream_Instance(r);
+        return jsopencv_cuda_Stream_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::Stream>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::Stream>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::Stream> * dst_;
         if (jsopencv_cuda_Stream_getp(src, dst_))
@@ -35971,13 +35971,13 @@ static JsMethodDef jsopencv_cuda_TargetArchs_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::cuda::TargetArchs> >
 {
-    static PyObject* from(const Ptr<cv::cuda::TargetArchs>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::cuda::TargetArchs>& r)
     {
-        return jsopencv_cuda_TargetArchs_Instance(r);
+        return jsopencv_cuda_TargetArchs_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::cuda::TargetArchs>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::cuda::TargetArchs>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::cuda::TargetArchs> * dst_;
         if (jsopencv_cuda_TargetArchs_getp(src, dst_))
@@ -36170,13 +36170,13 @@ static JsMethodDef jsopencv_dnn_ClassificationModel_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::ClassificationModel >
 {
-    static PyObject* from(const cv::dnn::ClassificationModel& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::ClassificationModel& r)
     {
-        return jsopencv_dnn_ClassificationModel_Instance(r);
+        return jsopencv_dnn_ClassificationModel_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::ClassificationModel& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::ClassificationModel& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::ClassificationModel * dst_;
         if (jsopencv_dnn_ClassificationModel_getp(src, dst_))
@@ -36383,13 +36383,13 @@ static JsMethodDef jsopencv_dnn_DetectionModel_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::DetectionModel >
 {
-    static PyObject* from(const cv::dnn::DetectionModel& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::DetectionModel& r)
     {
-        return jsopencv_dnn_DetectionModel_Instance(r);
+        return jsopencv_dnn_DetectionModel_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::DetectionModel& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::DetectionModel& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::DetectionModel * dst_;
         if (jsopencv_dnn_DetectionModel_getp(src, dst_))
@@ -36641,13 +36641,13 @@ static JsMethodDef jsopencv_dnn_DictValue_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::dnn::DictValue> >
 {
-    static PyObject* from(const Ptr<cv::dnn::DictValue>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::dnn::DictValue>& r)
     {
-        return jsopencv_dnn_DictValue_Instance(r);
+        return jsopencv_dnn_DictValue_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::dnn::DictValue>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::dnn::DictValue>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::dnn::DictValue> * dst_;
         if (jsopencv_dnn_DictValue_getp(src, dst_))
@@ -36796,13 +36796,13 @@ static JsMethodDef jsopencv_dnn_KeypointsModel_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::KeypointsModel >
 {
-    static PyObject* from(const cv::dnn::KeypointsModel& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::KeypointsModel& r)
     {
-        return jsopencv_dnn_KeypointsModel_Instance(r);
+        return jsopencv_dnn_KeypointsModel_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::KeypointsModel& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::KeypointsModel& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::KeypointsModel * dst_;
         if (jsopencv_dnn_KeypointsModel_getp(src, dst_))
@@ -37011,13 +37011,13 @@ static JsMethodDef jsopencv_dnn_Layer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::dnn::Layer> >
 {
-    static PyObject* from(const Ptr<cv::dnn::Layer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::dnn::Layer>& r)
     {
-        return jsopencv_dnn_Layer_Instance(r);
+        return jsopencv_dnn_Layer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::dnn::Layer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::dnn::Layer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::dnn::Layer> * dst_;
         if (jsopencv_dnn_Layer_getp(src, dst_))
@@ -37412,13 +37412,13 @@ static JsMethodDef jsopencv_dnn_Model_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::Model >
 {
-    static PyObject* from(const cv::dnn::Model& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::Model& r)
     {
-        return jsopencv_dnn_Model_Instance(r);
+        return jsopencv_dnn_Model_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::Model& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::Model& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::Model * dst_;
         if (jsopencv_dnn_Model_getp(src, dst_))
@@ -38737,13 +38737,13 @@ static JsMethodDef jsopencv_dnn_Net_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::Net >
 {
-    static PyObject* from(const cv::dnn::Net& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::Net& r)
     {
-        return jsopencv_dnn_Net_Instance(r);
+        return jsopencv_dnn_Net_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::Net& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::Net& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::Net * dst_;
         if (jsopencv_dnn_Net_getp(src, dst_))
@@ -38890,13 +38890,13 @@ static JsMethodDef jsopencv_dnn_SegmentationModel_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::SegmentationModel >
 {
-    static PyObject* from(const cv::dnn::SegmentationModel& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::SegmentationModel& r)
     {
-        return jsopencv_dnn_SegmentationModel_Instance(r);
+        return jsopencv_dnn_SegmentationModel_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::SegmentationModel& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::SegmentationModel& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::SegmentationModel * dst_;
         if (jsopencv_dnn_SegmentationModel_getp(src, dst_))
@@ -39120,13 +39120,13 @@ static JsMethodDef jsopencv_dnn_TextDetectionModel_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::TextDetectionModel >
 {
-    static PyObject* from(const cv::dnn::TextDetectionModel& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::TextDetectionModel& r)
     {
-        return jsopencv_dnn_TextDetectionModel_Instance(r);
+        return jsopencv_dnn_TextDetectionModel_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::TextDetectionModel& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::TextDetectionModel& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::TextDetectionModel * dst_;
         if (jsopencv_dnn_TextDetectionModel_getp(src, dst_))
@@ -39409,13 +39409,13 @@ static JsMethodDef jsopencv_dnn_TextDetectionModel_DB_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::TextDetectionModel_DB >
 {
-    static PyObject* from(const cv::dnn::TextDetectionModel_DB& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::TextDetectionModel_DB& r)
     {
-        return jsopencv_dnn_TextDetectionModel_DB_Instance(r);
+        return jsopencv_dnn_TextDetectionModel_DB_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::TextDetectionModel_DB& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::TextDetectionModel_DB& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::TextDetectionModel_DB * dst_;
         if (jsopencv_dnn_TextDetectionModel_DB_getp(src, dst_))
@@ -39602,13 +39602,13 @@ static JsMethodDef jsopencv_dnn_TextDetectionModel_EAST_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::TextDetectionModel_EAST >
 {
-    static PyObject* from(const cv::dnn::TextDetectionModel_EAST& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::TextDetectionModel_EAST& r)
     {
-        return jsopencv_dnn_TextDetectionModel_EAST_Instance(r);
+        return jsopencv_dnn_TextDetectionModel_EAST_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::TextDetectionModel_EAST& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::TextDetectionModel_EAST& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::TextDetectionModel_EAST * dst_;
         if (jsopencv_dnn_TextDetectionModel_EAST_getp(src, dst_))
@@ -39918,13 +39918,13 @@ static JsMethodDef jsopencv_dnn_TextRecognitionModel_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::dnn::TextRecognitionModel >
 {
-    static PyObject* from(const cv::dnn::TextRecognitionModel& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::dnn::TextRecognitionModel& r)
     {
-        return jsopencv_dnn_TextRecognitionModel_Instance(r);
+        return jsopencv_dnn_TextRecognitionModel_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::dnn::TextRecognitionModel& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::dnn::TextRecognitionModel& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::dnn::TextRecognitionModel * dst_;
         if (jsopencv_dnn_TextRecognitionModel_getp(src, dst_))
@@ -40256,13 +40256,13 @@ static JsMethodDef jsopencv_dnn_superres_DnnSuperResImpl_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::dnn_superres::DnnSuperResImpl> >
 {
-    static PyObject* from(const Ptr<cv::dnn_superres::DnnSuperResImpl>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::dnn_superres::DnnSuperResImpl>& r)
     {
-        return jsopencv_dnn_superres_DnnSuperResImpl_Instance(r);
+        return jsopencv_dnn_superres_DnnSuperResImpl_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::dnn_superres::DnnSuperResImpl>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::dnn_superres::DnnSuperResImpl>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::dnn_superres::DnnSuperResImpl> * dst_;
         if (jsopencv_dnn_superres_DnnSuperResImpl_getp(src, dst_))
@@ -40430,13 +40430,13 @@ static JsMethodDef jsopencv_face_BIF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::BIF> >
 {
-    static PyObject* from(const Ptr<cv::face::BIF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::BIF>& r)
     {
-        return jsopencv_face_BIF_Instance(r);
+        return jsopencv_face_BIF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::BIF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::BIF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::BIF> * dst_;
         if (jsopencv_face_BIF_getp(src, dst_))
@@ -40684,13 +40684,13 @@ static JsMethodDef jsopencv_face_BasicFaceRecognizer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::BasicFaceRecognizer> >
 {
-    static PyObject* from(const Ptr<cv::face::BasicFaceRecognizer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::BasicFaceRecognizer>& r)
     {
-        return jsopencv_face_BasicFaceRecognizer_Instance(r);
+        return jsopencv_face_BasicFaceRecognizer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::BasicFaceRecognizer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::BasicFaceRecognizer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::BasicFaceRecognizer> * dst_;
         if (jsopencv_face_BasicFaceRecognizer_getp(src, dst_))
@@ -40758,13 +40758,13 @@ static JsMethodDef jsopencv_face_EigenFaceRecognizer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::EigenFaceRecognizer> >
 {
-    static PyObject* from(const Ptr<cv::face::EigenFaceRecognizer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::EigenFaceRecognizer>& r)
     {
-        return jsopencv_face_EigenFaceRecognizer_Instance(r);
+        return jsopencv_face_EigenFaceRecognizer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::EigenFaceRecognizer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::EigenFaceRecognizer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::EigenFaceRecognizer> * dst_;
         if (jsopencv_face_EigenFaceRecognizer_getp(src, dst_))
@@ -41212,13 +41212,13 @@ static JsMethodDef jsopencv_face_FaceRecognizer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::FaceRecognizer> >
 {
-    static PyObject* from(const Ptr<cv::face::FaceRecognizer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::FaceRecognizer>& r)
     {
-        return jsopencv_face_FaceRecognizer_Instance(r);
+        return jsopencv_face_FaceRecognizer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::FaceRecognizer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::FaceRecognizer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::FaceRecognizer> * dst_;
         if (jsopencv_face_FaceRecognizer_getp(src, dst_))
@@ -41351,13 +41351,13 @@ static JsMethodDef jsopencv_face_Facemark_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::Facemark> >
 {
-    static PyObject* from(const Ptr<cv::face::Facemark>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::Facemark>& r)
     {
-        return jsopencv_face_Facemark_Instance(r);
+        return jsopencv_face_Facemark_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::Facemark>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::Facemark>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::Facemark> * dst_;
         if (jsopencv_face_Facemark_getp(src, dst_))
@@ -41401,13 +41401,13 @@ static JsMethodDef jsopencv_face_FacemarkAAM_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::FacemarkAAM> >
 {
-    static PyObject* from(const Ptr<cv::face::FacemarkAAM>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::FacemarkAAM>& r)
     {
-        return jsopencv_face_FacemarkAAM_Instance(r);
+        return jsopencv_face_FacemarkAAM_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::FacemarkAAM>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::FacemarkAAM>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::FacemarkAAM> * dst_;
         if (jsopencv_face_FacemarkAAM_getp(src, dst_))
@@ -41451,13 +41451,13 @@ static JsMethodDef jsopencv_face_FacemarkKazemi_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::FacemarkKazemi> >
 {
-    static PyObject* from(const Ptr<cv::face::FacemarkKazemi>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::FacemarkKazemi>& r)
     {
-        return jsopencv_face_FacemarkKazemi_Instance(r);
+        return jsopencv_face_FacemarkKazemi_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::FacemarkKazemi>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::FacemarkKazemi>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::FacemarkKazemi> * dst_;
         if (jsopencv_face_FacemarkKazemi_getp(src, dst_))
@@ -41501,13 +41501,13 @@ static JsMethodDef jsopencv_face_FacemarkLBF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::FacemarkLBF> >
 {
-    static PyObject* from(const Ptr<cv::face::FacemarkLBF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::FacemarkLBF>& r)
     {
-        return jsopencv_face_FacemarkLBF_Instance(r);
+        return jsopencv_face_FacemarkLBF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::FacemarkLBF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::FacemarkLBF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::FacemarkLBF> * dst_;
         if (jsopencv_face_FacemarkLBF_getp(src, dst_))
@@ -41551,13 +41551,13 @@ static JsMethodDef jsopencv_face_FacemarkTrain_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::FacemarkTrain> >
 {
-    static PyObject* from(const Ptr<cv::face::FacemarkTrain>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::FacemarkTrain>& r)
     {
-        return jsopencv_face_FacemarkTrain_Instance(r);
+        return jsopencv_face_FacemarkTrain_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::FacemarkTrain>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::FacemarkTrain>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::FacemarkTrain> * dst_;
         if (jsopencv_face_FacemarkTrain_getp(src, dst_))
@@ -41625,13 +41625,13 @@ static JsMethodDef jsopencv_face_FisherFaceRecognizer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::FisherFaceRecognizer> >
 {
-    static PyObject* from(const Ptr<cv::face::FisherFaceRecognizer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::FisherFaceRecognizer>& r)
     {
-        return jsopencv_face_FisherFaceRecognizer_Instance(r);
+        return jsopencv_face_FisherFaceRecognizer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::FisherFaceRecognizer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::FisherFaceRecognizer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::FisherFaceRecognizer> * dst_;
         if (jsopencv_face_FisherFaceRecognizer_getp(src, dst_))
@@ -41987,13 +41987,13 @@ static JsMethodDef jsopencv_face_LBPHFaceRecognizer_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::LBPHFaceRecognizer> >
 {
-    static PyObject* from(const Ptr<cv::face::LBPHFaceRecognizer>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::LBPHFaceRecognizer>& r)
     {
-        return jsopencv_face_LBPHFaceRecognizer_Instance(r);
+        return jsopencv_face_LBPHFaceRecognizer_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::LBPHFaceRecognizer>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::LBPHFaceRecognizer>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::LBPHFaceRecognizer> * dst_;
         if (jsopencv_face_LBPHFaceRecognizer_getp(src, dst_))
@@ -42209,13 +42209,13 @@ static JsMethodDef jsopencv_face_MACE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::MACE> >
 {
-    static PyObject* from(const Ptr<cv::face::MACE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::MACE>& r)
     {
-        return jsopencv_face_MACE_Instance(r);
+        return jsopencv_face_MACE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::MACE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::MACE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::MACE> * dst_;
         if (jsopencv_face_MACE_getp(src, dst_))
@@ -42259,13 +42259,13 @@ static JsMethodDef jsopencv_face_PredictCollector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::PredictCollector> >
 {
-    static PyObject* from(const Ptr<cv::face::PredictCollector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::PredictCollector>& r)
     {
-        return jsopencv_face_PredictCollector_Instance(r);
+        return jsopencv_face_PredictCollector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::PredictCollector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::PredictCollector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::PredictCollector> * dst_;
         if (jsopencv_face_PredictCollector_getp(src, dst_))
@@ -42400,13 +42400,13 @@ static JsMethodDef jsopencv_face_StandardCollector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::face::StandardCollector> >
 {
-    static PyObject* from(const Ptr<cv::face::StandardCollector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::face::StandardCollector>& r)
     {
-        return jsopencv_face_StandardCollector_Instance(r);
+        return jsopencv_face_StandardCollector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::face::StandardCollector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::face::StandardCollector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::face::StandardCollector> * dst_;
         if (jsopencv_face_StandardCollector_getp(src, dst_))
@@ -42888,13 +42888,13 @@ static JsMethodDef jsopencv_flann_Index_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::flann::Index> >
 {
-    static PyObject* from(const Ptr<cv::flann::Index>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::flann::Index>& r)
     {
-        return jsopencv_flann_Index_Instance(r);
+        return jsopencv_flann_Index_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::flann::Index>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::flann::Index>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::flann::Index> * dst_;
         if (jsopencv_flann_Index_getp(src, dst_))
@@ -42978,13 +42978,13 @@ static JsMethodDef jsopencv_gapi_GNetPackage_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::GNetPackage >
 {
-    static PyObject* from(const cv::gapi::GNetPackage& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::GNetPackage& r)
     {
-        return jsopencv_gapi_GNetPackage_Instance(r);
+        return jsopencv_gapi_GNetPackage_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::GNetPackage& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::GNetPackage& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::GNetPackage * dst_;
         if (jsopencv_gapi_GNetPackage_getp(src, dst_))
@@ -43028,13 +43028,13 @@ static JsMethodDef jsopencv_gapi_GNetParam_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::GNetParam >
 {
-    static PyObject* from(const cv::gapi::GNetParam& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::GNetParam& r)
     {
-        return jsopencv_gapi_GNetParam_Instance(r);
+        return jsopencv_gapi_GNetParam_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::GNetParam& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::GNetParam& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::GNetParam * dst_;
         if (jsopencv_gapi_GNetParam_getp(src, dst_))
@@ -43234,13 +43234,13 @@ static JsMethodDef jsopencv_gapi_ie_PyParams_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::ie::PyParams >
 {
-    static PyObject* from(const cv::gapi::ie::PyParams& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::ie::PyParams& r)
     {
-        return jsopencv_gapi_ie_PyParams_Instance(r);
+        return jsopencv_gapi_ie_PyParams_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::ie::PyParams& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::ie::PyParams& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::ie::PyParams * dst_;
         if (jsopencv_gapi_ie_PyParams_getp(src, dst_))
@@ -43327,13 +43327,13 @@ static JsMethodDef jsopencv_gapi_onnx_PyParams_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::onnx::PyParams >
 {
-    static PyObject* from(const cv::gapi::onnx::PyParams& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::onnx::PyParams& r)
     {
-        return jsopencv_gapi_onnx_PyParams_Instance(r);
+        return jsopencv_gapi_onnx_PyParams_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::onnx::PyParams& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::onnx::PyParams& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::onnx::PyParams * dst_;
         if (jsopencv_gapi_onnx_PyParams_getp(src, dst_))
@@ -43412,13 +43412,13 @@ static JsMethodDef jsopencv_gapi_streaming_queue_capacity_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::streaming::queue_capacity >
 {
-    static PyObject* from(const cv::gapi::streaming::queue_capacity& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::streaming::queue_capacity& r)
     {
-        return jsopencv_gapi_streaming_queue_capacity_Instance(r);
+        return jsopencv_gapi_streaming_queue_capacity_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::streaming::queue_capacity& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::streaming::queue_capacity& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::streaming::queue_capacity * dst_;
         if (jsopencv_gapi_streaming_queue_capacity_getp(src, dst_))
@@ -43558,13 +43558,13 @@ static JsMethodDef jsopencv_gapi_wip_GOutputs_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::GOutputs >
 {
-    static PyObject* from(const cv::gapi::wip::GOutputs& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::GOutputs& r)
     {
-        return jsopencv_gapi_wip_GOutputs_Instance(r);
+        return jsopencv_gapi_wip_GOutputs_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::GOutputs& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::GOutputs& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::GOutputs * dst_;
         if (jsopencv_gapi_wip_GOutputs_getp(src, dst_))
@@ -43608,13 +43608,13 @@ static JsMethodDef jsopencv_gapi_wip_IStreamSource_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::gapi::wip::IStreamSource> >
 {
-    static PyObject* from(const Ptr<cv::gapi::wip::IStreamSource>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::gapi::wip::IStreamSource>& r)
     {
-        return jsopencv_gapi_wip_IStreamSource_Instance(r);
+        return jsopencv_gapi_wip_IStreamSource_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::gapi::wip::IStreamSource>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::gapi::wip::IStreamSource>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::gapi::wip::IStreamSource> * dst_;
         if (jsopencv_gapi_wip_IStreamSource_getp(src, dst_))
@@ -43809,13 +43809,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Circle_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Circle >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Circle& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Circle& r)
     {
-        return jsopencv_gapi_wip_draw_Circle_Instance(r);
+        return jsopencv_gapi_wip_draw_Circle_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Circle& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Circle& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Circle * dst_;
         if (jsopencv_gapi_wip_draw_Circle_getp(src, dst_))
@@ -43953,13 +43953,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Image_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Image >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Image& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Image& r)
     {
-        return jsopencv_gapi_wip_draw_Image_Instance(r);
+        return jsopencv_gapi_wip_draw_Image_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Image& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Image& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Image * dst_;
         if (jsopencv_gapi_wip_draw_Image_getp(src, dst_))
@@ -44154,13 +44154,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Line_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Line >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Line& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Line& r)
     {
-        return jsopencv_gapi_wip_draw_Line_Instance(r);
+        return jsopencv_gapi_wip_draw_Line_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Line& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Line& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Line * dst_;
         if (jsopencv_gapi_wip_draw_Line_getp(src, dst_))
@@ -44298,13 +44298,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Mosaic_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Mosaic >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Mosaic& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Mosaic& r)
     {
-        return jsopencv_gapi_wip_draw_Mosaic_Instance(r);
+        return jsopencv_gapi_wip_draw_Mosaic_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Mosaic& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Mosaic& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Mosaic * dst_;
         if (jsopencv_gapi_wip_draw_Mosaic_getp(src, dst_))
@@ -44480,13 +44480,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Poly_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Poly >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Poly& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Poly& r)
     {
-        return jsopencv_gapi_wip_draw_Poly_Instance(r);
+        return jsopencv_gapi_wip_draw_Poly_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Poly& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Poly& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Poly * dst_;
         if (jsopencv_gapi_wip_draw_Poly_getp(src, dst_))
@@ -44662,13 +44662,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Rect_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Rect >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Rect& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Rect& r)
     {
-        return jsopencv_gapi_wip_draw_Rect_Instance(r);
+        return jsopencv_gapi_wip_draw_Rect_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Rect& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Rect& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Rect * dst_;
         if (jsopencv_gapi_wip_draw_Rect_getp(src, dst_))
@@ -44901,13 +44901,13 @@ static JsMethodDef jsopencv_gapi_wip_draw_Text_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::gapi::wip::draw::Text >
 {
-    static PyObject* from(const cv::gapi::wip::draw::Text& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::gapi::wip::draw::Text& r)
     {
-        return jsopencv_gapi_wip_draw_Text_Instance(r);
+        return jsopencv_gapi_wip_draw_Text_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::gapi::wip::draw::Text& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::gapi::wip::draw::Text& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::gapi::wip::draw::Text * dst_;
         if (jsopencv_gapi_wip_draw_Text_getp(src, dst_))
@@ -44971,13 +44971,13 @@ static JsMethodDef jsopencv_gapi_wip_gst_GStreamerPipeline_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::gapi::wip::gst::GStreamerPipeline> >
 {
-    static PyObject* from(const Ptr<cv::gapi::wip::gst::GStreamerPipeline>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::gapi::wip::gst::GStreamerPipeline>& r)
     {
-        return jsopencv_gapi_wip_gst_GStreamerPipeline_Instance(r);
+        return jsopencv_gapi_wip_gst_GStreamerPipeline_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::gapi::wip::gst::GStreamerPipeline>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::gapi::wip::gst::GStreamerPipeline>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::gapi::wip::gst::GStreamerPipeline> * dst_;
         if (jsopencv_gapi_wip_gst_GStreamerPipeline_getp(src, dst_))
@@ -45038,13 +45038,13 @@ static JsMethodDef jsopencv_img_hash_AverageHash_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::AverageHash> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::AverageHash>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::AverageHash>& r)
     {
-        return jsopencv_img_hash_AverageHash_Instance(r);
+        return jsopencv_img_hash_AverageHash_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::AverageHash>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::AverageHash>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::AverageHash> * dst_;
         if (jsopencv_img_hash_AverageHash_getp(src, dst_))
@@ -45156,13 +45156,13 @@ static JsMethodDef jsopencv_img_hash_BlockMeanHash_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::BlockMeanHash> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::BlockMeanHash>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::BlockMeanHash>& r)
     {
-        return jsopencv_img_hash_BlockMeanHash_Instance(r);
+        return jsopencv_img_hash_BlockMeanHash_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::BlockMeanHash>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::BlockMeanHash>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::BlockMeanHash> * dst_;
         if (jsopencv_img_hash_BlockMeanHash_getp(src, dst_))
@@ -45223,13 +45223,13 @@ static JsMethodDef jsopencv_img_hash_ColorMomentHash_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::ColorMomentHash> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::ColorMomentHash>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::ColorMomentHash>& r)
     {
-        return jsopencv_img_hash_ColorMomentHash_Instance(r);
+        return jsopencv_img_hash_ColorMomentHash_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::ColorMomentHash>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::ColorMomentHash>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::ColorMomentHash> * dst_;
         if (jsopencv_img_hash_ColorMomentHash_getp(src, dst_))
@@ -45387,13 +45387,13 @@ static JsMethodDef jsopencv_img_hash_ImgHashBase_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::ImgHashBase> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::ImgHashBase>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::ImgHashBase>& r)
     {
-        return jsopencv_img_hash_ImgHashBase_Instance(r);
+        return jsopencv_img_hash_ImgHashBase_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::ImgHashBase>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::ImgHashBase>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::ImgHashBase> * dst_;
         if (jsopencv_img_hash_ImgHashBase_getp(src, dst_))
@@ -45533,13 +45533,13 @@ static JsMethodDef jsopencv_img_hash_MarrHildrethHash_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::MarrHildrethHash> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::MarrHildrethHash>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::MarrHildrethHash>& r)
     {
-        return jsopencv_img_hash_MarrHildrethHash_Instance(r);
+        return jsopencv_img_hash_MarrHildrethHash_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::MarrHildrethHash>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::MarrHildrethHash>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::MarrHildrethHash> * dst_;
         if (jsopencv_img_hash_MarrHildrethHash_getp(src, dst_))
@@ -45600,13 +45600,13 @@ static JsMethodDef jsopencv_img_hash_PHash_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::PHash> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::PHash>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::PHash>& r)
     {
-        return jsopencv_img_hash_PHash_Instance(r);
+        return jsopencv_img_hash_PHash_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::PHash>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::PHash>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::PHash> * dst_;
         if (jsopencv_img_hash_PHash_getp(src, dst_))
@@ -45768,13 +45768,13 @@ static JsMethodDef jsopencv_img_hash_RadialVarianceHash_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::img_hash::RadialVarianceHash> >
 {
-    static PyObject* from(const Ptr<cv::img_hash::RadialVarianceHash>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::img_hash::RadialVarianceHash>& r)
     {
-        return jsopencv_img_hash_RadialVarianceHash_Instance(r);
+        return jsopencv_img_hash_RadialVarianceHash_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::img_hash::RadialVarianceHash>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::img_hash::RadialVarianceHash>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::img_hash::RadialVarianceHash> * dst_;
         if (jsopencv_img_hash_RadialVarianceHash_getp(src, dst_))
@@ -45991,13 +45991,13 @@ static JsMethodDef jsopencv_legacy_MultiTracker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::MultiTracker> >
 {
-    static PyObject* from(const Ptr<cv::legacy::MultiTracker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::MultiTracker>& r)
     {
-        return jsopencv_legacy_MultiTracker_Instance(r);
+        return jsopencv_legacy_MultiTracker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::MultiTracker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::MultiTracker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::MultiTracker> * dst_;
         if (jsopencv_legacy_MultiTracker_getp(src, dst_))
@@ -46153,13 +46153,13 @@ static JsMethodDef jsopencv_legacy_Tracker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::Tracker> >
 {
-    static PyObject* from(const Ptr<cv::legacy::Tracker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::Tracker>& r)
     {
-        return jsopencv_legacy_Tracker_Instance(r);
+        return jsopencv_legacy_Tracker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::Tracker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::Tracker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::Tracker> * dst_;
         if (jsopencv_legacy_Tracker_getp(src, dst_))
@@ -46220,13 +46220,13 @@ static JsMethodDef jsopencv_legacy_TrackerBoosting_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerBoosting> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerBoosting>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerBoosting>& r)
     {
-        return jsopencv_legacy_TrackerBoosting_Instance(r);
+        return jsopencv_legacy_TrackerBoosting_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerBoosting>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerBoosting>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerBoosting> * dst_;
         if (jsopencv_legacy_TrackerBoosting_getp(src, dst_))
@@ -46337,13 +46337,13 @@ static JsMethodDef jsopencv_legacy_TrackerCSRT_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerCSRT> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerCSRT>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerCSRT>& r)
     {
-        return jsopencv_legacy_TrackerCSRT_Instance(r);
+        return jsopencv_legacy_TrackerCSRT_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerCSRT>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerCSRT>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerCSRT> * dst_;
         if (jsopencv_legacy_TrackerCSRT_getp(src, dst_))
@@ -46404,13 +46404,13 @@ static JsMethodDef jsopencv_legacy_TrackerKCF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerKCF> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerKCF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerKCF>& r)
     {
-        return jsopencv_legacy_TrackerKCF_Instance(r);
+        return jsopencv_legacy_TrackerKCF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerKCF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerKCF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerKCF> * dst_;
         if (jsopencv_legacy_TrackerKCF_getp(src, dst_))
@@ -46471,13 +46471,13 @@ static JsMethodDef jsopencv_legacy_TrackerMIL_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerMIL> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerMIL>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerMIL>& r)
     {
-        return jsopencv_legacy_TrackerMIL_Instance(r);
+        return jsopencv_legacy_TrackerMIL_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerMIL>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerMIL>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerMIL> * dst_;
         if (jsopencv_legacy_TrackerMIL_getp(src, dst_))
@@ -46538,13 +46538,13 @@ static JsMethodDef jsopencv_legacy_TrackerMOSSE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerMOSSE> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerMOSSE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerMOSSE>& r)
     {
-        return jsopencv_legacy_TrackerMOSSE_Instance(r);
+        return jsopencv_legacy_TrackerMOSSE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerMOSSE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerMOSSE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerMOSSE> * dst_;
         if (jsopencv_legacy_TrackerMOSSE_getp(src, dst_))
@@ -46605,13 +46605,13 @@ static JsMethodDef jsopencv_legacy_TrackerMedianFlow_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerMedianFlow> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerMedianFlow>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerMedianFlow>& r)
     {
-        return jsopencv_legacy_TrackerMedianFlow_Instance(r);
+        return jsopencv_legacy_TrackerMedianFlow_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerMedianFlow>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerMedianFlow>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerMedianFlow> * dst_;
         if (jsopencv_legacy_TrackerMedianFlow_getp(src, dst_))
@@ -46672,13 +46672,13 @@ static JsMethodDef jsopencv_legacy_TrackerTLD_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerTLD> >
 {
-    static PyObject* from(const Ptr<cv::legacy::TrackerTLD>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::legacy::TrackerTLD>& r)
     {
-        return jsopencv_legacy_TrackerTLD_Instance(r);
+        return jsopencv_legacy_TrackerTLD_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::legacy::TrackerTLD>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::legacy::TrackerTLD>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::legacy::TrackerTLD> * dst_;
         if (jsopencv_legacy_TrackerTLD_getp(src, dst_))
@@ -47021,13 +47021,13 @@ static JsMethodDef jsopencv_mcc_CChecker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::mcc::CChecker> >
 {
-    static PyObject* from(const Ptr<cv::mcc::CChecker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::mcc::CChecker>& r)
     {
-        return jsopencv_mcc_CChecker_Instance(r);
+        return jsopencv_mcc_CChecker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::mcc::CChecker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::mcc::CChecker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::mcc::CChecker> * dst_;
         if (jsopencv_mcc_CChecker_getp(src, dst_))
@@ -47316,13 +47316,13 @@ static JsMethodDef jsopencv_mcc_CCheckerDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::mcc::CCheckerDetector> >
 {
-    static PyObject* from(const Ptr<cv::mcc::CCheckerDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::mcc::CCheckerDetector>& r)
     {
-        return jsopencv_mcc_CCheckerDetector_Instance(r);
+        return jsopencv_mcc_CCheckerDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::mcc::CCheckerDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::mcc::CCheckerDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::mcc::CCheckerDetector> * dst_;
         if (jsopencv_mcc_CCheckerDetector_getp(src, dst_))
@@ -47443,13 +47443,13 @@ static JsMethodDef jsopencv_mcc_CCheckerDraw_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::mcc::CCheckerDraw> >
 {
-    static PyObject* from(const Ptr<cv::mcc::CCheckerDraw>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::mcc::CCheckerDraw>& r)
     {
-        return jsopencv_mcc_CCheckerDraw_Instance(r);
+        return jsopencv_mcc_CCheckerDraw_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::mcc::CCheckerDraw>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::mcc::CCheckerDraw>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::mcc::CCheckerDraw> * dst_;
         if (jsopencv_mcc_CCheckerDraw_getp(src, dst_))
@@ -47798,13 +47798,13 @@ static JsMethodDef jsopencv_mcc_DetectorParameters_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::mcc::DetectorParameters> >
 {
-    static PyObject* from(const Ptr<cv::mcc::DetectorParameters>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::mcc::DetectorParameters>& r)
     {
-        return jsopencv_mcc_DetectorParameters_Instance(r);
+        return jsopencv_mcc_DetectorParameters_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::mcc::DetectorParameters>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::mcc::DetectorParameters>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::mcc::DetectorParameters> * dst_;
         if (jsopencv_mcc_DetectorParameters_getp(src, dst_))
@@ -48632,13 +48632,13 @@ static JsMethodDef jsopencv_ml_ANN_MLP_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::ANN_MLP> >
 {
-    static PyObject* from(const Ptr<cv::ml::ANN_MLP>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::ANN_MLP>& r)
     {
-        return jsopencv_ml_ANN_MLP_Instance(r);
+        return jsopencv_ml_ANN_MLP_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::ANN_MLP>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::ANN_MLP>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::ANN_MLP> * dst_;
         if (jsopencv_ml_ANN_MLP_getp(src, dst_))
@@ -48864,13 +48864,13 @@ static JsMethodDef jsopencv_ml_Boost_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::Boost> >
 {
-    static PyObject* from(const Ptr<cv::ml::Boost>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::Boost>& r)
     {
-        return jsopencv_ml_Boost_Instance(r);
+        return jsopencv_ml_Boost_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::Boost>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::Boost>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::Boost> * dst_;
         if (jsopencv_ml_Boost_getp(src, dst_))
@@ -49378,13 +49378,13 @@ static JsMethodDef jsopencv_ml_DTrees_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::DTrees> >
 {
-    static PyObject* from(const Ptr<cv::ml::DTrees>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::DTrees>& r)
     {
-        return jsopencv_ml_DTrees_Instance(r);
+        return jsopencv_ml_DTrees_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::DTrees>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::DTrees>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::DTrees> * dst_;
         if (jsopencv_ml_DTrees_getp(src, dst_))
@@ -50035,13 +50035,13 @@ static JsMethodDef jsopencv_ml_EM_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::EM> >
 {
-    static PyObject* from(const Ptr<cv::ml::EM>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::EM>& r)
     {
-        return jsopencv_ml_EM_Instance(r);
+        return jsopencv_ml_EM_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::EM>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::EM>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::EM> * dst_;
         if (jsopencv_ml_EM_getp(src, dst_))
@@ -50387,13 +50387,13 @@ static JsMethodDef jsopencv_ml_KNearest_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::KNearest> >
 {
-    static PyObject* from(const Ptr<cv::ml::KNearest>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::KNearest>& r)
     {
-        return jsopencv_ml_KNearest_Instance(r);
+        return jsopencv_ml_KNearest_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::KNearest>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::KNearest>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::KNearest> * dst_;
         if (jsopencv_ml_KNearest_getp(src, dst_))
@@ -50846,13 +50846,13 @@ static JsMethodDef jsopencv_ml_LogisticRegression_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::LogisticRegression> >
 {
-    static PyObject* from(const Ptr<cv::ml::LogisticRegression>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::LogisticRegression>& r)
     {
-        return jsopencv_ml_LogisticRegression_Instance(r);
+        return jsopencv_ml_LogisticRegression_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::LogisticRegression>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::LogisticRegression>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::LogisticRegression> * dst_;
         if (jsopencv_ml_LogisticRegression_getp(src, dst_))
@@ -51007,13 +51007,13 @@ static JsMethodDef jsopencv_ml_NormalBayesClassifier_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::NormalBayesClassifier> >
 {
-    static PyObject* from(const Ptr<cv::ml::NormalBayesClassifier>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::NormalBayesClassifier>& r)
     {
-        return jsopencv_ml_NormalBayesClassifier_Instance(r);
+        return jsopencv_ml_NormalBayesClassifier_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::NormalBayesClassifier>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::NormalBayesClassifier>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::NormalBayesClassifier> * dst_;
         if (jsopencv_ml_NormalBayesClassifier_getp(src, dst_))
@@ -51132,13 +51132,13 @@ static JsMethodDef jsopencv_ml_ParamGrid_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::ParamGrid> >
 {
-    static PyObject* from(const Ptr<cv::ml::ParamGrid>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::ParamGrid>& r)
     {
-        return jsopencv_ml_ParamGrid_Instance(r);
+        return jsopencv_ml_ParamGrid_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::ParamGrid>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::ParamGrid>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::ParamGrid> * dst_;
         if (jsopencv_ml_ParamGrid_getp(src, dst_))
@@ -51470,13 +51470,13 @@ static JsMethodDef jsopencv_ml_RTrees_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::RTrees> >
 {
-    static PyObject* from(const Ptr<cv::ml::RTrees>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::RTrees>& r)
     {
-        return jsopencv_ml_RTrees_Instance(r);
+        return jsopencv_ml_RTrees_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::RTrees>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::RTrees>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::RTrees> * dst_;
         if (jsopencv_ml_RTrees_getp(src, dst_))
@@ -52269,13 +52269,13 @@ static JsMethodDef jsopencv_ml_SVM_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::SVM> >
 {
-    static PyObject* from(const Ptr<cv::ml::SVM>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::SVM>& r)
     {
-        return jsopencv_ml_SVM_Instance(r);
+        return jsopencv_ml_SVM_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::SVM>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::SVM>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::SVM> * dst_;
         if (jsopencv_ml_SVM_getp(src, dst_))
@@ -52714,13 +52714,13 @@ static JsMethodDef jsopencv_ml_SVMSGD_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::SVMSGD> >
 {
-    static PyObject* from(const Ptr<cv::ml::SVMSGD>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::SVMSGD>& r)
     {
-        return jsopencv_ml_SVMSGD_Instance(r);
+        return jsopencv_ml_SVMSGD_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::SVMSGD>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::SVMSGD>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::SVMSGD> * dst_;
         if (jsopencv_ml_SVMSGD_getp(src, dst_))
@@ -53065,13 +53065,13 @@ static JsMethodDef jsopencv_ml_StatModel_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::StatModel> >
 {
-    static PyObject* from(const Ptr<cv::ml::StatModel>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::StatModel>& r)
     {
-        return jsopencv_ml_StatModel_Instance(r);
+        return jsopencv_ml_StatModel_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::StatModel>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::StatModel>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::StatModel> * dst_;
         if (jsopencv_ml_StatModel_getp(src, dst_))
@@ -54149,13 +54149,13 @@ static JsMethodDef jsopencv_ml_TrainData_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ml::TrainData> >
 {
-    static PyObject* from(const Ptr<cv::ml::TrainData>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ml::TrainData>& r)
     {
-        return jsopencv_ml_TrainData_Instance(r);
+        return jsopencv_ml_TrainData_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ml::TrainData>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ml::TrainData>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ml::TrainData> * dst_;
         if (jsopencv_ml_TrainData_getp(src, dst_))
@@ -55775,13 +55775,13 @@ static JsMethodDef jsopencv_ocl_Device_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::ocl::Device >
 {
-    static PyObject* from(const cv::ocl::Device& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::ocl::Device& r)
     {
-        return jsopencv_ocl_Device_Instance(r);
+        return jsopencv_ocl_Device_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::ocl::Device& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::ocl::Device& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::ocl::Device * dst_;
         if (jsopencv_ocl_Device_getp(src, dst_))
@@ -55825,13 +55825,13 @@ static JsMethodDef jsopencv_ocl_OpenCLExecutionContext_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ocl::OpenCLExecutionContext> >
 {
-    static PyObject* from(const Ptr<cv::ocl::OpenCLExecutionContext>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ocl::OpenCLExecutionContext>& r)
     {
-        return jsopencv_ocl_OpenCLExecutionContext_Instance(r);
+        return jsopencv_ocl_OpenCLExecutionContext_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ocl::OpenCLExecutionContext>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ocl::OpenCLExecutionContext>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ocl::OpenCLExecutionContext> * dst_;
         if (jsopencv_ocl_OpenCLExecutionContext_getp(src, dst_))
@@ -56442,13 +56442,13 @@ static JsMethodDef jsopencv_plot_Plot2d_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::plot::Plot2d> >
 {
-    static PyObject* from(const Ptr<cv::plot::Plot2d>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::plot::Plot2d>& r)
     {
-        return jsopencv_plot_Plot2d_Instance(r);
+        return jsopencv_plot_Plot2d_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::plot::Plot2d>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::plot::Plot2d>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::plot::Plot2d> * dst_;
         if (jsopencv_plot_Plot2d_getp(src, dst_))
@@ -56696,13 +56696,13 @@ static JsMethodDef jsopencv_quality_QualityBRISQUE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::quality::QualityBRISQUE> >
 {
-    static PyObject* from(const Ptr<cv::quality::QualityBRISQUE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::quality::QualityBRISQUE>& r)
     {
-        return jsopencv_quality_QualityBRISQUE_Instance(r);
+        return jsopencv_quality_QualityBRISQUE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::quality::QualityBRISQUE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::quality::QualityBRISQUE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::quality::QualityBRISQUE> * dst_;
         if (jsopencv_quality_QualityBRISQUE_getp(src, dst_))
@@ -56891,13 +56891,13 @@ static JsMethodDef jsopencv_quality_QualityBase_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::quality::QualityBase> >
 {
-    static PyObject* from(const Ptr<cv::quality::QualityBase>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::quality::QualityBase>& r)
     {
-        return jsopencv_quality_QualityBase_Instance(r);
+        return jsopencv_quality_QualityBase_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::quality::QualityBase>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::quality::QualityBase>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::quality::QualityBase> * dst_;
         if (jsopencv_quality_QualityBase_getp(src, dst_))
@@ -57131,13 +57131,13 @@ static JsMethodDef jsopencv_quality_QualityGMSD_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::quality::QualityGMSD> >
 {
-    static PyObject* from(const Ptr<cv::quality::QualityGMSD>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::quality::QualityGMSD>& r)
     {
-        return jsopencv_quality_QualityGMSD_Instance(r);
+        return jsopencv_quality_QualityGMSD_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::quality::QualityGMSD>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::quality::QualityGMSD>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::quality::QualityGMSD> * dst_;
         if (jsopencv_quality_QualityGMSD_getp(src, dst_))
@@ -57371,13 +57371,13 @@ static JsMethodDef jsopencv_quality_QualityMSE_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::quality::QualityMSE> >
 {
-    static PyObject* from(const Ptr<cv::quality::QualityMSE>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::quality::QualityMSE>& r)
     {
-        return jsopencv_quality_QualityMSE_Instance(r);
+        return jsopencv_quality_QualityMSE_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::quality::QualityMSE>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::quality::QualityMSE>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::quality::QualityMSE> * dst_;
         if (jsopencv_quality_QualityMSE_getp(src, dst_))
@@ -57670,13 +57670,13 @@ static JsMethodDef jsopencv_quality_QualityPSNR_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::quality::QualityPSNR> >
 {
-    static PyObject* from(const Ptr<cv::quality::QualityPSNR>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::quality::QualityPSNR>& r)
     {
-        return jsopencv_quality_QualityPSNR_Instance(r);
+        return jsopencv_quality_QualityPSNR_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::quality::QualityPSNR>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::quality::QualityPSNR>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::quality::QualityPSNR> * dst_;
         if (jsopencv_quality_QualityPSNR_getp(src, dst_))
@@ -57910,13 +57910,13 @@ static JsMethodDef jsopencv_quality_QualitySSIM_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::quality::QualitySSIM> >
 {
-    static PyObject* from(const Ptr<cv::quality::QualitySSIM>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::quality::QualitySSIM>& r)
     {
-        return jsopencv_quality_QualitySSIM_Instance(r);
+        return jsopencv_quality_QualitySSIM_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::quality::QualitySSIM>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::quality::QualitySSIM>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::quality::QualitySSIM> * dst_;
         if (jsopencv_quality_QualitySSIM_getp(src, dst_))
@@ -58025,13 +58025,13 @@ static JsMethodDef jsopencv_rapid_GOSTracker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::rapid::GOSTracker> >
 {
-    static PyObject* from(const Ptr<cv::rapid::GOSTracker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::rapid::GOSTracker>& r)
     {
-        return jsopencv_rapid_GOSTracker_Instance(r);
+        return jsopencv_rapid_GOSTracker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::rapid::GOSTracker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::rapid::GOSTracker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::rapid::GOSTracker> * dst_;
         if (jsopencv_rapid_GOSTracker_getp(src, dst_))
@@ -58140,13 +58140,13 @@ static JsMethodDef jsopencv_rapid_OLSTracker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::rapid::OLSTracker> >
 {
-    static PyObject* from(const Ptr<cv::rapid::OLSTracker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::rapid::OLSTracker>& r)
     {
-        return jsopencv_rapid_OLSTracker_Instance(r);
+        return jsopencv_rapid_OLSTracker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::rapid::OLSTracker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::rapid::OLSTracker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::rapid::OLSTracker> * dst_;
         if (jsopencv_rapid_OLSTracker_getp(src, dst_))
@@ -58243,13 +58243,13 @@ static JsMethodDef jsopencv_rapid_Rapid_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::rapid::Rapid> >
 {
-    static PyObject* from(const Ptr<cv::rapid::Rapid>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::rapid::Rapid>& r)
     {
-        return jsopencv_rapid_Rapid_Instance(r);
+        return jsopencv_rapid_Rapid_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::rapid::Rapid>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::rapid::Rapid>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::rapid::Rapid> * dst_;
         if (jsopencv_rapid_Rapid_getp(src, dst_))
@@ -58402,13 +58402,13 @@ static JsMethodDef jsopencv_rapid_Tracker_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::rapid::Tracker> >
 {
-    static PyObject* from(const Ptr<cv::rapid::Tracker>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::rapid::Tracker>& r)
     {
-        return jsopencv_rapid_Tracker_Instance(r);
+        return jsopencv_rapid_Tracker_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::rapid::Tracker>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::rapid::Tracker>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::rapid::Tracker> * dst_;
         if (jsopencv_rapid_Tracker_getp(src, dst_))
@@ -58795,13 +58795,13 @@ static JsMethodDef jsopencv_segmentation_IntelligentScissorsMB_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::segmentation::IntelligentScissorsMB >
 {
-    static PyObject* from(const cv::segmentation::IntelligentScissorsMB& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::segmentation::IntelligentScissorsMB& r)
     {
-        return jsopencv_segmentation_IntelligentScissorsMB_Instance(r);
+        return jsopencv_segmentation_IntelligentScissorsMB_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::segmentation::IntelligentScissorsMB& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::segmentation::IntelligentScissorsMB& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::segmentation::IntelligentScissorsMB * dst_;
         if (jsopencv_segmentation_IntelligentScissorsMB_getp(src, dst_))
@@ -58845,13 +58845,13 @@ static JsMethodDef jsopencv_text_BaseOCR_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::BaseOCR> >
 {
-    static PyObject* from(const Ptr<cv::text::BaseOCR>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::BaseOCR>& r)
     {
-        return jsopencv_text_BaseOCR_Instance(r);
+        return jsopencv_text_BaseOCR_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::BaseOCR>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::BaseOCR>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::BaseOCR> * dst_;
         if (jsopencv_text_BaseOCR_getp(src, dst_))
@@ -58895,13 +58895,13 @@ static JsMethodDef jsopencv_text_ERFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::ERFilter> >
 {
-    static PyObject* from(const Ptr<cv::text::ERFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::ERFilter>& r)
     {
-        return jsopencv_text_ERFilter_Instance(r);
+        return jsopencv_text_ERFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::ERFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::ERFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::ERFilter> * dst_;
         if (jsopencv_text_ERFilter_getp(src, dst_))
@@ -58945,13 +58945,13 @@ static JsMethodDef jsopencv_text_ERFilter_Callback_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::ERFilter::Callback> >
 {
-    static PyObject* from(const Ptr<cv::text::ERFilter::Callback>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::ERFilter::Callback>& r)
     {
-        return jsopencv_text_ERFilter_Callback_Instance(r);
+        return jsopencv_text_ERFilter_Callback_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::ERFilter::Callback>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::ERFilter::Callback>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::ERFilter::Callback> * dst_;
         if (jsopencv_text_ERFilter_Callback_getp(src, dst_))
@@ -59190,13 +59190,13 @@ static JsMethodDef jsopencv_text_OCRBeamSearchDecoder_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::OCRBeamSearchDecoder> >
 {
-    static PyObject* from(const Ptr<cv::text::OCRBeamSearchDecoder>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::OCRBeamSearchDecoder>& r)
     {
-        return jsopencv_text_OCRBeamSearchDecoder_Instance(r);
+        return jsopencv_text_OCRBeamSearchDecoder_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::OCRBeamSearchDecoder>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::OCRBeamSearchDecoder>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::OCRBeamSearchDecoder> * dst_;
         if (jsopencv_text_OCRBeamSearchDecoder_getp(src, dst_))
@@ -59240,13 +59240,13 @@ static JsMethodDef jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_methods
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback> >
 {
-    static PyObject* from(const Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback>& r)
     {
-        return jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_Instance(r);
+        return jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback> * dst_;
         if (jsopencv_text_OCRBeamSearchDecoder_ClassifierCallback_getp(src, dst_))
@@ -59545,13 +59545,13 @@ static JsMethodDef jsopencv_text_OCRHMMDecoder_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::OCRHMMDecoder> >
 {
-    static PyObject* from(const Ptr<cv::text::OCRHMMDecoder>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::OCRHMMDecoder>& r)
     {
-        return jsopencv_text_OCRHMMDecoder_Instance(r);
+        return jsopencv_text_OCRHMMDecoder_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::OCRHMMDecoder>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::OCRHMMDecoder>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::OCRHMMDecoder> * dst_;
         if (jsopencv_text_OCRHMMDecoder_getp(src, dst_))
@@ -59595,13 +59595,13 @@ static JsMethodDef jsopencv_text_OCRHMMDecoder_ClassifierCallback_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::OCRHMMDecoder::ClassifierCallback> >
 {
-    static PyObject* from(const Ptr<cv::text::OCRHMMDecoder::ClassifierCallback>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::OCRHMMDecoder::ClassifierCallback>& r)
     {
-        return jsopencv_text_OCRHMMDecoder_ClassifierCallback_Instance(r);
+        return jsopencv_text_OCRHMMDecoder_ClassifierCallback_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::OCRHMMDecoder::ClassifierCallback>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::OCRHMMDecoder::ClassifierCallback>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::OCRHMMDecoder::ClassifierCallback> * dst_;
         if (jsopencv_text_OCRHMMDecoder_ClassifierCallback_getp(src, dst_))
@@ -59815,13 +59815,13 @@ static JsMethodDef jsopencv_text_OCRTesseract_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::OCRTesseract> >
 {
-    static PyObject* from(const Ptr<cv::text::OCRTesseract>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::OCRTesseract>& r)
     {
-        return jsopencv_text_OCRTesseract_Instance(r);
+        return jsopencv_text_OCRTesseract_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::OCRTesseract>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::OCRTesseract>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::OCRTesseract> * dst_;
         if (jsopencv_text_OCRTesseract_getp(src, dst_))
@@ -59919,13 +59919,13 @@ static JsMethodDef jsopencv_text_TextDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::TextDetector> >
 {
-    static PyObject* from(const Ptr<cv::text::TextDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::TextDetector>& r)
     {
-        return jsopencv_text_TextDetector_Instance(r);
+        return jsopencv_text_TextDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::TextDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::TextDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::TextDetector> * dst_;
         if (jsopencv_text_TextDetector_getp(src, dst_))
@@ -60047,13 +60047,13 @@ static JsMethodDef jsopencv_text_TextDetectorCNN_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::text::TextDetectorCNN> >
 {
-    static PyObject* from(const Ptr<cv::text::TextDetectorCNN>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::text::TextDetectorCNN>& r)
     {
-        return jsopencv_text_TextDetectorCNN_Instance(r);
+        return jsopencv_text_TextDetectorCNN_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::text::TextDetectorCNN>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::text::TextDetectorCNN>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::text::TextDetectorCNN> * dst_;
         if (jsopencv_text_TextDetectorCNN_getp(src, dst_))
@@ -60141,13 +60141,13 @@ static JsMethodDef jsopencv_utils_ClassWithKeywordProperties_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::utils::ClassWithKeywordProperties >
 {
-    static PyObject* from(const cv::utils::ClassWithKeywordProperties& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::utils::ClassWithKeywordProperties& r)
     {
-        return jsopencv_utils_ClassWithKeywordProperties_Instance(r);
+        return jsopencv_utils_ClassWithKeywordProperties_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::utils::ClassWithKeywordProperties& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::utils::ClassWithKeywordProperties& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::utils::ClassWithKeywordProperties * dst_;
         if (jsopencv_utils_ClassWithKeywordProperties_getp(src, dst_))
@@ -60273,13 +60273,13 @@ static JsMethodDef jsopencv_utils_nested_OriginalClassName_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::utils::nested::OriginalClassName> >
 {
-    static PyObject* from(const Ptr<cv::utils::nested::OriginalClassName>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::utils::nested::OriginalClassName>& r)
     {
-        return jsopencv_utils_nested_OriginalClassName_Instance(r);
+        return jsopencv_utils_nested_OriginalClassName_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::utils::nested::OriginalClassName>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::utils::nested::OriginalClassName>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::utils::nested::OriginalClassName> * dst_;
         if (jsopencv_utils_nested_OriginalClassName_getp(src, dst_))
@@ -60377,13 +60377,13 @@ static JsMethodDef jsopencv_utils_nested_OriginalClassName_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::utils::nested::OriginalClassName::Params >
 {
-    static PyObject* from(const cv::utils::nested::OriginalClassName::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::utils::nested::OriginalClassName::Params& r)
     {
-        return jsopencv_utils_nested_OriginalClassName_Params_Instance(r);
+        return jsopencv_utils_nested_OriginalClassName_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::utils::nested::OriginalClassName::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::utils::nested::OriginalClassName::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::utils::nested::OriginalClassName::Params * dst_;
         if (jsopencv_utils_nested_OriginalClassName_Params_getp(src, dst_))
@@ -60427,13 +60427,13 @@ static JsMethodDef jsopencv_xfeatures2d_AffineFeature2D_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::AffineFeature2D> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::AffineFeature2D>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::AffineFeature2D>& r)
     {
-        return jsopencv_xfeatures2d_AffineFeature2D_Instance(r);
+        return jsopencv_xfeatures2d_AffineFeature2D_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::AffineFeature2D>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::AffineFeature2D>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::AffineFeature2D> * dst_;
         if (jsopencv_xfeatures2d_AffineFeature2D_getp(src, dst_))
@@ -60570,13 +60570,13 @@ static JsMethodDef jsopencv_xfeatures2d_BEBLID_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::BEBLID> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::BEBLID>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::BEBLID>& r)
     {
-        return jsopencv_xfeatures2d_BEBLID_Instance(r);
+        return jsopencv_xfeatures2d_BEBLID_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::BEBLID>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::BEBLID>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::BEBLID> * dst_;
         if (jsopencv_xfeatures2d_BEBLID_getp(src, dst_))
@@ -60763,13 +60763,13 @@ static JsMethodDef jsopencv_xfeatures2d_BoostDesc_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::BoostDesc> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::BoostDesc>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::BoostDesc>& r)
     {
-        return jsopencv_xfeatures2d_BoostDesc_Instance(r);
+        return jsopencv_xfeatures2d_BoostDesc_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::BoostDesc>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::BoostDesc>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::BoostDesc> * dst_;
         if (jsopencv_xfeatures2d_BoostDesc_getp(src, dst_))
@@ -60953,13 +60953,13 @@ static JsMethodDef jsopencv_xfeatures2d_BriefDescriptorExtractor_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::BriefDescriptorExtractor> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::BriefDescriptorExtractor>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::BriefDescriptorExtractor>& r)
     {
-        return jsopencv_xfeatures2d_BriefDescriptorExtractor_Instance(r);
+        return jsopencv_xfeatures2d_BriefDescriptorExtractor_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::BriefDescriptorExtractor>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::BriefDescriptorExtractor>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::BriefDescriptorExtractor> * dst_;
         if (jsopencv_xfeatures2d_BriefDescriptorExtractor_getp(src, dst_))
@@ -61515,13 +61515,13 @@ static JsMethodDef jsopencv_xfeatures2d_DAISY_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::DAISY> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::DAISY>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::DAISY>& r)
     {
-        return jsopencv_xfeatures2d_DAISY_Instance(r);
+        return jsopencv_xfeatures2d_DAISY_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::DAISY>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::DAISY>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::DAISY> * dst_;
         if (jsopencv_xfeatures2d_DAISY_getp(src, dst_))
@@ -61808,13 +61808,13 @@ static JsMethodDef jsopencv_xfeatures2d_FREAK_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::FREAK> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::FREAK>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::FREAK>& r)
     {
-        return jsopencv_xfeatures2d_FREAK_Instance(r);
+        return jsopencv_xfeatures2d_FREAK_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::FREAK>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::FREAK>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::FREAK> * dst_;
         if (jsopencv_xfeatures2d_FREAK_getp(src, dst_))
@@ -62148,13 +62148,13 @@ static JsMethodDef jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector>& r)
     {
-        return jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_Instance(r);
+        return jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> * dst_;
         if (jsopencv_xfeatures2d_HarrisLaplaceFeatureDetector_getp(src, dst_))
@@ -62438,13 +62438,13 @@ static JsMethodDef jsopencv_xfeatures2d_LATCH_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::LATCH> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::LATCH>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::LATCH>& r)
     {
-        return jsopencv_xfeatures2d_LATCH_Instance(r);
+        return jsopencv_xfeatures2d_LATCH_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::LATCH>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::LATCH>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::LATCH> * dst_;
         if (jsopencv_xfeatures2d_LATCH_getp(src, dst_))
@@ -62628,13 +62628,13 @@ static JsMethodDef jsopencv_xfeatures2d_LUCID_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::LUCID> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::LUCID>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::LUCID>& r)
     {
-        return jsopencv_xfeatures2d_LUCID_Instance(r);
+        return jsopencv_xfeatures2d_LUCID_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::LUCID>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::LUCID>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::LUCID> * dst_;
         if (jsopencv_xfeatures2d_LUCID_getp(src, dst_))
@@ -63168,13 +63168,13 @@ static JsMethodDef jsopencv_xfeatures2d_MSDDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::MSDDetector> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::MSDDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::MSDDetector>& r)
     {
-        return jsopencv_xfeatures2d_MSDDetector_Instance(r);
+        return jsopencv_xfeatures2d_MSDDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::MSDDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::MSDDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::MSDDetector> * dst_;
         if (jsopencv_xfeatures2d_MSDDetector_getp(src, dst_))
@@ -64423,13 +64423,13 @@ static JsMethodDef jsopencv_xfeatures2d_PCTSignatures_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::PCTSignatures> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::PCTSignatures>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::PCTSignatures>& r)
     {
-        return jsopencv_xfeatures2d_PCTSignatures_Instance(r);
+        return jsopencv_xfeatures2d_PCTSignatures_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::PCTSignatures>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::PCTSignatures>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::PCTSignatures> * dst_;
         if (jsopencv_xfeatures2d_PCTSignatures_getp(src, dst_))
@@ -64589,13 +64589,13 @@ static JsMethodDef jsopencv_xfeatures2d_PCTSignaturesSQFD_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::PCTSignaturesSQFD> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::PCTSignaturesSQFD>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::PCTSignaturesSQFD>& r)
     {
-        return jsopencv_xfeatures2d_PCTSignaturesSQFD_Instance(r);
+        return jsopencv_xfeatures2d_PCTSignaturesSQFD_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::PCTSignaturesSQFD>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::PCTSignaturesSQFD>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::PCTSignaturesSQFD> * dst_;
         if (jsopencv_xfeatures2d_PCTSignaturesSQFD_getp(src, dst_))
@@ -64929,13 +64929,13 @@ static JsMethodDef jsopencv_xfeatures2d_SURF_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::SURF> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::SURF>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::SURF>& r)
     {
-        return jsopencv_xfeatures2d_SURF_Instance(r);
+        return jsopencv_xfeatures2d_SURF_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::SURF>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::SURF>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::SURF> * dst_;
         if (jsopencv_xfeatures2d_SURF_getp(src, dst_))
@@ -65269,13 +65269,13 @@ static JsMethodDef jsopencv_xfeatures2d_StarDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::StarDetector> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::StarDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::StarDetector>& r)
     {
-        return jsopencv_xfeatures2d_StarDetector_Instance(r);
+        return jsopencv_xfeatures2d_StarDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::StarDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::StarDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::StarDetector> * dst_;
         if (jsopencv_xfeatures2d_StarDetector_getp(src, dst_))
@@ -65537,13 +65537,13 @@ static JsMethodDef jsopencv_xfeatures2d_TBMR_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::TBMR> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::TBMR>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::TBMR>& r)
     {
-        return jsopencv_xfeatures2d_TBMR_Instance(r);
+        return jsopencv_xfeatures2d_TBMR_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::TBMR>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::TBMR>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::TBMR> * dst_;
         if (jsopencv_xfeatures2d_TBMR_getp(src, dst_))
@@ -65633,13 +65633,13 @@ static JsMethodDef jsopencv_xfeatures2d_TEBLID_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::TEBLID> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::TEBLID>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::TEBLID>& r)
     {
-        return jsopencv_xfeatures2d_TEBLID_Instance(r);
+        return jsopencv_xfeatures2d_TEBLID_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::TEBLID>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::TEBLID>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::TEBLID> * dst_;
         if (jsopencv_xfeatures2d_TEBLID_getp(src, dst_))
@@ -65976,13 +65976,13 @@ static JsMethodDef jsopencv_xfeatures2d_VGG_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::VGG> >
 {
-    static PyObject* from(const Ptr<cv::xfeatures2d::VGG>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::xfeatures2d::VGG>& r)
     {
-        return jsopencv_xfeatures2d_VGG_Instance(r);
+        return jsopencv_xfeatures2d_VGG_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::xfeatures2d::VGG>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::xfeatures2d::VGG>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::xfeatures2d::VGG> * dst_;
         if (jsopencv_xfeatures2d_VGG_getp(src, dst_))
@@ -66126,13 +66126,13 @@ static JsMethodDef jsopencv_ximgproc_AdaptiveManifoldFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::AdaptiveManifoldFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::AdaptiveManifoldFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::AdaptiveManifoldFilter>& r)
     {
-        return jsopencv_ximgproc_AdaptiveManifoldFilter_Instance(r);
+        return jsopencv_ximgproc_AdaptiveManifoldFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::AdaptiveManifoldFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::AdaptiveManifoldFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::AdaptiveManifoldFilter> * dst_;
         if (jsopencv_ximgproc_AdaptiveManifoldFilter_getp(src, dst_))
@@ -66340,13 +66340,13 @@ static JsMethodDef jsopencv_ximgproc_ContourFitting_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::ContourFitting> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::ContourFitting>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::ContourFitting>& r)
     {
-        return jsopencv_ximgproc_ContourFitting_Instance(r);
+        return jsopencv_ximgproc_ContourFitting_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::ContourFitting>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::ContourFitting>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::ContourFitting> * dst_;
         if (jsopencv_ximgproc_ContourFitting_getp(src, dst_))
@@ -66452,13 +66452,13 @@ static JsMethodDef jsopencv_ximgproc_DTFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::DTFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::DTFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::DTFilter>& r)
     {
-        return jsopencv_ximgproc_DTFilter_Instance(r);
+        return jsopencv_ximgproc_DTFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::DTFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::DTFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::DTFilter> * dst_;
         if (jsopencv_ximgproc_DTFilter_getp(src, dst_))
@@ -66582,13 +66582,13 @@ static JsMethodDef jsopencv_ximgproc_DisparityFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::DisparityFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::DisparityFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::DisparityFilter>& r)
     {
-        return jsopencv_ximgproc_DisparityFilter_Instance(r);
+        return jsopencv_ximgproc_DisparityFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::DisparityFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::DisparityFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::DisparityFilter> * dst_;
         if (jsopencv_ximgproc_DisparityFilter_getp(src, dst_))
@@ -66864,13 +66864,13 @@ static JsMethodDef jsopencv_ximgproc_DisparityWLSFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::DisparityWLSFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::DisparityWLSFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::DisparityWLSFilter>& r)
     {
-        return jsopencv_ximgproc_DisparityWLSFilter_Instance(r);
+        return jsopencv_ximgproc_DisparityWLSFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::DisparityWLSFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::DisparityWLSFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::DisparityWLSFilter> * dst_;
         if (jsopencv_ximgproc_DisparityWLSFilter_getp(src, dst_))
@@ -67221,13 +67221,13 @@ static JsMethodDef jsopencv_ximgproc_EdgeAwareInterpolator_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::EdgeAwareInterpolator> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::EdgeAwareInterpolator>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::EdgeAwareInterpolator>& r)
     {
-        return jsopencv_ximgproc_EdgeAwareInterpolator_Instance(r);
+        return jsopencv_ximgproc_EdgeAwareInterpolator_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::EdgeAwareInterpolator>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::EdgeAwareInterpolator>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::EdgeAwareInterpolator> * dst_;
         if (jsopencv_ximgproc_EdgeAwareInterpolator_getp(src, dst_))
@@ -67899,13 +67899,13 @@ static JsMethodDef jsopencv_ximgproc_EdgeBoxes_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::EdgeBoxes> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::EdgeBoxes>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::EdgeBoxes>& r)
     {
-        return jsopencv_ximgproc_EdgeBoxes_Instance(r);
+        return jsopencv_ximgproc_EdgeBoxes_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::EdgeBoxes>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::EdgeBoxes>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::EdgeBoxes> * dst_;
         if (jsopencv_ximgproc_EdgeBoxes_getp(src, dst_))
@@ -68268,13 +68268,13 @@ static JsMethodDef jsopencv_ximgproc_EdgeDrawing_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::EdgeDrawing> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::EdgeDrawing>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::EdgeDrawing>& r)
     {
-        return jsopencv_ximgproc_EdgeDrawing_Instance(r);
+        return jsopencv_ximgproc_EdgeDrawing_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::EdgeDrawing>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::EdgeDrawing>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::EdgeDrawing> * dst_;
         if (jsopencv_ximgproc_EdgeDrawing_getp(src, dst_))
@@ -68541,13 +68541,13 @@ static JsMethodDef jsopencv_ximgproc_EdgeDrawing_Params_methods[] =
 template<>
 struct JsOpenCV_Converter< cv::ximgproc::EdgeDrawing::Params >
 {
-    static PyObject* from(const cv::ximgproc::EdgeDrawing::Params& r)
+    static Napi::Value* from(const Napi::Env &env, const cv::ximgproc::EdgeDrawing::Params& r)
     {
-        return jsopencv_ximgproc_EdgeDrawing_Params_Instance(r);
+        return jsopencv_ximgproc_EdgeDrawing_Params_Instance(env, r);
     }
-    static bool to(PyObject* src, cv::ximgproc::EdgeDrawing::Params& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, cv::ximgproc::EdgeDrawing::Params& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         cv::ximgproc::EdgeDrawing::Params * dst_;
         if (jsopencv_ximgproc_EdgeDrawing_Params_getp(src, dst_))
@@ -68653,13 +68653,13 @@ static JsMethodDef jsopencv_ximgproc_FastBilateralSolverFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::FastBilateralSolverFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::FastBilateralSolverFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::FastBilateralSolverFilter>& r)
     {
-        return jsopencv_ximgproc_FastBilateralSolverFilter_Instance(r);
+        return jsopencv_ximgproc_FastBilateralSolverFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::FastBilateralSolverFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::FastBilateralSolverFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::FastBilateralSolverFilter> * dst_;
         if (jsopencv_ximgproc_FastBilateralSolverFilter_getp(src, dst_))
@@ -68759,13 +68759,13 @@ static JsMethodDef jsopencv_ximgproc_FastGlobalSmootherFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::FastGlobalSmootherFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::FastGlobalSmootherFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::FastGlobalSmootherFilter>& r)
     {
-        return jsopencv_ximgproc_FastGlobalSmootherFilter_Instance(r);
+        return jsopencv_ximgproc_FastGlobalSmootherFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::FastGlobalSmootherFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::FastGlobalSmootherFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::FastGlobalSmootherFilter> * dst_;
         if (jsopencv_ximgproc_FastGlobalSmootherFilter_getp(src, dst_))
@@ -68939,13 +68939,13 @@ static JsMethodDef jsopencv_ximgproc_FastLineDetector_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::FastLineDetector> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::FastLineDetector>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::FastLineDetector>& r)
     {
-        return jsopencv_ximgproc_FastLineDetector_Instance(r);
+        return jsopencv_ximgproc_FastLineDetector_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::FastLineDetector>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::FastLineDetector>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::FastLineDetector> * dst_;
         if (jsopencv_ximgproc_FastLineDetector_getp(src, dst_))
@@ -69051,13 +69051,13 @@ static JsMethodDef jsopencv_ximgproc_GuidedFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::GuidedFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::GuidedFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::GuidedFilter>& r)
     {
-        return jsopencv_ximgproc_GuidedFilter_Instance(r);
+        return jsopencv_ximgproc_GuidedFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::GuidedFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::GuidedFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::GuidedFilter> * dst_;
         if (jsopencv_ximgproc_GuidedFilter_getp(src, dst_))
@@ -69144,13 +69144,13 @@ static JsMethodDef jsopencv_ximgproc_RFFeatureGetter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::RFFeatureGetter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::RFFeatureGetter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::RFFeatureGetter>& r)
     {
-        return jsopencv_ximgproc_RFFeatureGetter_Instance(r);
+        return jsopencv_ximgproc_RFFeatureGetter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::RFFeatureGetter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::RFFeatureGetter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::RFFeatureGetter> * dst_;
         if (jsopencv_ximgproc_RFFeatureGetter_getp(src, dst_))
@@ -69830,13 +69830,13 @@ static JsMethodDef jsopencv_ximgproc_RICInterpolator_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::RICInterpolator> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::RICInterpolator>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::RICInterpolator>& r)
     {
-        return jsopencv_ximgproc_RICInterpolator_Instance(r);
+        return jsopencv_ximgproc_RICInterpolator_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::RICInterpolator>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::RICInterpolator>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::RICInterpolator> * dst_;
         if (jsopencv_ximgproc_RICInterpolator_getp(src, dst_))
@@ -69978,13 +69978,13 @@ static JsMethodDef jsopencv_ximgproc_RidgeDetectionFilter_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::RidgeDetectionFilter> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::RidgeDetectionFilter>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::RidgeDetectionFilter>& r)
     {
-        return jsopencv_ximgproc_RidgeDetectionFilter_Instance(r);
+        return jsopencv_ximgproc_RidgeDetectionFilter_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::RidgeDetectionFilter>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::RidgeDetectionFilter>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::RidgeDetectionFilter> * dst_;
         if (jsopencv_ximgproc_RidgeDetectionFilter_getp(src, dst_))
@@ -70206,13 +70206,13 @@ static JsMethodDef jsopencv_ximgproc_ScanSegment_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::ScanSegment> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::ScanSegment>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::ScanSegment>& r)
     {
-        return jsopencv_ximgproc_ScanSegment_Instance(r);
+        return jsopencv_ximgproc_ScanSegment_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::ScanSegment>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::ScanSegment>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::ScanSegment> * dst_;
         if (jsopencv_ximgproc_ScanSegment_getp(src, dst_))
@@ -70330,13 +70330,13 @@ static JsMethodDef jsopencv_ximgproc_SparseMatchInterpolator_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::SparseMatchInterpolator> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::SparseMatchInterpolator>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::SparseMatchInterpolator>& r)
     {
-        return jsopencv_ximgproc_SparseMatchInterpolator_Instance(r);
+        return jsopencv_ximgproc_SparseMatchInterpolator_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::SparseMatchInterpolator>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::SparseMatchInterpolator>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::SparseMatchInterpolator> * dst_;
         if (jsopencv_ximgproc_SparseMatchInterpolator_getp(src, dst_))
@@ -70578,13 +70578,13 @@ static JsMethodDef jsopencv_ximgproc_StructuredEdgeDetection_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::StructuredEdgeDetection> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::StructuredEdgeDetection>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::StructuredEdgeDetection>& r)
     {
-        return jsopencv_ximgproc_StructuredEdgeDetection_Instance(r);
+        return jsopencv_ximgproc_StructuredEdgeDetection_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::StructuredEdgeDetection>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::StructuredEdgeDetection>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::StructuredEdgeDetection> * dst_;
         if (jsopencv_ximgproc_StructuredEdgeDetection_getp(src, dst_))
@@ -70806,13 +70806,13 @@ static JsMethodDef jsopencv_ximgproc_SuperpixelLSC_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::SuperpixelLSC> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::SuperpixelLSC>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::SuperpixelLSC>& r)
     {
-        return jsopencv_ximgproc_SuperpixelLSC_Instance(r);
+        return jsopencv_ximgproc_SuperpixelLSC_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::SuperpixelLSC>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::SuperpixelLSC>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::SuperpixelLSC> * dst_;
         if (jsopencv_ximgproc_SuperpixelLSC_getp(src, dst_))
@@ -71040,13 +71040,13 @@ static JsMethodDef jsopencv_ximgproc_SuperpixelSEEDS_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::SuperpixelSEEDS> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::SuperpixelSEEDS>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::SuperpixelSEEDS>& r)
     {
-        return jsopencv_ximgproc_SuperpixelSEEDS_Instance(r);
+        return jsopencv_ximgproc_SuperpixelSEEDS_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::SuperpixelSEEDS>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::SuperpixelSEEDS>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::SuperpixelSEEDS> * dst_;
         if (jsopencv_ximgproc_SuperpixelSEEDS_getp(src, dst_))
@@ -71268,13 +71268,13 @@ static JsMethodDef jsopencv_ximgproc_SuperpixelSLIC_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::SuperpixelSLIC> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::SuperpixelSLIC>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::SuperpixelSLIC>& r)
     {
-        return jsopencv_ximgproc_SuperpixelSLIC_Instance(r);
+        return jsopencv_ximgproc_SuperpixelSLIC_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::SuperpixelSLIC>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::SuperpixelSLIC>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::SuperpixelSLIC> * dst_;
         if (jsopencv_ximgproc_SuperpixelSLIC_getp(src, dst_))
@@ -71515,13 +71515,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_GraphSegmentation_methods[] =
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::GraphSegmentation> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::GraphSegmentation>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::GraphSegmentation>& r)
     {
-        return jsopencv_ximgproc_segmentation_GraphSegmentation_Instance(r);
+        return jsopencv_ximgproc_segmentation_GraphSegmentation_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::GraphSegmentation>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::GraphSegmentation>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::GraphSegmentation> * dst_;
         if (jsopencv_ximgproc_segmentation_GraphSegmentation_getp(src, dst_))
@@ -71890,13 +71890,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_me
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentation_getp(src, dst_))
@@ -72065,13 +72065,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategy_getp(src, dst_))
@@ -72115,13 +72115,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyColor_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyColor_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyColor_getp(src, dst_))
@@ -72165,13 +72165,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyFill_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyFill_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyFill_getp(src, dst_))
@@ -72264,13 +72264,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyMultiple_getp(src, dst_))
@@ -72314,13 +72314,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategySize_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategySize_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategySize_getp(src, dst_))
@@ -72364,13 +72364,13 @@ static JsMethodDef jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStr
 template<>
 struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture> >
 {
-    static PyObject* from(const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture>& r)
+    static Napi::Value* from(const Napi::Env &env, const Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture>& r)
     {
-        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyTexture_Instance(r);
+        return jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyTexture_Instance(env, r);
     }
-    static bool to(PyObject* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture>& dst, const ArgInfo& info)
+    static bool to(Napi::Value* src, Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture>& dst, const ArgInfo& info)
     {
-        if(!src || src == Py_None)
+        if(!src || src->IsNull() || src->IsUndefined())
             return true;
         Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture> * dst_;
         if (jsopencv_ximgproc_segmentation_SelectiveSearchSegmentationStrategyTexture_getp(src, dst_))

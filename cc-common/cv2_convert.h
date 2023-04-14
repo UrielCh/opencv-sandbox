@@ -46,7 +46,7 @@ template<typename T, class TEnable = void>  // TEnable is used for SFINAE checks
 struct JsOpenCV_Converter
 {
     // static inline bool to(const Napi::Value* obj, T& p, const ArgInfo& info);
-    // static inline Napi::Value from(const Napi::CallbackInfo &info, const T& src);
+    // static inline Napi::Value from(const Napi::Env &env, const T& src);
 };
 
 // --- Generic
@@ -93,7 +93,7 @@ template<> Napi::Value jsopencv_from(const Napi::Env &env, const cv::Mat& m);
 template<typename T>
 struct JsOpenCV_Converter< cv::Ptr<T> >
 {
-    static Napi::Value from(const Napi::CallbackInfo &info, const cv::Ptr<T>& p)
+    static Napi::Value from(const Napi::Env &env, const cv::Ptr<T>& p)
     {
         if (!p)
             return info.Env().Null(); // Py_RETURN_NONE;
@@ -134,9 +134,9 @@ template<typename T>
 struct JsOpenCV_Converter
     < T, typename std::enable_if< std::is_same<unsigned int, T>::value && !std::is_same<unsigned int, size_t>::value >::type >
 {
-    static inline Napi::Value from(const Napi::CallbackInfo &info, const unsigned int& value)
+    static inline Napi::Value from(const Napi::Env &env, const unsigned int& value)
     {
-        return JsLong_FromUnsignedLong(info.Env(), value);
+        return JsLong_FromUnsignedLong(env, value);
     }
 
     static inline bool to(const Napi::Value* obj, unsigned int& value, const ArgInfo& info)
