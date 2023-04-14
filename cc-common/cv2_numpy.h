@@ -41,14 +41,14 @@ bool JsParseSequence(const Napi::Value* obj, RefWrapper<T> (&value)[N], const Ar
     }
     if (!JsSequence_Check(obj))
     {
-        failmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence "
+        jsfailmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence "
                 "protocol", info.name);
         return false;
     }
     const std::size_t sequenceSize = JsSequence_Size(obj);
     if (sequenceSize != N)
     {
-        failmsg(obj->Env(), "Can't parse '%s'. Expected sequence length %lu, got %lu",
+        jsfailmsg(obj->Env(), "Can't parse '%s'. Expected sequence length %lu, got %lu",
                 info.name, N, sequenceSize);
         return false;
     }
@@ -57,7 +57,7 @@ bool JsParseSequence(const Napi::Value* obj, RefWrapper<T> (&value)[N], const Ar
         JsSafeSeqItem seqItem(obj, i);
         if (!jsopencv_to(seqItem.item, value[i].get(), info))
         {
-            failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a "
+            jsfailmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a "
                     "wrong type", info.name, i);
             return false;
         }

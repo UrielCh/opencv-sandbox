@@ -9,12 +9,12 @@
 
 bool jsopencv_to_safe(const Napi::Value* obj, cv::UMat img, const ArgInfo& argInfo)
 {
-    failmsg(obj->Env(), "Conversion UMat Not implemented");
+    jsfailmsg(obj->Env(), "Conversion UMat Not implemented");
     return false;
 }
 // <cv::UMat>
 Napi::Value jsopencv_from(const Napi::CallbackInfo &info, const cv::UMat & src) {
-    failmsg(info.Env(), "jsopencv_from<UMat> Not implemented");
+    jsfailmsg(info.Env(), "jsopencv_from<UMat> Not implemented");
     return info.Env().Null();
 }
 

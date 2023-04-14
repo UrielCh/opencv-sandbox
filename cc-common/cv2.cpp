@@ -46,11 +46,11 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
 {
     if (!parent_module)
     {
-        return failmsgp(env, "Bindings generation error. Parent module is NULL during the submodule '%s' creation", name.c_str());
+        return jsfailmsgp(env, "Bindings generation error. Parent module is NULL during the submodule '%s' creation", name.c_str());
     }
     if (strEndsWith(name, '.'))
     {
-        return failmsgp(env, "Bindings generation error. Submodule can't end with a dot. Got: %s", name.c_str());
+        return jsfailmsgp(env, "Bindings generation error. Submodule can't end with a dot. Got: %s", name.c_str());
     }
 
     // return __name__
@@ -65,7 +65,7 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
 
     if (!strStartsWith(name, parent_name))
     {
-        return failmsgp(env,
+        return jsfailmsgp(env,
                         "Bindings generation error. "
                         "Submodule name should always start with a parent module name. "
                         "Parent name: %s. Submodule name: %s",
@@ -103,7 +103,7 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
             /// successfull call to the `PyDict_SetItemString` is redundant.
             if (!parent_module_dict.Set(submodule_name.c_str(), submodule))
             {
-                return failmsgp(env, "Can't register a submodule '%s' (full name: '%s')", submodule_name.c_str(), full_submodule_name.c_str());
+                return jsfailmsgp(env, "Can't register a submodule '%s' (full name: '%s')", submodule_name.c_str(), full_submodule_name.c_str());
             }
         }
 
@@ -134,7 +134,7 @@ static bool init_submodule(Napi::Env env, Napi::Object current, const char *name
         Napi::Value *method_obj = JsCFunction_NewEx(m, NULL, NULL);
         if (JsDict_SetItemString(&d, m->ml_name, method_obj) < 0)
         {
-            failmsg(env, "Can't register constant %s in module %s", m->ml_name, name);
+            jsfailmsg(env, "Can't register constant %s in module %s", m->ml_name, name);
             // Py_CLEAR(method_obj);
             return false;
         }
@@ -145,7 +145,7 @@ static bool init_submodule(Napi::Env env, Napi::Object current, const char *name
         Napi::Number const_obj = JsLong_FromLongLong(env, c->val);
         if (JsDict_SetItemString(&d, c->name, &const_obj) < 0)
         {
-            failmsg(env, "Can't register constant %s in module %s", c->name, name);
+            jsfailmsg(env, "Can't register constant %s in module %s", c->name, name);
             // Py_CLEAR(const_obj);
             return false;
         }

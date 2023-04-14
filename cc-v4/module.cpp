@@ -4,7 +4,6 @@
 #include "../cc-common/js_as_py_test.h"
 #include "../cc-common/cv2_util.h"
 
-
 static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
 {
     try
@@ -15,7 +14,7 @@ static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
     }
     catch (const std::exception &ex)
     {
-        failmsg(info.Env(), "A Test Throws un non catched Exception: %s", ex.what());
+        jsfailmsg(info.Env(), "A Test Throws un non catched Exception: %s", ex.what());
     }
     return info.Env().Null();
 }

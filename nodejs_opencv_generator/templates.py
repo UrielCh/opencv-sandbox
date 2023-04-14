@@ -58,7 +58,7 @@ struct JsOpenCV_Converter< ${cname} >
             return true;
         }
         ${mappable_code}
-        failmsg("Expected ${cname} for argument '%s'", info.name);
+        jsfailmsg("Expected ${cname} for argument '%s'", info.name);
         return false;
     }
 };

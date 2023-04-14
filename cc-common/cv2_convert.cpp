@@ -35,7 +35,7 @@ bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInf
 
         if (!dimsValue.IsNumber() || !sizesValue.IsArray() || !typeValue.IsNumber() || !dataValue.IsBuffer())
         {
-            failmsg(obj_value->Env(), "Argument '%s' is not a valid Mat object", argInfo.name);
+            jsfailmsg(obj_value->Env(), "Argument '%s' is not a valid Mat object", argInfo.name);
             return false;
         }
 
@@ -54,7 +54,7 @@ bool jsopencv_to(const Napi::Value *obj_value, cv::Mat &m, const ArgInfo &argInf
         return true;
     }
 
-    failmsg(obj_value->Env(), "Argument '%s' is not convertable to cv::Mat", argInfo.name);
+    jsfailmsg(obj_value->Env(), "Argument '%s' is not convertable to cv::Mat", argInfo.name);
     return false;
 }
 
@@ -269,7 +269,7 @@ bool jsopencv_to(const Napi::Value *obj, bool &value, const ArgInfo &argInfo)
     }
     // Napi::TypeError::New(env, "Failed to parse boolean value").ThrowAsJavaScriptException();
     // return false;
-    failmsg(obj->Env(), "Argument '%s' is not convertable to bool", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to bool", argInfo.name);
     return false;
 }
 
@@ -313,7 +313,7 @@ bool jsopencv_to(const Napi::Value *obj, Scalar &s, const ArgInfo &argInfo)
         Napi::Array arr = obj->As<Napi::Array>();
         if (arr.Length() != 4)
         {
-            failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
+            jsfailmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
             return false;
         }
         for (int i = 0; i < 4; i++)
@@ -321,14 +321,14 @@ bool jsopencv_to(const Napi::Value *obj, Scalar &s, const ArgInfo &argInfo)
             Napi::Value v = arr.Get(i);
             if (!v.IsNumber())
             {
-                failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
+                jsfailmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
                 return false;
             }
             s[i] = v.As<Napi::Number>().DoubleValue();
         }
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
     return false;
 }
 
@@ -355,7 +355,7 @@ bool jsopencv_to(const Napi::Value *obj, size_t &value, const ArgInfo &argInfo)
         // value = static_cast<size_t>(static_cast<int64_t>(num));
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to size_t", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to size_t", argInfo.name);
     return false;
 }
 
@@ -423,7 +423,7 @@ bool jsopencv_to(const Napi::Value *obj, int &value, const ArgInfo &Arginfo)
         value = obj->ToNumber().Int32Value();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to int", Arginfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to int", Arginfo.name);
     return false;
 }
 
@@ -455,7 +455,7 @@ bool jsopencv_to(const Napi::Value *obj, int64 &value, const ArgInfo &argInfo)
         value = obj->ToNumber().Int64Value();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to int64", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to int64", argInfo.name);
     return false;
 }
 
@@ -485,7 +485,7 @@ bool jsopencv_to(const Napi::Value *obj, uchar &value, const ArgInfo &argInfo)
         value = obj->ToNumber().Uint32Value();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to uchar", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to uchar", argInfo.name);
     return false;
 }
 template <>
@@ -507,7 +507,7 @@ bool jsopencv_to(const Napi::Value *obj, char &value, const ArgInfo &argInfo)
         value = obj->ToNumber().Int32Value();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to char", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to char", argInfo.name);
     return false;
 
 
@@ -533,7 +533,7 @@ bool jsopencv_to(const Napi::Value *obj, double &value, const ArgInfo &argInfo)
         value = obj->ToNumber().DoubleValue();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to double", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to double", argInfo.name);
     return false;
 
 
@@ -580,7 +580,7 @@ bool jsopencv_to(const Napi::Value *obj, float &value, const ArgInfo &argInfo)
         value = obj->ToNumber().FloatValue();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to float", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to float", argInfo.name);
     return false;
 
 
@@ -629,7 +629,7 @@ bool jsopencv_to(const Napi::Value *obj, String &value, const ArgInfo &argInfo)
         value = obj->ToString().Utf8Value();
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not convertable to string", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not convertable to string", argInfo.name);
     return false;
 
 
@@ -680,7 +680,7 @@ bool jsopencv_to(const Napi::Value *obj, Size &sz, const ArgInfo &argInfo)
         Napi::Value v = arr.Get("width");
         if (!v.IsNumber())
         {
-            failmsg(obj->Env(), "Argument '%s' is not a valid size, width is missing", argInfo.name);
+            jsfailmsg(obj->Env(), "Argument '%s' is not a valid size, width is missing", argInfo.name);
             return false;
         }
         sz.width = v.As<Napi::Number>().Int32Value();
@@ -688,7 +688,7 @@ bool jsopencv_to(const Napi::Value *obj, Size &sz, const ArgInfo &argInfo)
         Napi::Value v2 = arr.Get("height");
         if (!v2.IsNumber())
         {
-            failmsg(obj->Env(), "Argument '%s' is not a valid size, height is missing", argInfo.name);
+            jsfailmsg(obj->Env(), "Argument '%s' is not a valid size, height is missing", argInfo.name);
             return false;
         }
         sz.height = v2.As<Napi::Number>().Int32Value();
@@ -699,7 +699,7 @@ bool jsopencv_to(const Napi::Value *obj, Size &sz, const ArgInfo &argInfo)
         Napi::Array arr = obj->As<Napi::Array>();
         if (arr.Length() != 2)
         {
-            failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
+            jsfailmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
             return false;
         }
         for (int i = 0; i < 2; i++)
@@ -707,7 +707,7 @@ bool jsopencv_to(const Napi::Value *obj, Size &sz, const ArgInfo &argInfo)
             Napi::Value v = arr.Get(i);
             if (!v.IsNumber())
             {
-                failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
+                jsfailmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
                 return false;
             }
             if (i == 0)
@@ -717,7 +717,7 @@ bool jsopencv_to(const Napi::Value *obj, Size &sz, const ArgInfo &argInfo)
         }
         return true;
     }
-    failmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
+    jsfailmsg(obj->Env(), "Argument '%s' is not a valid size", argInfo.name);
     return false;
 }
 
@@ -794,7 +794,7 @@ bool jsopencv_to(const Napi::Value *obj, cv::RotatedRect &dst, const ArgInfo &ar
     }
     if (!obj->IsObject())
     {
-        failmsg(obj->Env(), "Can't parse '%s' as RotatedRect. Input argument is not an object", argInfo.name);
+        jsfailmsg(obj->Env(), "Can't parse '%s' as RotatedRect. Input argument is not an object", argInfo.name);
         return false;
     }
 
@@ -805,7 +805,7 @@ bool jsopencv_to(const Napi::Value *obj, cv::RotatedRect &dst, const ArgInfo &ar
 
     if (!centerValue.IsObject() || !sizeValue.IsObject() || !angleValue.IsNumber())
     {
-        failmsg(obj->Env(), "Can't parse '%s' as RotatedRect. Invalid object structure", argInfo.name);
+        jsfailmsg(obj->Env(), "Can't parse '%s' as RotatedRect. Invalid object structure", argInfo.name);
         return false;
     }
 
@@ -866,7 +866,7 @@ bool jsopencv_to(const Napi::Value *obj, cv::Range &r, const ArgInfo &argInfo)
     Napi::Env env = obj->Env();
     if (!obj->IsArray())
     {
-        failmsg(env, "Can't parse '%s' as Range. Input argument is not an array", argInfo.name);
+        jsfailmsg(env, "Can't parse '%s' as Range. Input argument is not an array", argInfo.name);
         return false;
     }
 
@@ -884,7 +884,7 @@ bool jsopencv_to(const Napi::Value *obj, cv::Range &r, const ArgInfo &argInfo)
     }
     else
     {
-        failmsg(env, "Can't parse '%s' as Range. Expected array of length 0 or 2", argInfo.name);
+        jsfailmsg(env, "Can't parse '%s' as Range. Expected array of length 0 or 2", argInfo.name);
         return false;
     }
 }
@@ -1013,14 +1013,14 @@ bool jsopencv_to(const Napi::Value *obj, cv::Vec4d &v, const ArgInfo &argInfo)
 {
     if (!obj->IsArray())
     {
-        failmsg(obj->Env(), "Expected an array for argument '%s'", argInfo.name);
+        jsfailmsg(obj->Env(), "Expected an array for argument '%s'", argInfo.name);
         return false;
     }
 
     Napi::Array arr = obj->As<Napi::Array>();
     if (arr.Length() < 4)
     {
-        failmsg(obj->Env(), "Expected an array of length 4 for argument '%s'", argInfo.name);
+        jsfailmsg(obj->Env(), "Expected an array of length 4 for argument '%s'", argInfo.name);
         return false;
     }
 
@@ -1029,7 +1029,7 @@ bool jsopencv_to(const Napi::Value *obj, cv::Vec4d &v, const ArgInfo &argInfo)
         Napi::Value val = arr.Get(i);
         if (!val.IsNumber())
         {
-            failmsg(obj->Env(), "Array element at index %zu is not a number for argument '%s'", i, argInfo.name);
+            jsfailmsg(obj->Env(), "Array element at index %zu is not a number for argument '%s'", i, argInfo.name);
             return false;
         }
         v[i] = val.As<Napi::Number>().DoubleValue();
@@ -1054,14 +1054,14 @@ bool jsopencv_to(const Napi::Value *obj, cv::Vec4f &v, const ArgInfo &argInfo)
 {
     if (!obj->IsArray())
     {
-        failmsg(obj->Env(), "Expected an array for argument '%s'", argInfo.name);
+        jsfailmsg(obj->Env(), "Expected an array for argument '%s'", argInfo.name);
         return false;
     }
 
     Napi::Array arr = obj->As<Napi::Array>();
     if (arr.Length() < 4)
     {
-        failmsg(obj->Env(), "Expected an array of length 4 for argument '%s'", argInfo.name);
+        jsfailmsg(obj->Env(), "Expected an array of length 4 for argument '%s'", argInfo.name);
         return false;
     }
 
@@ -1070,7 +1070,7 @@ bool jsopencv_to(const Napi::Value *obj, cv::Vec4f &v, const ArgInfo &argInfo)
         Napi::Value val = arr.Get(i);
         if (!val.IsNumber())
         {
-            failmsg(obj->Env(), "Array element at index %zu is not a number for argument '%s'", i, argInfo.name);
+            jsfailmsg(obj->Env(), "Array element at index %zu is not a number for argument '%s'", i, argInfo.name);
             return false;
         }
         v[i] = val.As<Napi::Number>().FloatValue();

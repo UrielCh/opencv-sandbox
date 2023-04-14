@@ -425,7 +425,7 @@ struct JsOpenCV_Converter< Ptr<cv::AKAZE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::AKAZE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::AKAZE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -582,7 +582,7 @@ struct JsOpenCV_Converter< Ptr<cv::AffineFeature> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::AffineFeature> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::AffineFeature> for argument '%s'", info.name);
         return false;
     }
 };
@@ -814,7 +814,7 @@ struct JsOpenCV_Converter< Ptr<cv::AgastFeatureDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::AgastFeatureDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::AgastFeatureDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -1026,7 +1026,7 @@ struct JsOpenCV_Converter< Ptr<cv::Algorithm> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::Algorithm> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::Algorithm> for argument '%s'", info.name);
         return false;
     }
 };
@@ -1143,7 +1143,7 @@ struct JsOpenCV_Converter< Ptr<cv::AlignExposures> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::AlignExposures> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::AlignExposures> for argument '%s'", info.name);
         return false;
     }
 };
@@ -1614,7 +1614,7 @@ struct JsOpenCV_Converter< Ptr<cv::AlignMTB> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::AlignMTB> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::AlignMTB> for argument '%s'", info.name);
         return false;
     }
 };
@@ -1836,7 +1836,7 @@ struct JsOpenCV_Converter< Ptr<cv::AsyncArray> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::AsyncArray> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::AsyncArray> for argument '%s'", info.name);
         return false;
     }
 };
@@ -1931,7 +1931,7 @@ struct JsOpenCV_Converter< Ptr<cv::BFMatcher> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BFMatcher> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BFMatcher> for argument '%s'", info.name);
         return false;
     }
 };
@@ -2120,7 +2120,7 @@ struct JsOpenCV_Converter< Ptr<cv::BOWImgDescriptorExtractor> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BOWImgDescriptorExtractor> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BOWImgDescriptorExtractor> for argument '%s'", info.name);
         return false;
     }
 };
@@ -2245,7 +2245,7 @@ struct JsOpenCV_Converter< Ptr<cv::BOWKMeansTrainer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BOWKMeansTrainer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BOWKMeansTrainer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -2428,7 +2428,7 @@ struct JsOpenCV_Converter< Ptr<cv::BOWTrainer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BOWTrainer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BOWTrainer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -2734,7 +2734,7 @@ struct JsOpenCV_Converter< Ptr<cv::BRISK> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BRISK> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BRISK> for argument '%s'", info.name);
         return false;
     }
 };
@@ -2894,7 +2894,7 @@ struct JsOpenCV_Converter< Ptr<cv::BackgroundSubtractor> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BackgroundSubtractor> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BackgroundSubtractor> for argument '%s'", info.name);
         return false;
     }
 };
@@ -3259,7 +3259,7 @@ struct JsOpenCV_Converter< Ptr<cv::BackgroundSubtractorKNN> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BackgroundSubtractorKNN> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BackgroundSubtractorKNN> for argument '%s'", info.name);
         return false;
     }
 };
@@ -3910,7 +3910,7 @@ struct JsOpenCV_Converter< Ptr<cv::BackgroundSubtractorMOG2> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BackgroundSubtractorMOG2> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BackgroundSubtractorMOG2> for argument '%s'", info.name);
         return false;
     }
 };
@@ -3960,7 +3960,7 @@ struct JsOpenCV_Converter< Ptr<cv::BaseCascadeClassifier> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::BaseCascadeClassifier> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::BaseCascadeClassifier> for argument '%s'", info.name);
         return false;
     }
 };
@@ -4175,7 +4175,7 @@ struct JsOpenCV_Converter< Ptr<cv::CLAHE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::CLAHE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::CLAHE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -4286,7 +4286,7 @@ struct JsOpenCV_Converter< Ptr<cv::CalibrateCRF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::CalibrateCRF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::CalibrateCRF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -4471,7 +4471,7 @@ struct JsOpenCV_Converter< Ptr<cv::CalibrateDebevec> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::CalibrateDebevec> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::CalibrateDebevec> for argument '%s'", info.name);
         return false;
     }
 };
@@ -4632,7 +4632,7 @@ struct JsOpenCV_Converter< Ptr<cv::CalibrateRobertson> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::CalibrateRobertson> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::CalibrateRobertson> for argument '%s'", info.name);
         return false;
     }
 };
@@ -5135,7 +5135,7 @@ struct JsOpenCV_Converter< Ptr<cv::CascadeClassifier> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::CascadeClassifier> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::CascadeClassifier> for argument '%s'", info.name);
         return false;
     }
 };
@@ -5439,7 +5439,7 @@ struct JsOpenCV_Converter< cv::CirclesGridFinderParameters >
             return true;
         }
         
-        failmsg("Expected cv::CirclesGridFinderParameters for argument '%s'", info.name);
+        jsfailmsg("Expected cv::CirclesGridFinderParameters for argument '%s'", info.name);
         return false;
     }
 };
@@ -5959,7 +5959,7 @@ struct JsOpenCV_Converter< Ptr<cv::DISOpticalFlow> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::DISOpticalFlow> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::DISOpticalFlow> for argument '%s'", info.name);
         return false;
     }
 };
@@ -6144,7 +6144,7 @@ struct JsOpenCV_Converter< cv::DMatch >
             return true;
         }
         
-        failmsg("Expected cv::DMatch for argument '%s'", info.name);
+        jsfailmsg("Expected cv::DMatch for argument '%s'", info.name);
         return false;
     }
 };
@@ -6275,7 +6275,7 @@ struct JsOpenCV_Converter< Ptr<cv::DenseOpticalFlow> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::DenseOpticalFlow> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::DenseOpticalFlow> for argument '%s'", info.name);
         return false;
     }
 };
@@ -7012,7 +7012,7 @@ struct JsOpenCV_Converter< Ptr<cv::DescriptorMatcher> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::DescriptorMatcher> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::DescriptorMatcher> for argument '%s'", info.name);
         return false;
     }
 };
@@ -7340,7 +7340,7 @@ struct JsOpenCV_Converter< Ptr<cv::FaceDetectorYN> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::FaceDetectorYN> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::FaceDetectorYN> for argument '%s'", info.name);
         return false;
     }
 };
@@ -7598,7 +7598,7 @@ struct JsOpenCV_Converter< Ptr<cv::FaceRecognizerSF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::FaceRecognizerSF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::FaceRecognizerSF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -8049,7 +8049,7 @@ struct JsOpenCV_Converter< Ptr<cv::FarnebackOpticalFlow> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::FarnebackOpticalFlow> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::FarnebackOpticalFlow> for argument '%s'", info.name);
         return false;
     }
 };
@@ -8281,7 +8281,7 @@ struct JsOpenCV_Converter< Ptr<cv::FastFeatureDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::FastFeatureDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::FastFeatureDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -8812,7 +8812,7 @@ struct JsOpenCV_Converter< Ptr<cv::Feature2D> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::Feature2D> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::Feature2D> for argument '%s'", info.name);
         return false;
     }
 };
@@ -9260,7 +9260,7 @@ struct JsOpenCV_Converter< cv::FileNode >
             return true;
         }
         
-        failmsg("Expected cv::FileNode for argument '%s'", info.name);
+        jsfailmsg("Expected cv::FileNode for argument '%s'", info.name);
         return false;
     }
 };
@@ -9732,7 +9732,7 @@ struct JsOpenCV_Converter< Ptr<cv::FileStorage> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::FileStorage> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::FileStorage> for argument '%s'", info.name);
         return false;
     }
 };
@@ -9820,7 +9820,7 @@ struct JsOpenCV_Converter< Ptr<cv::FlannBasedMatcher> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::FlannBasedMatcher> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::FlannBasedMatcher> for argument '%s'", info.name);
         return false;
     }
 };
@@ -9870,7 +9870,7 @@ struct JsOpenCV_Converter< cv::GArrayDesc >
             return true;
         }
         
-        failmsg("Expected cv::GArrayDesc for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GArrayDesc for argument '%s'", info.name);
         return false;
     }
 };
@@ -9959,7 +9959,7 @@ struct JsOpenCV_Converter< cv::GArrayT >
             return true;
         }
         
-        failmsg("Expected cv::GArrayT for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GArrayT for argument '%s'", info.name);
         return false;
     }
 };
@@ -10069,7 +10069,7 @@ struct JsOpenCV_Converter< cv::GCompileArg >
             return true;
         }
         
-        failmsg("Expected cv::GCompileArg for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GCompileArg for argument '%s'", info.name);
         return false;
     }
 };
@@ -10318,7 +10318,7 @@ struct JsOpenCV_Converter< Ptr<cv::GComputation> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::GComputation> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::GComputation> for argument '%s'", info.name);
         return false;
     }
 };
@@ -10783,7 +10783,7 @@ struct JsOpenCV_Converter< Ptr<cv::GFTTDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::GFTTDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::GFTTDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -10847,7 +10847,7 @@ struct JsOpenCV_Converter< cv::GFrame >
             return true;
         }
         
-        failmsg("Expected cv::GFrame for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GFrame for argument '%s'", info.name);
         return false;
     }
 };
@@ -10968,7 +10968,7 @@ struct JsOpenCV_Converter< cv::GInferInputs >
             return true;
         }
         
-        failmsg("Expected cv::GInferInputs for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GInferInputs for argument '%s'", info.name);
         return false;
     }
 };
@@ -11089,7 +11089,7 @@ struct JsOpenCV_Converter< cv::GInferListInputs >
             return true;
         }
         
-        failmsg("Expected cv::GInferListInputs for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GInferListInputs for argument '%s'", info.name);
         return false;
     }
 };
@@ -11178,7 +11178,7 @@ struct JsOpenCV_Converter< cv::GInferListOutputs >
             return true;
         }
         
-        failmsg("Expected cv::GInferListOutputs for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GInferListOutputs for argument '%s'", info.name);
         return false;
     }
 };
@@ -11267,7 +11267,7 @@ struct JsOpenCV_Converter< cv::GInferOutputs >
             return true;
         }
         
-        failmsg("Expected cv::GInferOutputs for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GInferOutputs for argument '%s'", info.name);
         return false;
     }
 };
@@ -11317,7 +11317,7 @@ struct JsOpenCV_Converter< cv::GKernelPackage >
             return true;
         }
         
-        failmsg("Expected cv::GKernelPackage for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GKernelPackage for argument '%s'", info.name);
         return false;
     }
 };
@@ -11381,7 +11381,7 @@ struct JsOpenCV_Converter< cv::GMat >
             return true;
         }
         
-        failmsg("Expected cv::GMat for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GMat for argument '%s'", info.name);
         return false;
     }
 };
@@ -11749,7 +11749,7 @@ struct JsOpenCV_Converter< cv::GMatDesc >
             return true;
         }
         
-        failmsg("Expected cv::GMatDesc for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GMatDesc for argument '%s'", info.name);
         return false;
     }
 };
@@ -11799,7 +11799,7 @@ struct JsOpenCV_Converter< cv::GOpaqueDesc >
             return true;
         }
         
-        failmsg("Expected cv::GOpaqueDesc for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GOpaqueDesc for argument '%s'", info.name);
         return false;
     }
 };
@@ -11888,7 +11888,7 @@ struct JsOpenCV_Converter< cv::GOpaqueT >
             return true;
         }
         
-        failmsg("Expected cv::GOpaqueT for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GOpaqueT for argument '%s'", info.name);
         return false;
     }
 };
@@ -11977,7 +11977,7 @@ struct JsOpenCV_Converter< cv::GScalar >
             return true;
         }
         
-        failmsg("Expected cv::GScalar for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GScalar for argument '%s'", info.name);
         return false;
     }
 };
@@ -12027,7 +12027,7 @@ struct JsOpenCV_Converter< cv::GScalarDesc >
             return true;
         }
         
-        failmsg("Expected cv::GScalarDesc for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GScalarDesc for argument '%s'", info.name);
         return false;
     }
 };
@@ -12197,7 +12197,7 @@ struct JsOpenCV_Converter< cv::GStreamingCompiled >
             return true;
         }
         
-        failmsg("Expected cv::GStreamingCompiled for argument '%s'", info.name);
+        jsfailmsg("Expected cv::GStreamingCompiled for argument '%s'", info.name);
         return false;
     }
 };
@@ -12698,7 +12698,7 @@ struct JsOpenCV_Converter< Ptr<cv::GeneralizedHough> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::GeneralizedHough> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::GeneralizedHough> for argument '%s'", info.name);
         return false;
     }
 };
@@ -12838,7 +12838,7 @@ struct JsOpenCV_Converter< Ptr<cv::GeneralizedHoughBallard> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::GeneralizedHoughBallard> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::GeneralizedHoughBallard> for argument '%s'", info.name);
         return false;
     }
 };
@@ -13428,7 +13428,7 @@ struct JsOpenCV_Converter< Ptr<cv::GeneralizedHoughGuil> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::GeneralizedHoughGuil> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::GeneralizedHoughGuil> for argument '%s'", info.name);
         return false;
     }
 };
@@ -14155,7 +14155,7 @@ struct JsOpenCV_Converter< Ptr<cv::HOGDescriptor> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::HOGDescriptor> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::HOGDescriptor> for argument '%s'", info.name);
         return false;
     }
 };
@@ -14531,7 +14531,7 @@ struct JsOpenCV_Converter< Ptr<cv::KAZE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::KAZE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::KAZE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -14841,7 +14841,7 @@ struct JsOpenCV_Converter< Ptr<cv::KalmanFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::KalmanFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::KalmanFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -15128,7 +15128,7 @@ struct JsOpenCV_Converter< cv::KeyPoint >
             return true;
         }
         
-        failmsg("Expected cv::KeyPoint for argument '%s'", info.name);
+        jsfailmsg("Expected cv::KeyPoint for argument '%s'", info.name);
         return false;
     }
 };
@@ -15375,7 +15375,7 @@ struct JsOpenCV_Converter< Ptr<cv::LineSegmentDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::LineSegmentDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::LineSegmentDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -15993,7 +15993,7 @@ struct JsOpenCV_Converter< Ptr<cv::MSER> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::MSER> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::MSER> for argument '%s'", info.name);
         return false;
     }
 };
@@ -16156,7 +16156,7 @@ struct JsOpenCV_Converter< Ptr<cv::MergeDebevec> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::MergeDebevec> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::MergeDebevec> for argument '%s'", info.name);
         return false;
     }
 };
@@ -16273,7 +16273,7 @@ struct JsOpenCV_Converter< Ptr<cv::MergeExposures> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::MergeExposures> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::MergeExposures> for argument '%s'", info.name);
         return false;
     }
 };
@@ -16565,7 +16565,7 @@ struct JsOpenCV_Converter< Ptr<cv::MergeMertens> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::MergeMertens> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::MergeMertens> for argument '%s'", info.name);
         return false;
     }
 };
@@ -16728,7 +16728,7 @@ struct JsOpenCV_Converter< Ptr<cv::MergeRobertson> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::MergeRobertson> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::MergeRobertson> for argument '%s'", info.name);
         return false;
     }
 };
@@ -17429,7 +17429,7 @@ struct JsOpenCV_Converter< Ptr<cv::ORB> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ORB> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ORB> for argument '%s'", info.name);
         return false;
     }
 };
@@ -18062,7 +18062,7 @@ struct JsOpenCV_Converter< Ptr<cv::QRCodeDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::QRCodeDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::QRCodeDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -18242,7 +18242,7 @@ struct JsOpenCV_Converter< Ptr<cv::QRCodeEncoder> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::QRCodeEncoder> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::QRCodeEncoder> for argument '%s'", info.name);
         return false;
     }
 };
@@ -18370,7 +18370,7 @@ struct JsOpenCV_Converter< cv::QRCodeEncoder::Params >
             return true;
         }
         
-        failmsg("Expected cv::QRCodeEncoder::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::QRCodeEncoder::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -18739,7 +18739,7 @@ struct JsOpenCV_Converter< Ptr<cv::SIFT> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::SIFT> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::SIFT> for argument '%s'", info.name);
         return false;
     }
 };
@@ -18896,7 +18896,7 @@ struct JsOpenCV_Converter< Ptr<cv::SimpleBlobDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::SimpleBlobDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::SimpleBlobDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -19280,7 +19280,7 @@ struct JsOpenCV_Converter< cv::SimpleBlobDetector::Params >
             return true;
         }
         
-        failmsg("Expected cv::SimpleBlobDetector::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::SimpleBlobDetector::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -19409,7 +19409,7 @@ struct JsOpenCV_Converter< Ptr<cv::SparseOpticalFlow> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::SparseOpticalFlow> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::SparseOpticalFlow> for argument '%s'", info.name);
         return false;
     }
 };
@@ -19716,7 +19716,7 @@ struct JsOpenCV_Converter< Ptr<cv::SparsePyrLKOpticalFlow> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::SparsePyrLKOpticalFlow> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::SparsePyrLKOpticalFlow> for argument '%s'", info.name);
         return false;
     }
 };
@@ -20149,7 +20149,7 @@ struct JsOpenCV_Converter< Ptr<cv::StereoBM> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::StereoBM> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::StereoBM> for argument '%s'", info.name);
         return false;
     }
 };
@@ -20530,7 +20530,7 @@ struct JsOpenCV_Converter< Ptr<cv::StereoMatcher> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::StereoMatcher> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::StereoMatcher> for argument '%s'", info.name);
         return false;
     }
 };
@@ -20855,7 +20855,7 @@ struct JsOpenCV_Converter< Ptr<cv::StereoSGBM> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::StereoSGBM> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::StereoSGBM> for argument '%s'", info.name);
         return false;
     }
 };
@@ -21346,7 +21346,7 @@ struct JsOpenCV_Converter< Ptr<cv::Subdiv2D> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::Subdiv2D> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::Subdiv2D> for argument '%s'", info.name);
         return false;
     }
 };
@@ -21639,7 +21639,7 @@ struct JsOpenCV_Converter< Ptr<cv::TickMeter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TickMeter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TickMeter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -21789,7 +21789,7 @@ struct JsOpenCV_Converter< Ptr<cv::Tonemap> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::Tonemap> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::Tonemap> for argument '%s'", info.name);
         return false;
     }
 };
@@ -21929,7 +21929,7 @@ struct JsOpenCV_Converter< Ptr<cv::TonemapDrago> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TonemapDrago> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TonemapDrago> for argument '%s'", info.name);
         return false;
     }
 };
@@ -22069,7 +22069,7 @@ struct JsOpenCV_Converter< Ptr<cv::TonemapMantiuk> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TonemapMantiuk> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TonemapMantiuk> for argument '%s'", info.name);
         return false;
     }
 };
@@ -22254,7 +22254,7 @@ struct JsOpenCV_Converter< Ptr<cv::TonemapReinhard> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TonemapReinhard> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TonemapReinhard> for argument '%s'", info.name);
         return false;
     }
 };
@@ -22412,7 +22412,7 @@ struct JsOpenCV_Converter< Ptr<cv::Tracker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::Tracker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::Tracker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -22531,7 +22531,7 @@ struct JsOpenCV_Converter< Ptr<cv::TrackerCSRT> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TrackerCSRT> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TrackerCSRT> for argument '%s'", info.name);
         return false;
     }
 };
@@ -23027,7 +23027,7 @@ struct JsOpenCV_Converter< cv::TrackerCSRT::Params >
             return true;
         }
         
-        failmsg("Expected cv::TrackerCSRT::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::TrackerCSRT::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -23118,7 +23118,7 @@ struct JsOpenCV_Converter< Ptr<cv::TrackerDaSiamRPN> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TrackerDaSiamRPN> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TrackerDaSiamRPN> for argument '%s'", info.name);
         return false;
     }
 };
@@ -23262,7 +23262,7 @@ struct JsOpenCV_Converter< cv::TrackerDaSiamRPN::Params >
             return true;
         }
         
-        failmsg("Expected cv::TrackerDaSiamRPN::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::TrackerDaSiamRPN::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -23332,7 +23332,7 @@ struct JsOpenCV_Converter< Ptr<cv::TrackerGOTURN> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TrackerGOTURN> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TrackerGOTURN> for argument '%s'", info.name);
         return false;
     }
 };
@@ -23428,7 +23428,7 @@ struct JsOpenCV_Converter< cv::TrackerGOTURN::Params >
             return true;
         }
         
-        failmsg("Expected cv::TrackerGOTURN::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::TrackerGOTURN::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -23498,7 +23498,7 @@ struct JsOpenCV_Converter< Ptr<cv::TrackerKCF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TrackerKCF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TrackerKCF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -23786,7 +23786,7 @@ struct JsOpenCV_Converter< cv::TrackerKCF::Params >
             return true;
         }
         
-        failmsg("Expected cv::TrackerKCF::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::TrackerKCF::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -23856,7 +23856,7 @@ struct JsOpenCV_Converter< Ptr<cv::TrackerMIL> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TrackerMIL> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TrackerMIL> for argument '%s'", info.name);
         return false;
     }
 };
@@ -24032,7 +24032,7 @@ struct JsOpenCV_Converter< cv::TrackerMIL::Params >
             return true;
         }
         
-        failmsg("Expected cv::TrackerMIL::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::TrackerMIL::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -24123,7 +24123,7 @@ struct JsOpenCV_Converter< Ptr<cv::TrackerNano> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::TrackerNano> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::TrackerNano> for argument '%s'", info.name);
         return false;
     }
 };
@@ -24251,7 +24251,7 @@ struct JsOpenCV_Converter< cv::TrackerNano::Params >
             return true;
         }
         
-        failmsg("Expected cv::TrackerNano::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::TrackerNano::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -24664,7 +24664,7 @@ struct JsOpenCV_Converter< Ptr<cv::UMat> >
         }
     }
 
-        failmsg("Expected Ptr<cv::UMat> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::UMat> for argument '%s'", info.name);
         return false;
     }
 };
@@ -24904,7 +24904,7 @@ struct JsOpenCV_Converter< cv::UsacParams >
             return true;
         }
         
-        failmsg("Expected cv::UsacParams for argument '%s'", info.name);
+        jsfailmsg("Expected cv::UsacParams for argument '%s'", info.name);
         return false;
     }
 };
@@ -25307,7 +25307,7 @@ struct JsOpenCV_Converter< Ptr<cv::VariationalRefinement> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::VariationalRefinement> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::VariationalRefinement> for argument '%s'", info.name);
         return false;
     }
 };
@@ -25888,7 +25888,7 @@ struct JsOpenCV_Converter< Ptr<cv::VideoCapture> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::VideoCapture> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::VideoCapture> for argument '%s'", info.name);
         return false;
     }
 };
@@ -26421,7 +26421,7 @@ struct JsOpenCV_Converter< Ptr<cv::VideoWriter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::VideoWriter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::VideoWriter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -26840,7 +26840,7 @@ struct JsOpenCV_Converter< Ptr<cv::aruco::ArucoDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::aruco::ArucoDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::aruco::ArucoDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -27163,7 +27163,7 @@ struct JsOpenCV_Converter< cv::aruco::Board >
             return true;
         }
         
-        failmsg("Expected cv::aruco::Board for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::Board for argument '%s'", info.name);
         return false;
     }
 };
@@ -27415,7 +27415,7 @@ struct JsOpenCV_Converter< cv::aruco::CharucoBoard >
             return true;
         }
         
-        failmsg("Expected cv::aruco::CharucoBoard for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::CharucoBoard for argument '%s'", info.name);
         return false;
     }
 };
@@ -27819,7 +27819,7 @@ struct JsOpenCV_Converter< Ptr<cv::aruco::CharucoDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::aruco::CharucoDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::aruco::CharucoDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -27933,7 +27933,7 @@ struct JsOpenCV_Converter< cv::aruco::CharucoParameters >
             return true;
         }
         
-        failmsg("Expected cv::aruco::CharucoParameters for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::CharucoParameters for argument '%s'", info.name);
         return false;
     }
 };
@@ -28562,7 +28562,7 @@ struct JsOpenCV_Converter< cv::aruco::DetectorParameters >
             return true;
         }
         
-        failmsg("Expected cv::aruco::DetectorParameters for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::DetectorParameters for argument '%s'", info.name);
         return false;
     }
 };
@@ -28960,7 +28960,7 @@ struct JsOpenCV_Converter< cv::aruco::Dictionary >
             return true;
         }
         
-        failmsg("Expected cv::aruco::Dictionary for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::Dictionary for argument '%s'", info.name);
         return false;
     }
 };
@@ -29140,7 +29140,7 @@ struct JsOpenCV_Converter< cv::aruco::GridBoard >
             return true;
         }
         
-        failmsg("Expected cv::aruco::GridBoard for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::GridBoard for argument '%s'", info.name);
         return false;
     }
 };
@@ -29315,7 +29315,7 @@ struct JsOpenCV_Converter< cv::aruco::RefineParameters >
             return true;
         }
         
-        failmsg("Expected cv::aruco::RefineParameters for argument '%s'", info.name);
+        jsfailmsg("Expected cv::aruco::RefineParameters for argument '%s'", info.name);
         return false;
     }
 };
@@ -29566,7 +29566,7 @@ struct JsOpenCV_Converter< Ptr<cv::barcode::BarcodeDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::barcode::BarcodeDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::barcode::BarcodeDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -30162,7 +30162,7 @@ struct JsOpenCV_Converter< Ptr<cv::ccm::ColorCorrectionModel> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ccm::ColorCorrectionModel> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ccm::ColorCorrectionModel> for argument '%s'", info.name);
         return false;
     }
 };
@@ -30312,7 +30312,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::BufferPool> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::BufferPool> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::BufferPool> for argument '%s'", info.name);
         return false;
     }
 };
@@ -31585,7 +31585,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::DeviceInfo> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::DeviceInfo> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::DeviceInfo> for argument '%s'", info.name);
         return false;
     }
 };
@@ -31742,7 +31742,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::Event> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::Event> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::Event> for argument '%s'", info.name);
         return false;
     }
 };
@@ -31792,7 +31792,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::GpuData> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::GpuData> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::GpuData> for argument '%s'", info.name);
         return false;
     }
 };
@@ -33854,7 +33854,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::GpuMat> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::GpuMat> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::GpuMat> for argument '%s'", info.name);
         return false;
     }
 };
@@ -33904,7 +33904,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::GpuMatND> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::GpuMatND> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::GpuMatND> for argument '%s'", info.name);
         return false;
     }
 };
@@ -33954,7 +33954,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::GpuMat::Allocator> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::GpuMat::Allocator> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::GpuMat::Allocator> for argument '%s'", info.name);
         return false;
     }
 };
@@ -34464,7 +34464,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::HostMem> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::HostMem> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::HostMem> for argument '%s'", info.name);
         return false;
     }
 };
@@ -34718,7 +34718,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::SURF_CUDA> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::SURF_CUDA> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::SURF_CUDA> for argument '%s'", info.name);
         return false;
     }
 };
@@ -34929,7 +34929,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::Stream> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::Stream> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::Stream> for argument '%s'", info.name);
         return false;
     }
 };
@@ -35140,7 +35140,7 @@ struct JsOpenCV_Converter< Ptr<cv::cuda::TargetArchs> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::cuda::TargetArchs> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::cuda::TargetArchs> for argument '%s'", info.name);
         return false;
     }
 };
@@ -35335,7 +35335,7 @@ struct JsOpenCV_Converter< cv::dnn::ClassificationModel >
             return true;
         }
         
-        failmsg("Expected cv::dnn::ClassificationModel for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::ClassificationModel for argument '%s'", info.name);
         return false;
     }
 };
@@ -35544,7 +35544,7 @@ struct JsOpenCV_Converter< cv::dnn::DetectionModel >
             return true;
         }
         
-        failmsg("Expected cv::dnn::DetectionModel for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::DetectionModel for argument '%s'", info.name);
         return false;
     }
 };
@@ -35795,7 +35795,7 @@ struct JsOpenCV_Converter< Ptr<cv::dnn::DictValue> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::dnn::DictValue> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::dnn::DictValue> for argument '%s'", info.name);
         return false;
     }
 };
@@ -35948,7 +35948,7 @@ struct JsOpenCV_Converter< cv::dnn::KeypointsModel >
             return true;
         }
         
-        failmsg("Expected cv::dnn::KeypointsModel for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::KeypointsModel for argument '%s'", info.name);
         return false;
     }
 };
@@ -36160,7 +36160,7 @@ struct JsOpenCV_Converter< Ptr<cv::dnn::Layer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::dnn::Layer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::dnn::Layer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -36551,7 +36551,7 @@ struct JsOpenCV_Converter< cv::dnn::Model >
             return true;
         }
         
-        failmsg("Expected cv::dnn::Model for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::Model for argument '%s'", info.name);
         return false;
     }
 };
@@ -37843,7 +37843,7 @@ struct JsOpenCV_Converter< cv::dnn::Net >
             return true;
         }
         
-        failmsg("Expected cv::dnn::Net for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::Net for argument '%s'", info.name);
         return false;
     }
 };
@@ -37994,7 +37994,7 @@ struct JsOpenCV_Converter< cv::dnn::SegmentationModel >
             return true;
         }
         
-        failmsg("Expected cv::dnn::SegmentationModel for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::SegmentationModel for argument '%s'", info.name);
         return false;
     }
 };
@@ -38222,7 +38222,7 @@ struct JsOpenCV_Converter< cv::dnn::TextDetectionModel >
             return true;
         }
         
-        failmsg("Expected cv::dnn::TextDetectionModel for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::TextDetectionModel for argument '%s'", info.name);
         return false;
     }
 };
@@ -38502,7 +38502,7 @@ struct JsOpenCV_Converter< cv::dnn::TextDetectionModel_DB >
             return true;
         }
         
-        failmsg("Expected cv::dnn::TextDetectionModel_DB for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::TextDetectionModel_DB for argument '%s'", info.name);
         return false;
     }
 };
@@ -38690,7 +38690,7 @@ struct JsOpenCV_Converter< cv::dnn::TextDetectionModel_EAST >
             return true;
         }
         
-        failmsg("Expected cv::dnn::TextDetectionModel_EAST for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::TextDetectionModel_EAST for argument '%s'", info.name);
         return false;
     }
 };
@@ -38999,7 +38999,7 @@ struct JsOpenCV_Converter< cv::dnn::TextRecognitionModel >
             return true;
         }
         
-        failmsg("Expected cv::dnn::TextRecognitionModel for argument '%s'", info.name);
+        jsfailmsg("Expected cv::dnn::TextRecognitionModel for argument '%s'", info.name);
         return false;
     }
 };
@@ -39328,7 +39328,7 @@ struct JsOpenCV_Converter< Ptr<cv::dnn_superres::DnnSuperResImpl> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::dnn_superres::DnnSuperResImpl> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::dnn_superres::DnnSuperResImpl> for argument '%s'", info.name);
         return false;
     }
 };
@@ -39498,7 +39498,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::BIF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::BIF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::BIF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -39743,7 +39743,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::BasicFaceRecognizer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::BasicFaceRecognizer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::BasicFaceRecognizer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -39816,7 +39816,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::EigenFaceRecognizer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::EigenFaceRecognizer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::EigenFaceRecognizer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40260,7 +40260,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::FaceRecognizer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::FaceRecognizer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::FaceRecognizer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40397,7 +40397,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::Facemark> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::Facemark> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::Facemark> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40447,7 +40447,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::FacemarkAAM> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::FacemarkAAM> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::FacemarkAAM> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40497,7 +40497,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::FacemarkKazemi> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::FacemarkKazemi> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::FacemarkKazemi> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40547,7 +40547,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::FacemarkLBF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::FacemarkLBF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::FacemarkLBF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40597,7 +40597,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::FacemarkTrain> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::FacemarkTrain> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::FacemarkTrain> for argument '%s'", info.name);
         return false;
     }
 };
@@ -40670,7 +40670,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::FisherFaceRecognizer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::FisherFaceRecognizer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::FisherFaceRecognizer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -41019,7 +41019,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::LBPHFaceRecognizer> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::LBPHFaceRecognizer> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::LBPHFaceRecognizer> for argument '%s'", info.name);
         return false;
     }
 };
@@ -41236,7 +41236,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::MACE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::MACE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::MACE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -41286,7 +41286,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::PredictCollector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::PredictCollector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::PredictCollector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -41423,7 +41423,7 @@ struct JsOpenCV_Converter< Ptr<cv::face::StandardCollector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::face::StandardCollector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::face::StandardCollector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -41902,7 +41902,7 @@ struct JsOpenCV_Converter< Ptr<cv::flann::Index> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::flann::Index> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::flann::Index> for argument '%s'", info.name);
         return false;
     }
 };
@@ -41991,7 +41991,7 @@ struct JsOpenCV_Converter< cv::gapi::GNetPackage >
             return true;
         }
         
-        failmsg("Expected cv::gapi::GNetPackage for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::GNetPackage for argument '%s'", info.name);
         return false;
     }
 };
@@ -42041,7 +42041,7 @@ struct JsOpenCV_Converter< cv::gapi::GNetParam >
             return true;
         }
         
-        failmsg("Expected cv::gapi::GNetParam for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::GNetParam for argument '%s'", info.name);
         return false;
     }
 };
@@ -42243,7 +42243,7 @@ struct JsOpenCV_Converter< cv::gapi::ie::PyParams >
             return true;
         }
         
-        failmsg("Expected cv::gapi::ie::PyParams for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::ie::PyParams for argument '%s'", info.name);
         return false;
     }
 };
@@ -42335,7 +42335,7 @@ struct JsOpenCV_Converter< cv::gapi::onnx::PyParams >
             return true;
         }
         
-        failmsg("Expected cv::gapi::onnx::PyParams for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::onnx::PyParams for argument '%s'", info.name);
         return false;
     }
 };
@@ -42419,7 +42419,7 @@ struct JsOpenCV_Converter< cv::gapi::streaming::queue_capacity >
             return true;
         }
         
-        failmsg("Expected cv::gapi::streaming::queue_capacity for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::streaming::queue_capacity for argument '%s'", info.name);
         return false;
     }
 };
@@ -42561,7 +42561,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::GOutputs >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::GOutputs for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::GOutputs for argument '%s'", info.name);
         return false;
     }
 };
@@ -42611,7 +42611,7 @@ struct JsOpenCV_Converter< Ptr<cv::gapi::wip::IStreamSource> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::gapi::wip::IStreamSource> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::gapi::wip::IStreamSource> for argument '%s'", info.name);
         return false;
     }
 };
@@ -42811,7 +42811,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Circle >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Circle for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Circle for argument '%s'", info.name);
         return false;
     }
 };
@@ -42954,7 +42954,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Image >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Image for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Image for argument '%s'", info.name);
         return false;
     }
 };
@@ -43154,7 +43154,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Line >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Line for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Line for argument '%s'", info.name);
         return false;
     }
 };
@@ -43297,7 +43297,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Mosaic >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Mosaic for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Mosaic for argument '%s'", info.name);
         return false;
     }
 };
@@ -43478,7 +43478,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Poly >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Poly for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Poly for argument '%s'", info.name);
         return false;
     }
 };
@@ -43659,7 +43659,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Rect >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Rect for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Rect for argument '%s'", info.name);
         return false;
     }
 };
@@ -43897,7 +43897,7 @@ struct JsOpenCV_Converter< cv::gapi::wip::draw::Text >
             return true;
         }
         
-        failmsg("Expected cv::gapi::wip::draw::Text for argument '%s'", info.name);
+        jsfailmsg("Expected cv::gapi::wip::draw::Text for argument '%s'", info.name);
         return false;
     }
 };
@@ -43966,7 +43966,7 @@ struct JsOpenCV_Converter< Ptr<cv::gapi::wip::gst::GStreamerPipeline> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::gapi::wip::gst::GStreamerPipeline> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::gapi::wip::gst::GStreamerPipeline> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44032,7 +44032,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::AverageHash> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::AverageHash> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::AverageHash> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44147,7 +44147,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::BlockMeanHash> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::BlockMeanHash> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::BlockMeanHash> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44213,7 +44213,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::ColorMomentHash> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::ColorMomentHash> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::ColorMomentHash> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44375,7 +44375,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::ImgHashBase> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::ImgHashBase> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::ImgHashBase> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44517,7 +44517,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::MarrHildrethHash> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::MarrHildrethHash> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::MarrHildrethHash> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44583,7 +44583,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::PHash> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::PHash> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::PHash> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44746,7 +44746,7 @@ struct JsOpenCV_Converter< Ptr<cv::img_hash::RadialVarianceHash> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::img_hash::RadialVarianceHash> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::img_hash::RadialVarianceHash> for argument '%s'", info.name);
         return false;
     }
 };
@@ -44964,7 +44964,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::MultiTracker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::MultiTracker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::MultiTracker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45124,7 +45124,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::Tracker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::Tracker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::Tracker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45190,7 +45190,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerBoosting> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerBoosting> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerBoosting> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45305,7 +45305,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerCSRT> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerCSRT> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerCSRT> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45371,7 +45371,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerKCF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerKCF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerKCF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45437,7 +45437,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerMIL> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerMIL> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerMIL> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45503,7 +45503,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerMOSSE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerMOSSE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerMOSSE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45569,7 +45569,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerMedianFlow> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerMedianFlow> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerMedianFlow> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45635,7 +45635,7 @@ struct JsOpenCV_Converter< Ptr<cv::legacy::TrackerTLD> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::legacy::TrackerTLD> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::legacy::TrackerTLD> for argument '%s'", info.name);
         return false;
     }
 };
@@ -45971,7 +45971,7 @@ struct JsOpenCV_Converter< Ptr<cv::mcc::CChecker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::mcc::CChecker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::mcc::CChecker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -46260,7 +46260,7 @@ struct JsOpenCV_Converter< Ptr<cv::mcc::CCheckerDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::mcc::CCheckerDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::mcc::CCheckerDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -46385,7 +46385,7 @@ struct JsOpenCV_Converter< Ptr<cv::mcc::CCheckerDraw> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::mcc::CCheckerDraw> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::mcc::CCheckerDraw> for argument '%s'", info.name);
         return false;
     }
 };
@@ -46739,7 +46739,7 @@ struct JsOpenCV_Converter< Ptr<cv::mcc::DetectorParameters> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::mcc::DetectorParameters> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::mcc::DetectorParameters> for argument '%s'", info.name);
         return false;
     }
 };
@@ -47541,7 +47541,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::ANN_MLP> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::ANN_MLP> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::ANN_MLP> for argument '%s'", info.name);
         return false;
     }
 };
@@ -47765,7 +47765,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::Boost> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::Boost> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::Boost> for argument '%s'", info.name);
         return false;
     }
 };
@@ -48259,7 +48259,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::DTrees> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::DTrees> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::DTrees> for argument '%s'", info.name);
         return false;
     }
 };
@@ -48900,7 +48900,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::EM> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::EM> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::EM> for argument '%s'", info.name);
         return false;
     }
 };
@@ -49241,7 +49241,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::KNearest> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::KNearest> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::KNearest> for argument '%s'", info.name);
         return false;
     }
 };
@@ -49684,7 +49684,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::LogisticRegression> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::LogisticRegression> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::LogisticRegression> for argument '%s'", info.name);
         return false;
     }
 };
@@ -49842,7 +49842,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::NormalBayesClassifier> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::NormalBayesClassifier> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::NormalBayesClassifier> for argument '%s'", info.name);
         return false;
     }
 };
@@ -49966,7 +49966,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::ParamGrid> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::ParamGrid> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::ParamGrid> for argument '%s'", info.name);
         return false;
     }
 };
@@ -50293,7 +50293,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::RTrees> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::RTrees> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::RTrees> for argument '%s'", info.name);
         return false;
     }
 };
@@ -51065,7 +51065,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::SVM> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::SVM> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::SVM> for argument '%s'", info.name);
         return false;
     }
 };
@@ -51493,7 +51493,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::SVMSGD> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::SVMSGD> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::SVMSGD> for argument '%s'", info.name);
         return false;
     }
 };
@@ -51837,7 +51837,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::StatModel> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::StatModel> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::StatModel> for argument '%s'", info.name);
         return false;
     }
 };
@@ -52882,7 +52882,7 @@ struct JsOpenCV_Converter< Ptr<cv::ml::TrainData> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ml::TrainData> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ml::TrainData> for argument '%s'", info.name);
         return false;
     }
 };
@@ -54436,7 +54436,7 @@ struct JsOpenCV_Converter< cv::ocl::Device >
             return true;
         }
         
-        failmsg("Expected cv::ocl::Device for argument '%s'", info.name);
+        jsfailmsg("Expected cv::ocl::Device for argument '%s'", info.name);
         return false;
     }
 };
@@ -54486,7 +54486,7 @@ struct JsOpenCV_Converter< Ptr<cv::ocl::OpenCLExecutionContext> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ocl::OpenCLExecutionContext> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ocl::OpenCLExecutionContext> for argument '%s'", info.name);
         return false;
     }
 };
@@ -55084,7 +55084,7 @@ struct JsOpenCV_Converter< Ptr<cv::plot::Plot2d> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::plot::Plot2d> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::plot::Plot2d> for argument '%s'", info.name);
         return false;
     }
 };
@@ -55335,7 +55335,7 @@ struct JsOpenCV_Converter< Ptr<cv::quality::QualityBRISQUE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::quality::QualityBRISQUE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::quality::QualityBRISQUE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -55526,7 +55526,7 @@ struct JsOpenCV_Converter< Ptr<cv::quality::QualityBase> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::quality::QualityBase> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::quality::QualityBase> for argument '%s'", info.name);
         return false;
     }
 };
@@ -55762,7 +55762,7 @@ struct JsOpenCV_Converter< Ptr<cv::quality::QualityGMSD> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::quality::QualityGMSD> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::quality::QualityGMSD> for argument '%s'", info.name);
         return false;
     }
 };
@@ -55998,7 +55998,7 @@ struct JsOpenCV_Converter< Ptr<cv::quality::QualityMSE> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::quality::QualityMSE> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::quality::QualityMSE> for argument '%s'", info.name);
         return false;
     }
 };
@@ -56291,7 +56291,7 @@ struct JsOpenCV_Converter< Ptr<cv::quality::QualityPSNR> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::quality::QualityPSNR> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::quality::QualityPSNR> for argument '%s'", info.name);
         return false;
     }
 };
@@ -56527,7 +56527,7 @@ struct JsOpenCV_Converter< Ptr<cv::quality::QualitySSIM> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::quality::QualitySSIM> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::quality::QualitySSIM> for argument '%s'", info.name);
         return false;
     }
 };
@@ -56641,7 +56641,7 @@ struct JsOpenCV_Converter< Ptr<cv::rapid::GOSTracker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::rapid::GOSTracker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::rapid::GOSTracker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -56755,7 +56755,7 @@ struct JsOpenCV_Converter< Ptr<cv::rapid::OLSTracker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::rapid::OLSTracker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::rapid::OLSTracker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -56857,7 +56857,7 @@ struct JsOpenCV_Converter< Ptr<cv::rapid::Rapid> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::rapid::Rapid> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::rapid::Rapid> for argument '%s'", info.name);
         return false;
     }
 };
@@ -57014,7 +57014,7 @@ struct JsOpenCV_Converter< Ptr<cv::rapid::Tracker> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::rapid::Tracker> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::rapid::Tracker> for argument '%s'", info.name);
         return false;
     }
 };
@@ -57398,7 +57398,7 @@ struct JsOpenCV_Converter< cv::segmentation::IntelligentScissorsMB >
             return true;
         }
         
-        failmsg("Expected cv::segmentation::IntelligentScissorsMB for argument '%s'", info.name);
+        jsfailmsg("Expected cv::segmentation::IntelligentScissorsMB for argument '%s'", info.name);
         return false;
     }
 };
@@ -57448,7 +57448,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::BaseOCR> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::BaseOCR> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::BaseOCR> for argument '%s'", info.name);
         return false;
     }
 };
@@ -57498,7 +57498,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::ERFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::ERFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::ERFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -57548,7 +57548,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::ERFilter::Callback> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::ERFilter::Callback> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::ERFilter::Callback> for argument '%s'", info.name);
         return false;
     }
 };
@@ -57791,7 +57791,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::OCRBeamSearchDecoder> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::OCRBeamSearchDecoder> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::OCRBeamSearchDecoder> for argument '%s'", info.name);
         return false;
     }
 };
@@ -57841,7 +57841,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallbac
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::OCRBeamSearchDecoder::ClassifierCallback> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58144,7 +58144,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::OCRHMMDecoder> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::OCRHMMDecoder> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::OCRHMMDecoder> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58194,7 +58194,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::OCRHMMDecoder::ClassifierCallback> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::OCRHMMDecoder::ClassifierCallback> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::OCRHMMDecoder::ClassifierCallback> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58411,7 +58411,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::OCRTesseract> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::OCRTesseract> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::OCRTesseract> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58514,7 +58514,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::TextDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::TextDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::TextDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58640,7 +58640,7 @@ struct JsOpenCV_Converter< Ptr<cv::text::TextDetectorCNN> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::text::TextDetectorCNN> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::text::TextDetectorCNN> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58733,7 +58733,7 @@ struct JsOpenCV_Converter< cv::utils::ClassWithKeywordProperties >
             return true;
         }
         
-        failmsg("Expected cv::utils::ClassWithKeywordProperties for argument '%s'", info.name);
+        jsfailmsg("Expected cv::utils::ClassWithKeywordProperties for argument '%s'", info.name);
         return false;
     }
 };
@@ -58861,7 +58861,7 @@ struct JsOpenCV_Converter< Ptr<cv::utils::nested::OriginalClassName> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::utils::nested::OriginalClassName> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::utils::nested::OriginalClassName> for argument '%s'", info.name);
         return false;
     }
 };
@@ -58964,7 +58964,7 @@ struct JsOpenCV_Converter< cv::utils::nested::OriginalClassName::Params >
             return true;
         }
         
-        failmsg("Expected cv::utils::nested::OriginalClassName::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::utils::nested::OriginalClassName::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -59014,7 +59014,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::AffineFeature2D> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::AffineFeature2D> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::AffineFeature2D> for argument '%s'", info.name);
         return false;
     }
 };
@@ -59153,7 +59153,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::BEBLID> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::BEBLID> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::BEBLID> for argument '%s'", info.name);
         return false;
     }
 };
@@ -59340,7 +59340,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::BoostDesc> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::BoostDesc> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::BoostDesc> for argument '%s'", info.name);
         return false;
     }
 };
@@ -59524,7 +59524,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::BriefDescriptorExtractor> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::BriefDescriptorExtractor> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::BriefDescriptorExtractor> for argument '%s'", info.name);
         return false;
     }
 };
@@ -60068,7 +60068,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::DAISY> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::DAISY> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::DAISY> for argument '%s'", info.name);
         return false;
     }
 };
@@ -60351,7 +60351,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::FREAK> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::FREAK> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::FREAK> for argument '%s'", info.name);
         return false;
     }
 };
@@ -60679,7 +60679,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::HarrisLaplaceFeatureDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -60959,7 +60959,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::LATCH> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::LATCH> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::LATCH> for argument '%s'", info.name);
         return false;
     }
 };
@@ -61143,7 +61143,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::LUCID> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::LUCID> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::LUCID> for argument '%s'", info.name);
         return false;
     }
 };
@@ -61663,7 +61663,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::MSDDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::MSDDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::MSDDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -62873,7 +62873,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::PCTSignatures> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::PCTSignatures> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::PCTSignatures> for argument '%s'", info.name);
         return false;
     }
 };
@@ -63036,7 +63036,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::PCTSignaturesSQFD> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::PCTSignaturesSQFD> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::PCTSignaturesSQFD> for argument '%s'", info.name);
         return false;
     }
 };
@@ -63364,7 +63364,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::SURF> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::SURF> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::SURF> for argument '%s'", info.name);
         return false;
     }
 };
@@ -63692,7 +63692,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::StarDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::StarDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::StarDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -63951,7 +63951,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::TBMR> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::TBMR> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::TBMR> for argument '%s'", info.name);
         return false;
     }
 };
@@ -64045,7 +64045,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::TEBLID> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::TEBLID> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::TEBLID> for argument '%s'", info.name);
         return false;
     }
 };
@@ -64376,7 +64376,7 @@ struct JsOpenCV_Converter< Ptr<cv::xfeatures2d::VGG> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::xfeatures2d::VGG> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::xfeatures2d::VGG> for argument '%s'", info.name);
         return false;
     }
 };
@@ -64523,7 +64523,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::AdaptiveManifoldFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::AdaptiveManifoldFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::AdaptiveManifoldFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -64732,7 +64732,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::ContourFitting> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::ContourFitting> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::ContourFitting> for argument '%s'", info.name);
         return false;
     }
 };
@@ -64843,7 +64843,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::DTFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::DTFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::DTFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -64972,7 +64972,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::DisparityFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::DisparityFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::DisparityFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -65244,7 +65244,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::DisparityWLSFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::DisparityWLSFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::DisparityWLSFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -65588,7 +65588,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::EdgeAwareInterpolator> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::EdgeAwareInterpolator> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::EdgeAwareInterpolator> for argument '%s'", info.name);
         return false;
     }
 };
@@ -66241,7 +66241,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::EdgeBoxes> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::EdgeBoxes> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::EdgeBoxes> for argument '%s'", info.name);
         return false;
     }
 };
@@ -66602,7 +66602,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::EdgeDrawing> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::EdgeDrawing> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::EdgeDrawing> for argument '%s'", info.name);
         return false;
     }
 };
@@ -66874,7 +66874,7 @@ struct JsOpenCV_Converter< cv::ximgproc::EdgeDrawing::Params >
             return true;
         }
         
-        failmsg("Expected cv::ximgproc::EdgeDrawing::Params for argument '%s'", info.name);
+        jsfailmsg("Expected cv::ximgproc::EdgeDrawing::Params for argument '%s'", info.name);
         return false;
     }
 };
@@ -66985,7 +66985,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::FastBilateralSolverFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::FastBilateralSolverFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::FastBilateralSolverFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -67090,7 +67090,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::FastGlobalSmootherFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::FastGlobalSmootherFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::FastGlobalSmootherFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -67268,7 +67268,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::FastLineDetector> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::FastLineDetector> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::FastLineDetector> for argument '%s'", info.name);
         return false;
     }
 };
@@ -67379,7 +67379,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::GuidedFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::GuidedFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::GuidedFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -67471,7 +67471,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::RFFeatureGetter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::RFFeatureGetter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::RFFeatureGetter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -68130,7 +68130,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::RICInterpolator> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::RICInterpolator> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::RICInterpolator> for argument '%s'", info.name);
         return false;
     }
 };
@@ -68276,7 +68276,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::RidgeDetectionFilter> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::RidgeDetectionFilter> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::RidgeDetectionFilter> for argument '%s'", info.name);
         return false;
     }
 };
@@ -68500,7 +68500,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::ScanSegment> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::ScanSegment> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::ScanSegment> for argument '%s'", info.name);
         return false;
     }
 };
@@ -68623,7 +68623,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::SparseMatchInterpolator> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::SparseMatchInterpolator> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::SparseMatchInterpolator> for argument '%s'", info.name);
         return false;
     }
 };
@@ -68868,7 +68868,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::StructuredEdgeDetection> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::StructuredEdgeDetection> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::StructuredEdgeDetection> for argument '%s'", info.name);
         return false;
     }
 };
@@ -69091,7 +69091,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::SuperpixelLSC> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::SuperpixelLSC> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::SuperpixelLSC> for argument '%s'", info.name);
         return false;
     }
 };
@@ -69321,7 +69321,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::SuperpixelSEEDS> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::SuperpixelSEEDS> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::SuperpixelSEEDS> for argument '%s'", info.name);
         return false;
     }
 };
@@ -69544,7 +69544,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::SuperpixelSLIC> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::SuperpixelSLIC> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::SuperpixelSLIC> for argument '%s'", info.name);
         return false;
     }
 };
@@ -69784,7 +69784,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::GraphSegmentation> >
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::GraphSegmentation> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::GraphSegmentation> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70148,7 +70148,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70320,7 +70320,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70370,7 +70370,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyColor> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70420,7 +70420,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyFill> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70517,7 +70517,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyMultiple> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70567,7 +70567,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize> for argument '%s'", info.name);
         return false;
     }
 };
@@ -70617,7 +70617,7 @@ struct JsOpenCV_Converter< Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmen
             return true;
         }
         
-        failmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture> for argument '%s'", info.name);
+        jsfailmsg("Expected Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategyTexture> for argument '%s'", info.name);
         return false;
     }
 };

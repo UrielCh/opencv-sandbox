@@ -10,9 +10,9 @@
 
 
 bool isNodeBindingsDebugEnabled();
-void emit_failmsg(const Napi::Env& env, const char *msg);
-int failmsg(const Napi::Env& env, const char *fmt, ...);
-Napi::Value failmsgp(const Napi::Env& env, const char *fmt, ...);
+void emit_jsfailmsg(const Napi::Env& env, const char *msg);
+int jsfailmsg(const Napi::Env& env, const char *fmt, ...);
+Napi::Value jsfailmsgp(const Napi::Env& env, const char *fmt, ...);
 
 //======================================================================================================================
 

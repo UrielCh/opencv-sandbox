@@ -21,7 +21,7 @@ const std::string RESET("\033[0m");
 const std::string NEW(" (" + RED + "NEW" + RESET + ")");
 
 
-// like int failmsg(const Napi::Env& env, const char *fmt, ...); // defined in cv2_utils.cpp
+// like int jsfailmsg(const Napi::Env& env, const char *fmt, ...); // defined in cv2_utils.cpp
 // but used in Python emulation code.
 void throwErrorWithFormat(const char* format, ...)
 {

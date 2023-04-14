@@ -31,12 +31,12 @@ bool jsopencv_to_safe(const Napi::Value* obj, _Tp& value, const ArgInfo& argInfo
     }
     catch (const std::exception &e)
     {
-        failmsg(obj->Env(), "Conversion error: %s, what: %s", argInfo.name, e.what());
+        jsfailmsg(obj->Env(), "Conversion error: %s, what: %s", argInfo.name, e.what());
         return false;
     }
     catch (...)
     {
-        failmsg(obj->Env(), "Conversion error: %s", argInfo.name);
+        jsfailmsg(obj->Env(), "Conversion error: %s", argInfo.name);
         return false;
     }
 }
@@ -273,7 +273,7 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
     }
     if (!JsSequence_Check(obj))
     {
-        failmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
+        jsfailmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
         return false;
     }
     const size_t n = static_cast<size_t>(JsSequence_Size(obj));
@@ -283,7 +283,7 @@ static bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<Tp>& val
         JsSafeSeqItem item_wrap(obj, i);
         if (!jsopencv_to(item_wrap.item, value[i], info))
         {
-            failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
+            jsfailmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
             return false;
         }
     }
@@ -298,7 +298,7 @@ inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& v
     }
     if (!obj->IsArray())
     {
-        failmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
+        jsfailmsg(obj->Env(), "Can't parse '%s'. Input argument doesn't provide sequence protocol", info.name);
         return false;
     }
     Napi::Array array = obj->As<Napi::Array>();
@@ -310,7 +310,7 @@ inline bool jsopencv_to_generic_vec(const Napi::Value* obj, std::vector<bool>& v
         bool elem{};
         if (!jsopencv_to(&item, elem, info))
         {
-            failmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
+            jsfailmsg(obj->Env(), "Can't parse '%s'. Sequence item with index %lu has a wrong type", info.name, i);
             return false;
         }
         value[i] = elem;

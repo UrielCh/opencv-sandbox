@@ -30,7 +30,7 @@ static inline int jsconvert_to_char(Napi::Value &obj, char *dst, const ArgInfo& 
         return 1;
     }
     (*dst) = 0;
-    return failmsg(obj.Env(), "Expected single character string for argument '%s'", info.name);
+    return jsfailmsg(obj.Env(), "Expected single character string for argument '%s'", info.name);
 }
 
 static inline std::string getJsObjectNameAttr(Napi::Value &obj) {

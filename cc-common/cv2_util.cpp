@@ -16,7 +16,7 @@ bool isNodeBindingsDebugEnabled()
     return param_debug;
 }
 
-void emit_failmsg(const Napi::Env& env, const char *msg)
+void emit_jsfailmsg(const Napi::Env& env, const char *msg)
 {
     static bool param_debug = isNodeBindingsDebugEnabled();
     if (param_debug)
@@ -26,7 +26,7 @@ void emit_failmsg(const Napi::Env& env, const char *msg)
     Napi::Error::New(env, msg).ThrowAsJavaScriptException();
 }
 
-int failmsg(const Napi::Env& env, const char *fmt, ...)
+int jsfailmsg(const Napi::Env& env, const char *fmt, ...)
 {
     char str[1000];
 
@@ -35,11 +35,11 @@ int failmsg(const Napi::Env& env, const char *fmt, ...)
     vsnprintf(str, sizeof(str), fmt, ap);
     va_end(ap);
 
-    emit_failmsg(env, str);
+    emit_jsfailmsg(env, str);
     return 0;
 }
 
-Napi::Value failmsgp(const Napi::Env& env, const char *fmt, ...)
+Napi::Value jsfailmsgp(const Napi::Env& env, const char *fmt, ...)
 {
     char str[1000];
 
@@ -48,7 +48,7 @@ Napi::Value failmsgp(const Napi::Env& env, const char *fmt, ...)
     vsnprintf(str, sizeof(str), fmt, ap);
     va_end(ap);
 
-    emit_failmsg(env, str);
+    emit_jsfailmsg(env, str);
     return env.Null();
 }
 
