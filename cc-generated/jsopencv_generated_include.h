@@ -137,7 +137,7 @@
 #include "opencv2/gapi/streaming/onevpl/accel_types.hpp"
 #include "opencv2/gapi/streaming/sync.hpp"
 #include "opencv2/gapi/video.hpp"
-#include "C:/0/opencv/opencv-4.7.0-dc627/opencv/modules/gapi/misc/python/python_bridge.hpp"
+#include "C:/0/opencv/opencv-4.7.0-8b1ea/opencv/modules/gapi/misc/python/python_bridge.hpp"
 #include "opencv2/tracking.hpp"
 #include "opencv2/tracking/feature.hpp"
 #include "opencv2/tracking/tracking_internals.hpp"

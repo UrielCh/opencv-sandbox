@@ -7,9 +7,9 @@
 // #define JsAPI_DATA(RTYPE) extern RTYPE
 // #define JsMODINIT_FUNC void
 // #define Js_ssize_t int
-// #define JsVarObject_HEAD_INIT(type, size) JsObject_HEAD_INIT(type) size,
-// #define JsObject_HEAD_INIT(type) _JsObject_HEAD_INIT(type, 0)
-// #define _JsObject_HEAD_INIT(type, size) 0, type, size,
+#define JsVarObject_HEAD_INIT(type, size) JsObject_HEAD_INIT(type) size,
+#define JsObject_HEAD_INIT(type) _JsObject_HEAD_INIT(type, 0)
+#define _JsObject_HEAD_INIT(type, size) 0, type, size,
 // #define JsTypeObject JsTypeObject
 // #define JsVarObject JsVarObject
 // original implemented in cv2.cpp

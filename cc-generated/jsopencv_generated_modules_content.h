@@ -1,7 +1,7 @@
 #ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__
 #define __JSOPENCV_GENERATED_MODULES_CONTENT_H__
 #include <napi.h>
-#include <../cc-common/jscompat.hpp>
+#include "../cc-common/jscompat.hpp"
 #include "./jsopencv_generated_funcs.h"
 
 static JsMethodDef methods_cv[] = {
