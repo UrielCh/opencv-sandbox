@@ -47,12 +47,6 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
     if (!parent_module)
     {
         return failmsgp(env, "Bindings generation error. Parent module is NULL during the submodule '%s' creation", name.c_str());
-        // Napi::TypeError::New(env, "Can't update module version").ThrowAsJavaScriptException();
-        // return PyErr_Format(PyExc_ImportError,
-        //     "Bindings generation error. "
-        //     "Parent module is NULL during the submodule '%s' creation",
-        //     name.c_str()
-        // );
     }
     if (strEndsWith(name, '.'))
     {
@@ -86,7 +80,7 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
         submodule_name_end = name.size();
     }
 
-    Napi::Object *submodule = parent_module;
+    Napi::Object submodule = *parent_module;
 
     for (size_t submodule_name_start = parent_name.size() + 1;
          submodule_name_start < name.size();)
@@ -97,22 +91,17 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
         Napi::Object parent_module_dict = Napi::Object::New(env); // submodule
         /// If submodule already exists it can be found in the parent module dictionary,
         /// otherwise it should be added to it.
-        submodule = &parent_module_dict.Get(submodule_name.c_str()).ToObject();
-        if (!submodule)
+        submodule = parent_module_dict.Get(submodule_name.c_str()).ToObject();
+        if (!submodule.IsUndefined())
         {
             /// Populates global modules dictionary and returns borrowed reference to it
-            submodule = &Napi::Object::New(env);
-            submodule->Set("name", full_submodule_name.c_str());
+            submodule = Napi::Object::New(env);
+            submodule.Set("name", full_submodule_name.c_str());
             // PyImport_AddModule(full_submodule_name.c_str());
-            if (!submodule)
-            {
-                /// Return `PyImport_AddModule` NULL with an exception set on failure.
-                return env.Null();
-            }
             /// Populates parent module dictionary. Submodule lifetime should be managed
             /// by the global modules dictionary and parent module dictionary, so Py_DECREF after
             /// successfull call to the `PyDict_SetItemString` is redundant.
-            if (!parent_module_dict.Set(submodule_name.c_str(), *submodule))
+            if (!parent_module_dict.Set(submodule_name.c_str(), submodule))
             {
                 return failmsgp(env, "Can't register a submodule '%s' (full name: '%s')", submodule_name.c_str(), full_submodule_name.c_str());
             }
@@ -126,7 +115,7 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
             submodule_name_end = name.size();
         }
     }
-    return *submodule;
+    return submodule;
 }
 
 // PyObject * root => Napi::Env env
