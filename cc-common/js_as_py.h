@@ -171,6 +171,18 @@ size_t JsSequence_Size(const Napi::Value* obj);
 
 Napi::Value *JsSequence_GetItem(const Napi::Value* obj, size_t index);
 
+typedef Napi::Object *(*getter)(Napi::Object *, void *);
+typedef int (*setter)(Napi::Object *, Napi::Object *, void *);
+
+struct JsGetSetDef {
+    const char *name;
+    getter get;
+    setter set;
+    const char *doc;
+    void *closure;
+};
+
+
 // bool JsArray_Check(const Napi::Value& value) {
 //     return value.IsArray();
 // }
