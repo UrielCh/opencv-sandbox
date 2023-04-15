@@ -7,9 +7,9 @@
 // #define JsAPI_DATA(RTYPE) extern RTYPE
 // #define JsMODINIT_FUNC void
 // #define Js_ssize_t int
-// #define JsVarObject_HEAD_INIT(type, size) JsObject_HEAD_INIT(type) size,
-// #define JsObject_HEAD_INIT(type) _JsObject_HEAD_INIT(type, 0)
-// #define _JsObject_HEAD_INIT(type, size) 0, type, size,
+#define JsVarObject_HEAD_INIT(type, size) JsObject_HEAD_INIT(type) size,
+#define JsObject_HEAD_INIT(type) _JsObject_HEAD_INIT(type, 0)
+#define _JsObject_HEAD_INIT(type, size) 0, type, size,
 // #define JsTypeObject JsTypeObject
 // #define JsVarObject JsVarObject
 // original implemented in cv2.cpp
@@ -83,7 +83,7 @@ void JsErr_SetString(const Napi::Env &env, const std::string &message);
  *
  * @return A Napi::Value object that contains the values specified by the format string and the variable arguments.
  */
-Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...);
+Napi::Value Js_BuildValue(const Napi::Env &env, const char *format, ...);
 
 /**
  * @brief structs are typically organized into arrays that are passed to the JsModule_Create function to create a new Nodejs module. When a Nodejs module is loaded, the module's methods and functions are made available to Nodejs code, and can be called like any other Nodejs function.
@@ -170,6 +170,18 @@ bool JsSequence_Check(const Napi::Value* obj);
 size_t JsSequence_Size(const Napi::Value* obj);
 
 Napi::Value *JsSequence_GetItem(const Napi::Value* obj, size_t index);
+
+typedef Napi::Object *(*getter)(Napi::Object *, void *);
+typedef int (*setter)(Napi::Object *, Napi::Object *, void *);
+
+struct JsGetSetDef {
+    const char *name;
+    getter get;
+    setter set;
+    const char *doc;
+    void *closure;
+};
+
 
 // bool JsArray_Check(const Napi::Value& value) {
 //     return value.IsArray();

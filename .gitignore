@@ -8,3 +8,4 @@ data/headers.txt
 *.vcxproj
 *.vcxproj.filters
 CMakeLists.txt
+cc-generated

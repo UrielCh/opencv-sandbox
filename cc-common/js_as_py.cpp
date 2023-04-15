@@ -254,9 +254,8 @@ Napi::Env FakeCallbackInfo::Env() const {
     return env;
 }
 
-Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *format, va_list &args)
+Napi::Value Js_BuildValue_Helper(const Napi::Env &env, const char *format, va_list &args)
 {
-    Napi::Env env = info.Env();
     Napi::Value result;
     if (!format || *format == '\0')
     {
@@ -288,7 +287,7 @@ Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *for
                 size_t index = 0;
                 for (format++; *format && *format != ']' && *format != ')'; format++)
                 {
-                    Napi::Value element = Js_BuildValue_Helper(info, format, args);
+                    Napi::Value element = Js_BuildValue_Helper(env, format, args);
                     array.Set(index++, element);
                 }
                 result = array;
@@ -324,7 +323,7 @@ Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *for
                         throwErrorWithFormat("invalid format: '%s' in Js_BuildValue_Helper expected value type for the last key", format);
                         return env.Null();
                     }
-                    Napi::Value value = Js_BuildValue_Helper(info, format, args);
+                    Napi::Value value = Js_BuildValue_Helper(env, format, args);
                     format++;
                     object.Set(key, value);
                 }
@@ -340,12 +339,12 @@ Napi::Value Js_BuildValue_Helper(const Napi::CallbackInfo &info, const char *for
     return result;
 }
 
-Napi::Value Js_BuildValue(const Napi::CallbackInfo &info, const char *format, ...)
+Napi::Value Js_BuildValue(const Napi::Env &env, const char *format, ...)
 {
     va_list args;
     va_start(args, format);
 
-    Napi::Value result = Js_BuildValue_Helper(info, format, args);
+    Napi::Value result = Js_BuildValue_Helper(env, format, args);
 
     va_end(args);
     return result;

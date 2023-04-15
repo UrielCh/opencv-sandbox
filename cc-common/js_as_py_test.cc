@@ -54,7 +54,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
-            Napi::Value value = Js_BuildValue(info, "i", 42);
+            Napi::Value value = Js_BuildValue(info.Env(), "i", 42);
             REQUIRE(value.IsNumber());
             REQUIRE(value.As<Napi::Number>().Int32Value() == 42);
             return std::string("");
@@ -65,7 +65,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
-            Napi::Value value = Js_BuildValue(info, "f", 3.14);
+            Napi::Value value = Js_BuildValue(info.Env(), "f", 3.14);
             REQUIRE(value.IsNumber());
             REQUIRE(value.As<Napi::Number>().DoubleValue() == 3.14);
             return std::string("");
@@ -75,7 +75,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
-            Napi::Value value = Js_BuildValue(info, "s", "hello");
+            Napi::Value value = Js_BuildValue(info.Env(), "s", "hello");
             REQUIRE(value.IsString());
             REQUIRE(value.As<Napi::String>().Utf8Value() == "hello");
             return std::string("");
@@ -86,7 +86,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
-            Napi::Value value = Js_BuildValue(info, "b", true);
+            Napi::Value value = Js_BuildValue(info.Env(), "b", true);
             REQUIRE(value.IsBoolean());
             REQUIRE(value.As<Napi::Boolean>().Value() == true);
             return std::string("");
@@ -97,7 +97,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
-            Napi::Value value = Js_BuildValue(info, "(ifsb)", 1, 2.0, "three", false);
+            Napi::Value value = Js_BuildValue(info.Env(), "(ifsb)", 1, 2.0, "three", false);
             REQUIRE(value.IsArray());
             Napi::Array array = value.As<Napi::Array>();
             REQUIRE(array.Length() == 4);
@@ -116,7 +116,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
             Napi::Value value1 = Napi::Value::From(info.Env(), 42);
             Napi::Value value2 = Napi::Value::From(info.Env(), 13);
 
-            Napi::Value value = Js_BuildValue(info, "(NN)", value1, value2);
+            Napi::Value value = Js_BuildValue(info.Env(), "(NN)", value1, value2);
             REQUIRE(value.IsArray());
             Napi::Array array = value.As<Napi::Array>();
             REQUIRE(array.Length() == 2);
@@ -132,7 +132,7 @@ bool Js_BuildValue_test(const Napi::CallbackInfo &info)
     {
         NapiStringCallback lambda = [](const Napi::CallbackInfo &info)
         {
-            Napi::Value value = Js_BuildValue(info, "{s:s,s:i,s:b}", "name", "Alice", "age", 42, "female", true);
+            Napi::Value value = Js_BuildValue(info.Env(), "{s:s,s:i,s:b}", "name", "Alice", "age", 42, "female", true);
             REQUIRE(value.IsObject());
             Napi::Object object = value.As<Napi::Object>();
             REQUIRE(object.Has("name"));

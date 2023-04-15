@@ -119,7 +119,8 @@ static Napi::Value createSubmodule(Napi::Env env, Napi::Object *parent_module, c
 }
 
 // PyObject * root => Napi::Env env
-static bool init_submodule(Napi::Env env, Napi::Object current, const char *name, JsMethodDef *methods, ConstDef *consts)
+// static 
+bool init_submodule(Napi::Env env, Napi::Object current, const char *name, JsMethodDef *methods, ConstDef *consts)
 {
     // traverse and create nested submodules
     Napi::Value submodule = createSubmodule(env, &current, name);

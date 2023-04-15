@@ -33,28 +33,18 @@ class NodejsWrapperGenerator(object):
         self.code_enums.write("#ifndef __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#define __JSOPENCV_GENERATED_ENUMS_H__\n")
         self.code_enums.write("#include <napi.h>\n")
-        self.code_enums.write('#include "../cc-common/js_as_py.hpp"\n')
-        self.code_enums.write('#include "../cc-common/cv2_convert.hpp"\n')
+        self.code_enums.write('#include "../cc-common/js_as_py.h"\n')
+        self.code_enums.write('#include "../cc-common/cv2_convert.h"\n')
         self.code_enums.write('#include "../cc-common/jscompat.hpp"\n')
         self.code_enums.write("\n")
-
-        self.code_types: StringIO = StringIO()        # jsopencv_generated_types_content.h
-        self.code_types.write("#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
-        self.code_types.write("#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
-        self.code_types.write("#include <napi.h>\n")
-        self.code_types.write('#include "../cc-common/js_as_py.hpp>\n')
-        self.code_types.write('#include "../cc-common/cv2_convert.hpp>\n')
-        self.code_types.write('#include "../cc-common/cv2.hpp>\n')
-        self.code_types.write('#include "../cc-common/cv2_util.hpp>\n')
-        self.code_types.write("\n")
 
         self.code_funcs: StringIO = StringIO()        # jsopencv_generated_funcs.h
         self.code_funcs.write("#ifndef __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#define __JSOPENCV_GENERATED_FUNCS_H__\n")
         self.code_funcs.write("#include <napi.h>\n")
         self.code_funcs.write("#include <opencv2/opencv.hpp>\n")
-        self.code_funcs.write('#include "../cc-common/js_as_py.hpp"\n')
-        self.code_funcs.write('#include "../cc-common/cv2_convert.hpp"\n')
+        self.code_funcs.write('#include "../cc-common/js_as_py.h"\n')
+        self.code_funcs.write('#include "../cc-common/cv2_convert.h"\n')
         self.code_funcs.write('#include "./jsopencv_generated_enums.h"\n')
         self.code_funcs.write('#include "../cc-common/cv2_macro.hpp"\n')
         self.code_funcs.write("\n")
@@ -76,11 +66,27 @@ class NodejsWrapperGenerator(object):
         self.code_ns_init.write("// CVJS_MODULE macro will invoque init_submodule\n")
         self.code_ns_init.write("\n")
 
+        self.code_types: StringIO = StringIO()        # jsopencv_generated_types_content.h
+        self.code_types.write("#ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
+        self.code_types.write("#define __JSOPENCV_GENERATED_TYPES_CONTENT_H__\n")
+        self.code_types.write("#include <napi.h>\n")
+        self.code_types.write('#include "../cc-common/js_as_py.h"\n')
+        self.code_types.write('#include "../cc-common/cv2_convert.h"\n')
+        # self.code_types.write('// #include "../cc-common/cv2.hpp"\n') // can not include cv2
+        self.code_types.write('#include "../cc-common/cv2_util.h"\n')
+        self.code_types.write("\n")
+
         self.code_type_publish: StringIO = StringIO() # jsopencv_generated_types.h
         self.code_type_publish.write("#ifndef __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write('#include "../cc-common/cv2_macro.hpp"\n')
-        self.code_type_publish.write('#include "../cc-common/js_as_py.hpp"\n')
+        self.code_type_publish.write('#include "../cc-common/js_as_py.h"\n')
+
+        #include "opencv2/opencv_modules.hpp"
+        #include "opencv2/core.hpp"
+        #include "opencv2/opencv.hpp"
+        #include "opencv2/core/utils/logger.hpp"
+
         self.code_type_publish.write("\n")
         
         self.code_ts_types: StringIO = StringIO() # cv.d.ts

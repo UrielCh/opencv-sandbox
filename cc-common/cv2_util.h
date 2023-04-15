@@ -97,14 +97,14 @@ extern Napi::Value* opencv_error; // global Error object
     } \
     catch (const cv::Exception &e) \
     { \
-        Napi::Error::New((info).Env(), e.what()).ThrowAsJavaScriptException(); \
-        return (info).Env().Undefined(); \
+        Napi::Error::New(info.Env(), e.what()).ThrowAsJavaScriptException(); \
+        return info.Env().Undefined(); \
     } catch (const std::exception &e) { \
-        Napi::Error::New((info).Env(), e.what()).ThrowAsJavaScriptException(); \
-        return (info).Env().Undefined(); \
+        Napi::Error::New(info.Env(), e.what()).ThrowAsJavaScriptException(); \
+        return info.Env().Undefined(); \
     } catch (...) { \
-        Napi::Error::New((info).Env(), "Unknown exception occurred").ThrowAsJavaScriptException(); \
-        return (info).Env().Undefined();                                       \
+        Napi::Error::New(info.Env(), "Unknown exception occurred").ThrowAsJavaScriptException(); \
+        return info.Env().Undefined();                                       \
     }
 
 
