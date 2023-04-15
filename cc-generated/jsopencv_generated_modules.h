@@ -15,6 +15,7 @@ CVJS_MODULE(".dnn_superres", dnn_superres);
 CVJS_MODULE(".face", face);
 CVJS_MODULE(".fisheye", fisheye);
 CVJS_MODULE(".flann", flann);
+CVJS_MODULE(".freetype", freetype);
 CVJS_MODULE(".gapi", gapi);
 CVJS_MODULE(".gapi.core.cpu", gapi_core_cpu);
 CVJS_MODULE(".gapi.core.fluid", gapi_core_fluid);

@@ -1,8 +1,8 @@
 #ifndef __JSOPENCV_GENERATED_ENUMS_H__
 #define __JSOPENCV_GENERATED_ENUMS_H__
 #include <napi.h>
-#include "../cc-common/js_as_py.h"
-#include "../cc-common/cv2_convert.h"
+#include "../cc-common/js_as_py.hpp"
+#include "../cc-common/cv2_convert.hpp"
 #include "../cc-common/jscompat.hpp"
 
 typedef cv::AKAZE::DescriptorType AKAZE_DescriptorType;

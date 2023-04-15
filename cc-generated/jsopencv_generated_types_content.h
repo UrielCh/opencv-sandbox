@@ -1,10 +1,10 @@
 #ifndef __JSOPENCV_GENERATED_TYPES_CONTENT_H__
 #define __JSOPENCV_GENERATED_TYPES_CONTENT_H__
 #include <napi.h>
-#include "../cc-common/js_as_py.h"
-#include "../cc-common/cv2_convert.h"
-// #include "../cc-common/cv2.hpp"
-#include "../cc-common/cv2_util.h"
+#include "../cc-common/js_as_py.hpp>
+#include "../cc-common/cv2_convert.hpp>
+#include "../cc-common/cv2.hpp>
+#include "../cc-common/cv2_util.hpp>
 
 //================================================================================
 // AKAZE (Generic)
@@ -41903,6 +41903,230 @@ struct JsOpenCV_Converter< Ptr<cv::flann::Index> >
         }
         
         jsfailmsg("Expected Ptr<cv::flann::Index> for argument '%s'", info.name);
+        return false;
+    }
+};
+
+//================================================================================
+// freetype_FreeType2 (Generic)
+//================================================================================
+
+// GetSet (freetype_FreeType2)
+
+
+
+// Methods (freetype_FreeType2)
+
+static Napi::Value jsopencv_cv_freetype_freetype_FreeType2_getTextSize(const Napi::CallbackInfo &info)
+{
+    using namespace cv::freetype;
+
+
+    Ptr<cv::freetype::FreeType2> * self1 = 0;
+    if (!jsopencv_freetype_FreeType2_getp(self, self1))
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'freetype_FreeType2' or its derivative)");
+    Ptr<cv::freetype::FreeType2> _self_ = *(self1);
+    Napi::Value* jsobj_text = NULL;
+    String text;
+    Napi::Value* jsobj_fontHeight = NULL;
+    int fontHeight=0;
+    Napi::Value* jsobj_thickness = NULL;
+    int thickness=0;
+    int baseLine;
+    Size retval;
+
+    const char* keywords[] = { "text", "fontHeight", "thickness", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "OOO:freetype_FreeType2.getTextSize", (char**)keywords, &jsobj_text, &jsobj_fontHeight, &jsobj_thickness) &&
+        jsopencv_to_safe(jsobj_text, text, ArgInfo("text", 0)) &&
+        jsopencv_to_safe(jsobj_fontHeight, fontHeight, ArgInfo("fontHeight", 0)) &&
+        jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)))
+    {
+        ERRWRAP2_NAPI(info, retval = _self_->getTextSize(text, fontHeight, thickness, &baseLine));
+        return Js_BuildValue(info, "(NN)", jsopencv_from(info, retval), jsopencv_from(info, baseLine));
+    }
+
+    return info.Env().Null();
+}
+
+static Napi::Value jsopencv_cv_freetype_freetype_FreeType2_loadFontData(const Napi::CallbackInfo &info)
+{
+    using namespace cv::freetype;
+
+
+    Ptr<cv::freetype::FreeType2> * self1 = 0;
+    if (!jsopencv_freetype_FreeType2_getp(self, self1))
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'freetype_FreeType2' or its derivative)");
+    Ptr<cv::freetype::FreeType2> _self_ = *(self1);
+    Napi::Value* jsobj_fontFileName = NULL;
+    String fontFileName;
+    Napi::Value* jsobj_idx = NULL;
+    int idx=0;
+
+    const char* keywords[] = { "fontFileName", "idx", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "OO:freetype_FreeType2.loadFontData", (char**)keywords, &jsobj_fontFileName, &jsobj_idx) &&
+        jsopencv_to_safe(jsobj_fontFileName, fontFileName, ArgInfo("fontFileName", 0)) &&
+        jsopencv_to_safe(jsobj_idx, idx, ArgInfo("idx", 0)))
+    {
+        ERRWRAP2_NAPI(info, _self_->loadFontData(fontFileName, idx));
+        return info.Env().Null();;
+    }
+
+    return info.Env().Null();
+}
+
+static Napi::Value jsopencv_cv_freetype_freetype_FreeType2_putText(const Napi::CallbackInfo &info)
+{
+    using namespace cv::freetype;
+
+
+    Ptr<cv::freetype::FreeType2> * self1 = 0;
+    if (!jsopencv_freetype_FreeType2_getp(self, self1))
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'freetype_FreeType2' or its derivative)");
+    Ptr<cv::freetype::FreeType2> _self_ = *(self1);
+    jsPrepareArgumentConversionErrorsStorage(2);
+
+    {
+    Napi::Value* jsobj_img = NULL;
+    Mat img;
+    Napi::Value* jsobj_text = NULL;
+    String text;
+    Napi::Value* jsobj_org = NULL;
+    Point org;
+    Napi::Value* jsobj_fontHeight = NULL;
+    int fontHeight=0;
+    Napi::Value* jsobj_color = NULL;
+    Scalar color;
+    Napi::Value* jsobj_thickness = NULL;
+    int thickness=0;
+    Napi::Value* jsobj_line_type = NULL;
+    int line_type=0;
+    Napi::Value* jsobj_bottomLeftOrigin = NULL;
+    bool bottomLeftOrigin=0;
+
+    const char* keywords[] = { "img", "text", "org", "fontHeight", "color", "thickness", "line_type", "bottomLeftOrigin", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "OOOOOOOO:freetype_FreeType2.putText", (char**)keywords, &jsobj_img, &jsobj_text, &jsobj_org, &jsobj_fontHeight, &jsobj_color, &jsobj_thickness, &jsobj_line_type, &jsobj_bottomLeftOrigin) &&
+        jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 1)) &&
+        jsopencv_to_safe(jsobj_text, text, ArgInfo("text", 0)) &&
+        jsopencv_to_safe(jsobj_org, org, ArgInfo("org", 0)) &&
+        jsopencv_to_safe(jsobj_fontHeight, fontHeight, ArgInfo("fontHeight", 0)) &&
+        jsopencv_to_safe(jsobj_color, color, ArgInfo("color", 0)) &&
+        jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)) &&
+        jsopencv_to_safe(jsobj_line_type, line_type, ArgInfo("line_type", 0)) &&
+        jsopencv_to_safe(jsobj_bottomLeftOrigin, bottomLeftOrigin, ArgInfo("bottomLeftOrigin", 0)))
+    {
+        ERRWRAP2_NAPI(info, _self_->putText(img, text, org, fontHeight, color, thickness, line_type, bottomLeftOrigin));
+        return jsopencv_from(info, img);
+    }
+
+
+        jsPopulateArgumentConversionErrors(info);
+    }
+    
+
+    {
+    Napi::Value* jsobj_img = NULL;
+    UMat img;
+    Napi::Value* jsobj_text = NULL;
+    String text;
+    Napi::Value* jsobj_org = NULL;
+    Point org;
+    Napi::Value* jsobj_fontHeight = NULL;
+    int fontHeight=0;
+    Napi::Value* jsobj_color = NULL;
+    Scalar color;
+    Napi::Value* jsobj_thickness = NULL;
+    int thickness=0;
+    Napi::Value* jsobj_line_type = NULL;
+    int line_type=0;
+    Napi::Value* jsobj_bottomLeftOrigin = NULL;
+    bool bottomLeftOrigin=0;
+
+    const char* keywords[] = { "img", "text", "org", "fontHeight", "color", "thickness", "line_type", "bottomLeftOrigin", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "OOOOOOOO:freetype_FreeType2.putText", (char**)keywords, &jsobj_img, &jsobj_text, &jsobj_org, &jsobj_fontHeight, &jsobj_color, &jsobj_thickness, &jsobj_line_type, &jsobj_bottomLeftOrigin) &&
+        jsopencv_to_safe(jsobj_img, img, ArgInfo("img", 1)) &&
+        jsopencv_to_safe(jsobj_text, text, ArgInfo("text", 0)) &&
+        jsopencv_to_safe(jsobj_org, org, ArgInfo("org", 0)) &&
+        jsopencv_to_safe(jsobj_fontHeight, fontHeight, ArgInfo("fontHeight", 0)) &&
+        jsopencv_to_safe(jsobj_color, color, ArgInfo("color", 0)) &&
+        jsopencv_to_safe(jsobj_thickness, thickness, ArgInfo("thickness", 0)) &&
+        jsopencv_to_safe(jsobj_line_type, line_type, ArgInfo("line_type", 0)) &&
+        jsopencv_to_safe(jsobj_bottomLeftOrigin, bottomLeftOrigin, ArgInfo("bottomLeftOrigin", 0)))
+    {
+        ERRWRAP2_NAPI(info, _self_->putText(img, text, org, fontHeight, color, thickness, line_type, bottomLeftOrigin));
+        return jsopencv_from(info, img);
+    }
+
+
+        jsPopulateArgumentConversionErrors(info);
+    }
+    jsRaiseCVOverloadException(info, "putText");
+
+    return info.Env().Null();
+}
+
+static Napi::Value jsopencv_cv_freetype_freetype_FreeType2_setSplitNumber(const Napi::CallbackInfo &info)
+{
+    using namespace cv::freetype;
+
+
+    Ptr<cv::freetype::FreeType2> * self1 = 0;
+    if (!jsopencv_freetype_FreeType2_getp(self, self1))
+        return failmsgp(info.Env(), "Incorrect type of self (must be 'freetype_FreeType2' or its derivative)");
+    Ptr<cv::freetype::FreeType2> _self_ = *(self1);
+    Napi::Value* jsobj_num = NULL;
+    int num=0;
+
+    const char* keywords[] = { "num", NULL };
+    if (JsArg_ParseTupleAndKeywords(info, "O:freetype_FreeType2.setSplitNumber", (char**)keywords, &jsobj_num) &&
+        jsopencv_to_safe(jsobj_num, num, ArgInfo("num", 0)))
+    {
+        ERRWRAP2_NAPI(info, _self_->setSplitNumber(num));
+        return info.Env().Null();;
+    }
+
+    return info.Env().Null();
+}
+
+
+
+// Tables (freetype_FreeType2)
+
+static PyGetSetDef jsopencv_freetype_FreeType2_getseters[] =
+{
+    {NULL}  /* Sentinel */
+};
+
+static JsMethodDef jsopencv_freetype_FreeType2_methods[] =
+{
+    {"getTextSize", CV_JS_FN_WITH_KW_(jsopencv_cv_freetype_freetype_FreeType2_getTextSize, 0), "getTextSize(text, fontHeight, thickness) -> retval, baseLine\n.   @brief Calculates the width and height of a text string.\n.   \n.   The function getTextSize calculates and returns the approximate size of a box that contains the specified text.\n.   That is, the following code renders some text, the tight box surrounding it, and the baseline: :\n.   @code\n.       String text = \"Funny text inside the box\";\n.       int fontHeight = 60;\n.       int thickness = -1;\n.       int linestyle = LINE_8;\n.   \n.       Mat img(600, 800, CV_8UC3, Scalar::all(0));\n.   \n.       int baseline=0;\n.   \n.       cv::Ptr<cv::freetype::FreeType2> ft2;\n.       ft2 = cv::freetype::createFreeType2();\n.       ft2->loadFontData( \"./mplus-1p-regular.ttf\", 0 );\n.   \n.       Size textSize = ft2->getTextSize(text,\n.                                        fontHeight,\n.                                        thickness,\n.                                        &baseline);\n.   \n.       if(thickness > 0){\n.           baseline += thickness;\n.       }\n.   \n.       // center the text\n.       Point textOrg((img.cols - textSize.width) / 2,\n.                     (img.rows + textSize.height) / 2);\n.   \n.       // draw the box\n.       rectangle(img, textOrg + Point(0, baseline),\n.                 textOrg + Point(textSize.width, -textSize.height),\n.                 Scalar(0,255,0),1,8);\n.   \n.       // ... and the baseline first\n.       line(img, textOrg + Point(0, thickness),\n.            textOrg + Point(textSize.width, thickness),\n.            Scalar(0, 0, 255),1,8);\n.   \n.       // then put the text itself\n.       ft2->putText(img, text, textOrg, fontHeight,\n.                    Scalar::all(255), thickness, linestyle, true );\n.   @endcode\n.   \n.   @param text Input text string.\n.   @param fontHeight Drawing font size by pixel unit.\n.   @param thickness Thickness of lines used to render the text. See putText for details.\n.   @param[out] baseLine y-coordinate of the baseline relative to the bottom-most text\n.   point.\n.   @return The size of a box that contains the specified text.\n.   \n.   @see cv::putText"},
+    {"loadFontData", CV_JS_FN_WITH_KW_(jsopencv_cv_freetype_freetype_FreeType2_loadFontData, 0), "loadFontData(fontFileName, idx) -> None\n.   @brief Load font data.\n.   \n.   The function loadFontData loads font data.\n.   \n.   @param fontFileName FontFile Name\n.   @param idx face_index to select a font faces in a single file."},
+    {"putText", CV_JS_FN_WITH_KW_(jsopencv_cv_freetype_freetype_FreeType2_putText, 0), "putText(img, text, org, fontHeight, color, thickness, line_type, bottomLeftOrigin) -> img\n.   @brief Draws a text string.\n.   \n.   The function putText renders the specified text string in the image. Symbols that cannot be rendered using the specified font are replaced by \"Tofu\" or non-drawn.\n.   \n.   @param img Image. (Only 8UC1/8UC3/8UC4 2D mat is supported.)\n.   @param text Text string to be drawn.\n.   @param org Bottom-left/Top-left corner of the text string in the image.\n.   @param fontHeight Drawing font size by pixel unit.\n.   @param color Text color.\n.   @param thickness Thickness of the lines used to draw a text when negative, the glyph is filled. Otherwise, the glyph is drawn with this thickness.\n.   @param line_type Line type. See the line for details.\n.   @param bottomLeftOrigin When true, the image data origin is at the bottom-left corner. Otherwise, it is at the top-left corner."},
+    {"setSplitNumber", CV_JS_FN_WITH_KW_(jsopencv_cv_freetype_freetype_FreeType2_setSplitNumber, 0), "setSplitNumber(num) -> None\n.   @brief Set Split Number from Bezier-curve to line\n.   \n.   The function setSplitNumber set the number of split points from bezier-curve to line.\n.   If you want to draw large glyph, large is better.\n.   If you want to draw small glyph, small is better.\n.   \n.   @param num number of split points from bezier-curve to line"},
+
+    {NULL,          NULL}
+};
+
+// Converter (freetype_FreeType2)
+
+template<>
+struct JsOpenCV_Converter< Ptr<cv::freetype::FreeType2> >
+{
+    static PyObject* from(const Ptr<cv::freetype::FreeType2>& r)
+    {
+        return jsopencv_freetype_FreeType2_Instance(r);
+    }
+    static bool to(PyObject* src, Ptr<cv::freetype::FreeType2>& dst, const ArgInfo& info)
+    {
+        if(!src || src == Py_None)
+            return true;
+        Ptr<cv::freetype::FreeType2> * dst_;
+        if (jsopencv_freetype_FreeType2_getp(src, dst_))
+        {
+            dst = *dst_;
+            return true;
+        }
+        
+        jsfailmsg("Expected Ptr<cv::freetype::FreeType2> for argument '%s'", info.name);
         return false;
     }
 };

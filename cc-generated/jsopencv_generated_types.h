@@ -1,7 +1,7 @@
 #ifndef __JSOPENCV_GENERATED_TYPES_H__
 #define __JSOPENCV_GENERATED_TYPES_H__
 #include "../cc-common/cv2_macro.hpp"
-#include "../cc-common/js_as_py.h"
+#include "../cc-common/js_as_py.hpp"
 
 CVJS_TYPE(Algorithm, Algorithm, Ptr<cv::Algorithm>, Ptr, NoBase, 0, "");
 CVJS_TYPE(AsyncArray, AsyncArray, Ptr<cv::AsyncArray>, Ptr, NoBase, jsopencv_cv_AsyncArray_AsyncArray, "");
@@ -99,6 +99,7 @@ CVJS_TYPE(FlannBasedMatcher, FlannBasedMatcher, Ptr<cv::FlannBasedMatcher>, Ptr,
 CVJS_TYPE(BOWTrainer, BOWTrainer, Ptr<cv::BOWTrainer>, Ptr, NoBase, 0, "");
 CVJS_TYPE(BOWKMeansTrainer, BOWKMeansTrainer, Ptr<cv::BOWKMeansTrainer>, Ptr, BOWTrainer, jsopencv_cv_BOWKMeansTrainer_BOWKMeansTrainer, "");
 CVJS_TYPE(BOWImgDescriptorExtractor, BOWImgDescriptorExtractor, Ptr<cv::BOWImgDescriptorExtractor>, Ptr, NoBase, jsopencv_cv_BOWImgDescriptorExtractor_BOWImgDescriptorExtractor, "");
+CVJS_TYPE(FreeType2, freetype_FreeType2, Ptr<cv::freetype::FreeType2>, Ptr, Algorithm, 0, ".freetype");
 CVJS_TYPE(ImgHashBase, img_hash_ImgHashBase, Ptr<cv::img_hash::ImgHashBase>, Ptr, Algorithm, 0, ".img_hash");
 CVJS_TYPE(AverageHash, img_hash_AverageHash, Ptr<cv::img_hash::AverageHash>, Ptr, img_hash_ImgHashBase, 0, ".img_hash");
 CVJS_TYPE(BlockMeanHash, img_hash_BlockMeanHash, Ptr<cv::img_hash::BlockMeanHash>, Ptr, img_hash_ImgHashBase, 0, ".img_hash");

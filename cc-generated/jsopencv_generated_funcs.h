@@ -2,8 +2,8 @@
 #define __JSOPENCV_GENERATED_FUNCS_H__
 #include <napi.h>
 #include <opencv2/opencv.hpp>
-#include "../cc-common/js_as_py.h"
-#include "../cc-common/cv2_convert.h"
+#include "../cc-common/js_as_py.hpp"
+#include "../cc-common/cv2_convert.hpp"
 #include "./jsopencv_generated_enums.h"
 #include "../cc-common/cv2_macro.hpp"
 
@@ -27469,7 +27469,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(jsobj_images, images, ArgInfo("images", 0)) &&
         jsopencv_to_safe(jsobj_facePoints, facePoints, ArgInfo("facePoints", 1)) &&
-        jsconvert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
+        jsconvert_to_char(*jsobj_delim, &delim, ArgInfo("delim", 0)) &&
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, images, facePoints, delim, offset));
@@ -27499,7 +27499,7 @@ static Napi::Value jsopencv_cv_face_loadTrainingData(const Napi::CallbackInfo &i
         jsopencv_to_safe(jsobj_filename, filename, ArgInfo("filename", 0)) &&
         jsopencv_to_safe(jsobj_images, images, ArgInfo("images", 0)) &&
         jsopencv_to_safe(jsobj_facePoints, facePoints, ArgInfo("facePoints", 1)) &&
-        jsconvert_to_char(jsobj_delim, &delim, ArgInfo("delim", 0)) &&
+        jsconvert_to_char(*jsobj_delim, &delim, ArgInfo("delim", 0)) &&
         jsopencv_to_safe(jsobj_offset, offset, ArgInfo("offset", 0)))
     {
         ERRWRAP2_NAPI(info, retval = cv::face::loadTrainingData(filename, images, facePoints, delim, offset));
@@ -28519,6 +28519,21 @@ static Napi::Value jsopencv_cv_fisheye_undistortPoints(const Napi::CallbackInfo 
         jsPopulateArgumentConversionErrors(info);
     }
     jsRaiseCVOverloadException(info, "undistortPoints");
+
+    return info.Env().Null();
+}
+
+static Napi::Value jsopencv_cv_freetype_createFreeType2(const Napi::CallbackInfo &info)
+{
+    using namespace cv::freetype;
+
+    Ptr<FreeType2> retval;
+
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
+    {
+        ERRWRAP2_NAPI(info, retval = cv::freetype::createFreeType2());
+        return jsopencv_from(info, retval);
+    }
 
     return info.Env().Null();
 }

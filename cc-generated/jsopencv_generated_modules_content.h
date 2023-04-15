@@ -1,7 +1,7 @@
 #ifndef __JSOPENCV_GENERATED_MODULES_CONTENT_H__
 #define __JSOPENCV_GENERATED_MODULES_CONTENT_H__
 #include <napi.h>
-#include <../cc-common/jscompat.hpp>
+#include "../cc-common/jscompat.hpp"
 #include "./jsopencv_generated_funcs.h"
 
 static JsMethodDef methods_cv[] = {
@@ -2704,6 +2704,21 @@ static ConstDef consts_flann[] = {
     {"LAST_VALUE_FLANN_INDEX_TYPE", static_cast<long>(cv::flann::LAST_VALUE_FLANN_INDEX_TYPE)},
 #ifdef JSOPENCV_EXTRA_CONSTANTS_FLANN
     JSOPENCV_EXTRA_CONSTANTS_FLANN
+#endif
+    {NULL, 0}
+};
+
+static JsMethodDef methods_freetype[] = {
+    {"createFreeType2", CV_JS_FN_WITH_KW_(jsopencv_cv_freetype_createFreeType2, 0), "createFreeType2() -> retval\n.   @brief Create FreeType2 Instance\n.   \n.   The function createFreeType2 create instance to draw UTF-8 strings."},
+#ifdef JSOPENCV_EXTRA_METHODS_FREETYPE
+    JSOPENCV_EXTRA_METHODS_FREETYPE
+#endif
+    {NULL, NULL}
+};
+
+static ConstDef consts_freetype[] = {
+#ifdef JSOPENCV_EXTRA_CONSTANTS_FREETYPE
+    JSOPENCV_EXTRA_CONSTANTS_FREETYPE
 #endif
     {NULL, 0}
 };
