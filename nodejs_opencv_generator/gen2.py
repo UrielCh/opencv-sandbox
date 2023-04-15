@@ -3,7 +3,7 @@
 from __future__ import print_function
 import hdr_parser, sys, re, os
 from pprint import pprint
-from classes.python_wrapper_generator import PythonWrapperGenerator
+from classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 
 
 if __name__ == "__main__":
@@ -14,5 +14,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         with open(sys.argv[2], 'r') as f:
             srcfiles = [l.strip() for l in f.readlines()]
-    generator = PythonWrapperGenerator()
+    generator = NodejsWrapperGenerator()
     generator.gen(srcfiles, dstdir)

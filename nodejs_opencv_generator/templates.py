@@ -164,3 +164,13 @@ ${variant}
         jsPopulateArgumentConversionErrors(info);
     }
 """)
+
+gen_ts_prop_typing = Template("""
+${indent}class ${export_name}{
+""")
+
+gen_ts_class_typing = Template("""
+${indent}class ${export_name}{
+${indent}   constructor(${prop});
+${indent}}
+""")

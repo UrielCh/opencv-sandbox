@@ -9,7 +9,8 @@ from .class_info import ClassInfo
 from nodejs_opencv_generator.templates import (
     gen_template_type_decl,
     gen_template_map_type_cvt,
-    gen_template_mappable
+    gen_template_mappable,
+    gen_ts_class_typing
 )
 
 if sys.version_info[0] >= 3:
@@ -17,7 +18,7 @@ if sys.version_info[0] >= 3:
 else:
     from cStringIO import StringIO
 
-class PythonWrapperGenerator(object):
+class NodejsWrapperGenerator(object):
     def __init__(self):
         self.clear()
 
@@ -87,8 +88,11 @@ class PythonWrapperGenerator(object):
         #include "opencv2/core/utils/logger.hpp"
 
         self.code_type_publish.write("\n")
-
+        
+        self.code_ts_types: StringIO = StringIO() # cv.d.ts
+        self.code_ts_types.write("declare namespace cv {\n")
         self.py_signatures: Dict[str, List[Dict[str, Any]]] = dict()         # jsopencv_signatures.json
+
         self.class_idx: int = 0
 
 
@@ -113,6 +117,9 @@ class PythonWrapperGenerator(object):
         py_name = classinfo.full_export_name  # use wrapper name
         py_signatures = self.py_signatures.setdefault(classinfo.cname, [])
         py_signatures.append(dict(name=py_name))
+        
+        
+        # print(classinfo.cname, dict(name=py_name))
         #print('class: ' + classinfo.cname + " => " + py_name)
 
     def get_export_scope_name(self, original_scope_name: str) -> str:
@@ -357,6 +364,10 @@ class PythonWrapperGenerator(object):
         # step 2: generate code for the classes and their methods
         classlist = list(self.classes.items())
         classlist.sort()
+        
+        current_tree = []
+        code_ts_types_str = ""
+        
         for name, classinfo in classlist:
             self.code_types.write("//{}\n".format(80*"="))
             self.code_types.write("// {} ({})\n".format(name, 'Map' if classinfo.ismap else 'Generic'))
@@ -374,6 +385,41 @@ class PythonWrapperGenerator(object):
                     mappable_code=mappable_code
                 )
                 self.code_types.write(code)
+            
+            # Write typescript code
+            if(classinfo.scope_name == ""):
+                tree_scopes = []
+                if(len(current_tree) > 0):
+                    to_close = len(current_tree)
+                    for closing_level in range(0,to_close):
+                        code_ts_types_str+= "{}}}\n".format(((to_close-closing_level))*"\t")
+                    current_tree = []
+            else:
+                tree_scopes = classinfo.scope_name.split(".")
+            
+            level = 0
+            
+            for scope in tree_scopes:
+                
+                if(len(current_tree) <= level or current_tree[level] != scope):
+                    to_close = len(current_tree[level:])
+                    for closing_level in range(0,to_close):
+                        code_ts_types_str+= "{}}}\n".format((level+(to_close-closing_level))*"\t")
+                    code_ts_types_str+= "{}namespace {} {{\n".format((level+1)*"\t", scope)
+                    current_tree[level:] = [scope]
+
+                level+=1
+            
+            code_ts_types_str+=gen_ts_class_typing.substitute(
+                indent=(len(current_tree)+1)*"\t",
+                export_name=classinfo.export_name,
+                prop=", ".join([prop.name+":"+prop.tp for prop in classinfo.props])
+            )
+        
+        to_close = len(current_tree)
+        for closing_level in range(0,to_close):
+            code_ts_types_str+= "{}}}\n".format(((to_close-closing_level))*"\t")
+        self.code_ts_types.write(code_ts_types_str)
 
         # register classes in the same order as they have been declared.
         # this way, base classes will be registered in Python before their derivatives.
@@ -431,6 +477,8 @@ class PythonWrapperGenerator(object):
         self.code_types.write("#endif\n")
         self.code_ns_reg.write("#endif\n")
         self.code_type_publish.write("#endif\n")
+        
+        self.code_ts_types.write("}\n")
 
         # That's it. Now save all the files
         self.save(output_path, "jsopencv_generated_include.h", self.code_include)
@@ -440,4 +488,5 @@ class PythonWrapperGenerator(object):
         self.save(output_path, "jsopencv_generated_types_content.h", self.code_types)
         self.save(output_path, "jsopencv_generated_modules.h", self.code_ns_init)
         self.save(output_path, "jsopencv_generated_modules_content.h", self.code_ns_reg)
+        self.save(output_path, "cv.d.ts", self.code_ts_types)
         self.save_json(output_path, "jsopencv_signatures.json", self.py_signatures)
