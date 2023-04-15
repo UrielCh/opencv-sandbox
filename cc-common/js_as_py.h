@@ -103,38 +103,44 @@ struct JsMethodDef {
 
 #define JsObject                        Napi::Value
 // #define PyObject_HEAD                PyObject ob_base;
-#define JsObject_HEAD                   JsObject ob_base;
-// 
-// If this structure is modified, Doc/includes/typestruct.h should be updated
-// as well.
-// struct _typeobject {
-#define JsTypeObject                    Napi::Value
+// #define JsObject_HEAD                   JsObject ob_base;
+
+struct JsTypeStruct {
+    std::string type;
+    size_t size;
+
+    JsTypeStruct(const std::string& type, size_t size) : type(type), size(size) {}
+};
+
+typedef struct JsTypeStruct JsTypeObject;
 
 #define JsObject     Napi::Value
 
-static inline JsTypeObject Js_TYPE(Napi::Value *value) {
+// JsTypeObject
+// original cpython code: static inline PyTypeObject* Py_TYPE(PyObject *ob) { return ob->ob_type; }
+// PyTypeObject is a large struct defined in Include/cpython/object.h
+// we currently use a string to represent the type
+static inline std::string Js_TYPE(Napi::Value *value) {
   if (!value->IsObject()) {
-    return value->Env().Null();
+    return ""; // value->Env().Null();
   }
   Napi::Object object = value->As<Napi::Object>();
   Napi::Value prototype_val = object.Get(Napi::String::New(object.Env(), "__proto__"));
   if (!prototype_val.IsObject()) {
-    return value->Env().Null();
+    return ""; // value->Env().Null();
   }
   Napi::Object prototype = prototype_val.As<Napi::Object>();
-  return prototype;
+  return prototype.Get("type").As<Napi::String>().Utf8Value();
 }
 
 static inline int Js_IS_TYPE(Napi::Value *ob, JsTypeObject *type) {
-    return false; // don't check type for now
-    // return Js_TYPE(ob) == type;
+    return Js_TYPE(ob) == type->type;
 }
 // static inline int PyObject_TypeCheck(PyObject *ob, PyTypeObject *type) {
 //     return Py_IS_TYPE(ob, type) || PyType_IsSubtype(Py_TYPE(ob), type);
 // }
 static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
-    return false; // don't check type for now
-    // return Js_IS_TYPE(ob, type);//  || PyType_IsSubtype(Py_TYPE(ob), type);
+    return Js_IS_TYPE(ob, type);//  || PyType_IsSubtype(Py_TYPE(ob), type);
 }
 
 // naive version:
@@ -190,5 +196,41 @@ struct JsGetSetDef {
 // bool JsArray_Check(const Napi::Value* value) {
 //     return value->IsArray();
 // }
+
+template <class T>
+struct jsopencv_t {
+    Napi::Value ob_base;
+    T v;
+};
+
+// void *_JsObject_New(Napi::Env env, const size_t size, const JsTypeStruct& jsTypeStruct);
+// not implemented yet
+void *_JsObject_New(Napi::Env env, const size_t size, const JsTypeStruct* jsTypeStruct);
+
+// Napi::Value *
+// _PyObject_New(PyTypeObject *tp)
+// {
+//     PyObject *op = (PyObject *) PyObject_Malloc(_PyObject_SIZE(tp));
+//     if (op == NULL) {
+//         return PyErr_NoMemory();
+//     }
+//     _PyObject_Init(op, tp);
+//     return op;
+// }
+
+// Napi::Object _JsObject_New(Napi::Env env, const jsopencv_t<T>& jsopencv_instance, const JsTypeStruct& jsTypeStruct) {
+//     Napi::Object newJsObject = Napi::Object::New(env);
+//     newJsObject.Set("type", Napi::String::New(env, jsTypeStruct.type));
+//     newJsObject.Set("size", Napi::Number::New(env, jsTypeStruct.size));
+//     // Set additional properties or methods on the object as needed
+//     // newJsObject.Set("key", "value");
+// 
+//     // Use jsopencv_instance.v and jsopencv_instance.ob_base as needed
+// 
+//     return newJsObject;
+// }
+
+#define JsObject_NEW(env, type, size, typeobj) ((type *)_JsObject_New(env, size, typeobj))
+#define JsObject_Del(elm) free(elm);  // TODO free memory
 
 #endif

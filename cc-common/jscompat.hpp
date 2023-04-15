@@ -139,7 +139,11 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
 
 // CVPY_TYPE_HEAD
 // #define CVJS_TYPE_HEAD PyVarObject_HEAD_INIT(&PyType_Type, 0)
-#define CVJS_TYPE_HEAD JsVarObject_HEAD_INIT(&PyType_Type) 0,
+// #define CVJS_TYPE_HEAD JsVarObject_HEAD_INIT(&PyType_Type) 0,
+// disable this header content
+#define CVJS_TYPE_HEAD 
+
+#define JsObject_HEAD
 
 // CVPY_TYPE_INCREF
 #define CVJS_TYPE_INCREF(T) Py_INCREF(T)
@@ -166,16 +170,16 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
         } \
         return false; \
     } \
-    static Napi::Value * jsopencv_##CLASS_ID##_Instance(const STORAGE &r) \
+    static Napi::Value * jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r) \
     { \
-        jsopencv_##CLASS_ID##_t *m = PyObject_NEW(jsopencv_##CLASS_ID##_t, jsopencv_##CLASS_ID##_TypePtr); \
+        jsopencv_##CLASS_ID##_t *m = JsObject_NEW(env, jsopencv_##CLASS_ID##_t, sizeof(jsopencv_##CLASS_ID##_t),  jsopencv_##CLASS_ID##_TypePtr); \
         new (&(m->v)) STORAGE(r); \
         return (Napi::Value*)m; \
     } \
     static void jsopencv_##CLASS_ID##_dealloc(Napi::Value* self) \
     { \
         ((jsopencv_##CLASS_ID##_t*)self)->v.STORAGE::~SNAME(); \
-        PyObject_Del(self); \
+        JsObject_Del(self); \
     } \
     static Napi::Value* jsopencv_##CLASS_ID##_repr(Napi::Value* self) \
     { \
