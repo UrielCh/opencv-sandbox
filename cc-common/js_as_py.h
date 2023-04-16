@@ -203,9 +203,7 @@ struct jsopencv_t {
     T v;
 };
 
-// void *_JsObject_New(Napi::Env env, const size_t size, const JsTypeStruct& jsTypeStruct);
-// not implemented yet
-void *_JsObject_New(Napi::Env env, const size_t size, const JsTypeStruct* jsTypeStruct);
+Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type);
 
 // Napi::Value *
 // _PyObject_New(PyTypeObject *tp)
@@ -230,7 +228,7 @@ void *_JsObject_New(Napi::Env env, const size_t size, const JsTypeStruct* jsType
 //     return newJsObject;
 // }
 
-#define JsObject_NEW(env, type, size, typeobj) ((type *)_JsObject_New(env, size, typeobj))
+#define JsObject_NEW(env, type, typeobj) ((type *)_JsObject_New(env, typeobj))
 #define JsObject_Del(elm) free(elm);  // TODO free memory
 
 #endif

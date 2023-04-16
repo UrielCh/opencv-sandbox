@@ -172,9 +172,11 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
     } \
     static Napi::Value * jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r) \
     { \
-        jsopencv_##CLASS_ID##_t *m = JsObject_NEW(env, jsopencv_##CLASS_ID##_t, sizeof(jsopencv_##CLASS_ID##_t),  jsopencv_##CLASS_ID##_TypePtr); \
-        new (&(m->v)) STORAGE(r); \
-        return (Napi::Value*)m; \
+        jsopencv_##CLASS_ID##_t *m = JsObject_NEW(env, jsopencv_##CLASS_ID##_t, jsopencv_##CLASS_ID##_TypePtr); \
+        Napi::Buffer<char> buffer = m->Get("v").As<Napi::Buffer<char>>(); \
+        char* memoryBlockPtr = buffer.Data(); \
+        new (memoryBlockPtr) STORAGE(r); \
+        return m; \
     } \
     static void jsopencv_##CLASS_ID##_dealloc(Napi::Value* self) \
     { \
@@ -225,7 +227,7 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
     { \
         if (JsObject_TypeCheck(self, (JsTypeObject*)jsopencv_##CLASS_ID##_TypePtr)) \
         { \
-            dst = &(((jsopencv_##CLASS_ID##_t*)self)->v); \
+            dst = &(STORAGE)(self->As<Napi::Object>().Get("v").As<Napi::Buffer<char>>()); \
             return true; \
         } \
         return false; \

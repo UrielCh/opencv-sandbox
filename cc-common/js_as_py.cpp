@@ -489,3 +489,13 @@ Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
 
   return new Napi::Value(arr[index]);
 }
+
+Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type) {
+    Napi::Buffer<char> buffer = Napi::Buffer<char>::New(env, type->size);
+
+    Napi::Object result = Napi::Object::New(env);
+    result.Set("type", Napi::String::New(env, type->type));
+    result.Set("v", buffer);
+
+    return new Napi::Object(result);
+}
