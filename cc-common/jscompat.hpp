@@ -172,7 +172,7 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
     } \
     static Napi::Value * jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r) \
     { \
-        jsopencv_##CLASS_ID##_t *m = JsObject_NEW(env, jsopencv_##CLASS_ID##_t, jsopencv_##CLASS_ID##_TypePtr); \
+        Napi::Object *m =  _JsObject_New(env, jsopencv_##CLASS_ID##_TypePtr); \
         Napi::Buffer<char> buffer = m->Get("v").As<Napi::Buffer<char>>(); \
         char* memoryBlockPtr = buffer.Data(); \
         new (memoryBlockPtr) STORAGE(r); \

@@ -86,6 +86,7 @@ class NodejsWrapperGenerator(object):
         self.code_type_publish.write("#define __JSOPENCV_GENERATED_TYPES_H__\n")
         self.code_type_publish.write('#include "../cc-common/cv2_macro.hpp"\n')
         self.code_type_publish.write('#include "../cc-common/js_as_py.h"\n')
+        self.code_type_publish.write('#include "./jsopencv_generated_include.h"\n')
 
         #include "opencv2/opencv_modules.hpp"
         #include "opencv2/core.hpp"
