@@ -499,3 +499,37 @@ Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type) {
 
     return new Napi::Object(result);
 }
+
+const Napi::Value *JsMapping_GetItemString(const Napi::Value* src, const char* key) {
+        if (!src->IsObject()) {
+        return nullptr;
+    }
+
+    Napi::Object srcObject = src->As<Napi::Object>();
+
+    // Check if the object has the specified key
+    if (!srcObject.Has(key)) {
+        return nullptr;
+    }
+
+    // Get the value by key
+    Napi::Value value = srcObject.Get(key);
+
+    // Allocate memory for the Napi::Value on the heap
+    // It's the responsibility of the caller to delete this memory later
+    Napi::Value* valuePtr = new Napi::Value(value);
+
+    return valuePtr;
+}
+
+bool JsMapping_HasKeyString(const Napi::Value* src, const char* key) {
+    // Ensure the src value is an object
+    if (!src->IsObject()) {
+        return false;
+    }
+
+    Napi::Object srcObject = src->As<Napi::Object>();
+
+    // Check if the object has the specified key
+    return srcObject.Has(key);
+}

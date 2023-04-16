@@ -83,11 +83,11 @@ template<> bool jsopencv_to(const Napi::Value* src, ${cname}& dst, const ArgInfo
 """)
 
 gen_template_set_prop_from_map = Template("""
-    if( PyMapping_HasKeyString(src, (char*)"$propname") )
+    if( JsMapping_HasKeyString(src, (char*)"$propname") )
     {
-        tmp = PyMapping_GetItemString(src, (char*)"$propname");
+        tmp = JsMapping_GetItemString(src, (char*)"$propname");
         ok = tmp && jsopencv_to_safe(tmp, dst.$propname, ArgInfo("$propname", false));
-        Py_DECREF(tmp);
+        Js_DECREF(tmp);
         if(!ok) return false;
     }""")
 

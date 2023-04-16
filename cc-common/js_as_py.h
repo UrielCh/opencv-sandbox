@@ -231,6 +231,11 @@ Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type);
 #define JsObject_NEW(env, type, typeobj) ((type *)_JsObject_New(env, typeobj))
 #define JsObject_Del(elm) free(elm);  // TODO free memory
 
+const Napi::Value *JsMapping_GetItemString(const Napi::Value* src, const char* key);
+bool JsMapping_HasKeyString(const Napi::Value* src, const char* key);
+
+
+#define Js_DECREF(v)
 
 #define METH_STATIC 1
 #endif
