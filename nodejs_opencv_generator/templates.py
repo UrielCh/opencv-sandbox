@@ -22,7 +22,7 @@ gen_template_parse_args = Template("""const char* keywords[] = { $kw_list, NULL 
 gen_template_func_body = Template("""$code_decl
     $code_parse
     {
-        ${code_prelude}ERRWRAP2_NAPI(info, $code_fcall);
+        ${code_prelude}ERRWRAP2_NAPI(env, $code_fcall);
         $code_ret;
     }
 """)

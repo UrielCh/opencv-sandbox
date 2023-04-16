@@ -164,10 +164,10 @@ Napi::Value jscvRedirectError(const Napi::CallbackInfo& info)
     static Napi::FunctionReference last_on_error;
     if (!on_error.IsUndefined() && !on_error.IsNull()) {
         last_on_error.Reset(on_error, 1);
-        ERRWRAP2_NAPI(info, redirectError(OnError, &env));
+        ERRWRAP2_NAPI(env, redirectError(OnError, &env));
     } else {
         last_on_error.Reset();
-        ERRWRAP2_NAPI(info, redirectError(NULL));
+        ERRWRAP2_NAPI(env, redirectError(NULL));
     }
 
 
