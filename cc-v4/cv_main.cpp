@@ -18,8 +18,16 @@ Napi::Value jsopencv_from(const Napi::Env &env, const cv::UMat & src) {
     return env.Null();
 }
 
+// TEST
 // this file is a subset of jsopencv_generated_funcs.h
 #include "./gen-extract.hh"
+
+// PRODUCTION
+// // test with the real files.
+// #include "../cc-generated/jsopencv_generated_enums.h"
+// #include "../cc-generated/jsopencv_generated_types.h"
+// #include "../cc-generated/jsopencv_generated_types_content.h"
+// #include "../cc-generated/jsopencv_generated_funcs.h"
 
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
