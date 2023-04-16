@@ -36,6 +36,11 @@ class NodejsWrapperGenerator(object):
         self.code_enums.write('#include "../cc-common/js_as_py.h"\n')
         self.code_enums.write('#include "../cc-common/cv2_convert.h"\n')
         self.code_enums.write('#include "../cc-common/jscompat.hpp"\n')
+        # self.code_enums.write('#include <opencv2/opencv.hpp>\n')
+        self.code_enums.write('#include "./jsopencv_generated_include.h"\n')
+
+        self.code_enums.write("\n")
+        self.code_enums.write("using namespace cv;\n")
         self.code_enums.write("\n")
 
         self.code_funcs: StringIO = StringIO()        # jsopencv_generated_funcs.h
