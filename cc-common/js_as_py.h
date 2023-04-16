@@ -231,4 +231,6 @@ Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type);
 #define JsObject_NEW(env, type, typeobj) ((type *)_JsObject_New(env, typeobj))
 #define JsObject_Del(elm) free(elm);  // TODO free memory
 
+
+#define METH_STATIC 1
 #endif

@@ -6,6 +6,7 @@ int releaseCnt = 0;
 Napi::FunctionReference cvMatObject::constructor;
 // Napi::FunctionReference* constructor = new Napi::FunctionReference();
 
+// #include "../cc-generated/jsopencv_generated_include.h"
 /**
  * @brief register the object with the node runtime
  * @return the incoming exports

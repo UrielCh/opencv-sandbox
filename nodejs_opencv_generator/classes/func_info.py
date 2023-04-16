@@ -1,4 +1,8 @@
-from typing import Dict, List, Tuple, Union, Any
+from typing import Dict, List, Tuple, Union, Any, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from nodejs_wrapper_generator import NodejsWrapperGenerator
+
 from .func_variant import FuncVariant 
 from collections import namedtuple
 from nodejs_opencv_generator.utils import (
@@ -24,10 +28,7 @@ from nodejs_opencv_generator.templates import (
 	gen_template_simple_call_constructor,
 	gen_template_parse_args,
 	gen_template_func_body,
-	gen_template_mappable,
-	gen_template_type_decl,
-	gen_template_map_type_cvt,
-	gen_template_set_prop_from_map,
+	gen_template_func_body_int,
 	gen_template_overloaded_function_call
 )
 
@@ -73,11 +74,12 @@ class FuncInfo(object):
 
         return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
 
-    def get_wrapper_prototype(self, codegen: Any) -> str: # 'CodeGenerator'
+    def get_wrapper_prototype(self, codegen: "NodejsWrapperGenerator") -> str: # 'CodeGenerator'
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
-            return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
-                    fn_name=full_fname, type_name=codegen.classes[self.classname].name)
+            return "static int {fn_name}(const Napi::CallbackInfo &info)".format(fn_name=full_fname, type_name=self.classname)
+            # return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
+            #         fn_name=full_fname, type_name=codegen.classes[self.classname].name)
 
         if self.classname:
             self_arg = "self"
@@ -131,7 +133,7 @@ class FuncInfo(object):
                         ).substitute(py_funcname = self.variants[0].wname, wrap_funcname=self.get_wrapper_name(),
                                      flags = 'METH_STATIC' if self.is_static else '0', py_docstring = full_docstring)
 
-    def gen_code(self, codegen):
+    def gen_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
         proto = self.get_wrapper_prototype(codegen)
         code = "%s\n{\n" % (proto,)
@@ -164,6 +166,8 @@ class FuncInfo(object):
             code_args = "("
             all_cargs = []
 
+            template_func_body = gen_template_func_body
+            # template_func_body = gen_template_func_body_int
             if v.isphantom and ismethod and not self.is_static:
                 code_args += "_self_"
 
@@ -266,6 +270,7 @@ class FuncInfo(object):
             code_args += ")"
 
             if self.isconstructor:
+                template_func_body = gen_template_func_body_int
                 if selfinfo.issimple:
                     templ_prelude = gen_template_simple_call_constructor_prelude
                     templ = gen_template_simple_call_constructor
@@ -341,7 +346,7 @@ class FuncInfo(object):
                 code_ret = "return Js_BuildValue(env, \"(%s)\", %s)" % \
                     (fmtspec, ", ".join(["jsopencv_from(env, " + aname + ")" for aname, argno in v.py_outlist]))
 
-            all_code_variants.append(gen_template_func_body.substitute(code_decl=code_decl,
+            all_code_variants.append(template_func_body.substitute(code_decl=code_decl,
                 code_parse=code_parse, code_prelude=code_prelude, code_fcall=code_fcall, code_ret=code_ret))
 
         if len(all_code_variants)==1:

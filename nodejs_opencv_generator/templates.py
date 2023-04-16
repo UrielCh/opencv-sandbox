@@ -3,18 +3,22 @@ from string import Template
 
 gen_template_check_self = Template("""
     ${cname} * self1 = 0;
-    if (!jsopencv_${name}_getp(self, self1))
-        return jsfailmsgp(info.Env(), "Incorrect type of self (must be '${name}' or its derivative)");
+    if (!jsopencv_${name}_getp(&(info.This()), self1))
+        return jsfailmsgp(env, "Incorrect type of self (must be '${name}' or its derivative)");
     ${pname} _self_ = ${cvt}(self1);
 """)
-gen_template_call_constructor_prelude = Template("""new (&(self->v)) Ptr<$cname>(); // init Ptr with placement new
-        if(self) """)
+gen_template_call_constructor_prelude = Template("""Napi::Object *self = &info.This().As<Napi::Object>();
+        Ptr<$cname> *data = (Ptr<$cname> *)self->Get("v").As<Napi::Buffer<char>>().Data();
+        new (data) Ptr<$cname>(); // init Ptr with placement new
+        if(data) """)
 
-gen_template_call_constructor = Template("""self->v.reset(new ${cname}${py_args})""")
+gen_template_call_constructor = Template("""data->reset(new ${cname}${py_args})""")
 
-gen_template_simple_call_constructor_prelude = Template("""if(self) """)
+gen_template_simple_call_constructor_prelude = Template("""if (self) """)
 
-gen_template_simple_call_constructor = Template("""new (&(self->v)) ${cname}${py_args}""")
+gen_template_simple_call_constructor = Template("""
+Napi::Object* self = &info.This().As<Napi::Object>();
+new (self->Get("v").As<Napi::Buffer<char>>().Data()) ${cname}${py_args}""")
 
 gen_template_parse_args = Template("""const char* keywords[] = { $kw_list, NULL };
     if (JsArg_ParseTupleAndKeywords(info, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt)""")
@@ -23,6 +27,14 @@ gen_template_func_body = Template("""$code_decl
     $code_parse
     {
         ${code_prelude}ERRWRAP2_NAPI(env, $code_fcall);
+        $code_ret;
+    }
+""")
+
+gen_template_func_body_int = Template("""$code_decl
+    $code_parse
+    {
+        ${code_prelude}ERRWRAP2_NAPI_INT(env, $code_fcall);
         $code_ret;
     }
 """)
@@ -58,7 +70,7 @@ struct JsOpenCV_Converter< ${cname} >
             return true;
         }
         ${mappable_code}
-        jsfailmsg("Expected ${cname} for argument '%s'", info.name);
+        jsfailmsg(src->Env(), "Expected ${cname} for argument '%s'", info.name);
         return false;
     }
 };
@@ -104,28 +116,28 @@ ${methods_inits}
 
 
 gen_template_get_prop = Template("""
-static PyObject* jsopencv_${name}_get_${member}(jsopencv_${name}_t* p, void *closure)
+static Napi::Value jsopencv_${name}_get_${member}(const Napi::Env &env, jsopencv_${name}_t* p, void *closure)
 {
-    return jsopencv_from(info, p->v${access}${member});
+    return jsopencv_from(env, p->v${access}${member});
 }
 """)
 
 gen_template_get_prop_algo = Template("""
-static PyObject* jsopencv_${name}_get_${member}(jsopencv_${name}_t* p, void *closure)
+static Napi::Value jsopencv_${name}_get_${member}const Napi::Env &env, (jsopencv_${name}_t* p, void *closure)
 {
     $cname* _self_ = dynamic_cast<$cname*>(p->v.get());
     if (!_self_)
         return jsfailmsgp(info.Env(), "Incorrect type of object (must be '${name}' or its derivative)");
-    return jsopencv_from(info, _self_${access}${member});
+    return jsopencv_from(env, _self_${access}${member});
 }
 """)
 
 gen_template_set_prop = Template("""
-static int pjsopencv_${name}_set_${member}(const Napi::CallbackInfo &info, jsopencv_${name}_t* p, Napi::Value *value, void *closure)
+static int pjsopencv_${name}_set_${member}(const Napi::Env &env, jsopencv_${name}_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ${member} attribute");
+        JsErr_SetString(env, "Cannot delete the ${member} attribute");
         return -1;
     }
     return jsopencv_to_safe(value, p->v${access}${member}, ArgInfo("value", false)) ? 0 : -1;
@@ -133,17 +145,17 @@ static int pjsopencv_${name}_set_${member}(const Napi::CallbackInfo &info, jsope
 """)
 
 gen_template_set_prop_algo = Template("""
-static int jsopencv_${name}_set_${member}(const Napi::CallbackInfo &info, jsopencv_${name}_t* p, Napi::Value *value, void *closure)
+static int jsopencv_${name}_set_${member}(const Napi::Env &env, jsopencv_${name}_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
-        JsErr_SetString(info, PyExc_TypeError, "Cannot delete the ${member} attribute");
+        JsErr_SetString(env, "Cannot delete the ${member} attribute");
         return -1;
     }
     $cname* _self_ = dynamic_cast<$cname*>(p->v.get());
     if (!_self_)
     {
-        jsfailmsgp(info.Env(), "Incorrect type of object (must be '${name}' or its derivative)");
+        jsfailmsgp(env, "Incorrect type of object (must be '${name}' or its derivative)");
         return -1;
     }
     return jsopencv_to_safe(value, _self_${access}${member}, ArgInfo("value", false)) ? 0 : -1;

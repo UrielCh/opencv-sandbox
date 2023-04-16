@@ -29,6 +29,9 @@ Napi::Value jsopencv_from(const Napi::Env &env, const cv::UMat & src) {
 // #include "../cc-generated/jsopencv_generated_types_content.h"
 // #include "../cc-generated/jsopencv_generated_funcs.h"
 
+// not Included: jsopencv_generated_modules_content.h
+// not Included: jsopencv_generated_modules.h
+// jsopencv_generated_include.h already included in prev includes.
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
 

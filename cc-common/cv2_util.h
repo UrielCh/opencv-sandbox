@@ -86,17 +86,10 @@ Napi::Value jsfailmsgp(const Napi::Env& env, const char *fmt, ...);
 
 
 //======================================================================================================================
-
 extern Napi::Value* opencv_error; // global Error object
-
-
-
 #define ERRWRAP2_NAPI(env, expr)  \
-    try { \
-      expr; \
-    } \
-    catch (const cv::Exception &e) \
-    { \
+    try { expr; } \
+    catch (const cv::Exception &e) { \
         Napi::Error::New(env, e.what()).ThrowAsJavaScriptException(); \
         return env.Undefined(); \
     } catch (const std::exception &e) { \
@@ -106,12 +99,19 @@ extern Napi::Value* opencv_error; // global Error object
         Napi::Error::New(env, "Unknown exception occurred").ThrowAsJavaScriptException(); \
         return env.Undefined();                                       \
     }
-
-
-
-
-
-
+// same as ERRWRAP2_NAPI but returns 0 instead of env.Undefined()
+#define ERRWRAP2_NAPI_INT(env, expr)  \
+    try { expr; } \
+    catch (const cv::Exception &e) { \
+        Napi::Error::New(env, e.what()).ThrowAsJavaScriptException(); \
+        return 0; \
+    } catch (const std::exception &e) { \
+        Napi::Error::New(env, e.what()).ThrowAsJavaScriptException(); \
+        return 0; \
+    } catch (...) { \
+        Napi::Error::New(env, "Unknown exception occurred").ThrowAsJavaScriptException(); \
+        return 0;                                          \
+    }
 
 //======================================================================================================================
 

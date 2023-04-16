@@ -79,7 +79,10 @@ class NodejsWrapperGenerator(object):
         self.code_types.write('#include "../cc-common/cv2_convert.h"\n')
         # self.code_types.write('// #include "../cc-common/cv2.hpp"\n') // can not include cv2
         self.code_types.write('#include "../cc-common/cv2_util.h"\n')
-        self.code_types.write('#include "./jsopencv_generated_include.h"\n')
+        # self.code_types.write('#include "./jsopencv_generated_include.h"\n')
+        self.code_types.write('#include "./jsopencv_generated_enums.h"\n')
+        self.code_types.write('#include "./jsopencv_generated_types.h"\n')
+
         self.code_types.write("\n")
 
         self.code_type_publish: StringIO = StringIO() # jsopencv_generated_types.h

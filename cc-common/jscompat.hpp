@@ -173,8 +173,7 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
     static Napi::Value * jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r) \
     { \
         Napi::Object *m =  _JsObject_New(env, jsopencv_##CLASS_ID##_TypePtr); \
-        Napi::Buffer<char> buffer = m->Get("v").As<Napi::Buffer<char>>(); \
-        char* memoryBlockPtr = buffer.Data(); \
+        char* memoryBlockPtr = (m->Get("v").As<Napi::Buffer<char>>()).Data(); \
         new (memoryBlockPtr) STORAGE(r); \
         return m; \
     } \
@@ -223,7 +222,7 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
         STORAGE v; \
     }; \
     static PyObject * jsopencv_##CLASS_ID##_TypePtr = 0; \
-    static bool jsopencv_##CLASS_ID##_getp(Napi::Value * self, STORAGE * & dst) \
+    static bool jsopencv_##CLASS_ID##_getp(const Napi::Value * self, STORAGE * & dst) \
     { \
         if (JsObject_TypeCheck(self, (JsTypeObject*)jsopencv_##CLASS_ID##_TypePtr)) \
         { \
