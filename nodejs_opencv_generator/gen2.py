@@ -5,8 +5,12 @@ import hdr_parser, sys, re, os
 from pprint import pprint
 from classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 
-
 if __name__ == "__main__":
+    """
+    Generate Node.js bindings for OpenCV
+    First argument is the output directory
+    Second argument is a file with a list of header files to process
+    """
     srcfiles = hdr_parser.opencv_hdr_list
     dstdir = "/Users/vp/tmp"
     if len(sys.argv) > 1:

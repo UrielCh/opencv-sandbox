@@ -506,7 +506,7 @@ Napi::Object _JsObject_New(const Napi::Env& env, const JsTypeStruct* type) {
 }
 
 const Napi::Value *JsMapping_GetItemString(const Napi::Value* src, const char* key) {
-        if (!src->IsObject()) {
+    if (!src->IsObject()) {
         return nullptr;
     }
 
@@ -532,9 +532,6 @@ bool JsMapping_HasKeyString(const Napi::Value* src, const char* key) {
     if (!src->IsObject()) {
         return false;
     }
-
-    Napi::Object srcObject = src->As<Napi::Object>();
-
     // Check if the object has the specified key
-    return srcObject.Has(key);
+    return src->As<Napi::Object>().Has(key);
 }

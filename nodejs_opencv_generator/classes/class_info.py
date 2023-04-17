@@ -104,7 +104,7 @@ class ClassInfo(object):
 
     def gen_map_code(self, codegen):
         all_classes = codegen.classes
-        code = "static bool jsopencv_to(Napi::Value* src, %s& dst, const ArgInfo& info)\n{\n    Napi::Value* tmp;\n    bool ok;\n" % (self.cname)
+        code = "static bool jsopencv_to(Napi::Value* src, %s& dst, const ArgInfo& info)\n{\n    const Napi::Value* tmp;\n    bool ok;\n" % (self.cname)
         code += "".join([gen_template_set_prop_from_map.substitute(propname=p.name,proptype=p.tp) for p in self.props])
         if self.base:
             code += "\n    return jsopencv_to_safe(src, (%s&)dst, info);\n}\n" % all_classes[self.base].cname
