@@ -79,10 +79,13 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
         obj.Set(AKAZE_KEY, Napi::External<AKAZE>::New(env, new AKAZE(akaze)));
         return obj; });
     akazeConstructor["getDefault"] = getDefault;
-    akazeConstructor.As<Napi::Object>().DefineOwnProperty(env, Napi::String::New(env, "setThreshold"), setThreshold);
-    akazeConstructor.As<Napi::Object>().DefineOwnProperty(env, Napi::String::New(env, "setDescriptorSize"), setDescriptorSize);
-    akazeConstructor.As<Napi::Object>().DefineOwnProperty(env, Napi::String::New(env, "setDescriptorChannels"), setDescriptorChannels);
-    akazeConstructor.As<Napi::Object>().DefineOwnProperty(env, Napi::String::New(env, "setDescriptorType"), setDescriptorType);
+
+    Napi::PropertyDescriptor setThresholdProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setThreshold"), setThreshold);
+    Napi::PropertyDescriptor setDescriptorSizeProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setDescriptorSize"), setDescriptorSize);
+    Napi::PropertyDescriptor setDescriptorChannelsProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setDescriptorChannels"), setDescriptorChannels);
+    Napi::PropertyDescriptor setDescriptorTypeProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setDescriptorType"), setDescriptorType);
+
+    akazeConstructor.As<Napi::Object>().DefineProperties({ setThresholdProperty, setDescriptorSizeProperty, setDescriptorChannelsProperty, setDescriptorTypeProperty });
 
     exports.Set("AKAZE", akazeConstructor);
 
