@@ -61,33 +61,28 @@ Napi::Object AKAZE_getDefault(const Napi::CallbackInfo &info) {
     return obj;
 }
 
+Napi::Value AKAZE_constructor(const Napi::CallbackInfo &info) {
+    Napi::Env env = info.Env();
+    AKAZE *akaze = new AKAZE();
+    info.This().As<Napi::Object>().Set(AKAZE_KEY, Napi::External<AKAZE>::New(env, akaze));
+    return info.This();
+}
+
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
     Napi::HandleScope scope(env);
-
     AKAZE_KEY = Napi::Symbol::New(env);
-
-    Napi::Function akazeConstructor = Napi::Function::New(env, [](const Napi::CallbackInfo &info)
-                                                          {
-        Napi::Env env = info.Env();
-        AKAZE *akaze = new AKAZE();
-        info.This().As<Napi::Object>().Set(AKAZE_KEY, Napi::External<AKAZE>::New(env, akaze));
-        return info.This(); });
-
+    Napi::Function akazeConstructor = Napi::Function::New(env, AKAZE_constructor);
     Napi::Function setThreshold = Napi::Function::New(env, jsopencv_cv_AKAZE_setThreshold);
     Napi::Function setDescriptorSize = Napi::Function::New(env, jsopencv_cv_AKAZE_setDescriptorSize);
     Napi::Function setDescriptorChannels = Napi::Function::New(env, jsopencv_cv_AKAZE_setDescriptorChannels);
     Napi::Function setDescriptorType = Napi::Function::New(env, jsopencv_cv_AKAZE_setDescriptorType);
-
     akazeConstructor["getDefault"] = Napi::Function::New(env, AKAZE_getDefault);
-
     akazeConstructor.As<Napi::Object>().DefineProperties({
         Napi::PropertyDescriptor::Function(env, akazeConstructor, "setThreshold", setThreshold),
         Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorSize", setDescriptorSize),
         Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorChannels", setDescriptorChannels),
         Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorType", setDescriptorType)
     });
-
     exports.Set("AKAZE", akazeConstructor);
-
     return exports;
 }
