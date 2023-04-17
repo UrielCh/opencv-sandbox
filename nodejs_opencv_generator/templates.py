@@ -136,7 +136,7 @@ static Napi::Value jsopencv_${name}_get_${member}const Napi::Env &env, (jsopencv
 """)
 
 gen_template_set_prop = Template("""
-static int pjsopencv_${name}_set_${member}(const Napi::Env &env, jsopencv_${name}_t* p, Napi::Value *value, void *closure)
+static int jsopencv_${name}_set_${member}(const Napi::Env &env, jsopencv_${name}_t* p, Napi::Value *value, void *closure)
 {
     if (!value)
     {
