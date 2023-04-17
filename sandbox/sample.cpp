@@ -71,21 +71,21 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
     Napi::Function setDescriptorChannels = Napi::Function::New(env, jsopencv_cv_AKAZE_setDescriptorChannels);
     Napi::Function setDescriptorType = Napi::Function::New(env, jsopencv_cv_AKAZE_setDescriptorType);
 
-    Napi::Function getDefault = Napi::Function::New(env, [](const Napi::CallbackInfo &info)
-                                                    {
+    Napi::Function getDefault = Napi::Function::New(env, [](const Napi::CallbackInfo &info) {
         Napi::Env env = info.Env();
         AKAZE akaze = AKAZE::getDefault();
         Napi::Object obj = Napi::Object::New(env);
         obj.Set(AKAZE_KEY, Napi::External<AKAZE>::New(env, new AKAZE(akaze)));
         return obj; });
+    // static calls
     akazeConstructor["getDefault"] = getDefault;
 
-    Napi::PropertyDescriptor setThresholdProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setThreshold"), setThreshold);
-    Napi::PropertyDescriptor setDescriptorSizeProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setDescriptorSize"), setDescriptorSize);
-    Napi::PropertyDescriptor setDescriptorChannelsProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setDescriptorChannels"), setDescriptorChannels);
-    Napi::PropertyDescriptor setDescriptorTypeProperty = Napi::PropertyDescriptor::Function(env, akazeConstructor, Napi::String::New(env, "setDescriptorType"), setDescriptorType);
-
-    akazeConstructor.As<Napi::Object>().DefineProperties({ setThresholdProperty, setDescriptorSizeProperty, setDescriptorChannelsProperty, setDescriptorTypeProperty });
+    akazeConstructor.As<Napi::Object>().DefineProperties({
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setThreshold", setThreshold),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorSize", setDescriptorSize),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorChannels", setDescriptorChannels),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorType", setDescriptorType)
+    });
 
     exports.Set("AKAZE", akazeConstructor);
 
