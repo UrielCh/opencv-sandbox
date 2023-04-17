@@ -2,7 +2,7 @@
 #define __JS_AS_PY_HPP__
 
 #include <napi.h>
-
+#include "./extra_common.h"
 // #define JsAPI_FUNC(RTYPE) RTYPE
 // #define JsAPI_DATA(RTYPE) extern RTYPE
 // #define JsMODINIT_FUNC void
@@ -124,13 +124,7 @@ static inline std::string Js_TYPE(Napi::Value *value) {
   if (!value->IsObject()) {
     return ""; // value->Env().Null();
   }
-  Napi::Object object = value->As<Napi::Object>();
-  Napi::Value prototype_val = object.Get(Napi::String::New(object.Env(), "__proto__"));
-  if (!prototype_val.IsObject()) {
-    return ""; // value->Env().Null();
-  }
-  Napi::Object prototype = prototype_val.As<Napi::Object>();
-  return prototype.Get("type").As<Napi::String>().Utf8Value();
+  return getInternalType(*value);
 }
 
 static inline int Js_IS_TYPE(Napi::Value *ob, JsTypeObject *type) {
@@ -159,7 +153,7 @@ static inline int JsObject_TypeCheck(Napi::Value *ob, JsTypeObject *type) {
 //     return result;
 // }
 
-Napi::Value* JsString_FromString(const Napi::Env& env, const char* str);
+Napi::Value JsString_FromString(const Napi::Env& env, const char* str);
 
 // PyObject *PyCFunction_NewEx(PyMethodDef *ml, PyObject *self, PyObject *module)
 Napi::Value * JsCFunction_NewEx(JsMethodDef *ml, Napi::Value *self, Napi::Object *module);
@@ -203,7 +197,7 @@ struct jsopencv_t {
     T v;
 };
 
-Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type);
+Napi::Object _JsObject_New(const Napi::Env& env, const JsTypeStruct* type);
 
 // Napi::Value *
 // _PyObject_New(PyTypeObject *tp)
@@ -228,7 +222,7 @@ Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type);
 //     return newJsObject;
 // }
 
-#define JsObject_NEW(env, type, typeobj) ((type *)_JsObject_New(env, typeobj))
+#define JsObject_NEW(env, type, typeobj) ((type)_JsObject_New(env, typeobj))
 #define JsObject_Del(elm) free(elm);  // TODO free memory
 
 const Napi::Value *JsMapping_GetItemString(const Napi::Value* src, const char* key);

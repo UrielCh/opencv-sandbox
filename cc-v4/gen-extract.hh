@@ -68,7 +68,7 @@ static Napi::Value jsopencv_cv_idft(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "idft");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 #ifdef HAVE_OPENCV_PHOTO
@@ -137,7 +137,7 @@ static Napi::Value jsopencv_cv_illuminationChange(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "illuminationChange");
 
-    return info.Env().Null();
+    return env.Null();
 }
 #endif
 
@@ -161,7 +161,7 @@ static Napi::Value jsopencv_cv_imcount(const Napi::CallbackInfo &info)
         return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
@@ -213,7 +213,7 @@ static Napi::Value jsopencv_cv_imdecode(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imdecode");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
@@ -271,7 +271,7 @@ static Napi::Value jsopencv_cv_imdecodemulti(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imdecodemulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
@@ -331,7 +331,7 @@ static Napi::Value jsopencv_cv_imencode(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imencode");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
@@ -354,7 +354,7 @@ static Napi::Value jsopencv_cv_imread(const Napi::CallbackInfo &info)
         return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
@@ -418,7 +418,7 @@ static Napi::Value jsopencv_cv_imreadmulti(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imreadmulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
@@ -440,7 +440,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_mat, mat, ArgInfo("mat", 0)))
     {
         ERRWRAP2_NAPI(env, cv::imshow(winname, mat));
-        return info.Env().Null();;
+        return env.Null();
     }
 
 
@@ -488,7 +488,7 @@ static Napi::Value jsopencv_cv_imshow(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imshow");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
@@ -546,7 +546,7 @@ static Napi::Value jsopencv_cv_imwrite(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imwrite");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
@@ -604,7 +604,7 @@ static Napi::Value jsopencv_cv_imwritemulti(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "imwritemulti");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
@@ -666,7 +666,7 @@ static Napi::Value jsopencv_cv_inRange(const Napi::CallbackInfo &info)
     }
     jsRaiseCVOverloadException(info, "inRange");
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 #ifdef HAVE_OPENCV_CALIB3D
@@ -731,7 +731,7 @@ static Napi::Value jsopencv_cv_initCameraMatrix2D(const Napi::CallbackInfo &info
     }
     jsRaiseCVOverloadException(info, "initCameraMatrix2D");
 
-    return info.Env().Null();
+    return env.Null();
 }
 #endif
 
@@ -749,7 +749,7 @@ static Napi::Value jsopencv_cv_getVersionMajor(const Napi::CallbackInfo &info)
         return jsopencv_from(env, retval);
     }
 
-    return info.Env().Null();
+    return env.Null();
 }
 
 static Napi::Value jsopencv_cv_getVersionMinor(const Napi::CallbackInfo &info)

@@ -165,24 +165,24 @@ Napi::Value jsopencv_from(const Napi::Env &env, const TYPE& src) \
     { \
         if (JsObject_TypeCheck(self, jsopencv_##CLASS_ID##_TypePtr)) \
         { \
-            dst = &(((jsopencv_##CLASS_ID##_t*)self)->v); \
+            dst = getInternalData<STORAGE>(*self); \
             return true; \
         } \
         return false; \
     } \
-    static Napi::Value * jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r) \
+    static Napi::Value jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r) \
     { \
-        Napi::Object *m =  _JsObject_New(env, jsopencv_##CLASS_ID##_TypePtr); \
-        char* memoryBlockPtr = (m->Get("v").As<Napi::Buffer<char>>()).Data(); \
+        Napi::Object m =  _JsObject_New(env, jsopencv_##CLASS_ID##_TypePtr); \
+        void *memoryBlockPtr = getInternalData<char>(m); \
         new (memoryBlockPtr) STORAGE(r); \
         return m; \
     } \
     static void jsopencv_##CLASS_ID##_dealloc(Napi::Value* self) \
     { \
         ((jsopencv_##CLASS_ID##_t*)self)->v.STORAGE::~SNAME(); \
-        JsObject_Del(self); \
+        /*JsObject_Del(self);*/ \
     } \
-    static Napi::Value* jsopencv_##CLASS_ID##_repr(Napi::Value* self) \
+    static Napi::Value jsopencv_##CLASS_ID##_repr(Napi::Value* self) \
     { \
         char str[1000]; \
         snprintf(str, sizeof(str), "< " MODULESTR SCOPE"."#EXPORT_NAME" %p>", self); \

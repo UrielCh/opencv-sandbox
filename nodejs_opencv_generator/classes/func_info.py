@@ -167,7 +167,6 @@ class FuncInfo(object):
             all_cargs = []
 
             template_func_body = gen_template_func_body
-            # template_func_body = gen_template_func_body_int
             if v.isphantom and ismethod and not self.is_static:
                 code_args += "_self_"
 

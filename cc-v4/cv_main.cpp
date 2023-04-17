@@ -34,6 +34,8 @@ Napi::Value jsopencv_from(const Napi::Env &env, const cv::UMat & src) {
 // jsopencv_generated_include.h already included in prev includes.
 Napi::Object cvmainInit(Napi::Env env, Napi::Object exports)
 {
+    DATA_KEY = Napi::Symbol::New(env, "cv2");
+    DATA_TYPE = Napi::Symbol::New(env, "type");
 
     exports.Set("idft", Napi::Function::New(env, jsopencv_cv_idft));
     #ifdef HAVE_OPENCV_PHOTO

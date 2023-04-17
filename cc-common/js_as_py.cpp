@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <iostream>
 #include <napi.h>
-#include "js_as_py.h"
+#include "cv2_util.h"
 
 // see doc: https://github.com/nodejs/node-addon-api/blob/main/doc/value.md
 
@@ -410,14 +410,13 @@ int JsDict_SetItemString(Napi::Object* v, const char* key, Napi::Value* item) {
     return 0;  // Return success code
 }
 
-Napi::Value* JsString_FromString(const Napi::Env& env, const char* str) {
+Napi::Value JsString_FromString(const Napi::Env& env, const char* str) {
     if (str == nullptr) {
         throw std::invalid_argument("Input string is null");
     }
 
     // Create a new Napi::String and allocate it on the heap
-    Napi::Value* result = new Napi::String(Napi::String::New(env, str));
-    return result;
+    return Napi::String::New(env, str);
 }
 
 Napi::Number JsLong_FromLongLong(const Napi::Env& env, long long value) {
@@ -490,14 +489,20 @@ Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
   return new Napi::Value(arr[index]);
 }
 
-Napi::Object* _JsObject_New(const Napi::Env& env, const JsTypeStruct* type) {
-    Napi::Buffer<char> buffer = Napi::Buffer<char>::New(env, type->size);
+Napi::Object _JsObject_New(const Napi::Env& env, const JsTypeStruct* type) {
+    Napi::Object obj = Napi::Object::New(env);
 
-    Napi::Object result = Napi::Object::New(env);
-    result.Set("type", Napi::String::New(env, type->type));
-    result.Set("v", buffer);
+    void* data = malloc(type->size);
+    if (data == nullptr) {
+        Napi::Error::New(env, "Failed to allocate memory").ThrowAsJavaScriptException();
+        return obj;
+    }
 
-    return new Napi::Object(result);
+    obj.Set(DATA_KEY, Napi::String::New(env, type->type));
+    obj.Set(DATA_TYPE, Napi::External<void>::New(env, data, [](Napi::Env, void* data) {
+        free(data);
+    }));
+    return obj;
 }
 
 const Napi::Value *JsMapping_GetItemString(const Napi::Value* src, const char* key) {

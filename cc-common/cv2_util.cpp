@@ -7,9 +7,10 @@
 Napi::Value* opencv_error = NULL; // global Error object
 cv::TLSData<std::vector<std::string> > conversionErrorsTLS;
 using namespace cv;
-
+// will be used to store all internal data initilized in init function
+Napi::Symbol DATA_KEY;
+Napi::Symbol DATA_TYPE;
 //======================================================================================================================
-
 bool isNodeBindingsDebugEnabled()
 {   // Original code use variable "OPENCV_PYTHON_DEBUG" we are using "OPENCV_NODE_DEBUG"
     static bool param_debug = cv::utils::getConfigurationParameterBool("OPENCV_NODE_DEBUG", false);

@@ -7,6 +7,7 @@ gen_template_check_self = Template("""
         return jsfailmsgp(env, "Incorrect type of self (must be '${name}' or its derivative)");
     ${pname} _self_ = ${cvt}(self1);
 """)
+# placement new
 gen_template_call_constructor_prelude = Template("""Napi::Object *self = &info.This().As<Napi::Object>();
         Ptr<$cname> *data = (Ptr<$cname> *)self->Get("v").As<Napi::Buffer<char>>().Data();
         new (data) Ptr<$cname>(); // init Ptr with placement new
@@ -14,11 +15,13 @@ gen_template_call_constructor_prelude = Template("""Napi::Object *self = &info.T
 
 gen_template_call_constructor = Template("""data->reset(new ${cname}${py_args})""")
 
-gen_template_simple_call_constructor_prelude = Template("""if (self) """)
+gen_template_simple_call_constructor_prelude = Template("""
+ auto self = getInternalData<${cname}>(info.This());
+ if (self) """)
 
+# placement new
 gen_template_simple_call_constructor = Template("""
-Napi::Object* self = &info.This().As<Napi::Object>();
-new (self->Get("v").As<Napi::Buffer<char>>().Data()) ${cname}${py_args}""")
+new (getInternalData<void>(info.This())) ${cname}${py_args}""")
 
 gen_template_parse_args = Template("""const char* keywords[] = { $kw_list, NULL };
     if (JsArg_ParseTupleAndKeywords(info, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt)""")
@@ -55,7 +58,7 @@ gen_template_type_decl = Template("""
 template<>
 struct JsOpenCV_Converter< ${cname} >
 {
-    static Napi::Value* from(const Napi::Env &env, const ${cname}& r)
+    static Napi::Value from(const Napi::Env &env, const ${cname}& r)
     {
         return jsopencv_${name}_Instance(env, r);
     }
