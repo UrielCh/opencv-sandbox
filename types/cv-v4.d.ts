@@ -127,3 +127,23 @@ export function getVersionRevision(): number;
  * @param ava ava object
  */
 export function runAvaTest(ava: any): null;
+
+class AKAZE {
+  constructor();
+  static create(): AKAZE;
+  getDefaultName(): string;
+  getDescriptorChannels(): number;
+  getDescriptorSize(): number;
+  getDescriptorType(): number;
+  getDiffusivity(): number; // DiffusivityType;
+  getNOctaveLayers(): number;
+  getNOctaves(): number;
+  getThreshold(): number;
+  setDescriptorChannels(dch: number): null;
+  setDescriptorSize(dsize: number): null;
+  setDescriptorType(dtype: number): null;
+  setDiffusivity(diff: number): null;
+  setNOctaveLayers(octaveLayers: number): null;
+  setNOctaves(octaves: number): null;
+  setThreshold(threshold: number): null;
+}

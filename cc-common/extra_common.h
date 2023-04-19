@@ -15,7 +15,7 @@ extern Napi::Symbol DATA_TYPE;
 // inline version
 template <typename TYPE>
 inline TYPE *getInternalData(const Napi::Value &value) {
-    return info.This().As<Napi::Object>().Get(DATA_KEY).As<Napi::External<TYPE>>().Data();
+    return value.As<Napi::Object>().Get(DATA_KEY).As<Napi::External<TYPE>>().Data();
 }
 // usage: AKAZE *akaze = getInternalData<AKAZE>(info.This());
 

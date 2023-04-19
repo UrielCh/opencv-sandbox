@@ -21,39 +21,43 @@ public:
 
 Napi::Symbol DATA_KEY;
 
-void jsopencv_cv_AKAZE_setThreshold(const Napi::CallbackInfo &info)
+Napi::Value jsopencv_cv_AKAZE_setThreshold(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     double threshold = info[0].As<Napi::Number>().DoubleValue();
     AKAZE *akaze = info.This().As<Napi::Object>().Get(DATA_KEY).As<Napi::External<AKAZE>>().Data();
     akaze->setThreshold(threshold);
+    return env.Null();   
 }
 
-void jsopencv_cv_AKAZE_setDescriptorSize(const Napi::CallbackInfo &info)
+Napi::Value jsopencv_cv_AKAZE_setDescriptorSize(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     int descriptorSize = info[0].As<Napi::Number>().Int32Value();
     AKAZE *akaze = info.This().As<Napi::Object>().Get(DATA_KEY).As<Napi::External<AKAZE>>().Data();
     akaze->setDescriptorSize(descriptorSize);
+    return env.Null();   
 }
 
-void jsopencv_cv_AKAZE_setDescriptorChannels(const Napi::CallbackInfo &info)
+Napi::Value jsopencv_cv_AKAZE_setDescriptorChannels(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     int descriptorChannels = info[0].As<Napi::Number>().Int32Value();
     AKAZE *akaze = info.This().As<Napi::Object>().Get(DATA_KEY).As<Napi::External<AKAZE>>().Data();
     akaze->setDescriptorChannels(descriptorChannels);
+    return env.Null();   
 }
 
-void jsopencv_cv_AKAZE_setDescriptorType(const Napi::CallbackInfo &info)
+Napi::Value jsopencv_cv_AKAZE_setDescriptorType(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     int descriptorType = info[0].As<Napi::Number>().Int32Value();
     AKAZE *akaze = info.This().As<Napi::Object>().Get(DATA_KEY).As<Napi::External<AKAZE>>().Data();
     akaze->setDescriptorType(descriptorType);
+    return env.Null();   
 }
 
-Napi::Object AKAZE_getDefault(const Napi::CallbackInfo &info) {
+Napi::Value AKAZE_getDefault(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
     AKAZE akaze = AKAZE::getDefault();
     Napi::Object obj = Napi::Object::New(env);
