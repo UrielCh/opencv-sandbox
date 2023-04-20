@@ -43,7 +43,7 @@ static bool jsopencv_AKAZE_getp(Napi::Value *self, cv::Ptr<cv::AKAZE> *&dst)
 static Napi::Value jsopencv_AKAZE_Instance(const Napi::Env &env, const cv::Ptr<cv::AKAZE> &r)
 {
     Napi::Object m = _JsObject_New(env, jsopencv_AKAZE_TypePtr);
-    void *memoryBlockPtr = getInternalData<char>(m);
+    void *memoryBlockPtr = getInternalData<void>(m);
     new (memoryBlockPtr) cv::Ptr<cv::AKAZE>(r);
     return m;
 }
@@ -475,6 +475,7 @@ struct JsOpenCV_Converter<Ptr<cv::AKAZE>>
 {
     static Napi::Value from(const Napi::Env &env, const Ptr<cv::AKAZE> &r)
     {
+        // std::cout << "AKAZE from JsOpenCV_Converter<Ptr<cv::AKAZE>> " << std::endl;
         return jsopencv_AKAZE_Instance(env, r);
     }
     static bool to(Napi::Value *src, Ptr<cv::AKAZE> &dst, const ArgInfo &info)
@@ -500,10 +501,10 @@ Napi::Value AKAZE_constructor(const Napi::CallbackInfo &info)
     // use pointer or smart pointer ?
     Napi::Object thisObj = info.This().As<Napi::Object>();
     // thisObj.Set(DATA_TYPE, Napi::External<AKAZE>::New(env, akaze));
-    thisObj.Set("DATA_TYPE", Napi::External<AKAZE>::New(env, akaze));
+    thisObj.Set("DATA_TYPE", jsopencv_AKAZE_TypeXXX.type);
 
     // thisObj.Set(DATA_KEY, jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
-    thisObj.Set("DATA_KEY", jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
+    thisObj.Set("DATA_KEY", Napi::External<AKAZE>::New(env, akaze)); //  Napi::External<AKAZE>::New(env, akaze)
     // should use _JsObject_New via JsObject_NEW
     // via static Napi::Value jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r)
     // via #define CVJS_TYPE_DECLARE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, SCOPE) \
@@ -542,6 +543,24 @@ Napi::Object InitAKAZE(Napi::Env env, Napi::Object exports)
          }
     }
     // akazeConstructor.DefineProperties(list);
+    akazeConstructor.DefineProperties({
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getDefaultName", jsopencv_cv_AKAZE_getDefaultName, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getDescriptorChannels", jsopencv_cv_AKAZE_getDescriptorChannels, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getDescriptorSize", jsopencv_cv_AKAZE_getDescriptorSize, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getDescriptorType", jsopencv_cv_AKAZE_getDescriptorType, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getDiffusivity", jsopencv_cv_AKAZE_getDiffusivity, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getNOctaveLayers", jsopencv_cv_AKAZE_getNOctaveLayers, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getNOctaves", jsopencv_cv_AKAZE_getNOctaves, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "getThreshold", jsopencv_cv_AKAZE_getThreshold, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorChannels", jsopencv_cv_AKAZE_setDescriptorChannels, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorSize", jsopencv_cv_AKAZE_setDescriptorSize, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorType", jsopencv_cv_AKAZE_setDescriptorType, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDiffusivity", jsopencv_cv_AKAZE_setDiffusivity, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setNOctaveLayers", jsopencv_cv_AKAZE_setNOctaveLayers, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setNOctaves", jsopencv_cv_AKAZE_setNOctaves, napi_default_method),
+        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setThreshold", jsopencv_cv_AKAZE_setThreshold, napi_default_method),
+    });
+
     exports.Set("AKAZE", akazeConstructor);
     return exports;
 }

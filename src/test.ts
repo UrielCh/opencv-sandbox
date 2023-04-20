@@ -109,38 +109,37 @@ test.serial('imencode logo as PNG has correct Magic number', async t => {
 
 
 
-test.serial('AKAZE class is present', async t => {
-    console.log(`---------------------`);
+test.serial('create AKAZE using new constructor', async t => {
     if (theModule.AKAZE) {
+        t.deepEqual(Object.keys(theModule.AKAZE), ["create"], 'AKAZE class should contains a singler static method');
         console.log(typeof(theModule.AKAZE));
         console.log(theModule.AKAZE);
         console.log(Object.keys(theModule.AKAZE));
-        console.log('allocating Objectobj');
         const obj = new theModule.AKAZE()
         console.log(obj);
     } else {
-        console.log(`AKAZE is Not present`);
+        console.log(`AKAZE is Not present No test`);
+        t.pass()
     }
-    console.log(`---------------------`);
-    t.pass()
 });
 
-
-
-test.serial('AKAZE class is present AKAZE.create ', async t => {
-    console.log(`---------------------`);
+test.serial('create AKAZE using static AKAZE.create()', async t => {
+    try {
     if (theModule.AKAZE) {
-        console.log('allocating Objectobj');
-        // const obj = theModule.AKAZE.create({descriptor_size: 120, diffusivity: 300});
-        // console.log(obj);
+        console.log('allocating AKAZE using AKAZE.create');
+        const descriptor_size = 120;
+        const obj = theModule.AKAZE.create({descriptor_size, diffusivity: 300});
+        console.log('AKAZE:', obj);
+        console.log('AKAZE.getDescriptorSize:', obj.getDescriptorSize());
+        t.is(obj.getDescriptorSize(), descriptor_size, 'AKAZE.getDescriptorSize should return the value passed to AKAZE.create');
     } else {
-        console.log(`AKAZE is Not present`);
+        console.log(`AKAZE is Not present No test`);
+        t.pass()
     }
-    console.log(`---------------------`);
-    t.pass()
+    } catch (e) { 
+        t.fail((e as Error).message)
+    }
 });
-
-
 
 /**
  * register tests

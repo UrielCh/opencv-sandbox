@@ -50,13 +50,13 @@ struct JsOpenCV_Converter
 };
 
 // --- Generic
-
 template <typename T>
 bool jsopencv_to(const Napi::Value* obj, T& value, const ArgInfo& argInfo) { return JsOpenCV_Converter<T>::to(obj, value, argInfo); } 
-
 template<typename T>
-Napi::Value jsopencv_from(const Napi::Env &env, const T& src) { return JsOpenCV_Converter<T>::from(env, src); }
-
+Napi::Value jsopencv_from(const Napi::Env &env, const T& src) { 
+    // std::cout << "calling: JsOpenCV_Converter<"<< typeid(T).name() <<">::from(env, src);" << std::endl;
+    return JsOpenCV_Converter<T>::from(env, src);
+    }
 // --- Matx
 // ported from pyopencv_to L:62
 template<typename _Tp, int m, int n>
