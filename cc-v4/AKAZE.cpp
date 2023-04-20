@@ -499,8 +499,11 @@ Napi::Value AKAZE_constructor(const Napi::CallbackInfo &info)
     cv::Ptr<cv::AKAZE> akaze = cv::AKAZE::create();
     // use pointer or smart pointer ?
     Napi::Object thisObj = info.This().As<Napi::Object>();
-    thisObj.Set(DATA_TYPE, Napi::External<AKAZE>::New(env, akaze));
-    thisObj.Set(DATA_KEY, Napi::External<AKAZE>::New(env, akaze));
+    // thisObj.Set(DATA_TYPE, Napi::External<AKAZE>::New(env, akaze));
+    thisObj.Set("DATA_TYPE", Napi::External<AKAZE>::New(env, akaze));
+
+    // thisObj.Set(DATA_KEY, jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
+    thisObj.Set("DATA_KEY", jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
     // should use _JsObject_New via JsObject_NEW
     // via static Napi::Value jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r)
     // via #define CVJS_TYPE_DECLARE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, SCOPE) \
@@ -533,12 +536,12 @@ Napi::Object InitAKAZE(Napi::Env env, Napi::Object exports)
                    akazeConstructor,
                    method.ml_name,
                    method.ml_meth);
-               list.push_back(desc);
+              // list.push_back(desc);
          } else if (method.ml_flags == METH_STATIC) {
-              // akazeConstructor[method.ml_name] = Napi::Function::New(env, method.ml_meth);
+              akazeConstructor[method.ml_name] = Napi::Function::New(env, method.ml_meth);
          }
     }
-    // akazeConstructor.As<Napi::Object>().DefineProperties(list);
-    // exports.Set("AKAZE", akazeConstructor);
+    // akazeConstructor.DefineProperties(list);
+    exports.Set("AKAZE", akazeConstructor);
     return exports;
 }

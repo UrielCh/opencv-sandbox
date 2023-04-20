@@ -130,7 +130,7 @@ export function runAvaTest(ava: any): null;
 
 class AKAZE {
   constructor();
-  static create(): AKAZE;
+  static create(opts?: {descriptor_type?: number, descriptor_size?: number, descriptor_channels?: number, threshold?: number, nOctaves?: number, nOctaveLayers?: number, diffusivity?: number}): AKAZE;
   getDefaultName(): string;
   getDescriptorChannels(): number;
   getDescriptorSize(): number;

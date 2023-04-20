@@ -107,6 +107,41 @@ test.serial('imencode logo as PNG has correct Magic number', async t => {
       }
 });
 
+
+
+test.serial('AKAZE class is present', async t => {
+    console.log(`---------------------`);
+    if (theModule.AKAZE) {
+        console.log(typeof(theModule.AKAZE));
+        console.log(theModule.AKAZE);
+        console.log(Object.keys(theModule.AKAZE));
+        console.log('allocating Objectobj');
+        const obj = new theModule.AKAZE()
+        console.log(obj);
+    } else {
+        console.log(`AKAZE is Not present`);
+    }
+    console.log(`---------------------`);
+    t.pass()
+});
+
+
+
+test.serial('AKAZE class is present AKAZE.create ', async t => {
+    console.log(`---------------------`);
+    if (theModule.AKAZE) {
+        console.log('allocating Objectobj');
+        // const obj = theModule.AKAZE.create({descriptor_size: 120, diffusivity: 300});
+        // console.log(obj);
+    } else {
+        console.log(`AKAZE is Not present`);
+    }
+    console.log(`---------------------`);
+    t.pass()
+});
+
+
+
 /**
  * register tests
  */
