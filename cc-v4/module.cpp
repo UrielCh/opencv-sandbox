@@ -3,7 +3,6 @@
 #include "cv_main.h"
 #include "../cc-common/js_as_py_test.h"
 #include "../cc-common/cv2_util.h"
-#include "./AKAZE.h"
 
 static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
 {
@@ -20,13 +19,14 @@ static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
     return info.Env().Null();
 }
 
-Napi::Object InitAll(Napi::Env env, Napi::Object exports)
-{
+
+Napi::Object Init(Napi::Env env, Napi::Object exports);
+
+Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
     exports.Set("runAvaTest", Napi::Function::New(env, runAvaTest));
-
     cvmainInit(env, exports);
-    InitAKAZE(env, exports);
-
+    // InitAKAZE(env, exports);
+    // Init(env, exports);
     cvMatObject::Init(env, exports);
     return exports;
 }

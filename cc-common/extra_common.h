@@ -36,7 +36,7 @@ inline std::string getInternalType(const Napi::Value &value) {
         throw Napi::Error::New(value.Env(), "call getInternalType on a non Object");
     auto type_key = value.As<Napi::Object>().Get("DATA_TYPE");
     if (type_key.IsUndefined())
-        throw Napi::Error::New(value.Env(), "DATA_TYPE is undefined");
+        throw Napi::Error::New(value.Env(), "DATA_TYPE is undefined in the current object");
     if (!type_key.IsString())
         throw Napi::Error::New(value.Env(), "DATA_TYPE should be an string");
     return type_key.As<Napi::String>().Utf8Value();

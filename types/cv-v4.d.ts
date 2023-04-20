@@ -127,6 +127,12 @@ export function getVersionRevision(): number;
  * @param ava ava object
  */
 export function runAvaTest(ava: any): null;
+class Example {
+  constructor(n: number);
+  GetValue(): number;
+  SetValue(v: number);
+  CreateNewItem: () => Example;
+}
 
 class AKAZE {
   constructor();
