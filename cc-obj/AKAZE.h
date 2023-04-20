@@ -13,8 +13,9 @@ class AKAZEWrapper : public Napi::ObjectWrap<AKAZEWrapper> {
 
     static Napi::FunctionReference constructor;
 
-   cv::Ptr<cv::AKAZE> akaze_;
-   static Napi::Symbol AKAZEInstanceSymbol;
+   cv::Ptr<cv::AKAZE> cvdata;
+   // present in all warppers to check types
+   static Napi::Symbol typeSymbol;
 
    private:
 
@@ -38,8 +39,5 @@ class AKAZEWrapper : public Napi::ObjectWrap<AKAZEWrapper> {
     // Static methods
     static Napi::Value CreateStatic(const Napi::CallbackInfo &info);
 };
-
-static bool jsopencv_AKAZE_getp(Napi::Value *self, cv::Ptr<cv::AKAZE> *&dst);
-Napi::Object InitAKAZE(Napi::Env env, Napi::Object exports);
 
 #endif

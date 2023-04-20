@@ -145,4 +145,7 @@ void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info);
 
 Napi::Value jscvRedirectError(const Napi::CallbackInfo& info);
 
+// NEW
+std::vector<napi_value> CallbackInfoToVector(const Napi::CallbackInfo &info);
+
 #endif // CV2_UTILS_2_H_

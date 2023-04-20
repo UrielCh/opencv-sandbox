@@ -2,6 +2,8 @@
 #include "../cc-common/js_as_py_test.h"
 #include "../cc-common/cv2_util.h"
 #include "./AKAZE.h"
+// #include "./AffineFeature.h"
+// #include "./Feature2D.h"
 
 static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
 {
@@ -22,7 +24,9 @@ static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
 Napi::Object Init(Napi::Env env, Napi::Object exports);
 
 Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
-    InitAKAZE(env, exports);
+    AKAZEWrapper::Init(env, exports);
+    // AffineFeatureWrapper::Init(env, exports);
+    // Feature2DWrapper::Init(env, exports);
     Init(env, exports);
     return exports;
 }

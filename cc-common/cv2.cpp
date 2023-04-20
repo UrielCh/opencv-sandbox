@@ -254,3 +254,14 @@ bool init_body(Napi::Env env, Napi::Object exports) {
 
     return true;
 }
+
+
+// NEW
+std::vector<napi_value> CallbackInfoToVector(const Napi::CallbackInfo &info) {
+    std::vector<napi_value> args;
+    size_t numArgs = info.Length();
+    for (size_t i = 0; i < numArgs; ++i) {
+        args.push_back(info[i]);
+    }
+    return args;
+}

@@ -17,33 +17,13 @@ CV_JS_FROM_ENUM(KAZE_DiffusivityType);
 CV_JS_TO_ENUM(KAZE_DiffusivityType);
 
 // extract from jsopencv_generated_types.h
-
 // CVJS_TYPE(AKAZE, AKAZE, cv::Ptr<cv::AKAZE>, Ptr, Feature2D, 0, "");
-
-struct jsopencv_AKAZE_t {
-    cv::Ptr<cv::AKAZE> v;
-};
-static JsTypeObject jsopencv_AKAZE_TypeXXX = {
-    "cv2.AKAZE",
-    sizeof(jsopencv_AKAZE_t),
-};
-
-static JsTypeObject *jsopencv_AKAZE_TypePtr = &jsopencv_AKAZE_TypeXXX;
-
-static bool jsopencv_AKAZE_getp(Napi::Value *self, cv::Ptr<cv::AKAZE> *&dst) {
-    if (JsObject_TypeCheck(self, jsopencv_AKAZE_TypePtr)) {
-        dst = getInternalData<cv::Ptr<cv::AKAZE>>(*self);
-        return true;
-    }
-    return false;
-}
-
-static void jsopencv_AKAZE_dealloc(Napi::Value *self) { ((jsopencv_AKAZE_t *)self)->v.cv::Ptr<cv::AKAZE>::~Ptr(); }
-static Napi::Value jsopencv_AKAZE_repr(Napi::Value *self) {
-    char str[1000];
-    snprintf(str, sizeof(str), "< cv2.AKAZE %p>", self);
-    return JsString_FromString(self->Env(), str);
-}
+// static void jsopencv_AKAZE_dealloc(Napi::Value *self) { ((jsopencv_AKAZE_t *)self)->v.cv::Ptr<cv::AKAZE>::~Ptr(); }
+// static Napi::Value jsopencv_AKAZE_repr(Napi::Value *self) {
+//     char str[1000];
+//     snprintf(str, sizeof(str), "< cv2.AKAZE %p>", self);
+//     return JsString_FromString(self->Env(), str);
+// }
 
 // extract from jsopencv_generated_types_content.h
 
@@ -60,17 +40,14 @@ static Napi::Value jsopencv_AKAZE_repr(Napi::Value *self) {
 // #include "pyopencv_generated_types.h"
 //
 // call PUBLISH CV_XXUXX
-
 // Tables (AKAZE)
 // used by macro: CVJS_TYPE_INIT_DYNAMIC
-//
-//
 // Converter (AKAZE)
 
 static Napi::Value jsopencv_AKAZE_Instance(const Napi::Env &env, const cv::Ptr<cv::AKAZE> &r) {
     Napi::Object newInstance = AKAZEWrapper::constructor.New({});
     AKAZEWrapper *wrapper = AKAZEWrapper::Unwrap(newInstance);
-    wrapper->akaze_ = r;
+    wrapper->cvdata = r;
     return newInstance;
 }
 
@@ -85,11 +62,11 @@ struct JsOpenCV_Converter<Ptr<cv::AKAZE>> {
             return true;
 
         Napi::Object obj = src->As<Napi::Object>();       // Convert Napi::Value to Napi::Object
-        if (!obj.Has(AKAZEWrapper::AKAZEInstanceSymbol)) {  //  || !obj.Get(AKAZEWrapper::AKAZEInstanceSymbol).As<Napi::Boolean>().Value())
+        if (!obj.Has(AKAZEWrapper::typeSymbol)) {  //  || !obj.Get(AKAZEWrapper::typeSymbol).As<Napi::Boolean>().Value())
             jsfailmsg(src->Env(), "Expected Ptr<cv::AKAZE> for argument '%s'", info.name);
         }
         AKAZEWrapper *wrapper = AKAZEWrapper::Unwrap(obj);  // Unwrap the Napi::Object to get AKAZEWrapper instance
-        dst = wrapper->akaze_;                              // Access the akaze_ member
+        dst = wrapper->cvdata;                              // Access the cvdata member
         return false;
     }
 };
@@ -118,12 +95,12 @@ struct JsOpenCV_Converter<Ptr<cv::AKAZE>> {
 // AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info);
 // static Napi::FunctionReference AKAZEWrapper::constructor;
 
-// AKAZE *akaze_;
+// AKAZE *cvdata;
 
 // Wrapped methods
 Napi::Value AKAZEWrapper::getDefaultName(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     String retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getDefaultName());
@@ -134,7 +111,7 @@ Napi::Value AKAZEWrapper::getDefaultName(const Napi::CallbackInfo &info) {
 Napi::Value AKAZEWrapper::getDescriptorSize(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
     Napi::Value *jsobj_dsize = NULL;
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     int retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getDescriptorSize());
@@ -144,7 +121,7 @@ Napi::Value AKAZEWrapper::getDescriptorSize(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getDescriptorType(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     // Ptr<cv::AKAZE> *self1 = 0;
     // if (!jsopencv_AKAZE_getp(&(info.This()), self1))
     //     return jsfailmsgp(env, "Incorrect type of self (must be 'AKAZE' or its derivative)");
@@ -158,7 +135,7 @@ Napi::Value AKAZEWrapper::getDescriptorType(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::setDescriptorSize(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_dtype = NULL;
     AKAZE_DescriptorType dtype = static_cast<AKAZE_DescriptorType>(0);
     const char *keywords[] = {"dtype", NULL};
@@ -171,7 +148,7 @@ Napi::Value AKAZEWrapper::setDescriptorSize(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::setDescriptorType(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_dtype = NULL;
     AKAZE_DescriptorType dtype = static_cast<AKAZE_DescriptorType>(0);
     const char *keywords[] = {"dtype", NULL};
@@ -184,7 +161,7 @@ Napi::Value AKAZEWrapper::setDescriptorType(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::setThreshold(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_threshold = NULL;
     double threshold = 0;
     const char *keywords[] = {"threshold", NULL};
@@ -197,7 +174,7 @@ Napi::Value AKAZEWrapper::setThreshold(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::setNOctaves(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_octaves = NULL;
     int octaves = 0;
     const char *keywords[] = {"octaves", NULL};
@@ -210,7 +187,7 @@ Napi::Value AKAZEWrapper::setNOctaves(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::setNOctaveLayers(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_octaveLayers = NULL;
     int octaveLayers = 0;
     const char *keywords[] = {"octaveLayers", NULL};
@@ -223,7 +200,7 @@ Napi::Value AKAZEWrapper::setNOctaveLayers(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::setDescriptorChannels(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_dch = NULL;
     int dch = 0;
     const char *keywords[] = {"dch", NULL};
@@ -236,7 +213,7 @@ Napi::Value AKAZEWrapper::setDescriptorChannels(const Napi::CallbackInfo &info) 
 }
 Napi::Value AKAZEWrapper::setDiffusivity(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     Napi::Value *jsobj_diff = NULL;
     KAZE_DiffusivityType diff = static_cast<KAZE_DiffusivityType>(0);
     const char *keywords[] = {"diff", NULL};
@@ -249,7 +226,7 @@ Napi::Value AKAZEWrapper::setDiffusivity(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getNOctaves(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     int retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getNOctaves());
@@ -259,7 +236,7 @@ Napi::Value AKAZEWrapper::getNOctaves(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getThreshold(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     double retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getThreshold());
@@ -269,7 +246,7 @@ Napi::Value AKAZEWrapper::getThreshold(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getDiffusivity(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     KAZE::DiffusivityType retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getDiffusivity());
@@ -279,7 +256,7 @@ Napi::Value AKAZEWrapper::getDiffusivity(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getNOctaveLayers(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     int retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getNOctaveLayers());
@@ -289,22 +266,13 @@ Napi::Value AKAZEWrapper::getNOctaveLayers(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getDescriptorChannels(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Ptr<cv::AKAZE> _self_ = this->akaze_;
+    Ptr<cv::AKAZE> _self_ = this->cvdata;
     int retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getDescriptorChannels());
         return jsopencv_from(env, retval);
     }
     return env.Null();
-}
-
-std::vector<napi_value> CallbackInfoToVector(const Napi::CallbackInfo &info) {
-    std::vector<napi_value> args;
-    size_t numArgs = info.Length();
-    for (size_t i = 0; i < numArgs; ++i) {
-        args.push_back(info[i]);
-    }
-    return args;
 }
 
 // Static methods
@@ -316,13 +284,13 @@ Napi::Value AKAZEWrapper::CreateStatic(const Napi::CallbackInfo &info) {
 Napi::FunctionReference AKAZEWrapper::constructor;
 
 AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info, const cv::Ptr<cv::AKAZE> &akaze)
-    : Napi::ObjectWrap<AKAZEWrapper>(info), akaze_(akaze) {
+    : Napi::ObjectWrap<AKAZEWrapper>(info), cvdata(akaze) {
     // You can add any additional initialization here, if needed.
 }
 
 Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
     Napi::HandleScope scope(env);
-    AKAZEInstanceSymbol = Napi::Symbol::New(env, "cv2.AKAZE"); // or "AKAZEWrapperInstance" m can be use for class debugging
+    typeSymbol = Napi::Symbol::New(env, "cv2.AKAZE"); // or "AKAZEWrapperInstance" m can be use for class debugging
     napi_property_attributes atts = static_cast<napi_property_attributes>(napi_writable | napi_configurable);
     Napi::Function func = DefineClass(env, "AKAZE", {
                                                         InstanceMethod<&AKAZEWrapper::getDefaultName>("getDefaultName", atts),
@@ -347,7 +315,7 @@ Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
     constructor = Napi::Persistent(func);
     constructor.SuppressDestruct();
     // Add the symbol to the AKAZEWrapper prototype
-    constructor.Value().Set(AKAZEInstanceSymbol, Napi::Boolean::New(env, true));
+    constructor.Value().Set(typeSymbol, Napi::Boolean::New(env, true));
 
     env.SetInstanceData<Napi::FunctionReference>(&constructor);
     exports.Set("AKAZE", func);
@@ -355,10 +323,10 @@ Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
 }
 
 AKAZEWrapper::~AKAZEWrapper() {
-    this->akaze_.release();
+    this->cvdata.release();
 }
 
-Napi::Symbol AKAZEWrapper::AKAZEInstanceSymbol;
+Napi::Symbol AKAZEWrapper::typeSymbol;
 
 // constructor
 AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info)
@@ -392,11 +360,6 @@ AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info)
         jsopencv_to_safe(jsobj_diffusivity, diffusivity, ArgInfo("diffusivity", 0))) {
         // std::cout << " JsArg_ParseTupleAndKeywords pass" << std::endl;
         ERRWRAP2_NAPI_VOID(env, retval = cv::AKAZE::create(descriptor_type, descriptor_size, descriptor_channels, threshold, nOctaves, nOctaveLayers, diffusivity));
-        this->akaze_ = retval;
+        this->cvdata = retval;
     }
-}
-
-Napi::Object InitAKAZE(Napi::Env env, Napi::Object exports) {
-    exports = AKAZEWrapper::Init(env, exports);
-    return exports;
 }

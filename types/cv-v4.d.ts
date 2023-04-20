@@ -153,3 +153,13 @@ class AKAZE {
   setNOctaves(octaves: number): null;
   setThreshold(threshold: number): null;
 }
+
+class AffineFeature {
+  constructor(backend: Feature2D, opts?: {maxTilt?: number, minTilt?: number, tiltStep?: number, rotateStepBase?: number});
+  static create(backend: Feature2D, opts?: {maxTilt?: number, minTilt?: number, tiltStep?: number, rotateStepBase?: number});
+  getDefaultName(): string;
+  getViewParams(tilts: number[], rolls: number[]): void; // std::vector<float>
+  setViewParams(tilts: number[], rolls: number[]): void; // std::vector<float>
+}
+
+class Feature2D {}
