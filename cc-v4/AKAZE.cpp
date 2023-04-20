@@ -526,27 +526,19 @@ Napi::Object InitAKAZE(Napi::Env env, Napi::Object exports)
     Napi::Function akazeConstructor = Napi::Function::New(env, AKAZE_constructor);
 
     std::vector<Napi::PropertyDescriptor> list;
-    // for (const auto &method : jsopencv_AKAZE_methods) {
-    //     // Napi::PropertyDescriptor desc = Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorSize", Napi::Function::New(env, jsopencv_cv_AKAZE_setDescriptorSize));
-    //     Napi::Value (*fncPtr)(const Napi::CallbackInfo &info) = jsopencv_cv_AKAZE_setDescriptorSize2; // method.ml_meth;
-    //     // Napi::Function napiFnc = Napi::Function::New(env, fncPtr);
-    //     if (method.ml_flags == 0) {
-    //           Napi::PropertyDescriptor desc = Napi::PropertyDescriptor::Function(
-    //               env,
-    //               akazeConstructor,
-    //               method.ml_name,
-    //               fncPtr);
-    //           list.push_back(desc);
-    //     } else if (method.ml_flags == METH_STATIC) {
-    //          akazeConstructor[method.ml_name] = fncPtr; // Napi::Function::New(env, method.ml_meth);
-    //     }
-    // }
-    // akazeConstructor.As<Napi::Object>().DefineProperties(list);
-    akazeConstructor.As<Napi::Object>().DefineProperties({
-        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setThreshold", jsopencv_cv_AKAZE_setThreshold),
-        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorSize", jsopencv_cv_AKAZE_setDescriptorSize),
-        Napi::PropertyDescriptor::Function(env, akazeConstructor, "setDescriptorSize", jsopencv_cv_AKAZE_setDescriptorSize2),
-    });
+    for (const auto &method : jsopencv_AKAZE_methods) {
+         if (method.ml_flags == 0) {
+               Napi::PropertyDescriptor desc = Napi::PropertyDescriptor::Function(
+                   env,
+                   akazeConstructor,
+                   method.ml_name,
+                   method.ml_meth);
+               list.push_back(desc);
+         } else if (method.ml_flags == METH_STATIC) {
+              akazeConstructor[method.ml_name] = Napi::Function::New(env, method.ml_meth);
+         }
+    }
+    akazeConstructor.As<Napi::Object>().DefineProperties(list);
     exports.Set("AKAZE", akazeConstructor);
     return exports;
 }
