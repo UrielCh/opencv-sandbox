@@ -25,7 +25,7 @@ Napi::Object InitAll(Napi::Env env, Napi::Object exports)
     exports.Set("runAvaTest", Napi::Function::New(env, runAvaTest));
 
     cvmainInit(env, exports);
-    // InitAKAZE(env, exports);
+    InitAKAZE(env, exports);
 
     cvMatObject::Init(env, exports);
     return exports;

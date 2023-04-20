@@ -535,10 +535,10 @@ Napi::Object InitAKAZE(Napi::Env env, Napi::Object exports)
                    method.ml_meth);
                list.push_back(desc);
          } else if (method.ml_flags == METH_STATIC) {
-              akazeConstructor[method.ml_name] = Napi::Function::New(env, method.ml_meth);
+              // akazeConstructor[method.ml_name] = Napi::Function::New(env, method.ml_meth);
          }
     }
-    akazeConstructor.As<Napi::Object>().DefineProperties(list);
-    exports.Set("AKAZE", akazeConstructor);
+    // akazeConstructor.As<Napi::Object>().DefineProperties(list);
+    // exports.Set("AKAZE", akazeConstructor);
     return exports;
 }
