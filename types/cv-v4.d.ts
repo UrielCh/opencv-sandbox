@@ -135,7 +135,7 @@ class Example {
 }
 
 class AKAZE {
-  constructor();
+  constructor(opts?: {descriptor_type?: number, descriptor_size?: number, descriptor_channels?: number, threshold?: number, nOctaves?: number, nOctaveLayers?: number, diffusivity?: number});
   static create(opts?: {descriptor_type?: number, descriptor_size?: number, descriptor_channels?: number, threshold?: number, nOctaves?: number, nOctaveLayers?: number, diffusivity?: number}): AKAZE;
   getDefaultName(): string;
   getDescriptorChannels(): number;

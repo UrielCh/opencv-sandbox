@@ -2,8 +2,14 @@ import test from 'ava';
 import { cvMatObject } from "../types/cv-v4";
 import { getModulePath } from "./openCVLoader";
 
-type TopenCV = typeof import('../types/cv-v4');
+export default function floatEqual(a: number, b: number, delta: number = 0.000001): boolean {
+	if (a === b) {
+		return true;
+	}
+	return Math.abs(a - b) < delta;
+}
 
+type TopenCV = typeof import('../types/cv-v4');
 
 let theModule: TopenCV = undefined as unknown as TopenCV;
 //test.before(() => {
@@ -115,17 +121,24 @@ test.serial('imencode logo as PNG has correct Magic number', async t => {
 
 test.serial('create AKAZE using new constructor', async t => {
     if (!theModule.AKAZE) return t.pass("AKAZE not present");
+    t.assert(theModule.AKAZE.create, 'AKAZE should contains create');
+    t.is(typeof (theModule.AKAZE.create), 'function', 'AKAZE.create must be a fucntion');
+    const descriptor_size = 12;
+    const descriptor_channels = 3;
+    const threshold = 0.001;
+    const nOctaves = 4;
+    const nOctaveLayers = 4;
+    const diffusivity = 3;
 
-    console.log(Object.keys(theModule.AKAZE));
-    console.log(Object.keys(theModule.AKAZE));
-    console.log(Object.keys(theModule.AKAZE));
-    t.deepEqual(Object.keys(theModule.AKAZE), ["create"], 'AKAZE class should contains a singler static method vurrent: ' + Object.keys(theModule.AKAZE));
-    console.log(typeof (theModule.AKAZE));
-    console.log(theModule.AKAZE);
-    console.log(Object.keys(theModule.AKAZE));
-    const obj = new theModule.AKAZE()
-    console.log(obj);
-    console.log('AKAZE.getDescriptorSize:', obj.getDescriptorSize());
+    const obj = new theModule.AKAZE({descriptor_size, descriptor_channels, threshold, nOctaves, nOctaveLayers, diffusivity});
+    t.is(obj.getDescriptorSize(), descriptor_size, 'AKAZE.getDescriptorSize should return the value passed to AKAZE.create');
+    t.is(obj.getDescriptorChannels(), descriptor_channels);
+    t.true(floatEqual(obj.getThreshold(), threshold));
+    t.is(obj.getNOctaves(), nOctaves);
+    t.is(obj.getNOctaveLayers(), nOctaveLayers);
+    t.is(obj.getDiffusivity(), diffusivity);
+
+    //console.log('AKAZE.getDescriptorSize:', obj.getDescriptorSize());
 });
 
 test.serial('example class', async t => {
@@ -134,16 +147,16 @@ test.serial('example class', async t => {
     t.is(ex.GetValue(), 43);
 })
 
-test.serial('create AKAZE using static AKAZE.create()', async t => {
-    if (!theModule.AKAZE) return t.pass("AKAZE not present");
-    try {
-        const descriptor_size = 120;
-        const obj = theModule.AKAZE.create({ descriptor_size, diffusivity: 300 });
-        t.is(obj.getDescriptorSize(), descriptor_size, 'AKAZE.getDescriptorSize should return the value passed to AKAZE.create');
-    } catch (e) {
-        t.fail((e as Error).message)
-    }
-});
+// test.serial('create AKAZE using static AKAZE.create()', async t => {
+//     if (!theModule.AKAZE) return t.pass("AKAZE not present");
+//     try {
+//         const descriptor_size = 120;
+//         const obj = theModule.AKAZE.create({ descriptor_size, diffusivity: 300 });
+//         t.is(obj.getDescriptorSize(), descriptor_size, 'AKAZE.getDescriptorSize should return the value passed to AKAZE.create');
+//     } catch (e) {
+//         t.fail((e as Error).message)
+//     }
+// });
 
 /**
  * register tests

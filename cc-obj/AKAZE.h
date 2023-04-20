@@ -8,6 +8,7 @@ class AKAZEWrapper : public Napi::ObjectWrap<AKAZEWrapper> {
    public:
     static Napi::Object Init(Napi::Env env, Napi::Object exports);
     AKAZEWrapper(const Napi::CallbackInfo &info);
+    ~AKAZEWrapper();
 
     static Napi::FunctionReference constructor;
 
