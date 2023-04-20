@@ -69,16 +69,8 @@ static Napi::Value jsopencv_AKAZE_repr(Napi::Value *self) {
 
 static Napi::Value jsopencv_AKAZE_Instance(const Napi::Env &env, const cv::Ptr<cv::AKAZE> &r) {
     Napi::Object newInstance = AKAZEWrapper::constructor.New({});
-    // Napi::Object m = _JsObject_New(env, jsopencv_AKAZE_TypePtr);
-    //  void *memoryBlockPtr = getInternalData<void>(m);
-    //  new (memoryBlockPtr) cv::Ptr<cv::AKAZE>(r);
-    std::cout << "jsopencv_AKAZE_Instance" << std::endl;
-    newInstance.Set("DATA_TYPE", jsopencv_AKAZE_TypeXXX.type);
-
-    // thisObj.Set(DATA_KEY, jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
-    // newInstance.Set("DATA_KEY", Napi::External<AKAZE>::New(env, r));  //  Napi::External<AKAZE>::New(env, akaze)
-    // newInstance.akaze_ = r;
-    std::cout << "jsopencv_AKAZE_Instance done" << std::endl;
+    AKAZEWrapper *wrapper = AKAZEWrapper::Unwrap(newInstance);
+    wrapper->akaze_ = r;
     return newInstance;
 }
 
@@ -91,35 +83,35 @@ struct JsOpenCV_Converter<Ptr<cv::AKAZE>> {
     static bool to(Napi::Value *src, Ptr<cv::AKAZE> &dst, const ArgInfo &info) {
         if (!src || src->IsNull() || src->IsUndefined())
             return true;
-        Ptr<cv::AKAZE> *dst_;
-        if (jsopencv_AKAZE_getp(src, dst_)) {
-            dst = *dst_;
-            return true;
-        }
 
-        jsfailmsg(src->Env(), "Expected Ptr<cv::AKAZE> for argument '%s'", info.name);
+        Napi::Object obj = src->As<Napi::Object>();       // Convert Napi::Value to Napi::Object
+        if (!obj.Has(AKAZEWrapper::AKAZEInstanceSymbol)) {  //  || !obj.Get(AKAZEWrapper::AKAZEInstanceSymbol).As<Napi::Boolean>().Value())
+            jsfailmsg(src->Env(), "Expected Ptr<cv::AKAZE> for argument '%s'", info.name);
+        }
+        AKAZEWrapper *wrapper = AKAZEWrapper::Unwrap(obj);  // Unwrap the Napi::Object to get AKAZEWrapper instance
+        dst = wrapper->akaze_;                              // Access the akaze_ member
         return false;
     }
 };
 
-Napi::Value AKAZE_constructor(const Napi::CallbackInfo &info) {
-    Napi::Env env = info.Env();
-    cv::Ptr<cv::AKAZE> akaze = cv::AKAZE::create();
-    // use pointer or smart pointer ?
-    Napi::Object thisObj = info.This().As<Napi::Object>();
-    // thisObj.Set(DATA_TYPE, Napi::External<AKAZE>::New(env, akaze));
-    thisObj.Set("DATA_TYPE", jsopencv_AKAZE_TypeXXX.type);
-
-    // thisObj.Set(DATA_KEY, jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
-    thisObj.Set("DATA_KEY", Napi::External<AKAZE>::New(env, akaze));  //  Napi::External<AKAZE>::New(env, akaze)
-    // should use _JsObject_New via JsObject_NEW
-    // via static Napi::Value jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r)
-    // via #define CVJS_TYPE_DECLARE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, SCOPE) \
-
-    return info.This();
-}
-
-// Object wrapper
+// Napi::Value AKAZE_constructor(const Napi::CallbackInfo &info) {
+//     Napi::Env env = info.Env();
+//     cv::Ptr<cv::AKAZE> akaze = cv::AKAZE::create();
+//     // use pointer or smart pointer ?
+//     Napi::Object thisObj = info.This().As<Napi::Object>();
+//     // thisObj.Set(DATA_TYPE, Napi::External<AKAZE>::New(env, akaze));
+//     thisObj.Set("DATA_TYPE", jsopencv_AKAZE_TypeXXX.type);
+//
+//     // thisObj.Set(DATA_KEY, jsopencv_AKAZE_TypeXXX.type); //  Napi::External<AKAZE>::New(env, akaze)
+//     thisObj.Set("DATA_KEY", Napi::External<AKAZE>::New(env, akaze));  //  Napi::External<AKAZE>::New(env, akaze)
+//     // should use _JsObject_New via JsObject_NEW
+//     // via static Napi::Value jsopencv_##CLASS_ID##_Instance(const Napi::Env &env, const STORAGE &r)
+//     // via #define CVJS_TYPE_DECLARE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, SCOPE) \
+//
+//     return info.This();
+// }
+//
+// // Object wrapper
 
 // class AKAZEWrapper : public Napi::ObjectWrap<AKAZEWrapper> {
 // static Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports);
@@ -144,8 +136,7 @@ Napi::Value AKAZEWrapper::getDescriptorSize(const Napi::CallbackInfo &info) {
     Napi::Value *jsobj_dsize = NULL;
     Ptr<cv::AKAZE> _self_ = this->akaze_;
     int retval;
-    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))
-    {
+    if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
         ERRWRAP2_NAPI(env, retval = _self_->getDescriptorSize());
         return jsopencv_from(env, retval);
     }
@@ -308,24 +299,30 @@ Napi::Value AKAZEWrapper::getDescriptorChannels(const Napi::CallbackInfo &info) 
 }
 
 std::vector<napi_value> CallbackInfoToVector(const Napi::CallbackInfo &info) {
-  std::vector<napi_value> args;
-  size_t numArgs = info.Length();
-  for (size_t i = 0; i < numArgs; ++i) {
-    args.push_back(info[i]);
-  }
-  return args;
+    std::vector<napi_value> args;
+    size_t numArgs = info.Length();
+    for (size_t i = 0; i < numArgs; ++i) {
+        args.push_back(info[i]);
+    }
+    return args;
 }
 
 // Static methods
 Napi::Value AKAZEWrapper::CreateStatic(const Napi::CallbackInfo &info) {
-    Napi::FunctionReference* constructor = info.Env().GetInstanceData<Napi::FunctionReference>();
+    Napi::FunctionReference *constructor = info.Env().GetInstanceData<Napi::FunctionReference>();
     return constructor->New(CallbackInfoToVector(info));
 }
 
 Napi::FunctionReference AKAZEWrapper::constructor;
 
+AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info, const cv::Ptr<cv::AKAZE> &akaze)
+    : Napi::ObjectWrap<AKAZEWrapper>(info), akaze_(akaze) {
+    // You can add any additional initialization here, if needed.
+}
+
 Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
     Napi::HandleScope scope(env);
+    AKAZEInstanceSymbol = Napi::Symbol::New(env, "cv2.AKAZE"); // or "AKAZEWrapperInstance" m can be use for class debugging
     napi_property_attributes atts = static_cast<napi_property_attributes>(napi_writable | napi_configurable);
     Napi::Function func = DefineClass(env, "AKAZE", {
                                                         InstanceMethod<&AKAZEWrapper::getDefaultName>("getDefaultName", atts),
@@ -349,6 +346,8 @@ Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
 
     constructor = Napi::Persistent(func);
     constructor.SuppressDestruct();
+    // Add the symbol to the AKAZEWrapper prototype
+    constructor.Value().Set(AKAZEInstanceSymbol, Napi::Boolean::New(env, true));
 
     env.SetInstanceData<Napi::FunctionReference>(&constructor);
     exports.Set("AKAZE", func);
@@ -358,6 +357,8 @@ Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
 AKAZEWrapper::~AKAZEWrapper() {
     this->akaze_.release();
 }
+
+Napi::Symbol AKAZEWrapper::AKAZEInstanceSymbol;
 
 // constructor
 AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info)

@@ -8,12 +8,15 @@ class AKAZEWrapper : public Napi::ObjectWrap<AKAZEWrapper> {
    public:
     static Napi::Object Init(Napi::Env env, Napi::Object exports);
     AKAZEWrapper(const Napi::CallbackInfo &info);
+    AKAZEWrapper(const Napi::CallbackInfo &info, const cv::Ptr<cv::AKAZE> &akaze);
     ~AKAZEWrapper();
 
     static Napi::FunctionReference constructor;
 
+   cv::Ptr<cv::AKAZE> akaze_;
+   static Napi::Symbol AKAZEInstanceSymbol;
+
    private:
-    cv::Ptr<cv::AKAZE> akaze_;
 
     // Wrapped methods
     Napi::Value getDefaultName(const Napi::CallbackInfo &info);
