@@ -34,7 +34,7 @@ class FuncVariant(object):
                     self.array_counters[c] = [ainfo.name]
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
-
+    
     def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, str]) -> None:
         # string representation of argument list, with '[', ']' symbols denoting optional arguments, e.g.
         # "src1, src2[, dst[, mask]]" for cv.add
