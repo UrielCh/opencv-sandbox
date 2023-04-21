@@ -1,13 +1,17 @@
 // importer from mutiple files in openCV python folders
 
+// #include <opencv2/opencv_modules.hpp>
+#include <opencv2/opencv.hpp>
+
 #ifdef HAVE_OPENCV_CORE
 
 #include "opencv2/core/mat.hpp"
+using namespace cv;
 
 typedef std::vector<Range> vector_Range;
 
-CV_PY_TO_CLASS(UMat);
-CV_PY_FROM_CLASS(UMat);
+CV_JS_TO_CLASS(UMat);
+CV_JS_FROM_CLASS(UMat);
 
 static bool cv_mappable_to(const Ptr<Mat>& src, Ptr<UMat>& dst)
 {
@@ -41,26 +45,26 @@ static Mat cv_UMat_get(const UMat* _self)
 typedef std::vector<VideoCaptureAPIs> vector_VideoCaptureAPIs;
 typedef std::vector<VideoCapture> vector_VideoCapture;
 
-template<> struct pyopencvVecConverter<cv::VideoCaptureAPIs>
+template<> struct jsopencvVecConverter<cv::VideoCaptureAPIs>
 {
-    static bool to(PyObject* obj, std::vector<cv::VideoCaptureAPIs>& value, const ArgInfo& info)
+    static bool to(Napi::Value* obj, std::vector<cv::VideoCaptureAPIs>& value, const ArgInfo& info)
     {
-        return pyopencv_to_generic_vec(obj, value, info);
+        return jsopencv_to_generic_vec(obj, value, info);
     }
 
-    static PyObject* from(const std::vector<cv::VideoCaptureAPIs>& value)
+    static Napi::Value from(const std::vector<cv::VideoCaptureAPIs>& value)
     {
-        return pyopencv_from_generic_vec(value);
+        return jsopencv_from_generic_vec(value);
     }
 };
 
 template<>
-bool pyopencv_to(PyObject *o, std::vector<cv::VideoCaptureAPIs>& apis, const ArgInfo& info)
+bool jsopencv_to(PyObject *o, std::vector<cv::VideoCaptureAPIs>& apis, const ArgInfo& info)
 {
   return pyopencvVecConverter<cv::VideoCaptureAPIs>::to(o, apis, info);
 }
 
-template<> bool pyopencv_to(PyObject* obj, cv::VideoCapture& stream, const ArgInfo& info)
+template<> bool pyopencv_to(Napi::Value* obj, cv::VideoCapture& stream, const ArgInfo& info)
 {
     Ptr<VideoCapture> * obj_getp = nullptr;
     if (!pyopencv_VideoCapture_getp(obj, obj_getp))
