@@ -12,7 +12,8 @@ class FuncVariant(object):
 
         self.docstring: str = decl[5]
 
-        self.rettype: str = decl[4] or handle_ptr(decl[1])
+        self.rettype: str = handle_ptr(decl[1])
+        
         if self.rettype == "void":
             self.rettype = ""
         self.args: List[ArgInfo] = []

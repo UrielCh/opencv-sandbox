@@ -59,7 +59,9 @@ class FuncInfo(object):
         self.variants = []
 
     def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
-
+        
+        # if decl[0] == 'cv.AKAZE.getDiffusivity':
+        #     print('decl', decl)
         self.variants.append(
             FuncVariant(self.namespace, self.classname, self.name, decl,
                         self.isconstructor, known_classes, isphantom)
@@ -137,6 +139,26 @@ class FuncInfo(object):
         return Template('    {"$py_funcname", CV_JS_FN_WITH_KW_($wrap_funcname, $flags), "$py_docstring"},\n'
                         ).substitute(py_funcname = self.variants[0].wname, wrap_funcname=self.get_wrapper_name(),
                                      flags = 'METH_STATIC' if self.is_static else '0', py_docstring = full_docstring)
+    
+    def build_arg_type_info(self, tp, defval, codegen) -> ArgTypeInfo:
+        all_classes = codegen.classes
+        if tp in simple_argtype_mapping:
+            arg_type_info = simple_argtype_mapping[tp]
+        else:
+            if tp in all_classes:
+                tp_classinfo = all_classes[tp]
+                cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
+                arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval, True, tp)
+            elif tp in codegen.enums:
+                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, 'number')
+            elif "Ptr<" in tp:
+                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, tp[4:-1])
+            else:
+                # FIXIT: vector_ / nested types
+                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, tp)
+
+        return arg_type_info
+
     def gen_ts_typings(self, codegen) -> str:
         all_classes = codegen.classes
         code = ""
@@ -155,23 +177,8 @@ class FuncInfo(object):
                 fullname = selfinfo.wname + "." + fullname
                 
         for v in self.variants:
-            code_decl = ""
-            code_ret = ""
-            code_cvt_list = []
-
-            code_args = "("
-            all_cargs = []
-
-            template_func_body = gen_template_func_body
-            if v.isphantom and ismethod and not self.is_static:
-                code_args += "_self_"
-
-            # declare all the C function arguments,
-            # add necessary conversions from Python objects to code_cvt_list,
-            # form the function/method call,
-            # for the list of type mappings
-            instantiated_args = set()
-            opts_args = {}
+            optionnal_args = []
+            mandatory_args = []
             for a in v.args:
                 if a.tp in ignored_arg_types:
                     defval = a.defval
@@ -181,70 +188,49 @@ class FuncInfo(object):
                     if not code_args.endswith("("):
                         code_args += ", "
                     code_args += defval
-                    all_cargs.append([[None, ""], ""])
                     continue
-                tp1 = tp = a.tp
-                amp = ""
+                tp = a.tp
                 defval0 = ""
                 if tp in pass_by_val_types:
-                    tp = tp1 = tp[:-1]
-                    amp = "&"
+                    tp = tp[:-1]
                     if tp.endswith("*"):
                         defval0 = "0"
-                        tp1 = tp.replace("*", "_ptr")
-                tp_candidates = [a.tp, normalize_class_name(self.namespace + "." + a.tp)]
-                if any(tp in codegen.enums.keys() for tp in tp_candidates):
-                    defval0 = "static_cast<%s>(%d)" % (a.tp, 0)
-
-                if tp in simple_argtype_mapping:
-                    arg_type_info = simple_argtype_mapping[tp]
-                else:
-                    if tp in all_classes:
-                        tp_classinfo = all_classes[tp]
-                        cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
-                        arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval0, True, tp)
-                        assert not (a.is_smart_ptr and tp_classinfo.issimple), "Can't pass 'simple' type as Ptr<>"
-                        if not a.is_smart_ptr and not tp_classinfo.issimple:
-                            assert amp == ''
-                            amp = '*'
-                    elif tp in codegen.enums:
-                        arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval0, True, 'number')
-                    else:
-                        # FIXIT: Ptr_ / vector_ / enums / nested types
-                        arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval0, True, tp)
-
-                defval = a.defval
-                if not defval:
-                    defval = arg_type_info.default_value
-                else:
-                    if "UMat" in tp:
-                        if "Mat" in defval and "UMat" not in defval:
-                            defval = defval.replace("Mat", "UMat")
-                    if "cuda::GpuMat" in tp:
-                        if "Mat" in defval and "GpuMat" not in defval:
-                            defval = defval.replace("Mat", "cuda::GpuMat")
+                arg_type_info = self.build_arg_type_info(tp, defval0, codegen)
                 
-                opts_args[a.name] = {}
-                opts_args[a.name]['defval'] = defval
-                opts_args[a.name]['ts_type'] = arg_type_info.ts_type
-            has_opts_args = len(opts_args.keys()) > 0
-            opts_args_strs = []
+                defval = a.defval
 
+                if defval:
+                    optionnal_args.append({
+                        "name": a.name,
+                        'defval': defval,
+                        'ts_type': arg_type_info.ts_type
+                    })
+                else: 
+                    mandatory_args.append({
+                        "name": a.name,
+                        'ts_type': arg_type_info.ts_type
+                    })
+            optionnal_args_strs = []
+            args_strs = []
+            for arg in mandatory_args:
+                args_strs.append("{name}: {type}".format(name=arg['name'], type=arg['ts_type']))
             
-            for key in opts_args:
-                opts_args_strs.append("{name}?: {type}".format(name=key, type=opts_args[key]['ts_type']))
-            
+            for arg in optionnal_args:
+                optionnal_args_strs.append("{name}?: {type}".format(name=arg['name'], type=arg['ts_type']))
+                        
+            has_opts_args = len(optionnal_args) > 0
+
             if has_opts_args:
-                code+='opts?: {'+", ".join(opts_args_strs)+"}"
+                args_strs.append('opts?: {'+", ".join(optionnal_args_strs)+"}")
+            
+            code += ", ".join(args_strs)
             
             if v.rettype:
-                tp = v.rettype
-                tp1 = tp.replace("*", "_ptr")
-                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp)
-                arg_type_info = simple_argtype_mapping.get(tp, default_info)
-                all_cargs.append(arg_type_info)
-            
-            code += ")"+tp+";"
+                arg_type_info = self.build_arg_type_info(v.rettype, "", codegen)
+                ts_type = ": " + arg_type_info.ts_type
+            else:
+                ts_type=": null"
+            code += ")"+ts_type+";"
         
         return code
 

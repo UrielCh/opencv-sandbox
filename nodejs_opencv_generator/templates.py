@@ -186,8 +186,7 @@ ${indent}class ${export_name}{
 
 gen_ts_class_typing = Template("""
 ${indent}class ${export_name}{
-${indent}\tconstructor(${prop});
-${indent}\t${methods}
+${indent}\tconstructor(${prop});${methods}
 ${indent}}
 """)
 

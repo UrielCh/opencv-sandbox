@@ -175,8 +175,8 @@ class NodejsWrapperGenerator(object):
     def add_enum(self, name: str, decl: List[Any]) -> None:
 
         wname = normalize_class_name(name)
-        if wname == 'KAZE_DiffusivityType':
-            print(name, decl)
+        # if wname == 'KAZE_DiffusivityType':
+        #     print('decl', name, decl)
         if wname.endswith("<unnamed>"):
             wname = None
         else:
