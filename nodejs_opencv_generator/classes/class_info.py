@@ -123,7 +123,7 @@ class ClassInfo(object):
             methods_str +="\n\t" + "\n\t".join(self.constructor.gen_ts_typings(codegen))
 
         for method_key in self.methods:
-            methods_str+="\n\t" + "\n\t".join(self.methods[method_key].gen_ts_typings(codegen))
+            methods_str+="\n\t" + "\n\t".join(sorted(self.methods[method_key].gen_ts_typings(codegen)))
 
         result = gen_ts_class_typing.substitute(
             indent="",
