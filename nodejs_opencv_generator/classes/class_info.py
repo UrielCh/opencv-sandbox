@@ -22,6 +22,9 @@ else:
 class ClassInfo(object):
     def __init__(self, name, decl=None, codegen=None):
 
+        # if name == 'cv.BOWKMeansTrainer':
+        #     print('decl', name, decl)
+
         # Scope name can be a module or other class e.g. cv::SimpleBlobDetector::Params
         scope_name, self.original_name = name.rsplit(".", 1)
 
@@ -115,13 +118,16 @@ class ClassInfo(object):
         return code
     def gen_ts_typings(self, codegen) -> str:
         methods_str = ""
+
+        if self.constructor:
+            methods_str +="\n\t" + "\n\t".join(self.constructor.gen_ts_typings(codegen))
+
         for method_key in self.methods:
-            methods_str+="\n\t"+self.methods[method_key].gen_ts_typings(codegen)
-        
+            methods_str+="\n\t" + "\n\t".join(self.methods[method_key].gen_ts_typings(codegen))
+
         result = gen_ts_class_typing.substitute(
             indent="",
             export_name=self.export_name,
-            prop=", ".join([prop.name+":"+prop.tp for prop in self.props]),
             methods=methods_str
         )
         return result

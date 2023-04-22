@@ -57,11 +57,13 @@ class FuncInfo(object):
         self.namespace = namespace
         self.is_static = is_static
         self.variants = []
+        # if self.name == 'BOWKMeansTrainer':
+        #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
     def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
         
-        # if decl[0] == 'cv.AKAZE.getDiffusivity':
-        #     print('decl', decl)
+        # if 'cv.BOWKMeansTrainer' in decl[0]:
+        #     print('decl', self.name, decl)
         self.variants.append(
             FuncVariant(self.namespace, self.classname, self.name, decl,
                         self.isconstructor, known_classes, isphantom)
@@ -140,43 +142,55 @@ class FuncInfo(object):
                         ).substitute(py_funcname = self.variants[0].wname, wrap_funcname=self.get_wrapper_name(),
                                      flags = 'METH_STATIC' if self.is_static else '0', py_docstring = full_docstring)
     
+    def get_ts_type(self, tp, codegen) -> str:
+        all_classes = codegen.classes
+        ts_type = tp
+        if tp in simple_argtype_mapping:
+            ts_type = simple_argtype_mapping[tp].ts_type
+        else:
+            if tp in all_classes:
+                ts_type = tp
+            elif tp in codegen.enums:
+                ts_type = 'number'
+            elif "Ptr<" in tp:
+                ts_type = self.get_ts_type(tp[4:-1], codegen)
+            elif "vector_" in tp:
+                ts_type = self.get_ts_type(tp[7:], codegen)+"[]"
+            else:
+                ts_type = tp
+        return ts_type
+
     def build_arg_type_info(self, tp, defval, codegen) -> ArgTypeInfo:
         all_classes = codegen.classes
+        ts_type = self.get_ts_type(tp, codegen)
         if tp in simple_argtype_mapping:
             arg_type_info = simple_argtype_mapping[tp]
         else:
             if tp in all_classes:
                 tp_classinfo = all_classes[tp]
                 cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
-                arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval, True, tp)
-            elif tp in codegen.enums:
-                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, 'number')
-            elif "Ptr<" in tp:
-                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, tp[4:-1])
+                arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval, True, ts_type)
             else:
                 # FIXIT: vector_ / nested types
-                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, tp)
+                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, ts_type)
 
         return arg_type_info
 
     def gen_ts_typings(self, codegen) -> str:
         all_classes = codegen.classes
-        code = ""
-        if(self.is_static):
-            code += "static "
-        code += "{fn_name}(".format(fn_name=self.name)
-        ismethod = self.classname != "" and not self.isconstructor
+        variant_codes = []
+        
+        if self.isconstructor:
+            ts_name='constructor'
+        else:
+            ts_name = self.name
 
-        all_code_variants = []
-        # full name is needed for error diagnostic in PyArg_ParseTupleAndKeywords
-        fullname = self.name
-
-        if self.classname:
-            selfinfo = all_classes[self.classname]
-            if not self.isconstructor:
-                fullname = selfinfo.wname + "." + fullname
-                
+        
         for v in self.variants:
+            variant_code = ""
+            if(self.is_static):
+                variant_code += "static "
+            variant_code += "{fn_name}(".format(fn_name=ts_name)
             optionnal_args = []
             mandatory_args = []
             for a in v.args:
@@ -223,16 +237,17 @@ class FuncInfo(object):
             if has_opts_args:
                 args_strs.append('opts?: {'+", ".join(optionnal_args_strs)+"}")
             
-            code += ", ".join(args_strs)
+            variant_code += ", ".join(args_strs)
             
             if v.rettype:
                 arg_type_info = self.build_arg_type_info(v.rettype, "", codegen)
                 ts_type = ": " + arg_type_info.ts_type
             else:
                 ts_type=": null"
-            code += ")"+ts_type+";"
+            variant_code += ")"+ts_type+";"
+            variant_codes.append(variant_code)
         
-        return code
+        return list(set(variant_codes))
 
     def gen_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
