@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict
 
 if TYPE_CHECKING:
     from .classes.class_info import ClassInfo
@@ -37,8 +37,7 @@ def get_type_format_string(arg_type_info):
         return arg_type_info.format_str
 
 
-def find_argument_class_info(argument_type, function_namespace,
-                            function_class_name, known_classes):
+def find_argument_class_info(argument_type, function_namespace, function_class_name, known_classes):
     # type: (str, str, str, dict[str, ClassInfo]) -> ClassInfo | None
     """Tries to find corresponding class info for the provided argument type
 

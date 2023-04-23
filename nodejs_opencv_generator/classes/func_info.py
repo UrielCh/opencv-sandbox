@@ -14,6 +14,7 @@ from nodejs_opencv_generator.utils import (
     FormatStrings
 )
 from string import Template
+from ..hdr_parser import FuncDecl
 
 ArgTypeInfo = namedtuple('ArgTypeInfo', [
                             'atype', 
@@ -61,7 +62,7 @@ class FuncInfo(object):
         # if self.name == 'BOWKMeansTrainer':
         #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
-    def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
+    def add_variant(self, decl: FuncDecl, known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
         
         # if 'cv.BOWKMeansTrainer' in decl[0]:
         #     print('decl', self.name, decl)
@@ -301,7 +302,7 @@ class FuncInfo(object):
             code_cvt_list = []
 
             code_args = "("
-            all_cargs = []
+            all_cargs: List[ArgTypeInfo] = []
 
             template_func_body = gen_template_func_body
             if v.isphantom and ismethod and not self.is_static:
@@ -441,7 +442,7 @@ class FuncInfo(object):
             if v.rettype:
                 tp = v.rettype
                 tp1 = tp.replace("*", "_ptr")
-                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp)
+                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp, "ERROR Missing TS TYPE")
                 arg_type_info = simple_argtype_mapping.get(tp, default_info)
                 all_cargs.append(arg_type_info)
 

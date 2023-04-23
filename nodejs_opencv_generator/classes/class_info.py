@@ -52,7 +52,7 @@ class ClassInfo(object):
         self.mappables: List[str] = []
         self.consts: Dict[str, str] = {}
         self.base:  Union[str, None] = None
-        self.constructor:  Union[ClassInfo, None] = None
+        self.constructor:  Union[ClassInfo, "FuncInfo", None] = None
 
         if decl:
             bases = decl[1].split()[1:]
@@ -212,7 +212,8 @@ class ClassInfo(object):
 
         constructor_name = "0"
         if self.constructor is not None:
-            constructor_name = self.constructor.get_wrapper_name()
+            if not isinstance(self.constructor, ClassInfo):
+                constructor_name = self.constructor.get_wrapper_name()
         # define CVJS_TYPE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, _1, _2, SCOPE)
         return 'CVJS_TYPE({}, {}, {}, {}, {}, {}, "{}");\n'.format(
             self.export_name,

@@ -2,9 +2,13 @@ from typing import List, Dict, Tuple
 from .arg_info import ArgInfo 
 from nodejs_opencv_generator.utils import find_argument_class_info 
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
+from ..hdr_parser import FuncDecl
+from .func_info import FuncInfo
+from .class_info import ClassInfo
+
 
 class FuncVariant(object):
-    def __init__(self, namespace: str, classname: str, name: str, decl: Tuple[str, str, List[str], str, str, str], isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
+    def __init__(self, namespace: str, classname: str, name: str, decl: FuncDecl, isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
         self.name: str = name
         self.wname: str = name
         self.isconstructor: bool = isconstructor
@@ -37,7 +41,7 @@ class FuncVariant(object):
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
     
-    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, str]) -> None:
+    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, ClassInfo]) -> None:
         # string representation of argument list, with '[', ']' symbols denoting optional arguments, e.g.
         # "src1, src2[, dst[, mask]]" for cv.add
         argstr = ""
@@ -92,10 +96,11 @@ class FuncVariant(object):
         for argno, a in enumerate(self.args):
             if a.name in self.array_counters:
                 continue
-            assert a.tp not in forbidden_arg_types, \
-                'Forbidden type "{}" for argument "{}" in "{}" ("{}")'.format(
-                    a.tp, a.name, self.name, self.classname
-                )
+            if isinstance(self, FuncInfo):
+                assert a.tp not in forbidden_arg_types, \
+                    'Forbidden type "{}" for argument "{}" in "{}" ("{}")'.format(
+                        a.tp, a.name, self.name, self.classname
+                    )
 
             if a.tp in ignored_arg_types:
                 continue

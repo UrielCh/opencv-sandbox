@@ -13,6 +13,7 @@ from nodejs_opencv_generator.templates import (
     gen_ts_class_typing,
     gen_ts_class_method
 )
+from ..hdr_parser import FuncDecl
 
 if sys.version_info[0] >= 3:
     from io import StringIO
@@ -187,7 +188,7 @@ class NodejsWrapperGenerator(object):
             name = decl[0]
             self.add_const(name.replace("const ", "").strip(), decl)
 
-    def add_func(self, decl: Tuple[str, str, List[str]]) -> None:
+    def add_func(self, decl: FuncDecl) -> None:
         namespace, classes, barename = self.split_decl_name(decl[0])
         cname = "::".join(namespace+classes+[barename])
         name = barename
@@ -220,8 +221,8 @@ class NodejsWrapperGenerator(object):
 
         if is_static:
             # Add it as a method to the class
-            func_map: Dict[str, ClassInfo | FuncInfo] = self.classes[classname].methods
-            func: ClassInfo | FuncInfo = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
+            func_map: Dict[str, Union[ClassInfo, FuncInfo]] = self.classes[classname].methods
+            func: Union[ClassInfo, FuncInfo] = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
             if isinstance(func, FuncInfo):
                 func.add_variant(decl, self.classes, isphantom)
 
@@ -268,9 +269,10 @@ class NodejsWrapperGenerator(object):
 
         self.code_ns_reg.write('static JsMethodDef methods_%s[] = {\n'%wname)
         for name, func in sorted(ns.funcs.items()):
-            if func.isconstructor:
-                continue
-            self.code_ns_reg.write(func.get_tab_entry())
+            if isinstance(func, FuncInfo):
+                if func.isconstructor:
+                    continue
+                self.code_ns_reg.write(func.get_tab_entry())
         custom_entries_macro = 'JSOPENCV_EXTRA_METHODS_{}'.format(wname.upper())
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, NULL}\n};\n\n')
@@ -493,8 +495,9 @@ class NodejsWrapperGenerator(object):
             if ns_name.split('.')[0] != 'cv':
                 continue
             for name, func in sorted(ns.funcs.items()):
-                if func.isconstructor:
-                    continue
+                if isinstance(func, FuncInfo):
+                    if func.isconstructor:
+                        continue
                 code = func.gen_code(self)
                 self.code_funcs.write(code)
             self.gen_namespace(ns_name)
@@ -509,8 +512,8 @@ class NodejsWrapperGenerator(object):
         # step 5: generate the code for constants
         constlist = list(self.consts.items())
         constlist.sort()
-        for name, constinfo in constlist:
-            self.gen_const_reg(constinfo)
+        #for name, constinfo in constlist:
+        #    self.gen_const_reg(constinfo) # gen_const_reg do not exits
 
         self.code_funcs.write("#endif\n")
         self.code_enums.write("#endif\n")

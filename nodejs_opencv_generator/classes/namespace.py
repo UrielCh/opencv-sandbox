@@ -4,6 +4,7 @@ if TYPE_CHECKING:
     from .class_info import ClassInfo
 
 class Namespace(object):
-    def __init__(self):
-        self.funcs: list[tuple[str, Union[ClassInfo, FuncInfo]]] = {}
+    def __init__(self: 'Namespace'):
+        self.funcs: Dict[str, Union[ClassInfo, FuncInfo]] = {}
         self.consts: Dict[str, str] = {}
+

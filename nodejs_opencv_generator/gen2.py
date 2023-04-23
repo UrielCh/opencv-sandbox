@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import hdr_parser, sys
+import sys
+from nodejs_opencv_generator import hdr_parser
 # from .classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 from nodejs_opencv_generator.classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 
