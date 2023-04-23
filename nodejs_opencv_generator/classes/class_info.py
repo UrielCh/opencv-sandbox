@@ -1,4 +1,4 @@
-from typing import Dict, List, Any, cast, TYPE_CHECKING
+from typing import Union, Dict, List, Any, cast, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .nodejs_wrapper_generator import NodejsWrapperGenerator
@@ -25,7 +25,7 @@ else:
     from cStringIO import StringIO
 
 class ClassInfo(object):
-    def __init__(self, name: str, decl: List[Any] | None = None, codegen: "NodejsWrapperGenerator" | None = None):
+    def __init__(self, name: str, decl: Union[List[Any], None] = None, codegen: Union["NodejsWrapperGenerator", None] = None):
 
         # if name == 'cv.BOWKMeansTrainer':
         #     print('decl', name, decl)
@@ -47,12 +47,12 @@ class ClassInfo(object):
         self.is_parameters = False
         self.issimple = False
         self.isalgorithm = False
-        self.methods: Dict[str, ClassInfo | "FuncInfo"] = {}
+        self.methods: Dict[str, Union[ClassInfo, "FuncInfo"]] = {}
         self.props: List[ClassProp] = []
         self.mappables: List[str] = []
         self.consts: Dict[str, str] = {}
-        self.base: str | None = None
-        self.constructor: ClassInfo | None = None
+        self.base:  Union[str, None] = None
+        self.constructor:  Union[ClassInfo, None] = None
 
         if decl:
             bases = decl[1].split()[1:]
@@ -193,7 +193,7 @@ class ClassInfo(object):
             methods_code.write(self.constructor.gen_code(codegen))
         # methods
         for mname, m in sorted_methods:
-            m2: FuncInfo = cast(FuncInfo, m)
+            m2: "FuncInfo" = cast("FuncInfo", m)
             methods_code.write(m2.gen_code(codegen))
             methods_inits.write(m2.get_tab_entry())
 

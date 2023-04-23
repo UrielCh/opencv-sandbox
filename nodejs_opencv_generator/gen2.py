@@ -2,9 +2,11 @@
 
 from __future__ import print_function
 import hdr_parser, sys
-from .classes.nodejs_wrapper_generator import NodejsWrapperGenerator
+# from .classes.nodejs_wrapper_generator import NodejsWrapperGenerator
+from nodejs_opencv_generator.classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 
 if __name__ == "__main__":
+    
     """
     Generate Node.js bindings for OpenCV
     First argument is the output directory
