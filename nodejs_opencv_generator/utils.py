@@ -1,3 +1,8 @@
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .classes.class_info import ClassInfo
+
 import re
 
 ignored_arg_types = ["RNG*"]

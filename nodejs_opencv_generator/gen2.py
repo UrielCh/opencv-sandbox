@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import hdr_parser, sys, re, os
-from pprint import pprint
-from classes.nodejs_wrapper_generator import NodejsWrapperGenerator
+import hdr_parser, sys
+from .classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 
 if __name__ == "__main__":
     """

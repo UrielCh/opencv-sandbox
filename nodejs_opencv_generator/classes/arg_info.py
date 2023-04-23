@@ -12,8 +12,8 @@ class ArgInfo(object):
         self._modifiers = tuple(modifiers)
         self.isarray = False
         self.is_smart_ptr: bool = self.tp.startswith('Ptr<')  # FIXIT: handle through modifiers - need to modify parser
-        self.arraylen = 0
-        self.arraycvt: str = None
+        self.arraylen: str | None = None
+        self.arraycvt: str | None = None
         for m in self._modifiers:
             if m.startswith("/A"):
                 self.isarray = True

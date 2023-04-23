@@ -28,11 +28,12 @@ class FuncVariant(object):
                             default_value=arg_decl[2], modifiers=arg_decl[3])
             if ainfo.isarray and not ainfo.arraycvt:
                 c = ainfo.arraylen
-                c_arrlist = self.array_counters.get(c, [])
-                if c_arrlist:
-                    c_arrlist.append(ainfo.name)
-                else:
-                    self.array_counters[c] = [ainfo.name]
+                if c is not None:
+                    c_arrlist = self.array_counters.get(c, [])
+                    if c_arrlist:
+                        c_arrlist.append(ainfo.name)
+                    else:
+                        self.array_counters[c] = [ainfo.name]
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
     

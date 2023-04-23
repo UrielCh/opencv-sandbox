@@ -1,6 +1,6 @@
 from typing import Dict, TYPE_CHECKING
 if TYPE_CHECKING:
-    from func_info import FuncInfo
+    from .func_info import FuncInfo
 
 class Namespace(object):
     def __init__(self):

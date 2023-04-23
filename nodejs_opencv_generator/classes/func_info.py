@@ -1,7 +1,8 @@
 from typing import Dict, List, Tuple, Union, Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from nodejs_wrapper_generator import NodejsWrapperGenerator
+    from .nodejs_wrapper_generator import NodejsWrapperGenerator
+    from .class_info import ClassInfo
 
 from .func_variant import FuncVariant 
 from collections import namedtuple
@@ -37,15 +38,15 @@ from nodejs_opencv_generator.templates import (
 )
 
 simple_argtype_mapping: Dict[str, ArgTypeInfo] = {
-    "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True, 'boolean'),
-    "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True, 'number'),
-    "int": ArgTypeInfo("int", FormatStrings.int, "0", True, 'number'),
-    "float": ArgTypeInfo("float", FormatStrings.float, "0.f", True, 'number'),
-    "double": ArgTypeInfo("double", FormatStrings.double, "0", True, 'number'),
-    "c_string": ArgTypeInfo("char*", FormatStrings.string, '(char*)""', 'string'),
-    "string": ArgTypeInfo("std::string", FormatStrings.object, None, True, 'string'),
-    "Stream": ArgTypeInfo("Stream", FormatStrings.object, 'Stream::Null()', True, 'Stream'),
-    "UMat": ArgTypeInfo("UMat", FormatStrings.object, 'UMat()', True, 'Mat'),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
+    "bool":     ArgTypeInfo("bool",        FormatStrings.unsigned_char,      "0",         True, 'boolean'),
+    "size_t":   ArgTypeInfo("size_t",      FormatStrings.unsigned_long_long, "0",         True, 'number'),
+    "int":      ArgTypeInfo("int",         FormatStrings.int,                "0",         True, 'number'),
+    "float":    ArgTypeInfo("float",       FormatStrings.float,              "0.f",       True, 'number'),
+    "double":   ArgTypeInfo("double",      FormatStrings.double,             "0",         True, 'number'),
+    "c_string": ArgTypeInfo("char*",       FormatStrings.string,             '(char*)""', False, 'string'),
+    "string":   ArgTypeInfo("std::string", FormatStrings.object,             None,        True, 'string'),
+    "Stream":   ArgTypeInfo("Stream",      FormatStrings.object,             'Stream::Null()', True, 'Stream'),
+    "UMat":     ArgTypeInfo("UMat",        FormatStrings.object,             'UMat()',     True, 'Mat'),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
 }
 
 class FuncInfo(object):
@@ -217,7 +218,7 @@ class FuncInfo(object):
                     if not defval and a.tp.endswith("*"):
                         defval = "0"
                     assert defval
-                    if not code_args.endswith("("):
+                    if not code_args.endswith("("): # ERROR code_args is not define yet
                         code_args += ", "
                     code_args += defval
                     continue
@@ -274,7 +275,7 @@ class FuncInfo(object):
         # code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
         code += "    Napi::Env env = info.Env();\n"
 
-        selfinfo = None
+        selfinfo: "ClassInfo" | None = None
         ismethod = self.classname != "" and not self.isconstructor
         # full name is needed for error diagnostic in PyArg_ParseTupleAndKeywords
         fullname = self.name
@@ -340,14 +341,14 @@ class FuncInfo(object):
                     if tp in all_classes:
                         tp_classinfo = all_classes[tp]
                         cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
-                        arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval0, True)
+                        arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval0, True, "ERROR, missing type mapping for %s" % tp)
                         assert not (a.is_smart_ptr and tp_classinfo.issimple), "Can't pass 'simple' type as Ptr<>"
                         if not a.is_smart_ptr and not tp_classinfo.issimple:
                             assert amp == ''
                             amp = '*'
                     else:
                         # FIXIT: Ptr_ / vector_ / enums / nested types
-                        arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval0, True)
+                        arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval0, True, "ERROR, missing type mapping for %s" % tp)
 
                 parse_name = a.name
                 if a.py_inputarg and arg_type_info.strict_conversion:
@@ -366,7 +367,8 @@ class FuncInfo(object):
                     a = a.enclosing_arg
                     arg_type_info = ArgTypeInfo(a.tp, FormatStrings.object,
                                                 default_value=a.defval,
-                                                strict_conversion=True)
+                                                strict_conversion=True,
+                                                ts_type="ERROR, missing type mapping for %s" % a)
                     # Skip further actions if enclosing argument is already instantiated
                     # by its another field
                     if a.name in instantiated_args:
@@ -403,7 +405,7 @@ class FuncInfo(object):
 
             code_args += ")"
 
-            if self.isconstructor:
+            if selfinfo is not None and self.isconstructor:
                 template_func_body = gen_template_func_body_int
                 if selfinfo.issimple:
                     templ_prelude = gen_template_simple_call_constructor_prelude
