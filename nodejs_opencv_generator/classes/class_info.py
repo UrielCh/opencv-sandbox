@@ -23,7 +23,6 @@ if sys.version_info[0] >= 3:
 else:
     from cStringIO import StringIO
 
-
 class ClassInfo(object):
     def __init__(self, name: str, decl=None, codegen: "NodejsWrapperGenerator" = None):
 
@@ -52,7 +51,7 @@ class ClassInfo(object):
         self.mappables: List[str] = []
         self.consts: Dict[str, str] = {}
         self.base: str = None
-        self.constructor = None
+        self.constructor: ClassInfo = None
 
         if decl:
             bases = decl[1].split()[1:]
@@ -121,6 +120,7 @@ class ClassInfo(object):
         else:
             code += "\n    return true;\n}\n"
         return code
+    
     def gen_ts_typings(self, codegen: "NodejsWrapperGenerator") -> str:
         methods_str = ""
 
@@ -200,7 +200,6 @@ class ClassInfo(object):
                                                  getset_inits=getset_inits.getvalue(),
                                                  methods_code=methods_code.getvalue(),
                                                  methods_inits=methods_inits.getvalue())
-
         return code
 
     def gen_def(self, codegen: "NodejsWrapperGenerator") -> str:
