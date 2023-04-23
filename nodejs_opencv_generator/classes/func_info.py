@@ -57,7 +57,7 @@ class FuncInfo(object):
         self.isconstructor = isconstructor
         self.namespace = namespace
         self.is_static = is_static
-        self.variants = []
+        self.variants: List[FuncVariant] = []
         # if self.name == 'BOWKMeansTrainer':
         #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
@@ -198,6 +198,7 @@ class FuncInfo(object):
     def gen_ts_typings(self, codegen) -> str:
         all_classes = codegen.classes
         variant_codes = []
+        code_args: str = "" # new to hid ERROR
         
         if self.isconstructor:
             ts_name='constructor'

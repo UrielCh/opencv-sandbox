@@ -4,7 +4,7 @@ from nodejs_opencv_generator.utils import find_argument_class_info
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
 
 class FuncVariant(object):
-    def __init__(self, namespace: str, classname: str, name: str, decl: List[str], isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
+    def __init__(self, namespace: str, classname: str, name: str, decl: Tuple[str, str, List[str], str, str, str], isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
         self.name: str = name
         self.wname: str = name
         self.isconstructor: bool = isconstructor

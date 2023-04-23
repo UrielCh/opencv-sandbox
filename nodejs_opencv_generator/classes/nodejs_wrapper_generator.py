@@ -118,8 +118,8 @@ class NodejsWrapperGenerator(object):
             sys.exit(-1)
         self.classes[classinfo.name] = classinfo
 
-        namespace, _, _ = self.split_decl_name(name)
-        namespace = '.'.join(namespace)
+        namespaces, _, _ = self.split_decl_name(name)
+        namespace: str = '.'.join(namespaces)
         # Registering a namespace if it is not already handled or
         # doesn't have anything except classes defined in it
         self.namespaces.setdefault(namespace, Namespace())
@@ -148,7 +148,7 @@ class NodejsWrapperGenerator(object):
     def split_decl_name(self, name: str) -> Tuple[List[str], List[str], str]:
         chunks = name.split('.')
         namespace = chunks[:-1]
-        classes = []
+        classes: list[str] = []
         while namespace and '.'.join(namespace) not in self.parser.namespaces:
             classes.insert(0, namespace.pop())
         return namespace, classes, chunks[-1]
@@ -156,8 +156,8 @@ class NodejsWrapperGenerator(object):
 
     def add_const(self, name: str, decl: List[Any]) -> None:
         cname = name.replace('.','::')
-        namespace, classes, name = self.split_decl_name(name)
-        namespace = '.'.join(namespace)
+        namespaces, classes, name = self.split_decl_name(name)
+        namespace: str = '.'.join(namespaces)
         name = '_'.join(classes+[name])
         ns = self.namespaces.setdefault(namespace, Namespace())
         if name in ns.consts:
@@ -187,7 +187,7 @@ class NodejsWrapperGenerator(object):
             name = decl[0]
             self.add_const(name.replace("const ", "").strip(), decl)
 
-    def add_func(self, decl: List[Any]) -> None:
+    def add_func(self, decl: Tuple[str, str, List[str]]) -> None:
         namespace, classes, barename = self.split_decl_name(decl[0])
         cname = "::".join(namespace+classes+[barename])
         name = barename
@@ -220,9 +220,10 @@ class NodejsWrapperGenerator(object):
 
         if is_static:
             # Add it as a method to the class
-            func_map = self.classes[classname].methods
-            func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
-            func.add_variant(decl, self.classes, isphantom)
+            func_map: Dict[str, ClassInfo | FuncInfo] = self.classes[classname].methods
+            func: ClassInfo | FuncInfo = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
+            if isinstance(func, FuncInfo):
+                func.add_variant(decl, self.classes, isphantom)
 
             # Add it as global function
             g_name = "_".join(classes+[name])
@@ -239,10 +240,12 @@ class NodejsWrapperGenerator(object):
             func_map = self.namespaces.setdefault(namespace_str, Namespace()).funcs
             # Exports static function with internal name (backward compatibility)
             func = func_map.setdefault(g_name, FuncInfo("", g_name, cname, isconstructor, namespace_str, False))
-            func.add_variant(decl, self.classes, isphantom)
+            if isinstance(func, FuncInfo):
+                func.add_variant(decl, self.classes, isphantom)
             if g_wname != g_name:  # TODO OpenCV 5.0
                 wfunc = func_map.setdefault(g_wname, FuncInfo("", g_wname, cname, isconstructor, namespace_str, False))
-                wfunc.add_variant(decl, self.classes, isphantom)
+                if isinstance(wfunc, FuncInfo):
+                    wfunc.add_variant(decl, self.classes, isphantom)
         else:
             if classname and not isconstructor:
                 if not isphantom:
@@ -252,7 +255,8 @@ class NodejsWrapperGenerator(object):
                 func_map = self.namespaces.setdefault(namespace_str, Namespace()).funcs
 
             func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
-            func.add_variant(decl, self.classes, isphantom)
+            if isinstance(func, FuncInfo):
+                func.add_variant(decl, self.classes, isphantom)
 
         if classname and isconstructor:
             self.classes[classname].constructor = func
