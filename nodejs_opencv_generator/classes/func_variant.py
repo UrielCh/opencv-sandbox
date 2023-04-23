@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from .arg_info import ArgInfo 
 from nodejs_opencv_generator.utils import find_argument_class_info 
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
@@ -48,19 +48,19 @@ class FuncVariant(object):
         # or even go in a different order ("heavy" output parameters of the C function
         # become the first optional input parameters of the Python function, and thus they are placed right after
         # non-optional input parameters)
-        arglist = []
+        arglist: List[Tuple[str, int]] = []
 
         # the list of "heavy" output parameters. Heavy parameters are the parameters
         # that can be expensive to allocate each time, such as vectors and matrices (see isbig).
-        outarr_list = []
+        outarr_list: List[Tuple[str, int]] = []
 
         # the list of output parameters. Also includes input/output parameters.
-        outlist = []
+        outlist: List[Tuple[str, int]] = []
 
         firstoptarg = 1000000
 
         # Check if there is params structure in arguments
-        arguments = []
+        arguments: List[ArgInfo] = []
         for arg in self.args:
             arg_class_info = find_argument_class_info(
                 arg.tp, namespace, classname, known_classes
