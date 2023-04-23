@@ -1,12 +1,15 @@
 from string import Template
 
-
-gen_template_check_self = Template("""
-    ${cname} * self1 = 0;
-    if (!jsopencv_${name}_getp(&(info.This()), self1))
-        return jsfailmsgp(env, "Incorrect type of self (must be '${name}' or its derivative)");
-    ${pname} _self_ = ${cvt}(self1);
+## class Method start with this code, extract ibnternal data from current object
+gen_template_check_self = Template("""    Ptr<${name}> _self_ = this->cvdata;
 """)
+#  ${cname} * self1 = 0;
+#  if (!jsopencv_${name}_getp(&(info.This()), self1))
+#      return jsfailmsgp(env, "Incorrect type of self (must be '${name}' or its derivative)");
+#  ${pname} _self_ = ${cvt}(self1);
+
+
+
 # placement new
 gen_template_call_constructor_prelude = Template("""Napi::Object *self = &info.This().As<Napi::Object>();
         Ptr<$cname> *data = (Ptr<$cname> *)self->Get("v").As<Napi::Buffer<char>>().Data();
@@ -94,6 +97,7 @@ gen_template_set_prop_from_map = Template("""
         if(!ok) return false;
     }""")
 
+# TODO replace by ::Init(Napi::Env env, Napi::Object exports)
 gen_template_type_impl = Template("""
 // GetSet (${name})
 

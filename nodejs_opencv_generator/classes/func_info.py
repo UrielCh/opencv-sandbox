@@ -83,10 +83,23 @@ class FuncInfo(object):
 
         return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
 
-    def get_wrapper_prototype(self, codegen: "NodejsWrapperGenerator") -> str: # 'CodeGenerator'
+    def get_wrapper_prototype(self, codegen: "NodejsWrapperGenerator", showNamespace: bool = True) -> str: # 'CodeGenerator'
+        """
+        @param codegen: CodeGenerator instance
+        @param namespace: if True, then the namespace is added to the function name
+        Returns the prototype of the wrapper function
+        like: Napi::Value AKAZEWrapper::setDescriptorChannels(const Napi::CallbackInfo &info)
+        """
+        prefix = ""
+        if showNamespace:
+            prefix = "%sWrapper::" % (self.classname)
+
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
-            return "static int {fn_name}(const Napi::CallbackInfo &info)".format(fn_name=full_fname, type_name=self.classname)
+            if showNamespace: # do not display the static prefix in implementation
+                return "int {prefix}Wrapper{name}(const Napi::CallbackInfo &info)".format(prefix=prefix, name=self.name)
+            else: # display the static prefix in signature
+                return "static int {prefix}Wrapper{name}(const Napi::CallbackInfo &info)".format(prefix=prefix, name=self.name)
             # return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
             #         fn_name=full_fname, type_name=codegen.classes[self.classname].name)
 
@@ -95,7 +108,12 @@ class FuncInfo(object):
         else:
             self_arg = ""
         # PyObject* %s, PyObject* py_args, PyObject* kw % (full_fname, self_arg)
-        return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
+        # return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
+        if showNamespace: # do not display the static prefix in implementation
+            return "Napi::Value %s%s(const Napi::CallbackInfo &info)" % (prefix, self.name)
+        else:
+            return "static Napi::Value %s%s(const Napi::CallbackInfo &info)" % (prefix, self.name)
+    
 
     def get_tab_entry(self) -> str:
         prototype_list = []
@@ -252,8 +270,9 @@ class FuncInfo(object):
     def gen_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
         proto = self.get_wrapper_prototype(codegen)
-        code = "%s\n{\n" % (proto,)
-        code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
+        code = "%s {\n" % (proto,)
+        # code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
+        code += "    Napi::Env env = info.Env();\n"
 
         selfinfo = None
         ismethod = self.classname != "" and not self.isconstructor
@@ -263,7 +282,7 @@ class FuncInfo(object):
         if self.classname:
             selfinfo = all_classes[self.classname]
             if not self.isconstructor:
-                if not self.is_static:
+                if not self.is_static: # class method except constructor
                     code += gen_template_check_self.substitute(
                         name=selfinfo.name,
                         cname=selfinfo.cname if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
