@@ -10,7 +10,8 @@ from nodejs_opencv_generator.templates import (
     gen_template_type_decl,
     gen_template_map_type_cvt,
     gen_template_mappable,
-    gen_ts_class_typing
+    gen_ts_class_typing,
+    gen_ts_class_method
 )
 
 if sys.version_info[0] >= 3:
@@ -172,7 +173,10 @@ class NodejsWrapperGenerator(object):
         #print(cname + ' => ' + str(py_name) + ' (value=' + value + ')')
 
     def add_enum(self, name: str, decl: List[Any]) -> None:
+
         wname = normalize_class_name(name)
+        # if wname == 'KAZE_DiffusivityType':
+        #     print('decl', name, decl)
         if wname.endswith("<unnamed>"):
             wname = None
         else:
@@ -420,11 +424,34 @@ class NodejsWrapperGenerator(object):
 
                 level+=1
             
-            code_ts_types_str+=gen_ts_class_typing.substitute(
-                indent=(len(current_tree)+1)*"\t",
-                export_name=classinfo.export_name,
-                prop=", ".join([prop.name+":"+prop.tp for prop in classinfo.props])
-            )
+            class_ts_str=classinfo.gen_ts_typings(self)
+            code_ts_types_str += class_ts_str.replace("\n", "\n"+((level+1)*"\t"))
+            
+            # methods_list_str = []
+            # for method_key in classinfo.methods:
+            #     for variant in classinfo.methods[method_key].variants:
+                    
+            #         if(classinfo.export_name == "AKAZE"):
+            #             print(classinfo.methods[method_key].name)
+            #             print(classinfo.methods[method_key].cname)
+            #             print(classinfo.methods[method_key].variants)
+            #             prefix = ""
+            #             if(classinfo.methods[method_key].is_static):
+            #                 prefix="static "
+                        
+            #             methods_list_str.append(gen_ts_class_method.substitute(
+            #                 name=classinfo.methods[method_key].name,
+            #                 static="static " if classinfo.methods[method_key].is_static else "",
+            #                 return_type=variant.rettype,
+            #                 args=
+            #                 variants=classinfo.methods[method_key].variants
+            #             ))
+            # code_ts_types_str+=gen_ts_class_typing.substitute(
+            #     indent=(len(current_tree)+1)*"\t",
+            #     export_name=classinfo.export_name,
+            #     prop=", ".join([prop.name+":"+prop.tp for prop in classinfo.props]),
+            #     methods=("\n"+(len(current_tree)+2)*"\t").join(methods_list_str)
+            # )
         
         to_close = len(current_tree)
         for closing_level in range(0,to_close):

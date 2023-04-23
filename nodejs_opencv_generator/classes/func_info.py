@@ -14,9 +14,13 @@ from nodejs_opencv_generator.utils import (
 )
 from string import Template
 
-ArgTypeInfo = namedtuple('ArgTypeInfo',
-                        ['atype', 'format_str', 'default_value',
-                         'strict_conversion'])
+ArgTypeInfo = namedtuple('ArgTypeInfo', [
+                            'atype', 
+                            'format_str', 
+                            'default_value',
+                            'strict_conversion', 
+                            'ts_type'
+                        ])
 # strict_conversion is False by default
 ArgTypeInfo.__new__.__defaults__ = (False,)
 
@@ -33,15 +37,15 @@ from nodejs_opencv_generator.templates import (
 )
 
 simple_argtype_mapping: Dict[str, ArgTypeInfo] = {
-    "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True),
-    "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True),
-    "int": ArgTypeInfo("int", FormatStrings.int, "0", True),
-    "float": ArgTypeInfo("float", FormatStrings.float, "0.f", True),
-    "double": ArgTypeInfo("double", FormatStrings.double, "0", True),
-    "c_string": ArgTypeInfo("char*", FormatStrings.string, '(char*)""'),
-    "string": ArgTypeInfo("std::string", FormatStrings.object, None, True),
-    "Stream": ArgTypeInfo("Stream", FormatStrings.object, 'Stream::Null()', True),
-    "UMat": ArgTypeInfo("UMat", FormatStrings.object, 'UMat()', True),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
+    "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True, 'boolean'),
+    "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True, 'number'),
+    "int": ArgTypeInfo("int", FormatStrings.int, "0", True, 'number'),
+    "float": ArgTypeInfo("float", FormatStrings.float, "0.f", True, 'number'),
+    "double": ArgTypeInfo("double", FormatStrings.double, "0", True, 'number'),
+    "c_string": ArgTypeInfo("char*", FormatStrings.string, '(char*)""', 'string'),
+    "string": ArgTypeInfo("std::string", FormatStrings.object, None, True, 'string'),
+    "Stream": ArgTypeInfo("Stream", FormatStrings.object, 'Stream::Null()', True, 'Stream'),
+    "UMat": ArgTypeInfo("UMat", FormatStrings.object, 'UMat()', True, 'Mat'),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
 }
 
 class FuncInfo(object):
@@ -53,8 +57,13 @@ class FuncInfo(object):
         self.namespace = namespace
         self.is_static = is_static
         self.variants = []
+        # if self.name == 'BOWKMeansTrainer':
+        #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
     def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
+        
+        # if 'cv.BOWKMeansTrainer' in decl[0]:
+        #     print('decl', self.name, decl)
         self.variants.append(
             FuncVariant(self.namespace, self.classname, self.name, decl,
                         self.isconstructor, known_classes, isphantom)
@@ -132,6 +141,113 @@ class FuncInfo(object):
         return Template('    {"$py_funcname", $wrap_funcname, $flags, "$py_docstring"},\n'
                         ).substitute(py_funcname = self.variants[0].wname, wrap_funcname=self.get_wrapper_name(),
                                      flags = 'METH_STATIC' if self.is_static else '0', py_docstring = full_docstring)
+    
+    def get_ts_type(self, tp, codegen) -> str:
+        all_classes = codegen.classes
+        ts_type = tp
+        if tp in simple_argtype_mapping:
+            ts_type = simple_argtype_mapping[tp].ts_type
+        else:
+            if tp in all_classes:
+                ts_type = tp
+            elif tp in codegen.enums:
+                ts_type = 'number'
+            elif "Ptr<" in tp:
+                ts_type = self.get_ts_type(tp[4:-1], codegen)
+            elif "vector_" in tp:
+                ts_type = self.get_ts_type(tp[7:], codegen)+"[]"
+            else:
+                ts_type = tp
+        return ts_type
+
+    def build_arg_type_info(self, tp, defval, codegen) -> ArgTypeInfo:
+        all_classes = codegen.classes
+        ts_type = self.get_ts_type(tp, codegen)
+        if tp in simple_argtype_mapping:
+            arg_type_info = simple_argtype_mapping[tp]
+        else:
+            if tp in all_classes:
+                tp_classinfo = all_classes[tp]
+                cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
+                arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval, True, ts_type)
+            else:
+                # FIXIT: vector_ / nested types
+                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, ts_type)
+
+        return arg_type_info
+
+    def gen_ts_typings(self, codegen) -> str:
+        all_classes = codegen.classes
+        variant_codes = []
+        
+        if self.isconstructor:
+            ts_name='constructor'
+        else:
+            ts_name = self.name
+
+        
+        for v in self.variants:
+            variant_code = ""
+            if(self.is_static):
+                variant_code += "static "
+            variant_code += "{fn_name}(".format(fn_name=ts_name)
+            optionnal_args = []
+            mandatory_args = []
+            for a in v.args:
+                if a.tp in ignored_arg_types:
+                    defval = a.defval
+                    if not defval and a.tp.endswith("*"):
+                        defval = "0"
+                    assert defval
+                    if not code_args.endswith("("):
+                        code_args += ", "
+                    code_args += defval
+                    continue
+                tp = a.tp
+                defval0 = ""
+                if tp in pass_by_val_types:
+                    tp = tp[:-1]
+                    if tp.endswith("*"):
+                        defval0 = "0"
+                arg_type_info = self.build_arg_type_info(tp, defval0, codegen)
+                
+                defval = a.defval
+
+                if defval:
+                    optionnal_args.append({
+                        "name": a.name,
+                        'defval': defval,
+                        'ts_type': arg_type_info.ts_type
+                    })
+                else: 
+                    mandatory_args.append({
+                        "name": a.name,
+                        'ts_type': arg_type_info.ts_type
+                    })
+            optionnal_args_strs = []
+            args_strs = []
+            for arg in mandatory_args:
+                args_strs.append("{name}: {type}".format(name=arg['name'], type=arg['ts_type']))
+            
+            for arg in optionnal_args:
+                optionnal_args_strs.append("{name}?: {type}".format(name=arg['name'], type=arg['ts_type']))
+                        
+            has_opts_args = len(optionnal_args) > 0
+
+            if has_opts_args:
+                args_strs.append('opts?: {'+", ".join(optionnal_args_strs)+"}")
+            
+            variant_code += ", ".join(args_strs)
+            
+            if v.rettype:
+                arg_type_info = self.build_arg_type_info(v.rettype, "", codegen)
+                ts_type = ": " + arg_type_info.ts_type
+            else:
+                ts_type=": null"
+            variant_code += ")"+ts_type+";"
+            variant_codes.append(variant_code)
+        
+        return list(set(variant_codes))
 
     def gen_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
@@ -303,7 +419,7 @@ class FuncInfo(object):
             if v.rettype:
                 tp = v.rettype
                 tp1 = tp.replace("*", "_ptr")
-                default_info = ArgTypeInfo(tp, FormatStrings.object, "0")
+                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp)
                 arg_type_info = simple_argtype_mapping.get(tp, default_info)
                 all_cargs.append(arg_type_info)
 
