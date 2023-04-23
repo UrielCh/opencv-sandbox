@@ -26,8 +26,8 @@ class NodejsWrapperGenerator(object):
     def clear(self) -> None:
         self.classes: Dict[str, ClassInfo] = {}
         self.namespaces: Dict[str, Namespace] = {}
-        self.consts: Dict[str, Any] = {}
-        self.enums: Dict[str, Any] = {}
+        self.consts: Dict[str, str] = {}
+        self.enums: Dict[str, str] = {}
         self.code_include: StringIO = StringIO()      # jsopencv_generated_include.h
 
         self.code_enums: StringIO = StringIO()        # jsopencv_generated_enums.h

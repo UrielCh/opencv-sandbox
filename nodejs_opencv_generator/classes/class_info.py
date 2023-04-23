@@ -25,7 +25,7 @@ else:
 
 
 class ClassInfo(object):
-    def __init__(self, name, decl=None, codegen: "NodejsWrapperGenerator" = None):
+    def __init__(self, name: str, decl=None, codegen: "NodejsWrapperGenerator" = None):
 
         # if name == 'cv.BOWKMeansTrainer':
         #     print('decl', name, decl)
@@ -48,10 +48,10 @@ class ClassInfo(object):
         self.issimple = False
         self.isalgorithm = False
         self.methods: Dict[str, ClassInfo] = {}
-        self.props = []
-        self.mappables = []
-        self.consts = {}
-        self.base = None
+        self.props: List[ClassProp] = []
+        self.mappables: List[str] = []
+        self.consts: Dict[str, str] = {}
+        self.base: str = None
         self.constructor = None
 
         if decl:
