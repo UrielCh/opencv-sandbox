@@ -1,4 +1,4 @@
-from typing import Dict, List, TYPE_CHECKING
+from typing import Dict, List, Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .nodejs_wrapper_generator import NodejsWrapperGenerator
@@ -303,7 +303,8 @@ class FuncInfo(object):
             code_cvt_list = []
 
             code_args = "("
-            all_cargs: List[ArgTypeInfo] = []
+            # all_cargs: List[Tuple[ArgTypeInfo, str]] = []
+            all_cargs: List[Any] = []
 
             template_func_body = gen_template_func_body
             if v.isphantom and ismethod and not self.is_static:

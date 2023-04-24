@@ -1,6 +1,6 @@
 import sys
 import re
-from typing import Dict, Any, List, Tuple, Union
+from typing import Dict, Any, List, Optional, Tuple, Union
 from nodejs_opencv_generator import hdr_parser
 from nodejs_opencv_generator.utils import normalize_class_name
 from nodejs_opencv_generator.classes.namespace import Namespace
@@ -174,11 +174,11 @@ class NodejsWrapperGenerator(object):
 
     def add_enum(self, name: str, decl: List[Any]) -> None:
 
-        wname = normalize_class_name(name)
+        wname: str = normalize_class_name(name)
         # if wname == 'KAZE_DiffusivityType':
         #     print('decl', name, decl)
         if wname.endswith("<unnamed>"):
-            wname = None
+            wname = "" # None useless
         else:
             self.enums[wname] = name
         const_decls = decl[3]
