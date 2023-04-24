@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-
 from __future__ import print_function
-import os, sys, re, string, io
+from typing import Optional, List, Set, Tuple
+import sys, re, io
 
 # the list only for debugging. The real list, used in the real OpenCV build, is specified in CMakeLists.txt
 opencv_hdr_list = [
@@ -33,7 +33,7 @@ original_return_type is None if the original_return_type is the same as return_v
 
 class CppHeaderParser(object):
 
-    def __init__(self, generate_umat_decls=False, generate_gpumat_decls=False):
+    def __init__(self, generate_umat_decls: bool = False, generate_gpumat_decls: bool = False):
         self._generate_umat_decls = generate_umat_decls
         self._generate_gpumat_decls = generate_gpumat_decls
 
@@ -43,14 +43,14 @@ class CppHeaderParser(object):
         self.PUBLIC_SECTION = 3
         self.CLASS_DECL = 4
 
-        self.namespaces = set()
+        self.namespaces: Set[str] = set()
 
-    def batch_replace(self, s, pairs):
+    def batch_replace(self, s: str, pairs: List[Tuple[str, str]]) -> str:
         for before, after in pairs:
             s = s.replace(before, after)
         return s
 
-    def get_macro_arg(self, arg_str, npos):
+    def get_macro_arg(self, arg_str: str, npos: int):
         npos2 = npos3 = arg_str.find("(", npos)
         if npos2 < 0:
             print("Error: no arguments for the macro at %s:%d" % (self.hname, self.lineno))
@@ -70,7 +70,7 @@ class CppHeaderParser(object):
 
         return arg_str[npos2+1:npos3].strip(), npos3
 
-    def parse_arg(self, arg_str, argno):
+    def parse_arg(self, arg_str: str, argno: int) -> Tuple[str, str, List[str], int]:
         """
         Parses <arg_type> [arg_name]
         Returns arg_type, arg_name, modlist, argno, where
@@ -121,8 +121,8 @@ class CppHeaderParser(object):
             modlist.append("/Ref")
 
         arg_str = arg_str.strip()
-        word_start = 0
-        word_list = []
+        word_start: int = 0
+        word_list: List[str] = []
         npos = -1
 
         #print self.lineno, ":\t", arg_str
@@ -144,9 +144,9 @@ class CppHeaderParser(object):
             word_start = npos+1
             npos = word_start - 1
 
-        arg_type = ""
-        arg_name = ""
-        angle_stack = []
+        arg_type: str = ""
+        arg_name: str = ""
+        angle_stack: List[int] = []
 
         #print self.lineno, ":\t", word_list
 
