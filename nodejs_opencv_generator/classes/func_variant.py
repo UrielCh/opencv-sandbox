@@ -2,8 +2,8 @@ from typing import List, Dict, Tuple
 from .arg_info import ArgInfo 
 from nodejs_opencv_generator.utils import find_argument_class_info 
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
-from ..hdr_parser import FuncDecl
-from .func_info import FuncInfo
+from ..parser_tuples import FuncDecl
+# from .func_info import FuncInfo
 from .class_info import ClassInfo
 
 
@@ -96,11 +96,11 @@ class FuncVariant(object):
         for argno, a in enumerate(self.args):
             if a.name in self.array_counters:
                 continue
-            if isinstance(self, FuncInfo):
-                assert a.tp not in forbidden_arg_types, \
-                    'Forbidden type "{}" for argument "{}" in "{}" ("{}")'.format(
-                        a.tp, a.name, self.name, self.classname
-                    )
+            #if isinstance(self, FuncInfo): # ERROR somethink wrong with this code
+            assert a.tp not in forbidden_arg_types, \
+                'Forbidden type "{}" for argument "{}" in "{}" ("{}")'.format(
+                    a.tp, a.name, self.name, self.classname
+                )
 
             if a.tp in ignored_arg_types:
                 continue

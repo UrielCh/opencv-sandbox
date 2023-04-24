@@ -4,7 +4,8 @@ if TYPE_CHECKING:
     from .nodejs_wrapper_generator import NodejsWrapperGenerator
     from .class_info import ClassInfo
 
-from .func_variant import FuncVariant 
+from .func_variant import FuncVariant
+
 from collections import namedtuple
 from nodejs_opencv_generator.utils import (
     get_type_format_string, 
@@ -14,7 +15,7 @@ from nodejs_opencv_generator.utils import (
     FormatStrings
 )
 from string import Template
-from ..hdr_parser import FuncDecl
+from ..parser_tuples import FuncDecl
 
 ArgTypeInfo = namedtuple('ArgTypeInfo', [
                             'atype', 

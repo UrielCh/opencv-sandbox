@@ -13,7 +13,7 @@ from nodejs_opencv_generator.templates import (
     gen_ts_class_typing,
     gen_ts_class_method
 )
-from ..hdr_parser import FuncDecl
+from ..parser_tuples import FuncDecl
 
 if sys.version_info[0] >= 3:
     from io import StringIO
