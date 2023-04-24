@@ -28,8 +28,12 @@ jobs:
     - name: Python local install
       run: pip install -e .
 
+    - name: pip install mypy
+      run: pip install mypy
+
     - name: Python generator unit test
       run: python -m unittest nodejs_opencv_generator/classes/test_*
+
     - name: Python mypy check
       # run: python --version
       run: python -m mypy nodejs_opencv_generator/gen2.py
