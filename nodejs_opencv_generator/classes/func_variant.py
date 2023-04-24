@@ -101,9 +101,7 @@ class FuncVariant(object):
                 continue
             #if isinstance(self, FuncInfo): # ERROR somethink wrong with this code
             assert a.tp not in forbidden_arg_types, \
-                'Forbidden type "{}" for argument "{}" in "{}" ("{}")'.format(
-                    a.tp, a.name, self.name, self.classname
-                )
+                'Forbidden type "{}" for argument "{}" in "{}"'.format(a.tp, a.name, self.name)
 
             if a.tp in ignored_arg_types:
                 continue
