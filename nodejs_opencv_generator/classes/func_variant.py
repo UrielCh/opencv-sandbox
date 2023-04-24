@@ -1,14 +1,14 @@
-from typing import List, Dict, Tuple
+from typing import List, Dict, Any, Tuple
 from .arg_info import ArgInfo 
 from nodejs_opencv_generator.utils import find_argument_class_info 
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
 from ..parser_tuples import FuncDecl
 # from .func_info import FuncInfo
-from .class_info import ClassInfo
+# from .class_info import ClassInfo
 
 
 class FuncVariant(object):
-    def __init__(self, namespace: str, classname: str, name: str, decl: FuncDecl, isconstructor: bool, known_classes: Dict[str, ClassInfo], isphantom: bool = False):
+    def __init__(self, namespace: str, classname: str, name: str, decl: FuncDecl, isconstructor: bool, known_classes: Dict[str, Any], isphantom: bool = False):
         self.name: str = name
         self.wname: str = name
         self.isconstructor: bool = isconstructor
@@ -41,7 +41,7 @@ class FuncVariant(object):
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
     
-    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, ClassInfo]) -> None:
+    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, Any]) -> None:
         # string representation of argument list, with '[', ']' symbols denoting optional arguments, e.g.
         # "src1, src2[, dst[, mask]]" for cv.add
         argstr = ""
