@@ -2,6 +2,7 @@ from typing import TYPE_CHECKING, Dict
 
 if TYPE_CHECKING:
     from .classes.class_info import ClassInfo
+    from .classes.func_info import ArgTypeInfo
 
 import re
 
@@ -25,12 +26,12 @@ class FormatStrings:
 
 pass_by_val_types = ["Point*", "Point2f*", "Rect*", "String*", "double*", "float*", "int*"]
 
-def handle_ptr(tp):
+def handle_ptr(tp: str):
     if tp.startswith('Ptr_'):
         tp = 'Ptr<' + "::".join(tp.split('_')[1:]) + '>'
     return tp
 
-def get_type_format_string(arg_type_info):
+def get_type_format_string(arg_type_info: "ArgTypeInfo") -> str:
     if arg_type_info.strict_conversion:
         return FormatStrings.object
     else:
