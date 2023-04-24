@@ -1,7 +1,13 @@
 #!/usr/bin/env python
-
 from __future__ import print_function
-import os, sys, re, string, io
+import sys, re, io
+from typing import Optional, List, Tuple
+from .parser_tuples import FuncDecl, BlockStack
+
+# MyDeclarationType = Tuple[str, Union[str, None], List[Any], List[Any], None, Union[str, None]]
+# DeclarationType = TypeAlias[MyDeclarationType]
+
+# self.block_stack: List[Tuple[str, str, bool, bool, None]] = [("file", hname, True, True, None)]
 
 # the list only for debugging. The real list, used in the real OpenCV build, is specified in CMakeLists.txt
 opencv_hdr_list = [
@@ -33,24 +39,17 @@ original_return_type is None if the original_return_type is the same as return_v
 
 class CppHeaderParser(object):
 
-    def __init__(self, generate_umat_decls=False, generate_gpumat_decls=False):
+    def __init__(self, generate_umat_decls: bool = False, generate_gpumat_decls: bool = False):
         self._generate_umat_decls = generate_umat_decls
         self._generate_gpumat_decls = generate_gpumat_decls
+        self.namespaces: set[str] = set()
 
-        self.BLOCK_TYPE = 0
-        self.BLOCK_NAME = 1
-        self.PROCESS_FLAG = 2
-        self.PUBLIC_SECTION = 3
-        self.CLASS_DECL = 4
-
-        self.namespaces = set()
-
-    def batch_replace(self, s, pairs):
+    def batch_replace(self, s: str, pairs: List[Tuple[str, str]]) -> str:
         for before, after in pairs:
             s = s.replace(before, after)
         return s
 
-    def get_macro_arg(self, arg_str, npos):
+    def get_macro_arg(self, arg_str: str, npos: int) -> Tuple[str, int]:
         npos2 = npos3 = arg_str.find("(", npos)
         if npos2 < 0:
             print("Error: no arguments for the macro at %s:%d" % (self.hname, self.lineno))
@@ -70,7 +69,7 @@ class CppHeaderParser(object):
 
         return arg_str[npos2+1:npos3].strip(), npos3
 
-    def parse_arg(self, arg_str, argno):
+    def parse_arg(self, arg_str: str, argno: int) -> Tuple[str, str, List[str], int]:
         """
         Parses <arg_type> [arg_name]
         Returns arg_type, arg_name, modlist, argno, where
@@ -79,7 +78,7 @@ class CppHeaderParser(object):
         That is, if no arg_str is just an argument type without argument name, the argument name is set to
         "arg" + str(argno), and then argno is incremented.
         """
-        modlist = []
+        modlist: List[str] = []
 
         # pass 0: extracts the modifiers
         if "CV_OUT" in arg_str:
@@ -91,7 +90,7 @@ class CppHeaderParser(object):
             arg_str = arg_str.replace("CV_IN_OUT", "")
 
         isarray = False
-        npos = arg_str.find("CV_CARRAY")
+        npos: int = arg_str.find("CV_CARRAY")
         if npos >= 0:
             isarray = True
             macro_arg, npos3 = self.get_macro_arg(arg_str, npos)
@@ -121,8 +120,8 @@ class CppHeaderParser(object):
             modlist.append("/Ref")
 
         arg_str = arg_str.strip()
-        word_start = 0
-        word_list = []
+        word_start: int = 0
+        word_list: List[str] = []
         npos = -1
 
         #print self.lineno, ":\t", arg_str
@@ -144,15 +143,15 @@ class CppHeaderParser(object):
             word_start = npos+1
             npos = word_start - 1
 
-        arg_type = ""
-        arg_name = ""
-        angle_stack = []
+        arg_type: str = ""
+        arg_name: str = ""
+        angle_stack: List[int] = []
 
         #print self.lineno, ":\t", word_list
 
         # pass 2: decrypt the list
-        wi = -1
-        prev_w = ""
+        wi: int = -1
+        prev_w: str = ""
         for w in word_list:
             wi += 1
             if w == "*":
@@ -189,8 +188,8 @@ class CppHeaderParser(object):
                 arg_type += w
             prev_w = w
 
-        counter_str = ""
-        add_star = False
+        counter_str: str = ""
+        add_star: bool = False
         if ("[" in arg_name) and not ("operator" in arg_str):
             #print arg_str
             p1 = arg_name.find("[")
@@ -223,14 +222,14 @@ class CppHeaderParser(object):
 
         return arg_type, arg_name, modlist, argno
 
-    def parse_enum(self, decl_str):
+    def parse_enum(self, decl_str: str) -> List[FuncDecl]:
         l = decl_str
         ll = l.split(",")
         if ll[-1].strip() == "":
             ll = ll[:-1]
         prev_val = ""
         prev_val_delta = -1
-        decl = []
+        decl: List[FuncDecl] = []
         for pair in ll:
             pv = pair.split("=")
             if len(pv) == 1:
@@ -242,17 +241,17 @@ class CppHeaderParser(object):
             else:
                 prev_val_delta = 0
                 prev_val = val = pv[1].strip()
-            decl.append(["const " + self.get_dotted_name(pv[0].strip()), val, [], [], None, ""])
+            decl.append(FuncDecl("const " + self.get_dotted_name(pv[0].strip()), val, [], [], None, ""))
         return decl
 
-    def parse_class_decl(self, decl_str):
+    def parse_class_decl(self, decl_str: str) -> Tuple[str, List[str], List[str]]:
         """
         Parses class/struct declaration start in the form:
            {class|struct} [CV_EXPORTS] <class_name> [: public <base_class1> [, ...]]
         Returns class_name1, <list of base_classes>
         """
         l = decl_str
-        modlist = []
+        modlist: List[str] = []
         if "CV_EXPORTS_W_MAP" in l:
             l = l.replace("CV_EXPORTS_W_MAP", "")
             modlist.append("/Map")
@@ -274,11 +273,11 @@ class CppHeaderParser(object):
         l = self.batch_replace(l, [("CV_EXPORTS_W", ""), ("CV_EXPORTS", ""), ("public virtual ", " "), ("public ", " "), ("::", ".")]).strip()
         ll = re.split(r'\s+|\s*[,:]\s*', l)
         ll = [le for le in ll if le]
-        classname = ll[1]
-        bases = ll[2:]
+        classname: str = ll[1]
+        bases: List[str] = ll[2:]
         return classname, bases, modlist
 
-    def parse_func_decl_no_wrap(self, decl_str, static_method=False, docstring=""):
+    def parse_func_decl_no_wrap(self, decl_str: str, static_method: bool = False, docstring: str = "") -> FuncDecl:
         decl_str = (decl_str or "").strip()
         virtual_method = False
         explicit_method = False
@@ -321,11 +320,12 @@ class CppHeaderParser(object):
             apos = fdecl.find("(", apos+1)
 
         fname = "cv." + fname.replace("::", ".")
-        decl = [fname, rettype, [], [], None, docstring]
+        # decl: Tuple[str, str, List[Any], List[Any], None, str] = [fname, rettype, [], [], None, docstring]
+        decl: FuncDecl = FuncDecl(fname, rettype, [], [], None, docstring)
 
         # inline constructor implementation
         implmatch = re.match(r"(\(.*?\))\s*:\s*(\w+\(.*?\),?\s*)+", fdecl[apos:])
-        if bool(implmatch):
+        if implmatch is not None:
             fdecl = fdecl[:apos] + implmatch.group(1)
 
         args0str = fdecl[apos+1:fdecl.rfind(")")].strip()
@@ -334,8 +334,8 @@ class CppHeaderParser(object):
             args0str = re.sub(r"\([^)]*\)", lambda m: m.group(0).replace(',', "@comma@"), args0str)
             args0 = args0str.split(",")
 
-            args = []
-            narg = ""
+            args: List[str] = []
+            narg: str = ""
             for arg in args0:
                 narg += arg.strip()
                 balance_paren = narg.count("(") - narg.count(")")
@@ -390,7 +390,7 @@ class CppHeaderParser(object):
             decl[2].append("/C")
         return decl
 
-    def parse_func_decl(self, decl_str, mat="Mat", docstring=""):
+    def parse_func_decl(self, decl_str: str, mat="Mat", docstring="") -> List[FuncDecl]:
         """
         Parses the function or method declaration in the form:
         [([CV_EXPORTS] <rettype>) | CVAPI(rettype)]
@@ -410,7 +410,7 @@ class CppHeaderParser(object):
         if "CVAPI(" in decl_str and self.wrap_mode:
             return []
 
-        top = self.block_stack[-1]
+        top: BlockStack = self.block_stack[-1]
         func_modlist = []
 
         npos = decl_str.find("CV_EXPORTS_AS")
@@ -432,7 +432,7 @@ class CppHeaderParser(object):
             mappable, npos3 = self.get_macro_arg(decl_str, npos)
             func_modlist.append("/mappable="+mappable)
             classname = top[1]
-            return ['.'.join([classname, classname]), None, func_modlist, [], None, None]
+            return [FuncDecl('.'.join([classname, classname]), None, func_modlist, [], None, None)]
 
         virtual_method = False
         pure_virtual_method = False
@@ -537,15 +537,15 @@ class CppHeaderParser(object):
 
         if not self.wrap_mode:
             decl = self.parse_func_decl_no_wrap(decl_str, static_method, docstring)
-            decl[0] = funcname
-            return decl
+            decl.name = funcname
+            return [decl]
 
         arg_start = args_begin+1
         npos = arg_start-1
         balance = 1
         angle_balance = 0
         # scan the argument list; handle nested parentheses
-        args_decls = []
+        # args_decls = []
         args = []
         argno = 1
 
@@ -630,9 +630,9 @@ class CppHeaderParser(object):
         if pure_virtual_method:
             func_modlist.append("/PV")
 
-        return [funcname, rettype, func_modlist, args, original_type, docstring]
+        return [FuncDecl(funcname, rettype, func_modlist, args, original_type, docstring)]
 
-    def get_dotted_name(self, name):
+    def get_dotted_name(self, name: str) -> str:
         """
         adds the dot-separated container class/namespace names to the bare function/class name, e.g. when we have
 
@@ -651,8 +651,8 @@ class CppHeaderParser(object):
             return name
         qualified_name = (("." in name) or ("::" in name))
         n = ""
-        for b in self.block_stack:
-            block_type, block_name = b[self.BLOCK_TYPE], b[self.BLOCK_NAME]
+        for block in self.block_stack:
+            block_type, block_name = block.blockType, block.blockName
             if block_type in ["file", "enum"]:
                 continue
             if block_type in ["enum struct", "enum class"] and block_name == name:
@@ -667,7 +667,7 @@ class CppHeaderParser(object):
             n = "cv.Algorithm"
         return n
 
-    def parse_stmt(self, stmt, end_token, mat="Mat", docstring=""):
+    def parse_stmt(self, stmt: str, end_token: str, mat: str="Mat", docstring: str="") -> Tuple[str, str, bool, Optional[List[FuncDecl]]]:
         """
         parses the statement (ending with ';' or '}') or a block head (ending with '{')
 
@@ -676,13 +676,13 @@ class CppHeaderParser(object):
         where the first 3 values only make sense for blocks (i.e. code blocks, namespaces, classes, enums and such)
         """
         stack_top = self.block_stack[-1]
-        context = stack_top[self.BLOCK_TYPE]
+        context = stack_top.blockType
 
         if stmt.startswith('inline namespace'):
             # emulate anonymous namespace
             return "namespace", "", True, None
 
-        stmt_type = ""
+        stmt_type: str = ""
         if end_token == "{":
             stmt_type = "block"
 
@@ -698,14 +698,14 @@ class CppHeaderParser(object):
                 w = stmt[:colon_pos].strip()
                 if w in ["public", "protected", "private"]:
                     if w == "public" or (not self.wrap_mode and w == "protected"):
-                        stack_top[self.PUBLIC_SECTION] = True
+                        stack_top.publicSection = True # [self.PUBLIC_SECTION]
                     else:
-                        stack_top[self.PUBLIC_SECTION] = False
+                        stack_top.publicSection = False # [self.PUBLIC_SECTION]
                     stmt = stmt[colon_pos+1:].strip()
                 break
 
         # do not process hidden class members and template classes/functions
-        if not stack_top[self.PUBLIC_SECTION] or stmt.startswith("template"):
+        if not stack_top.publicSection or stmt.startswith("template"): #  [self.PUBLIC_SECTION]
             return stmt_type, "", False, None
 
         if end_token == "{":
@@ -718,9 +718,9 @@ class CppHeaderParser(object):
                     exit(1)
                 if classname.startswith("_Ipl"):
                     classname = classname[1:]
-                decl = [stmt_type + " " + self.get_dotted_name(classname), "", modlist, [], None, docstring]
+                decl: List[FuncDecl] = [FuncDecl(stmt_type + " " + self.get_dotted_name(classname), "", modlist, [], None, docstring)]
                 if bases:
-                    decl[1] = ": " + ", ".join([self.get_dotted_name(b).replace(".","::") for b in bases])
+                    decl[0].retCType = ": " + ", ".join([self.get_dotted_name(b).replace(".","::") for b in bases])
                 return stmt_type, classname, True, decl
 
             if stmt.startswith("class") or stmt.startswith("struct"):
@@ -733,9 +733,9 @@ class CppHeaderParser(object):
                         exit(1)
                     decl = []
                     if ("CV_EXPORTS_W" in stmt) or ("CV_EXPORTS_AS" in stmt) or (not self.wrap_mode):# and ("CV_EXPORTS" in stmt)):
-                        decl = [stmt_type + " " + self.get_dotted_name(classname), "", modlist, [], None, docstring]
+                        decl = [FuncDecl(stmt_type + " " + self.get_dotted_name(classname), "", modlist, [], None, docstring)]
                         if bases:
-                            decl[1] = ": " + ", ".join([self.get_dotted_name(b).replace(".","::") for b in bases])
+                            decl[0].retCType = ": " + ", ".join([self.get_dotted_name(b).replace(".","::") for b in bases])
                     return stmt_type, classname, True, decl
 
             if stmt.startswith("enum") or stmt.startswith("namespace"):
@@ -751,7 +751,7 @@ class CppHeaderParser(object):
 
         if end_token == "}" and context.startswith("enum"):
             decl = self.parse_enum(stmt)
-            name = stack_top[self.BLOCK_NAME]
+            name = stack_top.blockName
             return context, name, False, decl
 
         if end_token == ";" and stmt.startswith("typedef"):
@@ -771,7 +771,7 @@ class CppHeaderParser(object):
 
         if (context == "struct" or context == "class") and end_token == ";" and stmt:
             # looks like it's member declaration; append the members to the class declaration
-            class_decl = stack_top[self.CLASS_DECL]
+            class_decl = stack_top.classDecl#  [self.CLASS_DECL]
             if ("CV_PROP" in stmt): # or (class_decl and ("/Map" in class_decl[2])):
                 var_modlist = []
                 if "CV_PROP_RW" in stmt:
@@ -789,8 +789,8 @@ class CppHeaderParser(object):
                         prop_default_value = ''
                     else:
                         prop_default_value = prop_definition[-1]
-                    class_decl[3].append([var_type, prop_name, prop_default_value,
-                                          var_modlist])
+                    if class_decl is not None:
+                        class_decl[0].argumentsList.append([var_type, prop_name, prop_default_value, var_modlist])
             return stmt_type, "", False, None
 
         # something unknown
@@ -812,13 +812,13 @@ class CppHeaderParser(object):
                 token = t
         return token, tpos
 
-    def parse(self, hname, wmode=True):
+    def parse(self, hname: str, wmode=True):
         """
         The main method. Parses the input file.
         Returns the list of declarations (that can be print using print_decls)
         """
         self.hname = hname
-        decls = []
+        decls: List[FuncDecl] = []
         f = io.open(hname, 'rt', encoding='utf-8')
         linelist = list(f.readlines())
         f.close()
@@ -832,7 +832,7 @@ class CppHeaderParser(object):
 
         state = SCAN
 
-        self.block_stack = [["file", hname, True, True, None]]
+        self.block_stack: List[BlockStack] = [BlockStack("file", hname, True, True, None)]
         block_head = ""
         docstring = ""
         self.lineno = 0
@@ -973,45 +973,45 @@ class CppHeaderParser(object):
                 stmt = (block_head + " " + l[:pos]).strip()
                 stmt = " ".join(stmt.split()) # normalize the statement
                 #print(stmt)
-                stack_top = self.block_stack[-1]
-
+                stack_top: BlockStack = self.block_stack[-1]
                 if stmt.startswith("@"):
                     # Objective C ?
                     break
 
-                decl = None
-                if stack_top[self.PROCESS_FLAG]:
+                decl: Optional[List[FuncDecl]] = None
+                if stack_top.processFlag:
                     # even if stack_top[PUBLIC_SECTION] is False, we still try to process the statement,
                     # since it can start with "public:"
                     docstring = docstring.strip()
                     stmt_type, name, parse_flag, decl = self.parse_stmt(stmt, token, docstring=docstring)
+                    # print(decl)
                     if decl:
                         if stmt_type.startswith("enum"):
-                            decls.append([stmt_type + " " + self.get_dotted_name(name), "", [], decl, None, ""])
+                            decls.append(FuncDecl(stmt_type + " " + self.get_dotted_name(name), "", [], decl, None, ""))
                         else:
-                            decls.append(decl)
+                            decls += decl
 
                             if self._generate_gpumat_decls and ("cv.cuda" in decl[0] or decl[0] in [
                                 "cv.imshow", # https://github.com/opencv/opencv/issues/18553
                             ]):
                                 # If function takes as one of arguments Mat or vector<Mat> - we want to create the
                                 # same declaration working with GpuMat
-                                args = decl[3]
+                                args = decl[0].argumentsList
                                 has_mat = len(list(filter(lambda x: x[0] in {"Mat", "vector_Mat"}, args))) > 0
                                 if has_mat:
                                     _, _, _, gpumat_decl = self.parse_stmt(stmt, token, mat="cuda::GpuMat", docstring=docstring)
-                                    if gpumat_decl != decl:
-                                        decls.append(gpumat_decl)
+                                    if gpumat_decl != decl and gpumat_decl is not None:
+                                        decls += gpumat_decl
 
                             if self._generate_umat_decls:
                                 # If function takes as one of arguments Mat or vector<Mat> - we want to create the
                                 # same declaration working with UMat (this is important for T-Api access)
-                                args = decl[3]
+                                args = decl[0].argumentsList
                                 has_mat = len(list(filter(lambda x: x[0] in {"Mat", "vector_Mat"}, args))) > 0
                                 if has_mat:
                                     _, _, _, umat_decl = self.parse_stmt(stmt, token, mat="UMat", docstring=docstring)
-                                    if umat_decl != decl:
-                                        decls.append(umat_decl)
+                                    if umat_decl != decl and umat_decl is not None:
+                                        decls += umat_decl
 
                         docstring = ""
                     if stmt_type == "namespace":
@@ -1025,7 +1025,7 @@ class CppHeaderParser(object):
                         public_section = False
                     else:
                         public_section = True
-                    self.block_stack.append([stmt_type, name, parse_flag, public_section, decl])
+                    self.block_stack.append(BlockStack(stmt_type, name, parse_flag, public_section, decl))
 
                 if token == "}":
                     if not self.block_stack:
