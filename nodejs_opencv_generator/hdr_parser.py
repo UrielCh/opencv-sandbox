@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
-from typing import Optional, List, Set, Tuple
+from typing import Optional, Any, List, Set, Tuple
 import sys, re, io
 
 # the list only for debugging. The real list, used in the real OpenCV build, is specified in CMakeLists.txt
@@ -223,7 +223,7 @@ class CppHeaderParser(object):
 
         return arg_type, arg_name, modlist, argno
 
-    def parse_enum(self, decl_str):
+    def parse_enum(self, decl_str: str) -> List[Any]:
         l = decl_str
         ll = l.split(",")
         if ll[-1].strip() == "":
@@ -245,14 +245,14 @@ class CppHeaderParser(object):
             decl.append(["const " + self.get_dotted_name(pv[0].strip()), val, [], [], None, ""])
         return decl
 
-    def parse_class_decl(self, decl_str):
+    def parse_class_decl(self, decl_str: str) -> Tuple[str, List[str], List[str]]:
         """
         Parses class/struct declaration start in the form:
            {class|struct} [CV_EXPORTS] <class_name> [: public <base_class1> [, ...]]
         Returns class_name1, <list of base_classes>
         """
         l = decl_str
-        modlist = []
+        modlist: List[str] = []
         if "CV_EXPORTS_W_MAP" in l:
             l = l.replace("CV_EXPORTS_W_MAP", "")
             modlist.append("/Map")
@@ -278,7 +278,7 @@ class CppHeaderParser(object):
         bases = ll[2:]
         return classname, bases, modlist
 
-    def parse_func_decl_no_wrap(self, decl_str, static_method=False, docstring=""):
+    def parse_func_decl_no_wrap(self, decl_str: str, static_method: bool = False, docstring: str = "") -> List[Any]:
         decl_str = (decl_str or "").strip()
         virtual_method = False
         explicit_method = False
@@ -321,11 +321,11 @@ class CppHeaderParser(object):
             apos = fdecl.find("(", apos+1)
 
         fname = "cv." + fname.replace("::", ".")
-        decl = [fname, rettype, [], [], None, docstring]
+        decl: List[Any] = [fname, rettype, [], [], None, docstring]
 
         # inline constructor implementation
         implmatch = re.match(r"(\(.*?\))\s*:\s*(\w+\(.*?\),?\s*)+", fdecl[apos:])
-        if bool(implmatch):
+        if implmatch is not None:
             fdecl = fdecl[:apos] + implmatch.group(1)
 
         args0str = fdecl[apos+1:fdecl.rfind(")")].strip()
@@ -390,7 +390,7 @@ class CppHeaderParser(object):
             decl[2].append("/C")
         return decl
 
-    def parse_func_decl(self, decl_str, mat="Mat", docstring=""):
+    def parse_func_decl(self, decl_str: str, mat: str = "Mat", docstring: str = "") -> List[Any]:
         """
         Parses the function or method declaration in the form:
         [([CV_EXPORTS] <rettype>) | CVAPI(rettype)]
@@ -545,7 +545,7 @@ class CppHeaderParser(object):
         balance = 1
         angle_balance = 0
         # scan the argument list; handle nested parentheses
-        args_decls = []
+        # args_decls = []
         args = []
         argno = 1
 
@@ -632,7 +632,7 @@ class CppHeaderParser(object):
 
         return [funcname, rettype, func_modlist, args, original_type, docstring]
 
-    def get_dotted_name(self, name):
+    def get_dotted_name(self, name: str) -> str:
         """
         adds the dot-separated container class/namespace names to the bare function/class name, e.g. when we have
 
@@ -667,7 +667,7 @@ class CppHeaderParser(object):
             n = "cv.Algorithm"
         return n
 
-    def parse_stmt(self, stmt, end_token, mat="Mat", docstring=""):
+    def parse_stmt(self, stmt: str, end_token: str, mat: str = "Mat", docstring: str = "")  -> Tuple[str, str, bool, Optional[List[Any]]]:
         """
         parses the statement (ending with ';' or '}') or a block head (ending with '{')
 
@@ -812,7 +812,7 @@ class CppHeaderParser(object):
                 token = t
         return token, tpos
 
-    def parse(self, hname, wmode=True):
+    def parse(self, hname: str, wmode: bool = True):
         """
         The main method. Parses the input file.
         Returns the list of declarations (that can be print using print_decls)
