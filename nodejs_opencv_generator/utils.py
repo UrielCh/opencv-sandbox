@@ -90,6 +90,6 @@ def find_argument_class_info(argument_type, function_namespace, function_class_n
     #       argument_type, "'. Possible matches: '", possible_classes, "'")
     return None
 
-def normalize_class_name(name):
+def normalize_class_name(name: str) -> str:
     return re.sub(r"^cv\.", "", name).replace(".", "_")
 
