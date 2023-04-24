@@ -35,5 +35,4 @@ jobs:
       run: python -m unittest nodejs_opencv_generator/classes/test_*
 
     - name: Python mypy check
-      # run: python --version
-      run: python -m mypy nodejs_opencv_generator/gen2.py
+      run: python -m mypy .

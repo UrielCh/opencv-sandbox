@@ -1,4 +1,4 @@
-from typing import Dict, List, Any, TYPE_CHECKING
+from typing import Dict, List, Any, Union, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .nodejs_wrapper_generator import NodejsWrapperGenerator
@@ -278,7 +278,7 @@ class FuncInfo(object):
         # code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
         code += "    Napi::Env env = info.Env();\n"
 
-        selfinfo: "ClassInfo" | None = None
+        selfinfo: Union["ClassInfo", None] = None
         ismethod = self.classname != "" and not self.isconstructor
         # full name is needed for error diagnostic in PyArg_ParseTupleAndKeywords
         fullname = self.name

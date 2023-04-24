@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from __future__ import print_function
 import sys, re, io
-from typing import Optional, List, Tuple
+from typing import Optional, List, Set, Tuple
 from .parser_tuples import FuncDecl, BlockStack
 
 # MyDeclarationType = Tuple[str, Union[str, None], List[Any], List[Any], None, Union[str, None]]
@@ -42,7 +42,7 @@ class CppHeaderParser(object):
     def __init__(self, generate_umat_decls: bool = False, generate_gpumat_decls: bool = False):
         self._generate_umat_decls = generate_umat_decls
         self._generate_gpumat_decls = generate_gpumat_decls
-        self.namespaces: set[str] = set()
+        self.namespaces: Set[str] = set()
 
     def batch_replace(self, s: str, pairs: List[Tuple[str, str]]) -> str:
         for before, after in pairs:

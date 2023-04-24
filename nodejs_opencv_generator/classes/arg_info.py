@@ -1,19 +1,18 @@
+from typing import Dict, Tuple, Optional, Union, TYPE_CHECKING
 
 from nodejs_opencv_generator.python_reserved_keywords import python_reserved_keywords 
 from nodejs_opencv_generator.utils import handle_ptr 
 
 class ArgInfo(object):
-    def __init__(self, atype, name, default_value, modifiers=(),
-                 enclosing_arg=None):
-        # type: (ArgInfo, str, str, str, tuple[str, ...], ArgInfo | None) -> None
+    def __init__(self, atype: str, name, default_value, modifiers=(), enclosing_arg=None):
         self.tp = handle_ptr(atype)
         self.name = name
         self.defval = default_value
         self._modifiers = tuple(modifiers)
         self.isarray = False
         self.is_smart_ptr: bool = self.tp.startswith('Ptr<')  # FIXIT: handle through modifiers - need to modify parser
-        self.arraylen: str | None = None
-        self.arraycvt: str | None = None
+        self.arraylen: Optional[str] = None
+        self.arraycvt: Optional[str] = None
         for m in self._modifiers:
             if m.startswith("/A"):
                 self.isarray = True
@@ -23,7 +22,7 @@ class ArgInfo(object):
                 self.arraycvt = m[2:].strip()
         self.py_inputarg = False
         self.py_outputarg = False
-        self.enclosing_arg: ArgInfo | None = enclosing_arg
+        self.enclosing_arg: Optional[ArgInfo] = enclosing_arg
 
     def __str__(self):
         return 'ArgInfo("{}", tp="{}", default="{}", in={}, out={})'.format(

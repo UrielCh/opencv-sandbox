@@ -148,7 +148,7 @@ class NodejsWrapperGenerator(object):
     def split_decl_name(self, name: str) -> Tuple[List[str], List[str], str]:
         chunks = name.split('.')
         namespace = chunks[:-1]
-        classes: list[str] = []
+        classes: List[str] = []
         while namespace and '.'.join(namespace) not in self.parser.namespaces:
             classes.insert(0, namespace.pop())
         return namespace, classes, chunks[-1]
