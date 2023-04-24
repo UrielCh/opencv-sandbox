@@ -1,4 +1,4 @@
-from typing import Dict, List, Any, TYPE_CHECKING
+from typing import Dict, List, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .nodejs_wrapper_generator import NodejsWrapperGenerator
@@ -63,7 +63,7 @@ class FuncInfo(object):
         # if self.name == 'BOWKMeansTrainer':
         #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
-    def add_variant(self, decl: FuncDecl, known_classes: Dict[str, Any], isphantom: bool = False) -> None: # 'ClassInfo'
+    def add_variant(self, decl: FuncDecl, known_classes: Dict[str, "ClassInfo"], isphantom: bool = False) -> None: # 'ClassInfo'
         
         # if 'cv.BOWKMeansTrainer' in decl[0]:
         #     print('decl', self.name, decl)

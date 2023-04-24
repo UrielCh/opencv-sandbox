@@ -3,7 +3,7 @@ from typing import Optional, Any, List, Tuple
 class FuncDecl(tuple):
     __slots__ = ()
 
-    def __new__(cls, name: str, retCType: Optional[str], modifiers: List[Any], argumentsList: List[Any], originalRetType: Optional[str], docstring: Optional[str]):
+    def __new__(cls, name: str, retCType: Optional[str], modifiers: List[str], argumentsList: List[Any], originalRetType: Optional[str], docstring: Optional[str]):
         return tuple.__new__(cls, (name, retCType, modifiers, argumentsList, originalRetType, docstring))
     @property
     def name(self) -> str:
@@ -18,10 +18,10 @@ class FuncDecl(tuple):
     def retCType(self, value: Optional[str]) -> None:
         self = self._replace(1, value)
     @property
-    def modifiers(self) -> List[Any]:
+    def modifiers(self) -> List[str]:
         return self[2]
     @modifiers.setter
-    def modifiers(self, value: List[Any]) -> None:
+    def modifiers(self, value: List[str]) -> None:
         self = self._replace(2, value)
     @property
     def argumentsList(self) -> List[Any]:
