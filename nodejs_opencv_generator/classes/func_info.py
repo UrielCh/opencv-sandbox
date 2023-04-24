@@ -323,7 +323,9 @@ class FuncInfo(object):
                     if not code_args.endswith("("):
                         code_args += ", "
                     code_args += defval
-                    all_cargs.append([[None, ""], ""])
+                    all_cargs.append([[None, ""], ""]) # ERROR
+                    # arg_type_info = ArgTypeInfo("", "", None, False, "ERROR")
+                    # all_cargs.append(arg_type_info)
                     continue
                 tp1 = tp = a.tp
                 amp = ""
@@ -362,7 +364,7 @@ class FuncInfo(object):
                     else:
                         code_cvt_list.append("jsopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
 
-                all_cargs.append([arg_type_info, parse_name])
+                all_cargs.append([arg_type_info, parse_name]) # ERROR
 
                 # Argument is actually a part of the named arguments structure,
                 # but it is possible to mimic further processing like it is normal arg
