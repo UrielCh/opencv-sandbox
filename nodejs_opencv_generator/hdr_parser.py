@@ -39,24 +39,17 @@ original_return_type is None if the original_return_type is the same as return_v
 
 class CppHeaderParser(object):
 
-    def __init__(self, generate_umat_decls=False, generate_gpumat_decls=False):
+    def __init__(self, generate_umat_decls: bool = False, generate_gpumat_decls: bool = False):
         self._generate_umat_decls = generate_umat_decls
         self._generate_gpumat_decls = generate_gpumat_decls
+        self.namespaces: set[str] = set()
 
-        # self.BLOCK_TYPE = 0
-        # self.BLOCK_NAME = 1
-        # self.PROCESS_FLAG = 2
-        # self.PUBLIC_SECTION = 3
-        # self.CLASS_DECL = 4
-
-        self.namespaces = set()
-
-    def batch_replace(self, s, pairs):
+    def batch_replace(self, s: str, pairs: List[Tuple[str, str]]) -> str:
         for before, after in pairs:
             s = s.replace(before, after)
         return s
 
-    def get_macro_arg(self, arg_str, npos):
+    def get_macro_arg(self, arg_str: str, npos: int) -> Tuple[str, int]:
         npos2 = npos3 = arg_str.find("(", npos)
         if npos2 < 0:
             print("Error: no arguments for the macro at %s:%d" % (self.hname, self.lineno))
@@ -76,7 +69,7 @@ class CppHeaderParser(object):
 
         return arg_str[npos2+1:npos3].strip(), npos3
 
-    def parse_arg(self, arg_str, argno):
+    def parse_arg(self, arg_str: str, argno: int) -> Tuple[str, str, List[str], int]:
         """
         Parses <arg_type> [arg_name]
         Returns arg_type, arg_name, modlist, argno, where
@@ -85,7 +78,7 @@ class CppHeaderParser(object):
         That is, if no arg_str is just an argument type without argument name, the argument name is set to
         "arg" + str(argno), and then argno is incremented.
         """
-        modlist = []
+        modlist: List[str] = []
 
         # pass 0: extracts the modifiers
         if "CV_OUT" in arg_str:
@@ -97,7 +90,7 @@ class CppHeaderParser(object):
             arg_str = arg_str.replace("CV_IN_OUT", "")
 
         isarray = False
-        npos = arg_str.find("CV_CARRAY")
+        npos: int = arg_str.find("CV_CARRAY")
         if npos >= 0:
             isarray = True
             macro_arg, npos3 = self.get_macro_arg(arg_str, npos)
@@ -127,8 +120,8 @@ class CppHeaderParser(object):
             modlist.append("/Ref")
 
         arg_str = arg_str.strip()
-        word_start = 0
-        word_list = []
+        word_start: int = 0
+        word_list: List[str] = []
         npos = -1
 
         #print self.lineno, ":\t", arg_str
@@ -150,15 +143,15 @@ class CppHeaderParser(object):
             word_start = npos+1
             npos = word_start - 1
 
-        arg_type = ""
-        arg_name = ""
-        angle_stack = []
+        arg_type: str = ""
+        arg_name: str = ""
+        angle_stack: List[int] = []
 
         #print self.lineno, ":\t", word_list
 
         # pass 2: decrypt the list
-        wi = -1
-        prev_w = ""
+        wi: int = -1
+        prev_w: str = ""
         for w in word_list:
             wi += 1
             if w == "*":
@@ -195,8 +188,8 @@ class CppHeaderParser(object):
                 arg_type += w
             prev_w = w
 
-        counter_str = ""
-        add_star = False
+        counter_str: str = ""
+        add_star: bool = False
         if ("[" in arg_name) and not ("operator" in arg_str):
             #print arg_str
             p1 = arg_name.find("[")
@@ -284,7 +277,7 @@ class CppHeaderParser(object):
         bases: List[str] = ll[2:]
         return classname, bases, modlist
 
-    def parse_func_decl_no_wrap(self, decl_str: str, static_method: bool=False, docstring: str="") -> FuncDecl:
+    def parse_func_decl_no_wrap(self, decl_str: str, static_method: bool = False, docstring: str = "") -> FuncDecl:
         decl_str = (decl_str or "").strip()
         virtual_method = False
         explicit_method = False
@@ -341,8 +334,8 @@ class CppHeaderParser(object):
             args0str = re.sub(r"\([^)]*\)", lambda m: m.group(0).replace(',', "@comma@"), args0str)
             args0 = args0str.split(",")
 
-            args = []
-            narg = ""
+            args: List[str] = []
+            narg: str = ""
             for arg in args0:
                 narg += arg.strip()
                 balance_paren = narg.count("(") - narg.count(")")

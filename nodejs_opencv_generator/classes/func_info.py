@@ -197,9 +197,9 @@ class FuncInfo(object):
 
         return arg_type_info
 
-    def gen_ts_typings(self, codegen) -> str:
+    def gen_ts_typings(self, codegen) -> List[str]:
         all_classes = codegen.classes
-        variant_codes = []
+        variant_codes: List[str] = []
         code_args: str = "" # new to hid ERROR
         
         if self.isconstructor:
