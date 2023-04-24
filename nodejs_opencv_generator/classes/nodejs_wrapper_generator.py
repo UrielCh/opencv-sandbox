@@ -109,8 +109,7 @@ class NodejsWrapperGenerator(object):
 
 
     def add_class(self, stype: str, name: str, decl: List[str]) -> None:
-        classinfo = ClassInfo(name, decl, self)
-        classinfo.decl_idx = self.class_idx
+        classinfo = ClassInfo(name, decl, self, self.class_idx)
         self.class_idx += 1
 
         if classinfo.name in self.classes:

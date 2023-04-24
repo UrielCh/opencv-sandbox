@@ -25,7 +25,7 @@ else:
     from cStringIO import StringIO
 
 class ClassInfo(object):
-    def __init__(self, name: str, decl: Union[List[Any], None] = None, codegen: Union["NodejsWrapperGenerator", None] = None):
+    def __init__(self, name: str, decl: Union[List[Any], None] = None, codegen: Union["NodejsWrapperGenerator", None] = None, decl_idx: int = 0):
 
         # if name == 'cv.BOWKMeansTrainer':
         #     print('decl', name, decl)
@@ -53,6 +53,7 @@ class ClassInfo(object):
         self.consts: Dict[str, str] = {}
         self.base:  Union[str, None] = None
         self.constructor:  Union[ClassInfo, "FuncInfo", None] = None
+        self.decl_idx: int = decl_idx
 
         if decl:
             bases = decl[1].split()[1:]
