@@ -63,7 +63,7 @@ class FuncInfo(object):
         # if self.name == 'BOWKMeansTrainer':
         #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
-    def add_variant(self, decl: FuncDecl, known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
+    def add_variant(self, decl: FuncDecl, known_classes: Dict[str, ClassInfo], isphantom: bool = False) -> None: # 'ClassInfo'
         
         # if 'cv.BOWKMeansTrainer' in decl[0]:
         #     print('decl', self.name, decl)

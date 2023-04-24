@@ -385,7 +385,7 @@ class NodejsWrapperGenerator(object):
         classlist = list(self.classes.items())
         classlist.sort()
         
-        current_tree = []
+        current_tree: List[str] = []
         code_ts_types_str = ""
         
         for name, classinfo in classlist:

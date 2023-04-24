@@ -8,7 +8,7 @@ from .class_info import ClassInfo
 
 
 class FuncVariant(object):
-    def __init__(self, namespace: str, classname: str, name: str, decl: FuncDecl, isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
+    def __init__(self, namespace: str, classname: str, name: str, decl: FuncDecl, isconstructor: bool, known_classes: Dict[str, ClassInfo], isphantom: bool = False):
         self.name: str = name
         self.wname: str = name
         self.isconstructor: bool = isconstructor
