@@ -1,12 +1,12 @@
 import unittest
-from .func_info import FuncInfo 
-from .class_info import ClassInfo
-from .nodejs_wrapper_generator import NodejsWrapperGenerator
-from .. import hdr_parser
+from nodejs_opencv_generator.classes.func_info import FuncInfo 
+from nodejs_opencv_generator.classes.class_info import ClassInfo
+from nodejs_opencv_generator.classes.nodejs_wrapper_generator import NodejsWrapperGenerator
+from nodejs_opencv_generator import hdr_parser
 
 class TestClassInfo(unittest.TestCase):
 
-	def test_gen_ts_typings_BOWKMeansTrainer(self):
+	def test_gen_ts_BOWKMeansTrainer(self):
 		classinfo = ClassInfo('cv.BOWKMeansTrainer', ['class cv.BOWKMeansTrainer', ': cv::BOWTrainer', [], [], None, '@brief kmeans -based class to train visual vocabulary using the *bag of visual words* approach. :'])
 		classes =  dict(BOWKMeansTrainer= classinfo)
 		funcinfo_cstr = FuncInfo('BOWKMeansTrainer', 'BOWKMeansTrainer', 'cv::BOWKMeansTrainer::BOWKMeansTrainer', True, 'cv', False)
@@ -30,7 +30,7 @@ class BOWKMeansTrainer{
 	cluster(descriptors: Mat): Mat;
 }
 """    
-		self.assertEqual(classinfo.gen_ts_typings(codegen), expected_output)
+		self.assertEqual(classinfo.gen_ts(codegen), expected_output)
 
 if __name__ == '__main__':
 	unittest.main()

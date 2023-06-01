@@ -190,3 +190,30 @@ ${indent}}
 """)
 
 gen_ts_class_method = Template("""${static}${name}(${args}): ${return_type};""")
+
+gen_h_class = Template("""#ifndef __TEST_${class_name}__H__
+#define __TEST_${class_name}__H__
+#include <napi.h>
+
+#include <opencv2/opencv.hpp>
+
+class ${class_name}Wrapper : public Napi::ObjectWrap<${class_name}Wrapper> {
+   public:
+    static Napi::Object Init(Napi::Env env, Napi::Object exports);
+    ${class_name}Wrapper(const Napi::CallbackInfo &info);
+    ${class_name}Wrapper(const Napi::CallbackInfo &info, const cv::Ptr<cv::${class_name}> &${inst_name});
+    ~${class_name}Wrapper();
+
+    static Napi::FunctionReference constructor;
+
+   cv::Ptr<cv::${class_name}> cvdata;
+   // present in all warppers to check types
+   static Napi::Symbol typeSymbol;
+
+   private:
+
+${method_defs}
+};
+
+#endif
+""")

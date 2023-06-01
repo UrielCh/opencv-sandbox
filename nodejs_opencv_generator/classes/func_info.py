@@ -57,13 +57,14 @@ class FuncInfo(object):
         self.namespace = namespace
         self.is_static = is_static
         self.variants = []
-        # if self.name == 'BOWKMeansTrainer':
-        #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
-
+        # if self.classname == 'AKAZE':
+        #      print("funcinfo"+self.name+" = FuncInfo("+",".join(['"'+classname+'"', '"'+name+'"', '"'+cname+'"', str(isconstructor), '"'+namespace+'"', str(is_static)])+")")
+   
     def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
-        
-        # if 'cv.BOWKMeansTrainer' in decl[0]:
-        #     print('decl', self.name, decl)
+        # if self.classname == 'AKAZE':
+        #     print('decl = ', decl)
+        #     print("funcinfo"+self.name+".add_variant("+",".join(["decl", "known_classes", str(isphantom)])+")")
+   
         self.variants.append(
             FuncVariant(self.namespace, self.classname, self.name, decl,
                         self.isconstructor, known_classes, isphantom)
@@ -176,7 +177,7 @@ class FuncInfo(object):
 
         return arg_type_info
 
-    def gen_ts_typings(self, codegen) -> str:
+    def gen_ts(self, codegen) -> str:
         all_classes = codegen.classes
         variant_codes = []
         
@@ -248,6 +249,31 @@ class FuncInfo(object):
             variant_codes.append(variant_code)
         
         return list(set(variant_codes))
+    
+    def get_binding_name(self):
+        def capitalize(str):
+            return str[0].upper()+str[1:]
+        if(self.is_static):
+            return capitalize(self.name)+"Static"
+        else:
+            return self.name
+    
+    def gen_h(self, codegen) -> str:
+        code = ""
+        if(self.is_static):
+                code += "static "
+        code += "Napi::Value "
+        code += "{fn_name}(const Napi::CallbackInfo &info);".format(fn_name=self.get_binding_name())
+        
+        return code
+    def get_full_name(self, all_classes):
+        fullname = self.name
+
+        if self.classname:
+            if not self.isconstructor:
+                fullname = all_classes[self.classname].wname + "." + fullname
+        
+        return fullname
 
     def gen_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
@@ -258,21 +284,19 @@ class FuncInfo(object):
         selfinfo = None
         ismethod = self.classname != "" and not self.isconstructor
         # full name is needed for error diagnostic in PyArg_ParseTupleAndKeywords
-        fullname = self.name
-
+        fullname = self.get_full_name(all_classes)
         if self.classname:
             selfinfo = all_classes[self.classname]
-            if not self.isconstructor:
-                if not self.is_static:
-                    code += gen_template_check_self.substitute(
-                        name=selfinfo.name,
-                        cname=selfinfo.cname if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
-                        pname=(selfinfo.cname + '*') if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
-                        cvt='' if selfinfo.issimple else '*'
-                    )
-                fullname = selfinfo.wname + "." + fullname
 
         all_code_variants = []
+
+        if self.classname and not self.is_static and not self.isconstructor:
+            code += gen_template_check_self.substitute(
+                name=selfinfo.name,
+                cname=selfinfo.cname if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
+                pname=(selfinfo.cname + '*') if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
+                cvt='' if selfinfo.issimple else '*'
+            )
 
         for v in self.variants:
             code_decl = ""

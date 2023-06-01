@@ -11,7 +11,8 @@ from nodejs_opencv_generator.templates import (
     gen_template_prop_init,
     gen_template_rw_prop_init,
     gen_template_set_prop_algo,
-    gen_ts_class_typing
+    gen_ts_class_typing,
+    gen_h_class
 )
 if sys.version_info[0] >= 3:
     from io import StringIO
@@ -116,14 +117,14 @@ class ClassInfo(object):
         else:
             code += "\n    return true;\n}\n"
         return code
-    def gen_ts_typings(self, codegen) -> str:
+    def gen_ts(self, codegen) -> str:
         methods_str = ""
 
         if self.constructor:
-            methods_str +="\n\t" + "\n\t".join(self.constructor.gen_ts_typings(codegen))
+            methods_str +="\n\t" + "\n\t".join(self.constructor.gen_ts(codegen))
 
         for method_key in self.methods:
-            methods_str+="\n\t" + "\n\t".join(sorted(self.methods[method_key].gen_ts_typings(codegen)))
+            methods_str+="\n\t" + "\n\t".join(sorted(self.methods[method_key].gen_ts(codegen)))
 
         result = gen_ts_class_typing.substitute(
             indent="",
@@ -131,6 +132,28 @@ class ClassInfo(object):
             methods=methods_str
         )
         return result
+    def gen_h(self, codegen) -> str:
+        methods_h = StringIO()
+
+        indentation = '    ';
+        if self.constructor is not None:
+            methods_h.write(indentation+self.constructor.gen_h(codegen)+'\n')
+        
+        sorted_methods = self.get_sorted_methods()
+        for mname, m in sorted_methods:
+            methods_h.write(indentation+m.gen_h(codegen)+'\n')
+            # methods_inits.write(m.get_tab_entry())
+        method_defs = methods_h.getvalue()
+        generated = gen_h_class.substitute(
+            class_name=self.name,
+            inst_name=self.name.lower(),
+            method_defs=method_defs
+        )
+        return generated
+    def get_sorted_methods(self):
+        sorted_methods = list(self.methods.items())
+        sorted_methods.sort()
+        return sorted_methods
     def gen_code(self, codegen) -> str:
         all_classes = codegen.classes
         if self.ismap:
@@ -163,8 +186,9 @@ class ClassInfo(object):
         methods_code = StringIO()
         methods_inits = StringIO()
 
-        sorted_methods = list(self.methods.items())
-        sorted_methods.sort()
+        sorted_methods = self.get_sorted_methods()
+
+
 
         if self.constructor is not None:
             methods_code.write(self.constructor.gen_code(codegen))

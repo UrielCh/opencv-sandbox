@@ -222,6 +222,9 @@ class NodejsWrapperGenerator(object):
             # Add it as a method to the class
             func_map = self.classes[classname].methods
             func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
+            if classname == 'AKAZE':
+                print("class_info.methods.setdefault('"+name+"', funcinfo"+name+")")
+   
             func.add_variant(decl, self.classes, isphantom)
 
             # Add it as global function
@@ -240,6 +243,7 @@ class NodejsWrapperGenerator(object):
             # Exports static function with internal name (backward compatibility)
             func = func_map.setdefault(g_name, FuncInfo("", g_name, cname, isconstructor, namespace_str, False))
             func.add_variant(decl, self.classes, isphantom)
+
             if g_wname != g_name:  # TODO OpenCV 5.0
                 wfunc = func_map.setdefault(g_wname, FuncInfo("", g_wname, cname, isconstructor, namespace_str, False))
                 wfunc.add_variant(decl, self.classes, isphantom)
@@ -253,6 +257,9 @@ class NodejsWrapperGenerator(object):
 
             func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
             func.add_variant(decl, self.classes, isphantom)
+            if classname == 'AKAZE':
+                print("class_info.methods.setdefault('"+name+"', funcinfo"+name+")")
+
 
         if classname and isconstructor:
             self.classes[classname].constructor = func
@@ -424,7 +431,7 @@ class NodejsWrapperGenerator(object):
 
                 level+=1
             
-            class_ts_str=classinfo.gen_ts_typings(self)
+            class_ts_str=classinfo.gen_ts(self)
             code_ts_types_str += class_ts_str.replace("\n", "\n"+((level+1)*"\t"))
             
             # methods_list_str = []
