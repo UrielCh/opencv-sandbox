@@ -1,3 +1,9 @@
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:
+    from .classes.class_info import ClassInfo
+    from .classes.func_info import ArgTypeInfo
+
 import re
 
 ignored_arg_types = ["RNG*"]
@@ -20,21 +26,19 @@ class FormatStrings:
 
 pass_by_val_types = ["Point*", "Point2f*", "Rect*", "String*", "double*", "float*", "int*"]
 
-def handle_ptr(tp):
+def handle_ptr(tp: str):
     if tp.startswith('Ptr_'):
         tp = 'Ptr<' + "::".join(tp.split('_')[1:]) + '>'
     return tp
 
-def get_type_format_string(arg_type_info):
+def get_type_format_string(arg_type_info: "ArgTypeInfo") -> str:
     if arg_type_info.strict_conversion:
         return FormatStrings.object
     else:
         return arg_type_info.format_str
 
 
-def find_argument_class_info(argument_type, function_namespace,
-                            function_class_name, known_classes):
-    # type: (str, str, str, dict[str, ClassInfo]) -> ClassInfo | None
+def find_argument_class_info(argument_type, function_namespace, function_class_name, known_classes):
     """Tries to find corresponding class info for the provided argument type
 
     Args:
@@ -85,6 +89,6 @@ def find_argument_class_info(argument_type, function_namespace,
     #       argument_type, "'. Possible matches: '", possible_classes, "'")
     return None
 
-def normalize_class_name(name):
+def normalize_class_name(name: str) -> str:
     return re.sub(r"^cv\.", "", name).replace(".", "_")
 

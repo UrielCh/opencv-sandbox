@@ -37,6 +37,25 @@
         "cStandard": "c17",
         "cppStandard": "c++17",
         "intelliSenseMode": "clang-x64"
+    }, {
+        "name": "macOSX",
+        "includePath": [
+            "${workspaceFolder}/**",
+            "${workspaceFolder}/node_modules/node-addon-api",
+            "${OPENCV_BUILD_ROOT}/latest/build/include/opencv4",
+            "${OPENCV_BUILD_ROOT}/latest/build/include",
+            "${OPENCV_BUILD_ROOT}/latest/opencv/modules/python/src2",
+            "${HOME}/.nvm/versions/node/v18.16.0/include/node/"
+        ],
+        "defines": [
+            "_DEBUG",
+            "UNICODE",
+            "_UNICODE"
+        ],
+        "compilerPath": "/usr/bin/gcc",
+        "cStandard": "c17",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "clang-x64"
     }],
     "version": 4
 }

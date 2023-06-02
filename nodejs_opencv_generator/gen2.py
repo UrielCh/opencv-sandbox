@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import hdr_parser, sys, re, os
-from pprint import pprint
-from classes.nodejs_wrapper_generator import NodejsWrapperGenerator
+import sys
+from nodejs_opencv_generator import hdr_parser
+# from .classes.nodejs_wrapper_generator import NodejsWrapperGenerator
+from nodejs_opencv_generator.classes.nodejs_wrapper_generator import NodejsWrapperGenerator
 
 if __name__ == "__main__":
+    
     """
     Generate Node.js bindings for OpenCV
     First argument is the output directory

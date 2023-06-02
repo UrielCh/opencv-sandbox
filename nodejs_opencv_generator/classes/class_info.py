@@ -1,3 +1,9 @@
+from typing import Union, Dict, List, Any, cast, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .nodejs_wrapper_generator import NodejsWrapperGenerator
+    from .func_info import FuncInfo
+
 from .class_prop import ClassProp 
 import sys
 import re
@@ -18,9 +24,8 @@ if sys.version_info[0] >= 3:
 else:
     from cStringIO import StringIO
 
-
 class ClassInfo(object):
-    def __init__(self, name, decl=None, codegen=None):
+    def __init__(self, name: str, decl: Union[List[Any], None] = None, codegen: Union["NodejsWrapperGenerator", None] = None, decl_idx: int = 0):
 
         # if name == 'cv.BOWKMeansTrainer':
         #     print('decl', name, decl)
@@ -42,12 +47,13 @@ class ClassInfo(object):
         self.is_parameters = False
         self.issimple = False
         self.isalgorithm = False
-        self.methods = {}
-        self.props = []
-        self.mappables = []
-        self.consts = {}
-        self.base = None
-        self.constructor = None
+        self.methods: Dict[str, Union[ClassInfo, "FuncInfo"]] = {}
+        self.props: List[ClassProp] = []
+        self.mappables: List[str] = []
+        self.consts: Dict[str, str] = {}
+        self.base:  Union[str, None] = None
+        self.constructor:  Union[ClassInfo, "FuncInfo", None] = None
+        self.decl_idx: int = decl_idx
 
         if decl:
             bases = decl[1].split()[1:]
@@ -107,7 +113,7 @@ class ClassInfo(object):
     def has_export_alias(self):
         return self.export_name != self.original_name
 
-    def gen_map_code(self, codegen):
+    def gen_map_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
         code = "static bool jsopencv_to(Napi::Value* src, %s& dst, const ArgInfo& info)\n{\n    const Napi::Value* tmp;\n    bool ok;\n" % (self.cname)
         code += "".join([gen_template_set_prop_from_map.substitute(propname=p.name,proptype=p.tp) for p in self.props])
@@ -116,14 +122,15 @@ class ClassInfo(object):
         else:
             code += "\n    return true;\n}\n"
         return code
-    def gen_ts_typings(self, codegen) -> str:
+    
+    def gen_ts_typings(self, codegen: "NodejsWrapperGenerator") -> str:
         methods_str = ""
 
         if self.constructor:
             methods_str +="\n\t" + "\n\t".join(self.constructor.gen_ts_typings(codegen))
 
         for method_key in self.methods:
-            methods_str+="\n\t" + "\n\t".join(sorted(self.methods[method_key].gen_ts_typings(codegen)))
+            methods_str += "\n\t" + "\n\t".join(sorted(self.methods[method_key].gen_ts_typings(codegen)))
 
         result = gen_ts_class_typing.substitute(
             indent="",
@@ -131,7 +138,24 @@ class ClassInfo(object):
             methods=methods_str
         )
         return result
-    def gen_code(self, codegen) -> str:
+    
+
+    def gen_code(self, codegen: "NodejsWrapperGenerator") -> str:
+        """
+        for all classes
+        generate a block like:
+        // GetSet (AKAZE)
+        // ...
+        // Methods (AKAZE)
+        // ...
+        // Tables (AKAZE)
+        // 
+        static JsGetSetDef jsopencv_${name}_getseters[] =
+        // all setter/getter as an array
+        static JsMethodDef jsopencv_${name}_methods[] =
+        // all nethode methods as an array
+        // saved in jsopencv_generated_types_content.h
+        """
         all_classes = codegen.classes
         if self.ismap:
             return self.gen_map_code(codegen)
@@ -145,7 +169,7 @@ class ClassInfo(object):
         access_op = "->"
         if self.issimple:
             access_op = "."
-
+        # ALL PROPERTIES
         for pname, p in sorted_props:
             if self.isalgorithm:
                 getset_code.write(gen_template_get_prop_algo.substitute(name=self.name, cname=self.cname, member=pname, membertype=p.tp, access=access_op))
@@ -165,23 +189,23 @@ class ClassInfo(object):
 
         sorted_methods = list(self.methods.items())
         sorted_methods.sort()
-
+        # CONSTRUCTOR
         if self.constructor is not None:
             methods_code.write(self.constructor.gen_code(codegen))
-
+        # methods
         for mname, m in sorted_methods:
-            methods_code.write(m.gen_code(codegen))
-            methods_inits.write(m.get_tab_entry())
+            m2: "FuncInfo" = cast("FuncInfo", m)
+            methods_code.write(m2.gen_code(codegen))
+            methods_inits.write(m2.get_tab_entry())
 
         code = gen_template_type_impl.substitute(name=self.name,
                                                  getset_code=getset_code.getvalue(),
                                                  getset_inits=getset_inits.getvalue(),
                                                  methods_code=methods_code.getvalue(),
                                                  methods_inits=methods_inits.getvalue())
-
         return code
 
-    def gen_def(self, codegen) -> str:
+    def gen_def(self, codegen: "NodejsWrapperGenerator") -> str:
         all_classes = codegen.classes
         baseptr = "NoBase"
         if self.base and self.base in all_classes:
@@ -189,7 +213,8 @@ class ClassInfo(object):
 
         constructor_name = "0"
         if self.constructor is not None:
-            constructor_name = self.constructor.get_wrapper_name()
+            if not isinstance(self.constructor, ClassInfo):
+                constructor_name = self.constructor.get_wrapper_name()
         # define CVJS_TYPE(EXPORT_NAME, CLASS_ID, STORAGE, SNAME, _1, _2, SCOPE)
         return 'CVJS_TYPE({}, {}, {}, {}, {}, {}, "{}");\n'.format(
             self.export_name,

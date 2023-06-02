@@ -1,10 +1,17 @@
-from typing import List, Dict
+from typing import List, Dict, Tuple, TYPE_CHECKING
 from .arg_info import ArgInfo 
 from nodejs_opencv_generator.utils import find_argument_class_info 
 from nodejs_opencv_generator.utils import handle_ptr, forbidden_arg_types, ignored_arg_types
+from ..parser_tuples import FuncDecl
+# from .func_info import FuncInfo
+# from .class_info import ClassInfo
+
+if TYPE_CHECKING:
+    from ..classes.class_info import ClassInfo
+
 
 class FuncVariant(object):
-    def __init__(self, namespace: str, classname: str, name: str, decl: List[str], isconstructor: bool, known_classes: Dict[str, str], isphantom: bool = False):
+    def __init__(self, namespace: str, classname: str, name: str, decl: FuncDecl, isconstructor: bool, known_classes: Dict[str, 'ClassInfo'], isphantom: bool = False):
         self.name: str = name
         self.wname: str = name
         self.isconstructor: bool = isconstructor
@@ -28,15 +35,16 @@ class FuncVariant(object):
                             default_value=arg_decl[2], modifiers=arg_decl[3])
             if ainfo.isarray and not ainfo.arraycvt:
                 c = ainfo.arraylen
-                c_arrlist = self.array_counters.get(c, [])
-                if c_arrlist:
-                    c_arrlist.append(ainfo.name)
-                else:
-                    self.array_counters[c] = [ainfo.name]
+                if c is not None:
+                    c_arrlist = self.array_counters.get(c, [])
+                    if c_arrlist:
+                        c_arrlist.append(ainfo.name)
+                    else:
+                        self.array_counters[c] = [ainfo.name]
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
     
-    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, str]) -> None:
+    def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, 'ClassInfo']) -> None:
         # string representation of argument list, with '[', ']' symbols denoting optional arguments, e.g.
         # "src1, src2[, dst[, mask]]" for cv.add
         argstr = ""
@@ -48,19 +56,19 @@ class FuncVariant(object):
         # or even go in a different order ("heavy" output parameters of the C function
         # become the first optional input parameters of the Python function, and thus they are placed right after
         # non-optional input parameters)
-        arglist = []
+        arglist: List[Tuple[str, int]] = []
 
         # the list of "heavy" output parameters. Heavy parameters are the parameters
         # that can be expensive to allocate each time, such as vectors and matrices (see isbig).
-        outarr_list = []
+        outarr_list: List[Tuple[str, int]] = []
 
         # the list of output parameters. Also includes input/output parameters.
-        outlist = []
+        outlist: List[Tuple[str, int]] = []
 
         firstoptarg = 1000000
 
         # Check if there is params structure in arguments
-        arguments = []
+        arguments: List[ArgInfo] = []
         for arg in self.args:
             arg_class_info = find_argument_class_info(
                 arg.tp, namespace, classname, known_classes
@@ -91,10 +99,9 @@ class FuncVariant(object):
         for argno, a in enumerate(self.args):
             if a.name in self.array_counters:
                 continue
+            #if isinstance(self, FuncInfo): # ERROR somethink wrong with this code
             assert a.tp not in forbidden_arg_types, \
-                'Forbidden type "{}" for argument "{}" in "{}" ("{}")'.format(
-                    a.tp, a.name, self.name, self.classname
-                )
+                'Forbidden type "{}" for argument "{}" in "{}"'.format(a.tp, a.name, self.name)
 
             if a.tp in ignored_arg_types:
                 continue

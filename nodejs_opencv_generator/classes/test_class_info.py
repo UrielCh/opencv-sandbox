@@ -8,7 +8,7 @@ class TestClassInfo(unittest.TestCase):
 
 	def test_gen_ts_typings_BOWKMeansTrainer(self):
 		classinfo = ClassInfo('cv.BOWKMeansTrainer', ['class cv.BOWKMeansTrainer', ': cv::BOWTrainer', [], [], None, '@brief kmeans -based class to train visual vocabulary using the *bag of visual words* approach. :'])
-		classes =  dict(BOWKMeansTrainer= classinfo)
+		classes =  dict(BOWKMeansTrainer = classinfo)
 		funcinfo_cstr = FuncInfo('BOWKMeansTrainer', 'BOWKMeansTrainer', 'cv::BOWKMeansTrainer::BOWKMeansTrainer', True, 'cv', False)
 		funcinfo_cstr.add_variant(['cv.BOWKMeansTrainer.BOWKMeansTrainer', '', [], [['int', 'clusterCount', '', []], ['TermCriteria', 'termcrit', 'TermCriteria()', ['/C', '/Ref']], ['int', 'attempts', '3', []], ['int', 'flags', 'KMEANS_PP_CENTERS', []]], None, '@brief The constructor.\n\n    @see cv::kmeans'], classes)
 		classinfo.constructor = funcinfo_cstr

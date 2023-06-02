@@ -1,6 +1,6 @@
 import sys
 import re
-from typing import Dict, Any, List, Tuple, Union
+from typing import Dict, Any, List, Optional, Tuple, Union
 from nodejs_opencv_generator import hdr_parser
 from nodejs_opencv_generator.utils import normalize_class_name
 from nodejs_opencv_generator.classes.namespace import Namespace
@@ -13,6 +13,7 @@ from nodejs_opencv_generator.templates import (
     gen_ts_class_typing,
     gen_ts_class_method
 )
+from ..parser_tuples import FuncDecl
 
 if sys.version_info[0] >= 3:
     from io import StringIO
@@ -26,8 +27,8 @@ class NodejsWrapperGenerator(object):
     def clear(self) -> None:
         self.classes: Dict[str, ClassInfo] = {}
         self.namespaces: Dict[str, Namespace] = {}
-        self.consts: Dict[str, Any] = {}
-        self.enums: Dict[str, Any] = {}
+        self.consts: Dict[str, str] = {}
+        self.enums: Dict[str, str] = {}
         self.code_include: StringIO = StringIO()      # jsopencv_generated_include.h
 
         self.code_enums: StringIO = StringIO()        # jsopencv_generated_enums.h
@@ -108,8 +109,7 @@ class NodejsWrapperGenerator(object):
 
 
     def add_class(self, stype: str, name: str, decl: List[str]) -> None:
-        classinfo = ClassInfo(name, decl, self)
-        classinfo.decl_idx = self.class_idx
+        classinfo = ClassInfo(name, decl, self, self.class_idx)
         self.class_idx += 1
 
         if classinfo.name in self.classes:
@@ -118,8 +118,8 @@ class NodejsWrapperGenerator(object):
             sys.exit(-1)
         self.classes[classinfo.name] = classinfo
 
-        namespace, _, _ = self.split_decl_name(name)
-        namespace = '.'.join(namespace)
+        namespaces, _, _ = self.split_decl_name(name)
+        namespace: str = '.'.join(namespaces)
         # Registering a namespace if it is not already handled or
         # doesn't have anything except classes defined in it
         self.namespaces.setdefault(namespace, Namespace())
@@ -148,7 +148,7 @@ class NodejsWrapperGenerator(object):
     def split_decl_name(self, name: str) -> Tuple[List[str], List[str], str]:
         chunks = name.split('.')
         namespace = chunks[:-1]
-        classes = []
+        classes: List[str] = []
         while namespace and '.'.join(namespace) not in self.parser.namespaces:
             classes.insert(0, namespace.pop())
         return namespace, classes, chunks[-1]
@@ -156,8 +156,8 @@ class NodejsWrapperGenerator(object):
 
     def add_const(self, name: str, decl: List[Any]) -> None:
         cname = name.replace('.','::')
-        namespace, classes, name = self.split_decl_name(name)
-        namespace = '.'.join(namespace)
+        namespaces, classes, name = self.split_decl_name(name)
+        namespace: str = '.'.join(namespaces)
         name = '_'.join(classes+[name])
         ns = self.namespaces.setdefault(namespace, Namespace())
         if name in ns.consts:
@@ -174,11 +174,11 @@ class NodejsWrapperGenerator(object):
 
     def add_enum(self, name: str, decl: List[Any]) -> None:
 
-        wname = normalize_class_name(name)
+        wname: str = normalize_class_name(name)
         # if wname == 'KAZE_DiffusivityType':
         #     print('decl', name, decl)
         if wname.endswith("<unnamed>"):
-            wname = None
+            wname = "" # None useless
         else:
             self.enums[wname] = name
         const_decls = decl[3]
@@ -187,7 +187,7 @@ class NodejsWrapperGenerator(object):
             name = decl[0]
             self.add_const(name.replace("const ", "").strip(), decl)
 
-    def add_func(self, decl: List[Any]) -> None:
+    def add_func(self, decl: FuncDecl) -> None:
         namespace, classes, barename = self.split_decl_name(decl[0])
         cname = "::".join(namespace+classes+[barename])
         name = barename
@@ -220,9 +220,10 @@ class NodejsWrapperGenerator(object):
 
         if is_static:
             # Add it as a method to the class
-            func_map = self.classes[classname].methods
-            func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
-            func.add_variant(decl, self.classes, isphantom)
+            func_map: Dict[str, Union[ClassInfo, FuncInfo]] = self.classes[classname].methods
+            func: Union[ClassInfo, FuncInfo] = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
+            if isinstance(func, FuncInfo):
+                func.add_variant(decl, self.classes, isphantom)
 
             # Add it as global function
             g_name = "_".join(classes+[name])
@@ -239,10 +240,12 @@ class NodejsWrapperGenerator(object):
             func_map = self.namespaces.setdefault(namespace_str, Namespace()).funcs
             # Exports static function with internal name (backward compatibility)
             func = func_map.setdefault(g_name, FuncInfo("", g_name, cname, isconstructor, namespace_str, False))
-            func.add_variant(decl, self.classes, isphantom)
+            if isinstance(func, FuncInfo):
+                func.add_variant(decl, self.classes, isphantom)
             if g_wname != g_name:  # TODO OpenCV 5.0
                 wfunc = func_map.setdefault(g_wname, FuncInfo("", g_wname, cname, isconstructor, namespace_str, False))
-                wfunc.add_variant(decl, self.classes, isphantom)
+                if isinstance(wfunc, FuncInfo):
+                    wfunc.add_variant(decl, self.classes, isphantom)
         else:
             if classname and not isconstructor:
                 if not isphantom:
@@ -252,7 +255,8 @@ class NodejsWrapperGenerator(object):
                 func_map = self.namespaces.setdefault(namespace_str, Namespace()).funcs
 
             func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
-            func.add_variant(decl, self.classes, isphantom)
+            if isinstance(func, FuncInfo):
+                func.add_variant(decl, self.classes, isphantom)
 
         if classname and isconstructor:
             self.classes[classname].constructor = func
@@ -264,9 +268,10 @@ class NodejsWrapperGenerator(object):
 
         self.code_ns_reg.write('static JsMethodDef methods_%s[] = {\n'%wname)
         for name, func in sorted(ns.funcs.items()):
-            if func.isconstructor:
-                continue
-            self.code_ns_reg.write(func.get_tab_entry())
+            if isinstance(func, FuncInfo):
+                if func.isconstructor:
+                    continue
+                self.code_ns_reg.write(func.get_tab_entry())
         custom_entries_macro = 'JSOPENCV_EXTRA_METHODS_{}'.format(wname.upper())
         self.code_ns_reg.write('#ifdef {}\n    {}\n#endif\n'.format(custom_entries_macro, custom_entries_macro))
         self.code_ns_reg.write('    {NULL, NULL}\n};\n\n')
@@ -379,7 +384,7 @@ class NodejsWrapperGenerator(object):
         classlist = list(self.classes.items())
         classlist.sort()
         
-        current_tree = []
+        current_tree: List[str] = []
         code_ts_types_str = ""
         
         for name, classinfo in classlist:
@@ -489,8 +494,9 @@ class NodejsWrapperGenerator(object):
             if ns_name.split('.')[0] != 'cv':
                 continue
             for name, func in sorted(ns.funcs.items()):
-                if func.isconstructor:
-                    continue
+                if isinstance(func, FuncInfo):
+                    if func.isconstructor:
+                        continue
                 code = func.gen_code(self)
                 self.code_funcs.write(code)
             self.gen_namespace(ns_name)
@@ -505,8 +511,8 @@ class NodejsWrapperGenerator(object):
         # step 5: generate the code for constants
         constlist = list(self.consts.items())
         constlist.sort()
-        for name, constinfo in constlist:
-            self.gen_const_reg(constinfo)
+        #for name, constinfo in constlist:
+        #    self.gen_const_reg(constinfo) # gen_const_reg do not exits
 
         self.code_funcs.write("#endif\n")
         self.code_enums.write("#endif\n")

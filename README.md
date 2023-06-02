@@ -44,10 +44,12 @@ pip install -e .
 
 Headers should be present somewhere in your opencv install like : 
 
+#### For Linux and MacOSX
 ```bash
 cp ${OPENCV_BUILD_ROOT}/latest/build/modules/python_bindings_generator/headers.txt data/headers.txt
 ```
 
+#### For windows
 ```powershell
 cp ${Env:OPENCV_BUILD_ROOT}/latest/build/modules/python_bindings_generator/headers.txt data/headers.txt
 ```

@@ -15,13 +15,15 @@
     "build": "node-gyp build && npm run build-ts",
     "rebuild:dev": "node-gyp rebuild --debug",
     "rebuild": "node-gyp rebuild && npm run build-ts",
-    "clean": "node-gyp clean"
+    "clean": "node-gyp clean",
+    "activate": "echo conda activate opencv-sandbox",
+    "gen": "python nodejs_opencv_generator/gen2.py cc-generated data/headers.txt"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UrielCh/opencv-sandbox.git"
   },
-  "author": "",
+  "author": "Uriel Chemouni <uchemouni@gmail.com> (https://uriel.ovh/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/UrielCh/opencv-sandbox/issues"

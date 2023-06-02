@@ -1,9 +1,11 @@
-from typing import Dict, List, Tuple, Union, Any, TYPE_CHECKING
+from typing import Dict, List, Any, Union, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from nodejs_wrapper_generator import NodejsWrapperGenerator
+    from .nodejs_wrapper_generator import NodejsWrapperGenerator
+    from .class_info import ClassInfo
 
-from .func_variant import FuncVariant 
+from .func_variant import FuncVariant
+
 from collections import namedtuple
 from nodejs_opencv_generator.utils import (
     get_type_format_string, 
@@ -13,6 +15,7 @@ from nodejs_opencv_generator.utils import (
     FormatStrings
 )
 from string import Template
+from ..parser_tuples import FuncDecl
 
 ArgTypeInfo = namedtuple('ArgTypeInfo', [
                             'atype', 
@@ -37,15 +40,15 @@ from nodejs_opencv_generator.templates import (
 )
 
 simple_argtype_mapping: Dict[str, ArgTypeInfo] = {
-    "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True, 'boolean'),
-    "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True, 'number'),
-    "int": ArgTypeInfo("int", FormatStrings.int, "0", True, 'number'),
-    "float": ArgTypeInfo("float", FormatStrings.float, "0.f", True, 'number'),
-    "double": ArgTypeInfo("double", FormatStrings.double, "0", True, 'number'),
-    "c_string": ArgTypeInfo("char*", FormatStrings.string, '(char*)""', 'string'),
-    "string": ArgTypeInfo("std::string", FormatStrings.object, None, True, 'string'),
-    "Stream": ArgTypeInfo("Stream", FormatStrings.object, 'Stream::Null()', True, 'Stream'),
-    "UMat": ArgTypeInfo("UMat", FormatStrings.object, 'UMat()', True, 'Mat'),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
+    "bool":     ArgTypeInfo("bool",        FormatStrings.unsigned_char,      "0",         True, 'boolean'),
+    "size_t":   ArgTypeInfo("size_t",      FormatStrings.unsigned_long_long, "0",         True, 'number'),
+    "int":      ArgTypeInfo("int",         FormatStrings.int,                "0",         True, 'number'),
+    "float":    ArgTypeInfo("float",       FormatStrings.float,              "0.f",       True, 'number'),
+    "double":   ArgTypeInfo("double",      FormatStrings.double,             "0",         True, 'number'),
+    "c_string": ArgTypeInfo("char*",       FormatStrings.string,             '(char*)""', False, 'string'),
+    "string":   ArgTypeInfo("std::string", FormatStrings.object,             None,        True, 'string'),
+    "Stream":   ArgTypeInfo("Stream",      FormatStrings.object,             'Stream::Null()', True, 'Stream'),
+    "UMat":     ArgTypeInfo("UMat",        FormatStrings.object,             'UMat()',     True, 'Mat'),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
 }
 
 class FuncInfo(object):
@@ -56,11 +59,11 @@ class FuncInfo(object):
         self.isconstructor = isconstructor
         self.namespace = namespace
         self.is_static = is_static
-        self.variants = []
+        self.variants: List[FuncVariant] = []
         # if self.name == 'BOWKMeansTrainer':
         #     print('__init__', classname, name, cname, isconstructor, namespace, is_static)
 
-    def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
+    def add_variant(self, decl: FuncDecl, known_classes: Dict[str, "ClassInfo"], isphantom: bool = False) -> None: # 'ClassInfo'
         
         # if 'cv.BOWKMeansTrainer' in decl[0]:
         #     print('decl', self.name, decl)
@@ -83,10 +86,23 @@ class FuncInfo(object):
 
         return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
 
-    def get_wrapper_prototype(self, codegen: "NodejsWrapperGenerator") -> str: # 'CodeGenerator'
+    def get_wrapper_prototype(self, codegen: "NodejsWrapperGenerator", showNamespace: bool = True) -> str: # 'CodeGenerator'
+        """
+        @param codegen: CodeGenerator instance
+        @param namespace: if True, then the namespace is added to the function name
+        Returns the prototype of the wrapper function
+        like: Napi::Value AKAZEWrapper::setDescriptorChannels(const Napi::CallbackInfo &info)
+        """
+        prefix = ""
+        if showNamespace:
+            prefix = "%sWrapper::" % (self.classname)
+
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
-            return "static int {fn_name}(const Napi::CallbackInfo &info)".format(fn_name=full_fname, type_name=self.classname)
+            if showNamespace: # do not display the static prefix in implementation
+                return "int {prefix}Wrapper{name}(const Napi::CallbackInfo &info)".format(prefix=prefix, name=self.name)
+            else: # display the static prefix in signature
+                return "static int {prefix}Wrapper{name}(const Napi::CallbackInfo &info)".format(prefix=prefix, name=self.name)
             # return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
             #         fn_name=full_fname, type_name=codegen.classes[self.classname].name)
 
@@ -95,7 +111,12 @@ class FuncInfo(object):
         else:
             self_arg = ""
         # PyObject* %s, PyObject* py_args, PyObject* kw % (full_fname, self_arg)
-        return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
+        # return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
+        if showNamespace: # do not display the static prefix in implementation
+            return "Napi::Value %s%s(const Napi::CallbackInfo &info)" % (prefix, self.name)
+        else:
+            return "static Napi::Value %s%s(const Napi::CallbackInfo &info)" % (prefix, self.name)
+    
 
     def get_tab_entry(self) -> str:
         prototype_list = []
@@ -176,9 +197,10 @@ class FuncInfo(object):
 
         return arg_type_info
 
-    def gen_ts_typings(self, codegen) -> str:
+    def gen_ts_typings(self, codegen) -> List[str]:
         all_classes = codegen.classes
-        variant_codes = []
+        variant_codes: List[str] = []
+        code_args: str = "" # new to hid ERROR
         
         if self.isconstructor:
             ts_name='constructor'
@@ -199,7 +221,7 @@ class FuncInfo(object):
                     if not defval and a.tp.endswith("*"):
                         defval = "0"
                     assert defval
-                    if not code_args.endswith("("):
+                    if not code_args.endswith("("): # ERROR code_args is not define yet
                         code_args += ", "
                     code_args += defval
                     continue
@@ -252,10 +274,11 @@ class FuncInfo(object):
     def gen_code(self, codegen: "NodejsWrapperGenerator"):
         all_classes = codegen.classes
         proto = self.get_wrapper_prototype(codegen)
-        code = "%s\n{\n" % (proto,)
-        code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
+        code = "%s {\n" % (proto,)
+        # code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
+        code += "    Napi::Env env = info.Env();\n"
 
-        selfinfo = None
+        selfinfo: Union["ClassInfo", None] = None
         ismethod = self.classname != "" and not self.isconstructor
         # full name is needed for error diagnostic in PyArg_ParseTupleAndKeywords
         fullname = self.name
@@ -263,7 +286,7 @@ class FuncInfo(object):
         if self.classname:
             selfinfo = all_classes[self.classname]
             if not self.isconstructor:
-                if not self.is_static:
+                if not self.is_static: # class method except constructor
                     code += gen_template_check_self.substitute(
                         name=selfinfo.name,
                         cname=selfinfo.cname if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
@@ -280,7 +303,8 @@ class FuncInfo(object):
             code_cvt_list = []
 
             code_args = "("
-            all_cargs = []
+            # all_cargs: List[Tuple[ArgTypeInfo, str]] = []
+            all_cargs: List[Any] = []
 
             template_func_body = gen_template_func_body
             if v.isphantom and ismethod and not self.is_static:
@@ -300,7 +324,9 @@ class FuncInfo(object):
                     if not code_args.endswith("("):
                         code_args += ", "
                     code_args += defval
-                    all_cargs.append([[None, ""], ""])
+                    all_cargs.append([[None, ""], ""]) # ERROR
+                    # arg_type_info = ArgTypeInfo("", "", None, False, "ERROR")
+                    # all_cargs.append(arg_type_info)
                     continue
                 tp1 = tp = a.tp
                 amp = ""
@@ -321,14 +347,14 @@ class FuncInfo(object):
                     if tp in all_classes:
                         tp_classinfo = all_classes[tp]
                         cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
-                        arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval0, True)
+                        arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval0, True, "ERROR, missing type mapping for %s" % tp)
                         assert not (a.is_smart_ptr and tp_classinfo.issimple), "Can't pass 'simple' type as Ptr<>"
                         if not a.is_smart_ptr and not tp_classinfo.issimple:
                             assert amp == ''
                             amp = '*'
                     else:
                         # FIXIT: Ptr_ / vector_ / enums / nested types
-                        arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval0, True)
+                        arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval0, True, "ERROR, missing type mapping for %s" % tp)
 
                 parse_name = a.name
                 if a.py_inputarg and arg_type_info.strict_conversion:
@@ -339,7 +365,7 @@ class FuncInfo(object):
                     else:
                         code_cvt_list.append("jsopencv_to_safe(%s, %s, %s)" % (parse_name, a.full_name, a.crepr()))
 
-                all_cargs.append([arg_type_info, parse_name])
+                all_cargs.append([arg_type_info, parse_name]) # ERROR
 
                 # Argument is actually a part of the named arguments structure,
                 # but it is possible to mimic further processing like it is normal arg
@@ -347,7 +373,8 @@ class FuncInfo(object):
                     a = a.enclosing_arg
                     arg_type_info = ArgTypeInfo(a.tp, FormatStrings.object,
                                                 default_value=a.defval,
-                                                strict_conversion=True)
+                                                strict_conversion=True,
+                                                ts_type="ERROR, missing type mapping for %s" % a)
                     # Skip further actions if enclosing argument is already instantiated
                     # by its another field
                     if a.name in instantiated_args:
@@ -384,7 +411,7 @@ class FuncInfo(object):
 
             code_args += ")"
 
-            if self.isconstructor:
+            if selfinfo is not None and self.isconstructor:
                 template_func_body = gen_template_func_body_int
                 if selfinfo.issimple:
                     templ_prelude = gen_template_simple_call_constructor_prelude
@@ -419,7 +446,7 @@ class FuncInfo(object):
             if v.rettype:
                 tp = v.rettype
                 tp1 = tp.replace("*", "_ptr")
-                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp)
+                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp, "ERROR Missing TS TYPE")
                 arg_type_info = simple_argtype_mapping.get(tp, default_info)
                 all_cargs.append(arg_type_info)
 
