@@ -23,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/UrielCh/opencv-sandbox.git"
   },
-  "author": "",
+  "author": "Uriel Chemouni <uchemouni@gmail.com> (https://uriel.ovh/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/UrielCh/opencv-sandbox/issues"
