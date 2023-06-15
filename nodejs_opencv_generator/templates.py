@@ -1,12 +1,16 @@
 from string import Template
 
-
 gen_template_check_self = Template("""
     ${cname} * self1 = 0;
     if (!jsopencv_${name}_getp(&(info.This()), self1))
         return jsfailmsgp(env, "Incorrect type of self (must be '${name}' or its derivative)");
     ${pname} _self_ = ${cvt}(self1);
 """)
+
+gen_template_obj_self = Template("""
+    ${pname} _self_ = this->cvdata;
+""")
+
 # placement new
 gen_template_call_constructor_prelude = Template("""Napi::Object *self = &info.This().As<Napi::Object>();
         Ptr<$cname> *data = (Ptr<$cname> *)self->Get("v").As<Napi::Buffer<char>>().Data();
@@ -23,7 +27,7 @@ gen_template_simple_call_constructor_prelude = Template("""
 gen_template_simple_call_constructor = Template("""
 new (getInternalData<void>(info.This())) ${cname}${py_args}""")
 
-gen_template_parse_args = Template("""const char* keywords[] = { $kw_list, NULL };
+gen_template_parse_args = Template("""const char *keywords[] = { $kw_list, NULL };
     if (JsArg_ParseTupleAndKeywords(info, "$fmtspec", (char**)keywords, $parse_arglist)$code_cvt)""")
 
 gen_template_func_body = Template("""$code_decl
@@ -217,3 +221,8 @@ ${method_defs}
 
 #endif
 """)
+
+
+# AKAZEWrapper -> ${class_name}Wrapper
+# setDescriptorType -> ${method_name}
+# setDescriptorType -> ${method_name}

@@ -9,3 +9,4 @@ data/headers.txt
 *.vcxproj.filters
 CMakeLists.txt
 cc-generated
+.DS_Store
