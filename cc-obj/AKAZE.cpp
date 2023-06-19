@@ -66,7 +66,6 @@ Napi::Value AKAZEWrapper::getDefaultName(const Napi::CallbackInfo &info) {
 }
 Napi::Value AKAZEWrapper::getDescriptorSize(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
-    Napi::Value *jsobj_dsize = NULL;
     Ptr<cv::AKAZE> _self_ = this->cvdata;
     int retval;
     if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty())) {
@@ -276,6 +275,7 @@ Napi::Object AKAZEWrapper::Init(Napi::Env env, Napi::Object exports) {
     exports.Set("AKAZE", func);
     return exports;
 }
+
 // constructor to create class from C++
 AKAZEWrapper::AKAZEWrapper(const Napi::CallbackInfo &info, const cv::Ptr<cv::AKAZE> &akaze)
     : Napi::ObjectWrap<AKAZEWrapper>(info), cvdata(akaze) {

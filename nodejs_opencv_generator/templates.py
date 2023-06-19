@@ -7,6 +7,15 @@ gen_template_check_self = Template("""
     ${pname} _self_ = ${cvt}(self1);
 """)
 
+gen_cpp_class_file = Template("""#include "./${name}.h"
+
+#include "../cc-common/cv2_convert.h"
+#include "../cc-common/cv2_util.h"
+#include "../cc-generated/jsopencv_generated_include.h"
+
+$code
+""")
+
 gen_template_obj_self = Template("""
     ${pname} _self_ = this->cvdata;
 """)
@@ -56,8 +65,7 @@ gen_template_mappable = Template("""
     }
 """)
 
-gen_template_type_decl = Template("""
-// Converter (${name})
+gen_template_type_decl = Template("""// Converter (${name})
 
 template<>
 struct JsOpenCV_Converter< ${cname} >
@@ -70,19 +78,35 @@ struct JsOpenCV_Converter< ${cname} >
     {
         if(!src || src->IsNull() || src->IsUndefined())
             return true;
-        ${cname} * dst_;
-        if (jsopencv_${name}_getp(src, dst_))
-        {
-            dst = *dst_;
-            return true;
+        Napi::Object obj = src->As<Napi::Object>();
+        if (!obj.Has(${name}Wrapper::typeSymbol)) {
+            jsfailmsg(src->Env(), "Expected ${cname} for argument '%s'", info.name);
         }
-        ${mappable_code}
-        jsfailmsg(src->Env(), "Expected ${cname} for argument '%s'", info.name);
+        ${name}Wrapper *wrapper = ${name}Wrapper::Unwrap(obj);
+        dst = wrapper->cvdata;
         return false;
     }
 };
-
 """)
+
+gen_template_class_ref_cpp = Template("""Napi::FunctionReference ${name}Wrapper::constructor;
+Napi::Symbol ${name}Wrapper::typeSymbol;
+${name}Wrapper::~${name}Wrapper() {
+    this->cvdata.release();
+}
+
+static Napi::Value jsopencv_${name}_Instance(const Napi::Env &env, const cv::${cname} &r) {
+    Napi::Object newInstance = ${name}Wrapper::constructor.New({});
+    ${name}Wrapper *wrapper = ${name}Wrapper::Unwrap(newInstance);
+    wrapper->cvdata = r;
+    return newInstance;
+}
+
+${name}Wrapper::${name}Wrapper(const Napi::CallbackInfo &info, const cv::${cname} &instance)
+    : Napi::ObjectWrap<${name}Wrapper>(info), cvdata(instance) {
+}""")
+
+
 
 gen_template_map_type_cvt = Template("""
 template<> bool jsopencv_to(const Napi::Value* src, ${cname}& dst, const ArgInfo& argInfo);
@@ -105,22 +129,34 @@ ${getset_code}
 
 // Methods (${name})
 
-${methods_code}
+${methods_code}// Init (${name})
 
-// Tables (${name})
-
-static JsGetSetDef jsopencv_${name}_getseters[] =
-{${getset_inits}
-    {NULL}  /* Sentinel */
-};
-
-static JsMethodDef jsopencv_${name}_methods[] =
-{
-${methods_inits}
-    {NULL,          NULL}
-};
+${init_code}
+${code_types}
+${class_ref_code}
 """)
 
+gen_template_init_instance_method =  Template("""InstanceMethod<&${name}Wrapper::${binding_name}>("${method_name}", atts),""")
+gen_template_init_static_method =  Template("""StaticMethod<&${name}Wrapper::${binding_name}>("${method_name}", atts),""")
+
+gen_template_cpp_init = Template("""Napi::Object ${class_name}Wrapper::Init(Napi::Env env, Napi::Object exports) {
+    Napi::HandleScope scope(env);
+    napi_property_attributes atts = static_cast<napi_property_attributes>(napi_writable | napi_configurable);
+    // link definition to prototype
+    Napi::Function func = DefineClass(env, "${class_name}", {
+        // Methods
+${methods_cstr_code}    });
+
+    constructor = Napi::Persistent(func);
+    constructor.SuppressDestruct();
+    // Add the symbol to the ${class_name}Wrapper prototype
+    typeSymbol = Napi::Symbol::New(env, "${full_name}");
+    constructor.Value().Set(typeSymbol, Napi::Boolean::New(env, true));
+    env.SetInstanceData<Napi::FunctionReference>(&constructor);
+    exports.Set("${class_name}", func);
+    return exports;
+}
+""")
 
 gen_template_get_prop = Template("""
 static Napi::Value jsopencv_${name}_get_${member}(const Napi::Env &env, jsopencv_${name}_t* p, void *closure)
@@ -173,9 +209,6 @@ static int jsopencv_${name}_set_${member}(const Napi::Env &env, jsopencv_${name}
 gen_template_prop_init = Template("""
     {(char*)"${export_member_name}", (getter)jsopencv_${name}_get_${member}, NULL, (char*)"${export_member_name}", NULL},""")
 
-gen_template_rw_prop_init = Template("""
-    {(char*)"${export_member_name}", (getter)jsopencv_${name}_get_${member}, (setter)jsopencv_${name}_set_${member}, (char*)"${export_member_name}", NULL},""")
-
 gen_template_overloaded_function_call = Template("""
     {
 ${variant}
@@ -221,8 +254,3 @@ ${method_defs}
 
 #endif
 """)
-
-
-# AKAZEWrapper -> ${class_name}Wrapper
-# setDescriptorType -> ${method_name}
-# setDescriptorType -> ${method_name}

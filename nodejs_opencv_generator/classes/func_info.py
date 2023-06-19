@@ -58,10 +58,14 @@ class FuncInfo(object):
         self.namespace = namespace
         self.is_static = is_static
         self.variants = []
+        
+        # uncomment to print generated unit test code
         # if self.classname == 'AKAZE':
         #      print("funcinfo"+self.name+" = FuncInfo("+",".join(['"'+classname+'"', '"'+name+'"', '"'+cname+'"', str(isconstructor), '"'+namespace+'"', str(is_static)])+")")
    
     def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
+        
+        # uncomment to print generated unit test code
         # if self.classname == 'AKAZE':
         #     print('decl = ', decl)
         #     print("funcinfo"+self.name+".add_variant("+",".join(["decl", "known_classes", str(isphantom)])+")")
@@ -81,7 +85,7 @@ class FuncInfo(object):
             classname = ""
 
         if self.is_static:
-            name += "_static"
+            name = name[0].upper() + name[1:] + "Static"
 
         return classname+"Wrapper" +'::'+ name
 
@@ -175,7 +179,7 @@ class FuncInfo(object):
                 arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, ts_type)
 
         return arg_type_info
-    def gen_c(self, codegen) -> str:
+    def gen_cpp(self, codegen) -> str:
         all_classes = codegen.classes
         proto = self.get_wrapper_prototype(codegen)
         code = "%s {\n" % (proto,)
@@ -291,7 +295,7 @@ class FuncInfo(object):
                 if a.outputarg and not a.inputarg:
                     defval = ""
                 if defval:
-                    code_decl += "    %s %s=%s;\n" % (arg_type_info.atype, a.name, defval)
+                    code_decl += "    %s %s = %s;\n" % (arg_type_info.atype, a.name, defval)
                 else:
                     code_decl += "    %s %s = static_cast<%s>(0);\n" % (arg_type_info.atype, a.name, arg_type_info.atype)
 

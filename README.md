@@ -70,16 +70,22 @@ mkdir dst
 python gen2.py dst
 ```
 
-### Run the generator
+### Run the object generator
 
 Once the `headers.txt` is ready you can do
 
 ```bash
 mkdir -p cc-generated
-python nodejs_opencv_generator/gen2.py cc-generated data/headers.txt
+python nodejs_opencv_generator/gen_obj.py cc-generated-obj data/headers.txt
 ```
 
-The code whould be visible in `cc-generated`
+The code whould be visible in `cc-generated-obj`
+
+### Test the python generator
+
+```
+python -m unittest tests/generator/**/**.py
+```
 
 
 ### References
