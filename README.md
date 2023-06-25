@@ -37,6 +37,7 @@ conda activate opencv-sandbox
 ### Install the python package locally
 
 ```bash
+# is pip is not available: conda install pip
 pip install -e .
 ```
 
@@ -75,7 +76,7 @@ python gen2.py dst
 Once the `headers.txt` is ready you can do
 
 ```bash
-mkdir -p cc-generated
+mkdir -p cc-generated-obj
 python nodejs_opencv_generator/gen_obj.py cc-generated-obj data/headers.txt
 ```
 
