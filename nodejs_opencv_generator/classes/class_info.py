@@ -198,7 +198,7 @@ class ClassInfo(object):
         sorted_methods = self.get_sorted_methods()
 
         if self.constructor is not None:
-            methods_code.write(self.constructor.gen_c(codegen))
+            methods_code.write(self.constructor.gen_cpp(codegen))
 
         for mname, m in sorted_methods:
             methods_code.write(m.gen_cpp(codegen))
