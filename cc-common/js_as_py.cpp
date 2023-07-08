@@ -491,15 +491,16 @@ Napi::Value* JsSequence_GetItem(const Napi::Value* obj, size_t index) {
 
 Napi::Object _JsObject_New(const Napi::Env& env, const JsTypeStruct* type) {
     Napi::Object obj = Napi::Object::New(env);
+    std::cout << "allocalte a block of type->size " << type->size << " for " << type->type << std::endl;
 
     void* data = malloc(type->size);
     if (data == nullptr) {
         Napi::Error::New(env, "Failed to allocate memory").ThrowAsJavaScriptException();
         return obj;
     }
-
-    obj.Set(DATA_KEY, Napi::String::New(env, type->type));
-    obj.Set(DATA_TYPE, Napi::External<void>::New(env, data, [](Napi::Env, void* data) {
+    obj.Set("DATA_TYPE", Napi::String::New(env, type->type));
+    obj.Set("DATA_KEY", Napi::External<void>::New(env, data, [](Napi::Env, void* data) {
+        std::cout << "call free on a DATA_KEY" << std::endl;
         free(data);
     }));
     return obj;

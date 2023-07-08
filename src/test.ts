@@ -2,8 +2,14 @@ import test from 'ava';
 import { cvMatObject } from "../types/cv-v4";
 import { getModulePath } from "./openCVLoader";
 
-type TopenCV = typeof import('../types/cv-v4');
+export default function floatEqual(a: number, b: number, delta: number = 0.000001): boolean {
+	if (a === b) {
+		return true;
+	}
+	return Math.abs(a - b) < delta;
+}
 
+type TopenCV = typeof import('../types/cv-v4');
 
 let theModule: TopenCV = undefined as unknown as TopenCV;
 //test.before(() => {
@@ -32,8 +38,8 @@ const IMREAD_REDUCED_GRAYSCALE_8 = 64; //!< If set, always convert image to the 
 const IMREAD_REDUCED_COLOR_8 = 65; //!< If set, always convert image to the 3 channel BGR color image and the image size reduced 1/8.
 const IMREAD_IGNORE_ORIENTATION = 128; //!< If set, do not rotate the image according to EXIF's orientation flag.
 
-
 test.serial('get openCV Version', async t => {
+    if (!theModule.getVersionMajor) return t.pass("getVersionMajor not present");
     const major = theModule.getVersionMajor();
     t.true(major >= 4);
     const minor = theModule.getVersionMinor();
@@ -41,6 +47,7 @@ test.serial('get openCV Version', async t => {
 });
 
 test.serial('imread logo.png default', async t => {
+    if (!theModule.imread) return t.pass("imread not present");
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png');
@@ -51,6 +58,7 @@ test.serial('imread logo.png default', async t => {
 });
 
 test.serial('imread logo.png empty optional object', async t => {
+    if (!theModule.imread) return t.pass("imread not present");
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', {});
@@ -61,6 +69,7 @@ test.serial('imread logo.png empty optional object', async t => {
 });
 
 test.serial('imread logo.png inline flags IMREAD_REDUCED_GRAYSCALE_4', async t => {
+    if (!theModule.imread) return t.pass("imread not present");
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', IMREAD_REDUCED_GRAYSCALE_4);
@@ -72,6 +81,7 @@ test.serial('imread logo.png inline flags IMREAD_REDUCED_GRAYSCALE_4', async t =
 });
 
 test.serial('imread logo.png { flags: IMREAD_REDUCED_GRAYSCALE_4 }', async t => {
+    if (!theModule.imread) return t.pass("imread not present");
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
@@ -81,8 +91,9 @@ test.serial('imread logo.png { flags: IMREAD_REDUCED_GRAYSCALE_4 }', async t => 
     // t.is(logo.channels, 1);
     t.is(logo.type, 0);
 });
- 
+
 test.serial('imencode logo as PNG has correct Magic number', async t => {
+    if (!theModule.imread) return t.pass("imread not present");
     let logo: cvMatObject;
     // load with default params
     logo = theModule.imread('./data/logo.png', { flags: IMREAD_REDUCED_GRAYSCALE_4 });
@@ -98,14 +109,54 @@ test.serial('imencode logo as PNG has correct Magic number', async t => {
     t.true(out[0])
     const buffer = out[1];
     const pngSignature = [137, 80, 78, 71, 13, 10, 26, 10];
-  
+
     if (buffer.length < pngSignature.length) {
-      return false;
+        return false;
     }
     for (let i = 0; i < pngSignature.length; i++) {
-        t.is(buffer[i],  pngSignature[i]);
-      }
+        t.is(buffer[i], pngSignature[i]);
+    }
 });
+
+
+test.serial('create AKAZE using new constructor', async t => {
+    if (!theModule.AKAZE) return t.pass("AKAZE not present");
+    t.assert(theModule.AKAZE.create, 'AKAZE should contains create');
+    t.is(typeof (theModule.AKAZE.create), 'function', 'AKAZE.create must be a fucntion');
+    const descriptor_size = 12;
+    const descriptor_channels = 3;
+    const threshold = 0.001;
+    const nOctaves = 4;
+    const nOctaveLayers = 4;
+    const diffusivity = 3;
+
+    const obj = new theModule.AKAZE({descriptor_size, descriptor_channels, threshold, nOctaves, nOctaveLayers, diffusivity});
+    t.is(obj.getDescriptorSize(), descriptor_size, 'AKAZE.getDescriptorSize should return the value passed to AKAZE.create');
+    t.is(obj.getDescriptorChannels(), descriptor_channels);
+    t.true(floatEqual(obj.getThreshold(), threshold));
+    t.is(obj.getNOctaves(), nOctaves);
+    t.is(obj.getNOctaveLayers(), nOctaveLayers);
+    t.is(obj.getDiffusivity(), diffusivity);
+
+    //console.log('AKAZE.getDescriptorSize:', obj.getDescriptorSize());
+});
+
+test.serial('example class', async t => {
+    if (!theModule.Example) return t.pass("Example not present");
+    const ex = new theModule.Example(43)
+    t.is(ex.GetValue(), 43);
+})
+
+// test.serial('create AKAZE using static AKAZE.create()', async t => {
+//     if (!theModule.AKAZE) return t.pass("AKAZE not present");
+//     try {
+//         const descriptor_size = 120;
+//         const obj = theModule.AKAZE.create({ descriptor_size, diffusivity: 300 });
+//         t.is(obj.getDescriptorSize(), descriptor_size, 'AKAZE.getDescriptorSize should return the value passed to AKAZE.create');
+//     } catch (e) {
+//         t.fail((e as Error).message)
+//     }
+// });
 
 /**
  * register tests

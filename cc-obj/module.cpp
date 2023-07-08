@@ -1,8 +1,9 @@
 #include <napi.h>
-#include "cv_mat_object.h"
-#include "cv_main.h"
 #include "../cc-common/js_as_py_test.h"
 #include "../cc-common/cv2_util.h"
+#include "./AKAZE.h"
+// #include "./AffineFeature.h"
+// #include "./Feature2D.h"
 
 static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
 {
@@ -23,11 +24,10 @@ static Napi::Value runAvaTest(const Napi::CallbackInfo &info)
 Napi::Object Init(Napi::Env env, Napi::Object exports);
 
 Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
-    exports.Set("runAvaTest", Napi::Function::New(env, runAvaTest));
-    cvmainInit(env, exports);
-    // InitAKAZE(env, exports);
-    // Init(env, exports);
-    cvMatObject::Init(env, exports);
+    AKAZEWrapper::Init(env, exports);
+    // AffineFeatureWrapper::Init(env, exports);
+    // Feature2DWrapper::Init(env, exports);
+    Init(env, exports);
     return exports;
 }
 

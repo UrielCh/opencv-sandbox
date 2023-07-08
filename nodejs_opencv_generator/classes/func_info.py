@@ -14,14 +14,19 @@ from nodejs_opencv_generator.utils import (
 )
 from string import Template
 
-ArgTypeInfo = namedtuple('ArgTypeInfo',
-                        ['atype', 'format_str', 'default_value',
-                         'strict_conversion'])
+ArgTypeInfo = namedtuple('ArgTypeInfo', [
+                            'atype', 
+                            'format_str', 
+                            'default_value',
+                            'strict_conversion', 
+                            'ts_type'
+                        ])
 # strict_conversion is False by default
 ArgTypeInfo.__new__.__defaults__ = (False,)
 
 from nodejs_opencv_generator.templates import (
 	gen_template_check_self, 
+    gen_template_obj_self,
 	gen_template_call_constructor_prelude,
 	gen_template_call_constructor,
 	gen_template_simple_call_constructor_prelude,
@@ -33,15 +38,15 @@ from nodejs_opencv_generator.templates import (
 )
 
 simple_argtype_mapping: Dict[str, ArgTypeInfo] = {
-    "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True),
-    "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True),
-    "int": ArgTypeInfo("int", FormatStrings.int, "0", True),
-    "float": ArgTypeInfo("float", FormatStrings.float, "0.f", True),
-    "double": ArgTypeInfo("double", FormatStrings.double, "0", True),
-    "c_string": ArgTypeInfo("char*", FormatStrings.string, '(char*)""'),
-    "string": ArgTypeInfo("std::string", FormatStrings.object, None, True),
-    "Stream": ArgTypeInfo("Stream", FormatStrings.object, 'Stream::Null()', True),
-    "UMat": ArgTypeInfo("UMat", FormatStrings.object, 'UMat()', True),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
+    "bool": ArgTypeInfo("bool", FormatStrings.unsigned_char, "0", True, 'boolean'),
+    "size_t": ArgTypeInfo("size_t", FormatStrings.unsigned_long_long, "0", True, 'number'),
+    "int": ArgTypeInfo("int", FormatStrings.int, "0", True, 'number'),
+    "float": ArgTypeInfo("float", FormatStrings.float, "0.f", True, 'number'),
+    "double": ArgTypeInfo("double", FormatStrings.double, "0", True, 'number'),
+    "c_string": ArgTypeInfo("char*", FormatStrings.string, '(char*)""', 'string'),
+    "string": ArgTypeInfo("std::string", FormatStrings.object, None, True, 'string'),
+    "Stream": ArgTypeInfo("Stream", FormatStrings.object, 'Stream::Null()', True, 'Stream'),
+    "UMat": ArgTypeInfo("UMat", FormatStrings.object, 'UMat()', True, 'Mat'),  # FIXIT: switch to CV_EXPORTS_W_SIMPLE as UMat is already a some kind of smart pointer
 }
 
 class FuncInfo(object):
@@ -53,8 +58,18 @@ class FuncInfo(object):
         self.namespace = namespace
         self.is_static = is_static
         self.variants = []
-
+        
+        # uncomment to print generated unit test code
+        # if self.classname == 'AKAZE':
+        #      print("funcinfo"+self.name+" = FuncInfo("+",".join(['"'+classname+'"', '"'+name+'"', '"'+cname+'"', str(isconstructor), '"'+namespace+'"', str(is_static)])+")")
+   
     def add_variant(self, decl: Tuple[str, str, List[str]], known_classes: Dict[str, Any], isphantom: bool = False): # 'ClassInfo'
+        
+        # uncomment to print generated unit test code
+        # if self.classname == 'AKAZE':
+        #     print('decl = ', decl)
+        #     print("funcinfo"+self.name+".add_variant("+",".join(["decl", "known_classes", str(isphantom)])+")")
+   
         self.variants.append(
             FuncVariant(self.namespace, self.classname, self.name, decl,
                         self.isconstructor, known_classes, isphantom)
@@ -63,30 +78,28 @@ class FuncInfo(object):
     def get_wrapper_name(self) -> str:
         name = self.name
         if self.classname:
-            classname = self.classname + "_"
+            classname = self.classname
             if "[" in name:
                 name = "getelem"
         else:
             classname = ""
 
         if self.is_static:
-            name += "_static"
+            name = name[0].upper() + name[1:] + "Static"
 
-        return "jsopencv_" + self.namespace.replace('.','_') + '_' + classname + name
+        return classname+"Wrapper" +'::'+ name
 
     def get_wrapper_prototype(self, codegen: "NodejsWrapperGenerator") -> str: # 'CodeGenerator'
         full_fname = self.get_wrapper_name()
         if self.isconstructor:
             return "static int {fn_name}(const Napi::CallbackInfo &info)".format(fn_name=full_fname, type_name=self.classname)
-            # return "static int {fn_name}(jsopencv_{type_name}_t* self, PyObject* py_args, PyObject* kw)".format(
-            #         fn_name=full_fname, type_name=codegen.classes[self.classname].name)
 
         if self.classname:
             self_arg = "self"
         else:
             self_arg = ""
-        # PyObject* %s, PyObject* py_args, PyObject* kw % (full_fname, self_arg)
-        return "static Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
+
+        return "Napi::Value %s(const Napi::CallbackInfo &info)" % (full_fname)
 
     def get_tab_entry(self) -> str:
         prototype_list = []
@@ -129,34 +142,62 @@ class FuncInfo(object):
         # Convert unicode chars to xml representation, but keep as string instead of bytes
         full_docstring = full_docstring.encode('ascii', errors='xmlcharrefreplace').decode()
 
-        return Template('    {"$py_funcname", CV_JS_FN_WITH_KW_($wrap_funcname, $flags), "$py_docstring"},\n'
+        return Template('    {"$py_funcname", $wrap_funcname, $flags, "$py_docstring"},\n'
                         ).substitute(py_funcname = self.variants[0].wname, wrap_funcname=self.get_wrapper_name(),
                                      flags = 'METH_STATIC' if self.is_static else '0', py_docstring = full_docstring)
+    
+    def get_ts_type(self, tp, codegen) -> str:
+        all_classes = codegen.classes
+        ts_type = tp
+        if tp in simple_argtype_mapping:
+            ts_type = simple_argtype_mapping[tp].ts_type
+        else:
+            if tp in all_classes:
+                ts_type = tp
+            elif tp in codegen.enums:
+                ts_type = 'number'
+            elif "Ptr<" in tp:
+                ts_type = self.get_ts_type(tp[4:-1], codegen)
+            elif "vector_" in tp:
+                ts_type = self.get_ts_type(tp[7:], codegen)+"[]"
+            else:
+                ts_type = tp
+        return ts_type
 
-    def gen_code(self, codegen: "NodejsWrapperGenerator"):
+    def build_arg_type_info(self, tp, defval, codegen) -> ArgTypeInfo:
+        all_classes = codegen.classes
+        ts_type = self.get_ts_type(tp, codegen)
+        if tp in simple_argtype_mapping:
+            arg_type_info = simple_argtype_mapping[tp]
+        else:
+            if tp in all_classes:
+                tp_classinfo = all_classes[tp]
+                cname_of_value = tp_classinfo.cname if tp_classinfo.issimple else "Ptr<{}>".format(tp_classinfo.cname)
+                arg_type_info = ArgTypeInfo(cname_of_value, FormatStrings.object, defval, True, ts_type)
+            else:
+                # FIXIT: vector_ / nested types
+                arg_type_info = ArgTypeInfo(tp, FormatStrings.object, defval, True, ts_type)
+
+        return arg_type_info
+    def gen_cpp(self, codegen) -> str:
         all_classes = codegen.classes
         proto = self.get_wrapper_prototype(codegen)
-        code = "%s\n{\n" % (proto,)
-        code += "    using namespace %s;\n    Napi::Env env = info.Env();\n\n" % self.namespace.replace('.', '::')
+        code = "%s {\n" % (proto,)
+        code += "    Napi::Env env = info.Env();"
 
         selfinfo = None
         ismethod = self.classname != "" and not self.isconstructor
         # full name is needed for error diagnostic in PyArg_ParseTupleAndKeywords
-        fullname = self.name
-
+        fullname = self.get_full_name(all_classes)
         if self.classname:
             selfinfo = all_classes[self.classname]
-            if not self.isconstructor:
-                if not self.is_static:
-                    code += gen_template_check_self.substitute(
-                        name=selfinfo.name,
-                        cname=selfinfo.cname if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
-                        pname=(selfinfo.cname + '*') if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname),
-                        cvt='' if selfinfo.issimple else '*'
-                    )
-                fullname = selfinfo.wname + "." + fullname
 
         all_code_variants = []
+
+        if self.classname and not self.is_static and not self.isconstructor:
+            code += gen_template_obj_self.substitute(
+                pname=(selfinfo.cname + '*') if selfinfo.issimple else "Ptr<{}>".format(selfinfo.cname)
+            )
 
         for v in self.variants:
             code_decl = ""
@@ -217,7 +258,7 @@ class FuncInfo(object):
                 parse_name = a.name
                 if a.py_inputarg and arg_type_info.strict_conversion:
                     parse_name = "jsobj_" + a.full_name.replace('.', '_')
-                    code_decl += "    Napi::Value* %s = NULL;\n" % (parse_name,)
+                    code_decl += "    Napi::Value *%s = NULL;\n" % (parse_name,)
                     if a.tp == 'char':
                         code_cvt_list.append("jsconvert_to_char(*%s, &%s, %s)" % (parse_name, a.full_name, a.crepr()))
                     else:
@@ -254,9 +295,9 @@ class FuncInfo(object):
                 if a.outputarg and not a.inputarg:
                     defval = ""
                 if defval:
-                    code_decl += "    %s %s=%s;\n" % (arg_type_info.atype, a.name, defval)
+                    code_decl += "    %s %s = %s;\n" % (arg_type_info.atype, a.name, defval)
                 else:
-                    code_decl += "    %s %s;\n" % (arg_type_info.atype, a.name)
+                    code_decl += "    %s %s = static_cast<%s>(0);\n" % (arg_type_info.atype, a.name, arg_type_info.atype)
 
                 if not code_args.endswith("("):
                     code_args += ", "
@@ -288,7 +329,7 @@ class FuncInfo(object):
                     code_decl += "    " + v.rettype + " retval;\n"
                     code_fcall += "retval = "
                 if not v.isphantom and ismethod and not self.is_static:
-                    code_fcall += "_self_->" + self.cname
+                    code_fcall += "_self_->" + self.name
                 else:
                     code_fcall += self.cname
                 code_fcall += code_args
@@ -303,7 +344,7 @@ class FuncInfo(object):
             if v.rettype:
                 tp = v.rettype
                 tp1 = tp.replace("*", "_ptr")
-                default_info = ArgTypeInfo(tp, FormatStrings.object, "0")
+                default_info = ArgTypeInfo(tp, FormatStrings.object, "0", tp)
                 arg_type_info = simple_argtype_mapping.get(tp, default_info)
                 all_cargs.append(arg_type_info)
 
@@ -331,7 +372,7 @@ class FuncInfo(object):
                 code_parse = "if (info.Length() == 0 || (info.Length() == 1 && info[0].IsObject() && info[0].IsEmpty()))"
 
             if len(v.py_outlist) == 0:
-                code_ret = "return env.Null();"
+                code_ret = "return env.Null()"
                 # "Py_RETURN_NONE"
             elif len(v.py_outlist) == 1:
                 if self.isconstructor:
@@ -392,3 +433,101 @@ class FuncInfo(object):
                 py_signatures.append(s)
 
         return code
+        
+    def gen_ts(self, codegen) -> str:
+        all_classes = codegen.classes
+        variant_codes = []
+        
+        if self.isconstructor:
+            ts_name='constructor'
+        else:
+            ts_name = self.name
+
+        
+        for v in self.variants:
+            variant_code = ""
+            if(self.is_static):
+                variant_code += "static "
+            variant_code += "{fn_name}(".format(fn_name=ts_name)
+            optionnal_args = []
+            mandatory_args = []
+            for a in v.args:
+                if a.tp in ignored_arg_types:
+                    defval = a.defval
+                    if not defval and a.tp.endswith("*"):
+                        defval = "0"
+                    assert defval
+                    if not code_args.endswith("("):
+                        code_args += ", "
+                    code_args += defval
+                    continue
+                tp = a.tp
+                defval0 = ""
+                if tp in pass_by_val_types:
+                    tp = tp[:-1]
+                    if tp.endswith("*"):
+                        defval0 = "0"
+                arg_type_info = self.build_arg_type_info(tp, defval0, codegen)
+                
+                defval = a.defval
+
+                if defval:
+                    optionnal_args.append({
+                        "name": a.name,
+                        'defval': defval,
+                        'ts_type': arg_type_info.ts_type
+                    })
+                else: 
+                    mandatory_args.append({
+                        "name": a.name,
+                        'ts_type': arg_type_info.ts_type
+                    })
+            optionnal_args_strs = []
+            args_strs = []
+            for arg in mandatory_args:
+                args_strs.append("{name}: {type}".format(name=arg['name'], type=arg['ts_type']))
+            
+            for arg in optionnal_args:
+                optionnal_args_strs.append("{name}?: {type}".format(name=arg['name'], type=arg['ts_type']))
+                        
+            has_opts_args = len(optionnal_args) > 0
+
+            if has_opts_args:
+                args_strs.append('opts?: {'+", ".join(optionnal_args_strs)+"}")
+            
+            variant_code += ", ".join(args_strs)
+            
+            if v.rettype:
+                arg_type_info = self.build_arg_type_info(v.rettype, "", codegen)
+                ts_type = ": " + arg_type_info.ts_type
+            else:
+                ts_type=": null"
+            variant_code += ")"+ts_type+";"
+            variant_codes.append(variant_code)
+        
+        return list(set(variant_codes))
+    
+    def get_binding_name(self):
+        def capitalize(str):
+            return str[0].upper()+str[1:]
+        if(self.is_static):
+            return capitalize(self.name)+"Static"
+        else:
+            return self.name
+    
+    def gen_h(self, codegen) -> str:
+        code = ""
+        if(self.is_static):
+                code += "static "
+        code += "Napi::Value "
+        code += "{fn_name}(const Napi::CallbackInfo &info);".format(fn_name=self.get_binding_name())
+        
+        return code
+    def get_full_name(self, all_classes):
+        fullname = self.name
+
+        if self.classname:
+            if not self.isconstructor:
+                fullname = all_classes[self.classname].wname + "." + fullname
+        
+        return fullname

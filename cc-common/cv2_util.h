@@ -113,6 +113,20 @@ extern Napi::Value* opencv_error; // global Error object
         return 0;                                          \
     }
 
+
+#define ERRWRAP2_NAPI_VOID(env, expr)  \
+    try { expr; } \
+    catch (const cv::Exception &e) { \
+        Napi::Error::New(env, e.what()).ThrowAsJavaScriptException(); \
+        return ; \
+    } catch (const std::exception &e) { \
+        Napi::Error::New(env, e.what()).ThrowAsJavaScriptException(); \
+        return ; \
+    } catch (...) { \
+        Napi::Error::New(env, "Unknown exception occurred").ThrowAsJavaScriptException(); \
+        return ;                                          \
+    }
+
 //======================================================================================================================
 
 extern cv::TLSData<std::vector<std::string> > conversionErrorsTLS;
@@ -130,5 +144,8 @@ void jsPopulateArgumentConversionErrors(const Napi::CallbackInfo &info);
 //======================================================================================================================
 
 Napi::Value jscvRedirectError(const Napi::CallbackInfo& info);
+
+// NEW
+std::vector<napi_value> CallbackInfoToVector(const Napi::CallbackInfo &info);
 
 #endif // CV2_UTILS_2_H_

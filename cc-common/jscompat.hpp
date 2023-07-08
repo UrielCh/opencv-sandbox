@@ -63,7 +63,9 @@ static inline std::string getJsObjectNameAttr(Napi::Value &obj) {
 
 
 // CV_PY_FN_WITH_KW_ and CV_PY_FN_NOARGS_
-#define CV_JS_FN_WITH_KW_(fn, flags) (JsCFunction)(void*)(JsCFunctionWithKeywords)(fn), (flags)
+// CV_JS_FN_WITH_KW_  will be dropped
+// #define CV_JS_FN_WITH_KW_(fn, flags) (JsCFunction)(void*)(JsCFunctionWithKeywords)(fn), (flags)
+#define CV_JS_FN_WITH_KW_(fn, flags) fn, flags
 
 // #define CV_JS_FN_NOARGS_(fn, flags) (JsCFunction)(fn), (flags) | METH_NOARGS
 #define CV_JS_FN_NOARGS_(fn, flags) (JsCFunction)(fn), (flags)

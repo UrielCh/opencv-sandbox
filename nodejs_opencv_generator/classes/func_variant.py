@@ -12,7 +12,8 @@ class FuncVariant(object):
 
         self.docstring: str = decl[5]
 
-        self.rettype: str = decl[4] or handle_ptr(decl[1])
+        self.rettype: str = handle_ptr(decl[1])
+        
         if self.rettype == "void":
             self.rettype = ""
         self.args: List[ArgInfo] = []
@@ -34,7 +35,7 @@ class FuncVariant(object):
                     self.array_counters[c] = [ainfo.name]
             self.args.append(ainfo)
         self.init_pyproto(namespace, classname, known_classes)
-
+    
     def init_pyproto(self, namespace: str, classname: str, known_classes: Dict[str, str]) -> None:
         # string representation of argument list, with '[', ']' symbols denoting optional arguments, e.g.
         # "src1, src2[, dst[, mask]]" for cv.add

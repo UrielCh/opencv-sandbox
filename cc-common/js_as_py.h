@@ -94,7 +94,8 @@ struct JsMethodDef {
     const char  *ml_name;   /* The name of the built-in function/method */
     JsCFunction ml_meth;    /* The C function that implements it */
     // using JsCFunction = Napi::Value (*)(const Napi::CallbackInfo &info);   /* The C function that implements it */
-    int         ml_flags;   /* Combination of METH_xxx flags, which mostly
+    int         ml_flags;   /* 0 if normat method, 1 (METH_STATIC) for static method
+                               Combination of METH_xxx flags, which mostly
                                describe the args expected by the C func */
     const char  *ml_doc;    /* The __doc__ attribute, or NULL */
 };

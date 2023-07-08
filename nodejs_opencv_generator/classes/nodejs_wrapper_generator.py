@@ -10,7 +10,8 @@ from nodejs_opencv_generator.templates import (
     gen_template_type_decl,
     gen_template_map_type_cvt,
     gen_template_mappable,
-    gen_ts_class_typing
+    gen_ts_class_typing,
+    gen_ts_class_method
 )
 
 if sys.version_info[0] >= 3:
@@ -172,7 +173,10 @@ class NodejsWrapperGenerator(object):
         #print(cname + ' => ' + str(py_name) + ' (value=' + value + ')')
 
     def add_enum(self, name: str, decl: List[Any]) -> None:
+
         wname = normalize_class_name(name)
+        # if wname == 'KAZE_DiffusivityType':
+        #     print('decl', name, decl)
         if wname.endswith("<unnamed>"):
             wname = None
         else:
@@ -218,6 +222,11 @@ class NodejsWrapperGenerator(object):
             # Add it as a method to the class
             func_map = self.classes[classname].methods
             func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
+
+            # uncomment to print generated unit test code
+            # if classname == 'AKAZE':
+            #     print("class_info.methods.setdefault('"+name+"', funcinfo"+name+")")
+   
             func.add_variant(decl, self.classes, isphantom)
 
             # Add it as global function
@@ -236,6 +245,7 @@ class NodejsWrapperGenerator(object):
             # Exports static function with internal name (backward compatibility)
             func = func_map.setdefault(g_name, FuncInfo("", g_name, cname, isconstructor, namespace_str, False))
             func.add_variant(decl, self.classes, isphantom)
+
             if g_wname != g_name:  # TODO OpenCV 5.0
                 wfunc = func_map.setdefault(g_wname, FuncInfo("", g_wname, cname, isconstructor, namespace_str, False))
                 wfunc.add_variant(decl, self.classes, isphantom)
@@ -249,6 +259,11 @@ class NodejsWrapperGenerator(object):
 
             func = func_map.setdefault(name, FuncInfo(classname, name, cname, isconstructor, namespace_str, is_static))
             func.add_variant(decl, self.classes, isphantom)
+
+            # uncomment to print generated unit test code
+            # if classname == 'AKAZE':
+            #     print("class_info.methods.setdefault('"+name+"', funcinfo"+name+")")
+
 
         if classname and isconstructor:
             self.classes[classname].constructor = func
@@ -301,12 +316,8 @@ class NodejsWrapperGenerator(object):
         import json
         with open(path + "/" + name, "wt") as f:
             json.dump(value, f)
-
-    def gen(self, srcfiles: List[str], output_path: str) -> None:
-        self.clear()
-        self.parser = hdr_parser.CppHeaderParser(generate_umat_decls=True, generate_gpumat_decls=True)
-
-        # step 1: scan the headers and build more descriptive maps of classes, consts, functions
+    
+    def scan_headers(self, srcfiles):
         for hdr in srcfiles:
             decls = self.parser.parse(hdr)
             if len(decls) == 0:
@@ -336,8 +347,8 @@ class NodejsWrapperGenerator(object):
                 else:
                     # function
                     self.add_func(decl)
-
-        # step 1.5 check if all base classes exist
+    
+    def check_base_classes(self):
         for name, classinfo in self.classes.items():
             if classinfo.base:
                 chunks = classinfo.base.split('_')
@@ -354,8 +365,8 @@ class NodejsWrapperGenerator(object):
                 classinfo.isalgorithm |= base_instance.isalgorithm  # wrong processing of 'isalgorithm' flag:
                                                                     # doesn't work for trees(graphs) with depth > 2
                 self.classes[name] = classinfo
-
-        # tree-based propagation of 'isalgorithm'
+    
+    def propagate_is_algorithm(self):
         processed = dict()
         def process_isalgorithm(classinfo):
             if classinfo.isalgorithm or classinfo in processed:
@@ -370,6 +381,53 @@ class NodejsWrapperGenerator(object):
             return res
         for name, classinfo in self.classes.items():
             process_isalgorithm(classinfo)
+
+    def gen_obj(self, srcfiles: List[str], output_path: str) -> None:
+        self.clear()
+        self.parser = hdr_parser.CppHeaderParser(generate_umat_decls=True, generate_gpumat_decls=True)
+        
+        # step 1: scan the headers and build more descriptive maps of classes, consts, functions
+        self.scan_headers(srcfiles)
+
+        # step 1.5 check if all base classes exist
+        self.check_base_classes()
+
+        self.propagate_is_algorithm()
+
+        # step 2: generate h code for the classes
+        classlist = list(self.classes.items())
+        classlist.sort()
+        
+        current_tree = []
+        code_ts_types_str = ""
+
+        for name, classinfo in classlist:
+            code_h = StringIO()
+            code_h.write(classinfo.gen_h(self))
+            self.save(output_path, name+".h", code_h)
+
+        for name, classinfo in classlist:
+            code_cpp = StringIO()
+            code_cpp.write(classinfo.gen_cpp(self))
+            self.save(output_path, name+".cpp", code_cpp)
+        
+        for name, classinfo in classlist:
+            code_ts = StringIO()
+            code_ts.write(classinfo.gen_ts(self))
+            self.save(output_path, name+".ts", code_ts)
+    
+    def gen(self, srcfiles: List[str], output_path: str) -> None:
+        self.clear()
+        self.parser = hdr_parser.CppHeaderParser(generate_umat_decls=True, generate_gpumat_decls=True)
+
+        # step 1: scan the headers and build more descriptive maps of classes, consts, functions
+        self.scan_headers(srcfiles)
+
+        # step 1.5 check if all base classes exist
+        self.check_base_classes()
+
+        # tree-based propagation of 'isalgorithm'
+        self.propagate_is_algorithm()
 
         # step 2: generate code for the classes and their methods
         classlist = list(self.classes.items())
@@ -420,11 +478,8 @@ class NodejsWrapperGenerator(object):
 
                 level+=1
             
-            code_ts_types_str+=gen_ts_class_typing.substitute(
-                indent=(len(current_tree)+1)*"\t",
-                export_name=classinfo.export_name,
-                prop=", ".join([prop.name+":"+prop.tp for prop in classinfo.props])
-            )
+            class_ts_str=classinfo.gen_ts(self)
+            code_ts_types_str += class_ts_str.replace("\n", "\n"+((level+1)*"\t"))
         
         to_close = len(current_tree)
         for closing_level in range(0,to_close):
